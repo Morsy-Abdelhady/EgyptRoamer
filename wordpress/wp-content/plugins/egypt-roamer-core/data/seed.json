@@ -802,6 +802,38 @@
      "cat": "Geheimtipps"
     }
    },
+   "partners": {
+    "hotels": {
+     "label": "Hotels",
+     "headline": "Finden Sie einen Ort, der den Aufenthalt wert ist.",
+     "copy": "Von Palasthotels am Nil bis zu kerzenbeleuchteten Wüsten-Lodges — Unterkünfte, die unsere Redaktion selbst buchen würde.",
+     "compare": "Hotels vergleichen"
+    },
+    "tours": {
+     "label": "Touren & Aktivitäten",
+     "headline": "Erlebnisse, für die es sich lohnt, das Hotel zu verlassen.",
+     "copy": "Kleine Gruppen, erfahrene Ägyptologen und ein Zugang, der aus einer Sehenswürdigkeit eine Geschichte macht.",
+     "compare": "Touren entdecken"
+    },
+    "cruises": {
+     "label": "Nilkreuzfahrten",
+     "headline": "Ägypten vom Fluss aus erleben.",
+     "copy": "Fünf-Sterne-Schiffe, intime Dahabiyas und die langsame Magie, wenn Tempel aus dem Wasser auftauchen.",
+     "compare": "Kreuzfahrten vergleichen"
+    },
+    "transfers": {
+     "label": "Transfers",
+     "headline": "Ankommen. Weiterfahren. Entdecken.",
+     "copy": "Private Transfers zum Festpreis mit englischsprachigen Fahrern — vom Flughafen zum Hotel, von der Stadt an die Küste, von Tempel zu Tempel.",
+     "compare": "Transfers vergleichen"
+    },
+    "cars": {
+     "label": "Mietwagen",
+     "headline": "Nehmen Sie den weniger befahrenen Weg.",
+     "copy": "Fahren Sie selbst die Küste des Roten Meeres oder die Oasenroute. Vergleichen Sie alle Vermieter auf einmal, mit Vollkasko-Optionen.",
+     "compare": "Mietwagen vergleichen"
+    }
+   },
    "legs": {
     "cairo>alexandria": "2 Std. 30 Min. Fahrt",
     "alexandria>siwa": "8 Std. Wüstenstraße",
@@ -1030,6 +1062,38 @@
     "g-gems": {
      "title": "10 trésors cachés que la plupart des voyageurs ne voient jamais",
      "cat": "Pépites"
+    }
+   },
+   "partners": {
+    "hotels": {
+     "label": "Hôtels",
+     "headline": "Trouvez un lieu qui vaut le séjour.",
+     "copy": "Des hôtels-palais sur le Nil aux lodges du désert éclairés à la bougie — des séjours que notre rédaction réserverait elle-même.",
+     "compare": "Comparer les hôtels"
+    },
+    "tours": {
+     "label": "Circuits & activités",
+     "headline": "Des expériences qui valent de quitter l'hôtel.",
+     "copy": "Petits groupes, égyptologues experts et accès privilégiés qui transforment un site en récit.",
+     "compare": "Voir les circuits"
+    },
+    "cruises": {
+     "label": "Croisières sur le Nil",
+     "headline": "Voir l'Égypte depuis le fleuve.",
+     "copy": "Bateaux cinq étoiles, dahabiyas intimistes et la lente magie des temples qui surgissent de l'eau.",
+     "compare": "Comparer les croisières"
+    },
+    "transfers": {
+     "label": "Transferts",
+     "headline": "Arrivez. Circulez. Explorez.",
+     "copy": "Transferts privés à prix fixe avec chauffeurs anglophones — de l'aéroport à l'hôtel, de la ville à la côte, de temple en temple.",
+     "compare": "Comparer les transferts"
+    },
+    "cars": {
+     "label": "Location de voiture",
+     "headline": "Prenez la route moins fréquentée.",
+     "copy": "Conduisez vous-même sur la côte de la mer Rouge ou la route des oasis. Comparez toutes les agences d'un coup, avec options d'assurance tous risques.",
+     "compare": "Comparer les voitures"
     }
    },
    "legs": {
@@ -1262,6 +1326,38 @@
      "cat": "Gemme nascoste"
     }
    },
+   "partners": {
+    "hotels": {
+     "label": "Hotel",
+     "headline": "Trova un posto che valga il soggiorno.",
+     "copy": "Dagli hotel-palazzo sul Nilo ai lodge nel deserto a lume di candela — soggiorni che la nostra redazione prenoterebbe per sé.",
+     "compare": "Confronta gli hotel"
+    },
+    "tours": {
+     "label": "Tour e attività",
+     "headline": "Esperienze per cui vale la pena lasciare l'hotel.",
+     "copy": "Piccoli gruppi, egittologi esperti e accessi che trasformano un monumento in una storia.",
+     "compare": "Esplora i tour"
+    },
+    "cruises": {
+     "label": "Crociere sul Nilo",
+     "headline": "Vedi l'Egitto dal fiume.",
+     "copy": "Navi a cinque stelle, dahabiya intime e la lenta magia dei templi che emergono dall'acqua.",
+     "compare": "Confronta le crociere"
+    },
+    "transfers": {
+     "label": "Transfer",
+     "headline": "Arriva. Muoviti. Esplora.",
+     "copy": "Transfer privati a prezzo fisso con autisti che parlano inglese — dall'aeroporto all'hotel, dalla città alla costa, di tempio in tempio.",
+     "compare": "Confronta i transfer"
+    },
+    "cars": {
+     "label": "Noleggio auto",
+     "headline": "Prendi la strada meno battuta.",
+     "copy": "Guida tu lungo la costa del Mar Rosso o la strada delle oasi. Confronta tutti i noleggiatori in un colpo solo, con opzioni di copertura totale.",
+     "compare": "Confronta le auto"
+    }
+   },
    "legs": {
     "cairo>alexandria": "2 h 30 d'auto",
     "alexandria>siwa": "8 ore di strada nel deserto",
@@ -1490,6 +1586,38 @@
     "g-gems": {
      "title": "10 joyas ocultas que casi nadie ve",
      "cat": "Joyas ocultas"
+    }
+   },
+   "partners": {
+    "hotels": {
+     "label": "Hoteles",
+     "headline": "Encuentra un lugar que merezca la estancia.",
+     "copy": "De hoteles palacio junto al Nilo a lodges del desierto a la luz de las velas — estancias que nuestra redacción reservaría para sí.",
+     "compare": "Comparar hoteles"
+    },
+    "tours": {
+     "label": "Tours y actividades",
+     "headline": "Experiencias por las que vale la pena salir del hotel.",
+     "copy": "Grupos pequeños, egiptólogos expertos y un acceso que convierte un monumento en una historia.",
+     "compare": "Explorar tours"
+    },
+    "cruises": {
+     "label": "Cruceros por el Nilo",
+     "headline": "Ver Egipto desde el río.",
+     "copy": "Barcos de cinco estrellas, dahabiyas íntimas y la lenta magia de ver los templos surgir del agua.",
+     "compare": "Comparar cruceros"
+    },
+    "transfers": {
+     "label": "Traslados",
+     "headline": "Llega. Muévete. Explora.",
+     "copy": "Traslados privados a precio fijo con conductores que hablan inglés — del aeropuerto al hotel, de la ciudad a la costa, de templo en templo.",
+     "compare": "Comparar traslados"
+    },
+    "cars": {
+     "label": "Alquiler de coches",
+     "headline": "Toma el camino menos transitado.",
+     "copy": "Conduce tú mismo por la costa del mar Rojo o la ruta de los oasis. Compara todas las agencias a la vez, con opciones de seguro a todo riesgo.",
+     "compare": "Comparar coches"
     }
    },
    "legs": {
@@ -1722,6 +1850,38 @@
      "cat": "Скрытые жемчужины"
     }
    },
+   "partners": {
+    "hotels": {
+     "label": "Отели",
+     "headline": "Найдите место, ради которого стоит остаться.",
+     "copy": "От отелей-дворцов на Ниле до пустынных лоджей при свечах — места, которые наша редакция забронировала бы для себя.",
+     "compare": "Сравнить отели"
+    },
+    "tours": {
+     "label": "Туры и активности",
+     "headline": "Впечатления, ради которых стоит выйти из отеля.",
+     "copy": "Небольшие группы, опытные египтологи и доступ, который превращает достопримечательность в историю.",
+     "compare": "Смотреть туры"
+    },
+    "cruises": {
+     "label": "Круизы по Нилу",
+     "headline": "Увидеть Египет с реки.",
+     "copy": "Пятизвёздочные теплоходы, камерные дахабии и неспешная магия храмов, появляющихся из воды.",
+     "compare": "Сравнить круизы"
+    },
+    "transfers": {
+     "label": "Трансферы",
+     "headline": "Прилетайте. Передвигайтесь. Открывайте.",
+     "copy": "Индивидуальные трансферы по фиксированной цене с англоговорящими водителями — из аэропорта в отель, из города на побережье, от храма к храму.",
+     "compare": "Сравнить трансферы"
+    },
+    "cars": {
+     "label": "Аренда авто",
+     "headline": "Выберите дорогу, по которой ездят реже.",
+     "copy": "Сами за рулём по побережью Красного моря или маршруту оазисов. Сравните все прокаты сразу, с вариантами полной страховки.",
+     "compare": "Сравнить авто"
+    }
+   },
    "legs": {
     "cairo>alexandria": "2 ч 30 мин на машине",
     "alexandria>siwa": "8 ч по пустынной дороге",
@@ -1952,6 +2112,38 @@
      "cat": "秘境"
     }
    },
+   "partners": {
+    "hotels": {
+     "label": "酒店",
+     "headline": "找一个值得入住的地方。",
+     "copy": "从尼罗河畔的宫殿酒店到烛光摇曳的沙漠小屋——都是我们的编辑愿意为自己预订的住处。",
+     "compare": "比较酒店"
+    },
+    "tours": {
+     "label": "旅游团与活动",
+     "headline": "值得你走出酒店的体验。",
+     "copy": "小团出行、资深埃及学家，以及让景点变成故事的专属通道。",
+     "compare": "探索旅游团"
+    },
+    "cruises": {
+     "label": "尼罗河游船",
+     "headline": "从河上看埃及。",
+     "copy": "五星级游轮、私密的达哈比亚帆船，以及神庙缓缓从水面浮现的魔力。",
+     "compare": "比较游船"
+    },
+    "transfers": {
+     "label": "接送",
+     "headline": "抵达。出发。探索。",
+     "copy": "固定价格的私人接送，司机会说英语——从机场到酒店、从城市到海岸、从一座神庙到另一座。",
+     "compare": "比较接送"
+    },
+    "cars": {
+     "label": "租车",
+     "headline": "走一条人迹更少的路。",
+     "copy": "自驾红海沿岸或绿洲环线。一次比较所有租车公司，并可选全险。",
+     "compare": "比较租车"
+    }
+   },
    "legs": {
     "cairo>alexandria": "驾车 2 小时 30 分",
     "alexandria>siwa": "沙漠公路 8 小时",
@@ -2180,6 +2372,38 @@
     "g-gems": {
      "title": "10 كنوز خفية لا يراها معظم الزوار",
      "cat": "كنوز خفية"
+    }
+   },
+   "partners": {
+    "hotels": {
+     "label": "الفنادق",
+     "headline": "ابحث عن مكان يستحق الإقامة.",
+     "copy": "من فنادق القصور على النيل إلى النُّزل الصحراوية المضاءة بالشموع — إقامات يحجزها محرّرونا لأنفسهم.",
+     "compare": "قارن الفنادق"
+    },
+    "tours": {
+     "label": "الجولات والأنشطة",
+     "headline": "تجارب تستحق أن تغادر الفندق من أجلها.",
+     "copy": "مجموعات صغيرة، وعلماء مصريات خبراء، وإتاحة خاصة تحوّل المعلم السياحي إلى حكاية.",
+     "compare": "استكشف الجولات"
+    },
+    "cruises": {
+     "label": "رحلات النيل",
+     "headline": "شاهد مصر من النهر.",
+     "copy": "بواخر خمس نجوم، ودهبيات حميمة، وسحر المعابد وهي تظهر ببطء من على صفحة الماء.",
+     "compare": "قارن الرحلات النيلية"
+    },
+    "transfers": {
+     "label": "التنقلات",
+     "headline": "تصل. تتنقّل. تستكشف.",
+     "copy": "انتقالات خاصة بأسعار ثابتة مع سائقين يتحدثون الإنجليزية — من المطار إلى الفندق، ومن المدينة إلى الساحل، ومن معبد إلى معبد.",
+     "compare": "قارن الانتقالات"
+    },
+    "cars": {
+     "label": "تأجير السيارات",
+     "headline": "خُذ الطريق الأقل ارتيادًا.",
+     "copy": "قُد بنفسك على ساحل البحر الأحمر أو طريق الواحات. قارن كل مكاتب التأجير دفعة واحدة، مع خيارات تأمين شامل.",
+     "compare": "قارن السيارات"
     }
    },
    "legs": {

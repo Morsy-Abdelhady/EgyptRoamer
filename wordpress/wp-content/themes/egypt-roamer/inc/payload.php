@@ -87,7 +87,7 @@ function er_payload_offer( int $offer_id, string $placement ): array {
 		'href'      => $o['go'],
 		'priceText' => $o['price_text'],
 		'unitText'  => $o['unit_text'],
-		'image'     => er_payload_image( $o['image_id'], er_stock_id_for( $offer_id ) ),
+		'image'     => er_payload_image( $o['image_id'] ?: er_offer_fallback_image( $offer_id ), er_stock_id_for( $offer_id ) ),
 		'track'     => [
 			'offer'     => $o['slug'],
 			'provider'  => $o['provider_id'] ? (string) get_post_field( 'post_name', $o['provider_id'] ) : '',
@@ -96,6 +96,17 @@ function er_payload_offer( int $offer_id, string $placement ): array {
 			'intent'    => er_offer_intent( $offer_id ),
 		],
 	];
+}
+
+/** An offer without its own image uses the image of the tour/experience/activity/destination it belongs to. */
+function er_offer_fallback_image( int $offer_id ): int {
+	foreach ( [ '_er_tour', '_er_experience', '_er_activity', '_er_destination' ] as $key ) {
+		$id = (int) get_post_meta( $offer_id, $key, true );
+		if ( $id && get_post_thumbnail_id( $id ) ) {
+			return (int) get_post_thumbnail_id( $id );
+		}
+	}
+	return 0;
 }
 
 /** Tours/experiences/activities for the rail: editorial page + live offer CTA when there is one. */

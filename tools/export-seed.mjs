@@ -47,6 +47,7 @@ for (const code of ["de", "fr", "it", "es", "ru", "zh", "ar"]) {
       })
     ),
     guides: c.guides,
+    partners: Object.fromEntries(Object.entries(c.partners || {}).map(([k, { items, trust, ...v }]) => [k, v])),
     legs: c.legs,
   };
 }

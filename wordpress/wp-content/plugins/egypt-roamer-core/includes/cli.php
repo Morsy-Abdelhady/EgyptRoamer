@@ -354,6 +354,44 @@ class ER_CLI {
 		foreach ( $dest + $exps as $post_id ) {
 			pll_get_post_language( $post_id ) || pll_set_post_language( $post_id, $default );
 		}
+		// Display taxonomies: default language for untagged terms, then translated terms
+		// (travel styles = homepage moods, offer categories = partner tabs), linked in Polylang.
+		foreach ( [ 'er_travel_style' => 'moods', 'er_offer_type' => 'partners', 'er_guide_topic' => '', 'er_region' => '' ] as $tax => $key ) {
+			foreach ( get_terms( [ 'taxonomy' => $tax, 'hide_empty' => false, 'lang' => '' ] ) as $term ) {
+				if ( ! pll_get_term_language( $term->term_id ) ) {
+					pll_set_term_language( $term->term_id, $default );
+				}
+				if ( ! $key || pll_get_term_language( $term->term_id ) !== $default ) {
+					continue;
+				}
+				$group = pll_get_term_translations( $term->term_id ) ?: [ $default => $term->term_id ];
+				foreach ( $languages as $lang ) {
+					$tr = $s['translations'][ $lang ][ $key ][ $term->slug ] ?? null;
+					if ( $lang === $default || isset( $group[ $lang ] ) || ! $tr ) {
+						continue;
+					}
+					$new = wp_insert_term( $tr['label'] ?? $term->name, $tax, [ 'slug' => $term->slug . '-' . $lang, 'description' => $tr['desc'] ?? $term->description ] );
+					if ( is_wp_error( $new ) ) {
+						WP_CLI::warning( "{$tax} {$term->slug} ({$lang}): " . $new->get_error_message() );
+						continue;
+					}
+					$tid = (int) $new['term_id'];
+					pll_set_term_language( $tid, $lang );
+					foreach ( get_term_meta( $term->term_id ) as $meta_key => $values ) {
+						update_term_meta( $tid, $meta_key, maybe_unserialize( $values[0] ) );
+					}
+					$overrides = 'moods' === $key
+						? [ '_er_word' => $tr['word'] ?? '' ]
+						: [ '_er_headline' => $tr['headline'] ?? '', '_er_copy' => $tr['copy'] ?? '', '_er_compare_label' => $tr['compare'] ?? '' ];
+					foreach ( array_filter( $overrides ) as $meta_key => $value ) {
+						update_term_meta( $tid, $meta_key, $value );
+					}
+					$group[ $lang ] = $tid;
+				}
+				pll_save_term_translations( $group );
+			}
+		}
+
 		// Structural pages: every language needs its own front page and Journal page,
 		// otherwise /{lang}/ falls back to the posts listing.
 		foreach ( [ (int) get_option( 'page_on_front' ), (int) get_option( 'page_for_posts' ) ] as $page_id ) {

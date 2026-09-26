@@ -64,6 +64,21 @@ function er_offer_is_live( int $offer_id ): bool {
 	return er_provider_is_active( (int) get_post_meta( $offer_id, '_er_provider', true ) );
 }
 
+/** Term IDs for slugs, expanded to every translation of those terms (Polylang). */
+function er_term_group_ids( string $taxonomy, array $slugs ): array {
+	$ids = get_terms( [ 'taxonomy' => $taxonomy, 'slug' => array_map( 'sanitize_title', $slugs ), 'hide_empty' => false, 'fields' => 'ids', 'lang' => '' ] );
+	if ( is_wp_error( $ids ) ) {
+		return [];
+	}
+	$all = array_map( 'intval', $ids );
+	if ( function_exists( 'pll_get_term_translations' ) ) {
+		foreach ( $ids as $id ) {
+			$all = array_merge( $all, array_map( 'intval', array_values( (array) pll_get_term_translations( (int) $id ) ) ) );
+		}
+	}
+	return array_values( array_unique( $all ) );
+}
+
 /** Keep sub-ID values safe for any network: letters, digits, dash, underscore. */
 function er_subid( string $value ): string {
 	return substr( preg_replace( '/[^a-z0-9_-]+/', '-', strtolower( $value ) ), 0, 60 );
@@ -254,11 +269,11 @@ function er_get_offers( array $args = [] ): array {
 			$query['meta_query'][] = [ 'key' => '_er_' . $rel, 'value' => er_translation_group( (int) $args[ $rel ] ), 'compare' => 'IN', 'type' => 'NUMERIC' ];
 		}
 	}
-	if ( ! empty( $args['type'] ) ) {
-		$query['tax_query'][] = [ 'taxonomy' => 'er_offer_type', 'field' => 'slug', 'terms' => (array) $args['type'] ];
-	}
-	if ( ! empty( $args['style'] ) ) {
-		$query['tax_query'][] = [ 'taxonomy' => 'er_travel_style', 'field' => 'slug', 'terms' => (array) $args['style'] ];
+	// Categories and styles are translatable; offers are not. Match the term in any language.
+	foreach ( [ 'type' => 'er_offer_type', 'style' => 'er_travel_style' ] as $arg => $taxonomy ) {
+		if ( ! empty( $args[ $arg ] ) ) {
+			$query['tax_query'][] = [ 'taxonomy' => $taxonomy, 'field' => 'term_id', 'terms' => er_term_group_ids( $taxonomy, (array) $args[ $arg ] ) ?: [ 0 ], 'include_children' => false ];
+		}
 	}
 	if ( ! empty( $args['ids'] ) ) {
 		$query['post__in'] = array_map( 'intval', (array) $args['ids'] );

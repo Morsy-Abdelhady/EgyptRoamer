@@ -251,6 +251,7 @@
   /** Image URL at a given width. Accepts a WordPress image payload { src, sizes },
       a full URL, or an Unsplash photo id (prototype). */
   const img = (id, w = 1200, q = 75) => {
+    if (!id) return "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; // no image yet: transparent, keeps the neutral backdrop
     if (id && typeof id === "object") {
       const widths = Object.keys(id.sizes || {}).map(Number).sort((a, b) => a - b);
       const fit = widths.find((x) => x >= w) || widths[widths.length - 1];
@@ -262,6 +263,7 @@
 
   /** srcset helper for responsive images. */
   const srcset = (id, widths = [480, 800, 1200, 1800]) => {
+    if (!id) return "";
     if (id && typeof id === "object") return Object.entries(id.sizes || {}).map(([w, u]) => `${u} ${w}w`).join(", ");
     if (isUrl(id)) return "";
     return widths.map((w) => `${img(id, w)} ${w}w`).join(", ");
@@ -1816,7 +1818,7 @@
             <h3>${c.headline}</h3>
             <p>${c.copy}</p>
             ${c.trust && c.trust.length ? `<ul class="pp-trust">${c.trust.map((line) => `<li>${icon("i-check")}${escapeHtml(line)}</li>`).join("")}</ul>` : ""}
-            ${c.href || !c.track ? `<a class="btn btn--primary" href="${escapeHtml(c.href || "#partner")}" ${affAttrs(c.track ? c : { partner: "our partners" })} data-magnetic>${escapeHtml(c.compare)} ${icon("i-arrow", "icon--arrow")}</a>` : ""}
+            ${c.href ? `<a class="btn btn--primary" href="${escapeHtml(c.href)}" ${affAttrs(c)} data-magnetic>${escapeHtml(c.compare)} ${icon("i-arrow", "icon--arrow")}</a>` : c.allHref === undefined ? `<a class="btn btn--primary" href="#partner" rel="sponsored noopener" data-affiliate="our partners" data-magnetic>${escapeHtml(c.compare)} ${icon("i-arrow", "icon--arrow")}</a>` : ""}
           </div>
         </div>
         <div class="offers">
