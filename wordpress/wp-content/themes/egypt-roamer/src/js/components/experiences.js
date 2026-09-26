@@ -1,34 +1,41 @@
 /* Featured experiences — draggable horizontal rail of affiliate cards */
 import { t, isRTL } from "../i18n.js";
-import { $, $$, icon, escapeHtml, fmt, money, on, clamp } from "../utils.js";
-import { experiences, experienceFilters, img } from "../data.js";
+import { $, $$, icon, escapeHtml, fmt, priceOf, affAttrs, on, clamp } from "../utils.js";
+import { experiences, experienceFilters, img, srcset } from "../data.js";
 import { saveButton, refreshSaveButtons } from "./favorites.js";
 
 /** One experience card. Shape matches data.experiences — swap in partner API data. */
-export const experienceCard = (x) => `<li class="card" data-tag="${x.tag}">
-  <a href="${x.href}" class="media media--hover" rel="sponsored noopener" data-affiliate="${escapeHtml(x.partner)}" tabindex="-1" aria-hidden="true">
-    <img src="${img(x.image, 700)}" srcset="${img(x.image, 420)} 420w, ${img(x.image, 700)} 700w" sizes="(max-width: 700px) 78vw, 330px" alt="" loading="lazy" decoding="async" />
+export const experienceCard = (x) => {
+  const price = priceOf(x);
+  // WordPress: x.url = the editorial page, x.href = tracked /go/ link (only when a live offer exists)
+  const detail = x.url || x.href;
+  const media = x.url ? `href="${escapeHtml(x.url)}"` : `href="${escapeHtml(x.href)}" ${affAttrs(x)}`;
+  const cta = x.href && (x.track || !x.url) ? `href="${escapeHtml(x.href)}" ${affAttrs(x)}` : `href="${escapeHtml(detail)}"`;
+  return `<li class="card" data-tag="${escapeHtml(x.tag)}">
+  <a ${media} class="media media--hover" tabindex="-1" aria-hidden="true">
+    <img src="${img(x.image, 700)}" srcset="${srcset(x.image, [420, 700]) || `${img(x.image, 420)} 420w, ${img(x.image, 700)} 700w`}" sizes="(max-width: 700px) 78vw, 330px" alt="" loading="lazy" decoding="async" />
   </a>
   <div class="card__top">
-    ${x.badge ? `<span class="chip chip--gold card__badge">${x.badge}</span>` : "<span></span>"}
-    ${saveButton({ id: x.id, title: x.title, image: x.image, meta: `${x.location} · ${t("from")} ${money(x.price)}` })}
+    ${x.badge ? `<span class="chip chip--gold card__badge">${escapeHtml(x.badge)}</span>` : "<span></span>"}
+    ${saveButton({ id: x.id, title: x.title, image: x.image, meta: [x.location, price && `${t("from")} ${price}`].filter(Boolean).join(" · ") })}
   </div>
   <div class="card__body">
-    <span class="card__loc">${icon("i-pin", "icon--sm")}${escapeHtml(x.location)}</span>
-    <h3 class="card__title">${escapeHtml(x.title)}</h3>
+    ${x.location ? `<span class="card__loc">${icon("i-pin", "icon--sm")}${escapeHtml(x.location)}</span>` : ""}
+    <h3 class="card__title">${x.url ? `<a href="${escapeHtml(x.url)}">${escapeHtml(x.title)}</a>` : escapeHtml(x.title)}</h3>
     <div class="card__meta">
-      <span class="rating">${icon("i-star")}${x.rating} <span>(${fmt(x.reviews)})</span></span>
-      <span>${icon("i-clock")}${escapeHtml(x.duration)}</span>
+      ${x.rating ? `<span class="rating">${icon("i-star")}${x.rating} <span>(${fmt(x.reviews)})</span></span>` : ""}
+      ${x.duration ? `<span>${icon("i-clock")}${escapeHtml(x.duration)}</span>` : ""}
     </div>
     <div class="card__foot">
-      <p class="price">${t("from")}<b>${money(x.price)}</b></p>
+      ${price ? `<p class="price">${t("from")}<b>${escapeHtml(price)}</b></p>` : "<span></span>"}
       <div style="display:grid;justify-items:end;gap:.2rem">
-        <a class="link" href="${x.href}" rel="sponsored noopener" data-affiliate="${escapeHtml(x.partner)}">${escapeHtml(t(x.cta))} ${icon("i-arrow", "icon--sm")}</a>
-        <span class="via">${escapeHtml(t("via {partner}", { partner: x.partner }))}</span>
+        <a class="link" ${cta}>${escapeHtml(t(x.cta))} ${icon("i-arrow", "icon--sm")}</a>
+        ${x.partner ? `<span class="via">${escapeHtml(t("via {partner}", { partner: x.partner }))}</span>` : ""}
       </div>
     </div>
   </div>
 </li>`;
+};
 
 export function initExperiences() {
   const root = $("#experiences");
@@ -44,11 +51,12 @@ export function initExperiences() {
   filters.innerHTML = experienceFilters
     .map((f, i) => `<button class="filter" type="button" aria-pressed="${i === 0}" data-filter="${f.id}">${f.label}</button>`)
     .join("");
-  // Make the whole card clickable for the title too
+  // Prototype only: make the title clickable too (WordPress titles are real links)
   $$(".card", track).forEach((c) => {
-    const t = c.querySelector(".card__title");
-    t.style.cursor = "pointer";
-    t.addEventListener("click", () => c.querySelector(".card__foot .link")?.click());
+    const title = c.querySelector(".card__title");
+    if (title.querySelector("a")) return;
+    title.style.cursor = "pointer";
+    title.addEventListener("click", () => c.querySelector(".card__foot .link")?.click());
   });
 
   const updateProgress = () => {

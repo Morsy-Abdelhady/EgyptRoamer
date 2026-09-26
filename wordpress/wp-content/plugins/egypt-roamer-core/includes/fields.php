@@ -18,7 +18,8 @@ defined( 'ABSPATH' ) || exit;
 /** Allowed inline markup for "html" fields (headlines with <em>, <br>). */
 function er_inline_kses(): array {
 	return [
-		'em'     => [],
+		'em'     => [ 'class' => [] ],
+		'span'   => [ 'class' => [] ],
 		'strong' => [],
 		'br'     => [],
 		'b'      => [],

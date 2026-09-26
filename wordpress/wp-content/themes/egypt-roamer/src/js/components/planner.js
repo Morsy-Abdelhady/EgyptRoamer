@@ -1,7 +1,7 @@
 /* Trip builder — a visual entry point: four choices produce a live,
    plausible route with paced nights and a budget band. */
 import { t, tp, listJoin, isRTL } from "../i18n.js";
-import { $, $$, icon, escapeHtml, fmt, toast, on, scrollToTarget } from "../utils.js";
+import { $, $$, icon, escapeHtml, money, toast, on, scrollToTarget } from "../utils.js";
 import { moods, destinations, routeOrder, nightWeights, legs, styleRates } from "../data.js";
 
 const DEFAULT_DESTS = ["cairo", "luxor", "aswan"];
@@ -93,9 +93,14 @@ export function initPlanner() {
       })
       .join("");
 
-    const [lo, hi] = styleRates[style];
-    const round = (v) => Math.round(v / 50) * 50;
-    budget.textContent = `$${fmt(round(lo * n))} – $${fmt(round(hi * n))}`;
+    // Budget bands are owner-configured; without them the estimate is hidden (no invented prices).
+    const band = styleRates && styleRates[style];
+    const budgetRow = budget.closest("div");
+    if (budgetRow) budgetRow.hidden = !band;
+    if (band) {
+      const round = (v) => Math.round(v / 50) * 50;
+      budget.textContent = `${money(round(band[0] * n))} – ${money(round(band[1] * n))}`;
+    }
     const coastOnly = plan.every((p) => ["hurghada", "sharm", "alexandria"].includes(p.id));
     season.textContent = t(coastOnly ? "Mar – Nov" : "Oct – Apr");
   }
@@ -104,6 +109,10 @@ export function initPlanner() {
   form.addEventListener("change", update);
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+    if (form.dataset.href) {
+      location.href = form.dataset.href; // WordPress: the owner's planning page
+      return;
+    }
     const picked = $$("input[name=interest]:checked", interests).map((i) => i.value);
     // In production: route to /plan with these params, or hand to a planning partner.
     const extra = picked.length ? ` · ${tp(picked.length, "{n} interest", "{n} interests")}` : "";

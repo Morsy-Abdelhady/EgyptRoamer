@@ -211,7 +211,7 @@ add_action( 'save_post', static function ( $post_id, $post ) {
 
 /** "Index" column so unindexed published pages are visible at a glance. */
 add_action( 'admin_init', static function () {
-	foreach ( array_keys( er_public_types() ) as $type ) {
+	foreach ( er_public_type_keys() as $type ) {
 		add_filter( "manage_{$type}_posts_columns", static function ( $cols ) {
 			$cols['er_index'] = __( 'Index', 'egypt-roamer-core' );
 			return $cols;

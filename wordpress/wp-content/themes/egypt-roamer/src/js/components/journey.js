@@ -128,7 +128,7 @@ export function initJourney() {
   });
   const hero = $("#hero");
   const heroContent = q(hero, ".hero__content");
-  const finder = q(hero, ".finder");
+  const finder = q(hero, ".finder") || []; // optional: hidden when no partner search is configured
   const heroNote = q(hero, ".hero__note");
   const grade = q(stage, ".journey__grade");
   const bars = $$(".journey__letterbox i", stage);
@@ -156,12 +156,12 @@ export function initJourney() {
     tl.to(c.kicker, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, at)
       .to(c.chars, { yPercent: 0, duration: 0.6, stagger: 0.035, ease: "power3.out" }, at + 0.05)
       .to([c.line, c.btn], { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.08, ease: "power2.out" }, at + 0.28)
-      .to([c.pick, c.coords], { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.1, ease: "power2.out" }, at + 0.42);
+      .to([c.pick, c.coords].filter(Boolean), { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.1, ease: "power2.out" }, at + 0.42); // "Roamer pick" is optional (WordPress: only for live offers)
   };
   const textOut = (scene, at) => {
     const c = parts(scene);
     tl.to(c.chars, { yPercent: -118, duration: 0.42, stagger: 0.025, ease: "power2.in" }, at).to(
-      [c.kicker, c.line, c.btn, c.pick, c.coords],
+      [c.kicker, c.line, c.btn, c.pick, c.coords].filter(Boolean),
       { autoAlpha: 0, y: -18, duration: 0.34, ease: "power2.in" },
       at
     );

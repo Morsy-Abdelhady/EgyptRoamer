@@ -10,7 +10,7 @@ const dock = $(".dock");
 /* ---------------- State by section under the bar ---------------- */
 function sectionTheme() {
   const probe = nav.offsetHeight * 0.6;
-  const dark = $$(".journey, .interlude, .moods, .map, .planner, .footer");
+  const dark = $$(".journey, .interlude, .moods, .map, .planner, .footer, .page-hero");
   for (const el of dark) {
     const r = el.getBoundingClientRect();
     if (r.top <= probe && r.bottom > probe) return "dark";

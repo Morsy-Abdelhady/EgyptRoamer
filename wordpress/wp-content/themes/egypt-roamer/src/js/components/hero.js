@@ -35,12 +35,12 @@ function initFinder() {
   const form = $("#finder");
   if (!form) return;
   const tabs = $$("[data-finder]", form);
-  let active = "hotels";
+  let active = tabs.find((x) => x.getAttribute("aria-pressed") === "true")?.dataset.finder || "hotels";
 
-  tabs.forEach((t) =>
-    t.addEventListener("click", () => {
-      tabs.forEach((x) => x.setAttribute("aria-pressed", String(x === t)));
-      active = t.dataset.finder;
+  tabs.forEach((tab) =>
+    tab.addEventListener("click", () => {
+      tabs.forEach((x) => x.setAttribute("aria-pressed", String(x === tab)));
+      active = tab.dataset.finder;
       const go = $(".finder__go span", form);
       if (go) go.textContent = t(active === "tours" ? "Explore Tours" : active === "cruises" ? "Compare Cruises" : "Compare Options");
     })
@@ -53,13 +53,24 @@ function initFinder() {
     const opts = [`<option value="">${t("Flexible dates")}</option>`];
     for (let i = 0; i < 12; i++) {
       const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
-      opts.push(`<option>${d.toLocaleString(locale, { month: "long", year: "numeric" })}</option>`);
+      const value = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+      opts.push(`<option value="${value}">${d.toLocaleString(locale, { month: "long", year: "numeric" })}</option>`);
     }
     months.innerHTML = opts.join("");
   }
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+    const go = tabs.find((x) => x.dataset.finder === active)?.dataset.go;
+    if (go) {
+      // WordPress: the site's own tracked /go/ link; the server validates every value
+      const url = new URL(go, location.href);
+      if (form.where.value) url.searchParams.set("where", form.where.value);
+      if (form.when.value) url.searchParams.set("when", form.when.value);
+      if (form.who.value) url.searchParams.set("adults", form.who.value);
+      location.href = url.toString();
+      return;
+    }
     const sel = form.where;
     const where = sel.value ? sel.options[sel.selectedIndex].text : t("Egypt");
     // In production: build the partner deep link with these params and open it.

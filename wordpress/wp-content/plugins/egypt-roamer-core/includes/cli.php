@@ -263,7 +263,27 @@ class ER_CLI {
 			$existing = get_page_by_path( $slug );
 			$ids[ $slug ] = $existing ? $existing->ID : (int) wp_insert_post( [ 'post_type' => 'page', 'post_status' => 'draft', 'post_name' => $slug, 'post_title' => $title, 'post_content' => $content ] );
 		}
-		$privacy  = (int) get_option( 'wp_page_for_privacy_policy' );
+		// Static front page + "Journal" posts page, so articles live at /journal/{slug}/.
+		if ( 'page' !== get_option( 'show_on_front' ) ) {
+			$front   = get_page_by_path( 'home' );
+			$journal = get_page_by_path( 'journal' );
+			$front   = $front ? $front->ID : (int) wp_insert_post( [ 'post_type' => 'page', 'post_status' => 'publish', 'post_name' => 'home', 'post_title' => 'Home' ] );
+			$journal = $journal ? $journal->ID : (int) wp_insert_post( [ 'post_type' => 'page', 'post_status' => 'publish', 'post_name' => 'journal', 'post_title' => 'Journal', 'post_excerpt' => 'Stories, tips and honest advice for travelling in Egypt.' ] );
+			update_option( 'show_on_front', 'page' );
+			update_option( 'page_on_front', $front );
+			update_option( 'page_for_posts', $journal );
+			WP_CLI::log( 'Reading settings: static front page + Journal posts page.' );
+		}
+		if ( in_array( get_option( 'permalink_structure' ), [ '', '/%postname%/' ], true ) ) {
+			update_option( 'permalink_structure', '/journal/%postname%/' );
+			WP_CLI::log( 'Permalinks: articles at /journal/{slug}/ (content types keep /destinations/, /tours/ …).' );
+		}
+
+		$privacy = (int) get_option( 'wp_page_for_privacy_policy' );
+		if ( ! $privacy || ! get_post( $privacy ) ) {
+			$privacy = (int) wp_insert_post( [ 'post_type' => 'page', 'post_status' => 'draft', 'post_name' => 'privacy-policy', 'post_title' => 'Privacy Policy', 'post_content' => $note( 'Write your privacy policy (Settings → Privacy offers a guide). Cover: newsletter and contact data, Google Tag Manager/GA4, the consent tool, and that affiliate partners process bookings under their own policies.' ) ] );
+			update_option( 'wp_page_for_privacy_policy', $privacy );
+		}
 		$settings = get_option( 'er_settings', [] );
 		$settings = is_array( $settings ) ? $settings : [];
 		$settings += [ 'disclosure_page' => $ids['affiliate-disclosure'], 'privacy_page' => $privacy ];
@@ -334,6 +354,33 @@ class ER_CLI {
 		foreach ( $dest + $exps as $post_id ) {
 			pll_get_post_language( $post_id ) || pll_set_post_language( $post_id, $default );
 		}
+		// Structural pages: every language needs its own front page and Journal page,
+		// otherwise /{lang}/ falls back to the posts listing.
+		foreach ( [ (int) get_option( 'page_on_front' ), (int) get_option( 'page_for_posts' ) ] as $page_id ) {
+			if ( ! $page_id ) {
+				continue;
+			}
+			pll_get_post_language( $page_id ) || pll_set_post_language( $page_id, $default );
+			$group = pll_get_post_translations( $page_id );
+			foreach ( $languages as $lang ) {
+				if ( isset( $group[ $lang ] ) ) {
+					continue;
+				}
+				$locale = '';
+				foreach ( PLL()->model->get_languages_list() as $l ) {
+					$locale = $l->slug === $lang ? $l->locale : $locale;
+				}
+				switch_to_locale( $locale );
+				$title = (int) get_option( 'page_for_posts' ) === $page_id ? translate( 'Journal', 'egypt-roamer' ) : translate( 'Home', 'egypt-roamer' ); // phpcs:ignore WordPress.WP.I18n
+				restore_previous_locale();
+				$slug = preg_match( '/^[\x20-\x7E]+$/', $title ) ? sanitize_title( $title ) . '-' . $lang : get_post_field( 'post_name', $page_id ) . '-' . $lang;
+				$tid  = (int) wp_insert_post( [ 'post_type' => 'page', 'post_status' => 'publish', 'post_title' => $title, 'post_name' => $slug ] );
+				pll_set_post_language( $tid, $lang );
+				$group[ $lang ] = $tid;
+			}
+			pll_save_post_translations( $group );
+		}
+
 		foreach ( $languages as $lang ) {
 			if ( $lang === $default || empty( $s['translations'][ $lang ] ) ) {
 				continue;

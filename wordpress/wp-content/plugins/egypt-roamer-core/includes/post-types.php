@@ -20,6 +20,11 @@ function er_public_types(): array {
 	];
 }
 
+/** Public editorial type keys (no labels — safe to call before init). */
+function er_public_type_keys(): array {
+	return [ 'er_destination', 'er_tour', 'er_experience', 'er_activity', 'er_guide' ];
+}
+
 /** Types that carry a commercial (affiliate) layer on top of editorial content. */
 function er_commercial_types(): array {
 	return [ 'er_tour', 'er_experience', 'er_activity' ];

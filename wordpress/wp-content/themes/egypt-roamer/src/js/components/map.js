@@ -161,7 +161,7 @@ export function initMap() {
           <h3>${d.name}</h3>
           <p>${d.mapReach}</p>
           <p>${t("Best time · {best}", { best: d.best })}</p>
-          <a class="link" href="#destinations" data-dest-link="${d.id}">${t("Explore Destination")} ${icon("i-arrow", "icon--sm")}</a>
+          <a class="link" ${d.url ? `href="${escapeHtml(d.url)}"` : `href="#destinations" data-dest-link="${d.id}"`}>${t("Explore Destination")} ${icon("i-arrow", "icon--sm")}</a>
         </div>`;
       card.style.animation = "none";
       void card.offsetWidth;

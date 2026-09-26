@@ -19,7 +19,7 @@ function er_seo_plugin_active(): bool {
 
 /** Editorial types need the explicit "Ready to index" tick; everything else defers to the SEO plugin. */
 function er_is_indexable( int $post_id ): bool {
-	if ( ! array_key_exists( (string) get_post_type( $post_id ), er_public_types() ) ) {
+	if ( ! in_array( (string) get_post_type( $post_id ), er_public_type_keys(), true ) ) {
 		return true;
 	}
 	return (bool) get_post_meta( $post_id, '_er_indexable', true );
@@ -32,13 +32,16 @@ function er_filter_query_keys(): array {
 
 /** Should the current request be noindex? */
 function er_request_noindex(): bool {
+	if ( is_front_page() && ! is_paged() ) {
+		return false; // the homepage is never subject to the empty/filtered-archive rules
+	}
 	if ( is_search() ) {
 		return true;
 	}
 	if ( is_singular() ) {
 		return ! er_is_indexable( (int) get_queried_object_id() );
 	}
-	if ( is_post_type_archive( array_keys( er_public_types() ) ) || is_home() || is_category() || is_tag() ) {
+	if ( is_post_type_archive( er_public_type_keys() ) || is_home() || is_category() || is_tag() ) {
 		foreach ( er_filter_query_keys() as $key ) {
 			if ( isset( $_GET[ $key ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				return true;
@@ -79,7 +82,7 @@ add_filter( 'rank_math/sitemap/entry', static function ( $url, $type, $object ) 
 
 // Core sitemap (fallback when no SEO plugin provides one).
 add_filter( 'wp_sitemaps_posts_query_args', static function ( $args, $post_type ) {
-	if ( array_key_exists( $post_type, er_public_types() ) ) {
+	if ( in_array( $post_type, er_public_type_keys(), true ) ) {
 		$args['meta_query'] = [ [ 'key' => '_er_indexable', 'value' => '1' ] ];
 	}
 	return $args;

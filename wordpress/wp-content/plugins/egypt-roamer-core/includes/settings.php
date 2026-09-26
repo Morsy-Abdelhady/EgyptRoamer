@@ -21,6 +21,12 @@ function er_settings_fields(): array {
 		'contact_email'      => [ 'type' => 'text', 'label' => __( 'Send contact messages to (email)', 'egypt-roamer-core' ), 'help' => __( 'Messages are always stored under Egypt Roamer → Contact messages, even if email delivery fails.', 'egypt-roamer-core' ) ],
 		'privacy_page'       => [ 'type' => 'post', 'post_type' => 'page', 'label' => __( 'Privacy Policy page (linked from forms)', 'egypt-roamer-core' ) ],
 		'fluentcrm_list'     => [ 'type' => 'number', 'label' => __( 'FluentCRM list ID for newsletter sign-ups (if FluentCRM is active)', 'egypt-roamer-core' ), 'step' => '1' ],
+		'h_archives'         => [ 'type' => 'heading', 'label' => __( 'Archive introductions (shown under the archive title; translate in Languages → Translations)', 'egypt-roamer-core' ) ],
+		'archive_intro_er_destination' => [ 'type' => 'textarea', 'label' => __( 'Destinations', 'egypt-roamer-core' ) ],
+		'archive_intro_er_tour'        => [ 'type' => 'textarea', 'label' => __( 'Tours', 'egypt-roamer-core' ) ],
+		'archive_intro_er_experience'  => [ 'type' => 'textarea', 'label' => __( 'Experiences', 'egypt-roamer-core' ) ],
+		'archive_intro_er_activity'    => [ 'type' => 'textarea', 'label' => __( 'Activities', 'egypt-roamer-core' ) ],
+		'archive_intro_er_guide'       => [ 'type' => 'textarea', 'label' => __( 'Guides', 'egypt-roamer-core' ) ],
 		'h_seo'              => [ 'type' => 'heading', 'label' => __( 'SEO guards', 'egypt-roamer-core' ) ],
 		'legacy_redirects'   => [ 'type' => 'checkbox', 'label' => __( 'Redirect legacy static-site paths (/guide/*, /about …) with 301', 'egypt-roamer-core' ), 'default' => 1 ],
 		'place_schema'       => [ 'type' => 'checkbox', 'label' => __( 'Add TouristDestination structured data to destination pages', 'egypt-roamer-core' ), 'default' => 1 ],
@@ -99,7 +105,7 @@ function er_health_checks(): array {
 
 	// Published editorial pages still marked noindex.
 	$noindex = get_posts( [
-		'post_type'   => array_keys( er_public_types() ),
+		'post_type'   => er_public_type_keys(),
 		'post_status' => 'publish',
 		'numberposts' => 50,
 		'meta_query'  => [ [ 'key' => '_er_indexable', 'compare' => 'NOT EXISTS' ] ],

@@ -15,6 +15,10 @@ import { ru } from "./locales/ru.js";
 import { zh } from "./locales/zh.js";
 
 const DICTS = { ar, de, fr, it, es, ru, zh };
+/* WordPress: the server decides the language (one URL per language) and ships
+   only that language's dictionary as window.ER_I18N. */
+const SERVER = window.ER_DATA || null;
+const SERVER_DICT = window.ER_I18N || null;
 
 export const LANGS = {
   en: { label: "English", short: "EN", dir: "ltr", locale: "en-US" },
@@ -28,6 +32,7 @@ export const LANGS = {
 };
 
 function detect() {
+  if (SERVER) return LANGS[SERVER.lang] ? SERVER.lang : "en";
   try {
     const q = new URLSearchParams(location.search).get("lang");
     if (q && LANGS[q]) return q;
@@ -42,7 +47,7 @@ function detect() {
 export const lang = detect();
 export const isRTL = LANGS[lang].dir === "rtl";
 export const locale = LANGS[lang].locale;
-const dict = DICTS[lang] || null;
+const dict = (SERVER_DICT && SERVER_DICT.code === lang ? SERVER_DICT : DICTS[lang]) || null;
 
 const norm = (s) => s.replace(/\s+/g, " ").trim();
 const fill = (s, vars) => s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] ?? m));
@@ -90,6 +95,7 @@ export function listJoin(items) {
 
 /** Translate the static HTML: text nodes, rich fragments and attributes. */
 export function translateStatic(root = document.body) {
+  if (SERVER) return; // WordPress renders every language on its own URL, already translated
   document.documentElement.lang = lang;
   document.documentElement.dir = LANGS[lang].dir;
   if (!dict) return;
@@ -138,7 +144,7 @@ export function translateStatic(root = document.body) {
 
 /** Merge per-id content overrides into the data modules (in place). */
 export function localizeData(d) {
-  if (!dict) return;
+  if (SERVER || !dict) return;
   const c = dict.content;
   d.destinations.forEach((x) => Object.assign(x, c.destinations[x.id] || {}));
   d.moods.forEach((m) => {
@@ -165,6 +171,11 @@ export function localizeData(d) {
 
 /** Switch language: remember it, keep the reader's place, reload. */
 export function setLang(next) {
+  if (SERVER) {
+    const link = document.querySelector(`[data-lang-url="${next}"]`);
+    if (link) location.href = link.getAttribute("href");
+    return;
+  }
   if (!LANGS[next] || next === lang) return;
   try {
     localStorage.setItem("ei:lang", next);

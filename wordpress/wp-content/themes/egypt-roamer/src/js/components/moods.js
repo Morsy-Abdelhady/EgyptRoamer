@@ -1,7 +1,7 @@
 /* "What kind of Egypt are you looking for?" — mood dial that re-grades the
    section, swaps imagery and updates recommendations. */
 import { t, isRTL } from "../i18n.js";
-import { $, $$, icon, escapeHtml, money, emit } from "../utils.js";
+import { $, $$, icon, escapeHtml, priceOf, affAttrs, emit } from "../utils.js";
 import { moods, destinations, img } from "../data.js";
 import { saveButton, refreshSaveButtons } from "./favorites.js";
 
@@ -15,7 +15,7 @@ function recCard(kind, data) {
       <p class="rec__title">${escapeHtml(data.title)}</p>
       <p class="rec__meta">${data.meta}</p>
     </div>
-    <a class="rec__cta" href="${data.href}" ${data.affiliate ? `rel="sponsored noopener" data-affiliate="${escapeHtml(data.partner)}"` : `data-dest-link="${data.destId}"`}>${escapeHtml(data.cta)} ${icon("i-arrow", "icon--sm")}</a>
+    <a class="rec__cta" href="${escapeHtml(data.href)}" ${data.affiliate ? affAttrs(data) : data.href.startsWith("#") ? `data-dest-link="${data.destId}"` : ""}>${escapeHtml(data.cta)} ${icon("i-arrow", "icon--sm")}</a>
   </article>`;
 }
 
@@ -31,7 +31,7 @@ export function initMoods() {
 
   list.innerHTML = moods
     .map(
-      (m, i) => `<button class="mood" type="button" role="tab" id="mood-${m.id}" aria-selected="${i === 0}" data-mood="${m.id}">
+      (m, i) => `<button class="mood" type="button" role="tab" id="mood-${m.id}" aria-selected="${i === 0}" aria-controls="mood-panel" data-mood="${m.id}">
         <span class="mood__disc">${ringSvg}<img src="${img(m.image, 220, 70)}" alt="" loading="lazy" />${icon(m.icon)}</span>
         <span class="mood__label">${m.label}</span>
       </button>`
@@ -67,30 +67,44 @@ export function initMoods() {
     }, 280);
 
     const d = destinations.find((x) => x.id === m.recs.dest);
+    // Only verified facts: ratings and prices appear only when the data carries them.
+    const offerMeta = (o, unit) => {
+      const price = priceOf(o);
+      return [
+        o.rating ? `${icon("i-star", "icon--sm")} ${o.rating}` : "",
+        price ? `${t("from")} <b>${escapeHtml(price)}</b>${unit ? `/${escapeHtml(o.unitText || t(unit))}` : ""}` : "",
+        o.partner ? escapeHtml(t("via {partner}", { partner: o.partner })) : "",
+      ].filter(Boolean).join(" · ");
+    };
     recs.innerHTML = [
-      recCard(t("Where to go"), {
-        title: `${d.name} — ${d.tagline}`,
-        meta: `${d.region} · ${t("Best {best}", { best: d.best })}`,
-        image: d.image,
-        cta: t("Discover"),
-        href: "#destinations",
-        destId: d.id,
-      }),
-      recCard(t("What to do"), {
-        ...m.recs.exp,
-        meta: `${icon("i-star", "icon--sm")} ${m.recs.exp.rating} · ${t("from")} <b>${money(m.recs.exp.price)}</b> · ${t("via {partner}", { partner: m.recs.exp.partner })}`,
-        cta: t(m.recs.exp.cta),
-        href: "#partner",
-        affiliate: true,
-      }),
-      recCard(t("Where to stay"), {
-        ...m.recs.stay,
-        meta: `${icon("i-star", "icon--sm")} ${m.recs.stay.rating} · ${t("from")} <b>${money(m.recs.stay.price)}</b>/${t("night")} · ${t("via {partner}", { partner: m.recs.stay.partner })}`,
-        cta: t(m.recs.stay.cta),
-        href: "#partner",
-        affiliate: true,
-      }),
-    ].join("");
+      d &&
+        recCard(t("Where to go"), {
+          title: `${d.name} — ${d.tagline}`,
+          meta: escapeHtml(`${d.region} · ${t("Best {best}", { best: d.best })}`),
+          image: d.image,
+          cta: t("Discover"),
+          href: d.url || "#destinations",
+          destId: d.id,
+        }),
+      m.recs.exp &&
+        recCard(t("What to do"), {
+          ...m.recs.exp,
+          meta: offerMeta(m.recs.exp, ""),
+          cta: t(m.recs.exp.cta),
+          href: m.recs.exp.href || "#partner",
+          affiliate: true,
+        }),
+      m.recs.stay &&
+        recCard(t("Where to stay"), {
+          ...m.recs.stay,
+          meta: offerMeta(m.recs.stay, "night"),
+          cta: t(m.recs.stay.cta),
+          href: m.recs.stay.href || "#partner",
+          affiliate: true,
+        }),
+    ]
+      .filter(Boolean)
+      .join("");
     $$(".rec", recs).forEach((r, i) => setTimeout(() => r.classList.remove("is-entering"), 90 * i + 60));
     refreshSaveButtons();
     if (announce) emit("mood:change", id);
@@ -116,6 +130,7 @@ export function initMoods() {
 
   build?.addEventListener("click", () => emit("planner:mood", current));
 
+  if (!moods.length) return;
   select(moods[0].id, { announce: false });
 }
 

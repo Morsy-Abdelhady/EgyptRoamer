@@ -10,6 +10,7 @@ export function initGuide() {
   const feature = $("[data-guide-feature]", root);
   const list = $("[data-guide-list]", root);
 
+  if (!guides.length) return;
   const ALL = "__all";
   const categories = [ALL, ...new Set(guides.map((g) => g.cat))];
   cats.innerHTML = categories
@@ -43,7 +44,7 @@ export function initGuide() {
           </a></li>`
         )
         .join("") +
-      `<li class="guide__all"><a class="btn btn--outline" href="/guide">${t("Explore the Journal")} ${icon("i-arrow", "icon--arrow")}</a></li>`;
+      `<li class="guide__all"><a class="btn btn--outline" href="${escapeHtml((window.ER_DATA && window.ER_DATA.guidesUrl) || "/guide")}">${t("Explore the Journal")} ${icon("i-arrow", "icon--arrow")}</a></li>`;
     requestAnimationFrame(() => $$("[data-reveal]", feature).forEach((el) => el.classList.add("is-in")));
   }
 

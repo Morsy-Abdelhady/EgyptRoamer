@@ -62,7 +62,7 @@ function er_translate_string( string $text ): string {
 }
 
 add_filter( 'pll_get_post_types', static function ( $types, $is_settings ) {
-	foreach ( array_keys( er_public_types() ) as $type ) {
+	foreach ( er_public_type_keys() as $type ) {
 		$types[ $type ] = $type;
 	}
 	unset( $types['er_provider'], $types['er_offer'], $types['er_message'] );
@@ -81,6 +81,12 @@ add_action( 'admin_init', static function () {
 		return;
 	}
 	pll_register_string( 'disclosure_text', (string) er_settings( 'disclosure_text' ), 'Egypt Roamer', true );
+	foreach ( er_public_type_keys() as $type ) {
+		$intro = (string) er_settings( 'archive_intro_' . $type );
+		if ( '' !== $intro ) {
+			pll_register_string( 'archive_intro_' . $type, $intro, 'Egypt Roamer archives', true );
+		}
+	}
 	global $wpdb;
 	$labels = $wpdb->get_col( "SELECT DISTINCT meta_value FROM {$wpdb->postmeta} WHERE meta_key = '_er_cta_custom' AND meta_value <> '' LIMIT 200" ); // phpcs:ignore WordPress.DB
 	foreach ( $labels as $label ) {

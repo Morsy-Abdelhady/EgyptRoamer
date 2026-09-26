@@ -1,30 +1,31 @@
 /* Affiliate discovery layer — Hotels / Tours / Cruises / Transfers / Cars.
    Each tab = one editorial "hero" + a short, honest shortlist of partner offers. */
 import { t, isRTL, lang } from "../i18n.js";
-import { $, $$, icon, escapeHtml, fmt, money, on } from "../utils.js";
+import { $, $$, icon, escapeHtml, fmt, priceOf, affAttrs, on } from "../utils.js";
 import { partnerCategories, img } from "../data.js";
 import { saveButton, refreshSaveButtons } from "./favorites.js";
 
 function offerRow(o, catId) {
+  const price = priceOf(o);
   return `<article class="offer">
     <div class="offer__img">
       <img src="${img(o.image, 420)}" alt="${escapeHtml(o.name)}" loading="lazy" decoding="async" />
-      ${o.badge ? `<span class="chip chip--gold">${o.badge}</span>` : ""}
+      ${o.badge ? `<span class="chip chip--gold">${escapeHtml(o.badge)}</span>` : ""}
     </div>
     <div class="offer__body">
-      <span class="offer__loc">${icon("i-pin")}${escapeHtml(o.location)}</span>
+      ${o.location ? `<span class="offer__loc">${icon("i-pin")}${escapeHtml(o.location)}</span>` : ""}
       <h4 class="offer__name">${escapeHtml(o.name)}</h4>
       <div class="offer__meta">
-        <span class="rating">${icon("i-star")}${o.rating} <span>(${fmt(o.reviews)})</span></span>
-        <span>${escapeHtml(o.meta)}</span>
+        ${o.rating ? `<span class="rating">${icon("i-star")}${o.rating} <span>(${fmt(o.reviews)})</span></span>` : ""}
+        ${o.meta ? `<span>${escapeHtml(o.meta)}</span>` : ""}
       </div>
     </div>
     <div class="offer__side">
-      <p class="price">${t("from")}<b>${money(o.price)} <small>/ ${t(o.unit)}</small></b></p>
-      <a class="btn btn--outline btn--sm" href="#partner" rel="sponsored noopener" data-affiliate="${escapeHtml(o.partner)}" data-affiliate-cat="${catId}">
+      ${price ? `<p class="price">${t("from")}<b>${escapeHtml(price)} <small>/ ${escapeHtml(o.unitText || t(o.unit))}</small></b></p>` : ""}
+      <a class="btn btn--outline btn--sm" href="${escapeHtml(o.href || "#partner")}" ${affAttrs(o)} data-affiliate-cat="${catId}">
         ${escapeHtml(t(o.cta))} ${icon("i-arrow-ur", "icon--sm")}
       </a>
-      <span class="via">${escapeHtml(t("via {partner}", { partner: t(o.partner) }))}</span>
+      ${o.partner ? `<span class="via">${escapeHtml(t("via {partner}", { partner: t(o.partner) }))}</span>` : ""}
     </div>
   </article>`;
 }
@@ -63,14 +64,14 @@ export function initPartners() {
           <span class="t-label" style="color:var(--sand)">${c.label}</span>
           <h3>${c.headline}</h3>
           <p>${c.copy}</p>
-          <ul class="pp-trust">${c.trust.map((t) => `<li>${icon("i-check")}${t}</li>`).join("")}</ul>
-          <a class="btn btn--primary" href="#partner" rel="sponsored noopener" data-affiliate="our partners" data-magnetic>${c.compare} ${icon("i-arrow", "icon--arrow")}</a>
+          ${c.trust && c.trust.length ? `<ul class="pp-trust">${c.trust.map((line) => `<li>${icon("i-check")}${escapeHtml(line)}</li>`).join("")}</ul>` : ""}
+          ${c.href || !c.track ? `<a class="btn btn--primary" href="${escapeHtml(c.href || "#partner")}" ${affAttrs(c.track ? c : { partner: "our partners" })} data-magnetic>${escapeHtml(c.compare)} ${icon("i-arrow", "icon--arrow")}</a>` : ""}
         </div>
       </div>
       <div class="offers">
         <div class="offers__head">
           <span class="t-label">${t("Editor's shortlist · {n} picks", { n: c.items.length })}</span>
-          <a class="link" href="#partner" rel="sponsored noopener" data-affiliate="our partners">${lang === "en" ? `See all ${c.label.toLowerCase()}` : t("See all")} ${icon("i-arrow", "icon--sm")}</a>
+          ${c.allHref ? `<a class="link" href="${escapeHtml(c.allHref)}">${t("See all")} ${icon("i-arrow", "icon--sm")}</a>` : c.allHref === undefined ? `<a class="link" href="#partner" rel="sponsored noopener" data-affiliate="our partners">${lang === "en" ? `See all ${c.label.toLowerCase()}` : t("See all")} ${icon("i-arrow", "icon--sm")}</a>` : ""}
         </div>
         ${c.items.map((o) => offerRow(o, c.id)).join("")}
       </div>`;
@@ -106,7 +107,8 @@ export function initPartners() {
   document.fonts?.ready.then(placeInk);
 
   on("partners:tab", (id) => select(id));
-  select("hotels", { animate: false });
+  if (!partnerCategories.length) return;
+  select(partnerCategories[0].id, { animate: false });
   requestAnimationFrame(placeInk);
 }
 

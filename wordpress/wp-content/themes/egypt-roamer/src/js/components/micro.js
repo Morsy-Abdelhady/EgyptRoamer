@@ -116,6 +116,7 @@ export function initAffiliateLinks() {
 
 export function initNewsletter() {
   const form = $("[data-subscribe]");
+  if (form?.getAttribute("action")) return; // WordPress: the form posts to the server
   form?.addEventListener("submit", (e) => {
     e.preventDefault();
     toast(t("You're on the list — first letter arrives next month."), "i-mail");

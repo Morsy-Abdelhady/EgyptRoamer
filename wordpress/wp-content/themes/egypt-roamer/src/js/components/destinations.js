@@ -34,7 +34,7 @@ export function initDestinations() {
             <h3>${d.name}</h3>
             <p>${d.desc}</p>
             <div class="dest__hl">${d.highlights.map((h) => `<span class="chip chip--glass">${h}</span>`).join("")}</div>
-            <a class="link" href="#map" data-map-focus="${d.id}" style="justify-self:start;margin-top:.4rem">${t("Explore {name}", { name: d.name })} ${icon("i-arrow", "icon--sm")}</a>
+            <a class="link" ${d.url ? `href="${escapeHtml(d.url)}"` : `href="#map" data-map-focus="${d.id}"`} style="justify-self:start;margin-top:.4rem">${t("Explore {name}", { name: d.name })} ${icon("i-arrow", "icon--sm")}</a>
           </div>
         </article>
       </li>`
@@ -70,7 +70,7 @@ export function initDestinations() {
         </div>
         <div style="display:flex;gap:.6rem;align-items:center">
           ${saveButton({ id: `dest-${d.id}`, title: d.name, image: d.image, meta: d.region })}
-          <a href="#map" class="btn btn--ghost btn--sm" data-map-focus="${d.id}">${t("Discover {name}", { name: d.name })} ${icon("i-arrow", "icon--arrow")}</a>
+          <a ${d.url ? `href="${escapeHtml(d.url)}"` : `href="#map" data-map-focus="${d.id}"`} class="btn btn--ghost btn--sm">${t("Discover {name}", { name: d.name })} ${icon("i-arrow", "icon--arrow")}</a>
         </div>
       </div>`;
   }
@@ -148,6 +148,7 @@ export function initDestinations() {
   ).observe(root);
 
   root.style.setProperty("--dest-timer", `${AUTO_MS}ms`);
+  if (!destinations.length) return;
   setActive(0);
 
   on("destinations:select", (id) => {

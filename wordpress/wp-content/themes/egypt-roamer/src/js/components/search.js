@@ -1,14 +1,14 @@
 /* Command-palette style search across destinations, experiences and guides */
 import { t, tp } from "../i18n.js";
-import { $, escapeHtml, icon, on, emit, scrollToTarget } from "../utils.js";
+import { $, escapeHtml, icon, on, emit, scrollToTarget, priceOf } from "../utils.js";
 import { destinations, experiences, guides, img } from "../data.js";
 import { closeOverlay } from "./nav.js";
 
 /* Built at init (after content is localised), not at import time. */
 const buildIndex = () => [
-  ...destinations.map((d) => ({ group: t("Destinations"), title: d.name, sub: d.region, image: d.image, text: `${d.name} ${d.region} ${d.highlights.join(" ")}`, go: () => (emit("destinations:select", d.id), "#destinations") })),
-  ...experiences.map((x) => ({ group: t("Experiences"), title: x.title, sub: `${x.location} · ${t("from")} $${x.price}`, image: x.image, text: `${x.title} ${x.location} ${x.tag}`, go: () => (emit("experiences:filter", x.tag), "#experiences") })),
-  ...guides.map((g) => ({ group: t("Travel Guide"), title: g.title, sub: `${g.cat} · ${tp(g.read, "{n} min read", "{n} min read")}`, image: g.image, text: `${g.title} ${g.cat}`, go: () => "#guide" })),
+  ...destinations.map((d) => ({ group: t("Destinations"), title: d.name, sub: d.region, image: d.image, text: `${d.name} ${d.region} ${d.highlights.join(" ")}`, go: () => d.url || (emit("destinations:select", d.id), "#destinations") })),
+  ...experiences.map((x) => ({ group: t("Experiences"), title: x.title, sub: [x.location, priceOf(x) && `${t("from")} ${priceOf(x)}`].filter(Boolean).join(" · "), image: x.image, text: `${x.title} ${x.location} ${x.tag}`, go: () => x.url || (emit("experiences:filter", x.tag), "#experiences") })),
+  ...guides.map((g) => ({ group: t("Travel Guide"), title: g.title, sub: `${g.cat} · ${tp(g.read, "{n} min read", "{n} min read")}`, image: g.image, text: `${g.title} ${g.cat}`, go: () => (window.ER_DATA && g.href ? g.href : "#guide") })),
 ];
 
 export function initSearch() {
@@ -37,15 +37,26 @@ export function initSearch() {
 
   input.addEventListener("input", () => render(input.value));
   input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") $("[data-hit]", results)?.click();
+    if (e.key !== "Enter") return;
+    const hit = $("[data-hit]", results);
+    if (hit && (input.value.trim() || !input.form)) {
+      e.preventDefault();
+      hit.click();
+    } // otherwise the search form submits to the full results page (WordPress)
   });
   results.addEventListener("click", (e) => {
     const a = e.target.closest("[data-hit]");
     if (!a) return;
     e.preventDefault();
-    const hash = shown[Number(a.dataset.hit)].go();
+    const target = shown[Number(a.dataset.hit)].go();
     closeOverlay(overlay);
-    setTimeout(() => scrollToTarget(document.querySelector(hash)), 120);
+    if (!target.startsWith("#")) {
+      location.href = target;
+      return;
+    }
+    const el = document.querySelector(target);
+    if (el) setTimeout(() => scrollToTarget(el), 120);
+    else location.href = ((window.ER_DATA && window.ER_DATA.homeUrl) || "/") + target;
   });
   on("overlay:open", (id) => {
     if (id !== "search") return;

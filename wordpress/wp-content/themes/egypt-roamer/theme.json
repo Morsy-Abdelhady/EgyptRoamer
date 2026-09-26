@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": false,
+    "color": {
+      "custom": false,
+      "customGradient": false,
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "palette": [
+        { "slug": "gold", "name": "Pyramid Gold", "color": "#C9A227" },
+        { "slug": "charcoal", "name": "Charcoal", "color": "#101820" },
+        { "slug": "white", "name": "White", "color": "#FFFFFF" },
+        { "slug": "sand", "name": "Sahara Sand", "color": "#D8B483" },
+        { "slug": "nile", "name": "Nile Blue", "color": "#0E3A5B" },
+        { "slug": "teal", "name": "Deep Teal", "color": "#0F6B7A" },
+        { "slug": "stone", "name": "Stone", "color": "#F8F5ED" }
+      ]
+    },
+    "typography": {
+      "customFontSize": false,
+      "fontFamilies": [
+        { "slug": "serif", "name": "Playfair Display", "fontFamily": "\"Playfair Display\", Georgia, serif" },
+        { "slug": "sans", "name": "Inter", "fontFamily": "Inter, system-ui, sans-serif" }
+      ]
+    },
+    "layout": { "contentSize": "720px", "wideSize": "1100px" },
+    "spacing": { "customSpacingSize": false }
+  }
+}
