@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Egypt Roamer — Design tokens
+   Every colour on the site derives from the nine brand colours below.
+   ========================================================================== */
+
+:root {
+  /* Brand palette */
+  --sand: #d8b483;        /* Sahara Sand   */
+  --gold: #c9a227;        /* Pyramid Gold  — accent only */
+  --nile: #0e3a5b;        /* Nile Blue     */
+  --teal: #0f6b7a;        /* Deep Teal     */
+  --clay: #a45e38;        /* Desert Clay   */
+  --stone: #f8f5ed;       /* Stone         */
+  --warm-gray: #e7e1d6;   /* Warm Gray     */
+  --charcoal: #111111;    /* Dark Charcoal */
+  --white: #ffffff;
+
+  /* Derived tones (mixes of brand colours only) */
+  --gold-deep: color-mix(in srgb, var(--gold) 82%, var(--charcoal));
+  --gold-soft: color-mix(in srgb, var(--gold) 55%, var(--stone));
+  --ink: color-mix(in srgb, var(--charcoal) 92%, var(--nile));
+  --ink-2: color-mix(in srgb, var(--charcoal) 80%, var(--nile));
+  --ink-3: color-mix(in srgb, var(--charcoal) 62%, var(--nile));
+  --text: var(--charcoal);
+  --text-muted: color-mix(in srgb, var(--charcoal) 72%, var(--stone)); /* 7.3:1 on stone */
+  --text-faint: color-mix(in srgb, var(--charcoal) 60%, var(--stone)); /* 4.8:1 on stone */
+  --on-dark: var(--white);
+  --on-dark-muted: color-mix(in srgb, var(--white) 72%, transparent);
+  --on-dark-faint: color-mix(in srgb, var(--white) 60%, transparent);
+  --line: color-mix(in srgb, var(--charcoal) 11%, transparent);
+  --line-strong: color-mix(in srgb, var(--charcoal) 22%, transparent);
+  --line-dark: color-mix(in srgb, var(--white) 14%, transparent);
+  --surface: var(--stone);
+  --surface-2: var(--warm-gray);
+  --paper: var(--white);
+
+  /* Mood accent — changed by the "What kind of Egypt" section */
+  --mood: var(--clay);
+
+  /* Typography */
+  /* Arabic families come second: Latin glyphs stay in Playfair/Inter, Arabic falls through.
+     They are only downloaded when the page is in Arabic (see the <head> script). */
+  --font-serif: "Playfair Display", "Noto Naskh Arabic", "Noto Serif SC", "Times New Roman", Georgia, serif;
+  --font-sans: "Inter", "IBM Plex Sans Arabic", "Noto Sans SC", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --fs-display: clamp(4.5rem, 13.5vw, 13rem);
+  --fs-h1: clamp(3rem, 7.2vw, 6.5rem);
+  --fs-h2: clamp(2.2rem, 4.6vw, 4.1rem);
+  --fs-h3: clamp(1.35rem, 1.9vw, 1.75rem);
+  --fs-h4: 1.125rem;
+  --fs-lead: clamp(1.05rem, 1.3vw, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-meta: 0.8125rem;
+  --fs-label: 0.6875rem;
+
+  --lh-tight: 0.92;
+  --lh-heading: 1.08;
+  --lh-body: 1.65;
+  --track-label: 0.32em;
+  --track-nav: 0.01em;
+
+  /* Space (8pt, editorial generous) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --s-10: 8rem;
+  --section-y: clamp(5rem, 11vw, 10rem);
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+  --max: 1440px;
+  /* Distance from a full-bleed box's edge to the content grid edge.
+     Uses % so it resolves against the containing block (scrollbar-safe). */
+  --edge: max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
+
+  /* Shape */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-pill: 999px;
+
+  /* Elevation — restrained */
+  --shadow-1: 0 1px 2px color-mix(in srgb, var(--charcoal) 6%, transparent),
+    0 4px 14px color-mix(in srgb, var(--charcoal) 5%, transparent);
+  --shadow-2: 0 2px 6px color-mix(in srgb, var(--charcoal) 8%, transparent),
+    0 18px 40px color-mix(in srgb, var(--charcoal) 10%, transparent);
+  --shadow-3: 0 30px 80px color-mix(in srgb, var(--charcoal) 28%, transparent);
+  --glow-gold: 0 0 0 6px color-mix(in srgb, var(--gold) 16%, transparent),
+    0 0 24px color-mix(in srgb, var(--gold) 55%, transparent);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --t-fast: 180ms;
+  --t-base: 380ms;
+  --t-slow: 800ms;
+
+  /* Layers */
+  --z-rail: 40;
+  --z-nav: 60;
+  --z-dock: 70;
+  --z-overlay: 90;
+  --z-loader: 100;
+
+  --nav-h: 84px;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --nav-h: 64px;
+  }
+}

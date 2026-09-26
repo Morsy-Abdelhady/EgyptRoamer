@@ -1,0 +1,95 @@
+/* Hero: loader hand-off, entrance, affiliate quick-compare ("finder") */
+import { t, locale } from "../i18n.js";
+import { $, $$, toast, finePointer, reducedMotion } from "../utils.js";
+
+const PARTNERS = {
+  hotels: "Booking.com",
+  tours: "GetYourGuide",
+  cruises: "Viator",
+  transfers: "Welcome Pickups",
+  cars: "Rentalcars.com",
+};
+
+export function initLoader() {
+  const loader = $("#loader");
+  const hero = $("#hero");
+  const heroImg = $(".scene--pyramids .scene__img--a");
+  const minTime = new Promise((r) => setTimeout(r, reducedMotion() ? 200 : 1300));
+  const imgReady = heroImg?.complete
+    ? Promise.resolve()
+    : new Promise((r) => {
+        heroImg?.addEventListener("load", r, { once: true });
+        heroImg?.addEventListener("error", r, { once: true });
+      });
+  const fonts = document.fonts?.ready ?? Promise.resolve();
+  const maxTime = new Promise((r) => setTimeout(r, 3500));
+
+  return Promise.race([Promise.all([minTime, imgReady, fonts]), maxTime]).then(() => {
+    loader?.classList.add("is-done");
+    setTimeout(() => hero?.classList.add("is-in"), 250);
+    setTimeout(() => loader?.remove(), 1500);
+  });
+}
+
+function initFinder() {
+  const form = $("#finder");
+  if (!form) return;
+  const tabs = $$("[data-finder]", form);
+  let active = "hotels";
+
+  tabs.forEach((t) =>
+    t.addEventListener("click", () => {
+      tabs.forEach((x) => x.setAttribute("aria-pressed", String(x === t)));
+      active = t.dataset.finder;
+      const go = $(".finder__go span", form);
+      if (go) go.textContent = t(active === "tours" ? "Explore Tours" : active === "cruises" ? "Compare Cruises" : "Compare Options");
+    })
+  );
+
+  // Upcoming 12 months
+  const months = $("[data-months]", form);
+  if (months) {
+    const now = new Date();
+    const opts = [`<option value="">${t("Flexible dates")}</option>`];
+    for (let i = 0; i < 12; i++) {
+      const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+      opts.push(`<option>${d.toLocaleString(locale, { month: "long", year: "numeric" })}</option>`);
+    }
+    months.innerHTML = opts.join("");
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const sel = form.where;
+    const where = sel.value ? sel.options[sel.selectedIndex].text : t("Egypt");
+    // In production: build the partner deep link with these params and open it.
+    toast(t("Comparing {where} on {partner} — opens with our partner", { where, partner: PARTNERS[active] }), "i-arrow-ur");
+  });
+}
+
+/** Subtle pointer parallax on the opening frame (desktop only). */
+function initPointerParallax() {
+  if (!finePointer() || reducedMotion() || !window.gsap) return;
+  const imgs = $$(".scene--pyramids .scene__img");
+  const note = $(".hero__note");
+  const xTo = imgs.map((el) => gsap.quickTo(el, "x", { duration: 1.4, ease: "power3.out" }));
+  const yTo = imgs.map((el) => gsap.quickTo(el, "y", { duration: 1.4, ease: "power3.out" }));
+  const nx = note ? gsap.quickTo(note, "x", { duration: 1.6, ease: "power3.out" }) : null;
+  window.addEventListener(
+    "pointermove",
+    (e) => {
+      if (window.scrollY > window.innerHeight * 2) return;
+      const dx = e.clientX / window.innerWidth - 0.5;
+      const dy = e.clientY / window.innerHeight - 0.5;
+      xTo.forEach((f) => f(dx * -22));
+      yTo.forEach((f) => f(dy * -14));
+      nx?.(dx * 10);
+    },
+    { passive: true }
+  );
+}
+
+export function initHero() {
+  initFinder();
+  initPointerParallax();
+}
