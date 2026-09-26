@@ -544,9 +544,13 @@
     if (!root) return;
     const toggle = $(".lang__toggle", root);
     const current = $("[data-lang-current]", root);
-    const options = $$("[role=option]", root);
-    current.textContent = LANGS[lang].short;
-    options.forEach((o) => o.setAttribute("aria-selected", String(o.dataset.value === lang)));
+    // Prototype: role=option items. WordPress: real links (crawlable, work without JS).
+    const options = $$("[role=option], .lang__menu a[data-lang-url]", root);
+    if (!options.length) return;
+    if (!options[0].matches("a")) {
+      current.textContent = LANGS[lang].short;
+      options.forEach((o) => o.setAttribute("aria-selected", String(o.dataset.value === lang)));
+    }
 
     const open = (state) => {
       root.classList.toggle("is-open", state);
@@ -560,7 +564,7 @@
     options.forEach((opt, i) => {
       opt.addEventListener("click", () => {
         open(false);
-        setLang(opt.dataset.value);
+        if (!opt.matches("a")) setLang(opt.dataset.value); // links navigate natively
       });
       opt.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {

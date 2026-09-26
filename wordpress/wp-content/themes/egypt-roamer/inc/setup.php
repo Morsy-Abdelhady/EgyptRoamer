@@ -58,7 +58,8 @@ add_filter( 'excerpt_more', static fn () => '…' );
 /** Page-type body classes the CSS/JS use. */
 add_filter( 'body_class', static function ( $classes ) {
 	$classes[] = is_front_page() ? 'er-home' : 'er-inner';
-	return $classes;
+	// WordPress adds "search" on results pages; the design uses .search for the search overlay.
+	return array_values( array_diff( $classes, [ 'search' ] ) );
 } );
 
 /** Archives list 12 items per page. */

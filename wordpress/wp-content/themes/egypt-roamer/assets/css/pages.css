@@ -529,3 +529,18 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+.search-inline .icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+/* Language menu rendered as links (WordPress) */
+.lang__menu a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.lang__menu li:has(a[aria-current="true"]) {
+  color: var(--clay);
+  font-weight: 500;
+}

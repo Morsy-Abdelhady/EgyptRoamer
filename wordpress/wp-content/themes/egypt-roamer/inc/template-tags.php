@@ -181,7 +181,7 @@ function er_type_label( string $post_type ): string {
 function er_page_hero( array $args ): void {
 	$args += [ 'eyebrow' => '', 'title' => '', 'intro' => '', 'image' => 0, 'meta' => '' ];
 	?>
-	<header class="page-hero on-dark<?php echo $args['image'] ? ' page-hero--image' : ''; ?>">
+	<div class="page-hero on-dark<?php echo $args['image'] ? ' page-hero--image' : ''; ?>">
 		<?php if ( $args['image'] ) : ?>
 			<div class="page-hero__media" aria-hidden="true">
 				<?php echo er_img( (int) $args['image'], 'er-hero', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw', 'alt' => '' ] ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped by wp_get_attachment_image ?>
@@ -200,7 +200,7 @@ function er_page_hero( array $args ): void {
 				<div class="page-hero__meta"><?php echo $args['meta']; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts by callers ?></div>
 			<?php endif; ?>
 		</div>
-	</header>
+	</div>
 	<?php
 }
 
@@ -209,7 +209,8 @@ function er_page_hero( array $args ): void {
 /* -------------------------------------------------------------------------- */
 
 /** Editorial card for grids (destinations, tours, experiences, activities, guides, articles). */
-function er_card( int $post_id, string $placement = 'card' ): string {
+function er_card( int $post_id, string $placement = 'card', string $heading = 'h3' ): string {
+	$heading  = in_array( $heading, [ 'h2', 'h3' ], true ) ? $heading : 'h3';
 	$type     = get_post_type( $post_id );
 	$url      = get_permalink( $post_id );
 	$title    = get_the_title( $post_id );
@@ -234,7 +235,7 @@ function er_card( int $post_id, string $placement = 'card' ): string {
 			<?php elseif ( in_array( $type, [ 'er_guide', 'post' ], true ) ) : ?>
 				<span class="card__loc"><?php echo esc_html( er_t( '{n} min read', [ 'n' => function_exists( 'er_read_minutes' ) ? er_read_minutes( $post_id ) : 1 ] ) ); ?></span>
 			<?php endif; ?>
-			<h3 class="card__title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $title ); ?></a></h3>
+			<<?php echo $heading; // phpcs:ignore WordPress.Security.EscapeOutput -- whitelisted ?> class="card__title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $title ); ?></a></<?php echo $heading; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 			<?php if ( $duration ) : ?>
 				<div class="card__meta"><span><?php echo er_icon( 'i-clock' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><?php echo esc_html( $duration ); ?></span></div>
 			<?php elseif ( has_excerpt( $post_id ) && in_array( $type, [ 'er_destination', 'er_guide', 'post', 'er_activity' ], true ) ) : ?>
@@ -257,13 +258,13 @@ function er_card( int $post_id, string $placement = 'card' ): string {
 }
 
 /** Grid of cards. */
-function er_card_grid( array $post_ids, string $placement = 'card' ): void {
+function er_card_grid( array $post_ids, string $placement = 'card', string $heading = 'h3' ): void {
 	if ( ! $post_ids ) {
 		return;
 	}
 	echo '<ul class="grid-cards">';
 	foreach ( $post_ids as $id ) {
-		echo er_card( (int) $id, $placement ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside
+		echo er_card( (int) $id, $placement, $heading ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside
 	}
 	echo '</ul>';
 }
@@ -369,15 +370,15 @@ function er_lang_switcher( string $variant = 'desktop' ): void {
 	}
 	?>
 	<div class="lang" data-lang>
-		<button class="lang__toggle" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="<?php echo esc_attr( er_t( 'Language' ) ); ?>">
+		<button class="lang__toggle" type="button" aria-expanded="false" aria-label="<?php echo esc_attr( er_t( 'Language' ) ); ?>">
 			<?php echo er_icon( 'i-globe' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			<span data-lang-current><?php echo esc_html( $short( $current['slug'] ?? er_lang() ) ); ?></span>
 			<?php echo er_icon( 'i-chevron', 'icon--sm' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		</button>
-		<ul class="lang__menu" role="listbox" aria-label="<?php echo esc_attr( er_t( 'Language' ) ); ?>">
+		<ul class="lang__menu" aria-label="<?php echo esc_attr( er_t( 'Language' ) ); ?>">
 			<?php foreach ( $langs as $l ) : ?>
-				<li role="option" tabindex="-1" data-value="<?php echo esc_attr( $l['slug'] ); ?>" lang="<?php echo esc_attr( str_replace( '_', '-', $l['locale'] ) ); ?>" aria-selected="<?php echo ! empty( $l['current_lang'] ) ? 'true' : 'false'; ?>"<?php echo 'ar' === $l['slug'] ? ' dir="rtl"' : ''; ?>>
-					<a href="<?php echo esc_url( $l['url'] ); ?>" hreflang="<?php echo esc_attr( str_replace( '_', '-', $l['locale'] ) ); ?>" data-lang-url="<?php echo esc_attr( $l['slug'] ); ?>" tabindex="-1"><?php echo esc_html( $l['name'] ); ?></a>
+				<li lang="<?php echo esc_attr( str_replace( '_', '-', $l['locale'] ) ); ?>"<?php echo 'ar' === $l['slug'] ? ' dir="rtl"' : ''; ?>>
+					<a href="<?php echo esc_url( $l['url'] ); ?>" hreflang="<?php echo esc_attr( str_replace( '_', '-', $l['locale'] ) ); ?>" data-lang-url="<?php echo esc_attr( $l['slug'] ); ?>" data-value="<?php echo esc_attr( $l['slug'] ); ?>"<?php echo ! empty( $l['current_lang'] ) ? ' aria-current="true"' : ''; ?>><?php echo esc_html( $l['name'] ); ?></a>
 				</li>
 			<?php endforeach; ?>
 		</ul>

@@ -27,9 +27,10 @@ $er_f_topic = isset( $_GET['topic'] ) ? sanitize_key( wp_unslash( $_GET['topic']
 // phpcs:enable
 $er_filterable = in_array( $er_type, [ 'er_tour', 'er_experience', 'er_activity', 'er_guide' ], true );
 
+echo '<main id="main">';
 er_page_hero( [ 'eyebrow' => er_t( 'Egypt Roamer' ), 'title' => $er_title, 'intro' => $er_intro ] );
 ?>
-<main id="main" class="page-body container">
+<div class="page-body container">
 	<?php if ( $er_filterable ) : ?>
 		<form class="filters" method="get" action="<?php echo esc_url( get_post_type_archive_link( $er_type ) ); ?>" aria-label="<?php echo esc_attr( er_t( 'Filter' ) ); ?>">
 			<?php if ( 'er_guide' === $er_type ) : ?>
@@ -67,7 +68,7 @@ er_page_hero( [ 'eyebrow' => er_t( 'Egypt Roamer' ), 'title' => $er_title, 'intr
 	<?php endif; ?>
 
 	<?php if ( have_posts() ) : ?>
-		<?php er_card_grid( wp_list_pluck( $GLOBALS['wp_query']->posts, 'ID' ), 'archive-' . str_replace( 'er_', '', $er_type ?: 'list' ) ); ?>
+		<?php er_card_grid( wp_list_pluck( $GLOBALS['wp_query']->posts, 'ID' ), 'archive-' . str_replace( 'er_', '', $er_type ?: 'list' ), 'h2' ); ?>
 		<?php
 		the_posts_pagination( [
 			'prev_text' => er_icon( 'i-arrow-left' ) . '<span class="visually-hidden">' . esc_html( er_t( 'Previous' ) ) . '</span>',
@@ -81,6 +82,7 @@ er_page_hero( [ 'eyebrow' => er_t( 'Egypt Roamer' ), 'title' => $er_title, 'intr
 			<p><a class="btn btn--outline" href="<?php echo esc_url( get_post_type_archive_link( 'er_destination' ) ?: home_url( '/' ) ); ?>"><?php er_e( 'Destinations' ); ?></a></p>
 		</div>
 	<?php endif; ?>
+</div>
 </main>
 <?php
 get_footer();
