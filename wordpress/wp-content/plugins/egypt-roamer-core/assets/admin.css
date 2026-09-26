@@ -1,0 +1,30 @@
+/* Egypt Roamer admin — compact, native-looking forms and reports. */
+.er-fields{display:grid;gap:12px;max-width:880px}
+.er-fields__heading{margin:18px 0 0;padding-top:12px;border-top:1px solid #dcdcde;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:#50575e}
+.er-fields__heading:first-child{border-top:0;margin-top:0;padding-top:0}
+.er-field__label{display:block;font-weight:600;margin-bottom:4px}
+.er-field .description{margin-top:4px}
+.er-select--multi{min-height:120px}
+.er-image img{display:block;max-width:120px;height:auto;margin-bottom:6px;border-radius:4px}
+.er-pill{display:inline-block;padding:1px 8px;border-radius:10px;background:#f0f0f1;color:#50575e;font-size:12px}
+.er-pill--ok{background:#e7f5ec;color:#1a7f37}
+.er-cards{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
+.er-card{display:grid;gap:2px;min-width:160px;padding:14px 16px;background:#fff;border:1px solid #dcdcde;border-radius:8px;text-decoration:none;color:#1d2327}
+.er-card b{font-size:24px;line-height:1.2;color:#101820}
+.er-card span{color:#50575e}
+.er-issues{margin:0;padding:0;list-style:none;max-width:980px}
+.er-issue{padding:8px 12px;margin:0 0 6px;border-left:4px solid #72aee6;background:#fff}
+.er-issue--warning{border-color:#dba617}
+.er-issue--error{border-color:#d63638}
+.er-range{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.er-reports{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:16px}
+.er-report h3{margin:0 0 6px;font-size:14px}
+.er-report--wide{margin-top:16px}
+.er-report td{vertical-align:middle}
+.er-num{text-align:right;white-space:nowrap;width:1%}
+.er-bar{width:30%}
+.er-bar i{display:block;height:8px;border-radius:4px;background:#C9A227;min-width:2px}
+.er-timeline{display:flex;align-items:flex-end;gap:2px;height:120px;padding:8px;background:#fff;border:1px solid #dcdcde;border-radius:8px}
+.er-timeline i{flex:1;min-width:2px;background:#C9A227;border-radius:2px 2px 0 0}
+.er-flag--high-traffic-low-clicks td{background:#fcf0f1}
+.er-flag--low-traffic-high-rate td{background:#edfaef}

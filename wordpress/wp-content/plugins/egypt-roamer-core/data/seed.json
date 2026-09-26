@@ -1,0 +1,2204 @@
+{
+ "source": "Egypt Roamer static prototype (commit d7bef2b), assets/js/data.js",
+ "destinations": [
+  {
+   "id": "cairo",
+   "name": "Cairo",
+   "region": "Capital · Nile Valley",
+   "tagline": "The city of a thousand minarets",
+   "desc": "A thousand-year-old capital that never sleeps — the pyramids on its doorstep, the Grand Egyptian Museum, and the lantern-lit lanes of Islamic Cairo.",
+   "highlights": [
+    "Pyramids of Giza",
+    "Grand Egyptian Museum",
+    "Khan el-Khalili"
+   ],
+   "best": "Oct – Apr",
+   "reach": "International hub",
+   "image": "1679238211153-546821b75f98",
+   "mapReach": "The capital & international gateway",
+   "coords": [
+    31.24,
+    30.04
+   ]
+  },
+  {
+   "id": "luxor",
+   "name": "Luxor",
+   "region": "Upper Egypt",
+   "tagline": "The world's greatest open-air museum",
+   "desc": "Karnak's forest of columns, the tombs of the Valley of the Kings, and hot-air balloons drifting over the West Bank at dawn.",
+   "highlights": [
+    "Valley of the Kings",
+    "Karnak Temple",
+    "Dawn balloon flight"
+   ],
+   "best": "Oct – Mar",
+   "reach": "1h flight from Cairo",
+   "image": "1761056981183-3faf66a62d6e",
+   "mapReach": "1h flight or overnight train from Cairo",
+   "coords": [
+    32.64,
+    25.69
+   ]
+  },
+  {
+   "id": "aswan",
+   "name": "Aswan",
+   "region": "Nubia · Upper Egypt",
+   "tagline": "Egypt at its most serene",
+   "desc": "Granite islands, colour-washed Nubian villages and feluccas drifting at golden hour — the gateway to Abu Simbel and Philae.",
+   "highlights": [
+    "Philae Temple",
+    "Nubian villages",
+    "Abu Simbel"
+   ],
+   "best": "Oct – Mar",
+   "reach": "1h 25m flight from Cairo",
+   "image": "1644517270263-4112379d97ca",
+   "mapReach": "1h 25m flight · or sail from Luxor",
+   "coords": [
+    32.9,
+    24.09
+   ]
+  },
+  {
+   "id": "hurghada",
+   "name": "Hurghada",
+   "region": "Red Sea Coast",
+   "tagline": "Reefs, islands and endless sun",
+   "desc": "A reef-fringed coastline with easy diving, island days on Giftun, and the design-led lagoons of El Gouna just up the shore.",
+   "highlights": [
+    "Giftun Island",
+    "Reef diving",
+    "El Gouna marina"
+   ],
+   "best": "Year-round",
+   "reach": "1h flight from Cairo",
+   "image": "1722264222007-3e4f1808db3e",
+   "mapReach": "1h flight · 4h drive from Luxor",
+   "coords": [
+    33.81,
+    27.26
+   ]
+  },
+  {
+   "id": "sharm",
+   "name": "Sharm El Sheikh",
+   "region": "South Sinai",
+   "tagline": "Where the desert meets the reef",
+   "desc": "World-class diving at Ras Mohammed, Bedouin dinners under the stars, and a sunrise climb to the summit of Mount Sinai.",
+   "highlights": [
+    "Ras Mohammed",
+    "Mount Sinai sunrise",
+    "Tiran Island"
+   ],
+   "best": "Year-round",
+   "reach": "1h flight from Cairo",
+   "image": "1681158077449-77f23f629f0d",
+   "mapReach": "1h flight · fast ferry from Hurghada",
+   "coords": [
+    34.33,
+    27.91
+   ]
+  },
+  {
+   "id": "siwa",
+   "name": "Siwa",
+   "region": "Western Desert",
+   "tagline": "An oasis at the edge of the map",
+   "desc": "Salt lakes you float in, mud-brick citadels and hot springs among the palms — closer to Libya than to Cairo, and worth every mile.",
+   "highlights": [
+    "Shali fortress",
+    "Salt-lake floating",
+    "Great Sand Sea"
+   ],
+   "best": "Oct – Apr",
+   "reach": "8h scenic drive",
+   "image": "1640341742389-dd75ffb38d49",
+   "mapReach": "8h drive via the Mediterranean coast",
+   "coords": [
+    25.52,
+    29.2
+   ]
+  },
+  {
+   "id": "alexandria",
+   "name": "Alexandria",
+   "region": "Mediterranean",
+   "tagline": "The pearl of the Mediterranean",
+   "desc": "Cosmopolitan and sea-breezy — the Bibliotheca, the Citadel of Qaitbay and the best seafood on the Corniche.",
+   "highlights": [
+    "Bibliotheca",
+    "Qaitbay Citadel",
+    "Seafood on the Corniche"
+   ],
+   "best": "Apr – Oct",
+   "reach": "2h 30m drive",
+   "image": "1633624646814-3a61ed3e2847",
+   "mapReach": "2h 30m drive or train from Cairo",
+   "coords": [
+    29.92,
+    31.2
+   ]
+  }
+ ],
+ "moods": [
+  {
+   "id": "ancient",
+   "label": "Ancient",
+   "icon": "i-temple",
+   "tint": "var(--clay)",
+   "image": "1761056981183-3faf66a62d6e",
+   "desc": "Of torch-lit tombs, temple columns taller than time, and the first light of dawn on the Giza plateau.",
+   "dest": "luxor"
+  },
+  {
+   "id": "beach",
+   "label": "Beach",
+   "icon": "i-palm",
+   "tint": "var(--teal)",
+   "image": "1722264222007-3e4f1808db3e",
+   "desc": "Of reef-edge mornings, barefoot dinners and water so clear it barely looks real.",
+   "dest": "hurghada"
+  },
+  {
+   "id": "luxury",
+   "label": "Luxury",
+   "icon": "i-diamond",
+   "tint": "var(--gold)",
+   "image": "1764730358483-38395275edb5",
+   "desc": "Of palace hotels, private Egyptologists and first-class cabins gliding down the Nile.",
+   "dest": "aswan"
+  },
+  {
+   "id": "adventure",
+   "label": "Adventure",
+   "icon": "i-mountain",
+   "tint": "var(--clay)",
+   "image": "1637189315455-3e7e629a05b9",
+   "desc": "Of dune runs, desert camps, canyon hikes and nights beneath an unfiltered Milky Way.",
+   "dest": "sharm"
+  },
+  {
+   "id": "culture",
+   "label": "Culture",
+   "icon": "i-lantern",
+   "tint": "var(--nile)",
+   "image": "1710211288826-b7df3ab71588",
+   "desc": "Of old bazaars, Nubian villages, Sufi music and cafés that never quite close.",
+   "dest": "cairo"
+  },
+  {
+   "id": "food",
+   "label": "Food",
+   "icon": "i-food",
+   "tint": "var(--clay)",
+   "image": "1661994215679-cde7c2c5c060",
+   "desc": "Of koshari at midnight, warm baladi bread and grilled fish by the Mediterranean.",
+   "dest": "alexandria"
+  },
+  {
+   "id": "nature",
+   "label": "Nature",
+   "icon": "i-leaf",
+   "tint": "var(--teal)",
+   "image": "1753488819968-756a12153bae",
+   "desc": "Of palm oases, salt lakes, protected reefs and the quiet green ribbon of the Nile.",
+   "dest": "siwa"
+  }
+ ],
+ "experiences": [
+  {
+   "id": "exp-giza",
+   "title": "Pyramids of Giza & Sphinx Private Tour",
+   "location": "Giza, Cairo",
+   "tag": "cairo",
+   "duration": "Half day",
+   "image": "1678038592327-c5730737f867",
+   "partner": "GetYourGuide",
+   "cta": "Check Availability"
+  },
+  {
+   "id": "exp-dinner",
+   "title": "Nile Dinner Cruise with Live Show",
+   "location": "Cairo",
+   "tag": "cairo",
+   "duration": "3 hours",
+   "image": "1761421852464-463fb31f2dc0",
+   "partner": "Viator",
+   "cta": "View Deal"
+  },
+  {
+   "id": "exp-abu",
+   "title": "Abu Simbel Day Trip from Aswan",
+   "location": "Aswan",
+   "tag": "aswan",
+   "duration": "Full day",
+   "image": "1633163893862-4cdc62de7d82",
+   "partner": "GetYourGuide",
+   "cta": "Check Availability"
+  },
+  {
+   "id": "exp-dive",
+   "title": "Red Sea Diving: Two Reef Dives",
+   "location": "Hurghada",
+   "tag": "redsea",
+   "duration": "1 day · 2 dives",
+   "image": "1682687981907-170c006e3744",
+   "partner": "Viator",
+   "cta": "View Deal"
+  },
+  {
+   "id": "exp-safari",
+   "title": "White Desert & Black Desert Safari",
+   "location": "Western Desert",
+   "tag": "desert",
+   "duration": "2 days",
+   "badge": "Editor's pick",
+   "image": "1514975440715-7b6852af4ee7",
+   "partner": "GetYourGuide",
+   "cta": "Check Availability"
+  },
+  {
+   "id": "exp-food",
+   "title": "Cairo Street Food Tour by Night",
+   "location": "Downtown Cairo",
+   "tag": "cairo",
+   "duration": "4 hours",
+   "image": "1661994215679-cde7c2c5c060",
+   "partner": "Viator",
+   "cta": "View Deal"
+  },
+  {
+   "id": "exp-valley",
+   "title": "Valley of the Kings & Hatshepsut Temple",
+   "location": "Luxor",
+   "tag": "luxor",
+   "duration": "6 hours",
+   "image": "1566288592443-0a0d6853dddc",
+   "partner": "GetYourGuide",
+   "cta": "Check Availability"
+  },
+  {
+   "id": "exp-siwa",
+   "title": "Great Sand Sea 4×4 & Hot Springs",
+   "location": "Siwa Oasis",
+   "tag": "desert",
+   "duration": "Full day",
+   "image": "1637189315455-3e7e629a05b9",
+   "partner": "Viator",
+   "cta": "View Deal"
+  }
+ ],
+ "partnerCategories": [
+  {
+   "id": "hotels",
+   "label": "Hotels",
+   "icon": "i-bed",
+   "headline": "Find a place worth staying for.",
+   "copy": "From palace hotels on the Nile to candle-lit desert lodges — stays our editors would book themselves.",
+   "image": "1760261598144-dddd7e1a3ef9",
+   "compare": "Compare Hotels",
+   "items": [
+    {
+     "name": "Sofitel Legend Old Cataract",
+     "location": "Aswan",
+     "meta": "Historic palace · Nile views",
+     "partner": "Booking.com",
+     "cta": "See Hotel",
+     "image": "1633033254409-bd538e785f51",
+     "badge": "Iconic"
+    },
+    {
+     "name": "Marriott Mena House",
+     "location": "Giza",
+     "meta": "Pyramid-view rooms · Garden pool",
+     "partner": "Expedia",
+     "cta": "Check Availability",
+     "image": "1734461255986-048992c9d15d"
+    },
+    {
+     "name": "Adrère Amellal",
+     "location": "Siwa Oasis",
+     "meta": "Eco-lodge · No electricity, by design",
+     "partner": "Hotels.com",
+     "cta": "View Deal",
+     "image": "1584114130913-0852aeb8fe8c"
+    }
+   ]
+  },
+  {
+   "id": "tours",
+   "label": "Tours & Activities",
+   "icon": "i-compass",
+   "headline": "Experiences worth leaving the hotel for.",
+   "copy": "Small groups, expert Egyptologists and the kind of access that turns a sight into a story.",
+   "image": "1559527012-3b0fca356de0",
+   "compare": "Explore Tours",
+   "items": [
+    {
+     "name": "Luxor East & West Banks, private",
+     "location": "Luxor",
+     "meta": "Full day · Egyptologist guide",
+     "partner": "GetYourGuide",
+     "cta": "View Tour",
+     "image": "1693654547147-24d94b4ed4ea"
+    },
+    {
+     "name": "Sunrise camel ride at the pyramids",
+     "location": "Giza",
+     "meta": "2 hours · Small group",
+     "partner": "Viator",
+     "cta": "Check Availability",
+     "image": "1705628080778-f86b2f90a114"
+    },
+    {
+     "name": "Philae Temple sound & light",
+     "location": "Aswan",
+     "meta": "Evening · Boat transfer included",
+     "partner": "GetYourGuide",
+     "cta": "View Tour",
+     "image": "1731024677293-2ca0c03bbf13"
+    }
+   ]
+  },
+  {
+   "id": "cruises",
+   "label": "Nile Cruises",
+   "icon": "i-ship",
+   "headline": "See Egypt from the river.",
+   "copy": "Five-star ships, intimate dahabiyas and the slow magic of watching temples appear from the water.",
+   "image": "1774223146816-8472905a40b8",
+   "compare": "Compare Cruises",
+   "items": [
+    {
+     "name": "Luxor → Aswan, 4 nights",
+     "location": "5★ river ship",
+     "meta": "Full board · 5 temples",
+     "partner": "Viator",
+     "cta": "View Cruise",
+     "image": "1778402153163-fc9a5fd0131a"
+    },
+    {
+     "name": "Dahabiya sailing cruise, 5 nights",
+     "location": "Esna → Aswan",
+     "meta": "Only 8 cabins · Sails, not engines",
+     "partner": "GetYourGuide",
+     "cta": "View Cruise",
+     "image": "1770251693846-4167f4c049c6"
+    },
+    {
+     "name": "Lake Nasser to Abu Simbel, 3 nights",
+     "location": "Aswan → Abu Simbel",
+     "meta": "Remote temples · Sunset at Abu Simbel",
+     "partner": "Booking.com",
+     "cta": "Check Availability",
+     "image": "1502250663587-0437415428a2"
+    }
+   ]
+  },
+  {
+   "id": "transfers",
+   "label": "Transfers",
+   "icon": "i-route",
+   "headline": "Arrive. Move. Explore.",
+   "copy": "Fixed-price private transfers with English-speaking drivers — airport to hotel, city to coast, temple to temple.",
+   "image": "1774425329088-36801b6f09be",
+   "compare": "Compare Transfers",
+   "items": [
+    {
+     "name": "Cairo Airport → Giza hotels",
+     "location": "Private sedan · up to 3",
+     "meta": "~55 min · Meet & greet",
+     "partner": "Welcome Pickups",
+     "cta": "Book with Partner",
+     "image": "1679238211153-546821b75f98"
+    },
+    {
+     "name": "Hurghada Airport → El Gouna",
+     "location": "Private minivan · up to 6",
+     "meta": "~30 min · Child seats on request",
+     "partner": "Welcome Pickups",
+     "cta": "Book with Partner",
+     "image": "1722264219947-725d4e20ef23"
+    },
+    {
+     "name": "Luxor → Aswan scenic road trip",
+     "location": "Private car & driver",
+     "meta": "Stops at Edfu & Kom Ombo",
+     "partner": "GetYourGuide",
+     "cta": "View Deal",
+     "image": "1648139210599-aa27a54177a4"
+    }
+   ]
+  },
+  {
+   "id": "cars",
+   "label": "Car Rental",
+   "icon": "i-car",
+   "headline": "Take the road less traveled.",
+   "copy": "Self-drive the Red Sea coast or the oasis loop. Compare every rental desk at once, with full insurance options.",
+   "image": "1654676428515-94b5bf7a1ac4",
+   "compare": "Compare Cars",
+   "items": [
+    {
+     "name": "Compact · Hyundai Accent or similar",
+     "location": "Cairo Airport",
+     "meta": "Automatic · Unlimited km",
+     "partner": "Rentalcars.com",
+     "cta": "Compare Options",
+     "image": "1499357526729-b2f0842540ce"
+    },
+    {
+     "name": "SUV · Toyota Fortuner or similar",
+     "location": "Hurghada",
+     "meta": "Automatic · 7 seats",
+     "partner": "DiscoverCars",
+     "cta": "Compare Options",
+     "image": "1624062999726-083e5268525d"
+    },
+    {
+     "name": "4×4 with driver · Western Desert",
+     "location": "Bahariya → Siwa",
+     "meta": "Camping gear available",
+     "partner": "Local partner",
+     "cta": "View Deal",
+     "image": "1640342105347-3e2699b5fbb3"
+    }
+   ]
+  }
+ ],
+ "guides": [
+  {
+   "id": "g-best-time",
+   "title": "The Best Time to Visit Egypt, Month by Month",
+   "cat": "Planning",
+   "read": 8,
+   "excerpt": "Winter sun on the temples, spring on the reefs, and the one month we'd always avoid. A season-by-season guide to getting the timing right.",
+   "image": "1762530162773-c99f38d4d5d3",
+   "slug": "best-time-to-visit-egypt"
+  },
+  {
+   "id": "g-7-days",
+   "title": "7 Days in Egypt: The Perfect First Itinerary",
+   "cat": "Itineraries",
+   "read": 12,
+   "image": "1767797865870-0fd4d82608f7",
+   "slug": "7-days-in-egypt-itinerary"
+  },
+  {
+   "id": "g-safe",
+   "title": "Is Egypt Safe for Tourists? An Honest 2026 Guide",
+   "cat": "Safety",
+   "read": 9,
+   "image": "1652022262085-d454346a353e",
+   "slug": "is-egypt-safe-for-tourists"
+  },
+  {
+   "id": "g-cruises",
+   "title": "The Best Nile Cruises, Compared Cabin by Cabin",
+   "cat": "Cruises",
+   "read": 11,
+   "image": "1778402153163-fc9a5fd0131a",
+   "slug": "best-nile-cruises"
+  },
+  {
+   "id": "g-cairo",
+   "title": "Cairo Travel Guide: Beyond the Pyramids",
+   "cat": "Cities",
+   "read": 14,
+   "image": "1647108694450-67be2c64ba3e",
+   "slug": "cairo-travel-guide"
+  },
+  {
+   "id": "g-costs",
+   "title": "What a Trip to Egypt Really Costs in 2026",
+   "cat": "Budget",
+   "read": 7,
+   "image": "1746274394124-141a1d1c5af3",
+   "slug": "egypt-travel-costs"
+  },
+  {
+   "id": "g-gems",
+   "title": "10 Hidden Gems Most Visitors Never See",
+   "cat": "Hidden Gems",
+   "read": 10,
+   "image": "1714229722648-3a90c3ef229f",
+   "slug": "hidden-gems-in-egypt"
+  }
+ ],
+ "film": [
+  {
+   "image": "1771325676184-44d8035e3cd1",
+   "kicker": "Chapter one",
+   "caption": "Where history still breathes."
+  },
+  {
+   "image": "1761205930594-64096d9d2baa",
+   "kicker": "Chapter two",
+   "caption": "A river that wrote a civilization."
+  },
+  {
+   "image": "1762530162773-c99f38d4d5d3",
+   "kicker": "Chapter three",
+   "caption": "Columns taller than time."
+  },
+  {
+   "image": "1655815226495-68d7d78894c4",
+   "kicker": "Chapter four",
+   "caption": "Silence, as far as you can see."
+  },
+  {
+   "image": "1682686581295-7364cabf5511",
+   "kicker": "Chapter five",
+   "caption": "Then, a different world."
+  }
+ ],
+ "routeOrder": [
+  "cairo",
+  "alexandria",
+  "siwa",
+  "luxor",
+  "aswan",
+  "hurghada",
+  "sharm"
+ ],
+ "nightWeights": {
+  "cairo": 3,
+  "alexandria": 1.5,
+  "siwa": 2.5,
+  "luxor": 2.5,
+  "aswan": 2,
+  "hurghada": 3,
+  "sharm": 3
+ },
+ "legs": {
+  "cairo>alexandria": "2h 30m drive",
+  "alexandria>siwa": "8h desert road",
+  "siwa>luxor": "Fly via Cairo",
+  "cairo>luxor": "1h flight",
+  "cairo>siwa": "Fly via Alexandria or 8h drive",
+  "luxor>aswan": "4-night Nile cruise or 3h drive",
+  "aswan>hurghada": "Fly via Cairo",
+  "luxor>hurghada": "4h drive",
+  "hurghada>sharm": "Fast ferry, 2h",
+  "cairo>aswan": "1h 25m flight",
+  "cairo>hurghada": "1h flight",
+  "cairo>sharm": "1h flight",
+  "aswan>sharm": "Fly via Cairo",
+  "luxor>sharm": "Fly via Cairo",
+  "alexandria>luxor": "Fly via Cairo"
+ },
+ "translations": {
+  "de": {
+   "destinations": {
+    "cairo": {
+     "name": "Kairo",
+     "region": "Hauptstadt · Niltal",
+     "tagline": "Die Stadt der tausend Minarette",
+     "desc": "Eine tausend Jahre alte Hauptstadt, die niemals schläft — die Pyramiden vor der Haustür, das Grand Egyptian Museum und die laternenbeleuchteten Gassen des islamischen Kairo.",
+     "highlights": [
+      "Pyramiden von Gizeh",
+      "Grand Egyptian Museum",
+      "Khan el-Khalili"
+     ],
+     "best": "Okt. – Apr.",
+     "reach": "Internationales Drehkreuz",
+     "mapReach": "Hauptstadt & internationales Tor"
+    },
+    "luxor": {
+     "name": "Luxor",
+     "region": "Oberägypten",
+     "tagline": "Das größte Freilichtmuseum der Welt",
+     "desc": "Karnaks Säulenwald, die Gräber im Tal der Könige und Heißluftballons, die im Morgengrauen über das Westufer schweben.",
+     "highlights": [
+      "Tal der Könige",
+      "Karnak-Tempel",
+      "Ballonfahrt bei Sonnenaufgang"
+     ],
+     "best": "Okt. – März",
+     "reach": "1 Std. Flug ab Kairo",
+     "mapReach": "1 Std. Flug oder Nachtzug ab Kairo"
+    },
+    "aswan": {
+     "name": "Assuan",
+     "region": "Nubien · Oberägypten",
+     "tagline": "Ägypten von seiner gelassensten Seite",
+     "desc": "Granitinseln, farbenfrohe nubische Dörfer und Feluken, die in der goldenen Stunde dahingleiten — das Tor zu Abu Simbel und Philae.",
+     "highlights": [
+      "Philae-Tempel",
+      "Nubische Dörfer",
+      "Abu Simbel"
+     ],
+     "best": "Okt. – März",
+     "reach": "1 Std. 25 Min. Flug ab Kairo",
+     "mapReach": "1 Std. 25 Min. Flug · oder per Schiff ab Luxor"
+    },
+    "hurghada": {
+     "name": "Hurghada",
+     "region": "Küste des Roten Meeres",
+     "tagline": "Riffe, Inseln und endlose Sonne",
+     "desc": "Eine von Riffen gesäumte Küste mit einfachem Tauchen, Inseltagen auf Giftun und den Designer-Lagunen von El Gouna gleich nebenan.",
+     "highlights": [
+      "Giftun-Insel",
+      "Tauchen am Riff",
+      "Marina El Gouna"
+     ],
+     "best": "Ganzjährig",
+     "reach": "1 Std. Flug ab Kairo",
+     "mapReach": "1 Std. Flug · 4 Std. Fahrt ab Luxor"
+    },
+    "sharm": {
+     "name": "Sharm El-Sheikh",
+     "region": "Süd-Sinai",
+     "tagline": "Wo die Wüste auf das Riff trifft",
+     "desc": "Tauchen der Weltklasse in Ras Mohammed, Beduinen-Dinner unter Sternen und ein Sonnenaufgang auf dem Gipfel des Mosesbergs.",
+     "highlights": [
+      "Ras Mohammed",
+      "Sonnenaufgang am Mosesberg",
+      "Insel Tiran"
+     ],
+     "best": "Ganzjährig",
+     "reach": "1 Std. Flug ab Kairo",
+     "mapReach": "1 Std. Flug · Schnellfähre ab Hurghada"
+    },
+    "siwa": {
+     "name": "Siwa",
+     "region": "Westliche Wüste",
+     "tagline": "Eine Oase am Rand der Landkarte",
+     "desc": "Salzseen, in denen man schwebt, Lehmziegel-Zitadellen und heiße Quellen zwischen Palmen — näher an Libyen als an Kairo und jeden Kilometer wert.",
+     "highlights": [
+      "Festung Shali",
+      "Schweben im Salzsee",
+      "Großes Sandmeer"
+     ],
+     "best": "Okt. – Apr.",
+     "reach": "8 Std. malerische Fahrt",
+     "mapReach": "8 Std. Fahrt entlang der Mittelmeerküste"
+    },
+    "alexandria": {
+     "name": "Alexandria",
+     "region": "Mittelmeer",
+     "tagline": "Die Perle des Mittelmeers",
+     "desc": "Weltoffen und von Meeresbrise umweht — die Bibliotheca, die Zitadelle von Qaitbay und das beste Seafood an der Corniche.",
+     "highlights": [
+      "Bibliotheca Alexandrina",
+      "Zitadelle von Qaitbay",
+      "Seafood an der Corniche"
+     ],
+     "best": "Apr. – Okt.",
+     "reach": "2 Std. 30 Min. Fahrt",
+     "mapReach": "2 Std. 30 Min. mit Auto oder Zug ab Kairo"
+    }
+   },
+   "moods": {
+    "ancient": {
+     "label": "Antike",
+     "word": "Antik",
+     "desc": "Mit fackelbeleuchteten Gräbern, Tempelsäulen, älter als die Zeit, und dem ersten Morgenlicht über dem Plateau von Gizeh."
+    },
+    "beach": {
+     "label": "Strand",
+     "word": "Am Meer",
+     "desc": "Mit Morgen am Riffrand, Abendessen barfuß und Wasser so klar, dass es kaum echt wirkt."
+    },
+    "luxury": {
+     "label": "Luxus",
+     "word": "Luxuriös",
+     "desc": "Mit Palasthotels, privaten Ägyptologen und erstklassigen Kabinen, die über den Nil gleiten."
+    },
+    "adventure": {
+     "label": "Abenteuer",
+     "word": "Abenteuerlich",
+     "desc": "Mit Dünenfahrten, Wüstencamps, Canyon-Wanderungen und Nächten unter einer ungefilterten Milchstraße."
+    },
+    "culture": {
+     "label": "Kultur",
+     "word": "Kulturell",
+     "desc": "Mit alten Basaren, nubischen Dörfern, Sufi-Musik und Cafés, die nie ganz schließen."
+    },
+    "food": {
+     "label": "Kulinarik",
+     "word": "Genussvoll",
+     "desc": "Mit Koshari um Mitternacht, warmem Baladi-Brot und gegrilltem Fisch am Mittelmeer."
+    },
+    "nature": {
+     "label": "Natur",
+     "word": "Naturnah",
+     "desc": "Mit Palmenoasen, Salzseen, geschützten Riffen und dem stillen grünen Band des Nils."
+    }
+   },
+   "experiences": {
+    "exp-giza": {
+     "title": "Private Tour: Pyramiden von Gizeh & Sphinx",
+     "location": "Gizeh, Kairo",
+     "duration": "Halber Tag"
+    },
+    "exp-dinner": {
+     "title": "Dinner-Kreuzfahrt auf dem Nil mit Live-Show",
+     "location": "Kairo",
+     "duration": "3 Stunden"
+    },
+    "exp-abu": {
+     "title": "Tagesausflug nach Abu Simbel ab Assuan",
+     "location": "Assuan",
+     "duration": "Ganzer Tag"
+    },
+    "exp-dive": {
+     "title": "Tauchen im Roten Meer: zwei Riff-Tauchgänge",
+     "location": "Hurghada",
+     "duration": "1 Tag · 2 Tauchgänge"
+    },
+    "exp-safari": {
+     "title": "Safari in die Weiße & Schwarze Wüste",
+     "location": "Westliche Wüste",
+     "duration": "2 Tage",
+     "badge": "Tipp der Redaktion"
+    },
+    "exp-food": {
+     "title": "Streetfood-Tour durch Kairo bei Nacht",
+     "location": "Downtown Kairo",
+     "duration": "4 Stunden"
+    },
+    "exp-valley": {
+     "title": "Tal der Könige & Hatschepsut-Tempel",
+     "location": "Luxor",
+     "duration": "6 Stunden"
+    },
+    "exp-siwa": {
+     "title": "Großes Sandmeer im 4×4 & heiße Quellen",
+     "location": "Oase Siwa",
+     "duration": "Ganzer Tag"
+    }
+   },
+   "guides": {
+    "g-best-time": {
+     "title": "Die beste Reisezeit für Ägypten, Monat für Monat",
+     "cat": "Planung",
+     "excerpt": "Wintersonne an den Tempeln, Frühling an den Riffen und der eine Monat, den wir immer meiden. Ein Leitfaden durch die Jahreszeiten für das richtige Timing."
+    },
+    "g-7-days": {
+     "title": "7 Tage Ägypten: die perfekte erste Reiseroute",
+     "cat": "Reiserouten"
+    },
+    "g-safe": {
+     "title": "Ist Ägypten sicher für Touristen? Ein ehrlicher Guide 2026",
+     "cat": "Sicherheit"
+    },
+    "g-cruises": {
+     "title": "Die besten Nilkreuzfahrten im Kabinen-Vergleich",
+     "cat": "Kreuzfahrten"
+    },
+    "g-cairo": {
+     "title": "Kairo-Reiseführer: mehr als die Pyramiden",
+     "cat": "Städte"
+    },
+    "g-costs": {
+     "title": "Was eine Ägyptenreise 2026 wirklich kostet",
+     "cat": "Budget"
+    },
+    "g-gems": {
+     "title": "10 verborgene Schätze, die die meisten übersehen",
+     "cat": "Geheimtipps"
+    }
+   },
+   "legs": {
+    "cairo>alexandria": "2 Std. 30 Min. Fahrt",
+    "alexandria>siwa": "8 Std. Wüstenstraße",
+    "siwa>luxor": "Flug über Kairo",
+    "cairo>luxor": "1 Std. Flug",
+    "cairo>siwa": "Flug über Alexandria oder 8 Std. Fahrt",
+    "luxor>aswan": "4 Nächte Nilkreuzfahrt oder 3 Std. Fahrt",
+    "aswan>hurghada": "Flug über Kairo",
+    "luxor>hurghada": "4 Std. Fahrt",
+    "hurghada>sharm": "Schnellfähre, 2 Std.",
+    "cairo>aswan": "1 Std. 25 Min. Flug",
+    "cairo>hurghada": "1 Std. Flug",
+    "cairo>sharm": "1 Std. Flug",
+    "aswan>sharm": "Flug über Kairo",
+    "luxor>sharm": "Flug über Kairo",
+    "alexandria>luxor": "Flug über Kairo"
+   }
+  },
+  "fr": {
+   "destinations": {
+    "cairo": {
+     "name": "Le Caire",
+     "region": "Capitale · Vallée du Nil",
+     "tagline": "La ville aux mille minarets",
+     "desc": "Une capitale millénaire qui ne dort jamais — les pyramides à sa porte, le Grand Musée égyptien et les ruelles éclairées de lanternes du Caire islamique.",
+     "highlights": [
+      "Pyramides de Gizeh",
+      "Grand Musée égyptien",
+      "Khan el-Khalili"
+     ],
+     "best": "oct. – avr.",
+     "reach": "Hub international",
+     "mapReach": "La capitale et porte d'entrée internationale"
+    },
+    "luxor": {
+     "name": "Louxor",
+     "region": "Haute-Égypte",
+     "tagline": "Le plus grand musée à ciel ouvert du monde",
+     "desc": "La forêt de colonnes de Karnak, les tombeaux de la Vallée des Rois et les montgolfières au-dessus de la rive ouest à l'aube.",
+     "highlights": [
+      "Vallée des Rois",
+      "Temple de Karnak",
+      "Montgolfière à l'aube"
+     ],
+     "best": "oct. – mars",
+     "reach": "1 h de vol depuis Le Caire",
+     "mapReach": "1 h de vol ou train de nuit depuis Le Caire"
+    },
+    "aswan": {
+     "name": "Assouan",
+     "region": "Nubie · Haute-Égypte",
+     "tagline": "L'Égypte dans ce qu'elle a de plus serein",
+     "desc": "Îles de granit, villages nubiens aux couleurs vives et felouques glissant à l'heure dorée — la porte d'Abou Simbel et de Philae.",
+     "highlights": [
+      "Temple de Philae",
+      "Villages nubiens",
+      "Abou Simbel"
+     ],
+     "best": "oct. – mars",
+     "reach": "1 h 25 de vol depuis Le Caire",
+     "mapReach": "1 h 25 de vol · ou en bateau depuis Louxor"
+    },
+    "hurghada": {
+     "name": "Hurghada",
+     "region": "Côte de la mer Rouge",
+     "tagline": "Récifs, îles et soleil sans fin",
+     "desc": "Un littoral bordé de récifs, une plongée accessible, des journées sur l'île de Giftun et les lagons design d'El Gouna tout près.",
+     "highlights": [
+      "Île de Giftun",
+      "Plongée sur les récifs",
+      "Marina d'El Gouna"
+     ],
+     "best": "Toute l'année",
+     "reach": "1 h de vol depuis Le Caire",
+     "mapReach": "1 h de vol · 4 h de route depuis Louxor"
+    },
+    "sharm": {
+     "name": "Charm el-Cheikh",
+     "region": "Sud-Sinaï",
+     "tagline": "Là où le désert rencontre le récif",
+     "desc": "Plongée de classe mondiale à Ras Mohammed, dîners bédouins sous les étoiles et lever de soleil au sommet du mont Sinaï.",
+     "highlights": [
+      "Ras Mohammed",
+      "Lever de soleil au mont Sinaï",
+      "Île de Tiran"
+     ],
+     "best": "Toute l'année",
+     "reach": "1 h de vol depuis Le Caire",
+     "mapReach": "1 h de vol · ferry rapide depuis Hurghada"
+    },
+    "siwa": {
+     "name": "Siwa",
+     "region": "Désert occidental",
+     "tagline": "Une oasis au bout de la carte",
+     "desc": "Des lacs salés où l'on flotte, des citadelles en briques crues et des sources chaudes entre les palmiers — plus près de la Libye que du Caire, et chaque kilomètre en vaut la peine.",
+     "highlights": [
+      "Forteresse de Shali",
+      "Flotter dans les lacs salés",
+      "Grande mer de sable"
+     ],
+     "best": "oct. – avr.",
+     "reach": "8 h de route panoramique",
+     "mapReach": "8 h de route par la côte méditerranéenne"
+    },
+    "alexandria": {
+     "name": "Alexandrie",
+     "region": "Méditerranée",
+     "tagline": "La perle de la Méditerranée",
+     "desc": "Cosmopolite et bercée par la brise marine — la Bibliotheca, la citadelle de Qaitbay et les meilleurs fruits de mer de la Corniche.",
+     "highlights": [
+      "Bibliotheca Alexandrina",
+      "Citadelle de Qaitbay",
+      "Fruits de mer sur la Corniche"
+     ],
+     "best": "avr. – oct.",
+     "reach": "2 h 30 de route",
+     "mapReach": "2 h 30 en voiture ou en train depuis Le Caire"
+    }
+   },
+   "moods": {
+    "ancient": {
+     "label": "Antiquité",
+     "word": "Antique",
+     "desc": "Faite de tombeaux éclairés à la torche, de colonnes de temples plus hautes que le temps et de la première lumière de l'aube sur le plateau de Gizeh."
+    },
+    "beach": {
+     "label": "Plages",
+     "word": "Balnéaire",
+     "desc": "Faite de matins au bord du récif, de dîners pieds nus et d'une eau si claire qu'elle semble irréelle."
+    },
+    "luxury": {
+     "label": "Luxe",
+     "word": "Luxueuse",
+     "desc": "Faite d'hôtels-palais, d'égyptologues privés et de cabines de première classe glissant sur le Nil."
+    },
+    "adventure": {
+     "label": "Aventure",
+     "word": "Aventureuse",
+     "desc": "Faite de dunes, de camps dans le désert, de randonnées dans les canyons et de nuits sous une Voie lactée sans filtre."
+    },
+    "culture": {
+     "label": "Culture",
+     "word": "Culturelle",
+     "desc": "Faite de vieux bazars, de villages nubiens, de musique soufie et de cafés qui ne ferment presque jamais."
+    },
+    "food": {
+     "label": "Gastronomie",
+     "word": "Gourmande",
+     "desc": "Faite de koshari à minuit, de pain baladi tout chaud et de poisson grillé face à la Méditerranée."
+    },
+    "nature": {
+     "label": "Nature",
+     "word": "Sauvage",
+     "desc": "Faite d'oasis de palmiers, de lacs salés, de récifs protégés et du paisible ruban vert du Nil."
+    }
+   },
+   "experiences": {
+    "exp-giza": {
+     "title": "Visite privée des pyramides de Gizeh et du Sphinx",
+     "location": "Gizeh, Le Caire",
+     "duration": "Demi-journée"
+    },
+    "exp-dinner": {
+     "title": "Dîner-croisière sur le Nil avec spectacle",
+     "location": "Le Caire",
+     "duration": "3 heures"
+    },
+    "exp-abu": {
+     "title": "Excursion à Abou Simbel depuis Assouan",
+     "location": "Assouan",
+     "duration": "Journée complète"
+    },
+    "exp-dive": {
+     "title": "Plongée en mer Rouge : deux plongées sur récif",
+     "location": "Hurghada",
+     "duration": "1 jour · 2 plongées"
+    },
+    "exp-safari": {
+     "title": "Safari Désert blanc & Désert noir",
+     "location": "Désert occidental",
+     "duration": "2 jours",
+     "badge": "Coup de cœur"
+    },
+    "exp-food": {
+     "title": "Tour street food du Caire by night",
+     "location": "Centre du Caire",
+     "duration": "4 heures"
+    },
+    "exp-valley": {
+     "title": "Vallée des Rois & temple d'Hatchepsout",
+     "location": "Louxor",
+     "duration": "6 heures"
+    },
+    "exp-siwa": {
+     "title": "Grande mer de sable en 4×4 & sources chaudes",
+     "location": "Oasis de Siwa",
+     "duration": "Journée complète"
+    }
+   },
+   "guides": {
+    "g-best-time": {
+     "title": "Quand partir en Égypte, mois par mois",
+     "cat": "Préparer",
+     "excerpt": "Soleil d'hiver sur les temples, printemps sur les récifs, et le seul mois que nous évitons toujours. Un guide saison par saison pour bien choisir."
+    },
+    "g-7-days": {
+     "title": "7 jours en Égypte : l'itinéraire idéal pour une première fois",
+     "cat": "Itinéraires"
+    },
+    "g-safe": {
+     "title": "L'Égypte est-elle sûre pour les touristes ? Un guide honnête pour 2026",
+     "cat": "Sécurité"
+    },
+    "g-cruises": {
+     "title": "Les meilleures croisières sur le Nil, cabine par cabine",
+     "cat": "Croisières"
+    },
+    "g-cairo": {
+     "title": "Guide du Caire : au-delà des pyramides",
+     "cat": "Villes"
+    },
+    "g-costs": {
+     "title": "Combien coûte vraiment un voyage en Égypte en 2026",
+     "cat": "Budget"
+    },
+    "g-gems": {
+     "title": "10 trésors cachés que la plupart des voyageurs ne voient jamais",
+     "cat": "Pépites"
+    }
+   },
+   "legs": {
+    "cairo>alexandria": "2 h 30 de route",
+    "alexandria>siwa": "8 h de route désertique",
+    "siwa>luxor": "Vol via Le Caire",
+    "cairo>luxor": "1 h de vol",
+    "cairo>siwa": "Vol via Alexandrie ou 8 h de route",
+    "luxor>aswan": "Croisière de 4 nuits ou 3 h de route",
+    "aswan>hurghada": "Vol via Le Caire",
+    "luxor>hurghada": "4 h de route",
+    "hurghada>sharm": "Ferry rapide, 2 h",
+    "cairo>aswan": "1 h 25 de vol",
+    "cairo>hurghada": "1 h de vol",
+    "cairo>sharm": "1 h de vol",
+    "aswan>sharm": "Vol via Le Caire",
+    "luxor>sharm": "Vol via Le Caire",
+    "alexandria>luxor": "Vol via Le Caire"
+   }
+  },
+  "it": {
+   "destinations": {
+    "cairo": {
+     "name": "Il Cairo",
+     "region": "Capitale · Valle del Nilo",
+     "tagline": "La città dai mille minareti",
+     "desc": "Una capitale millenaria che non dorme mai — le piramidi alle porte, il Grand Egyptian Museum e i vicoli illuminati dalle lanterne del Cairo islamico.",
+     "highlights": [
+      "Piramidi di Giza",
+      "Grand Egyptian Museum",
+      "Khan el-Khalili"
+     ],
+     "best": "ott – apr",
+     "reach": "Hub internazionale",
+     "mapReach": "La capitale e porta d'ingresso internazionale"
+    },
+    "luxor": {
+     "name": "Luxor",
+     "region": "Alto Egitto",
+     "tagline": "Il più grande museo a cielo aperto del mondo",
+     "desc": "La foresta di colonne di Karnak, le tombe della Valle dei Re e le mongolfiere che all'alba sorvolano la sponda occidentale.",
+     "highlights": [
+      "Valle dei Re",
+      "Tempio di Karnak",
+      "Mongolfiera all'alba"
+     ],
+     "best": "ott – mar",
+     "reach": "1 ora di volo dal Cairo",
+     "mapReach": "1 ora di volo o treno notturno dal Cairo"
+    },
+    "aswan": {
+     "name": "Assuan",
+     "region": "Nubia · Alto Egitto",
+     "tagline": "L'Egitto nella sua versione più serena",
+     "desc": "Isole di granito, villaggi nubiani dai colori vivaci e feluche che scivolano nell'ora dorata — la porta verso Abu Simbel e Philae.",
+     "highlights": [
+      "Tempio di Philae",
+      "Villaggi nubiani",
+      "Abu Simbel"
+     ],
+     "best": "ott – mar",
+     "reach": "1 h 25 di volo dal Cairo",
+     "mapReach": "1 h 25 di volo · o in nave da Luxor"
+    },
+    "hurghada": {
+     "name": "Hurghada",
+     "region": "Costa del Mar Rosso",
+     "tagline": "Barriere, isole e sole infinito",
+     "desc": "Una costa bordata di barriere coralline, immersioni facili, giornate sull'isola di Giftun e le lagune di design di El Gouna a due passi.",
+     "highlights": [
+      "Isola di Giftun",
+      "Immersioni sulla barriera",
+      "Marina di El Gouna"
+     ],
+     "best": "Tutto l'anno",
+     "reach": "1 ora di volo dal Cairo",
+     "mapReach": "1 ora di volo · 4 ore d'auto da Luxor"
+    },
+    "sharm": {
+     "name": "Sharm el-Sheikh",
+     "region": "Sinai meridionale",
+     "tagline": "Dove il deserto incontra la barriera",
+     "desc": "Immersioni di livello mondiale a Ras Mohammed, cene beduine sotto le stelle e l'alba sulla vetta del Monte Sinai.",
+     "highlights": [
+      "Ras Mohammed",
+      "Alba sul Monte Sinai",
+      "Isola di Tiran"
+     ],
+     "best": "Tutto l'anno",
+     "reach": "1 ora di volo dal Cairo",
+     "mapReach": "1 ora di volo · traghetto veloce da Hurghada"
+    },
+    "siwa": {
+     "name": "Siwa",
+     "region": "Deserto Occidentale",
+     "tagline": "Un'oasi ai confini della mappa",
+     "desc": "Laghi salati in cui galleggiare, cittadelle di mattoni crudi e sorgenti calde tra le palme — più vicina alla Libia che al Cairo, e vale ogni chilometro.",
+     "highlights": [
+      "Fortezza di Shali",
+      "Galleggiare nei laghi salati",
+      "Grande Mare di Sabbia"
+     ],
+     "best": "ott – apr",
+     "reach": "8 ore di strada panoramica",
+     "mapReach": "8 ore d'auto lungo la costa mediterranea"
+    },
+    "alexandria": {
+     "name": "Alessandria",
+     "region": "Mediterraneo",
+     "tagline": "La perla del Mediterraneo",
+     "desc": "Cosmopolita e accarezzata dalla brezza marina — la Bibliotheca, la Cittadella di Qaitbay e il miglior pesce sulla Corniche.",
+     "highlights": [
+      "Bibliotheca Alexandrina",
+      "Cittadella di Qaitbay",
+      "Pesce sulla Corniche"
+     ],
+     "best": "apr – ott",
+     "reach": "2 h 30 d'auto",
+     "mapReach": "2 h 30 in auto o treno dal Cairo"
+    }
+   },
+   "moods": {
+    "ancient": {
+     "label": "Storia",
+     "word": "Antico",
+     "desc": "Fatto di tombe illuminate dalle torce, colonne di templi più alte del tempo e della prima luce dell'alba sull'altopiano di Giza."
+    },
+    "beach": {
+     "label": "Mare",
+     "word": "Di mare",
+     "desc": "Fatto di mattine sul bordo della barriera, cene a piedi nudi e acqua così limpida da sembrare irreale."
+    },
+    "luxury": {
+     "label": "Lusso",
+     "word": "Di lusso",
+     "desc": "Fatto di hotel-palazzo, egittologi privati e cabine di prima classe che scivolano sul Nilo."
+    },
+    "adventure": {
+     "label": "Avventura",
+     "word": "Avventuroso",
+     "desc": "Fatto di dune, campi tendati nel deserto, trekking nei canyon e notti sotto una Via Lattea senza filtri."
+    },
+    "culture": {
+     "label": "Cultura",
+     "word": "Culturale",
+     "desc": "Fatto di antichi bazar, villaggi nubiani, musica sufi e caffè che non chiudono quasi mai."
+    },
+    "food": {
+     "label": "Cucina",
+     "word": "Gustoso",
+     "desc": "Fatto di koshari a mezzanotte, pane baladi caldo e pesce alla griglia sul Mediterraneo."
+    },
+    "nature": {
+     "label": "Natura",
+     "word": "Selvaggio",
+     "desc": "Fatto di oasi di palme, laghi salati, barriere protette e del quieto nastro verde del Nilo."
+    }
+   },
+   "experiences": {
+    "exp-giza": {
+     "title": "Tour privato delle Piramidi di Giza e della Sfinge",
+     "location": "Giza, Il Cairo",
+     "duration": "Mezza giornata"
+    },
+    "exp-dinner": {
+     "title": "Crociera con cena sul Nilo e spettacolo dal vivo",
+     "location": "Il Cairo",
+     "duration": "3 ore"
+    },
+    "exp-abu": {
+     "title": "Gita di un giorno ad Abu Simbel da Assuan",
+     "location": "Assuan",
+     "duration": "Giornata intera"
+    },
+    "exp-dive": {
+     "title": "Immersioni nel Mar Rosso: due immersioni in barriera",
+     "location": "Hurghada",
+     "duration": "1 giorno · 2 immersioni"
+    },
+    "exp-safari": {
+     "title": "Safari nel Deserto Bianco e Nero",
+     "location": "Deserto Occidentale",
+     "duration": "2 giorni",
+     "badge": "Scelta della redazione"
+    },
+    "exp-food": {
+     "title": "Street food del Cairo di sera",
+     "location": "Centro del Cairo",
+     "duration": "4 ore"
+    },
+    "exp-valley": {
+     "title": "Valle dei Re e Tempio di Hatshepsut",
+     "location": "Luxor",
+     "duration": "6 ore"
+    },
+    "exp-siwa": {
+     "title": "Grande Mare di Sabbia in 4×4 e sorgenti calde",
+     "location": "Oasi di Siwa",
+     "duration": "Giornata intera"
+    }
+   },
+   "guides": {
+    "g-best-time": {
+     "title": "Quando andare in Egitto, mese per mese",
+     "cat": "Pianificazione",
+     "excerpt": "Sole d'inverno sui templi, primavera sulle barriere e l'unico mese che evitiamo sempre. Una guida stagione per stagione per scegliere il momento giusto."
+    },
+    "g-7-days": {
+     "title": "7 giorni in Egitto: l'itinerario perfetto per la prima volta",
+     "cat": "Itinerari"
+    },
+    "g-safe": {
+     "title": "L'Egitto è sicuro per i turisti? Una guida onesta per il 2026",
+     "cat": "Sicurezza"
+    },
+    "g-cruises": {
+     "title": "Le migliori crociere sul Nilo, cabina per cabina",
+     "cat": "Crociere"
+    },
+    "g-cairo": {
+     "title": "Guida del Cairo: oltre le piramidi",
+     "cat": "Città"
+    },
+    "g-costs": {
+     "title": "Quanto costa davvero un viaggio in Egitto nel 2026",
+     "cat": "Budget"
+    },
+    "g-gems": {
+     "title": "10 gemme nascoste che quasi nessuno vede",
+     "cat": "Gemme nascoste"
+    }
+   },
+   "legs": {
+    "cairo>alexandria": "2 h 30 d'auto",
+    "alexandria>siwa": "8 ore di strada nel deserto",
+    "siwa>luxor": "Volo via Il Cairo",
+    "cairo>luxor": "1 ora di volo",
+    "cairo>siwa": "Volo via Alessandria o 8 ore d'auto",
+    "luxor>aswan": "Crociera di 4 notti o 3 ore d'auto",
+    "aswan>hurghada": "Volo via Il Cairo",
+    "luxor>hurghada": "4 ore d'auto",
+    "hurghada>sharm": "Traghetto veloce, 2 ore",
+    "cairo>aswan": "1 h 25 di volo",
+    "cairo>hurghada": "1 ora di volo",
+    "cairo>sharm": "1 ora di volo",
+    "aswan>sharm": "Volo via Il Cairo",
+    "luxor>sharm": "Volo via Il Cairo",
+    "alexandria>luxor": "Volo via Il Cairo"
+   }
+  },
+  "es": {
+   "destinations": {
+    "cairo": {
+     "name": "El Cairo",
+     "region": "Capital · Valle del Nilo",
+     "tagline": "La ciudad de los mil minaretes",
+     "desc": "Una capital milenaria que nunca duerme — las pirámides a su puerta, el Gran Museo Egipcio y los callejones iluminados por faroles de El Cairo islámico.",
+     "highlights": [
+      "Pirámides de Guiza",
+      "Gran Museo Egipcio",
+      "Jan el-Jalili"
+     ],
+     "best": "oct – abr",
+     "reach": "Centro internacional",
+     "mapReach": "La capital y puerta internacional"
+    },
+    "luxor": {
+     "name": "Luxor",
+     "region": "Alto Egipto",
+     "tagline": "El mayor museo al aire libre del mundo",
+     "desc": "El bosque de columnas de Karnak, las tumbas del Valle de los Reyes y los globos aerostáticos sobre la orilla oeste al amanecer.",
+     "highlights": [
+      "Valle de los Reyes",
+      "Templo de Karnak",
+      "Globo al amanecer"
+     ],
+     "best": "oct – mar",
+     "reach": "1 h de vuelo desde El Cairo",
+     "mapReach": "1 h de vuelo o tren nocturno desde El Cairo"
+    },
+    "aswan": {
+     "name": "Asuán",
+     "region": "Nubia · Alto Egipto",
+     "tagline": "Egipto en su versión más serena",
+     "desc": "Islas de granito, aldeas nubias de colores vivos y falúas que se deslizan en la hora dorada — la puerta a Abu Simbel y Filé.",
+     "highlights": [
+      "Templo de Filé",
+      "Aldeas nubias",
+      "Abu Simbel"
+     ],
+     "best": "oct – mar",
+     "reach": "1 h 25 de vuelo desde El Cairo",
+     "mapReach": "1 h 25 de vuelo · o navegando desde Luxor"
+    },
+    "hurghada": {
+     "name": "Hurghada",
+     "region": "Costa del mar Rojo",
+     "tagline": "Arrecifes, islas y sol sin fin",
+     "desc": "Una costa bordeada de arrecifes, buceo sencillo, días en la isla de Giftun y las lagunas de diseño de El Gouna al lado.",
+     "highlights": [
+      "Isla de Giftun",
+      "Buceo en el arrecife",
+      "Marina de El Gouna"
+     ],
+     "best": "Todo el año",
+     "reach": "1 h de vuelo desde El Cairo",
+     "mapReach": "1 h de vuelo · 4 h en coche desde Luxor"
+    },
+    "sharm": {
+     "name": "Sharm el-Sheij",
+     "region": "Sinaí del Sur",
+     "tagline": "Donde el desierto se encuentra con el arrecife",
+     "desc": "Buceo de talla mundial en Ras Mohammed, cenas beduinas bajo las estrellas y el amanecer en la cima del monte Sinaí.",
+     "highlights": [
+      "Ras Mohammed",
+      "Amanecer en el monte Sinaí",
+      "Isla de Tirán"
+     ],
+     "best": "Todo el año",
+     "reach": "1 h de vuelo desde El Cairo",
+     "mapReach": "1 h de vuelo · ferry rápido desde Hurghada"
+    },
+    "siwa": {
+     "name": "Siwa",
+     "region": "Desierto Occidental",
+     "tagline": "Un oasis al borde del mapa",
+     "desc": "Lagos salados en los que flotar, ciudadelas de adobe y fuentes termales entre palmeras — más cerca de Libia que de El Cairo, y vale cada kilómetro.",
+     "highlights": [
+      "Fortaleza de Shali",
+      "Flotar en los lagos salados",
+      "Gran Mar de Arena"
+     ],
+     "best": "oct – abr",
+     "reach": "8 h de ruta panorámica",
+     "mapReach": "8 h en coche por la costa mediterránea"
+    },
+    "alexandria": {
+     "name": "Alejandría",
+     "region": "Mediterráneo",
+     "tagline": "La perla del Mediterráneo",
+     "desc": "Cosmopolita y acariciada por la brisa marina — la Bibliotheca, la ciudadela de Qaitbay y el mejor marisco de la Corniche.",
+     "highlights": [
+      "Bibliotheca Alexandrina",
+      "Ciudadela de Qaitbay",
+      "Marisco en la Corniche"
+     ],
+     "best": "abr – oct",
+     "reach": "2 h 30 en coche",
+     "mapReach": "2 h 30 en coche o tren desde El Cairo"
+    }
+   },
+   "moods": {
+    "ancient": {
+     "label": "Historia",
+     "word": "Antiguo",
+     "desc": "De tumbas iluminadas con antorchas, columnas de templos más altas que el tiempo y la primera luz del alba sobre la meseta de Guiza."
+    },
+    "beach": {
+     "label": "Playa",
+     "word": "De playa",
+     "desc": "De mañanas al borde del arrecife, cenas descalzo y agua tan clara que parece irreal."
+    },
+    "luxury": {
+     "label": "Lujo",
+     "word": "De lujo",
+     "desc": "De hoteles palacio, egiptólogos privados y camarotes de primera clase deslizándose por el Nilo."
+    },
+    "adventure": {
+     "label": "Aventura",
+     "word": "Aventurero",
+     "desc": "De dunas, campamentos en el desierto, rutas por cañones y noches bajo una Vía Láctea sin filtros."
+    },
+    "culture": {
+     "label": "Cultura",
+     "word": "Cultural",
+     "desc": "De viejos bazares, aldeas nubias, música sufí y cafés que casi nunca cierran."
+    },
+    "food": {
+     "label": "Gastronomía",
+     "word": "Sabroso",
+     "desc": "De koshari a medianoche, pan baladi caliente y pescado a la parrilla junto al Mediterráneo."
+    },
+    "nature": {
+     "label": "Naturaleza",
+     "word": "Natural",
+     "desc": "De oasis de palmeras, lagos salados, arrecifes protegidos y la tranquila cinta verde del Nilo."
+    }
+   },
+   "experiences": {
+    "exp-giza": {
+     "title": "Tour privado por las pirámides de Guiza y la Esfinge",
+     "location": "Guiza, El Cairo",
+     "duration": "Medio día"
+    },
+    "exp-dinner": {
+     "title": "Crucero con cena por el Nilo y espectáculo en vivo",
+     "location": "El Cairo",
+     "duration": "3 horas"
+    },
+    "exp-abu": {
+     "title": "Excursión de un día a Abu Simbel desde Asuán",
+     "location": "Asuán",
+     "duration": "Día completo"
+    },
+    "exp-dive": {
+     "title": "Buceo en el mar Rojo: dos inmersiones en arrecife",
+     "location": "Hurghada",
+     "duration": "1 día · 2 inmersiones"
+    },
+    "exp-safari": {
+     "title": "Safari por el Desierto Blanco y Negro",
+     "location": "Desierto Occidental",
+     "duration": "2 días",
+     "badge": "Elección de la redacción"
+    },
+    "exp-food": {
+     "title": "Tour nocturno de comida callejera en El Cairo",
+     "location": "Centro de El Cairo",
+     "duration": "4 horas"
+    },
+    "exp-valley": {
+     "title": "Valle de los Reyes y templo de Hatshepsut",
+     "location": "Luxor",
+     "duration": "6 horas"
+    },
+    "exp-siwa": {
+     "title": "Gran Mar de Arena en 4×4 y fuentes termales",
+     "location": "Oasis de Siwa",
+     "duration": "Día completo"
+    }
+   },
+   "guides": {
+    "g-best-time": {
+     "title": "La mejor época para visitar Egipto, mes a mes",
+     "cat": "Planificación",
+     "excerpt": "Sol de invierno en los templos, primavera en los arrecifes y el único mes que siempre evitamos. Una guía estación a estación para acertar con el momento."
+    },
+    "g-7-days": {
+     "title": "7 días en Egipto: el itinerario perfecto para la primera vez",
+     "cat": "Itinerarios"
+    },
+    "g-safe": {
+     "title": "¿Es Egipto seguro para los turistas? Una guía honesta para 2026",
+     "cat": "Seguridad"
+    },
+    "g-cruises": {
+     "title": "Los mejores cruceros por el Nilo, camarote a camarote",
+     "cat": "Cruceros"
+    },
+    "g-cairo": {
+     "title": "Guía de El Cairo: más allá de las pirámides",
+     "cat": "Ciudades"
+    },
+    "g-costs": {
+     "title": "Cuánto cuesta de verdad un viaje a Egipto en 2026",
+     "cat": "Presupuesto"
+    },
+    "g-gems": {
+     "title": "10 joyas ocultas que casi nadie ve",
+     "cat": "Joyas ocultas"
+    }
+   },
+   "legs": {
+    "cairo>alexandria": "2 h 30 en coche",
+    "alexandria>siwa": "8 h por carretera del desierto",
+    "siwa>luxor": "Vuelo vía El Cairo",
+    "cairo>luxor": "1 h de vuelo",
+    "cairo>siwa": "Vuelo vía Alejandría u 8 h en coche",
+    "luxor>aswan": "Crucero de 4 noches o 3 h en coche",
+    "aswan>hurghada": "Vuelo vía El Cairo",
+    "luxor>hurghada": "4 h en coche",
+    "hurghada>sharm": "Ferry rápido, 2 h",
+    "cairo>aswan": "1 h 25 de vuelo",
+    "cairo>hurghada": "1 h de vuelo",
+    "cairo>sharm": "1 h de vuelo",
+    "aswan>sharm": "Vuelo vía El Cairo",
+    "luxor>sharm": "Vuelo vía El Cairo",
+    "alexandria>luxor": "Vuelo vía El Cairo"
+   }
+  },
+  "ru": {
+   "destinations": {
+    "cairo": {
+     "name": "Каир",
+     "region": "Столица · долина Нила",
+     "tagline": "Город тысячи минаретов",
+     "desc": "Тысячелетняя столица, которая никогда не спит: пирамиды у порога, Большой Египетский музей и освещённые фонарями переулки исламского Каира.",
+     "highlights": [
+      "Пирамиды Гизы",
+      "Большой Египетский музей",
+      "Хан-эль-Халили"
+     ],
+     "best": "окт – апр",
+     "reach": "Международный хаб",
+     "mapReach": "Столица и международные ворота"
+    },
+    "luxor": {
+     "name": "Луксор",
+     "region": "Верхний Египет",
+     "tagline": "Крупнейший музей под открытым небом",
+     "desc": "Лес колонн Карнака, гробницы Долины царей и воздушные шары над западным берегом на рассвете.",
+     "highlights": [
+      "Долина царей",
+      "Карнакский храм",
+      "Воздушный шар на рассвете"
+     ],
+     "best": "окт – мар",
+     "reach": "1 ч лёта из Каира",
+     "mapReach": "1 ч лёта или ночной поезд из Каира"
+    },
+    "aswan": {
+     "name": "Асуан",
+     "region": "Нубия · Верхний Египет",
+     "tagline": "Самый безмятежный Египет",
+     "desc": "Гранитные острова, яркие нубийские деревни и фелуки, скользящие в золотой час, — ворота к Абу-Симбелу и Филе.",
+     "highlights": [
+      "Храм Филе",
+      "Нубийские деревни",
+      "Абу-Симбел"
+     ],
+     "best": "окт – мар",
+     "reach": "1 ч 25 мин лёта из Каира",
+     "mapReach": "1 ч 25 мин лёта · или по реке из Луксора"
+    },
+    "hurghada": {
+     "name": "Хургада",
+     "region": "Побережье Красного моря",
+     "tagline": "Рифы, острова и бесконечное солнце",
+     "desc": "Побережье в обрамлении рифов, простой дайвинг, дни на острове Гифтун и дизайнерские лагуны Эль-Гуны по соседству.",
+     "highlights": [
+      "Остров Гифтун",
+      "Дайвинг на рифах",
+      "Марина Эль-Гуны"
+     ],
+     "best": "Круглый год",
+     "reach": "1 ч лёта из Каира",
+     "mapReach": "1 ч лёта · 4 ч на машине из Луксора"
+    },
+    "sharm": {
+     "name": "Шарм-эш-Шейх",
+     "region": "Южный Синай",
+     "tagline": "Там, где пустыня встречает риф",
+     "desc": "Дайвинг мирового уровня в Рас-Мохаммеде, бедуинский ужин под звёздами и рассвет на вершине горы Моисея.",
+     "highlights": [
+      "Рас-Мохаммед",
+      "Рассвет на горе Моисея",
+      "Остров Тиран"
+     ],
+     "best": "Круглый год",
+     "reach": "1 ч лёта из Каира",
+     "mapReach": "1 ч лёта · скоростной паром из Хургады"
+    },
+    "siwa": {
+     "name": "Сива",
+     "region": "Западная пустыня",
+     "tagline": "Оазис на краю карты",
+     "desc": "Солёные озёра, в которых невозможно утонуть, глинобитные крепости и горячие источники среди пальм — ближе к Ливии, чем к Каиру, и стоит каждого километра.",
+     "highlights": [
+      "Крепость Шали",
+      "Солёные озёра",
+      "Великое песчаное море"
+     ],
+     "best": "окт – апр",
+     "reach": "8 ч живописной дороги",
+     "mapReach": "8 ч на машине вдоль Средиземноморья"
+    },
+    "alexandria": {
+     "name": "Александрия",
+     "region": "Средиземноморье",
+     "tagline": "Жемчужина Средиземноморья",
+     "desc": "Космополитичная и овеянная морским бризом — Александрийская библиотека, цитадель Кайт-бей и лучшие морепродукты на Корнише.",
+     "highlights": [
+      "Александрийская библиотека",
+      "Цитадель Кайт-бей",
+      "Морепродукты на Корнише"
+     ],
+     "best": "апр – окт",
+     "reach": "2 ч 30 мин на машине",
+     "mapReach": "2 ч 30 мин на машине или поезде из Каира"
+    }
+   },
+   "moods": {
+    "ancient": {
+     "label": "История",
+     "word": "Древний",
+     "desc": "Гробницы в свете факелов, колонны храмов старше самого времени и первый свет зари над плато Гиза."
+    },
+    "beach": {
+     "label": "Пляж",
+     "word": "Морской",
+     "desc": "Утро на краю рифа, ужин босиком и вода настолько прозрачная, что в неё трудно поверить."
+    },
+    "luxury": {
+     "label": "Роскошь",
+     "word": "Роскошный",
+     "desc": "Отели-дворцы, личные египтологи и каюты первого класса, скользящие по Нилу."
+    },
+    "adventure": {
+     "label": "Приключения",
+     "word": "Дикий",
+     "desc": "Гонки по дюнам, лагеря в пустыне, походы по каньонам и ночи под нефильтрованным Млечным Путём."
+    },
+    "culture": {
+     "label": "Культура",
+     "word": "Культурный",
+     "desc": "Старинные базары, нубийские деревни, суфийская музыка и кафе, которые почти никогда не закрываются."
+    },
+    "food": {
+     "label": "Гастрономия",
+     "word": "Вкусный",
+     "desc": "Кошари в полночь, тёплый хлеб балади и рыба на гриле у Средиземного моря."
+    },
+    "nature": {
+     "label": "Природа",
+     "word": "Природный",
+     "desc": "Пальмовые оазисы, солёные озёра, заповедные рифы и тихая зелёная лента Нила."
+    }
+   },
+   "experiences": {
+    "exp-giza": {
+     "title": "Индивидуальная экскурсия к пирамидам Гизы и Сфинксу",
+     "location": "Гиза, Каир",
+     "duration": "Полдня"
+    },
+    "exp-dinner": {
+     "title": "Круиз с ужином по Нилу и шоу",
+     "location": "Каир",
+     "duration": "3 часа"
+    },
+    "exp-abu": {
+     "title": "Поездка в Абу-Симбел из Асуана",
+     "location": "Асуан",
+     "duration": "Целый день"
+    },
+    "exp-dive": {
+     "title": "Дайвинг в Красном море: два погружения на рифах",
+     "location": "Хургада",
+     "duration": "1 день · 2 погружения"
+    },
+    "exp-safari": {
+     "title": "Сафари по Белой и Чёрной пустыне",
+     "location": "Западная пустыня",
+     "duration": "2 дня",
+     "badge": "Выбор редакции"
+    },
+    "exp-food": {
+     "title": "Ночной гастротур по Каиру",
+     "location": "Центр Каира",
+     "duration": "4 часа"
+    },
+    "exp-valley": {
+     "title": "Долина царей и храм Хатшепсут",
+     "location": "Луксор",
+     "duration": "6 часов"
+    },
+    "exp-siwa": {
+     "title": "Великое песчаное море на 4×4 и горячие источники",
+     "location": "Оазис Сива",
+     "duration": "Целый день"
+    }
+   },
+   "guides": {
+    "g-best-time": {
+     "title": "Лучшее время для поездки в Египет — по месяцам",
+     "cat": "Планирование",
+     "excerpt": "Зимнее солнце над храмами, весна на рифах и тот единственный месяц, которого мы всегда избегаем. Путеводитель по сезонам, чтобы не ошибиться со временем."
+    },
+    "g-7-days": {
+     "title": "7 дней в Египте: идеальный маршрут для первой поездки",
+     "cat": "Маршруты"
+    },
+    "g-safe": {
+     "title": "Безопасен ли Египет для туристов? Честный гид 2026",
+     "cat": "Безопасность"
+    },
+    "g-cruises": {
+     "title": "Лучшие круизы по Нилу: сравнение кают",
+     "cat": "Круизы"
+    },
+    "g-cairo": {
+     "title": "Путеводитель по Каиру: не только пирамиды",
+     "cat": "Города"
+    },
+    "g-costs": {
+     "title": "Сколько на самом деле стоит поездка в Египет в 2026 году",
+     "cat": "Бюджет"
+    },
+    "g-gems": {
+     "title": "10 скрытых жемчужин, которые видят немногие",
+     "cat": "Скрытые жемчужины"
+    }
+   },
+   "legs": {
+    "cairo>alexandria": "2 ч 30 мин на машине",
+    "alexandria>siwa": "8 ч по пустынной дороге",
+    "siwa>luxor": "Перелёт через Каир",
+    "cairo>luxor": "1 ч лёта",
+    "cairo>siwa": "Перелёт через Александрию или 8 ч на машине",
+    "luxor>aswan": "Круиз 4 ночи или 3 ч на машине",
+    "aswan>hurghada": "Перелёт через Каир",
+    "luxor>hurghada": "4 ч на машине",
+    "hurghada>sharm": "Скоростной паром, 2 ч",
+    "cairo>aswan": "1 ч 25 мин лёта",
+    "cairo>hurghada": "1 ч лёта",
+    "cairo>sharm": "1 ч лёта",
+    "aswan>sharm": "Перелёт через Каир",
+    "luxor>sharm": "Перелёт через Каир",
+    "alexandria>luxor": "Перелёт через Каир"
+   }
+  },
+  "zh": {
+   "destinations": {
+    "cairo": {
+     "name": "开罗",
+     "region": "首都 · 尼罗河谷",
+     "tagline": "千塔之城",
+     "desc": "一座从不入眠的千年古都——金字塔就在家门口，还有大埃及博物馆，以及伊斯兰开罗那些灯笼照亮的小巷。",
+     "highlights": [
+      "吉萨金字塔",
+      "大埃及博物馆",
+      "汗·哈利利市场"
+     ],
+     "best": "10 月 – 4 月",
+     "reach": "国际交通枢纽",
+     "mapReach": "首都与国际门户"
+    },
+    "luxor": {
+     "name": "卢克索",
+     "region": "上埃及",
+     "tagline": "世界最大的露天博物馆",
+     "desc": "卡纳克神庙的石柱森林、帝王谷的墓葬，以及黎明时分飘过西岸的热气球。",
+     "highlights": [
+      "帝王谷",
+      "卡纳克神庙",
+      "黎明热气球"
+     ],
+     "best": "10 月 – 3 月",
+     "reach": "从开罗飞行 1 小时",
+     "mapReach": "从开罗飞行 1 小时或乘夜班火车"
+    },
+    "aswan": {
+     "name": "阿斯旺",
+     "region": "努比亚 · 上埃及",
+     "tagline": "最宁静的埃及",
+     "desc": "花岗岩小岛、色彩缤纷的努比亚村落，以及在黄金时刻滑行的三角帆船——通往阿布辛贝和菲莱神庙的门户。",
+     "highlights": [
+      "菲莱神庙",
+      "努比亚村落",
+      "阿布辛贝"
+     ],
+     "best": "10 月 – 3 月",
+     "reach": "从开罗飞行 1 小时 25 分",
+     "mapReach": "飞行 1 小时 25 分 · 或从卢克索乘船"
+    },
+    "hurghada": {
+     "name": "赫尔格达",
+     "region": "红海沿岸",
+     "tagline": "珊瑚、海岛与无尽阳光",
+     "desc": "环绕珊瑚礁的海岸、轻松的潜水、吉夫顿岛上的悠闲时光，旁边就是设计感十足的埃尔古纳泻湖。",
+     "highlights": [
+      "吉夫顿岛",
+      "珊瑚礁潜水",
+      "埃尔古纳码头"
+     ],
+     "best": "全年皆宜",
+     "reach": "从开罗飞行 1 小时",
+     "mapReach": "飞行 1 小时 · 从卢克索驾车 4 小时"
+    },
+    "sharm": {
+     "name": "沙姆沙伊赫",
+     "region": "南西奈",
+     "tagline": "沙漠与珊瑚礁相遇之处",
+     "desc": "穆罕默德角的世界级潜水、星空下的贝都因晚餐，以及在西奈山顶迎接日出。",
+     "highlights": [
+      "穆罕默德角",
+      "西奈山日出",
+      "蒂朗岛"
+     ],
+     "best": "全年皆宜",
+     "reach": "从开罗飞行 1 小时",
+     "mapReach": "飞行 1 小时 · 从赫尔格达乘快艇"
+    },
+    "siwa": {
+     "name": "锡瓦",
+     "region": "西部沙漠",
+     "tagline": "地图边缘的绿洲",
+     "desc": "可以漂浮的盐湖、泥砖城堡和棕榈树间的温泉——离利比亚比离开罗更近，每一公里都值得。",
+     "highlights": [
+      "沙利古城",
+      "盐湖漂浮",
+      "大沙海"
+     ],
+     "best": "10 月 – 4 月",
+     "reach": "8 小时风景公路",
+     "mapReach": "沿地中海海岸驾车 8 小时"
+    },
+    "alexandria": {
+     "name": "亚历山大",
+     "region": "地中海",
+     "tagline": "地中海明珠",
+     "desc": "国际化又带着海风——亚历山大图书馆、盖贝依城堡，以及滨海大道上最好吃的海鲜。",
+     "highlights": [
+      "亚历山大图书馆",
+      "盖贝依城堡",
+      "滨海大道海鲜"
+     ],
+     "best": "4 月 – 10 月",
+     "reach": "驾车 2 小时 30 分",
+     "mapReach": "从开罗驾车或乘火车 2 小时 30 分"
+    }
+   },
+   "moods": {
+    "ancient": {
+     "label": "历史",
+     "word": "古老",
+     "desc": "火把照亮的陵墓，比时间更高的神庙石柱，还有吉萨高原上的第一缕晨光。"
+    },
+    "beach": {
+     "label": "海滩",
+     "word": "海滨",
+     "desc": "珊瑚礁边的清晨，赤脚享用的晚餐，清澈得令人难以置信的海水。"
+    },
+    "luxury": {
+     "label": "奢华",
+     "word": "奢华",
+     "desc": "宫殿般的酒店、私人埃及学家，以及在尼罗河上滑行的头等舱客房。"
+    },
+    "adventure": {
+     "label": "探险",
+     "word": "狂野",
+     "desc": "沙丘驰骋、沙漠营地、峡谷徒步，还有毫无遮挡的银河之夜。"
+    },
+    "culture": {
+     "label": "文化",
+     "word": "人文",
+     "desc": "古老的集市、努比亚村落、苏菲音乐，以及几乎从不打烊的咖啡馆。"
+    },
+    "food": {
+     "label": "美食",
+     "word": "美味",
+     "desc": "午夜的科沙丽、热乎乎的巴拉迪面包，还有地中海边的烤鱼。"
+    },
+    "nature": {
+     "label": "自然",
+     "word": "自然",
+     "desc": "棕榈绿洲、盐湖、受保护的珊瑚礁，以及尼罗河那条宁静的绿色丝带。"
+    }
+   },
+   "experiences": {
+    "exp-giza": {
+     "title": "吉萨金字塔与狮身人面像私人游",
+     "location": "开罗吉萨",
+     "duration": "半天"
+    },
+    "exp-dinner": {
+     "title": "尼罗河晚餐游船（含现场表演）",
+     "location": "开罗",
+     "duration": "3 小时"
+    },
+    "exp-abu": {
+     "title": "从阿斯旺出发的阿布辛贝一日游",
+     "location": "阿斯旺",
+     "duration": "全天"
+    },
+    "exp-dive": {
+     "title": "红海潜水：两次珊瑚礁潜水",
+     "location": "赫尔格达",
+     "duration": "1 天 · 2 次潜水"
+    },
+    "exp-safari": {
+     "title": "白沙漠与黑沙漠探险",
+     "location": "西部沙漠",
+     "duration": "2 天",
+     "badge": "编辑推荐"
+    },
+    "exp-food": {
+     "title": "开罗夜间街头美食之旅",
+     "location": "开罗市中心",
+     "duration": "4 小时"
+    },
+    "exp-valley": {
+     "title": "帝王谷与哈特谢普苏特神庙",
+     "location": "卢克索",
+     "duration": "6 小时"
+    },
+    "exp-siwa": {
+     "title": "大沙海四驱越野与温泉",
+     "location": "锡瓦绿洲",
+     "duration": "全天"
+    }
+   },
+   "guides": {
+    "g-best-time": {
+     "title": "埃及最佳旅行时间，逐月解析",
+     "cat": "规划",
+     "excerpt": "冬日暖阳照耀神庙，春季畅游珊瑚礁，还有我们总是避开的那个月。一份按季节选对时间的指南。"
+    },
+    "g-7-days": {
+     "title": "埃及 7 日：首次到访的完美行程",
+     "cat": "行程"
+    },
+    "g-safe": {
+     "title": "埃及对游客安全吗？2026 年坦诚指南",
+     "cat": "安全"
+    },
+    "g-cruises": {
+     "title": "最佳尼罗河游船，逐舱比较",
+     "cat": "游船"
+    },
+    "g-cairo": {
+     "title": "开罗旅行指南：不止金字塔",
+     "cat": "城市"
+    },
+    "g-costs": {
+     "title": "2026 年去埃及旅行到底要花多少钱",
+     "cat": "预算"
+    },
+    "g-gems": {
+     "title": "10 个大多数游客都错过的隐藏宝藏",
+     "cat": "秘境"
+    }
+   },
+   "legs": {
+    "cairo>alexandria": "驾车 2 小时 30 分",
+    "alexandria>siwa": "沙漠公路 8 小时",
+    "siwa>luxor": "经开罗转机",
+    "cairo>luxor": "飞行 1 小时",
+    "cairo>siwa": "经亚历山大转机或驾车 8 小时",
+    "luxor>aswan": "尼罗河游船 4 晚或驾车 3 小时",
+    "aswan>hurghada": "经开罗转机",
+    "luxor>hurghada": "驾车 4 小时",
+    "hurghada>sharm": "快艇 2 小时",
+    "cairo>aswan": "飞行 1 小时 25 分",
+    "cairo>hurghada": "飞行 1 小时",
+    "cairo>sharm": "飞行 1 小时",
+    "aswan>sharm": "经开罗转机",
+    "luxor>sharm": "经开罗转机",
+    "alexandria>luxor": "经开罗转机"
+   }
+  },
+  "ar": {
+   "destinations": {
+    "cairo": {
+     "name": "القاهرة",
+     "region": "العاصمة · وادي النيل",
+     "tagline": "مدينة الألف مئذنة",
+     "desc": "عاصمة عمرها ألف عام لا تنام أبدًا — الأهرامات على عتبتها، والمتحف المصري الكبير، وأزقّة القاهرة الإسلامية المضاءة بالفوانيس.",
+     "highlights": [
+      "أهرامات الجيزة",
+      "المتحف المصري الكبير",
+      "خان الخليلي"
+     ],
+     "best": "أكتوبر – أبريل",
+     "reach": "مركز رحلات دولي",
+     "mapReach": "العاصمة وبوابة مصر الدولية"
+    },
+    "luxor": {
+     "name": "الأقصر",
+     "region": "صعيد مصر",
+     "tagline": "أكبر متحف مفتوح في العالم",
+     "desc": "غابة أعمدة الكرنك، ومقابر وادي الملوك، ومناطيد الهواء الساخن تحلّق فوق البر الغربي عند الفجر.",
+     "highlights": [
+      "وادي الملوك",
+      "معبد الكرنك",
+      "رحلة منطاد عند الفجر"
+     ],
+     "best": "أكتوبر – مارس",
+     "reach": "ساعة طيران من القاهرة",
+     "mapReach": "ساعة طيران أو قطار ليلي من القاهرة"
+    },
+    "aswan": {
+     "name": "أسوان",
+     "region": "النوبة · صعيد مصر",
+     "tagline": "مصر في أصفى حالاتها",
+     "desc": "جزر من الجرانيت، وقرى نوبية بألوان زاهية، وفلوكات تنساب في الساعة الذهبية — بوابتك إلى أبو سمبل وفيلة.",
+     "highlights": [
+      "معبد فيلة",
+      "القرى النوبية",
+      "أبو سمبل"
+     ],
+     "best": "أكتوبر – مارس",
+     "reach": "ساعة و25 دقيقة طيرانًا من القاهرة",
+     "mapReach": "ساعة و25 دقيقة طيرانًا · أو إبحارًا من الأقصر"
+    },
+    "hurghada": {
+     "name": "الغردقة",
+     "region": "ساحل البحر الأحمر",
+     "tagline": "شعاب وجزر وشمس لا تغيب",
+     "desc": "ساحل تحيط به الشعاب المرجانية، وغوص سهل، وأيام على جزيرة الجفتون، وبحيرات الجونة المصمَّمة بعناية على مقربة.",
+     "highlights": [
+      "جزيرة الجفتون",
+      "الغوص بين الشعاب",
+      "مرسى الجونة"
+     ],
+     "best": "طوال العام",
+     "reach": "ساعة طيران من القاهرة",
+     "mapReach": "ساعة طيران · 4 ساعات بالسيارة من الأقصر"
+    },
+    "sharm": {
+     "name": "شرم الشيخ",
+     "region": "جنوب سيناء",
+     "tagline": "حيث تلتقي الصحراء بالشعاب",
+     "desc": "غوص عالمي المستوى في رأس محمد، وعشاء بدوي تحت النجوم، وصعود إلى قمة جبل موسى لمشاهدة الشروق.",
+     "highlights": [
+      "رأس محمد",
+      "شروق جبل موسى",
+      "جزيرة تيران"
+     ],
+     "best": "طوال العام",
+     "reach": "ساعة طيران من القاهرة",
+     "mapReach": "ساعة طيران · عبّارة سريعة من الغردقة"
+    },
+    "siwa": {
+     "name": "سيوة",
+     "region": "الصحراء الغربية",
+     "tagline": "واحة على حافة الخريطة",
+     "desc": "بحيرات ملح تطفو فوقها، وقلاع من الطوب اللبن، وينابيع ساخنة بين النخيل — أقرب إلى ليبيا منها إلى القاهرة، وتستحق كل كيلومتر.",
+     "highlights": [
+      "قلعة شالي",
+      "الطفو في بحيرات الملح",
+      "بحر الرمال العظيم"
+     ],
+     "best": "أكتوبر – أبريل",
+     "reach": "8 ساعات بطريق خلّاب",
+     "mapReach": "8 ساعات بالسيارة عبر ساحل المتوسط"
+    },
+    "alexandria": {
+     "name": "الإسكندرية",
+     "region": "ساحل المتوسط",
+     "tagline": "عروس البحر المتوسط",
+     "desc": "مدينة كوزموبوليتانية يلفّها نسيم البحر — مكتبة الإسكندرية، وقلعة قايتباي، وأشهى المأكولات البحرية على الكورنيش.",
+     "highlights": [
+      "مكتبة الإسكندرية",
+      "قلعة قايتباي",
+      "مأكولات بحرية على الكورنيش"
+     ],
+     "best": "أبريل – أكتوبر",
+     "reach": "ساعتان ونصف بالسيارة",
+     "mapReach": "ساعتان ونصف بالسيارة أو القطار من القاهرة"
+    }
+   },
+   "moods": {
+    "ancient": {
+     "label": "التاريخ",
+     "word": "عريقة",
+     "desc": "بمقابرها المضاءة بالمشاعل، وأعمدة معابدها الأطول من الزمن، وأول ضوء للفجر فوق هضبة الجيزة."
+    },
+    "beach": {
+     "label": "الشواطئ",
+     "word": "ساحلية",
+     "desc": "بصباحاتها على حافة الشعاب، وعشاءاتها حافية القدمين، ومياهها الصافية حتى لا تكاد تُصدَّق."
+    },
+    "luxury": {
+     "label": "الفخامة",
+     "word": "فاخرة",
+     "desc": "بفنادقها التي تشبه القصور، وعلماء المصريات الخاصين، وكبائن الدرجة الأولى المنسابة على النيل."
+    },
+    "adventure": {
+     "label": "المغامرة",
+     "word": "مغامِرة",
+     "desc": "بجولات الكثبان، ومخيمات الصحراء، ورحلات الوديان، ولياليها تحت درب التبانة بلا حجاب."
+    },
+    "culture": {
+     "label": "الثقافة",
+     "word": "ثقافية",
+     "desc": "بأسواقها القديمة، وقراها النوبية، وموسيقاها الصوفية، ومقاهيها التي لا تكاد تُغلق أبوابها."
+    },
+    "food": {
+     "label": "الطعام",
+     "word": "شهية",
+     "desc": "بكشريّها في منتصف الليل، وخبزها البلدي الدافئ، وسمكها المشوي على شاطئ المتوسط."
+    },
+    "nature": {
+     "label": "الطبيعة",
+     "word": "طبيعية",
+     "desc": "بواحات نخيلها، وبحيرات ملحها، وشعابها المحمية، وشريط النيل الأخضر الهادئ."
+    }
+   },
+   "experiences": {
+    "exp-giza": {
+     "title": "جولة خاصة إلى أهرامات الجيزة وأبو الهول",
+     "location": "الجيزة، القاهرة",
+     "duration": "نصف يوم"
+    },
+    "exp-dinner": {
+     "title": "رحلة عشاء نيلية مع عرض حي",
+     "location": "القاهرة",
+     "duration": "3 ساعات"
+    },
+    "exp-abu": {
+     "title": "رحلة يوم إلى أبو سمبل من أسوان",
+     "location": "أسوان",
+     "duration": "يوم كامل"
+    },
+    "exp-dive": {
+     "title": "غوص في البحر الأحمر: غطستان بين الشعاب",
+     "location": "الغردقة",
+     "duration": "يوم · غطستان"
+    },
+    "exp-safari": {
+     "title": "سفاري الصحراء البيضاء والسوداء",
+     "location": "الصحراء الغربية",
+     "duration": "يومان",
+     "badge": "اختيار المحرر"
+    },
+    "exp-food": {
+     "title": "جولة طعام الشارع في القاهرة ليلًا",
+     "location": "وسط القاهرة",
+     "duration": "4 ساعات"
+    },
+    "exp-valley": {
+     "title": "وادي الملوك ومعبد حتشبسوت",
+     "location": "الأقصر",
+     "duration": "6 ساعات"
+    },
+    "exp-siwa": {
+     "title": "بحر الرمال العظيم بسيارات الدفع الرباعي والينابيع الساخنة",
+     "location": "واحة سيوة",
+     "duration": "يوم كامل"
+    }
+   },
+   "guides": {
+    "g-best-time": {
+     "title": "أفضل وقت لزيارة مصر، شهرًا بشهر",
+     "cat": "التخطيط",
+     "excerpt": "شمس الشتاء على المعابد، والربيع على الشعاب، والشهر الوحيد الذي نتجنّبه دائمًا. دليل موسمي لاختيار التوقيت الصحيح."
+    },
+    "g-7-days": {
+     "title": "7 أيام في مصر: البرنامج المثالي للزيارة الأولى",
+     "cat": "برامج الرحلات"
+    },
+    "g-safe": {
+     "title": "هل مصر آمنة للسياح؟ دليل صريح لعام 2026",
+     "cat": "الأمان"
+    },
+    "g-cruises": {
+     "title": "أفضل رحلات النيل، مقارنةً كابينةً بكابينة",
+     "cat": "رحلات النيل"
+    },
+    "g-cairo": {
+     "title": "دليل السفر إلى القاهرة: ما بعد الأهرامات",
+     "cat": "المدن"
+    },
+    "g-costs": {
+     "title": "كم تكلّف رحلة إلى مصر فعلًا في 2026",
+     "cat": "الميزانية"
+    },
+    "g-gems": {
+     "title": "10 كنوز خفية لا يراها معظم الزوار",
+     "cat": "كنوز خفية"
+    }
+   },
+   "legs": {
+    "cairo>alexandria": "ساعتان ونصف بالسيارة",
+    "alexandria>siwa": "8 ساعات عبر الطريق الصحراوي",
+    "siwa>luxor": "طيران عبر القاهرة",
+    "cairo>luxor": "ساعة طيران",
+    "cairo>siwa": "طيران عبر الإسكندرية أو 8 ساعات بالسيارة",
+    "luxor>aswan": "رحلة نيلية 4 ليالٍ أو 3 ساعات بالسيارة",
+    "aswan>hurghada": "طيران عبر القاهرة",
+    "luxor>hurghada": "4 ساعات بالسيارة",
+    "hurghada>sharm": "عبّارة سريعة، ساعتان",
+    "cairo>aswan": "ساعة و25 دقيقة طيرانًا",
+    "cairo>hurghada": "ساعة طيران",
+    "cairo>sharm": "ساعة طيران",
+    "aswan>sharm": "طيران عبر القاهرة",
+    "luxor>sharm": "طيران عبر القاهرة",
+    "alexandria>luxor": "طيران عبر القاهرة"
+   }
+  }
+ }
+}
