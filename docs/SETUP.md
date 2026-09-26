@@ -35,12 +35,13 @@
 | 12 | Install a Google-certified **consent tool**. If it sets Consent Mode defaults itself, set Core's Consent Mode default to "off" | Plugins + Settings |
 | 13 | Install **one** mailer plugin with an **API** provider; set SPF/DKIM/DMARC; send a test contact message and confirm "Email notification sent" on it | Plugins, DNS |
 | 14 | Optional: FluentCRM. Create a list and put its ID in Settings. Enable double opt-in and a welcome sequence. Use tags from `interests` for destination segments | FluentCRM |
-| 15 | Languages (when a translation is reviewed): install Polylang and add languages. In **Languages → Settings → URL modifications**, choose "the language is set from the directory name" and enable **"The front page URL contains the language code"**. Then run `wp egypt-roamer seed --translations` to import the prototype's translations as drafts, and have them **reviewed by native speakers** (also review `tools/i18n/new-strings.json`) before publishing | Languages |
+| 15 | Languages (when a translation is reviewed): install Polylang and add languages. In **Languages → Settings → URL modifications**, choose "the language is set from the directory name" and enable **"The front page URL contains the language code"**. Then run `wp egypt-roamer seed --translations` to import the prototype's translations as drafts, and have them **reviewed by native speakers** (also review `tools/i18n/new-strings.json`) before publishing. The same command creates one menu per language (e.g. "Primary (fr)") and assigns it in Polylang, because Polylang ignores the theme's menu locations. Items with no translation are left out, so add the translated pages to those menus in **Appearance → Menus** once they are published | Languages |
 | 16 | Import GA4 "Pages and screens" CSVs monthly to see traffic vs affiliate clicks | Egypt Roamer → Click reports |
 | 17 | GoDaddy cache test for `/go/` (see HOSTING-AND-PLUGINS.md) | staging |
 | 18 | Keep Polylang's "Detect browser language" **off** (the language cookie is disabled so pages stay cacheable) | Languages → Settings |
 | 19 | Write an intro for each archive (it becomes the archive's meta description) | Egypt Roamer → Settings |
 | 20 | Delete the inactive default plugins (Akismet, Hello Dolly) | Plugins |
+| 21 | Keep **Settings → Reading → "Discourage search engines from indexing this site"** ticked on staging and on production until at least one page passes the content gate ([LAUNCH-GATE.md](LAUNCH-GATE.md#content-gate)). The homepage is always indexable otherwise. Verified locally: the whole site then sends `noindex, nofollow` and the sitemap returns 404 | Settings → Reading |
 
 ## 3. Developer workflow
 

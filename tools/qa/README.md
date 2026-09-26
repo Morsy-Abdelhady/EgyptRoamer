@@ -8,6 +8,9 @@ node prototype-audit.mjs   # prototype: 8 languages × viewports, errors, overfl
 node wp-matrix.mjs         # WordPress: 12 page types × 390/430/768/1024/1440/1920, overflow, errors, axe
 node acceptance.mjs        # business acceptance: provider → offer → CTA → click → report → edit URL/CTA → homepage
 node leads.mjs             # newsletter, bot-speed rejection, contact form, analytics events
+node languages.mjs dest.json               # every language: nav, footer, CTA, filters, search, newsletter reply, RTL
+python3 index-gate.py '{"tour":"<url>"}' A # Ready to index OFF (A) / ON (B): robots, canonical, sitemap, H1, JSON-LD
+WP=wp OFFER_ID=.. PROVIDER_ID=.. FALLBACK_ID=.. ./redirect-matrix.sh   # /go/ security matrix on a TEST offer (restores it)
 ```
 
 `acceptance.mjs` uses a desktop user agent: headless browsers are (correctly) excluded from click logging.

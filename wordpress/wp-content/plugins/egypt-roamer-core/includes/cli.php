@@ -351,7 +351,107 @@ class ER_CLI {
 			[ 'Cookies', $home . 'cookies/' ],
 		] );
 		set_theme_mod( 'nav_menu_locations', $locations );
+		if ( function_exists( 'pll_default_language' ) && pll_default_language() ) {
+			$this->polylang_menu_locations( [ pll_default_language() => $locations ] );
+		}
 		WP_CLI::log( 'Menus: 5 (links to unpublished pages resolve once those pages are published)' );
+	}
+
+	/** The theme's translations for a locale (WP-CLI does not load theme text domains per locale). */
+	private function theme_messages( string $locale ): array {
+		$file = get_template_directory() . '/languages/' . $locale . '.l10n.php';
+		return is_readable( $file ) ? (array) ( ( include $file )['messages'] ?? [] ) : [];
+	}
+
+	/**
+	 * Polylang keeps menu locations per language and ignores the theme's own locations,
+	 * so without this every menu renders empty once Polylang is active. Existing
+	 * assignments made in Appearance → Menus are kept.
+	 */
+	private function polylang_menu_locations( array $by_lang ): void {
+		if ( ! function_exists( 'PLL' ) || ! isset( PLL()->options ) ) {
+			return;
+		}
+		$theme = get_stylesheet();
+		$menus = PLL()->options['nav_menus'];
+		$menus = is_array( $menus ) ? $menus : [];
+		foreach ( $by_lang as $lang => $locations ) {
+			foreach ( $locations as $location => $menu_id ) {
+				$current = (int) ( $menus[ $theme ][ $location ][ $lang ] ?? 0 );
+				if ( $menu_id && ( ! $current || ! wp_get_nav_menu_object( $current ) ) ) {
+					$menus[ $theme ][ $location ][ $lang ] = (int) $menu_id;
+				}
+			}
+		}
+		PLL()->options['nav_menus'] = $menus;
+		PLL()->options->save();
+	}
+
+	/**
+	 * One menu per language and location, mirroring the default-language menus:
+	 * archive links point to the language's own archive (label from the theme's translations),
+	 * page links point to the page's translation (label = that page's title). Items with no
+	 * translation are left out rather than shown in English.
+	 */
+	private function language_menus( array $languages, string $default ): void {
+		$base   = (array) get_theme_mod( 'nav_menu_locations', [] );
+		$home   = home_url( '/' );
+		$assign = [ $default => $base ];
+		foreach ( $languages as $lang ) {
+			if ( $lang === $default ) {
+				continue;
+			}
+			$language  = PLL()->model->get_language( $lang );
+			$lang_home = trailingslashit( pll_home_url( $lang ) );
+			$messages  = $this->theme_messages( $language->locale );
+			foreach ( $base as $location => $menu_id ) {
+				$menu = $menu_id ? wp_get_nav_menu_object( (int) $menu_id ) : null;
+				if ( ! $menu ) {
+					continue;
+				}
+				$name = $menu->name . ' (' . $lang . ')';
+				if ( wp_get_nav_menu_object( $name ) ) {
+					$assign[ $lang ][ $location ] = (int) wp_get_nav_menu_object( $name )->term_id;
+					continue;
+				}
+				$items = [];
+				foreach ( (array) wp_get_nav_menu_items( $menu ) as $item ) {
+					$target = 'post_type' === $item->type ? (int) $item->object_id : 0;
+					if ( ! $target && untrailingslashit( (string) $item->url ) === untrailingslashit( (string) get_permalink( (int) get_option( 'page_for_posts' ) ) ) ) {
+						$target = (int) get_option( 'page_for_posts' );
+					} elseif ( ! $target && untrailingslashit( (string) $item->url ) !== untrailingslashit( $home ) ) {
+						$target = url_to_postid( (string) $item->url );
+						$target = (int) get_option( 'page_on_front' ) === $target ? 0 : $target;
+					}
+					if ( $target ) {
+						$tr = (int) pll_get_post( $target, $lang );
+						if ( $tr ) {
+							$items[] = [ 'menu-item-type' => 'post_type', 'menu-item-object' => get_post_type( $tr ), 'menu-item-object-id' => $tr ];
+						}
+						continue;
+					}
+					$url = (string) $item->url;
+					if ( ! str_starts_with( $url, $home ) || str_contains( $url, '#' ) ) {
+						continue; // external links and anchors: the editor decides per language
+					}
+					$title = $messages[ $item->title ] ?? ( str_starts_with( $language->locale, 'en' ) ? $item->title : '' );
+					if ( '' === $title ) {
+						continue; // no translation for this label
+					}
+					$items[] = [ 'menu-item-type' => 'custom', 'menu-item-title' => $title, 'menu-item-url' => $lang_home . substr( $url, strlen( $home ) ) ];
+				}
+				if ( ! $items ) {
+					continue;
+				}
+				$new_id = wp_create_nav_menu( $name );
+				foreach ( $items as $args ) {
+					wp_update_nav_menu_item( $new_id, 0, $args + [ 'menu-item-status' => 'publish' ] );
+				}
+				$assign[ $lang ][ $location ] = (int) $new_id;
+			}
+		}
+		$this->polylang_menu_locations( $assign );
+		WP_CLI::log( 'Menus per language: ' . ( count( $assign ) - 1 ) . ' languages (items without a translation are left out).' );
 	}
 
 	/** Draft translations from the prototype's locale files, linked in Polylang. */
@@ -416,16 +516,14 @@ class ER_CLI {
 			pll_get_post_language( $page_id ) || pll_set_post_language( $page_id, $default );
 			$group = pll_get_post_translations( $page_id );
 			foreach ( $languages as $lang ) {
+				$source = (int) get_option( 'page_for_posts' ) === $page_id ? 'Journal' : 'Home';
+				$title  = $this->theme_messages( PLL()->model->get_language( $lang )->locale )[ $source ] ?? $source;
 				if ( isset( $group[ $lang ] ) ) {
+					if ( $lang !== $default && $source === get_the_title( $group[ $lang ] ) && $title !== $source ) {
+						wp_update_post( [ 'ID' => $group[ $lang ], 'post_title' => $title ] ); // earlier seeds left the English title
+					}
 					continue;
 				}
-				$locale = '';
-				foreach ( PLL()->model->get_languages_list() as $l ) {
-					$locale = $l->slug === $lang ? $l->locale : $locale;
-				}
-				switch_to_locale( $locale );
-				$title = (int) get_option( 'page_for_posts' ) === $page_id ? translate( 'Journal', 'egypt-roamer' ) : translate( 'Home', 'egypt-roamer' ); // phpcs:ignore WordPress.WP.I18n
-				restore_previous_locale();
 				$slug = preg_match( '/^[\x20-\x7E]+$/', $title ) ? sanitize_title( $title ) . '-' . $lang : get_post_field( 'post_name', $page_id ) . '-' . $lang;
 				$tid  = (int) wp_insert_post( [ 'post_type' => 'page', 'post_status' => 'publish', 'post_title' => $title, 'post_name' => $slug ] );
 				pll_set_post_language( $tid, $lang );
@@ -494,6 +592,7 @@ class ER_CLI {
 			}
 			WP_CLI::log( "Draft translations created for {$lang} (review by a native speaker before publishing)." );
 		}
+		$this->language_menus( $languages, $default );
 	}
 
 	/**

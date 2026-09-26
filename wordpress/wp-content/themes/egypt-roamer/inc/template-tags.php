@@ -77,7 +77,23 @@ function er_menu( string $location, string $wrap = '<ul>%3$s</ul>' ): string {
 
 /** Only working links: drop menu items whose target is unpublished or does not exist. */
 add_filter( 'wp_nav_menu_objects', static function ( $items ) {
-	return array_filter( $items, static function ( $item ) {
+	// Page links (/about/, /contact/ …): look up every page slug in this menu with one query.
+	static $pages = [];
+	$names = [];
+	foreach ( $items as $item ) {
+		$slug = 'custom' === $item->type && str_starts_with( (string) $item->url, home_url( '/' ) ) ? trim( (string) wp_parse_url( (string) $item->url, PHP_URL_PATH ), '/' ) : '';
+		if ( '' !== $slug && ! str_contains( $slug, '/' ) && ! array_key_exists( $slug, $pages ) ) {
+			$names[]        = $slug;
+			$pages[ $slug ] = null;
+		}
+	}
+	if ( $names ) {
+		$found = get_posts( [ 'post_type' => 'page', 'post_name__in' => $names, 'post_parent' => 0, 'post_status' => 'any', 'numberposts' => count( $names ), 'no_found_rows' => true, 'update_post_meta_cache' => false, 'update_post_term_cache' => false, 'lang' => '' ] );
+		foreach ( $found as $page ) {
+			$pages[ $page->post_name ] = 'publish' === $pages[ $page->post_name ] ? 'publish' : $page->post_status;
+		}
+	}
+	return array_filter( $items, static function ( $item ) use ( $pages ) {
 		if ( 'post_type' === $item->type ) {
 			return 'publish' === get_post_status( (int) $item->object_id );
 		}
@@ -86,6 +102,11 @@ add_filter( 'wp_nav_menu_objects', static function ( $items ) {
 			return true; // external links and in-page anchors are the editor's call
 		}
 		$path = trim( (string) wp_parse_url( $url, PHP_URL_PATH ), '/' );
+		$full = $path;
+		if ( function_exists( 'pll_languages_list' ) && pll_languages_list() ) {
+			// Polylang directory URLs: /fr/destinations/ is the destinations archive.
+			$path = (string) preg_replace( '#^(?:' . implode( '|', array_map( 'preg_quote', pll_languages_list() ) ) . ')(?:/|$)#', '', $path );
+		}
 		if ( '' === $path ) {
 			return true;
 		}
@@ -98,8 +119,18 @@ add_filter( 'wp_nav_menu_objects', static function ( $items ) {
 		if ( $posts_page && untrailingslashit( $url ) === untrailingslashit( (string) get_permalink( $posts_page ) ) ) {
 			return 'publish' === get_post_status( $posts_page );
 		}
-		$id = url_to_postid( $url );
-		return $id && 'publish' === get_post_status( $id );
+		// The same link often sits in several menus: resolve each URL once per request.
+		static $resolved = [];
+		if ( ! isset( $resolved[ $url ] ) ) {
+			// Known page slugs were looked up above; url_to_postid() (several queries) only for anything else.
+			if ( $path === $full && isset( $pages[ $path ] ) ) {
+				$resolved[ $url ] = 'publish' === $pages[ $path ];
+			} else {
+				$id               = url_to_postid( $url );
+				$resolved[ $url ] = $id && 'publish' === get_post_status( $id );
+			}
+		}
+		return $resolved[ $url ];
 	} );
 } );
 

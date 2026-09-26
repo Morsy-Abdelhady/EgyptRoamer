@@ -1,5 +1,7 @@
 # Final production-readiness audit
 
+> Superseded for the go/no-go decision by the later [launch gate](LAUNCH-GATE.md), which re-ran every test on the final code and found and fixed three more defects (empty menus with Polylang, English titles on translated Journal/Home pages, menu query cost). Query counts in §15 are from before the menus rendered; see the launch gate for current numbers.
+
 This audit only verified the build; nothing was redesigned or re-architected. The fixes made during it address functional defects the audit found (listed in §24).
 
 **Where it was tested:** a local lab with WordPress 7.1.2, PHP 8.4, MariaDB 10.11 and Polylang 3.8.9. Browser checks used headless Chromium through Playwright, with axe-core for accessibility. Cache checks used Varnish 7.1 with its default VCL.
