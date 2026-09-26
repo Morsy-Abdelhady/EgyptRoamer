@@ -66,6 +66,16 @@ function er_offer_is_live( int $offer_id ): bool {
 
 /** Term IDs for slugs, expanded to every translation of those terms (Polylang). */
 function er_term_group_ids( string $taxonomy, array $slugs ): array {
+	static $cache = [];
+	$key = $taxonomy . ':' . implode( ',', $slugs );
+	if ( isset( $cache[ $key ] ) ) {
+		return $cache[ $key ];
+	}
+	$cache[ $key ] = er_term_group_ids_uncached( $taxonomy, $slugs );
+	return $cache[ $key ];
+}
+
+function er_term_group_ids_uncached( string $taxonomy, array $slugs ): array {
 	$ids = get_terms( [ 'taxonomy' => $taxonomy, 'slug' => array_map( 'sanitize_title', $slugs ), 'hide_empty' => false, 'fields' => 'ids', 'lang' => '' ] );
 	if ( is_wp_error( $ids ) ) {
 		return [];
@@ -251,39 +261,81 @@ function er_offer_data( int $offer_id, string $placement = '', int $source_post_
  *                    style => travel style slug, limit => int, ids => int[]
  */
 function er_get_offers( array $args = [] ): array {
-	$query = [
-		'post_type'        => 'er_offer',
-		'post_status'      => 'publish',
-		'posts_per_page'   => 100,
-		'fields'           => 'ids',
-		'orderby'          => 'date',
-		'meta_query'       => [ 'relation' => 'AND' ],
-		'tax_query'        => [],
-		'no_found_rows'    => true,
-		'suppress_filters' => false,
-		'lang'             => '', // offers are language-neutral records
-	];
+	static $cache = [];
+	$key = md5( wp_json_encode( $args ) . '|' . current_time( 'Y-m-d' ) );
+	if ( ! isset( $cache[ $key ] ) ) {
+		$cache[ $key ] = er_get_offers_uncached( $args ); // homepage sections ask for the same lists several times
+	}
+	return $cache[ $key ];
+}
+
+function er_get_offers_uncached( array $args ): array {
+	$ids = er_live_offer_index();
 	foreach ( [ 'destination', 'tour', 'experience', 'activity' ] as $rel ) {
 		if ( ! empty( $args[ $rel ] ) ) {
 			// Offers attach to one language version; match the page in any language.
-			$query['meta_query'][] = [ 'key' => '_er_' . $rel, 'value' => er_translation_group( (int) $args[ $rel ] ), 'compare' => 'IN', 'type' => 'NUMERIC' ];
+			$group = er_translation_group( (int) $args[ $rel ] );
+			$ids   = array_filter( $ids, static fn ( $o ) => in_array( $o[ $rel ], $group, true ) );
 		}
 	}
 	// Categories and styles are translatable; offers are not. Match the term in any language.
-	foreach ( [ 'type' => 'er_offer_type', 'style' => 'er_travel_style' ] as $arg => $taxonomy ) {
+	foreach ( [ 'type' => 'types', 'style' => 'styles' ] as $arg => $field ) {
 		if ( ! empty( $args[ $arg ] ) ) {
-			$query['tax_query'][] = [ 'taxonomy' => $taxonomy, 'field' => 'term_id', 'terms' => er_term_group_ids( $taxonomy, (array) $args[ $arg ] ) ?: [ 0 ], 'include_children' => false ];
+			$terms = er_term_group_ids( 'type' === $arg ? 'er_offer_type' : 'er_travel_style', (array) $args[ $arg ] );
+			$ids   = array_filter( $ids, static fn ( $o ) => (bool) array_intersect( $o[ $field ], $terms ) );
 		}
 	}
 	if ( ! empty( $args['ids'] ) ) {
-		$query['post__in'] = array_map( 'intval', (array) $args['ids'] );
-		$query['orderby']  = 'post__in'; // keep the editor's chosen order
+		$order = array_map( 'intval', (array) $args['ids'] );
+		$ids   = array_filter( $ids, static fn ( $o ) => in_array( $o['id'], $order, true ) );
+		usort( $ids, static fn ( $x, $y ) => array_search( $x['id'], $order, true ) <=> array_search( $y['id'], $order, true ) ); // editor's order
+	} else {
+		usort( $ids, static fn ( $x, $y ) => [ $y['priority'], $y['date'] ] <=> [ $x['priority'], $x['date'] ] );
 	}
-	$ids = array_values( array_filter( ( new WP_Query( $query ) )->posts, 'er_offer_is_live' ) );
-	if ( empty( $args['ids'] ) ) {
-		usort( $ids, static fn ( $a, $b ) => (int) get_post_meta( $b, '_er_priority', true ) <=> (int) get_post_meta( $a, '_er_priority', true ) );
+	return array_slice( array_column( $ids, 'id' ), 0, (int) ( $args['limit'] ?? 10 ) );
+}
+
+/**
+ * Every live offer with the fields used for matching — loaded once per request
+ * (meta and terms primed in bulk), so homepage sections never query per card.
+ */
+function er_live_offer_index(): array {
+	static $index = null;
+	if ( null !== $index ) {
+		return $index;
 	}
-	return array_slice( $ids, 0, (int) ( $args['limit'] ?? 10 ) );
+	$posts = get_posts( [
+		'post_type'        => 'er_offer',
+		'post_status'      => 'publish',
+		'numberposts'      => 1000,
+		'orderby'          => 'date',
+		'order'            => 'DESC',
+		'suppress_filters' => false,
+		'lang'             => '', // offers are language-neutral records
+	] );
+	$providers = array_unique( array_filter( array_map( static fn ( $p ) => (int) get_post_meta( $p->ID, '_er_provider', true ), $posts ) ) );
+	if ( $providers ) {
+		_prime_post_caches( $providers, false, true );
+	}
+	$index = [];
+	foreach ( $posts as $p ) {
+		if ( ! er_offer_is_live( $p->ID ) ) {
+			continue;
+		}
+		$terms = static fn ( $tax ) => array_map( 'intval', wp_list_pluck( get_the_terms( $p->ID, $tax ) ?: [], 'term_id' ) );
+		$index[] = [
+			'id'          => $p->ID,
+			'date'        => $p->post_date_gmt,
+			'priority'    => (int) get_post_meta( $p->ID, '_er_priority', true ),
+			'destination' => (int) get_post_meta( $p->ID, '_er_destination', true ),
+			'tour'        => (int) get_post_meta( $p->ID, '_er_tour', true ),
+			'experience'  => (int) get_post_meta( $p->ID, '_er_experience', true ),
+			'activity'    => (int) get_post_meta( $p->ID, '_er_activity', true ),
+			'types'       => $terms( 'er_offer_type' ),
+			'styles'      => $terms( 'er_travel_style' ),
+		];
+	}
+	return $index;
 }
 
 /**

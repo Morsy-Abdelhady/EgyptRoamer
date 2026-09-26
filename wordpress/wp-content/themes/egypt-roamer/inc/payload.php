@@ -271,6 +271,14 @@ function er_payload_legs(): array {
 
 /** Build the payload. $context = 'home' (everything) or 'site' (search index only). */
 function er_payload( string $context ): array {
+	static $memo = [];
+	if ( ! isset( $memo[ $context ] ) ) {
+		$memo[ $context ] = er_build_payload( $context ); // the template and the inline script share one build
+	}
+	return $memo[ $context ];
+}
+
+function er_build_payload( string $context ): array {
 	if ( ! function_exists( 'er_get_offers' ) ) {
 		return [ 'lang' => er_lang(), 'homeUrl' => home_url( '/' ) ];
 	}
