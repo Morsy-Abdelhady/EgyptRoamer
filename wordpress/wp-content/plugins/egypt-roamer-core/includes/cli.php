@@ -351,7 +351,10 @@ class ER_CLI {
 		$s         = $this->seed_data();
 		$languages = pll_languages_list( [ 'fields' => 'slug' ] );
 		$default   = pll_default_language( 'slug' );
-		foreach ( $dest + $exps as $post_id ) {
+		// Content created before Polylang has no language and would vanish from language-filtered
+		// queries and sitemaps: give every untagged translatable post the default language.
+		$untagged = get_posts( [ 'post_type' => pll_languages_list() ? array_values( PLL()->model->get_translated_post_types() ) : [], 'post_status' => 'any', 'numberposts' => -1, 'fields' => 'ids', 'lang' => '' ] );
+		foreach ( $untagged as $post_id ) {
 			pll_get_post_language( $post_id ) || pll_set_post_language( $post_id, $default );
 		}
 		// Display taxonomies: default language for untagged terms, then translated terms

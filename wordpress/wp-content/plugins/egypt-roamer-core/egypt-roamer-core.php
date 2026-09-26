@@ -19,6 +19,13 @@ define( 'ER_CORE_FILE', __FILE__ );
 define( 'ER_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ER_CORE_URL', plugin_dir_url( __FILE__ ) );
 
+// Language lives in the URL (/fr/…), so Polylang's language cookie is unnecessary — and a
+// Set-Cookie on every response stops full-page caches from caching pages. This plugin loads
+// before Polylang (alphabetical), so the constant is in place when Polylang reads it.
+if ( ! defined( 'PLL_COOKIE' ) ) {
+	define( 'PLL_COOKIE', false );
+}
+
 require_once ER_CORE_DIR . 'includes/fields.php';
 require_once ER_CORE_DIR . 'includes/post-types.php';
 require_once ER_CORE_DIR . 'includes/meta.php';

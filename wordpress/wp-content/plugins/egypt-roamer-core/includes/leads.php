@@ -63,7 +63,8 @@ function er_form_guard_passes( string $bucket ): bool {
 	$ip   = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
 	$key  = 'er_rl_' . $bucket . '_' . substr( wp_hash( $ip . gmdate( 'Y-m-d' ) ), 0, 20 );
 	$hits = (int) get_transient( $key );
-	if ( $hits >= 5 ) {
+	// Keyed on REMOTE_ADDR: if the host's proxy/CDN hides client IPs, raise this limit (see docs/HOSTING-AND-PLUGINS.md).
+	if ( $hits >= (int) apply_filters( 'er_form_rate_limit', 5, $bucket ) ) {
 		return false;
 	}
 	set_transient( $key, $hits + 1, 10 * MINUTE_IN_SECONDS );
@@ -91,9 +92,10 @@ function er_handle_subscribe(): void {
 	if ( ! er_form_guard_passes( 'sub' ) ) {
 		er_form_return( 'subscribe-error', 'newsletter' );
 	}
-	$email = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
-	if ( ! is_email( $email ) ) {
-		er_form_return( 'subscribe-invalid', 'newsletter' );
+	$raw   = isset( $_POST['email'] ) ? trim( (string) wp_unslash( $_POST['email'] ) ) : '';
+	$email = sanitize_email( $raw );
+	if ( ! is_email( $email ) || strtolower( $email ) !== strtolower( $raw ) ) {
+		er_form_return( 'subscribe-invalid', 'newsletter' ); // never store an address the visitor did not type
 	}
 	$interests = isset( $_POST['interests'] ) ? array_slice( array_map( 'sanitize_key', (array) wp_unslash( $_POST['interests'] ) ), 0, 10 ) : [];
 	$source    = isset( $_POST['source'] ) ? substr( sanitize_key( wp_unslash( $_POST['source'] ) ), 0, 64 ) : '';
@@ -118,7 +120,7 @@ function er_handle_subscribe(): void {
 	if ( ! $handled ) {
 		global $wpdb;
 		$wpdb->query( $wpdb->prepare( // phpcs:ignore WordPress.DB.DirectDatabaseQuery
-			'INSERT INTO ' . er_subscribers_table() . ' (email, lang, interests, source, created_at) VALUES (%s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE interests = VALUES(interests), lang = VALUES(lang)',
+			'INSERT INTO ' . er_subscribers_table() . " (email, lang, interests, source, created_at) VALUES (%s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE interests = IF(VALUES(interests) = '', interests, VALUES(interests)), lang = IF(VALUES(lang) = '', lang, VALUES(lang))",
 			$email,
 			$lang,
 			implode( ',', $interests ),
@@ -232,7 +234,8 @@ function er_handle_contact(): void {
 		er_form_return( 'contact-error', 'contact' );
 	}
 	$name    = isset( $_POST['name'] ) ? mb_substr( sanitize_text_field( wp_unslash( $_POST['name'] ) ), 0, 100 ) : '';
-	$email   = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
+	$raw     = isset( $_POST['email'] ) ? trim( (string) wp_unslash( $_POST['email'] ) ) : '';
+	$email   = strtolower( sanitize_email( $raw ) ) === strtolower( $raw ) ? sanitize_email( $raw ) : '';
 	$message = isset( $_POST['message'] ) ? mb_substr( sanitize_textarea_field( wp_unslash( $_POST['message'] ) ), 0, 5000 ) : '';
 	$topic   = isset( $_POST['topic'] ) ? sanitize_key( wp_unslash( $_POST['topic'] ) ) : 'other';
 	// phpcs:enable
@@ -271,4 +274,42 @@ add_action( 'add_meta_boxes_er_message', static function () {
 		$email = (string) get_post_meta( $post->ID, '_er_email', true );
 		printf( '<p><a href="mailto:%1$s">%1$s</a></p><p>%2$s</p>', esc_attr( $email ), get_post_meta( $post->ID, '_er_mailed', true ) ? esc_html__( 'Email notification sent.', 'egypt-roamer-core' ) : esc_html__( 'Email notification FAILED — check the mail delivery setup.', 'egypt-roamer-core' ) );
 	}, 'er_message', 'side' );
+} );
+
+/* -------------------------------------------------------------------------- */
+/* Privacy: Tools → Export / Erase Personal Data                               */
+/* -------------------------------------------------------------------------- */
+
+add_filter( 'wp_privacy_personal_data_exporters', static function ( $exporters ) {
+	$exporters['egypt-roamer'] = [
+		'exporter_friendly_name' => __( 'Egypt Roamer newsletter & contact messages', 'egypt-roamer-core' ),
+		'callback'               => static function ( $email ) {
+			global $wpdb;
+			$items = [];
+			$sub   = $wpdb->get_row( $wpdb->prepare( 'SELECT email, lang, interests, source, created_at FROM ' . er_subscribers_table() . ' WHERE email = %s', $email ), ARRAY_A ); // phpcs:ignore WordPress.DB
+			if ( $sub ) {
+				$items[] = [ 'group_id' => 'er-newsletter', 'group_label' => __( 'Newsletter', 'egypt-roamer-core' ), 'item_id' => 'er-sub-' . md5( $email ), 'data' => array_map( static fn ( $k, $v ) => [ 'name' => $k, 'value' => $v ], array_keys( $sub ), $sub ) ];
+			}
+			foreach ( get_posts( [ 'post_type' => 'er_message', 'post_status' => 'any', 'numberposts' => 100, 'meta_key' => '_er_email', 'meta_value' => $email ] ) as $m ) {
+				$items[] = [ 'group_id' => 'er-messages', 'group_label' => __( 'Contact messages', 'egypt-roamer-core' ), 'item_id' => 'er-msg-' . $m->ID, 'data' => [ [ 'name' => __( 'Date', 'egypt-roamer-core' ), 'value' => $m->post_date ], [ 'name' => __( 'Message', 'egypt-roamer-core' ), 'value' => $m->post_content ] ] ];
+			}
+			return [ 'data' => $items, 'done' => true ];
+		},
+	];
+	return $exporters;
+} );
+
+add_filter( 'wp_privacy_personal_data_erasers', static function ( $erasers ) {
+	$erasers['egypt-roamer'] = [
+		'eraser_friendly_name' => __( 'Egypt Roamer newsletter & contact messages', 'egypt-roamer-core' ),
+		'callback'             => static function ( $email ) {
+			global $wpdb;
+			$removed = (int) $wpdb->delete( er_subscribers_table(), [ 'email' => $email ], [ '%s' ] ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+			foreach ( get_posts( [ 'post_type' => 'er_message', 'post_status' => 'any', 'numberposts' => 100, 'fields' => 'ids', 'meta_key' => '_er_email', 'meta_value' => $email ] ) as $id ) {
+				$removed += wp_delete_post( $id, true ) ? 1 : 0;
+			}
+			return [ 'items_removed' => $removed > 0, 'items_retained' => false, 'messages' => [], 'done' => true ];
+		},
+	];
+	return $erasers;
 } );

@@ -25,6 +25,11 @@ function er_public_type_keys(): array {
 	return [ 'er_destination', 'er_tour', 'er_experience', 'er_activity', 'er_guide' ];
 }
 
+/** Types gated by "Ready to index": the editorial types plus articles. */
+function er_gated_types(): array {
+	return array_merge( er_public_type_keys(), [ 'post' ] );
+}
+
 /** Types that carry a commercial (affiliate) layer on top of editorial content. */
 function er_commercial_types(): array {
 	return [ 'er_tour', 'er_experience', 'er_activity' ];

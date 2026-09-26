@@ -75,6 +75,7 @@ function er_meta_fields( string $post_type ): array {
 			'_er_destination' => [ 'type' => 'posts', 'post_type' => 'er_destination', 'label' => __( 'Related destinations', 'egypt-roamer-core' ) ],
 			'_er_related'     => [ 'type' => 'posts', 'post_type' => er_commercial_types(), 'label' => __( 'Related tours, experiences & activities', 'egypt-roamer-core' ) ],
 		] + $indexable,
+		'post'           => $indexable,
 		'er_provider'    => [
 			'_er_website'   => [ 'type' => 'url', 'label' => __( 'Provider website', 'egypt-roamer-core' ) ],
 			'_er_domains'   => [ 'type' => 'lines', 'label' => __( 'Allowed redirect domains (one per line)', 'egypt-roamer-core' ), 'help' => __( 'Security: /go/ links for this provider may only redirect to these hosts and their sub-domains, e.g. getyourguide.com. Required.', 'egypt-roamer-core' ) ],
@@ -120,7 +121,7 @@ function er_meta_fields( string $post_type ): array {
 
 /** Every post type that has fields. */
 function er_meta_post_types(): array {
-	return [ 'er_destination', 'er_tour', 'er_experience', 'er_activity', 'er_guide', 'er_provider', 'er_offer' ];
+	return [ 'er_destination', 'er_tour', 'er_experience', 'er_activity', 'er_guide', 'post', 'er_provider', 'er_offer' ];
 }
 
 /** Register meta for REST/the block editor so fields are real, typed data. */
@@ -211,7 +212,7 @@ add_action( 'save_post', static function ( $post_id, $post ) {
 
 /** "Index" column so unindexed published pages are visible at a glance. */
 add_action( 'admin_init', static function () {
-	foreach ( er_public_type_keys() as $type ) {
+	foreach ( er_gated_types() as $type ) {
 		add_filter( "manage_{$type}_posts_columns", static function ( $cols ) {
 			$cols['er_index'] = __( 'Index', 'egypt-roamer-core' );
 			return $cols;

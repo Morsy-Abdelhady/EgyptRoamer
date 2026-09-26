@@ -19,10 +19,33 @@ function er_seo_plugin_active(): bool {
 
 /** Editorial types need the explicit "Ready to index" tick; everything else defers to the SEO plugin. */
 function er_is_indexable( int $post_id ): bool {
-	if ( ! in_array( (string) get_post_type( $post_id ), er_public_type_keys(), true ) ) {
+	if ( ! in_array( (string) get_post_type( $post_id ), er_gated_types(), true ) ) {
 		return true;
 	}
 	return (bool) get_post_meta( $post_id, '_er_indexable', true );
+}
+
+/** The Journal (posts page) in every language. */
+function er_posts_page_ids(): array {
+	$id = (int) get_option( 'page_for_posts' );
+	return $id && function_exists( 'er_translation_group' ) ? er_translation_group( $id ) : ( $id ? [ $id ] : [] );
+}
+
+/** Is there at least one published article ticked "Ready to index" (optionally in one language)? */
+function er_has_indexable_articles( string $lang = '' ): bool {
+	static $cache = [];
+	if ( ! isset( $cache[ $lang ] ) ) {
+		$cache[ $lang ] = (bool) get_posts( [ 'post_type' => 'post', 'post_status' => 'publish', 'numberposts' => 1, 'fields' => 'ids', 'meta_key' => '_er_indexable', 'meta_value' => '1', 'lang' => $lang ] );
+	}
+	return $cache[ $lang ];
+}
+
+/** Journal pages (any language) whose language has no indexable article — noindex, so never in a sitemap. */
+function er_empty_posts_page_ids(): array {
+	return array_values( array_filter( er_posts_page_ids(), static function ( $id ) {
+		$lang = function_exists( 'pll_get_post_language' ) ? (string) pll_get_post_language( $id, 'slug' ) : '';
+		return ! er_has_indexable_articles( $lang );
+	} ) );
 }
 
 /** Query-string keys that only filter or sort a listing (never a distinct page). */
@@ -40,6 +63,9 @@ function er_request_noindex(): bool {
 	}
 	if ( is_singular() ) {
 		return ! er_is_indexable( (int) get_queried_object_id() );
+	}
+	if ( is_category( (int) get_option( 'default_category' ) ) ) {
+		return true; // "Uncategorized" is never a destination for searchers
 	}
 	if ( is_post_type_archive( er_public_type_keys() ) || is_home() || is_category() || is_tag() ) {
 		foreach ( er_filter_query_keys() as $key ) {
@@ -77,13 +103,28 @@ add_filter( 'rank_math/sitemap/entry', static function ( $url, $type, $object ) 
 	if ( 'post' === $type && $object instanceof WP_Post && ! er_is_indexable( $object->ID ) ) {
 		return false;
 	}
+	if ( 'post' === $type && $object instanceof WP_Post && in_array( $object->ID, er_empty_posts_page_ids(), true ) ) {
+		return false;
+	}
+	if ( 'term' === $type && $object instanceof WP_Term && (int) get_option( 'default_category' ) === (int) $object->term_id ) {
+		return false;
+	}
 	return $url;
 }, 10, 3 );
 
 // Core sitemap (fallback when no SEO plugin provides one).
 add_filter( 'wp_sitemaps_posts_query_args', static function ( $args, $post_type ) {
-	if ( in_array( $post_type, er_public_type_keys(), true ) ) {
+	if ( in_array( $post_type, er_gated_types(), true ) ) {
 		$args['meta_query'] = [ [ 'key' => '_er_indexable', 'value' => '1' ] ];
+	}
+	if ( 'page' === $post_type && er_empty_posts_page_ids() ) {
+		$args['post__not_in'] = array_merge( (array) ( $args['post__not_in'] ?? [] ), er_empty_posts_page_ids() ); // an empty Journal is noindex
+	}
+	return $args;
+}, 10, 2 );
+add_filter( 'wp_sitemaps_taxonomies_query_args', static function ( $args, $taxonomy ) {
+	if ( 'category' === $taxonomy ) {
+		$args['exclude'] = array_merge( (array) ( $args['exclude'] ?? [] ), [ (int) get_option( 'default_category' ) ] );
 	}
 	return $args;
 }, 10, 2 );
@@ -179,6 +220,7 @@ add_action( 'wp_head', static function () {
 		$obj  = get_queried_object();
 		$desc = $obj && ! empty( $obj->description ) ? $obj->description : $desc;
 	}
+	$desc  = (string) apply_filters( 'er_fallback_description', (string) $desc );
 	$image = $image ?: (string) apply_filters( 'er_default_share_image', '' );
 	$desc  = trim( wp_strip_all_tags( (string) $desc ) );
 	if ( $desc ) {

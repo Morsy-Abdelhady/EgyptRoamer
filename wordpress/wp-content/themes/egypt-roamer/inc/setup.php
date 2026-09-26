@@ -41,6 +41,38 @@ add_action( 'admin_notices', static function () {
 	}
 } );
 
+/**
+ * Document titles in the page's language, independent of WordPress core
+ * language packs (Rank Math replaces these with its own templates when active).
+ */
+add_filter( 'document_title_parts', static function ( $parts ) {
+	if ( is_front_page() ) {
+		$parts['tagline'] = er_t( 'More than a destination' );
+	} elseif ( is_post_type_archive() ) {
+		$parts['title'] = er_type_label( (string) get_query_var( 'post_type' ) );
+	} elseif ( is_search() ) {
+		$parts['title'] = er_t( 'Results for “{q}”', [ 'q' => get_search_query( false ) ] );
+	} elseif ( is_404() ) {
+		$parts['title'] = er_t( 'This page wandered off' );
+	}
+	return $parts;
+} );
+
+/** Meta description fallback (used only while no SEO plugin is active). */
+add_filter( 'er_fallback_description', static function ( $desc ) {
+	if ( is_front_page() ) {
+		return trim( er_home( 'hero_copy' ) . ' ' . er_home( 'hero_copy_more' ) );
+	}
+	if ( is_post_type_archive() && function_exists( 'er_settings' ) ) {
+		$intro = er_translate_string( (string) er_settings( 'archive_intro_' . get_query_var( 'post_type' ) ) );
+		return '' !== trim( $intro ) ? $intro : '';
+	}
+	return $desc;
+} );
+
+/** Search and comment feeds are not part of the product; their <link> titles are core English strings. */
+remove_action( 'wp_head', 'feed_links_extra', 3 );
+
 /** Clean archive titles ("Destinations", not "Archives: Destinations"). */
 add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 

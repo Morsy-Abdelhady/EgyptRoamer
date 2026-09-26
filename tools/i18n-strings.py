@@ -32,6 +32,10 @@ for m in re.findall(r"(?:esc_html__|esc_html_e)\(\s*" + lit, text[start:text.ind
 aff = (plugin / "includes/affiliate.php").read_text()
 plugin_strings += [unq(m) for m in re.findall(r"__\(\s*" + lit + r"\s*,\s*'egypt-roamer-core'\s*\)\s*,?\s*$", aff[aff.index("function er_price_unit_label"):aff.index("/** Everything a template needs")], re.M)]
 plugin_strings.append("How we work with partners")
+# Post type names appear in archive titles (front end).
+pt = (plugin / "includes/post-types.php").read_text()
+pt = pt[pt.index("function er_public_types"):pt.index("function er_public_type_keys")]
+plugin_strings += [unq(m) for m in re.findall(r"__\(\s*" + lit, pt)]
 meta = (plugin / "includes/meta.php").read_text()
 plugin_strings += [unq(m) for m in re.findall(r"=>\s*__\(\s*" + lit, meta[meta.index("function er_cta_options"):meta.index("/** Field schema per post type")])]
 out = {"theme": sorted(set(theme_strings)), "plugin": sorted(set(plugin_strings))}

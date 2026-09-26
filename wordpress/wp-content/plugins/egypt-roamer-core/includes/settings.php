@@ -105,7 +105,7 @@ function er_health_checks(): array {
 
 	// Published editorial pages still marked noindex.
 	$noindex = get_posts( [
-		'post_type'   => er_public_type_keys(),
+		'post_type'   => er_gated_types(),
 		'post_status' => 'publish',
 		'numberposts' => 50,
 		'meta_query'  => [ [ 'key' => '_er_indexable', 'compare' => 'NOT EXISTS' ] ],

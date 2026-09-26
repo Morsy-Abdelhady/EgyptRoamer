@@ -33,7 +33,7 @@ function er_is_bot_request(): bool {
 	}
 	$purpose = strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_SEC_PURPOSE'] ?? $_SERVER['HTTP_PURPOSE'] ?? '' ) ) );
 	$method  = strtoupper( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_METHOD'] ?? 'GET' ) ) );
-	return str_contains( $purpose, 'prefetch' ) || 'HEAD' === $method;
+	return str_contains( $purpose, 'prefetch' ) || 'GET' !== $method; // only real navigations count as clicks
 }
 
 /** First non-empty relation, falling back through the linked tour/experience/activity. */
@@ -58,7 +58,8 @@ function er_click_context( int $offer_id ): array {
 
 /** Where the visitor clicked: a published post ID and a path on this site (never a query string). */
 function er_click_source(): array {
-	$src  = isset( $_GET['src'] ) ? absint( $_GET['src'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- public link, logged only
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- public link, logged only; digits only (no "-5abc" → 5)
+	$src  = isset( $_GET['src'] ) && ctype_digit( (string) wp_unslash( $_GET['src'] ) ) ? (int) $_GET['src'] : 0;
 	$post = $src ? get_post( $src ) : null;
 	if ( ! $post || 'publish' !== $post->post_status || ! is_post_type_viewable( $post->post_type ) ) {
 		$src  = 0;
