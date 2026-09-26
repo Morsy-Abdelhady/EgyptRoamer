@@ -391,7 +391,8 @@ function er_form_notice( string $form ): void {
 	$state = isset( $_GET['er'] ) ? sanitize_key( wp_unslash( $_GET['er'] ) ) : '';
 	$messages = [
 		'newsletter' => [
-			'subscribed'        => [ 'ok', er_t( 'Thank you — please check your inbox to confirm your subscription.' ) ],
+			'subscribed-pending' => [ 'ok', er_t( 'Thank you — please check your inbox to confirm your subscription.' ) ],
+			'subscribed'         => [ 'ok', er_t( "You're on the list — first letter arrives next month." ) ],
 			'subscribe-invalid' => [ 'error', er_t( 'Please enter a valid email address.' ) ],
 			'subscribe-error'   => [ 'error', er_t( 'Sorry, that did not work. Please try again in a moment.' ) ],
 		],

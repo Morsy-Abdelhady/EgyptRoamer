@@ -211,6 +211,7 @@ return [
 		'You <em>Feel</em> It' => '用心<em>感受</em>',
 		'You book directly with our partners' => '您直接向我们的合作伙伴预订',
 		'You may prefer something else if' => '以下情况可考虑其他选择',
+		'You\'re on the list — first letter arrives next month.' => '订阅成功——第一封来信将于下月送达。',
 		'Your Egypt, drafted' => '你的埃及行程草稿',
 		'Your draft itinerary' => '你的行程草稿',
 		'Your email address' => '你的电子邮件地址',

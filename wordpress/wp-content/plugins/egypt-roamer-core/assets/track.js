@@ -49,7 +49,7 @@
   try {
     var url = new URL(location.href);
     var state = url.searchParams.get("er");
-    var map = { subscribed: "newsletter_signup", "contact-sent": "contact_submit" };
+    var map = { subscribed: "newsletter_signup", "subscribed-pending": "newsletter_signup", "contact-sent": "contact_submit" };
     if (map[state]) {
       push(map[state], {});
       url.searchParams.delete("er");

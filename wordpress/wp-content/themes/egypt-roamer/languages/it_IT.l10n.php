@@ -211,6 +211,7 @@ return [
 		'You <em>Feel</em> It' => 'Lo <em>senti</em>',
 		'You book directly with our partners' => 'Prenoti direttamente con i nostri partner',
 		'You may prefer something else if' => 'Meglio altro se',
+		'You\'re on the list — first letter arrives next month.' => 'Ci sei — la prima lettera arriva il mese prossimo.',
 		'Your Egypt, drafted' => 'Il tuo Egitto, in bozza',
 		'Your draft itinerary' => 'La tua bozza di itinerario',
 		'Your email address' => 'Il tuo indirizzo email',

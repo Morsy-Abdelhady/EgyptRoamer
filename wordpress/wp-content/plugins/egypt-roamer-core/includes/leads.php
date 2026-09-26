@@ -127,7 +127,8 @@ function er_handle_subscribe(): void {
 		) );
 	}
 	do_action( 'er_newsletter_subscribed', $email, $interests, $lang );
-	er_form_return( 'subscribed', 'newsletter' );
+	// "pending" only when a confirmation email really went out (FluentCRM double opt-in).
+	er_form_return( $handled ? 'subscribed-pending' : 'subscribed', 'newsletter' );
 }
 add_action( 'admin_post_nopriv_er_subscribe', 'er_handle_subscribe' );
 add_action( 'admin_post_er_subscribe', 'er_handle_subscribe' );
