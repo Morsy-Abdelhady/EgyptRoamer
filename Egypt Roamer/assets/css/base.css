@@ -1,0 +1,694 @@
+/* ==========================================================================
+   Base — reset, typography, primitives (buttons, labels, icons, chips)
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: var(--nav-h);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+img.img-failed {
+  opacity: 0; /* the container's neutral backdrop shows instead of a broken icon */
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+/* Editorial headings are "setup line + italic payoff". Making the payoff its
+   own block lets each part balance independently, so no translation strands
+   a single word on the last line. */
+h1 em.serif,
+h2 em.serif {
+  display: block;
+  text-wrap: balance;
+}
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--charcoal);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -100px;
+  z-index: 200;
+  padding: 0.75rem 1rem;
+  background: var(--gold);
+  color: var(--charcoal);
+  border-radius: var(--r-sm);
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.section {
+  padding-block: var(--section-y);
+  position: relative;
+}
+.section--dark {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+/* ---------- Typography ---------- */
+.t-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--fs-display);
+  line-height: 0.86;
+  letter-spacing: -0.02em;
+}
+.t-h1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.015em;
+}
+.t-h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+}
+.t-h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--fs-h3);
+  line-height: 1.2;
+}
+.t-h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-h4);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+.t-lead {
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  font-weight: 300;
+}
+.t-small {
+  font-size: var(--fs-small);
+}
+.t-meta {
+  font-size: var(--fs-meta);
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+}
+.t-label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+}
+.t-italic,
+em.serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.t-gold {
+  color: var(--gold);
+}
+.muted {
+  color: var(--text-muted);
+}
+
+/* Eyebrow label with thin leading rule */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--clay);
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+.section--dark .eyebrow,
+.on-dark .eyebrow {
+  color: var(--sand);
+}
+
+/* Section heading block */
+.section-head {
+  display: grid;
+  gap: var(--s-5);
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+.section-head--split {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: end;
+  gap: var(--s-7);
+}
+.section-head__aside {
+  display: grid;
+  gap: var(--s-5);
+  justify-items: start;
+  max-width: 44ch;
+}
+@media (max-width: 900px) {
+  .section-head--split {
+    grid-template-columns: 1fr;
+    gap: var(--s-5);
+  }
+}
+
+/* ---------- Icons ---------- */
+.icon {
+  display: inline-block;
+  vertical-align: -0.22em;
+  width: 1.25em;
+  height: 1.25em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon--sm {
+  width: 1em;
+  height: 1em;
+}
+.icon--lg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.icon--fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  --btn-bg: var(--gold);
+  --btn-fg: var(--charcoal);
+  --btn-bd: transparent;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 48px;
+  padding: 0 1.5rem;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--btn-bd);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  isolation: isolate;
+  overflow: hidden;
+  transition: background-color var(--t-base) var(--ease-out),
+    color var(--t-base) var(--ease-out), border-color var(--t-base) var(--ease-out),
+    box-shadow var(--t-base) var(--ease-out);
+  will-change: transform;
+}
+.btn .icon {
+  transition: transform var(--t-base) var(--ease-out);
+}
+.btn:hover .icon--arrow {
+  transform: translateX(4px);
+}
+.btn::after {
+  /* soft light sweep */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    120px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--white) 38%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--t-base) var(--ease-out);
+}
+.btn:hover::after {
+  opacity: 1;
+}
+.btn:active {
+  filter: brightness(0.94);
+}
+.btn:active .icon--arrow {
+  transform: translateX(6px);
+}
+.icon-btn:active,
+.save-btn:active,
+.round-btn:active {
+  transform: scale(0.94);
+}
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.btn--primary {
+  --btn-bg: var(--gold);
+  --btn-fg: var(--charcoal);
+}
+.btn--primary:hover {
+  --btn-bg: color-mix(in srgb, var(--gold) 88%, var(--white));
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--gold) 30%, transparent);
+}
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--white);
+  --btn-bd: color-mix(in srgb, var(--white) 55%, transparent);
+  backdrop-filter: blur(6px);
+}
+.btn--ghost:hover {
+  --btn-bg: var(--white);
+  --btn-fg: var(--charcoal);
+  --btn-bd: var(--white);
+}
+.btn--outline {
+  --btn-bg: transparent;
+  --btn-fg: var(--charcoal);
+  --btn-bd: var(--line-strong);
+}
+.btn--outline:hover {
+  --btn-bg: var(--charcoal);
+  --btn-fg: var(--white);
+  --btn-bd: var(--charcoal);
+}
+.btn--dark {
+  --btn-bg: var(--charcoal);
+  --btn-fg: var(--white);
+}
+.btn--dark:hover {
+  --btn-bg: var(--ink-3);
+}
+.btn--sm {
+  min-height: 40px;
+  padding: 0 1.1rem;
+  font-size: 0.82rem;
+}
+.btn--lg {
+  min-height: 58px;
+  padding: 0 2rem;
+  font-size: 0.95rem;
+}
+.btn--block {
+  width: 100%;
+}
+
+/* Text link with animated underline */
+.link {
+  position: relative;
+  display: inline-flex;
+  white-space: nowrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding-bottom: 3px;
+}
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform-origin: right;
+  transform: scaleX(0.35);
+  opacity: 0.5;
+  transition: transform var(--t-base) var(--ease-out), opacity var(--t-base);
+}
+.link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+  opacity: 1;
+}
+.link .icon {
+  transition: transform var(--t-base) var(--ease-out);
+}
+.link:hover .icon {
+  transform: translateX(3px);
+}
+
+/* Play button (circle) */
+.play {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.play__ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--white) 60%, transparent);
+  transition: background var(--t-base) var(--ease-out), transform var(--t-base) var(--ease-out);
+}
+.play__ring::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid var(--white);
+  opacity: 0;
+  animation: ring 2.8s var(--ease-out) infinite;
+}
+.play:hover .play__ring {
+  background: var(--white);
+  color: var(--charcoal);
+  transform: scale(1.06);
+}
+@keyframes ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Icon button */
+.icon-btn {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  transition: background var(--t-fast), color var(--t-fast), transform var(--t-base) var(--ease-out);
+}
+.icon-btn:hover {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+.icon-btn__badge {
+  position: absolute;
+  top: 5px;
+  right: 4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 99px;
+  background: var(--gold);
+  color: var(--charcoal);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  transform: scale(0);
+  transition: transform var(--t-base) var(--ease-out);
+}
+.icon-btn__badge.is-visible {
+  transform: scale(1);
+}
+
+/* Save (favourite) toggle */
+.save-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--charcoal) 28%, transparent);
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  border: 1px solid color-mix(in srgb, var(--white) 30%, transparent);
+  transition: transform var(--t-base) var(--ease-out), background var(--t-base);
+}
+.save-btn:hover {
+  transform: scale(1.08);
+}
+.save-btn .icon {
+  width: 17px;
+  height: 17px;
+  transition: fill var(--t-fast), transform var(--t-base) var(--ease-out);
+}
+.save-btn[aria-pressed="true"] {
+  background: var(--white);
+  color: var(--clay);
+}
+.save-btn[aria-pressed="true"] .icon {
+  fill: currentColor;
+  animation: pop 0.45s var(--ease-out);
+}
+@keyframes pop {
+  40% {
+    transform: scale(1.35);
+  }
+}
+
+/* Chips / tags */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 28px;
+  padding: 0 0.8rem;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong);
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.chip--gold {
+  border-color: transparent;
+  background: var(--gold);
+  color: var(--charcoal);
+}
+.chip--glass {
+  border-color: color-mix(in srgb, var(--white) 26%, transparent);
+  background: color-mix(in srgb, var(--charcoal) 30%, transparent);
+  color: var(--white);
+  backdrop-filter: blur(10px);
+}
+.chip--teal {
+  border-color: transparent;
+  background: color-mix(in srgb, var(--teal) 14%, transparent);
+  color: var(--teal);
+}
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: var(--fs-meta);
+  font-weight: 600;
+}
+.rating .icon {
+  color: var(--gold);
+  width: 14px;
+  height: 14px;
+}
+.rating span {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* ---------- Reveal utilities (JS adds .is-in) ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1s var(--ease-out), transform 1.1s var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+[data-reveal="fade"] {
+  transform: none;
+}
+[data-reveal="mask"] {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.3s var(--ease-out);
+}
+[data-reveal="mask"].is-in {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Split-line headline reveal */
+.split-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+.split-line > span {
+  display: block;
+  transform: translateY(105%);
+  transition: transform 1.2s var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+.is-in .split-line > span,
+.split-line.is-in > span {
+  transform: none;
+}
+
+.no-js [data-reveal],
+.no-js .split-line > span {
+  opacity: 1;
+  transform: none;
+  clip-path: none;
+}
+
+/* Image base treatment — consistent grade */
+.media {
+  position: relative;
+  overflow: hidden;
+  background: var(--warm-gray);
+}
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(1.03);
+  transition: transform 1.4s var(--ease-out), opacity 0.6s var(--ease-out);
+}
+.media--hover:hover img,
+a:hover > .media--hover img,
+.card:hover .media img {
+  transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  [data-reveal],
+  .split-line > span {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}

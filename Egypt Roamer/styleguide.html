@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" class="js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Egypt Roamer — Visual System</title>
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="assets/img/brand/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/tokens.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/sections.css" />
+    <style>
+      body { background: var(--stone); }
+      .sg-head { background: var(--ink); color: var(--white); padding: 5rem 0 4rem; }
+      .sg-head .brandrow { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 2.5rem; }
+      .sg-head .brandrow img { height: 52px; width: auto; }
+      .logo-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+      .logo-card { border-radius: var(--r-md); padding: 2.4rem 2rem; display: grid; gap: 1.4rem; justify-items: start; box-shadow: var(--shadow-1); }
+      .logo-card img { height: 44px; width: auto; max-width: 100%; object-fit: contain; }
+      .logo-card .mark { height: 64px; }
+      .logo-card small { font-size: 0.78rem; opacity: 0.75; }
+      .logo-card--light { background: var(--paper); color: #101820; }
+      .logo-card--dark { background: #101820; color: #fff; }
+      .sg-section { padding: 4.5rem 0; border-bottom: 1px solid var(--line); }
+      .sg-section h2 { margin-bottom: 2.2rem; }
+      .sg-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+      .swatch { border-radius: var(--r-md); overflow: hidden; background: var(--paper); box-shadow: var(--shadow-1); }
+      .swatch i { display: block; height: 110px; }
+      .swatch p { padding: 0.8rem 0.9rem 1rem; font-size: 0.8rem; line-height: 1.4; }
+      .swatch b { display: block; font-weight: 600; }
+      .swatch small { color: var(--text-muted); font-family: ui-monospace, Menlo, monospace; }
+      .swatch em { display: block; font-style: normal; color: var(--text-faint); font-size: 0.72rem; margin-top: 0.3rem; }
+      .type-row { display: grid; grid-template-columns: 170px 1fr; gap: 1.5rem; align-items: baseline; padding: 1.2rem 0; border-top: 1px solid var(--line); }
+      .type-row > span { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+      .row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+      .dark-panel { background: var(--ink); color: var(--white); padding: 2rem; border-radius: var(--r-lg); }
+      .icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 0.8rem; }
+      .icons div { display: grid; justify-items: center; gap: 0.6rem; padding: 1.2rem 0.5rem; border-radius: var(--r-md); background: var(--paper); font-size: 0.72rem; color: var(--text-muted); }
+      .icons svg { width: 28px; height: 28px; color: var(--charcoal); }
+      .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+      .rules article { background: var(--paper); border-radius: var(--r-md); padding: 1.5rem; }
+      .rules h3 { font-family: var(--font-serif); font-weight: 500; font-size: 1.2rem; margin-bottom: 0.6rem; }
+      .rules p { font-size: 0.9rem; color: var(--text-muted); }
+      .rules .do { border-top: 3px solid var(--teal); }
+      .rules .dont { border-top: 3px solid var(--clay); }
+      @media (max-width: 700px) { .type-row { grid-template-columns: 1fr; gap: 0.4rem; } }
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.4-7.5-10.2A4.3 4.3 0 0 1 12 7.1a4.3 4.3 0 0 1 7.5 2.7C19.5 15.6 12 20 12 20Z" /></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17M12 3.5c2.4 2.3 3.6 5.1 3.6 8.5s-1.2 6.2-3.6 8.5c-2.4-2.3-3.6-5.1-3.6-8.5S9.6 5.8 12 3.5Z" /></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15.5M13.5 6l6 6-6 6" /></symbol>
+        <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M20 12H4.5M10.5 6l-6 6 6 6" /></symbol>
+        <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5" /></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none" /></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3.5 8.5h17M3.5 15.5h11" /></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></symbol>
+        <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.6 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8L12 3.6Z" fill="currentColor" stroke="none" /></symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21Z" /><circle cx="12" cy="9.8" r="2.3" /></symbol>
+        <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 18.5V6.5M3 14.5h18v4M21 14.5V12a2.5 2.5 0 0 0-2.5-2.5H11v5" /><circle cx="7" cy="11.5" r="1.6" /></symbol>
+        <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" /></symbol>
+        <symbol id="i-ship" viewBox="0 0 24 24"><path d="M3 16h18l-1.8 3.5H4.8L3 16Z" /><path d="M5.5 16v-4h13v4M8.5 12V9h7v3M12 9V5.5" /><path d="M2.5 21.5c1.5-.8 2.5-.8 4 0s2.5.8 4 0 2.5-.8 4 0 2.5.8 4 0" opacity=".6" /></symbol>
+        <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16.5V13l2-4.5h12L20 13v3.5H4Z" /><path d="M5.5 16.5v2h2.5v-2M16 16.5v2h2.5v-2M4 13h16" /><circle cx="7.5" cy="14.8" r=".4" /><circle cx="16.5" cy="14.8" r=".4" /></symbol>
+        <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2" /><circle cx="18" cy="6" r="2" /><path d="M8 18h6.5a3 3 0 0 0 0-6h-5a3 3 0 0 1 0-6H16" /></symbol>
+        <symbol id="i-temple" viewBox="0 0 24 24"><path d="M3.5 20.5h17M4.5 17.5h15M6 17.5V10M10 17.5V10M14 17.5V10M18 17.5V10M4 10h16M12 3.5 20 7.5H4L12 3.5Z" /></symbol>
+        <symbol id="i-palm" viewBox="0 0 24 24"><path d="M12.5 21c0-4.5.4-8.2 1.8-11.5" /><path d="M14.3 9.5C12.5 6.8 9 6.5 6.5 8.3c3-.3 5.4.3 7.8 1.2ZM14.3 9.5c.8-3 4.3-4.2 6.5-2.6-2.8 0-4.8.8-6.5 2.6ZM14.3 9.5c3 .1 5.7 2.2 5.7 5.2-1.8-2.4-3.8-3.8-5.7-5.2ZM14.3 9.5c-2.8.6-4.8 3.1-4.8 6 1.4-2.5 3-4.2 4.8-6Z" /><path d="M5 21h14" /></symbol>
+        <symbol id="i-diamond" viewBox="0 0 24 24"><path d="M6.5 4.5h11l3.5 5-9 10-9-10 3.5-5Z" /><path d="M3 9.5h18M9.5 4.5 8 9.5l4 10 4-10-1.5-5" /></symbol>
+        <symbol id="i-mountain" viewBox="0 0 24 24"><path d="M2.5 19.5 9 8.5l4 6.5 2.8-4 5.7 8.5h-19Z" /><path d="m7.4 11.2 1.6 1.3 1.6-1.3" /></symbol>
+        <symbol id="i-lantern" viewBox="0 0 24 24"><path d="M12 2.5v2M9 6h6l1.2 3H7.8L9 6ZM7.8 9 7 16h10l-.8-7M7 16l2 4h6l2-4M12 11.5v2.5" /></symbol>
+        <symbol id="i-food" viewBox="0 0 24 24"><path d="M6 3v6.5a2 2 0 0 0 2 2V21M4 3v5.5M8 3v5.5M17.5 21V3c-2 1-3.3 3.8-3.3 8h3.3" /></symbol>
+        <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 10.5 10.3 5 19.5 4.5 20 13.5 14.3 19 6 19.5" /><path d="M5 19c2.8-4 6-7 10-9.5" /></symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" /><path d="M3.5 10h17M8 3v4M16 3v4" /></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5" /><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M15.5 5a3.5 3.5 0 0 1 0 7M18 14.8c1.8.7 3 2.5 3.5 5.2" /></symbol>
+        <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6.5 9.5 5.5 5.5 5.5-5.5" /></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5 19.5 6v5.8c0 4.4-3.1 7.8-7.5 8.9-4.4-1.1-7.5-4.5-7.5-8.9V6L12 3.5Z" /><path d="m8.8 12 2.3 2.3 4.2-4.3" /></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" /></symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" /></symbol>
+        <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2.5 9c2.4-2.4 4.8-2.4 7.2 0s4.8 2.4 7.2 0 3.6-2 4.6-1.2M2.5 15c2.4-2.4 4.8-2.4 7.2 0s4.8 2.4 7.2 0 3.6-2 4.6-1.2" /></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="m3.5 7 8.5 6 8.5-6" /></symbol>
+        <symbol id="i-mouse" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="17" rx="5" /><path d="M12 7v3" class="mouse-wheel" /></symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="3.8" /><circle cx="17.2" cy="6.8" r=".5" /></symbol>
+        <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" /><path d="M10 9.3v5.4l4.6-2.7L10 9.3Z" /></symbol>
+        <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 21v-7.5h2.6l.4-3H14V8.8c0-.9.3-1.5 1.6-1.5H17V4.6c-.3 0-1.2-.1-2.2-.1-2.2 0-3.8 1.4-3.8 3.9v2.1H8.5v3H11V21" /></symbol>
+        <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3.5v11.2a3.6 3.6 0 1 1-3.6-3.6M14 3.5c.5 2.6 2.4 4.4 5 4.6" /></symbol>
+        <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6.5 3.5h11v17L12 16.5l-5.5 4v-17Z" /></symbol>
+        <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3.5c.6 4.4 2.7 6.9 7 7.5-4.3.7-6.4 3.2-7 8.5-.6-5.3-2.7-7.8-7-8.5 4.3-.6 6.4-3.1 7-7.5Z" /></symbol>
+      </defs>
+    </svg>
+
+    <header class="sg-head on-dark">
+      <div class="container">
+        <div class="brandrow">
+          <img src="assets/img/brand/egypt-roamer-logo-dark.webp" width="1759" height="203" alt="Egypt Roamer — More than a destination" />
+        </div>
+        <p class="eyebrow">Visual system · v1</p>
+        <h1 class="t-h1" style="margin-top: 1rem">Luxury editorial,<br /><em class="serif">cinematic by default.</em></h1>
+        <p class="t-lead" style="max-width: 56ch; margin-top: 1.5rem; color: var(--on-dark-muted)">
+          The rules behind the homepage. Nine brand colours, two typefaces, one thin-stroke icon family — and gold used like jewellery, never like paint.
+        </p>
+        <p style="margin-top: 2rem"><a class="btn btn--primary" href="index.html">Open the homepage</a></p>
+      </div>
+    </header>
+
+    <main>
+      <section class="sg-section">
+        <div class="container">
+          <p class="eyebrow">00 · Logo</p>
+          <h2 class="t-h2">Egypt Roamer</h2>
+          <p class="muted" style="max-width: 62ch; margin-bottom: 2rem">Approved artwork only — never redrawn, recoloured beyond these variants, stretched or re-set in type. Source files: <code>assets/img/brand/source/</code>.</p>
+          <div class="logo-grid">
+            <div class="logo-card logo-card--light"><img src="assets/img/brand/egypt-roamer-logo-light.webp" width="1759" height="203" alt="Egypt Roamer logo for light backgrounds" /><small>Light backgrounds · wordmark &amp; left pyramid #101820 · gold #C9A227</small></div>
+            <div class="logo-card logo-card--dark"><img src="assets/img/brand/egypt-roamer-logo-dark.webp" width="1759" height="203" alt="Egypt Roamer logo for dark backgrounds" /><small>Dark backgrounds · wordmark &amp; left pyramid #FFFFFF · gold #C9A227</small></div>
+            <div class="logo-card logo-card--light"><img class="mark" src="assets/img/brand/egypt-roamer-mark-light.webp" width="525" height="187" alt="Egypt Roamer symbol for light backgrounds" /><small>Symbol only · light backgrounds</small></div>
+            <div class="logo-card logo-card--dark"><img class="mark" src="assets/img/brand/egypt-roamer-mark-dark.webp" width="525" height="187" alt="Egypt Roamer symbol for dark backgrounds" /><small>Symbol only · dark backgrounds · favicon &amp; app icon</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section">
+        <div class="container">
+          <p class="eyebrow">01 · Colour</p>
+          <h2 class="t-h2">Palette</h2>
+          <div class="sg-grid">
+            <div class="swatch"><i style="background: var(--sand)"></i><p><b>Sahara Sand</b><small>#D8B483</small><em>Warm accents, labels on dark</em></p></div>
+            <div class="swatch"><i style="background: var(--gold)"></i><p><b>Pyramid Gold</b><small>#C9A227</small><em>Primary CTA &amp; highlights only</em></p></div>
+            <div class="swatch"><i style="background: var(--nile)"></i><p><b>Nile Blue</b><small>#0E3A5B</small><em>Depth, map, Red Sea grade</em></p></div>
+            <div class="swatch"><i style="background: var(--teal)"></i><p><b>Deep Teal</b><small>#0F6B7A</small><em>Water, trust signals</em></p></div>
+            <div class="swatch"><i style="background: var(--clay)"></i><p><b>Desert Clay</b><small>#A45E38</small><em>Eyebrows, active states</em></p></div>
+            <div class="swatch"><i style="background: var(--stone); box-shadow: inset 0 0 0 1px var(--line)"></i><p><b>Stone</b><small>#F8F5ED</small><em>Default page background</em></p></div>
+            <div class="swatch"><i style="background: var(--warm-gray)"></i><p><b>Warm Gray</b><small>#E7E1D6</small><em>Image placeholders, fills</em></p></div>
+            <div class="swatch"><i style="background: var(--charcoal)"></i><p><b>Dark Charcoal</b><small>#111111</small><em>Text, dark sections</em></p></div>
+            <div class="swatch"><i style="background: var(--white); box-shadow: inset 0 0 0 1px var(--line)"></i><p><b>White</b><small>#FFFFFF</small><em>Cards, text on imagery</em></p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section">
+        <div class="container">
+          <p class="eyebrow">02 · Typography</p>
+          <h2 class="t-h2">Playfair Display × Inter</h2>
+          <div class="type-row"><span>Display · Serif 400</span><p class="t-display" style="font-size: clamp(4rem, 10vw, 8rem)">EGYPT</p></div>
+          <div class="type-row"><span>H1 · Serif 400</span><p class="t-h1">Ready for your <em class="serif">Egypt story?</em></p></div>
+          <div class="type-row"><span>H2 · Serif 400</span><p class="t-h2">Seven places. <em class="serif">Seven Egypts.</em></p></div>
+          <div class="type-row"><span>H3 · Serif 500</span><p class="t-h3">Sofitel Legend Old Cataract</p></div>
+          <div class="type-row"><span>H4 · Inter 600</span><p class="t-h4">Pyramids of Giza &amp; Sphinx Private Tour</p></div>
+          <div class="type-row"><span>Lead · Inter 300</span><p class="t-lead">Ancient wonders. Endless adventures. Unforgettable moments.</p></div>
+          <div class="type-row"><span>Body · Inter 400</span><p>From palace hotels on the Nile to candle-lit desert lodges — stays our editors would book themselves.</p></div>
+          <div class="type-row"><span>Label · Inter 500</span><p class="eyebrow">A country you don't just visit</p></div>
+          <div class="type-row"><span>Navigation · Inter 400</span><p style="font-size: 0.84rem">Destinations &nbsp; Experiences &nbsp; Hotels &nbsp; Tours &nbsp; Nile Cruises</p></div>
+          <div class="type-row"><span>Metadata · Inter 400</span><p class="t-meta">Luxor · Full day · 4.9 (2,011 reviews)</p></div>
+        </div>
+      </section>
+
+      <section class="sg-section">
+        <div class="container">
+          <p class="eyebrow">03 · Actions</p>
+          <h2 class="t-h2">Buttons &amp; links</h2>
+          <div class="row" style="margin-bottom: 1.5rem">
+            <a class="btn btn--primary" href="#">Plan My Trip →</a>
+            <a class="btn btn--outline" href="#">See Hotel ↗</a>
+            <a class="btn btn--dark" href="#">Browse experiences</a>
+            <a class="btn btn--primary btn--sm" href="#">Small</a>
+            <a class="btn btn--primary btn--lg" href="#">Large CTA</a>
+            <a class="link" href="#">Check Availability →</a>
+          </div>
+          <div class="dark-panel row">
+            <a class="btn btn--primary" href="#">Explore Egypt →</a>
+            <a class="btn btn--ghost" href="#">Explore Nile Cruises →</a>
+            <span class="chip chip--glass">Philae Temple</span>
+            <span class="chip chip--gold">Bestseller</span>
+            <a class="link" href="#" style="color: #fff">View Tour →</a>
+          </div>
+          <div class="rules" style="margin-top: 2rem">
+            <article class="do"><h3>Affiliate language</h3><p>View Deal · Check Availability · Compare Options · Explore Tours · View Cruise · See Hotel · Book with Partner. Always show “via Partner”.</p></article>
+            <article class="do"><h3>One gold per view</h3><p>Gold marks the single most important action in a viewport. Secondary actions are outline or ghost.</p></article>
+            <article class="dont"><h3>Never</h3><p>Fake booking flows, countdown timers, “only 1 left” pressure, or gold backgrounds on whole sections.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-section">
+        <div class="container">
+          <p class="eyebrow">04 · Iconography</p>
+          <h2 class="t-h2">One thin-stroke family</h2>
+          <p class="muted" style="max-width: 60ch; margin-bottom: 2rem">24px grid, 1.4 stroke, round joins. Architecture and geography are referenced abstractly — no hieroglyph clip-art.</p>
+          <div class="icons" data-icons></div>
+        </div>
+      </section>
+
+      <section class="sg-section">
+        <div class="container">
+          <p class="eyebrow">05 · Principles</p>
+          <h2 class="t-h2">How it should feel</h2>
+          <div class="rules">
+            <article class="do"><h3>Editorial first</h3><p>Big serif headlines, generous whitespace, photography at full bleed. Commerce lives inside the story, never above it.</p></article>
+            <article class="do"><h3>Motion with meaning</h3><p>Motion carries the journey: scale, masks, parallax and crossfades. Nothing loops for attention. Reduced motion is respected.</p></article>
+            <article class="do"><h3>Consistent grade</h3><p>Photos get a light desaturate + contrast lift and a warm-to-teal tint that follows the journey.</p></article>
+            <article class="dont"><h3>Avoid</h3><p>Hieroglyph wallpaper, pyramid overload, crowded card grids, cheap gradients, stock “tourist” clichés.</p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Icons come from the sprite above (kept in sync with index.html by tools/build.py)
+      document.querySelector("[data-icons]").innerHTML = Array.from(document.querySelectorAll("symbol[id^='i-']"))
+        .map(function (s) {
+          return '<div><svg class="icon"><use href="#' + s.id + '"/></svg>' + s.id.slice(2) + "</div>";
+        })
+        .join("");
+    </script>
+  </body>
+</html>

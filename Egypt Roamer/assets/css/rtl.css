@@ -1,0 +1,346 @@
+/* ==========================================================================
+   Right-to-left (Arabic) mirrored layout + script-specific typography
+   (Arabic, Chinese).
+   Physical-only elements stay physical on purpose: the map (geography),
+   ink indicators positioned from measured rects, decorative light/sun layers.
+   ========================================================================== */
+
+/* ---------- Arabic typography ---------- */
+html:lang(ar) body {
+  line-height: 1.8;
+}
+/* Latin tracking breaks Arabic letter joining — reset it (brand wordmark excluded) */
+html:lang(ar) body *:not([lang="en"]) {
+  letter-spacing: normal !important;
+}
+/* Arabic has no true italic; synthetic slanting looks broken */
+html:lang(ar) em,
+html:lang(ar) .serif,
+html:lang(ar) .t-italic,
+html:lang(ar) .moods__word,
+html:lang(ar) .story__num,
+html:lang(ar) .builder__duration span {
+  font-style: normal;
+}
+html:lang(ar) .t-display,
+html:lang(ar) .scene__title,
+html:lang(ar) .hero__title .t-display {
+  line-height: 1.2;
+}
+html:lang(ar) .t-h1,
+html:lang(ar) .t-h2,
+html:lang(ar) .moods__word,
+html:lang(ar) .interlude__quote,
+html:lang(ar) .dest__title {
+  line-height: 1.35;
+}
+/* room for Arabic ascenders/descenders inside the masked headline words */
+html:lang(ar) .scene__title .word,
+html:lang(ar) .split-line {
+  padding-top: 0.12em;
+  padding-bottom: 0.22em;
+}
+html:lang(ar) .hero__sub {
+  margin-top: 0;
+}
+
+/* SVG artwork is geographic, not textual flow */
+[dir="rtl"] .map__svg,
+[dir="rtl"] .river-cue__svg {
+  direction: ltr;
+}
+
+/* ---------- Directional icons ---------- */
+[dir="rtl"] svg.icon:has(use[href="#i-arrow"]),
+[dir="rtl"] svg.icon:has(use[href="#i-arrow-left"]),
+[dir="rtl"] svg.icon:has(use[href="#i-arrow-ur"]) {
+  scale: -1 1; /* composes with hover translateX, so nudges mirror too */
+}
+
+/* ---------- Base primitives ---------- */
+[dir="rtl"] .link::after {
+  transform-origin: left;
+}
+[dir="rtl"] .link:hover::after {
+  transform-origin: right;
+}
+[dir="rtl"] .icon-btn__badge {
+  right: auto;
+  left: 4px;
+}
+
+/* ---------- Chrome ---------- */
+[dir="rtl"] .loader__bar i,
+[dir="rtl"] .scroll-progress i {
+  transform-origin: right;
+}
+[dir="rtl"] .nav__cta {
+  margin-left: 0;
+  margin-right: 0.6rem;
+}
+[dir="rtl"] .lang__menu {
+  right: auto;
+  left: 0;
+}
+@media (max-width: 1240px) {
+  [dir="rtl"] .nav__actions {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+[dir="rtl"] .rail {
+  left: auto;
+  right: clamp(1rem, 2.4vw, 2.2rem);
+}
+[dir="rtl"] .rail.is-away {
+  transform: translate(20px, -50%);
+}
+[dir="rtl"] .rail__list a {
+  padding-left: 0;
+  padding-right: 1.4rem;
+}
+[dir="rtl"] .rail__dot {
+  left: auto;
+  right: 0;
+}
+[dir="rtl"] .rail__track {
+  left: auto;
+  right: 4px;
+}
+[dir="rtl"] .rail__scroll {
+  margin-left: 0;
+  margin-right: -6.5px;
+}
+
+[dir="rtl"] .dock__badge:not(:empty) {
+  left: auto;
+  right: calc(50% + 6px);
+}
+[dir="rtl"] .menu {
+  clip-path: circle(0% at 2.5rem 2rem);
+}
+[dir="rtl"] .menu.is-open {
+  clip-path: circle(150% at 2.5rem 2rem);
+}
+[dir="rtl"] .drawer__panel {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+}
+[dir="rtl"] .drawer.is-open .drawer__panel {
+  transform: none;
+}
+[dir="rtl"] .film__caption {
+  left: auto;
+  right: var(--gutter);
+}
+[dir="rtl"] .film__close {
+  right: auto;
+  left: var(--gutter);
+}
+
+/* ---------- Hero + journey ---------- */
+[dir="rtl"] .hero::before {
+  background: linear-gradient(
+      260deg,
+      color-mix(in srgb, var(--charcoal) 58%, transparent) 0%,
+      color-mix(in srgb, var(--charcoal) 22%, transparent) 42%,
+      transparent 65%
+    ),
+    linear-gradient(to top, color-mix(in srgb, var(--charcoal) 50%, transparent) 0%, transparent 35%);
+}
+[dir="rtl"] .hero__content,
+[dir="rtl"] .scene__content {
+  padding-left: var(--gutter);
+  padding-right: clamp(4.5rem, 10vw, 10rem);
+}
+[dir="rtl"] .hero__title,
+[dir="rtl"] .scene__title {
+  margin-left: 0;
+  margin-right: -0.05em;
+}
+[dir="rtl"] .hero__note {
+  right: auto;
+  left: var(--edge);
+  text-align: left;
+  transform: rotate(4deg);
+}
+[dir="rtl"] .finder__field + .finder__field::before {
+  left: auto;
+  right: 0;
+}
+[dir="rtl"] .scene__shade {
+  background: linear-gradient(
+      270deg,
+      color-mix(in srgb, var(--charcoal) 62%, transparent) 0%,
+      color-mix(in srgb, var(--charcoal) 22%, transparent) 45%,
+      transparent 70%
+    ),
+    linear-gradient(to top, color-mix(in srgb, var(--charcoal) 55%, transparent), transparent 40%);
+}
+[dir="rtl"] .scene--redsea .scene__shade {
+  background: linear-gradient(
+      270deg,
+      color-mix(in srgb, var(--nile) 82%, transparent) 0%,
+      color-mix(in srgb, var(--nile) 50%, transparent) 40%,
+      transparent 72%
+    ),
+    linear-gradient(to top, color-mix(in srgb, var(--nile) 70%, transparent), transparent 45%),
+    linear-gradient(to bottom, color-mix(in srgb, var(--teal) 30%, transparent), transparent 30%);
+}
+[dir="rtl"] .scene__kicker span::after {
+  margin-left: 0;
+  margin-right: 0.9rem;
+}
+[dir="rtl"] .scene__pick {
+  right: auto;
+  left: var(--edge);
+}
+[dir="rtl"] .scene__coords {
+  left: auto;
+  right: calc(var(--edge) + clamp(4.5rem, 10vw, 10rem) - var(--gutter));
+}
+[dir="rtl"] .river-cue {
+  right: auto;
+  left: var(--edge);
+}
+[dir="rtl"] .journey__counter {
+  right: auto;
+  left: var(--edge);
+}
+/* the diver faces the headline in LTR; un-flip so she faces it in RTL too */
+[dir="rtl"] .scene__img--flip {
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  [dir="rtl"] .hero__content,
+  [dir="rtl"] .scene__content {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+  [dir="rtl"] .scene__pick {
+    left: var(--gutter);
+    right: var(--gutter);
+  }
+  [dir="rtl"] .river-cue {
+    left: var(--gutter);
+    right: auto;
+  }
+  [dir="rtl"] .scene__shade {
+    background: linear-gradient(to top, color-mix(in srgb, var(--charcoal) 80%, transparent) 0%, color-mix(in srgb, var(--charcoal) 30%, transparent) 50%, transparent 75%);
+  }
+  [dir="rtl"] .scene--redsea .scene__shade {
+    background: linear-gradient(to top, color-mix(in srgb, var(--nile) 88%, transparent) 0%, color-mix(in srgb, var(--nile) 30%, transparent) 55%, transparent 80%);
+  }
+}
+
+/* ---------- Sections ---------- */
+[dir="rtl"] .moods__veil {
+  background: linear-gradient(
+      260deg,
+      color-mix(in srgb, var(--ink) 92%, transparent) 0%,
+      color-mix(in srgb, var(--ink) 72%, transparent) 45%,
+      color-mix(in srgb, var(--ink) 35%, transparent) 100%
+    ),
+    linear-gradient(to top, var(--ink) 0%, transparent 40%);
+}
+[dir="rtl"] .rec.is-entering {
+  transform: translateX(-24px);
+}
+
+[dir="rtl"] .dest__btn {
+  text-align: right;
+}
+[dir="rtl"] .dest__region {
+  right: auto;
+  left: 0;
+  transform: translateX(8px);
+}
+[dir="rtl"] .dest__item.is-active .dest__region {
+  transform: none;
+}
+[dir="rtl"] .dest__btn::after {
+  transform-origin: right;
+}
+[dir="rtl"] .dest__item.is-active .dest__name,
+[dir="rtl"] .dest__btn:hover .dest__name {
+  transform: translateX(-10px);
+}
+[dir="rtl"] .dest__count {
+  right: auto;
+  left: 1.6rem;
+}
+[dir="rtl"] .dest-card__num {
+  left: auto;
+  right: 1.2rem;
+}
+
+[dir="rtl"] .map__list button {
+  text-align: right;
+}
+[dir="rtl"] .map__list button:hover > :not(small),
+[dir="rtl"] .map__list button.is-active > :not(small) {
+  transform: translateX(-0.4rem);
+}
+@media (max-width: 900px) {
+  [dir="rtl"] .map__list button:hover > *,
+  [dir="rtl"] .map__list button.is-active > * {
+    transform: none;
+  }
+}
+
+[dir="rtl"] .offer__img .chip {
+  left: auto;
+  right: 0.5rem;
+}
+[dir="rtl"] .offer__side {
+  text-align: left;
+}
+@media (max-width: 640px) {
+  [dir="rtl"] .offer__side {
+    text-align: right;
+  }
+}
+
+[dir="rtl"] .planner::before {
+  background: linear-gradient(260deg, color-mix(in srgb, var(--ink) 94%, transparent) 0%, color-mix(in srgb, var(--ink) 80%, transparent) 50%, color-mix(in srgb, var(--nile) 55%, transparent) 100%),
+    linear-gradient(to bottom, var(--ink) 0%, transparent 18%);
+}
+[dir="rtl"] input[type="range"]::-webkit-slider-runnable-track {
+  background: linear-gradient(to left, var(--gold) var(--p), color-mix(in srgb, var(--white) 22%, transparent) var(--p));
+}
+[dir="rtl"] .builder__seg i {
+  left: auto;
+  right: 0.3rem;
+}
+[dir="rtl"] .interlude::before {
+  background: repeating-radial-gradient(
+    ellipse 120% 60% at 15% 0%,
+    transparent 0 38px,
+    color-mix(in srgb, var(--sand) 9%, transparent) 38px 39px
+  );
+}
+
+/* ---------- Chinese typography ---------- */
+/* Wide Latin tracking and synthetic italics don't suit Han characters */
+html:lang(zh) body *:not([lang="en"]) {
+  letter-spacing: 0.02em !important;
+}
+html:lang(zh) em,
+html:lang(zh) .serif,
+html:lang(zh) .t-italic,
+html:lang(zh) .moods__word,
+html:lang(zh) .story__num,
+html:lang(zh) .builder__duration span {
+  font-style: normal;
+}
+html:lang(zh) body {
+  line-height: 1.8;
+}
+html:lang(zh) .t-display,
+html:lang(zh) .scene__title,
+html:lang(zh) .hero__title .t-display {
+  line-height: 1.1;
+}

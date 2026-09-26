@@ -1,0 +1,906 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Egypt Roamer — More Than a Destination</title>
+    <meta
+      name="description"
+      content="Discover, compare and book the best experiences in Egypt — pyramids, Nile cruises, desert adventures and the Red Sea, curated by Egypt Roamer."
+    />
+    <meta name="theme-color" content="#101820" />
+    <meta name="application-name" content="Egypt Roamer" />
+    <meta property="og:site_name" content="Egypt Roamer" />
+    <meta property="og:title" content="Egypt Roamer — More Than a Destination" />
+    <meta property="og:description" content="A country you don't just visit. Discover, compare and book Egypt's best experiences." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/img/brand/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Egypt Roamer — More than a destination" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Egypt Roamer — More Than a Destination" />
+    <meta name="twitter:image" content="assets/img/brand/og-image.jpg" />
+    <!-- Brand icons: the approved Egypt Roamer symbol -->
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="assets/img/brand/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://images.unsplash.com/photo-1734461255961-6288a28a65f0?auto=format&fit=crop&w=2000&q=78"
+      imagesrcset="https://images.unsplash.com/photo-1734461255961-6288a28a65f0?auto=format&fit=crop&w=900&q=75 900w, https://images.unsplash.com/photo-1734461255961-6288a28a65f0?auto=format&fit=crop&w=1400&q=76 1400w, https://images.unsplash.com/photo-1734461255961-6288a28a65f0?auto=format&fit=crop&w=2000&q=78 2000w, https://images.unsplash.com/photo-1734461255961-6288a28a65f0?auto=format&fit=crop&w=2800&q=78 2800w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+
+    <link rel="stylesheet" href="assets/css/tokens.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/journey.css" />
+    <link rel="stylesheet" href="assets/css/sections.css" />
+    <link rel="stylesheet" href="assets/css/rtl.css" />
+    <script>
+      /* Runs before first paint: JS flag + language/direction (avoids a flash of the wrong layout) */
+      (function () {
+        var d = document.documentElement;
+        d.classList.replace("no-js", "js");
+        var l = "en";
+        try {
+          var q = new URLSearchParams(location.search).get("lang");
+          var ok = ["en", "de", "fr", "it", "es", "ru", "zh", "ar"];
+          l = ok.indexOf(q) > -1 ? q : localStorage.getItem("ei:lang") || "en";
+          if (ok.indexOf(l) < 0) l = "en";
+        } catch (e) {}
+        if (l !== "en") d.lang = l;
+        // Script-specific fonts are only downloaded for the language that needs them
+        var fonts = {
+          ar: "family=Noto+Naskh+Arabic:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600",
+          zh: "family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600",
+        };
+        if (l === "ar") d.dir = "rtl";
+        if (fonts[l]) {
+          var f = document.createElement("link");
+          f.rel = "stylesheet";
+          f.href = "https://fonts.googleapis.com/css2?" + fonts[l] + "&display=swap";
+          document.head.appendChild(f);
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <!-- ================= ICON SPRITE (single thin-stroke family) ================= -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.4-7.5-10.2A4.3 4.3 0 0 1 12 7.1a4.3 4.3 0 0 1 7.5 2.7C19.5 15.6 12 20 12 20Z" /></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17M12 3.5c2.4 2.3 3.6 5.1 3.6 8.5s-1.2 6.2-3.6 8.5c-2.4-2.3-3.6-5.1-3.6-8.5S9.6 5.8 12 3.5Z" /></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15.5M13.5 6l6 6-6 6" /></symbol>
+        <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M20 12H4.5M10.5 6l-6 6 6 6" /></symbol>
+        <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5" /></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><path d="M9 6.5v11l9-5.5-9-5.5Z" fill="currentColor" stroke="none" /></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3.5 8.5h17M3.5 15.5h11" /></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></symbol>
+        <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.6 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8L12 3.6Z" fill="currentColor" stroke="none" /></symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21Z" /><circle cx="12" cy="9.8" r="2.3" /></symbol>
+        <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 18.5V6.5M3 14.5h18v4M21 14.5V12a2.5 2.5 0 0 0-2.5-2.5H11v5" /><circle cx="7" cy="11.5" r="1.6" /></symbol>
+        <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" /></symbol>
+        <symbol id="i-ship" viewBox="0 0 24 24"><path d="M3 16h18l-1.8 3.5H4.8L3 16Z" /><path d="M5.5 16v-4h13v4M8.5 12V9h7v3M12 9V5.5" /><path d="M2.5 21.5c1.5-.8 2.5-.8 4 0s2.5.8 4 0 2.5-.8 4 0 2.5.8 4 0" opacity=".6" /></symbol>
+        <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16.5V13l2-4.5h12L20 13v3.5H4Z" /><path d="M5.5 16.5v2h2.5v-2M16 16.5v2h2.5v-2M4 13h16" /><circle cx="7.5" cy="14.8" r=".4" /><circle cx="16.5" cy="14.8" r=".4" /></symbol>
+        <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2" /><circle cx="18" cy="6" r="2" /><path d="M8 18h6.5a3 3 0 0 0 0-6h-5a3 3 0 0 1 0-6H16" /></symbol>
+        <symbol id="i-temple" viewBox="0 0 24 24"><path d="M3.5 20.5h17M4.5 17.5h15M6 17.5V10M10 17.5V10M14 17.5V10M18 17.5V10M4 10h16M12 3.5 20 7.5H4L12 3.5Z" /></symbol>
+        <symbol id="i-palm" viewBox="0 0 24 24"><path d="M12.5 21c0-4.5.4-8.2 1.8-11.5" /><path d="M14.3 9.5C12.5 6.8 9 6.5 6.5 8.3c3-.3 5.4.3 7.8 1.2ZM14.3 9.5c.8-3 4.3-4.2 6.5-2.6-2.8 0-4.8.8-6.5 2.6ZM14.3 9.5c3 .1 5.7 2.2 5.7 5.2-1.8-2.4-3.8-3.8-5.7-5.2ZM14.3 9.5c-2.8.6-4.8 3.1-4.8 6 1.4-2.5 3-4.2 4.8-6Z" /><path d="M5 21h14" /></symbol>
+        <symbol id="i-diamond" viewBox="0 0 24 24"><path d="M6.5 4.5h11l3.5 5-9 10-9-10 3.5-5Z" /><path d="M3 9.5h18M9.5 4.5 8 9.5l4 10 4-10-1.5-5" /></symbol>
+        <symbol id="i-mountain" viewBox="0 0 24 24"><path d="M2.5 19.5 9 8.5l4 6.5 2.8-4 5.7 8.5h-19Z" /><path d="m7.4 11.2 1.6 1.3 1.6-1.3" /></symbol>
+        <symbol id="i-lantern" viewBox="0 0 24 24"><path d="M12 2.5v2M9 6h6l1.2 3H7.8L9 6ZM7.8 9 7 16h10l-.8-7M7 16l2 4h6l2-4M12 11.5v2.5" /></symbol>
+        <symbol id="i-food" viewBox="0 0 24 24"><path d="M6 3v6.5a2 2 0 0 0 2 2V21M4 3v5.5M8 3v5.5M17.5 21V3c-2 1-3.3 3.8-3.3 8h3.3" /></symbol>
+        <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 10.5 10.3 5 19.5 4.5 20 13.5 14.3 19 6 19.5" /><path d="M5 19c2.8-4 6-7 10-9.5" /></symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" /><path d="M3.5 10h17M8 3v4M16 3v4" /></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5" /><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M15.5 5a3.5 3.5 0 0 1 0 7M18 14.8c1.8.7 3 2.5 3.5 5.2" /></symbol>
+        <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6.5 9.5 5.5 5.5 5.5-5.5" /></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5 19.5 6v5.8c0 4.4-3.1 7.8-7.5 8.9-4.4-1.1-7.5-4.5-7.5-8.9V6L12 3.5Z" /><path d="m8.8 12 2.3 2.3 4.2-4.3" /></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" /></symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" /></symbol>
+        <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2.5 9c2.4-2.4 4.8-2.4 7.2 0s4.8 2.4 7.2 0 3.6-2 4.6-1.2M2.5 15c2.4-2.4 4.8-2.4 7.2 0s4.8 2.4 7.2 0 3.6-2 4.6-1.2" /></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="m3.5 7 8.5 6 8.5-6" /></symbol>
+        <symbol id="i-mouse" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="17" rx="5" /><path d="M12 7v3" class="mouse-wheel" /></symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="3.8" /><circle cx="17.2" cy="6.8" r=".5" /></symbol>
+        <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" /><path d="M10 9.3v5.4l4.6-2.7L10 9.3Z" /></symbol>
+        <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 21v-7.5h2.6l.4-3H14V8.8c0-.9.3-1.5 1.6-1.5H17V4.6c-.3 0-1.2-.1-2.2-.1-2.2 0-3.8 1.4-3.8 3.9v2.1H8.5v3H11V21" /></symbol>
+        <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3.5v11.2a3.6 3.6 0 1 1-3.6-3.6M14 3.5c.5 2.6 2.4 4.4 5 4.6" /></symbol>
+        <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6.5 3.5h11v17L12 16.5l-5.5 4v-17Z" /></symbol>
+        <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3.5c.6 4.4 2.7 6.9 7 7.5-4.3.7-6.4 3.2-7 8.5-.6-5.3-2.7-7.8-7-8.5 4.3-.6 6.4-3.1 7-7.5Z" /></symbol>
+      </defs>
+    </svg>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ================= LOADER ================= -->
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="loader__inner">
+        <img class="loader__logo" src="assets/img/brand/egypt-roamer-logo-dark-600.webp" srcset="assets/img/brand/egypt-roamer-logo-dark-600.webp 600w, assets/img/brand/egypt-roamer-logo-dark-1200.webp 1200w, assets/img/brand/egypt-roamer-logo-dark.webp 1759w" sizes="min(320px, 70vw)" width="1759" height="203" alt="" />
+        <span class="loader__bar"><i></i></span>
+      </div>
+    </div>
+
+    <div class="scroll-progress" aria-hidden="true"><i id="scroll-progress"></i></div>
+
+    <!-- ================= NAVIGATION ================= -->
+    <header class="nav" id="nav" data-state="top">
+      <div class="nav__inner">
+        <a href="#top" class="brand" aria-label="Egypt Roamer — home">
+          <!-- Approved Egypt Roamer artwork: full lockup (dark/light background) and symbol-only for phones -->
+          <img class="brand__logo brand__logo--dark" src="assets/img/brand/egypt-roamer-logo-dark-600.webp" srcset="assets/img/brand/egypt-roamer-logo-dark-600.webp 600w, assets/img/brand/egypt-roamer-logo-dark-1200.webp 1200w, assets/img/brand/egypt-roamer-logo-dark.webp 1759w" sizes="(max-width: 900px) 243px, 295px" width="1759" height="203" alt="" />
+          <img class="brand__logo brand__logo--light" src="assets/img/brand/egypt-roamer-logo-light-600.webp" srcset="assets/img/brand/egypt-roamer-logo-light-600.webp 600w, assets/img/brand/egypt-roamer-logo-light-1200.webp 1200w, assets/img/brand/egypt-roamer-logo-light.webp 1759w" sizes="(max-width: 900px) 243px, 295px" width="1759" height="203" alt="" />
+          <img class="brand__mark brand__mark--dark" src="assets/img/brand/egypt-roamer-mark-dark-256.webp" srcset="assets/img/brand/egypt-roamer-mark-dark-256.webp 256w, assets/img/brand/egypt-roamer-mark-dark.webp 525w" sizes="84px" width="525" height="187" alt="" />
+          <img class="brand__mark brand__mark--light" src="assets/img/brand/egypt-roamer-mark-light-256.webp" srcset="assets/img/brand/egypt-roamer-mark-light-256.webp 256w, assets/img/brand/egypt-roamer-mark-light.webp 525w" sizes="84px" width="525" height="187" alt="" />
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+          <ul>
+            <li><a href="#destinations" data-nav="destinations">Destinations</a></li>
+            <li><a href="#experiences" data-nav="experiences">Experiences</a></li>
+            <li><a href="#partners" data-nav="partners" data-partner-tab="hotels">Hotels</a></li>
+            <li><a href="#partners" data-nav="tours" data-partner-tab="tours">Tours</a></li>
+            <li><a href="#partners" data-nav="cruises" data-partner-tab="cruises">Nile Cruises</a></li>
+            <li><a href="#guide" data-nav="guide">Travel Guide</a></li>
+          </ul>
+          <span class="nav__indicator" aria-hidden="true"></span>
+        </nav>
+
+        <div class="nav__actions">
+          <button class="icon-btn" type="button" data-open="search" aria-label="Search Egypt Roamer">
+            <svg class="icon"><use href="#i-search" /></svg>
+          </button>
+          <button class="icon-btn" type="button" data-open="saved" aria-label="Saved places and experiences">
+            <svg class="icon"><use href="#i-heart" /></svg>
+            <span class="icon-btn__badge" data-fav-count>0</span>
+          </button>
+          <div class="lang" data-lang>
+            <button class="lang__toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <svg class="icon"><use href="#i-globe" /></svg>
+              <span data-lang-current>EN</span>
+              <svg class="icon icon--sm"><use href="#i-chevron" /></svg>
+            </button>
+            <ul class="lang__menu" role="listbox" aria-label="Language" data-i18n-skip>
+              <li role="option" tabindex="-1" data-value="en" lang="en">English</li>
+              <li role="option" tabindex="-1" data-value="de" lang="de">Deutsch</li>
+              <li role="option" tabindex="-1" data-value="fr" lang="fr">Français</li>
+              <li role="option" tabindex="-1" data-value="it" lang="it">Italiano</li>
+              <li role="option" tabindex="-1" data-value="es" lang="es">Español</li>
+              <li role="option" tabindex="-1" data-value="ru" lang="ru">Русский</li>
+              <li role="option" tabindex="-1" data-value="zh" lang="zh">中文</li>
+              <li role="option" tabindex="-1" data-value="ar" lang="ar" dir="rtl">العربية</li>
+            </ul>
+          </div>
+          <a href="#planner" class="btn btn--primary btn--sm nav__cta" data-magnetic>
+            Plan My Trip <svg class="icon icon--arrow"><use href="#i-arrow" /></svg>
+          </a>
+          <button class="icon-btn nav__burger" type="button" data-open="menu" aria-label="Open menu" aria-expanded="false">
+            <svg class="icon"><use href="#i-menu" /></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= JOURNEY RAIL ================= -->
+    <aside class="rail" id="rail" aria-label="Journey chapters">
+      <ol class="rail__list">
+        <li><a href="#scene-pyramids" data-rail="0"><i class="rail__dot" aria-hidden="true"></i><span class="rail__num">01</span><span class="rail__name">Pyramids</span></a></li>
+        <li><a href="#scene-nile" data-rail="1"><i class="rail__dot" aria-hidden="true"></i><span class="rail__num">02</span><span class="rail__name">Nile</span></a></li>
+        <li><a href="#scene-desert" data-rail="2"><i class="rail__dot" aria-hidden="true"></i><span class="rail__num">03</span><span class="rail__name">Desert</span></a></li>
+        <li><a href="#scene-redsea" data-rail="3"><i class="rail__dot" aria-hidden="true"></i><span class="rail__num">04</span><span class="rail__name">Red Sea</span></a></li>
+      </ol>
+      <span class="rail__track" aria-hidden="true"><i id="rail-fill"></i></span>
+      <p class="rail__scroll">
+        <svg class="icon"><use href="#i-mouse" /></svg>
+        <span>Scroll to explore</span>
+      </p>
+    </aside>
+
+    <main id="main">
+      <!-- =====================================================================
+           HERO + CINEMATIC JOURNEY (one pinned stage)
+           Hero → Pyramids → Nile → Desert → Red Sea
+           ===================================================================== -->
+      <section class="journey" id="top" aria-label="Egypt as a journey">
+        <div class="journey__stage" id="journey-stage">
+          <!-- Scene 01 · PYRAMIDS (also the hero's backdrop) -->
+          <article class="scene scene--pyramids" id="scene-pyramids" data-scene="0">
+            <div class="scene__media" data-depth>
+              <img
+                class="scene__img scene__img--a"
+                src="https://images.unsplash.com/photo-1734461255961-6288a28a65f0?auto=format&fit=crop&w=2000&q=78"
+                srcset="
+                  https://images.unsplash.com/photo-1734461255961-6288a28a65f0?auto=format&fit=crop&w=900&q=75   900w,
+                  https://images.unsplash.com/photo-1734461255961-6288a28a65f0?auto=format&fit=crop&w=1400&q=76 1400w,
+                  https://images.unsplash.com/photo-1734461255961-6288a28a65f0?auto=format&fit=crop&w=2000&q=78 2000w,
+                  https://images.unsplash.com/photo-1734461255961-6288a28a65f0?auto=format&fit=crop&w=2800&q=78 2800w
+                "
+                sizes="100vw"
+                alt="The pyramids of Giza at sunset"
+                fetchpriority="high"
+                decoding="async"
+              />
+              <img
+                class="scene__img scene__img--b"
+                src="https://images.unsplash.com/photo-1678038592492-d73c063bb9e2?auto=format&fit=crop&w=2000&q=78"
+                srcset="
+                  https://images.unsplash.com/photo-1678038592492-d73c063bb9e2?auto=format&fit=crop&w=900&q=75   900w,
+                  https://images.unsplash.com/photo-1678038592492-d73c063bb9e2?auto=format&fit=crop&w=2000&q=78 2000w
+                "
+                sizes="100vw"
+                alt=""
+                fetchpriority="low"
+                decoding="async"
+              />
+            </div>
+            <div class="scene__sun" aria-hidden="true"></div>
+            <svg class="scene__fg scene__fg--dune" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 150C180 110 320 90 520 118s380 70 560 44 260-58 360-54V260H0Z" />
+            </svg>
+            <div class="scene__shade" aria-hidden="true"></div>
+
+            <div class="scene__content container">
+              <p class="scene__kicker"><span>01</span> Timeless wonders</p>
+              <h2 class="scene__title" data-split>Pyramids</h2>
+              <p class="scene__line">Where history still breathes</p>
+              <a href="#destinations" class="btn btn--primary" data-magnetic data-dest-link="cairo">
+                Explore Cairo <svg class="icon icon--arrow"><use href="#i-arrow" /></svg>
+              </a>
+            </div>
+            <aside class="scene__pick" aria-label="Roamer pick">
+              <span class="t-label">Roamer pick</span>
+              <p class="scene__pick-title">Sunrise at Giza, before the crowds</p>
+              <p class="scene__pick-meta">
+                <span class="rating"><svg class="icon"><use href="#i-star" /></svg>4.9 <span>(2,300)</span></span>
+                · from <b>$45</b>
+              </p>
+              <a href="#partner" class="link" rel="sponsored noopener" data-affiliate="tour-giza-sunrise">View Tour <svg class="icon icon--sm"><use href="#i-arrow" /></svg></a>
+            </aside>
+            <p class="scene__coords">29.9792° N · 31.1342° E — Giza Plateau</p>
+          </article>
+
+          <!-- Scene 02 · NILE -->
+          <article class="scene scene--nile" id="scene-nile" data-scene="1">
+            <div class="scene__media" data-depth>
+              <img
+                class="scene__img"
+                src="https://images.unsplash.com/photo-1684100096410-fd39cdff91a3?auto=format&fit=crop&w=2000&q=78"
+                srcset="
+                  https://images.unsplash.com/photo-1684100096410-fd39cdff91a3?auto=format&fit=crop&w=900&q=75   900w,
+                  https://images.unsplash.com/photo-1684100096410-fd39cdff91a3?auto=format&fit=crop&w=2000&q=78 2000w,
+                  https://images.unsplash.com/photo-1684100096410-fd39cdff91a3?auto=format&fit=crop&w=2800&q=78 2800w
+                "
+                sizes="100vw"
+                alt="A felucca sailing on the Nile at sunset"
+                fetchpriority="low"
+                decoding="async"
+              />
+            </div>
+            <div class="scene__shimmer" aria-hidden="true"></div>
+            <div class="scene__shade" aria-hidden="true"></div>
+
+            <div class="scene__content container">
+              <p class="scene__kicker"><span>02</span> A river of life</p>
+              <h2 class="scene__title" data-split>Nile</h2>
+              <p class="scene__line">More than a river. A story that connects a civilization.</p>
+              <a href="#partners" class="btn btn--ghost" data-magnetic data-partner-tab="cruises">
+                Explore Nile Cruises <svg class="icon icon--arrow"><use href="#i-arrow" /></svg>
+              </a>
+            </div>
+
+            <figure class="river-cue" aria-label="Classic Nile cruise route from Aswan to Luxor">
+              <figcaption>
+                <span class="t-label">The classic route</span>
+                <span class="river-cue__route">Aswan → Luxor</span>
+              </figcaption>
+              <svg viewBox="0 0 120 220" class="river-cue__svg" aria-hidden="true">
+                <path class="river-cue__base" d="M70 210C58 188 80 170 72 150s-24-26-16-50 30-30 22-56S54 22 60 10" />
+                <path class="river-cue__draw" d="M70 210C58 188 80 170 72 150s-24-26-16-50 30-30 22-56S54 22 60 10" pathLength="1" />
+                <g class="river-cue__stops">
+                  <circle cx="70" cy="210" r="3.5" /><text x="82" y="213">Aswan</text>
+                  <circle cx="72" cy="150" r="3" /><text x="84" y="153">Kom Ombo</text>
+                  <circle cx="57" cy="104" r="3" /><text x="69" y="107">Edfu</text>
+                  <circle cx="60" cy="10" r="3.5" /><text x="72" y="13">Luxor</text>
+                </g>
+              </svg>
+              <p class="river-cue__meta">4 nights · 210 km · 5 temples</p>
+            </figure>
+
+            <aside class="scene__pick" aria-label="Roamer pick">
+              <span class="t-label">Roamer pick</span>
+              <p class="scene__pick-title">4-night Aswan → Luxor cruise</p>
+              <p class="scene__pick-meta">
+                <span class="rating"><svg class="icon"><use href="#i-star" /></svg>4.8 <span>(1,140)</span></span>
+                · from <b>$420</b>
+              </p>
+              <a href="#partner" class="link" rel="sponsored noopener" data-affiliate="cruise-aswan-luxor">View Cruise <svg class="icon icon--sm"><use href="#i-arrow" /></svg></a>
+            </aside>
+            <p class="scene__coords">24.0889° N · 32.8998° E — Aswan</p>
+          </article>
+
+          <!-- Scene 03 · DESERT -->
+          <article class="scene scene--desert" id="scene-desert" data-scene="2">
+            <div class="scene__media scene__media--wide" data-depth>
+              <img
+                class="scene__img"
+                src="https://images.unsplash.com/photo-1771839534998-d5892d756064?auto=format&fit=crop&w=2400&q=78"
+                srcset="
+                  https://images.unsplash.com/photo-1771839534998-d5892d756064?auto=format&fit=crop&w=1000&q=75 1000w,
+                  https://images.unsplash.com/photo-1771839534998-d5892d756064?auto=format&fit=crop&w=2400&q=78 2400w,
+                  https://images.unsplash.com/photo-1771839534998-d5892d756064?auto=format&fit=crop&w=3200&q=78 3200w
+                "
+                sizes="120vw"
+                alt="Golden sand dunes rolling under a clear sky in Egypt's Western Desert"
+                fetchpriority="low"
+                decoding="async"
+              />
+            </div>
+            <div class="scene__heat" aria-hidden="true"></div>
+            <canvas class="scene__canvas" data-fx="sand" aria-hidden="true"></canvas>
+            <div class="scene__shade" aria-hidden="true"></div>
+
+            <div class="scene__content container">
+              <p class="scene__kicker"><span>03</span> Beyond the ordinary</p>
+              <h2 class="scene__title" data-split>Desert</h2>
+              <p class="scene__line">Endless landscapes. Unforgettable adventures.</p>
+              <a href="#experiences" class="btn btn--ghost" data-magnetic data-exp-filter="desert">
+                Explore Desert Experiences <svg class="icon icon--arrow"><use href="#i-arrow" /></svg>
+              </a>
+            </div>
+            <aside class="scene__pick" aria-label="Roamer pick">
+              <span class="t-label">Roamer pick</span>
+              <p class="scene__pick-title">White Desert overnight under the stars</p>
+              <p class="scene__pick-meta">
+                <span class="rating"><svg class="icon"><use href="#i-star" /></svg>4.9 <span>(610)</span></span>
+                · from <b>$140</b>
+              </p>
+              <a href="#partner" class="link" rel="sponsored noopener" data-affiliate="tour-white-desert">Check Availability <svg class="icon icon--sm"><use href="#i-arrow" /></svg></a>
+            </aside>
+            <p class="scene__coords">27.0957° N · 27.9880° E — Western Desert</p>
+          </article>
+
+          <!-- Scene 04 · RED SEA -->
+          <article class="scene scene--redsea" id="scene-redsea" data-scene="3">
+            <svg class="scene__surface" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="surface-grad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#fff" stop-opacity=".75" />
+                  <stop offset=".35" stop-color="#bfe6ea" stop-opacity=".35" />
+                  <stop offset="1" stop-color="#0F6B7A" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <path d="M0 40c120-26 240-26 360 0s240 26 360 0 240-26 360 0 240 26 360 0v80H0Z" />
+            </svg>
+            <div class="scene__media" data-depth>
+              <img
+                class="scene__img scene__img--flip"
+                src="https://images.unsplash.com/photo-1682687982049-b3d433368cd1?auto=format&fit=crop&w=2000&q=78"
+                srcset="
+                  https://images.unsplash.com/photo-1682687982049-b3d433368cd1?auto=format&fit=crop&w=900&q=75   900w,
+                  https://images.unsplash.com/photo-1682687982049-b3d433368cd1?auto=format&fit=crop&w=2000&q=78 2000w,
+                  https://images.unsplash.com/photo-1682687982049-b3d433368cd1?auto=format&fit=crop&w=2800&q=78 2800w
+                "
+                sizes="100vw"
+                alt="A scuba diver gliding over a vivid coral reef in the Red Sea"
+                fetchpriority="low"
+                decoding="async"
+              />
+            </div>
+            <div class="scene__rays" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <canvas class="scene__canvas" data-fx="bubbles" aria-hidden="true"></canvas>
+            <div class="scene__shade" aria-hidden="true"></div>
+
+            <div class="scene__content container">
+              <p class="scene__kicker"><span>04</span> A different world</p>
+              <h2 class="scene__title" data-split>Red Sea</h2>
+              <p class="scene__line">Dive into crystal-clear waters</p>
+              <a href="#destinations" class="btn btn--ghost" data-magnetic data-dest-link="hurghada">
+                Explore Red Sea <svg class="icon icon--arrow"><use href="#i-arrow" /></svg>
+              </a>
+            </div>
+            <aside class="scene__pick" aria-label="Roamer pick">
+              <span class="t-label">Roamer pick</span>
+              <p class="scene__pick-title">Ras Mohammed dive &amp; snorkel day</p>
+              <p class="scene__pick-meta">
+                <span class="rating"><svg class="icon"><use href="#i-star" /></svg>4.8 <span>(1,870)</span></span>
+                · from <b>$65</b>
+              </p>
+              <a href="#partner" class="link" rel="sponsored noopener" data-affiliate="tour-ras-mohammed">Explore Tours <svg class="icon icon--sm"><use href="#i-arrow" /></svg></a>
+            </aside>
+            <p class="scene__coords">27.7333° N · 34.2500° E — Ras Mohammed</p>
+          </article>
+
+          <!-- Colour grade that drifts from gold to deep teal as we travel -->
+          <div class="journey__grade" aria-hidden="true"></div>
+          <div class="journey__letterbox" aria-hidden="true"><i></i><i></i></div>
+
+          <!-- HERO LAYER — sits on top of scene 01 and hands over to it -->
+          <div class="hero" id="hero">
+            <div class="hero__content container">
+              <p class="hero__eyebrow t-label">
+                <span class="split-line"><span>A country you don't just visit</span></span>
+              </p>
+              <h1 class="hero__title">
+                <span class="split-line"><span class="t-display">Egypt</span></span>
+                <span class="split-line"><span class="hero__sub" data-i18n-html="hero-sub">You <em>Feel</em> It</span></span>
+              </h1>
+              <p class="hero__copy" data-hero-fade>
+                Ancient wonders. Endless adventures. Unforgettable moments.<br />
+                <span class="hero__copy-more">Discover, compare and book the best experiences in Egypt — all in one place.</span>
+              </p>
+              <div class="hero__ctas" data-hero-fade>
+                <a href="#journey-start" class="btn btn--primary btn--lg" data-magnetic data-scroll-to="journey">
+                  Explore Egypt <svg class="icon icon--arrow"><use href="#i-arrow" /></svg>
+                </a>
+                <button class="play" type="button" data-open="film">
+                  <span class="play__ring"><svg class="icon"><use href="#i-play" /></svg></span>
+                  <span class="play__label">Watch the Film</span>
+                </button>
+              </div>
+            </div>
+
+            <p class="hero__note" data-hero-fade aria-hidden="true">
+              <em>Different.</em><br /><em>Timeless.</em><br /><em>Unforgettable.</em>
+            </p>
+
+            <!-- Affiliate quick-compare — routes to partner results, no fake booking -->
+            <form class="finder" id="finder" data-hero-fade aria-label="Compare options with our partners">
+              <div class="finder__tabs" role="group" aria-label="What are you looking for?">
+                <button type="button" aria-pressed="true" data-finder="hotels"><svg class="icon"><use href="#i-bed" /></svg>Hotels</button>
+                <button type="button" aria-pressed="false" data-finder="tours"><svg class="icon"><use href="#i-compass" /></svg>Tours &amp; Activities</button>
+                <button type="button" aria-pressed="false" data-finder="cruises"><svg class="icon"><use href="#i-ship" /></svg>Nile Cruises</button>
+                <button type="button" aria-pressed="false" data-finder="transfers"><svg class="icon"><use href="#i-route" /></svg>Transfers</button>
+                <button type="button" aria-pressed="false" data-finder="cars"><svg class="icon"><use href="#i-car" /></svg>Car Rental</button>
+              </div>
+              <div class="finder__fields">
+                <label class="finder__field">
+                  <svg class="icon"><use href="#i-pin" /></svg>
+                  <span class="finder__label">Where</span>
+                  <select name="where" aria-label="Destination">
+                    <option value="">Anywhere in Egypt</option>
+                    <option>Cairo &amp; Giza</option>
+                    <option>Luxor</option>
+                    <option>Aswan</option>
+                    <option>Hurghada</option>
+                    <option>Sharm El Sheikh</option>
+                    <option>Siwa Oasis</option>
+                    <option>Alexandria</option>
+                  </select>
+                </label>
+                <label class="finder__field">
+                  <svg class="icon"><use href="#i-calendar" /></svg>
+                  <span class="finder__label">When</span>
+                  <select name="when" aria-label="Travel month" data-months></select>
+                </label>
+                <label class="finder__field">
+                  <svg class="icon"><use href="#i-users" /></svg>
+                  <span class="finder__label">Who</span>
+                  <select name="who" aria-label="Travellers">
+                    <option>2 adults</option>
+                    <option>1 adult</option>
+                    <option>2 adults, 1 child</option>
+                    <option>2 adults, 2 children</option>
+                    <option>Group (5+)</option>
+                  </select>
+                </label>
+                <button class="btn btn--primary finder__go" type="submit">
+                  <svg class="icon"><use href="#i-search" /></svg>
+                  <span>Compare Options</span>
+                </button>
+              </div>
+              <p class="finder__note">
+                <svg class="icon icon--sm"><use href="#i-shield" /></svg>
+                Live prices from trusted partners · You book directly with them
+              </p>
+            </form>
+          </div>
+
+          <p class="journey__counter" aria-hidden="true"><span id="journey-count">01</span> / 04</p>
+        </div>
+      </section>
+      <span id="journey-start" aria-hidden="true"></span>
+
+      <!-- ================= INTERLUDE · brand statement ================= -->
+      <section class="interlude on-dark" aria-label="More than a destination">
+        <div class="container interlude__inner">
+          <p class="eyebrow" data-reveal>More than a destination</p>
+          <p class="interlude__quote" data-reveal style="--d: 80ms" data-i18n-html="interlude-quote">
+            Egypt isn't a checklist.<br />It's a story you <em>step&nbsp;into</em>.
+          </p>
+          <dl class="interlude__facts">
+            <div data-reveal style="--d: 120ms"><dt>5,000</dt><dd>years of stories, still being told</dd></div>
+            <div data-reveal style="--d: 200ms"><dt>7</dt><dd>UNESCO World Heritage Sites</dd></div>
+            <div data-reveal style="--d: 280ms"><dt>1,200+</dt><dd>species of fish on Red Sea reefs</dd></div>
+            <div data-reveal style="--d: 360ms"><dt>1</dt><dd>place to discover, compare &amp; book it all</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- ================= MOODS · What kind of Egypt ================= -->
+      <section class="moods on-dark" id="moods" aria-labelledby="moods-title">
+        <div class="moods__bg" aria-hidden="true" data-mood-bg></div>
+        <div class="moods__veil" aria-hidden="true"></div>
+        <div class="container moods__inner">
+          <header class="moods__head">
+            <p class="eyebrow" data-reveal>Find your Egypt</p>
+            <h2 class="t-h2" id="moods-title" data-reveal style="--d: 80ms">What kind of Egypt<br />are you looking for?</h2>
+          </header>
+
+          <div class="moods__dial" role="tablist" aria-label="Travel moods" data-mood-list data-reveal style="--d: 160ms"></div>
+
+          <div class="moods__body">
+            <div class="moods__statement" aria-live="polite">
+              <p class="moods__word" data-mood-word data-prefix="An Egypt">Ancient</p>
+              <p class="moods__desc" data-mood-desc></p>
+              <div class="moods__ctas">
+                <a href="#planner" class="btn btn--primary" data-magnetic data-mood-build>
+                  Build My Trip <svg class="icon icon--arrow"><use href="#i-arrow" /></svg>
+                </a>
+                <span class="moods__hint">We'll pre-fill your planner with this mood.</span>
+              </div>
+            </div>
+            <div class="moods__recs" data-mood-recs aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= DESTINATIONS ================= -->
+      <section class="section destinations" id="destinations" aria-labelledby="dest-title">
+        <div class="container">
+          <header class="section-head section-head--split">
+            <div>
+              <p class="eyebrow" data-reveal>Destinations</p>
+              <h2 class="t-h2" id="dest-title" data-reveal style="--d: 80ms">Seven places.<br /><em class="serif">Seven different Egypts.</em></h2>
+            </div>
+            <div class="section-head__aside" data-reveal style="--d: 160ms">
+              <p class="muted">
+                From Cairo's thousand minarets to the silence of Siwa, every region tells its own chapter. Hover a place to step inside it.
+              </p>
+            </div>
+          </header>
+
+          <div class="dest">
+            <ol class="dest__index" data-dest-list></ol>
+            <div class="dest__stage" data-dest-stage aria-live="polite">
+              <div class="dest__frames" data-dest-frames></div>
+              <div class="dest__panel" data-dest-panel></div>
+              <span class="dest__count" data-dest-count>01 / 07</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= INTERACTIVE MAP ================= -->
+      <section class="section map section--dark" id="map" aria-labelledby="map-title">
+        <div class="container map__grid">
+          <div class="map__copy">
+            <p class="eyebrow" data-reveal>The map</p>
+            <h2 class="t-h2" id="map-title" data-reveal style="--d: 80ms">Egypt, <em class="serif">point by point.</em></h2>
+            <p class="map__intro" data-reveal style="--d: 160ms">
+              The Nile draws a single line of life through the desert. Everything else — the coasts, the oases, the ancient cities — is a short flight or a scenic drive away.
+            </p>
+            <ul class="map__list" data-map-list></ul>
+            <p class="map__legend t-meta">
+              <span><i class="dot dot--gold"></i>Destination</span>
+              <span><i class="dot dot--teal"></i>The Nile</span>
+              <span><i class="dot dot--dash"></i>Popular connection</span>
+            </p>
+          </div>
+          <div class="map__canvas" data-map>
+            <svg class="map__svg" viewBox="0 0 560 470" role="img" aria-labelledby="map-svg-title" data-map-svg>
+              <title id="map-svg-title">Map of Egypt showing seven destinations</title>
+              <defs>
+                <radialGradient id="map-glow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0" stop-color="#C9A227" stop-opacity=".55" />
+                  <stop offset="1" stop-color="#C9A227" stop-opacity="0" />
+                </radialGradient>
+                <linearGradient id="nile-grad" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0" stop-color="#0F6B7A" />
+                  <stop offset="1" stop-color="#3fb4c4" />
+                </linearGradient>
+                <pattern id="map-dots" width="8" height="8" patternUnits="userSpaceOnUse">
+                  <circle cx="1" cy="1" r=".7" fill="#fff" opacity=".13" />
+                </pattern>
+              </defs>
+              <g class="map__world" data-map-world></g>
+            </svg>
+            <div class="map__card" data-map-card hidden></div>
+            <div class="map__tools">
+              <button class="icon-btn" type="button" data-map-reset aria-label="Reset map view">
+                <svg class="icon"><use href="#i-compass" /></svg>
+              </button>
+            </div>
+            <p class="map__scale t-meta" aria-hidden="true">N ↑ &nbsp;·&nbsp; 0 — 200 km</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= AFFILIATE DISCOVERY LAYER ================= -->
+      <section class="section partners" id="partners" aria-labelledby="partners-title">
+        <div class="container">
+          <header class="section-head section-head--split">
+            <div>
+              <p class="eyebrow" data-reveal>Plan with trusted partners</p>
+              <h2 class="t-h2" id="partners-title" data-reveal style="--d: 80ms">Everything you need,<br /><em class="serif">compared in one place.</em></h2>
+            </div>
+            <div class="section-head__aside" data-reveal style="--d: 160ms">
+              <p class="muted">
+                We shortlist and compare offers from leading booking partners, then send you straight to them to book. No middle-man checkout, no hidden mark-ups.
+              </p>
+            </div>
+          </header>
+
+          <div class="partners__tabs" role="tablist" aria-label="Booking categories" data-partner-tabs data-reveal>
+            <span class="partners__ink" aria-hidden="true"></span>
+          </div>
+          <div class="partners__panel" data-partner-panel role="tabpanel" aria-live="polite"></div>
+          <p class="disclosure">
+            <svg class="icon icon--sm"><use href="#i-shield" /></svg>
+            Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you. It never influences what we recommend.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= FEATURED EXPERIENCES ================= -->
+      <section class="section experiences" id="experiences" aria-labelledby="exp-title">
+        <div class="container">
+          <header class="section-head section-head--split">
+            <div>
+              <p class="eyebrow" data-reveal>Handpicked experiences</p>
+              <h2 class="t-h2" id="exp-title" data-reveal style="--d: 80ms">Moments we'd<br /><em class="serif">book again.</em></h2>
+            </div>
+            <div class="section-head__aside" data-reveal style="--d: 160ms">
+              <p class="muted">Tested by our editors, rated by thousands of travellers, bookable in minutes with our partners.</p>
+              <div class="exp__filters" role="group" aria-label="Filter experiences" data-exp-filters></div>
+            </div>
+          </header>
+        </div>
+        <div class="rail-scroller" data-rail-scroller>
+          <ul class="exp__track" data-exp-track></ul>
+        </div>
+        <div class="container exp__controls">
+          <span class="exp__progress" aria-hidden="true"><i data-exp-progress></i></span>
+          <div class="exp__arrows">
+            <button class="round-btn" type="button" data-exp-prev aria-label="Previous experiences"><svg class="icon"><use href="#i-arrow-left" /></svg></button>
+            <button class="round-btn" type="button" data-exp-next aria-label="Next experiences"><svg class="icon"><use href="#i-arrow" /></svg></button>
+          </div>
+          <a href="#partner" class="link" rel="sponsored noopener">View all tours <svg class="icon icon--sm"><use href="#i-arrow" /></svg></a>
+        </div>
+      </section>
+
+      <!-- ================= TRAVEL GUIDE ================= -->
+      <section class="section guide" id="guide" aria-labelledby="guide-title">
+        <div class="container">
+          <header class="guide__masthead">
+            <p class="eyebrow" data-reveal>The Roamer Journal</p>
+            <h2 class="t-h1" id="guide-title" data-reveal style="--d: 80ms">Stories, tips&nbsp;&amp;<br /><em class="serif">honest advice.</em></h2>
+            <div class="guide__cats" role="group" aria-label="Filter stories" data-guide-cats data-reveal style="--d: 160ms"></div>
+          </header>
+          <div class="guide__layout">
+            <div class="guide__feature" data-guide-feature></div>
+            <ol class="guide__list" data-guide-list></ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TRIP BUILDER ================= -->
+      <section class="planner on-dark" id="planner" aria-labelledby="planner-title">
+        <div class="planner__bg" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1761205930594-64096d9d2baa?auto=format&fit=crop&w=2000&q=75"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="container planner__inner">
+          <header class="planner__head">
+            <p class="eyebrow" data-reveal>Personal trip builder</p>
+            <h2 class="t-h1" id="planner-title" data-reveal style="--d: 80ms">Ready for your<br /><em class="serif">Egypt story?</em></h2>
+            <p class="planner__intro" data-reveal style="--d: 160ms">
+              Four quick choices. We'll draft a route, pace the nights and match the partners worth booking.
+            </p>
+          </header>
+
+          <form class="builder" data-builder aria-label="Trip builder">
+            <div class="builder__steps">
+              <fieldset class="builder__step">
+                <legend><span>01</span> How long?</legend>
+                <div class="builder__duration">
+                  <output data-b-days-out>8</output><span data-b-days-unit>nights</span>
+                </div>
+                <input type="range" min="3" max="21" value="8" step="1" name="days" data-b-days aria-label="Trip length in nights" />
+                <div class="builder__scale"><span>3</span><span>A long weekend → a grand tour</span><span>21</span></div>
+              </fieldset>
+
+              <fieldset class="builder__step">
+                <legend><span>02</span> What moves you?</legend>
+                <div class="builder__chips" data-b-interests></div>
+              </fieldset>
+
+              <fieldset class="builder__step">
+                <legend><span>03</span> Where to?</legend>
+                <div class="builder__chips" data-b-dests></div>
+              </fieldset>
+
+              <fieldset class="builder__step">
+                <legend><span>04</span> Travel style</legend>
+                <div class="builder__seg" data-b-style role="radiogroup" aria-label="Travel style">
+                  <label><input type="radio" name="style" value="smart" /><span>Smart</span></label>
+                  <label><input type="radio" name="style" value="comfort" checked /><span>Comfort</span></label>
+                  <label><input type="radio" name="style" value="luxury" /><span>Luxury</span></label>
+                  <i aria-hidden="true"></i>
+                </div>
+              </fieldset>
+            </div>
+
+            <aside class="itin" aria-live="polite" aria-label="Your draft itinerary">
+              <div class="itin__head">
+                <span class="t-label">Your Egypt, drafted</span>
+                <p class="itin__title" data-itin-title>8 nights · Cairo, Luxor &amp; Aswan</p>
+              </div>
+              <ol class="itin__route" data-itin-route></ol>
+              <dl class="itin__facts">
+                <div><dt>Est. per person</dt><dd data-itin-budget>$1,450 – $2,100</dd></div>
+                <div><dt>Best months</dt><dd data-itin-season>Oct – Apr</dd></div>
+              </dl>
+              <div class="itin__ctas">
+                <button type="submit" class="btn btn--primary btn--lg btn--block" data-magnetic>
+                  Build My Trip <svg class="icon icon--arrow"><use href="#i-arrow" /></svg>
+                </button>
+                <a href="#destinations" class="btn btn--ghost btn--block">Explore Egypt</a>
+              </div>
+            </aside>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer on-dark" id="footer">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__letter">
+            <p class="eyebrow">Roamer letters</p>
+            <h2 class="t-h2">One beautiful email<br /><em class="serif">a month.</em></h2>
+            <p class="muted-dark">Seasonal routes, new openings and the deals worth knowing about. No spam, ever.</p>
+            <form class="subscribe" data-subscribe>
+              <label class="visually-hidden" for="sub-email">Email address</label>
+              <svg class="icon"><use href="#i-mail" /></svg>
+              <input id="sub-email" type="email" name="email" placeholder="Your email address" required autocomplete="email" />
+              <button class="btn btn--primary btn--sm" type="submit">Subscribe</button>
+            </form>
+          </div>
+          <nav class="footer__cols" aria-label="Footer">
+            <div>
+              <h3 class="t-label">Explore</h3>
+              <ul>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#partners">Hotels</a></li>
+                <li><a href="#experiences">Tours &amp; Activities</a></li>
+                <li><a href="#partners">Nile Cruises</a></li>
+                <li><a href="#guide">Travel Guide</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="t-label">Plan</h3>
+              <ul>
+                <li><a href="#planner">Trip Builder</a></li>
+                <li><a href="/guide/best-time-to-visit-egypt">Best Time to Visit</a></li>
+                <li><a href="/guide/egypt-travel-costs">Egypt Travel Costs</a></li>
+                <li><a href="/guide/egypt-visa-and-entry">Visa &amp; Entry</a></li>
+                <li><a href="#partners">Transfers</a></li>
+                <li><a href="#partners">Car Rental</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="t-label">Egypt Roamer</h3>
+              <ul>
+                <li><a href="/about">Our Story</a></li>
+                <li><a href="/how-we-choose">How We Choose</a></li>
+                <li><a href="/partner-with-us">Partner With Us</a></li>
+                <li><a href="/affiliate-disclosure">Affiliate Disclosure</a></li>
+                <li><a href="/contact">Contact</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <div class="footer__word">
+          <img class="footer__logo" src="assets/img/brand/egypt-roamer-logo-dark-600.webp" srcset="assets/img/brand/egypt-roamer-logo-dark-600.webp 600w, assets/img/brand/egypt-roamer-logo-dark-1200.webp 1200w, assets/img/brand/egypt-roamer-logo-dark.webp 1759w" sizes="(max-width: 960px) calc(100vw - 2rem), 880px" width="1759" height="203" alt="Egypt Roamer — More than a destination" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="footer__bottom">
+          <p>© 2026 Egypt Roamer. Independent travel discovery. All rights reserved.</p>
+          <p><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/cookies">Cookies</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= MOBILE DOCK ================= -->
+    <nav class="dock" aria-label="Quick actions">
+      <a href="#destinations" class="dock__item"><svg class="icon"><use href="#i-compass" /></svg><span>Explore</span></a>
+      <button type="button" class="dock__item" data-open="saved"><svg class="icon"><use href="#i-heart" /></svg><span>Saved</span><i class="dock__badge" data-fav-count></i></button>
+      <button type="button" class="dock__item" data-open="search"><svg class="icon"><use href="#i-search" /></svg><span>Search</span></button>
+      <a href="#planner" class="dock__plan"><svg class="icon"><use href="#i-route" /></svg><span>Plan My Trip</span></a>
+    </nav>
+
+    <!-- ================= OVERLAYS ================= -->
+    <div class="menu" id="menu" hidden>
+      <div class="menu__inner">
+        <ul class="menu__links">
+          <li><a href="#destinations" data-close>Destinations</a></li>
+          <li><a href="#experiences" data-close>Experiences</a></li>
+          <li><a href="#partners" data-close data-partner-tab="hotels">Hotels</a></li>
+          <li><a href="#partners" data-close data-partner-tab="tours">Tours</a></li>
+          <li><a href="#partners" data-close data-partner-tab="cruises">Nile Cruises</a></li>
+          <li><a href="#guide" data-close>Travel Guide</a></li>
+        </ul>
+        <a href="#planner" class="btn btn--primary btn--lg btn--block" data-close>Plan My Trip <svg class="icon icon--arrow"><use href="#i-arrow" /></svg></a>
+        <div class="menu__lang" role="group" aria-label="Language" data-i18n-skip>
+          <svg class="icon"><use href="#i-globe" /></svg>
+          <button type="button" data-set-lang="en" lang="en">English</button>
+          <button type="button" data-set-lang="de" lang="de">Deutsch</button>
+          <button type="button" data-set-lang="fr" lang="fr">Français</button>
+          <button type="button" data-set-lang="it" lang="it">Italiano</button>
+          <button type="button" data-set-lang="es" lang="es">Español</button>
+          <button type="button" data-set-lang="ru" lang="ru">Русский</button>
+          <button type="button" data-set-lang="zh" lang="zh">中文</button>
+          <button type="button" data-set-lang="ar" lang="ar">العربية</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay search" id="search" role="dialog" aria-modal="true" aria-label="Search" hidden>
+      <div class="search__box">
+        <div class="search__field">
+          <svg class="icon"><use href="#i-search" /></svg>
+          <input type="search" placeholder="Search destinations, tours, cruises, guides…" aria-label="Search" data-search-input />
+          <button class="icon-btn" type="button" data-close aria-label="Close search"><svg class="icon"><use href="#i-close" /></svg></button>
+        </div>
+        <div class="search__results" data-search-results></div>
+      </div>
+    </div>
+
+    <div class="overlay drawer" id="saved" role="dialog" aria-modal="true" aria-label="Saved" hidden>
+      <div class="drawer__panel">
+        <header class="drawer__head">
+          <h2 class="t-h3">Saved for later</h2>
+          <button class="icon-btn" type="button" data-close aria-label="Close saved"><svg class="icon"><use href="#i-close" /></svg></button>
+        </header>
+        <div class="drawer__body" data-saved-list></div>
+      </div>
+    </div>
+
+    <div class="overlay film" id="film" role="dialog" aria-modal="true" aria-label="Egypt Roamer film" hidden>
+      <div class="film__stage" data-film-stage></div>
+      <p class="film__caption" data-film-caption></p>
+      <span class="film__bar"><i data-film-bar></i></span>
+      <button class="icon-btn film__close" type="button" data-close aria-label="Close film"><svg class="icon"><use href="#i-close" /></svg></button>
+    </div>
+
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+    <!-- Motion libraries (lightweight, CDN). The page degrades gracefully without them. -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+    <!-- app.js is the bundled build of assets/js/*.js (python tools/build.py) — works over http:// and file:// -->
+    <script src="assets/js/app.js" defer></script>
+  </body>
+</html>

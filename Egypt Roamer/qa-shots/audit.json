@@ -1,0 +1,287 @@
+[
+ {
+  "size": "375x812",
+  "name": "dest",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 6615,
+   "target": "#destinations",
+   "reducedMotion": false,
+   "railActive": [
+    "3"
+   ],
+   "activeScene": [
+    "3"
+   ],
+   "issues": [],
+   "name": "dest"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "exp",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 10784,
+   "target": "#experiences",
+   "reducedMotion": false,
+   "railActive": [
+    "3"
+   ],
+   "activeScene": [
+    "3"
+   ],
+   "issues": [],
+   "name": "exp"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "footer",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 15798,
+   "target": "#footer",
+   "reducedMotion": false,
+   "railActive": [
+    "3"
+   ],
+   "activeScene": [
+    "3"
+   ],
+   "issues": [
+    {
+     "sev": "P2",
+     "type": "orphan",
+     "el": "h2#dest-title.t-h2.is-in \"Sieben Orte.Sieben verschiedene \"",
+     "msg": "last line is a single word \"\u00c4gypten.\" (3 lines)"
+    }
+   ],
+   "name": "footer"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "guide",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 11899,
+   "target": "#guide",
+   "reducedMotion": false,
+   "railActive": [
+    "3"
+   ],
+   "activeScene": [
+    "3"
+   ],
+   "issues": [
+    {
+     "sev": "P2",
+     "type": "orphan",
+     "el": "h2#dest-title.t-h2.is-in \"Sieben Orte.Sieben verschiedene \"",
+     "msg": "last line is a single word \"\u00c4gypten.\" (3 lines)"
+    }
+   ],
+   "name": "guide"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "interlude",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 4547,
+   "target": "sel:.interlude",
+   "reducedMotion": false,
+   "railActive": [
+    "3"
+   ],
+   "activeScene": [
+    "3"
+   ],
+   "issues": [],
+   "name": "interlude"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "map",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 7574,
+   "target": "#map",
+   "reducedMotion": false,
+   "railActive": [
+    "3"
+   ],
+   "activeScene": [
+    "3"
+   ],
+   "issues": [],
+   "name": "map"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "moods",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 5264,
+   "target": "#moods",
+   "reducedMotion": false,
+   "railActive": [
+    "3"
+   ],
+   "activeScene": [
+    "3"
+   ],
+   "issues": [],
+   "name": "moods"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "partners",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 8637,
+   "target": "#partners",
+   "reducedMotion": false,
+   "railActive": [
+    "3"
+   ],
+   "activeScene": [
+    "3"
+   ],
+   "issues": [],
+   "name": "partners"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "planner",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 13947,
+   "target": "#planner",
+   "reducedMotion": false,
+   "railActive": [
+    "3"
+   ],
+   "activeScene": [
+    "3"
+   ],
+   "issues": [
+    {
+     "sev": "P2",
+     "type": "orphan",
+     "el": "h2#dest-title.t-h2.is-in \"Sieben Orte.Sieben verschiedene \"",
+     "msg": "last line is a single word \"\u00c4gypten.\" (3 lines)"
+    }
+   ],
+   "name": "planner"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "s1",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 589,
+   "target": "vh:0.725",
+   "reducedMotion": false,
+   "railActive": [
+    "0"
+   ],
+   "activeScene": [
+    "0"
+   ],
+   "issues": [],
+   "name": "s1"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "s2",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 1502,
+   "target": "vh:1.850",
+   "reducedMotion": false,
+   "railActive": [
+    "1"
+   ],
+   "activeScene": [
+    "1"
+   ],
+   "issues": [],
+   "name": "s2"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "s3",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 2335,
+   "target": "vh:2.875",
+   "reducedMotion": false,
+   "railActive": [
+    "2"
+   ],
+   "activeScene": [
+    "2"
+   ],
+   "issues": [],
+   "name": "s3"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "s4",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 3248,
+   "target": "vh:4.000",
+   "reducedMotion": false,
+   "railActive": [
+    "3"
+   ],
+   "activeScene": [
+    "3"
+   ],
+   "issues": [],
+   "name": "s4"
+  }
+ },
+ {
+  "size": "375x812",
+  "name": "top",
+  "console": [],
+  "audit": {
+   "viewport": "375x812",
+   "scrollY": 0,
+   "target": "top",
+   "reducedMotion": false,
+   "railActive": [],
+   "activeScene": [
+    "0"
+   ],
+   "issues": [],
+   "name": "top"
+  }
+ }
+]
