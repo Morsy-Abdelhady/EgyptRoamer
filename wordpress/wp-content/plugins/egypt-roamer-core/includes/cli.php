@@ -235,6 +235,7 @@ class ER_CLI {
 		}
 		WP_CLI::log( "Offer drafts (paused, no link): {$n}" );
 
+		$this->remove_wordpress_samples();
 		$this->pages();
 		$this->menus( $dest );
 
@@ -243,6 +244,17 @@ class ER_CLI {
 		}
 		flush_rewrite_rules();
 		WP_CLI::success( 'Seed complete. Review drafts, add real affiliate providers/offers, then tick “Ready to index” page by page.' );
+	}
+
+	/** WordPress's install placeholders ("Sample Page", "Hello world!") are not content: trash them if untouched. */
+	private function remove_wordpress_samples(): void {
+		foreach ( [ [ 'sample-page', 'page', 'This is an example page' ], [ 'hello-world', 'post', 'Welcome to WordPress' ] ] as [ $slug, $type, $marker ] ) {
+			$p = get_page_by_path( $slug, OBJECT, $type );
+			if ( $p && 'trash' !== $p->post_status && str_contains( $p->post_content, $marker ) ) {
+				wp_trash_post( $p->ID );
+				WP_CLI::log( "Trashed WordPress placeholder: {$slug}" );
+			}
+		}
 	}
 
 	/** Trust & legal pages as drafts with an editorial note — never auto-published. */

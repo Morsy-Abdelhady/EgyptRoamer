@@ -48,6 +48,15 @@ function er_empty_posts_page_ids(): array {
 	} ) );
 }
 
+/** Does a content type have at least one published item ticked "Ready to index" (current language)? */
+function er_type_has_indexable( string $post_type ): bool {
+	static $cache = [];
+	if ( ! isset( $cache[ $post_type ] ) ) {
+		$cache[ $post_type ] = (bool) get_posts( [ 'post_type' => $post_type, 'post_status' => 'publish', 'numberposts' => 1, 'fields' => 'ids', 'meta_key' => '_er_indexable', 'meta_value' => '1', 'suppress_filters' => false ] );
+	}
+	return $cache[ $post_type ];
+}
+
 /** Query-string keys that only filter or sort a listing (never a distinct page). */
 function er_filter_query_keys(): array {
 	return apply_filters( 'er_filter_query_keys', [ 'destination', 'style', 'region', 'topic', 'duration', 'type', 'sort', 'orderby', 'order' ] );
@@ -66,6 +75,13 @@ function er_request_noindex(): bool {
 	}
 	if ( is_category( (int) get_option( 'default_category' ) ) ) {
 		return true; // "Uncategorized" is never a destination for searchers
+	}
+	// An archive whose items are all still "not ready" is a hub of thin pages: keep it out too.
+	if ( is_post_type_archive( er_public_type_keys() ) && ! er_type_has_indexable( (string) get_query_var( 'post_type' ) ) ) {
+		return true;
+	}
+	if ( is_home() && ! er_has_indexable_articles( function_exists( 'er_current_lang' ) ? er_current_lang() : '' ) ) {
+		return true;
 	}
 	if ( is_post_type_archive( er_public_type_keys() ) || is_home() || is_category() || is_tag() ) {
 		foreach ( er_filter_query_keys() as $key ) {
@@ -148,6 +164,10 @@ function er_legacy_redirect_target( string $path ): ?string {
 	$path = '/' . trim( $path, '/' );
 	if ( '/index.html' === $path ) {
 		return home_url( '/' );
+	}
+	if ( '/privacy' === $path ) {
+		$privacy = (int) get_option( 'wp_page_for_privacy_policy' );
+		return $privacy && 'publish' === get_post_status( $privacy ) ? get_permalink( $privacy ) : null;
 	}
 	if ( '/guide' === $path ) {
 		return get_post_type_archive_link( 'er_guide' ) ?: null;
@@ -232,6 +252,10 @@ add_action( 'wp_head', static function () {
 	printf( "<meta property=\"og:site_name\" content=\"%s\" />\n", esc_attr( get_bloginfo( 'name' ) ) );
 	if ( is_singular() ) {
 		printf( "<meta property=\"og:url\" content=\"%s\" />\n", esc_url( get_permalink() ) );
+	} elseif ( ( is_post_type_archive() || is_home() || is_category() || is_tag() ) && ! is_search() ) {
+		// Core only prints canonicals for singular pages; archives get one here (filters stripped, page kept).
+		$canonical = remove_query_arg( er_filter_query_keys(), get_pagenum_link( max( 1, (int) get_query_var( 'paged' ) ), false ) );
+		printf( "<link rel=\"canonical\" href=\"%s\" />\n<meta property=\"og:url\" content=\"%s\" />\n", esc_url( $canonical ), esc_url( $canonical ) );
 	}
 	if ( $image ) {
 		printf( "<meta property=\"og:image\" content=\"%s\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n", esc_url( $image ) );
