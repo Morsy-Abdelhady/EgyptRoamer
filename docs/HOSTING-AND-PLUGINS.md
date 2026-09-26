@@ -32,7 +32,8 @@
 | CRM | FluentCRM hand-off (`FluentCrmApi('contacts')->createOrUpdate`, status "pending" + double opt-in email) | code path NOT VERIFIED (FluentCRM not installed here); the local-table fallback was verified |
 | Analytics | GTM snippet + Consent Mode defaults + dataLayer events | events verified locally in the browser; GTM/GA4 container NOT VERIFIED |
 | Image optimisation | WordPress responsive sizes + WebP sub-sizes if supported | NOT VERIFIED on GoDaddy |
-| Caching | GoDaddy server cache only; no plugin | NOT VERIFIED. Public forms avoid nonces so cached pages keep working |
+| Caching | GoDaddy server cache only; no plugin | NOT VERIFIED on GoDaddy. Tested locally with Varnish 7.1 (default VCL): pages HIT, `/go/` never cached (3 requests = 3 clicks). Public pages set no cookies (Polylang's cookie is disabled by Core). Public forms avoid nonces so cached pages keep working |
+| Rate limit | per-IP limit on forms uses `REMOTE_ADDR` | NOT VERIFIED: confirm on staging that `REMOTE_ADDR` is the visitor IP behind GoDaddy's proxy/CDN |
 | Email | see below | NOT VERIFIED |
 | Security | GoDaddy WAF / scanning + Core's capability, nonce, escaping and allow-list measures | Core measures verified locally; GoDaddy layer NOT VERIFIED |
 | Cron | click retention purge via WP-Cron (daily) | NOT VERIFIED on GoDaddy |

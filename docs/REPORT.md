@@ -189,6 +189,12 @@ See [SETUP.md](SETUP.md#2-manual-setup-tasks-owner).
 
 ---
 
+## Final readiness audit
+
+The final production-readiness audit, with its blockers table, NOT VERIFIED items and decision, is in [READINESS-AUDIT.md](READINESS-AUDIT.md). It supersedes the query counts above (home 139, destination 122; see §15 there). It also adds these facts: articles are behind the "Ready to index" gate; archives are noindex until they contain an indexable item; `/privacy` is redirected by Core once the privacy page is published; the Polylang cookie is disabled.
+
+---
+
 ## Final QA checklist
 
 | Item | Status |

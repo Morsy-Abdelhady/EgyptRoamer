@@ -29,7 +29,7 @@
 | 6 | Write the guides; publish only complete ones | Guides |
 | 7 | Replace stand-in photography with owned or licensed images (descriptive filenames, alt text) | Media / featured images / Appearance → Homepage |
 | 8 | Homepage: featured items, scene links, "Roamer pick" offers, finder offers (with search URL templates), planner link, and budget bands only if you stand behind them | Appearance → Homepage |
-| 9 | Install **Rank Math** (the only SEO plugin): run the setup wizard, enable the sitemap, breadcrumbs schema and Redirections. Add `/privacy` → `/privacy-policy/`. Set the default OG image to the theme's `assets/img/brand/og-image.jpg`. Leave internal search noindexed | Rank Math |
+| 9 | Install **Rank Math** (the only SEO plugin): run the setup wizard, enable the sitemap, breadcrumbs schema and Redirections. (Core already redirects `/privacy` once the privacy page is published.) Set the default OG image to the theme's `assets/img/brand/og-image.jpg`. Leave internal search noindexed | Rank Math |
 | 10 | Verify the domain in **Search Console** (DNS record or Rank Math) and submit `/sitemap_index.xml` | Search Console |
 | 11 | Create a **GTM** container. Configure GA4 in it, with triggers on the dataLayer events `affiliate_click`, `booking_click`, `search`, `filter_use`, `newsletter_signup`, `contact_submit` and `guide_download`. Enter the container ID | Egypt Roamer → Settings |
 | 12 | Install a Google-certified **consent tool**. If it sets Consent Mode defaults itself, set Core's Consent Mode default to "off" | Plugins + Settings |
@@ -38,6 +38,9 @@
 | 15 | Languages (when a translation is reviewed): install Polylang and add languages. In **Languages → Settings → URL modifications**, choose "the language is set from the directory name" and enable **"The front page URL contains the language code"**. Then run `wp egypt-roamer seed --translations` to import the prototype's translations as drafts, and have them **reviewed by native speakers** (also review `tools/i18n/new-strings.json`) before publishing | Languages |
 | 16 | Import GA4 "Pages and screens" CSVs monthly to see traffic vs affiliate clicks | Egypt Roamer → Click reports |
 | 17 | GoDaddy cache test for `/go/` (see HOSTING-AND-PLUGINS.md) | staging |
+| 18 | Keep Polylang's "Detect browser language" **off** (the language cookie is disabled so pages stay cacheable) | Languages → Settings |
+| 19 | Write an intro for each archive (it becomes the archive's meta description) | Egypt Roamer → Settings |
+| 20 | Delete the inactive default plugins (Akismet, Hello Dolly) | Plugins |
 
 ## 3. Developer workflow
 
