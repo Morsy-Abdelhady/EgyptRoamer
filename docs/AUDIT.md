@@ -56,6 +56,8 @@ Limitation of this sandbox: its network policy blocks `images.unsplash.com` and 
 | B8 | **Interactive controls sit inside `role="img"`** on the map SVG (axe, *serious*, `nested-interactive`). | axe `.map__svg` |
 | B9 | **Duplicate landmark name**: four `<aside aria-label="Roamer pick">` (axe, *moderate*). | axe |
 | B10 | **Currency and number formatting are hardcoded to `en-US`/`$`** in every language (`utils.js money/fmt`). French, for example, shows "$1,450". | `utils.js` |
+| B12 | **Clicking any hero finder tab throws `TypeError: t is not a function`** — the tab loop variable `t` shadows the translate function, so the button label never updates. Reproduced in Chromium. | `hero.js` `initFinder` |
+| B13 | **Brand colour mismatch:** `--charcoal` is `#111111`, the brand specification (and the logo artwork, `theme-color`) is `#101820`. | `tokens.css` |
 | B11 | The README documents `tools/build.py`, `tools/dev_server.py`, `tools/brand_assets.py`, `tools/check_locales.py` and `tools/qa/*`. **None are in the repository**, and `.claude/launch.json` points to the missing dev server. | `ls` |
 
 ## C. Missing functionality
@@ -160,3 +162,9 @@ These are the models needed; none exist yet.
 - **The visual design:** tokens, type (Playfair Display × Inter), components, cinematic homepage journey, RTL styling.
 - **Brand assets**, used exactly as supplied.
 - **The editorial voice and existing copy** (destination descriptions, section headings), which migrate as editable content.
+
+## Found while migrating (fixed in the WordPress build)
+
+- `journey.js` tweens the optional "Roamer pick" asides and the finder without null checks — once those become optional (only shown for live offers), GSAP throws. Guarded.
+- WordPress adds `search` to `<body>` on results pages, which the design uses for the search overlay (`.search`) — caused horizontal overflow at 390/430 px. Class removed.
+- A homepage built on "latest posts" is `is_home()`; the empty-archive noindex rule would have noindexed the home page. Excluded explicitly.

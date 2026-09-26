@@ -1,0 +1,20 @@
+import { chromium } from "playwright";
+const B = "http://127.0.0.1:8080";
+const b = await chromium.launch(); const ctx = await b.newContext({ userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/140.0" });
+const p = await ctx.newPage(); const dl = [];
+await p.goto(B + "/destinations/cairo/");
+await p.fill("#sub-email", "reader@example.com"); await p.waitForTimeout(3500);
+await Promise.all([p.waitForNavigation(), p.click(".subscribe button")]);
+console.log("newsletter →", new URL(p.url()).search || "(param cleaned)", "|", await p.locator(".form-notice").textContent());
+console.log("dataLayer:", JSON.stringify(await p.evaluate(() => dataLayer.filter((e) => e.event === "newsletter_signup"))));
+// bot-speed submission (under 3 s) is rejected
+await p.goto(B + "/destinations/cairo/"); await p.fill("#sub-email", "fast@example.com");
+await Promise.all([p.waitForNavigation(), p.click(".subscribe button")]);
+console.log("instant submit →", await p.locator(".form-notice").textContent());
+await p.goto(B + "/contact/");
+await p.fill("#er-c-name", "Test Reader"); await p.fill("#er-c-email", "reader@example.com"); await p.fill("#er-c-message", "When is the best month for Abu Simbel?");
+await p.waitForTimeout(3500); await Promise.all([p.waitForNavigation(), p.click(".er-form button")]);
+console.log("contact →", await p.locator(".er-form__notice").textContent());
+console.log("dataLayer:", JSON.stringify(await p.evaluate(() => dataLayer.filter((e) => e.event === "contact_submit"))));
+await p.goto(B + "/?s=luxor"); console.log("search event:", JSON.stringify(await p.evaluate(() => dataLayer.filter((e) => e.event === "search"))));
+await b.close();
