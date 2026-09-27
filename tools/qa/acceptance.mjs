@@ -57,8 +57,12 @@ await p.fill('[name="er_meta[_er_utm_campaign]"]', "acceptance");
 await p.fill('[name="er_meta[_er_priority]"]', "50");
 await save();
 const offerId = Number(new URL(p.url()).searchParams.get("post"));
-await p.reload(); await p.waitForLoadState("networkidle");
-const redirectsTo = await p.locator('p:has-text("Redirects to:") code').first().textContent().catch(() => "");
+// The block editor saves meta boxes in a second request after publishing: wait for it instead of racing it.
+let redirectsTo = "";
+for (let i = 0; i < 10 && !redirectsTo.includes("tours.example.org"); i++) {
+  await p.waitForTimeout(i ? 1000 : 0); await p.reload(); await p.waitForLoadState("networkidle");
+  redirectsTo = await p.locator('p:has-text("Redirects to:") code').first().textContent({ timeout: 2000 }).catch(() => "");
+}
 step("create offer, connect to experience, publish", !!offerId && redirectsTo.includes("tours.example.org"), redirectsTo);
 
 // 10. CTA displayed on the experience page

@@ -1,16 +1,25 @@
 <?php
 /**
- * /go/{slug}/ — the single affiliate redirect endpoint.
+ * /go/{slug}/ — the single public affiliate redirect URL.
  *
- * 1. resolve the slug to a configured offer (or a provider's default link)
- * 2. validate: offer live, URL http(s), host in the provider's allow-list
- * 3. log the click (business context only; bots and prefetches are skipped)
- * 4. apply configured tracking parameters
- * 5. redirect
+ * Two steps, so that no CDN or page cache can ever swallow a click:
+ *
+ * A. /go/{slug}/ is stateless: it forwards to the dynamic handler with the slug
+ *    and the whitelisted click parameters, without reading any offer. A cached
+ *    copy of this hop is therefore always correct.
+ * B. /wp-admin/admin-post.php?action=er_go&offer={slug} is the dynamic handler
+ *    (WordPress's own request endpoint, which managed hosts exclude from page
+ *    and CDN caching — measured on GoDaddy: cf-cache-status DYNAMIC, gateway BYPASS):
+ *    1. resolve the slug to a configured offer (or a provider's default link)
+ *    2. validate: offer live, URL http(s), host in the provider's allow-list
+ *    3. log the click (business context only; bots and prefetches are skipped)
+ *    4. apply configured tracking parameters
+ *    5. redirect
  *
  * Visitors can never choose the destination: query parameters only feed the
  * click log and whitelisted search placeholders. Responses are noindex and
- * uncacheable so page caching can never swallow a click.
+ * uncacheable. Hosts without an edge cache can serve step B directly at /go/
+ * with add_filter( 'er_go_via_dynamic_endpoint', '__return_false' ).
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -121,17 +130,30 @@ function er_send_redirect_headers(): void {
 	header( 'Referrer-Policy: strict-origin-when-cross-origin' );
 }
 
-add_action( 'template_redirect', static function () {
-	$slug = get_query_var( 'er_go' );
-	if ( ! $slug ) {
-		return;
+/** Click parameters the public /go/ hop may pass on to the dynamic handler (values are validated there). */
+function er_go_forward_args(): array {
+	$args = [];
+	foreach ( [ 'pl', 'src', 'where', 'when', 'adults' ] as $key ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- public link; every value is validated by the handler
+		if ( isset( $_GET[ $key ] ) && is_string( $_GET[ $key ] ) && '' !== $_GET[ $key ] ) {
+			$args[ $key ] = substr( sanitize_text_field( wp_unslash( $_GET[ $key ] ) ), 0, 64 );
+		}
 	}
-	$slug = sanitize_title( (string) $slug );
+	return $args;
+}
+
+/** The dynamic handler URL for a slug. */
+function er_go_endpoint_url( string $slug, array $args = [] ): string {
+	return add_query_arg( array_map( 'rawurlencode', [ 'action' => 'er_go', 'offer' => $slug ] + $args ), admin_url( 'admin-post.php' ) );
+}
+
+/** Resolve, validate, log and redirect one click. Always exits. */
+function er_handle_go( string $slug, bool $themed_404 ): void {
 	er_send_redirect_headers();
 	$status = (int) er_settings( 'redirect_status' ) === 307 ? 307 : 302;
 
-	$offer    = get_page_by_path( $slug, OBJECT, 'er_offer' );
-	$provider = $offer ? null : get_page_by_path( $slug, OBJECT, 'er_provider' );
+	$offer    = $slug ? get_page_by_path( $slug, OBJECT, 'er_offer' ) : null;
+	$provider = $slug && ! $offer ? get_page_by_path( $slug, OBJECT, 'er_provider' ) : null;
 
 	if ( $offer && 'publish' === $offer->post_status ) {
 		if ( ! er_offer_is_live( $offer->ID ) ) {
@@ -185,8 +207,40 @@ add_action( 'template_redirect', static function () {
 		}
 	}
 
-	// Unknown or unusable slug: a real 404 (noindex) so broken links show up in Search Console and logs.
-	global $wp_query;
-	$wp_query->set_404();
-	status_header( 404 );
+	if ( $themed_404 ) {
+		// Unknown or unusable slug on /go/ itself: a real 404 (noindex) so broken links show up in logs.
+		global $wp_query;
+		$wp_query->set_404();
+		status_header( 404 );
+		return;
+	}
+	// Dynamic endpoint: unknown, draft, trashed or deleted offer → the home page, never a partner.
+	wp_safe_redirect( home_url( '/' ), 302 );
+	exit;
+}
+
+// A. Public /go/{slug}/.
+add_action( 'template_redirect', static function () {
+	$slug = get_query_var( 'er_go' );
+	if ( ! $slug ) {
+		return;
+	}
+	$slug = sanitize_title( (string) $slug );
+	if ( apply_filters( 'er_go_via_dynamic_endpoint', true ) ) {
+		// Stateless hop: reads no offer, so even a cached copy stays correct.
+		er_send_redirect_headers();
+		wp_redirect( er_go_endpoint_url( $slug, er_go_forward_args() ), 302, 'Egypt Roamer' ); // phpcs:ignore WordPress.Security.SafeRedirect -- own admin URL
+		exit;
+	}
+	er_handle_go( $slug, true );
 }, 0 );
+
+// B. Dynamic handler (anonymous visitors and logged-in editors alike).
+$er_go_handler = static function () {
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- public link; the slug only selects a configured offer
+	$raw  = isset( $_GET['offer'] ) ? (string) wp_unslash( $_GET['offer'] ) : '';
+	$slug = preg_match( '/^[a-z0-9-]{1,200}$/', $raw ) ? $raw : '';
+	er_handle_go( $slug, false );
+};
+add_action( 'admin_post_nopriv_er_go', $er_go_handler );
+add_action( 'admin_post_er_go', $er_go_handler );
