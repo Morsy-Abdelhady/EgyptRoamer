@@ -64,7 +64,10 @@ The theme reads data only through Core's template API (`inc/api.php`, `er_get_of
 - today falls within its start and end dates;
 - its provider is published and active.
 
-**`/go/{slug}/` (`includes/redirect.php`):**
+**`/go/{slug}/` (`includes/redirect.php`): two steps.** The public URL is always `/go/{slug}/`.
+
+- **A. `/go/{slug}/`:** a stateless 302 to `/wp-admin/admin-post.php?action=er_go&offer={slug}`. It passes on only `pl`, `src`, `where`, `when` and `adults`, and it never reads an offer, so a cached copy is always correct. GoDaddy's CDN caches every URL, including redirects, and ignores `no-store` (see [LAUNCH-GATE.md](LAUNCH-GATE.md#affiliate-redirect-architecture)).
+- **B. The `er_go` handler:** WordPress's own request endpoint, which the host never caches. It does the real work:
 
 1. **Resolve** the slug to an offer (or to a provider's default link).
 2. **Validate:**
@@ -75,11 +78,13 @@ The theme reads data only through Core's template API (`inc/api.php`, `er_get_of
 4. **Append** the configured `utm_*` and extra parameters, never overriding parameters already in the URL.
 5. **Redirect** with 302 (or 307).
 
-**Failure handling.** If validation fails, the endpoint makes a 302 to the related tour/experience/destination page on this site (or the home page). An unknown slug gets a real 404.
+On hosts without an edge cache, step A can be skipped with `add_filter( 'er_go_via_dynamic_endpoint', '__return_false' )`; `/go/` then does step B itself.
+
+**Failure handling.** If validation fails (paused, expired or not-yet-started offer, inactive provider, or a URL outside the allow-list), the handler makes a 302 to the related tour/experience/destination page on this site. An unknown, draft or deleted offer goes to the home page. With step A skipped, an unknown slug on `/go/` gets a real 404.
 
 **Visitors can never choose the destination.** Query parameters only feed the click log (`pl`, `src`). The finder values (`where`, `when`, `adults`) are whitelisted and URL-encoded into an **admin-defined** template.
 
-**Caching and crawling.** Responses send `X-Robots-Tag: noindex, nofollow` and `Cache-Control: no-store`, and define `DONOTCACHEPAGE`. `robots.txt` disallows `/go/`. Links carry `rel="sponsored nofollow noopener"` and `target="_blank"`.
+**Caching and crawling.** Both steps send `X-Robots-Tag: noindex, nofollow` and `Cache-Control: no-store`, and define `DONOTCACHEPAGE`. `robots.txt` disallows `/go/` and (WordPress default) `/wp-admin/`. Links carry `rel="sponsored nofollow noopener"` and `target="_blank"`.
 
 **The click log** is the `{prefix}er_clicks` table. Each row records:
 

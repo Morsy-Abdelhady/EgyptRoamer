@@ -344,11 +344,19 @@ These are higher than in READINESS-AUDIT §15 because the menus now render. Befo
 
 ### A. `/go/` caching
 
-1. Create one test provider allowing `example.org`, and one live offer pointing to `https://example.org/`.
-2. From two different browsers or devices, open `https://<staging>/go/<offer-slug>/` twice each.
-3. **Pass:** each response is a 302 carrying `Cache-Control: no-store…` and `X-Robots-Tag: noindex` (check in DevTools → Network). Egypt Roamer → Click reports shows **4 new rows**. Pausing the offer makes the next request fall back to the internal page.
-4. **Fail** (fewer rows, or an `Age:` / cache HIT header on `/go/`): add a cache exclusion for `/go/*` in the GoDaddy dashboard (or ask GoDaddy support), then repeat. **A cached `/go/` redirect is a production blocker.**
-5. Delete the test provider and offer.
+Run this after uploading Core from commit `a9086ce` or later (two-step `/go/`, see [Affiliate redirect architecture](#affiliate-redirect-architecture)) **and flushing GoDaddy's cache** (WP admin bar → Flush cache). The flush removes `/go/` responses the edge cached from the old plugin.
+
+1. Create one test provider allowing `example.org`, and one live offer pointing to `https://example.org/`, attached to a published page.
+2. From two different browsers or devices, open `https://<host>/go/<offer-slug>/` **twice each**, also with `?foo=1` and `?utm_source=test`. Use the plain URL, without `nocache`.
+3. **Pass:**
+   - Hop 1, `/go/…`, is a 302 to `/wp-admin/admin-post.php?action=er_go&offer=<slug>…`. It may be cached (`cf-cache-status: HIT`); that is harmless.
+   - Hop 2, `admin-post.php…`, is a 302 to `example.org`, with `cf-cache-status: DYNAMIC` and `Cache-Control: no-store…`.
+   - Egypt Roamer → Click reports shows **one row per click**.
+4. Change the offer URL, click again: it goes to the new URL immediately, with no flush. Pause the offer and click again: it goes to the internal fallback page. Unpause it.
+5. **Fail:** hop 2 shows a cache HIT, or there are fewer rows than clicks. That is a production blocker; send the evidence to GoDaddy support.
+6. Delete the test provider and offer.
+
+Script alternative over SSH: `EDGE=https://<host> HOSTHDR= WP=wp DB=<db> OFFER_ID=… PROVIDER_ID=… tools/qa/go-cache-matrix.sh`, run against the **test** offer only.
 
 ### B. Email delivery
 
@@ -428,6 +436,50 @@ No legal text was written or invented.
 **LOW, left as is:** translated structural page slugs are `journal-fr`, `journal-ru` and so on. They are valid and canonical, just not pretty. An editor can rename them.
 
 ---
+
+## Affiliate redirect architecture
+
+**Root cause** (measured on egyptroamer.com, 27 Sep 2026):
+
+1. **Two cache layers.**
+   - **Cloudflare edge:** `cf-cache-status`. It is the layer returning `HIT`.
+   - **GoDaddy's cache gateway**, behind it: `x-gateway-cache-status`, `x-gateway-skip-cache`.
+2. **The edge caches everything and ignores the origin.**
+   - It replaces the origin's `Cache-Control: no-store, …, private` with `public, max-age=2678400` (31 days).
+   - It caches 200, 301, 302 and 404 responses; `/go/x/` gives MISS, then HIT.
+   - This is Cloudflare's documented "Cache Everything + Edge TTL override" behaviour: origin `Cache-Control`, `CDN-Cache-Control`, `Cloudflare-CDN-Cache-Control` and even `Set-Cookie` are ignored. No response header from WordPress can prevent it.
+3. **The edge has a fixed bypass list** (`cf-cache-status: DYNAMIC`):
+   - a **path containing** `wp-admin`, `wp-login`, `wp-json`, `cart`, `checkout`, or `/my-account/`;
+   - a **cookie** `wordpress_logged_in_*`, `comment_author_*`, `wp-postpass_*` or `woocommerce_items_in_cart`;
+   - a **query string starting with** `nocache`.
+
+   Our own cookie names are not honoured.
+4. **What GoDaddy exposes for Managed Hosting for WordPress:** only "Enable/disable CDN" and "Flush cache" are documented. Per-URL "Non-cache URLs" belong to a different product (Website Security and Backups). A `/go/*` exclusion could only come from GoDaddy support, and its availability is **NOT VERIFIED**. Disabling the CDN is rejected, because it would un-cache the whole site.
+
+**Production solution (option C: WordPress-native, excluded by the host).** `/go/{offer}/` stays the only public affiliate URL. It is a stateless 302 to `/wp-admin/admin-post.php?action=er_go&offer={offer}` (plus `pl`, `src`, `where`, `when`, `adults`).
+
+- **Hop 1 can be cached safely.** It reads no offer data, so a cached copy is always right.
+- **Hop 2 is never cached.** It is WordPress's own request handler under `/wp-admin/`, which GoDaddy must exclude for WordPress to work. It was measured live on the existing `admin-post.php` newsletter handler: `cf-cache-status: DYNAMIC`, `x-gateway-cache-status: BYPASS`, and the origin's `no-store` passes through, on every request.
+- **Hop 2 does everything that must be fresh:** it resolves, validates, logs the click and redirects to the provider.
+- **Public pages keep their full caching:** `/`, `/destinations/` and `/destinations/cairo/` give MISS, then HIT.
+
+**Verified locally**, behind a Varnish emulation of the measured edge (cache everything for 31 days, ignore origin headers, same bypass list):
+
+- The **old** single-step design reproduces the live defect: 3 clicks → **1** logged, 2 served from cache.
+- With the **new** design, `go-cache-matrix.sh` passes 22/22:
+  - requests 1–4 (`/go/x/` twice, `?foo=1`, `?utm_source=test`): partner redirect, **one click logged each**;
+  - `pl`/`src` recorded;
+  - edited URL, restored URL, paused, expired, inactive provider and deleted offer all take effect **immediately without a flush**;
+  - open redirect, unapproved/look-alike/`user@`/`javascript:`/protocol-relative/malformed targets and crafted `offer=` values are all blocked;
+  - `utm`/`subid` cannot be overridden.
+- The same matrix without the emulated edge passes 22/22.
+- `acceptance.mjs` passes 14/14 twice (browser click → two hops → partner, click in the report).
+
+**Fallback, kept for now:** CTA links still start with `?nocache=1` (`er_offer_go_url()`, filter `er_go_cache_bypass`). With the two-step design it is redundant. It stays until the live test (procedure A) passes on GoDaddy, and is then removed in a follow-up commit.
+
+**Is `nocache=1` still required? NO**, as far as the architecture goes: the plain `/go/{offer}/` URL is correct behind the measured cache rules. It stays only as a safety net until procedure A passes on the host.
+
+**Deployment note.** After uploading this plugin version, **flush GoDaddy's cache once**. Old-plugin `/go/` responses (including 404s for slugs that did not exist yet) can otherwise stay at the edge for 31 days.
 
 ## Final decision
 
