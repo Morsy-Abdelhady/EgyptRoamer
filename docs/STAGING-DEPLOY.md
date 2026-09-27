@@ -8,7 +8,7 @@ This runbook deploys the tested build to **GoDaddy Managed WordPress staging** o
 |---|---|
 | Branch | `claude/dreamy-bardeen-6qqk2h` |
 | Commit | `c670b125468047224ce59c886db060c97e661b84` |
-| Plugin package | `egypt-roamer-core-c670b1254680.zip` (31 files). SHA-256 `99a07ad0abed30c6dbc9e2b477c7b8931e8881cbd52bd51127d415e4837876db` |
+| Plugin package | **`egypt-roamer-core-99300d3c6eee.zip`** (commit `99300d3`, adds the `/go/` CDN bypass; see [LIVE-CHECK.md](LIVE-CHECK.md)). SHA-256 `393ce4d4826ed9c18cffad549f35ca87342141d4455183637686d2cee0c8c1ee`. Replaces `egypt-roamer-core-c670b1254680.zip` |
 | Theme package | `egypt-roamer-theme-c670b1254680.zip` (127 files; the theme's `src/` source folder is excluded). SHA-256 `7d68d2b5b0efd08a91723f0a5ff78674b7901d9244e3624861c361b103f6e419` |
 
 **Rebuilding the packages.** Both are built with `git archive` from the commit above; nothing is added or changed:
