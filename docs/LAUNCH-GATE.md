@@ -344,7 +344,7 @@ These are higher than in READINESS-AUDIT §15 because the menus now render. Befo
 
 ### A. `/go/` caching
 
-Run this after uploading Core from commit `a9086ce` or later (two-step `/go/`, see [Affiliate redirect architecture](#affiliate-redirect-architecture)) **and flushing GoDaddy's cache** (WP admin bar → Flush cache). The flush removes `/go/` responses the edge cached from the old plugin.
+Run this after uploading Core from commit `f2f4259` or later (`egypt-roamer-core-f2f42591c3bc.zip`) (two-step `/go/`, see [Affiliate redirect architecture](#affiliate-redirect-architecture)) **and flushing GoDaddy's cache** (WP admin bar → Flush cache). The flush removes `/go/` responses the edge cached from the old plugin.
 
 1. Create one test provider allowing `example.org`, and one live offer pointing to `https://example.org/`, attached to a published page.
 2. From two different browsers or devices, open `https://<host>/go/<offer-slug>/` **twice each**, also with `?foo=1` and `?utm_source=test`. Use the plain URL, without `nocache`.

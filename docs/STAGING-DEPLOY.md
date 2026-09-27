@@ -8,7 +8,7 @@ This runbook deploys the tested build to **GoDaddy Managed WordPress staging** o
 |---|---|
 | Branch | `claude/dreamy-bardeen-6qqk2h` |
 | Commit | `c670b125468047224ce59c886db060c97e661b84` |
-| Plugin package | **`egypt-roamer-core-a9086ce0098d.zip`** (commit `a9086ce`: `/go/` served through a stateless hop to WordPress's uncached `admin-post.php` handler; see [LAUNCH-GATE.md](LAUNCH-GATE.md#affiliate-redirect-architecture)). SHA-256 `f75ade152029770cc1f5a27e2127cda7d38ad326fe0cd4ac66203becf4c1903f`. Replaces the earlier `c670b1254680` and `99300d3c6eee` packages. **After uploading it, flush GoDaddy's cache once** |
+| Plugin package | **`egypt-roamer-core-f2f42591c3bc.zip`** (commit `f2f4259`: two-step `/go/` via WordPress's uncached `admin-post.php` handler, no cache-bypass parameter; see [LAUNCH-GATE.md](LAUNCH-GATE.md#affiliate-redirect-architecture)). SHA-256 `15c6708af7cab08ad116cd8df843c9f369f4fdd7821bf3695542cf63d8072ac7`. Replaces all earlier plugin packages. **After uploading it, flush GoDaddy's cache once** |
 | Theme package | `egypt-roamer-theme-c670b1254680.zip` (127 files; the theme's `src/` source folder is excluded). SHA-256 `7d68d2b5b0efd08a91723f0a5ff78674b7901d9244e3624861c361b103f6e419` |
 
 **Rebuilding the packages.** Both are built with `git archive` from the commit above; nothing is added or changed:
