@@ -91,7 +91,7 @@ This gate decides whether the project can move from development to GoDaddy stagi
 
 | | Status | Evidence |
 |---|---|---|
-| **Engine ready** | **READY** | acceptance 14/14; `redirect-matrix.sh` all PASS (below); reports; Varnish test (below) |
+| **Engine ready** | **READY** | acceptance 14/14; `go-architecture.sh` 34/34 and `go-cache-matrix.sh` 22/22 (see [Affiliate redirect architecture](#affiliate-redirect-architecture)); reports |
 | **Business ready** | **NOT READY** | fresh install: 0 providers, 0 offers, 0 `/go/` links. The lab's providers and offers are test fixtures on `example.org`, never deployed |
 
 **Blocker:** there are no real affiliate accounts, provider domains, tracked URLs or offers.
@@ -153,7 +153,7 @@ This gate decides whether the project can move from development to GoDaddy stagi
 
 **Evidence:**
 
-- `redirect-matrix.sh`: every case passes (below).
+- `go-architecture.sh` / `go-cache-matrix.sh`: every redirect security case passes (see [Affiliate redirect architecture](#affiliate-redirect-architecture)).
 - Anonymous REST requests for offers, providers and messages → 401.
 - Privileged `admin-post` actions without a login → 400.
 - `?post_type=er_offer` → 404.
@@ -252,7 +252,7 @@ All 8 languages; see category 5. **All OK after the menu fix.** Before the fix, 
 
 ### 6. Affiliate redirect security
 
-Script: `redirect-matrix.sh`, run on a test offer.
+Script at the time: the single-step matrix (since replaced by `go-cache-matrix.sh` and `go-architecture.sh` for the two-step design; see [Affiliate redirect architecture](#affiliate-redirect-architecture), which supersedes this table's 404 rows: unknown, draft and deleted offers now land on the home page).
 
 | Case | Result |
 |---|---|
@@ -463,21 +463,37 @@ No legal text was written or invented.
 - **Hop 2 does everything that must be fresh:** it resolves, validates, logs the click and redirects to the provider.
 - **Public pages keep their full caching:** `/`, `/destinations/` and `/destinations/cairo/` give MISS, then HIT.
 
-**Verified locally**, behind a Varnish emulation of the measured edge (cache everything for 31 days, ignore origin headers, same bypass list):
+**Request flow** (plain CTA URL `/go/{slug}/?pl=…&src=…`; no cache-bypass parameter):
 
-- The **old** single-step design reproduces the live defect: 3 clicks → **1** logged, 2 served from cache.
-- With the **new** design, `go-cache-matrix.sh` passes 22/22:
-  - requests 1–4 (`/go/x/` twice, `?foo=1`, `?utm_source=test`): partner redirect, **one click logged each**;
-  - `pl`/`src` recorded;
-  - edited URL, restored URL, paused, expired, inactive provider and deleted offer all take effect **immediately without a flush**;
-  - open redirect, unapproved/look-alike/`user@`/`javascript:`/protocol-relative/malformed targets and crafted `offer=` values are all blocked;
-  - `utm`/`subid` cannot be overridden.
-- The same matrix without the emulated edge passes 22/22.
-- `acceptance.mjs` passes 14/14 twice (browser click → two hops → partner, click in the report).
+| Step | Response | Cacheable? |
+|---|---|---|
+| `/go/{slug}/` | **302** → `/wp-admin/admin-post.php?action=er_go&offer={slug}[&pl&src&where&when&adults]`, `X-Robots-Tag: noindex` | yes. At GoDaddy's edge it may be a HIT: a **static hop**, no offer data, no click |
+| `/wp-admin/admin-post.php?action=er_go…` | **302** → provider URL with configured tracking (or 302 → internal fallback / home page), `Cache-Control: no-store…`, `X-Robots-Tag: noindex` | **never** (`/wp-admin/` is on the host's bypass list). This is the **dynamic handler**: validation, click log, redirect |
 
-**Fallback, kept for now:** CTA links still start with `?nocache=1` (`er_offer_go_url()`, filter `er_go_cache_bypass`). With the two-step design it is redundant. It stays until the live test (procedure A) passes on GoDaddy, and is then removed in a follow-up commit.
+Both redirects are temporary (302), because affiliate destinations change. The redirect status setting can switch the final hop to 307.
 
-**Is `nocache=1` still required? NO**, as far as the architecture goes: the plain `/go/{offer}/` URL is correct behind the measured cache rules. It stays only as a safety net until procedure A passes on the host.
+**Verification (final code, `nocache` removed).** Everything ran behind a Varnish emulation of the measured edge (cache everything including 302/404 for 31 days, ignore origin headers, same bypass list):
+
+| Test | Result |
+|---|---|
+| 1. Plain `/go/{slug}/` three times | **PASS**: +1 click each (3/3). Hop 0 is MISS, then HIT, HIT; hop 1 is never cached |
+| 2. Edge cache | **PASS**: the cached hop always leads to the dynamic handler, which validates, logs and redirects |
+| 3. Offer switched from provider A to provider B, no purge | **PASS**: the same URL lands on provider B |
+| 4. Paused after cache, no purge | **PASS**: internal fallback, 0 clicks. Unpaused → provider again |
+| 5. Deleted after cache (admin Trash, then permanent delete), no purge | **PASS**: home page, never the provider, 0 clicks |
+| 6. Expired / not yet started | **PASS**: fallback, 0 clicks |
+| 7. `?utm_source=test&utm_medium=affiliate&utm_campaign=test` | **PASS**: visitor `utm_*` are dropped at the hop (they cannot override attribution). The offer's configured `utm_campaign` and `subid={placement}-{page}` are applied. Click logged with placement, source post and path |
+| 8. Security: invalid offer; `?url=`/`?to=`/`?redirect_to=`; `?offer=`/`?action=` injection through the hop; CRLF in `pl`/`src`; `/go/..%2f…`; unapproved, look-alike, `user@`, `javascript:`, `//host`, `http:///`, `ftp:`, allowed-domain-in-query targets; inactive provider; target outside the provider's allow-list | **PASS** (all 18 cases) |
+| 9. `admin_post_nopriv_er_go`, anonymous | **PASS**: works without login. Crafted `offer` (`../../`, arrays, uppercase, missing) → home page, 0 clicks, 0 PHP warnings. Unregistered actions → 400. `HEAD`, bots and `POST` are not logged. The action only reads an offer and redirects |
+| 10. Status codes | **PASS**: 302 → 302; no 301 |
+| 11. `nocache=1` removed from CTA URLs, then everything re-run | **PASS**: `go-architecture.sh` 34/34, `go-cache-matrix.sh` 22/22 through the edge and 22/22 without it, 0 PHP warnings, `leads.mjs` PASS |
+| 12. `acceptance.mjs` | **14/14 twice in a row** (browser: CTA → `/go/` → handler → partner; click in the report) |
+
+The old single-step design, run through the same emulation, logged 1 of 3 clicks. That reproduces the live defect.
+
+**`nocache=1` required: NO.** It has been removed from generated links (commit after `a9086ce`). The query-string bypass is not part of the architecture.
+
+**Still to confirm on GoDaddy itself:** procedure A, with a real test offer, after uploading this plugin and flushing the cache once. The emulation reproduces the rules measured on egyptroamer.com, but it is not the host.
 
 **Deployment note.** After uploading this plugin version, **flush GoDaddy's cache once**. Old-plugin `/go/` responses (including 404s for slugs that did not exist yet) can otherwise stay at the edge for 31 days.
 
@@ -507,4 +523,4 @@ The code is ready to deploy to GoDaddy staging; category 1 is READY. Staging is 
 7. [ ] Owner or adviser: finish and publish Privacy, Terms, Cookie Policy and Affiliate Disclosure. Install and test a CMP.
 8. [ ] Owner: decide on the homepage intro loader, then measure CWV on staging with real photos (Performance → GoDaddy staging).
 9. [ ] Keep "Discourage search engines" on until items 5–7 are done.
-10. [ ] Re-run `acceptance.mjs`, `languages.mjs`, `index-gate.py` and `redirect-matrix.sh` against staging.
+10. [ ] Re-run `acceptance.mjs`, `languages.mjs`, `index-gate.py`, `go-architecture.sh` and `go-cache-matrix.sh` against staging.

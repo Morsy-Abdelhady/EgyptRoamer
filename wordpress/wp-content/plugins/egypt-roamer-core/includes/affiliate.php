@@ -166,9 +166,7 @@ function er_offer_destination_url( int $offer_id, array $ctx = [] ) {
 function er_offer_go_url( int $offer_id, string $placement = '', int $source_post_id = 0 ): string {
 	$slug = get_post_field( 'post_name', $offer_id );
 	$url  = rtrim( (string) get_option( 'home' ), '/' ) . '/go/' . rawurlencode( (string) $slug ) . '/';
-	// GoDaddy's CDN ignores this endpoint's no-store header and caches /go/ responses for 31 days,
-	// unless the query string starts with "nocache" (measured on the live host). It must stay first.
-	$args = apply_filters( 'er_go_cache_bypass', true ) ? [ 'nocache' => '1' ] : [];
+	$args = []; // no cache-bypass parameter: /go/ is a stateless hop to the uncached handler (see redirect.php)
 	if ( $placement ) {
 		$args['pl'] = sanitize_key( $placement );
 	}

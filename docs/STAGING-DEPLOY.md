@@ -103,7 +103,7 @@ BASE=https://<staging-host> node languages.mjs dest-urls.json   # dest-urls.json
 BASE=https://<staging-host> python3 index-gate.py '{"destination":"https://<staging>/destinations/cairo/"}' A
 ```
 
-`redirect-matrix.sh` edits offers through WP-CLI, so run it over SSH on staging and only against the test offer. `acceptance.mjs` and `wp-matrix.mjs` target `127.0.0.1:8080` with admin/admin; edit their `B` constant and credentials before using them on staging.
+`go-architecture.sh` (creates and deletes its own test offer/providers) and `go-cache-matrix.sh` (edits one test offer and restores it) use WP-CLI, so run them over SSH on staging with `EDGE=https://<staging-host> HOSTHDR=`. `acceptance.mjs` and `wp-matrix.mjs` target `127.0.0.1:8080` with admin/admin; edit their `B` constant and credentials before using them on staging.
 
 ## Rollback
 

@@ -68,7 +68,7 @@ function er_click_context( int $offer_id ): array {
 /** Where the visitor clicked: a published post ID and a path on this site (never a query string). */
 function er_click_source(): array {
 	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- public link, logged only; digits only (no "-5abc" → 5)
-	$src  = isset( $_GET['src'] ) && ctype_digit( (string) wp_unslash( $_GET['src'] ) ) ? (int) $_GET['src'] : 0;
+	$src  = isset( $_GET['src'] ) && is_string( $_GET['src'] ) && ctype_digit( wp_unslash( $_GET['src'] ) ) ? (int) $_GET['src'] : 0;
 	$post = $src ? get_post( $src ) : null;
 	if ( ! $post || 'publish' !== $post->post_status || ! is_post_type_viewable( $post->post_type ) ) {
 		$src  = 0;
@@ -101,7 +101,7 @@ function er_finder_search(): array {
 	if ( preg_match( '/^\d{4}-(0[1-9]|1[0-2])$/', $when ) ) {
 		$search['month'] = $when;
 	}
-	$adults = isset( $_GET['adults'] ) ? absint( $_GET['adults'] ) : 0;
+	$adults = isset( $_GET['adults'] ) && is_scalar( $_GET['adults'] ) ? absint( $_GET['adults'] ) : 0;
 	if ( $adults >= 1 && $adults <= 12 ) {
 		$search['adults'] = $adults;
 	}
@@ -238,7 +238,7 @@ add_action( 'template_redirect', static function () {
 // B. Dynamic handler (anonymous visitors and logged-in editors alike).
 $er_go_handler = static function () {
 	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- public link; the slug only selects a configured offer
-	$raw  = isset( $_GET['offer'] ) ? (string) wp_unslash( $_GET['offer'] ) : '';
+	$raw  = isset( $_GET['offer'] ) && is_string( $_GET['offer'] ) ? wp_unslash( $_GET['offer'] ) : '';
 	$slug = preg_match( '/^[a-z0-9-]{1,200}$/', $raw ) ? $raw : '';
 	er_handle_go( $slug, false );
 };
