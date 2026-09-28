@@ -4,7 +4,7 @@ The session that wrote this had **no WP-admin, SSH/WP-CLI or GoDaddy access**, s
 
 ## 0. Upload the security fix first
 
-Upload `egypt-roamer-core-<commit>.zip` (from this branch; it replaces the current Core; same steps as [STAGING-DEPLOY.md](STAGING-DEPLOY.md)). Then click **Flush cache**.
+Upload `egypt-roamer-core-82ccc1de7bbf.zip` (from this branch; it replaces the current Core; same steps as [STAGING-DEPLOY.md](STAGING-DEPLOY.md)). Then click **Flush cache**.
 
 **Why.** Production exposes the login `morsy` in three places:
 
