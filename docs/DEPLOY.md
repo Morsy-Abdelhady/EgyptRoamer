@@ -1,60 +1,45 @@
-# Auto-deploy (GitHub Actions → production)
+# Production deploy (GitHub Actions → GoDaddy)
 
-Every push to `claude/dreamy-bardeen-6qqk2h` that changes the theme or Core runs `.github/workflows/deploy.yml`:
+Workflow: `.github/workflows/deploy-production.yml`. It uses GoDaddy's `godaddy-wordpress/gd-wordpress-deployer@v1`.
 
-1. PHP lint of the theme and Core (a syntax error stops the deploy).
-2. `rsync` of the theme (without `src/`) and of Core into `~/html/wp-content/…` over SSH.
-3. `wp cache flush`.
-4. A check that the live page shows the new `track.js?ver=`.
+## When it runs
+- **Automatically** on a push to `main` that changes the theme, Core or the workflow itself.
+- **By hand:** Actions → Deploy production → Run workflow. This only deploys when run on `main`.
+- Only one production deploy runs at a time. A newer one waits.
 
-It touches only those two folders. It never touches the database, content, settings, other plugins or uploads. It can also be started by hand: GitHub → Actions → Deploy → Run workflow.
+`main` does not contain the WordPress build yet. The first deploy happens when the working branch is merged into `main`.
 
-## One-time setup (owner)
-
-Nothing below is ever pasted into a chat. The private key goes only into GitHub.
-
-**1. Create a deploy key** on your PC (PowerShell), with no passphrase:
-
-```
-ssh-keygen -t ed25519 -f $HOME\.ssh\egyptroamer_deploy -N '""' -C github-deploy
-```
-
-**2. Allow it on the server.** Replace `USER@HOST` with the SSH login you already use:
-
-```
-type $HOME\.ssh\egyptroamer_deploy.pub | ssh USER@HOST "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
-```
-
-If GoDaddy manages SSH keys in its panel instead, add the contents of `egyptroamer_deploy.pub` there.
-
-**3. Record the server fingerprint:**
-
-```
-ssh-keyscan HOST
-```
-
-**4. Add the secrets.** Go to GitHub → the repository → Settings → Secrets and variables → Actions → New repository secret.
-
-| Secret | Value |
+## What it deploys
+| Repository | Server (under `html/`) |
 |---|---|
-| `SSH_HOST` | the SSH host |
-| `SSH_USER` | the SSH user |
-| `SSH_PORT` | only if it is not 22 |
-| `SSH_PRIVATE_KEY` | the whole content of `egyptroamer_deploy` (the file **without** `.pub`) |
-| `SSH_KNOWN_HOSTS` | the output of step 3 |
+| `wordpress/wp-content/plugins/egypt-roamer-core/` | `wp-content/plugins/egypt-roamer-core/` |
+| `wordpress/wp-content/themes/egypt-roamer/` without `src/` | `wp-content/themes/egypt-roamer/` |
 
-**5. Test it.** Go to Actions → Deploy → Run workflow and check that the run is green.
+Core is deployed first, then the theme. Files deleted from git are deleted on the server **only inside those two folders**.
+
+## What it never touches
+- `wp-config.php`, `wp-admin/`, `wp-includes/` and WordPress core files.
+- `wp-content/uploads/`, other plugins and themes.
+- The database. It runs no seed, migration, import, translation or image job. Those stay manual, through the owner's terminal.
+
+## Order and failure
+1. **Tests** on PHP 8.1 and 8.3:
+   - PHP syntax of the theme and Core;
+   - version header matches the constant, for both the theme and Core;
+   - `seed.json` is valid;
+   - `assets/js/home.js` and `site.js` match `src/js`.
+
+   If any test fails, nothing is deployed.
+2. **Stage.** Only the two folders are copied, and `src/` is excluded. The run stops if WordPress core, config or uploads files appear.
+3. **Deploy Core, then the theme.** GoDaddy's health check runs after each step and rolls that step back if WordPress is unhealthy.
+   - If Core fails, the theme is not deployed.
+   - If the theme fails, the theme rolls back and the new Core stays live. Core 1.2.0 works with the previous theme.
+4. **Live version check.** This step only warns. If the page still shows the old `track.js?ver=`, flush GoDaddy's cache (WP admin bar → Flush cache).
+
+## Access
+- Repository secret `PRIVATE_KEY`: the private half of the key registered in GoDaddy CI/CD.
+- Deploy user `git_deployer_71e07e2d98_1284039` on `1284039.eu11.myftpupload.com`.
+- GitHub environment `production`. Add required reviewers there to approve each deploy by hand.
 
 ## Rollback
-
-Revert the commit and push. The previous files are deployed again:
-
-```
-git revert <sha> && git push
-```
-
-## Notes
-
-- GoDaddy's page cache may keep serving old HTML for a while. If the last step warns, click **Flush cache** in the WP admin bar.
-- Database changes (settings, permalinks, seed runs) are not part of the deploy. They still go through the owner's terminal.
-- Revoke access at any time by removing the key line from `~/.ssh/authorized_keys` and deleting the secrets.
+Revert the commit on `main` and push. The previous files are deployed again.
