@@ -1,19 +1,18 @@
 # Production deploy of the Egypt Roamer theme and Core plugin to GoDaddy Managed WordPress.
 # Runs automatically on every push to main that changes the theme or Core. There is no manual trigger.
 #
-# Deploys ONLY:
-#   wordpress/wp-content/themes/egypt-roamer          -> html/wp-content/themes/egypt-roamer        (without src/)
-#   wordpress/wp-content/plugins/egypt-roamer-core    -> html/wp-content/plugins/egypt-roamer-core
-# Code only: no seed, migrations, imports, translations, images, content, users or settings.
+# Transport: rsync over SSH with the normal production SSH account (secrets PROD_SSH_USER /
+# PROD_SSH_PASSWORD), host key pinned. GoDaddy's CI/CD deployer action is no longer used.
 #
-# Order (godaddy-wordpress/gd-wordpress-deployer@v1 takes one source and one destination per run,
-# and has no multi-folder or atomic mode):
-#   1. Theme + Core together into wp-content/, cleanup OFF, health check ON.
-#      Both reach their new version in one run, so "new Core + old theme" is never the checked
-#      state, and a failed check rolls back that single run. Cleanup must stay off here: with
-#      wp-content/ as destination it would delete every other plugin, theme and uploads/.
-#   2. Core folder, cleanup ON, health check ON: removes files deleted from git, inside that folder only.
-#   3. Theme folder, the same. Its health check is the last one and runs on the complete final state.
+# Deploys ONLY (nothing else is ever written or deleted on the server):
+#   wordpress/wp-content/plugins/egypt-roamer-core    -> ~/html/wp-content/plugins/egypt-roamer-core
+#   wordpress/wp-content/themes/egypt-roamer          -> ~/html/wp-content/themes/egypt-roamer   (without src/)
+# Code only: no seed, editorial import, migrations, translations, images, content, users,
+# settings or cache flush. Those stay separate, explicitly requested maintenance tasks.
+#
+# Order: tests (PHP 8.1 + 8.3) -> stage -> pin host key -> read-only SSH preflight ->
+#   rsync Core, then theme (deletions only inside each folder) -> read-only health checks.
+# No automatic rollback: to undo, revert the commit on main and push.
 # Runbook: docs/DEPLOY.md
 name: Deploy production
 
@@ -99,13 +98,43 @@ jobs:
     needs: test # runs only when every test job passed
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 30
     environment: production
+    defaults:
+      run:
+        shell: bash # bash -eo pipefail: any failed command, also inside a pipe, stops the step
+    env:
+      SSH_HOST: 1284039.eu11.ssh.myftpupload.com
+      # GoDaddy's ed25519 host key, verified by the read-only diagnostics. The connection is only
+      # made after the scanned key matches this fingerprint, and only this key type is accepted.
+      HOST_FP: SHA256:oxYa4nr7BL5hXCIG5j/OOk54R6yNokpACBoa3tn+Kp4
+      # SSH options for every ssh and rsync call. Host key checking is strict against the pinned
+      # file; password auth only (the password comes from SSHPASS via `sshpass -e`, never argv).
+      SSH_OPTS: >-
+        -p 22
+        -o HostKeyAlgorithms=ssh-ed25519
+        -o StrictHostKeyChecking=yes
+        -o UserKnownHostsFile=~/.ssh/known_hosts_prod
+        -o GlobalKnownHostsFile=/dev/null
+        -o PubkeyAuthentication=no
+        -o PreferredAuthentications=password,keyboard-interactive
+        -o NumberOfPasswordPrompts=1
+        -o ConnectTimeout=60
+        -o ServerAliveInterval=15
+        -o ServerAliveCountMax=4
+        -o LogLevel=ERROR
+      # ── SAFETY BOUNDARY ──────────────────────────────────────────────────────────────────────
+      # The ONLY two remote directories this workflow ever writes to, relative to the SSH account's
+      # home (~/html is the WordPress root). The transfer step refuses any other destination, so
+      # nothing can be written to or deleted from ~/html or ~/html/wp-content themselves, other
+      # plugins or themes, uploads/, wp-admin/, wp-includes/ or wp-config.php.
+      REMOTE_CORE: html/wp-content/plugins/egypt-roamer-core
+      REMOTE_THEME: html/wp-content/themes/egypt-roamer
+      SITE: https://egyptroamer.com
     steps:
       - uses: actions/checkout@v4
 
-      # The deployer uploads everything under source_path, so stage exactly what may go live,
-      # laid out like the server's wp-content/.
+      # Stage exactly what may go live, one folder per component.
       - name: Stage theme and Core
         run: |
           mkdir -p _deploy/wp-content/themes _deploy/wp-content/plugins
@@ -113,97 +142,169 @@ jobs:
           rsync -a "$CORE_SRC/" _deploy/wp-content/plugins/egypt-roamer-core/
           test -f _deploy/wp-content/themes/egypt-roamer/style.css
           test -f _deploy/wp-content/themes/egypt-roamer/index.php
+          test -f _deploy/wp-content/themes/egypt-roamer/functions.php
           test -f _deploy/wp-content/plugins/egypt-roamer-core/egypt-roamer-core.php
           test ! -e _deploy/wp-content/themes/egypt-roamer/src
           [ "$(ls -A _deploy)" = "wp-content" ] && [ "$(ls -A _deploy/wp-content | tr '\n' ' ')" = "plugins themes " ] \
             && [ "$(ls -A _deploy/wp-content/themes)" = "egypt-roamer" ] && [ "$(ls -A _deploy/wp-content/plugins)" = "egypt-roamer-core" ] \
             || { echo "::error::Only the Egypt Roamer theme and Core may be staged"; exit 1; }
-          if find _deploy \( -name wp-config.php -o -name '.htaccess' -o -path '*/wp-admin*' -o -path '*/wp-includes*' -o -path '*/uploads*' \
-               -o -name 'wp-load.php' -o -name 'wp-settings.php' -o -name 'wp-login.php' -o -name 'xmlrpc.php' -o -name 'wp-cron.php' \) | grep -q .; then
-            echo "::error::Staged files include WordPress core, config or uploads"; exit 1
+          # Never deploy WordPress core, config, uploads, database/content dumps or symlinks.
+          bad=$(find _deploy \( -name wp-config.php -o -name '.htaccess' -o -path '*/wp-admin*' -o -path '*/wp-includes*' -o -path '*/uploads*' \
+               -o -name 'wp-load.php' -o -name 'wp-settings.php' -o -name 'wp-login.php' -o -name 'xmlrpc.php' -o -name 'wp-cron.php' \
+               -o -name '*.sql' -o -name '*.sql.gz' -o -name '*.sqlite' -o -name '*.db' -o -name '*.wpress' -o -type l \) -print)
+          if [ -n "$bad" ]; then
+            echo "::error::Staged files include WordPress core, config, uploads, a database/content dump or a symlink:"; echo "$bad"; exit 1
           fi
           echo "Theme: $(find _deploy/wp-content/themes -type f | wc -l) files · Core: $(find _deploy/wp-content/plugins -type f | wc -l) files"
 
-      # The deployer's own check hides ssh's error output and tries once, so a dropped connection
-      # at GoDaddy's SSH gateway looks like "authentication failed" (Run #6). This checks the host
-      # key and the deploy key (fingerprints only; the key is never printed) and retries the login
-      # with the real error shown. A wrong secret fails here, and a transient drop is retried.
-      - name: SSH preflight (host key, deploy key, login with retries)
-        env:
-          KEY: ${{ secrets.PRIVATE_KEY }}
-          HOST: 1284039.eu11.ssh.myftpupload.com
-          SSH_USER_NAME: git_deployer_9ec75f13a2_1284039
-          HOST_FP: SHA256:oxYa4nr7BL5hXCIG5j/OOk54R6yNokpACBoa3tn+Kp4 # GoDaddy SSH host key (ed25519)
-          KEY_FP: SHA256:9D8q7VMPQGwk48UQ3ZYey6nkT4ixmrxTu0pnrydsmMY # public half registered in GoDaddy CI/CD
+      - name: Expected versions
         run: |
-          umask 077
-          d=$(mktemp -d)
-          trap 'rm -rf "$d"' EXIT
-          printf '%s\n' "$KEY" | tr -d '\r' > "$d/key"
-          ssh-keyscan -T 15 -t ed25519 "$HOST" > "$d/known" 2>/dev/null || true
-          got_host=$(ssh-keygen -lf "$d/known" 2>/dev/null | awk '{print $2}' | head -1)
-          [ "$got_host" = "$HOST_FP" ] || { echo "::error::GoDaddy host key is '${got_host:-unreachable}', expected $HOST_FP"; exit 1; }
-          got_key=$(ssh-keygen -y -P "" -f "$d/key" 2>/dev/null | ssh-keygen -lf - 2>/dev/null | awk '{print $2}')
-          [ "$got_key" = "$KEY_FP" ] || { echo "::error::PRIVATE_KEY is not the passphrase-free deploy key registered with GoDaddy (got ${got_key:-an unreadable or passphrase-protected key})"; exit 1; }
-          echo "Host key and deploy key match."
+          core=$(sed -n "s/.*define( 'ER_CORE_VERSION', '\([^']*\)'.*/\1/p" "$CORE_SRC/egypt-roamer-core.php")
+          theme=$(sed -n "s/.*define( 'ER_THEME_VERSION', '\([^']*\)'.*/\1/p" "$THEME_SRC/functions.php")
+          [ -n "$core" ] && [ -n "$theme" ] || { echo "::error::Could not read the versions"; exit 1; }
+          echo "CORE_VERSION=$core" >> "$GITHUB_ENV"
+          echo "THEME_VERSION=$theme" >> "$GITHUB_ENV"
+          echo "Deploying Core $core and theme $theme"
+
+      # Secrets are only checked for presence; their values are never printed (GitHub also masks them).
+      - name: SSH setup (secrets present, host key pinned)
+        env:
+          U: ${{ secrets.PROD_SSH_USER }}
+          P: ${{ secrets.PROD_SSH_PASSWORD }}
+        run: |
+          [ -n "$U" ] && [ -n "$P" ] || { echo "::error::PROD_SSH_USER / PROD_SSH_PASSWORD are not set"; exit 1; }
+          case "$U" in git_deployer_*) echo "::error::PROD_SSH_USER must be the normal SSH account, not a GoDaddy CI/CD deploy user"; exit 1;; esac
+          command -v sshpass >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq sshpass >/dev/null; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          ssh-keyscan -T 30 -t ed25519 "$SSH_HOST" > ~/.ssh/known_hosts_prod 2>/dev/null || true
+          got=$(ssh-keygen -lf ~/.ssh/known_hosts_prod 2>/dev/null | awk '{print $2}' | head -1)
+          [ "$got" = "$HOST_FP" ] || { echo "::error::Production host key is '${got:-unreachable}', expected $HOST_FP. Nothing was sent."; exit 1; }
+          [ "$(wc -l < ~/.ssh/known_hosts_prod)" -eq 1 ] || { echo "::error::Unexpected host key file"; exit 1; }
+          echo "Host key pinned: $HOST_FP"
+
+      # Read-only. Verifies the login and that both targets are real directories inside
+      # ~/html/wp-content (not symlinks pointing elsewhere) before anything is transferred.
+      - name: SSH preflight (read-only)
+        env:
+          SSH_USER: ${{ secrets.PROD_SSH_USER }}
+          SSHPASS: ${{ secrets.PROD_SSH_PASSWORD }}
+        run: |
           for i in 1 2 3; do
-            if out=$(ssh -i "$d/key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes \
-                -o UserKnownHostsFile="$d/known" -o ConnectTimeout=30 -o ServerAliveInterval=10 -o ServerAliveCountMax=3 \
-                "$SSH_USER_NAME@$HOST" exit 2>&1); then
-              echo "SSH login OK (attempt $i)"
-              exit 0
-            fi
-            echo "::warning::SSH login attempt $i failed: $out"
-            sleep $((i * 20))
+            rc=0
+            sshpass -e ssh $SSH_OPTS "$SSH_USER@$SSH_HOST" bash -s -- "$REMOTE_CORE" "$REMOTE_THEME" <<'REMOTE' || rc=$?
+          set -eu
+          core="$HOME/$1"; theme="$HOME/$2"
+          cd "$HOME/html"
+          test -f wp-config.php                  || { echo "~/html is not the WordPress root"; exit 42; }
+          for d in wp-content wp-content/themes wp-content/plugins; do test -d "$d" || { echo "missing ~/html/$d"; exit 42; }; done
+          wpc=$(cd wp-content && pwd -P)
+          [ "$(cd "$core" && pwd -P)"  = "$wpc/plugins/egypt-roamer-core" ] || { echo "Core target is not ~/html/wp-content/plugins/egypt-roamer-core"; exit 42; }
+          [ "$(cd "$theme" && pwd -P)" = "$wpc/themes/egypt-roamer" ]       || { echo "theme target is not ~/html/wp-content/themes/egypt-roamer"; exit 42; }
+          test -w "$core" && test -w "$theme"   || { echo "a target directory is not writable"; exit 42; }
+          test -f "$core/egypt-roamer-core.php" || { echo "Core target has no egypt-roamer-core.php"; exit 42; }
+          test -f "$theme/style.css"            || { echo "theme target has no style.css"; exit 42; }
+          echo "WordPress root: ~/html · targets verified"
+          echo "Before: Core $(sed -n 's/^ \* Version: *//p' "$core/egypt-roamer-core.php" | head -1) · theme $(sed -n 's/^Version: *//p' "$theme/style.css" | head -1)"
+          wp core is-installed >/dev/null 2>&1 || { echo "WordPress is not installed or does not load (wp core is-installed)"; exit 42; }
+          echo "wp core is-installed: yes"
+          REMOTE
+            [ $rc -eq 0 ] && exit 0
+            [ $rc -eq 42 ] && { echo "::error::Remote paths failed verification; nothing was transferred."; exit 1; }
+            echo "::warning::SSH preflight attempt $i failed (rc=$rc; sshpass 5 = wrong password)"
+            [ $rc -eq 5 ] && break
+            sleep $((i * 15))
           done
-          echo "::error::SSH login failed 3 times; nothing was uploaded."
+          echo "::error::SSH preflight failed; nothing was transferred."
           exit 1
 
-      - name: 1/3 Deploy theme + Core together (health check on the new pair)
-        uses: godaddy-wordpress/gd-wordpress-deployer@v1
-        with:
-          remote_host: 1284039.eu11.ssh.myftpupload.com
-          ssh_user: git_deployer_9ec75f13a2_1284039
-          ssh_private_key: ${{ secrets.PRIVATE_KEY }}
-          source_path: _deploy/wp-content
-          deployment_dest: wp-content # relative to html/
-          cleanup_deleted_files: "no" # MUST stay "no": here it would delete other plugins, themes and uploads
-          enable_health_check: "yes" # rolls back this run if WordPress is unhealthy
-
-      - name: 2/3 Remove files deleted from git (Core folder only)
-        uses: godaddy-wordpress/gd-wordpress-deployer@v1
-        with:
-          remote_host: 1284039.eu11.ssh.myftpupload.com
-          ssh_user: git_deployer_9ec75f13a2_1284039
-          ssh_private_key: ${{ secrets.PRIVATE_KEY }}
-          source_path: _deploy/wp-content/plugins/egypt-roamer-core
-          deployment_dest: wp-content/plugins/egypt-roamer-core
-          cleanup_deleted_files: "yes" # scoped to this folder
-          enable_health_check: "yes"
-
-      - name: 3/3 Remove files deleted from git (theme folder only) + final health check
-        uses: godaddy-wordpress/gd-wordpress-deployer@v1
-        with:
-          remote_host: 1284039.eu11.ssh.myftpupload.com
-          ssh_user: git_deployer_9ec75f13a2_1284039
-          ssh_private_key: ${{ secrets.PRIVATE_KEY }}
-          source_path: _deploy/wp-content/themes/egypt-roamer
-          deployment_dest: wp-content/themes/egypt-roamer
-          cleanup_deleted_files: "yes" # scoped to this folder
-          enable_health_check: "yes"
-
-      # Reads the public HTML as visitors get it. GoDaddy's page cache/CDN can serve an older copy
-      # for a while, so a mismatch is reported but never fails a deploy whose health checks passed.
-      - name: Live page version (report only)
-        continue-on-error: true
+      # ── SAFETY BOUNDARY: the only step that writes to production ─────────────────────────────
+      # rsync over SSH, one call per component, Core first, then the theme:
+      # - the destination must be exactly $REMOTE_CORE or $REMOTE_THEME (checked below), so --delete
+      #   can only remove files inside that one folder; there is no global --delete and no rsync to
+      #   ~/html or ~/html/wp-content
+      # - --max-delete=30 caps deletions per folder; above it the dry run already fails (rsync code 25),
+      #   so the real transfer never starts and nothing is deleted
+      # - excluded names are neither sent nor deleted on the server (no --delete-excluded)
+      # - --delay-updates puts all changed files in place at the end of each folder's transfer
+      # - a dry run lists every change (file names only) before the real transfer
+      # There is no automatic rollback. To undo, revert the commit on main and push.
+      - name: Deploy Core, then theme (rsync over SSH, scoped)
+        env:
+          SSH_USER: ${{ secrets.PROD_SSH_USER }}
+          SSHPASS: ${{ secrets.PROD_SSH_PASSWORD }}
         run: |
-          want=$(sed -n "s/.*define( 'ER_CORE_VERSION', '\([^']*\)'.*/\1/p" "$CORE_SRC/egypt-roamer-core.php")
-          got=$(curl -fsS -m 30 -A "Mozilla/5.0 deploy-check" "https://egyptroamer.com/?deploy=$GITHUB_RUN_ID" | grep -o 'track\.js?ver=[^"&'"'"']*' | head -1 | cut -d= -f2 || true)
-          if [ "$want" = "$got" ]; then
-            msg="Live page shows the expected Core $want."
-          else
-            msg="Live page shows Core ${got:-(not found)}, expected $want. The deploy passed its health checks; the live HTML is probably still cached (flush in the WP admin bar)."
-            echo "::warning::$msg"
-          fi
+          deploy_dir() {
+            local src="$1" dest="$2" sentinel="$3"
+            case "$dest" in
+              "$REMOTE_CORE"|"$REMOTE_THEME") ;;
+              *) echo "::error::Refusing to deploy to '$dest'"; exit 1 ;;
+            esac
+            case "$dest" in html|html/|html/wp-content|html/wp-content/|*..*|/*) echo "::error::Refusing '$dest'"; exit 1 ;; esac
+            test -f "$src/$sentinel" || { echo "::error::$src has no $sentinel; refusing a transfer that could empty $dest"; exit 1; }
+            local args=(
+              --recursive --times --compress --checksum
+              --chmod="D755,F644"
+              --delete-after --max-delete=30 --delay-updates
+              --exclude=wp-config.php --exclude=.htaccess --exclude=wp-admin/ --exclude=wp-includes/ --exclude=uploads/
+              --exclude=wp-load.php --exclude=wp-settings.php --exclude=wp-login.php --exclude=xmlrpc.php --exclude=wp-cron.php
+              --exclude='*.sql' --exclude='*.sql.gz' --exclude='*.sqlite' --exclude='*.db' --exclude='*.wpress'
+              --exclude=.git/ --exclude=.github/ --exclude=src/
+              --itemize-changes
+              -e "sshpass -e ssh $SSH_OPTS"
+              "$src/" "$SSH_USER@$SSH_HOST:$dest/"
+            )
+            echo "── $dest: dry run"
+            rsync --dry-run "${args[@]}" | tee /tmp/plan.txt
+            echo "$(grep -cE '^[<>]f' /tmp/plan.txt || true) to upload · $(grep -c '^\*deleting' /tmp/plan.txt || true) to delete"
+            echo "── $dest: transfer"
+            rsync "${args[@]}" > /dev/null
+            echo "$dest: done"
+          }
+          deploy_dir _deploy/wp-content/plugins/egypt-roamer-core "$REMOTE_CORE"  egypt-roamer-core.php
+          deploy_dir _deploy/wp-content/themes/egypt-roamer       "$REMOTE_THEME" style.css
+
+      # Read-only checks on the server: versions on disk, WordPress loads, theme and Core active,
+      # indexing still off. WP-CLI here only reads (no seed, editorial, migrations or cache flush).
+      - name: Health check on the server (read-only)
+        env:
+          SSH_USER: ${{ secrets.PROD_SSH_USER }}
+          SSHPASS: ${{ secrets.PROD_SSH_PASSWORD }}
+        run: |
+          sshpass -e ssh $SSH_OPTS "$SSH_USER@$SSH_HOST" bash -s -- "$REMOTE_CORE" "$REMOTE_THEME" "$CORE_VERSION" "$THEME_VERSION" <<'REMOTE'
+          set -u
+          fail=0
+          check() { if [ "$2" = "$3" ]; then echo "OK    $1: $2"; else echo "FAIL  $1: '$2' (expected '$3')"; fail=1; fi; }
+          cd "$HOME/html"
+          check "Core version on disk"  "$(sed -n 's/^ \* Version: *//p' "$HOME/$1/egypt-roamer-core.php" | head -1)" "$3"
+          check "theme version on disk" "$(sed -n 's/^Version: *//p' "$HOME/$2/style.css" | head -1)" "$4"
+          out=$(wp core is-installed 2>&1) && echo "OK    WordPress loads (wp core is-installed)" || { echo "FAIL  wp core is-installed: $out" | head -5; fail=1; }
+          check "active theme"          "$(wp theme list --status=active --field=name 2>&1 | head -1)" "egypt-roamer"
+          check "Core plugin status"    "$(wp plugin get egypt-roamer-core --field=status 2>&1 | head -1)" "active"
+          check "Core version (WP-CLI)" "$(wp plugin get egypt-roamer-core --field=version 2>&1 | head -1)" "$3"
+          check "theme version (WP-CLI)" "$(wp theme get egypt-roamer --field=version 2>&1 | head -1)" "$4"
+          check "blog_public (indexing off until the launch gate)" "$(wp option get blog_public 2>&1 | head -1)" "0"
+          exit $fail
+          REMOTE
+
+      # Public pages as visitors get them. Status and fatal errors fail the job; a stale Core
+      # version in the HTML is only a warning (GoDaddy's page cache/CDN; the disk check above is
+      # authoritative). The ?deploy= query string asks the cache for a fresh copy.
+      - name: Health check on public pages
+        run: |
+          fail=0
+          for path in / /ar/ /destinations/ /destinations/cairo/ \
+                      /ar/destinations/%d8%a7%d9%84%d9%82%d8%a7%d9%87%d8%b1%d8%a9/ /experiences/ /journal/; do
+            code=$(curl -sS -m 30 -A "Mozilla/5.0 deploy-check" -o /tmp/page.html -w '%{http_code}' "$SITE$path?deploy=$GITHUB_RUN_ID" || echo 000)
+            if [ "$code" != 200 ]; then echo "FAIL  $path HTTP $code"; fail=1
+            elif grep -qiE 'Fatal error|Parse error|There has been a critical error|Warning</b>:' /tmp/page.html; then echo "FAIL  $path shows a PHP error"; fail=1
+            else echo "OK    $path HTTP 200"; fi
+          done
+          got=$(curl -fsS -m 30 -A "Mozilla/5.0 deploy-check" "$SITE/?deploy=$GITHUB_RUN_ID" | grep -o 'track\.js?ver=[^"&'"'"']*' | head -1 | cut -d= -f2 || true)
+          css=$(curl -fsS -m 30 "$SITE/wp-content/themes/egypt-roamer/style.css?deploy=$GITHUB_RUN_ID" | sed -n 's/^Version: *//p' | head -1 || true)
+          [ "$css" = "$THEME_VERSION" ] && echo "OK    public style.css: theme $css" \
+            || echo "::warning::Public style.css shows theme ${css:-?}, expected $THEME_VERSION (probably cached; the disk check passed)"
+          if [ "$got" = "$CORE_VERSION" ]; then msg="Live HTML shows the expected Core $got."
+          else msg="Live HTML shows Core ${got:-(not found)}, expected $CORE_VERSION. Files on disk are verified; the HTML is probably still cached (Flush cache in the WP admin bar)."; echo "::warning::$msg"; fi
           echo "$msg"
           echo "### Live page check"$'\n'"$msg" >> "$GITHUB_STEP_SUMMARY"
+          exit $fail
