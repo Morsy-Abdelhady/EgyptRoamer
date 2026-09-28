@@ -1,5 +1,6 @@
 # READ-ONLY diagnostic: what filesystem does the GoDaddy CI/CD deploy user see?
 # It lives only on the diagnostics/deploy-user branch and never deploys: no rsync, no uploads, no writes.
+# Remote commands are limited to whoami/id/pwd/echo/ls/stat/test/readlink/find/grep/awk (reads only).
 # Other hosting accounts under /home are masked, because Actions logs are visible to signed-in GitHub users.
 name: Diagnose deploy user (read-only)
 
@@ -13,37 +14,83 @@ permissions:
 jobs:
   inspect:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
-      - name: List what the deploy user sees
+      - name: Check host key and deploy key (fingerprints only)
         env:
           KEY: ${{ secrets.PRIVATE_KEY }}
           HOST: 1284039.eu11.ssh.myftpupload.com
-          SSH_USER_NAME: git_deployer_9ec75f13a2_1284039
           HOST_FP: SHA256:oxYa4nr7BL5hXCIG5j/OOk54R6yNokpACBoa3tn+Kp4
+          KEY_FP: SHA256:9D8q7VMPQGwk48UQ3ZYey6nkT4ixmrxTu0pnrydsmMY
         run: |
           umask 077
-          d=$(mktemp -d)
-          trap 'rm -rf "$d"' EXIT
-          printf '%s\n' "$KEY" | tr -d '\r' > "$d/key"
-          ssh-keyscan -T 15 -t ed25519 "$HOST" > "$d/known" 2>/dev/null
-          [ "$(ssh-keygen -lf "$d/known" | awk '{print $2}')" = "$HOST_FP" ] || { echo "::error::host key mismatch"; exit 1; }
-          ssh -i "$d/key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes \
-              -o UserKnownHostsFile="$d/known" -o ConnectTimeout=30 "$SSH_USER_NAME@$HOST" 'bash -s' <<'REMOTE'
+          mkdir -p ~/diag
+          printf '%s\n' "$KEY" | tr -d '\r' > ~/diag/key
+          ssh-keyscan -T 15 -t ed25519 "$HOST" > ~/diag/known 2>/dev/null || true
+          got_host=$(ssh-keygen -lf ~/diag/known 2>/dev/null | awk '{print $2}' | head -1)
+          got_key=$(ssh-keygen -y -P "" -f ~/diag/key 2>/dev/null | ssh-keygen -lf - 2>/dev/null | awk '{print $2}')
+          echo "host key: ${got_host:-unreachable} (expected $HOST_FP)"
+          echo "deploy key: ${got_key:-unreadable} (expected $KEY_FP)"
+          [ "$got_host" = "$HOST_FP" ] && [ "$got_key" = "$KEY_FP" ]
+
+      - name: "Auth: which methods GoDaddy offers and whether the key is accepted"
+        env:
+          HOST: 1284039.eu11.ssh.myftpupload.com
+          SSH_USER_NAME: git_deployer_9ec75f13a2_1284039
+        run: |
+          set +e
+          start=$(date +%s)
+          ssh -v -i ~/diag/key -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes \
+              -o UserKnownHostsFile=$HOME/diag/known -o ConnectTimeout=30 "$SSH_USER_NAME@$HOST" exit > ~/diag/v.txt 2>&1
+          rc=$?
+          grep -E 'Authentications that can continue|Offering public key|Server accepts key|Authenticated to|Permission denied|closed|Exit status|Sending command' ~/diag/v.txt \
+            | sed -E 's/SHA256:[A-Za-z0-9+\/=]+/<fingerprint>/g' || true
+          echo "exit code: $rc after $(( $(date +%s) - start ))s"
+
+      - name: "Reproduce the deployer's Validate inputs step (three separate connections)"
+        env:
+          HOST: 1284039.eu11.ssh.myftpupload.com
+          SSH_USER_NAME: git_deployer_9ec75f13a2_1284039
+        run: |
+          set +e
+          o="-i $HOME/diag/key -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/diag/known -o ConnectTimeout=30"
+          ssh $o "$SSH_USER_NAME@$HOST" "exit"; echo "connection 1 'exit': rc=$?"
+          ssh $o "$SSH_USER_NAME@$HOST" "[ -d '/html/wp-content' ]"; echo "connection 2 '[ -d /html/wp-content ]': rc=$? (0 = exists, 1 = missing, 255 = ssh/connection error)"
+          ssh $o "$SSH_USER_NAME@$HOST" "echo still-open"; echo "connection 3 'echo': rc=$?"
+
+      - name: List what the deploy user sees (one read-only session)
+        env:
+          HOST: 1284039.eu11.ssh.myftpupload.com
+          SSH_USER_NAME: git_deployer_9ec75f13a2_1284039
+        run: |
+          set +e
+          ssh -i ~/diag/key -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes \
+              -o UserKnownHostsFile=$HOME/diag/known -o ConnectTimeout=30 "$SSH_USER_NAME@$HOST" 'bash -s' <<'REMOTE'
           mask() { sed -E 's#(client_|git_deployer_)[0-9a-f]+_([0-9]+)#\1…_\2#g' | awk '/1284039/ || !/(client_|git_deployer_)/'; }
           echo "== whoami / id";            whoami; id
           echo "== pwd (login directory)";  pwd
-          echo "== \$HOME";                 echo "$HOME"
-          echo "== shell";                  echo "$SHELL"
-          echo "== ls -la /";               ls -la / 2>&1
-          echo "== ls -ld /html";           ls -ld /html 2>&1
-          echo "== ls -ld /html/wp-content"; ls -ld /html/wp-content 2>&1
-          echo "== test -d (same check as the GoDaddy action)"; [ -d /html/wp-content ] && echo "/html/wp-content: EXISTS" || echo "/html/wp-content: NOT a directory from this user"
-          echo "== ls -ld ~ ~/html ~/html/wp-content"; ls -ld ~ ~/html ~/html/wp-content 2>&1
-          echo "== ls -ld /home";           ls -ld /home 2>&1
+          echo "== \$HOME / \$SHELL";        echo "$HOME"; echo "$SHELL"
+          echo "== chroot evidence"
+          echo "/proc/self/root -> $(readlink /proc/self/root 2>&1)"
+          awk '$5=="/"{print "mount of / : root-in-fs="$4" fstype="$9}' /proc/self/mountinfo 2>&1 | head -3
+          echo "== ls -la /";               ls -la / 2>&1 | mask
+          for p in / /html /html/wp-content /html/wp-content/themes /html/wp-content/plugins /html/wp-config.php \
+                   /home /home/client_c52f6cc536_1284039 /home/client_c52f6cc536_1284039/html \
+                   /home/client_c52f6cc536_1284039/html/wp-content "$HOME" "$HOME/html" "$HOME/html/wp-content"; do
+            if [ -e "$p" ]; then printf '%-52s EXISTS  %s\n' "$p" "$(stat -c '%F %U:%G %a inode=%i dev=%d' "$p" 2>&1)"
+            else printf '%-52s MISSING (%s)\n' "$p" "$(ls -ld "$p" 2>&1 | sed 's/.*: //')"; fi
+          done | mask
+          echo "== same test the GoDaddy action runs"; [ -d /html/wp-content ] && echo "/html/wp-content: EXISTS" || echo "/html/wp-content: NOT a directory from this user"
+          echo "== Core and theme versions visible here"
+          grep -m1 'Version:' /html/wp-content/plugins/egypt-roamer-core/egypt-roamer-core.php 2>&1
+          grep -m1 'Version:' /html/wp-content/themes/egypt-roamer/style.css 2>&1
           echo "== ls -la /home (other accounts masked)"; ls -la /home 2>&1 | mask
-          echo "== site paths for 1284039"; ls -ld /home/*1284039* /home/*/html 2>&1 | mask
           echo "== find wp-content (maxdepth 4, this site only)"; timeout 60 find / -maxdepth 4 -type d -name wp-content 2>/dev/null | mask
-          echo "== git-deployer app and upload dir (used by the action)"; ls -ld /html/git-deployer-app /git-deployer ~/html/git-deployer-app ~/git-deployer 2>&1
+          echo "== git-deployer dirs (used by the action)"; ls -ld /html/git-deployer-app /git-deployer "$HOME/html/git-deployer-app" "$HOME/git-deployer" 2>&1
           echo "== done"
           REMOTE
+          echo "session rc=$?"
+
+      - name: Remove key
+        if: always()
+        run: rm -rf ~/diag
