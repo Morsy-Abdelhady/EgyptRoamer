@@ -1,0 +1,99 @@
+# READ-ONLY diagnostic for the planned direct SSH deploy: can GitHub Actions reach production
+# with the normal Production SSH/SFTP account (secrets PROD_SSH_USER / PROD_SSH_PASSWORD)?
+# It lives only on the diagnostics/prod-ssh branch and never deploys.
+# Remote commands are reads only: pwd/whoami/test/ls/command -v and read-only WP-CLI queries.
+# No uploads, no file changes, no database writes, no seed, no editorial import, no deletes.
+# The password reaches ssh through sshpass -e (environment), never on a command line; GitHub masks
+# both secrets, so the username also shows as *** wherever it appears (whoami, paths).
+name: Diagnose production SSH (read-only)
+
+on:
+  push:
+    branches: [diagnostics/prod-ssh]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      HOST: 1284039.eu11.ssh.myftpupload.com
+      HOST_FP: SHA256:oxYa4nr7BL5hXCIG5j/OOk54R6yNokpACBoa3tn+Kp4 # GoDaddy SSH host key (ed25519)
+    steps:
+      - name: Secrets present (values never printed)
+        env:
+          U: ${{ secrets.PROD_SSH_USER }}
+          P: ${{ secrets.PROD_SSH_PASSWORD }}
+        run: |
+          [ -n "$U" ] && echo "PROD_SSH_USER: set" || { echo "::error::PROD_SSH_USER is empty or not visible to this job"; exit 1; }
+          [ -n "$P" ] && echo "PROD_SSH_PASSWORD: set" || { echo "::error::PROD_SSH_PASSWORD is empty or not visible to this job"; exit 1; }
+          case "$U" in git_deployer_*) echo "::error::PROD_SSH_USER is a GoDaddy CI/CD deploy user, not the normal SSH account"; exit 1;; esac
+          echo "PROD_SSH_USER is not a git_deployer_* account."
+
+      - name: Pin the GoDaddy host key
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          ssh-keyscan -T 15 -t ed25519 "$HOST" > ~/.ssh/known_hosts 2>/dev/null || true
+          got=$(ssh-keygen -lf ~/.ssh/known_hosts 2>/dev/null | awk '{print $2}' | head -1)
+          [ "$got" = "$HOST_FP" ] || { echo "::error::host key is '${got:-unreachable}', expected $HOST_FP"; exit 1; }
+          echo "Host key matches $HOST_FP"
+          command -v sshpass >/dev/null || sudo apt-get install -y -qq sshpass >/dev/null
+
+      - name: SSH authentication (password)
+        env:
+          SSH_USER: ${{ secrets.PROD_SSH_USER }}
+          SSHPASS: ${{ secrets.PROD_SSH_PASSWORD }}
+        run: |
+          set +e
+          start=$(date +%s)
+          sshpass -e ssh -o StrictHostKeyChecking=yes -o PreferredAuthentications=password,keyboard-interactive \
+              -o PubkeyAuthentication=no -o NumberOfPasswordPrompts=1 -o ConnectTimeout=30 \
+              "$SSH_USER@$HOST" exit
+          rc=$?
+          echo "ssh rc=$rc after $(( $(date +%s) - start ))s (sshpass: 5 = wrong password, 6 = host key, 255 = ssh error)"
+          [ $rc -eq 0 ] || { echo "::error::SSH login with PROD_SSH_USER / PROD_SSH_PASSWORD failed; nothing else was tried"; exit 1; }
+          echo "SSH authentication OK"
+
+      - name: Paths and WP-CLI (read-only)
+        env:
+          SSH_USER: ${{ secrets.PROD_SSH_USER }}
+          SSHPASS: ${{ secrets.PROD_SSH_PASSWORD }}
+        run: |
+          sshpass -e ssh -o StrictHostKeyChecking=yes -o PreferredAuthentications=password,keyboard-interactive \
+              -o PubkeyAuthentication=no -o NumberOfPasswordPrompts=1 -o ConnectTimeout=30 \
+              "$SSH_USER@$HOST" 'bash -s' <<'REMOTE'
+          ok() { if eval "$1" >/dev/null 2>&1; then echo "OK      $1"; else echo "MISSING $1"; fi; }
+          echo "== login";   echo "pwd: $(pwd)"; echo "whoami: $(whoami)"; echo "HOME: $HOME"
+          echo "== WordPress root"
+          cd ~/html || { echo "cannot cd ~/html"; exit 1; }
+          echo "pwd after cd ~/html: $(pwd)"
+          ok "test -d ~/html/wp-content"
+          ok "test -d ~/html/wp-content/themes"
+          ok "test -d ~/html/wp-content/plugins"
+          ok "test -d ~/html/wp-content/themes/egypt-roamer"
+          ok "test -d ~/html/wp-content/plugins/egypt-roamer-core"
+          ok "test -f ~/html/wp-config.php"
+          ok "test -w ~/html/wp-content/themes/egypt-roamer"
+          ok "test -w ~/html/wp-content/plugins/egypt-roamer-core"
+          echo "== file versions on disk"
+          echo "theme style.css: $(sed -n 's/^Version: *//p' ~/html/wp-content/themes/egypt-roamer/style.css 2>&1 | head -1)"
+          echo "core header:     $(sed -n 's/^ \* Version: *//p' ~/html/wp-content/plugins/egypt-roamer-core/egypt-roamer-core.php 2>&1 | head -1)"
+          echo "== transfer tools on the server"
+          for t in rsync tar gzip sftp-server wp php; do printf '%-12s %s\n' "$t" "$(command -v $t 2>/dev/null || echo 'not found')"; done
+          echo "== WP-CLI (read-only queries)"
+          if ! command -v wp >/dev/null; then echo "wp: not found"; exit 0; fi
+          wp cli version 2>&1 | head -1
+          wp core is-installed && echo "wp core is-installed: yes" || echo "wp core is-installed: NO (rc=$?)"
+          echo "WordPress version: $(wp core version 2>&1 | head -1)"
+          echo "active theme:      $(wp theme list --status=active --field=name 2>&1 | head -1)"
+          wp theme is-installed egypt-roamer && echo "egypt-roamer theme: installed, version $(wp theme get egypt-roamer --field=version 2>&1)" || echo "egypt-roamer theme: NOT installed"
+          wp plugin is-installed egypt-roamer-core && echo "egypt-roamer-core: installed, $(wp plugin get egypt-roamer-core --field=status 2>&1), version $(wp plugin get egypt-roamer-core --field=version 2>&1)" || echo "egypt-roamer-core: NOT installed"
+          echo "search engines discouraged (blog_public=0 expected): blog_public=$(wp option get blog_public 2>&1)"
+          echo "== done"
+          REMOTE
