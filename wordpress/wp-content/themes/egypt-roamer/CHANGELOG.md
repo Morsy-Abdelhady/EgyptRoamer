@@ -2,7 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
-## 1.1.4 — 2026-09-28
+## 1.1.5 — 2026-09-28
+- Release that ships 1.1.4 to production. No code changes.
+- 1.1.4 never deployed: GoDaddy refused the old CI/CD deploy user (Runs #6 and #7). GoDaddy CI/CD was re-enabled with a new deploy user, and this is the first release through it.
+
+## 1.1.4 — 2026-09-28 (not deployed; shipped in 1.1.5)
 - Destination and guide pages: the "On this page" box now renders after the introduction, just before the first section. This happens on output only; the stored content is unchanged.
 - On phones, the contents links become one swipeable row.
 - On phones, key facts with three or more items render as label/value rows (RTL-mirrored).
