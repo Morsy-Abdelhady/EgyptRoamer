@@ -25,7 +25,8 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
 - Everything production-side goes through the owner:
   - wp-admin in their Chrome;
   - SSH in their terminal. The WordPress root is `~/html`; running `wp` from `~` fails.
-- Theme and Core deploy themselves: a push to `main` runs `.github/workflows/deploy-production.yml` (see `docs/DEPLOY.md`). Database changes still go through the owner.
+- Theme and Core deploy themselves: a push to `main` that touches them runs `.github/workflows/deploy-production.yml` (see `docs/DEPLOY.md`). There is no manual trigger. Database changes still go through the owner.
+- After a theme or Core change passes the local tests, commit and `git push origin main`. Don't stop at a local commit.
 - Never ask for, print or store credentials.
 - Bump the Core version on each release. `track.js?ver=` in the page source shows which build is live.
 

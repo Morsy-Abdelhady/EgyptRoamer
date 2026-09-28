@@ -1,21 +1,29 @@
 # Production deploy of the Egypt Roamer theme and Core plugin to GoDaddy Managed WordPress.
+# Runs automatically on every push to main that changes the theme or Core. There is no manual trigger.
 #
 # Deploys ONLY:
 #   wordpress/wp-content/themes/egypt-roamer          -> html/wp-content/themes/egypt-roamer        (without src/)
 #   wordpress/wp-content/plugins/egypt-roamer-core    -> html/wp-content/plugins/egypt-roamer-core
-# Nothing else is uploaded, and cleanup (removing files deleted from git) is limited to those two
-# folders. No database work runs here: no seed, migrations, imports, translations or images.
+# Code only: no seed, migrations, imports, translations, images, content, users or settings.
+#
+# Order (godaddy-wordpress/gd-wordpress-deployer@v1 takes one source and one destination per run,
+# and has no multi-folder or atomic mode):
+#   1. Theme + Core together into wp-content/, cleanup OFF, health check ON.
+#      Both reach their new version in one run, so "new Core + old theme" is never the checked
+#      state, and a failed check rolls back that single run. Cleanup must stay off here: with
+#      wp-content/ as destination it would delete every other plugin, theme and uploads/.
+#   2. Core folder, cleanup ON, health check ON: removes files deleted from git, inside that folder only.
+#   3. Theme folder, the same. Its health check is the last one and runs on the complete final state.
 # Runbook: docs/DEPLOY.md
 name: Deploy production
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - "wordpress/wp-content/themes/egypt-roamer/**"
       - "wordpress/wp-content/plugins/egypt-roamer-core/**"
-      - ".github/workflows/deploy-production.yml"
-  workflow_dispatch:
 
 # One production deploy at a time; a new one waits for the running one instead of cancelling it.
 concurrency:
@@ -86,52 +94,78 @@ jobs:
   deploy:
     name: Deploy to production
     needs: test # runs only when every test job passed
-    if: github.ref == 'refs/heads/main' # a manual run from any other branch never deploys
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     environment: production
     steps:
       - uses: actions/checkout@v4
 
-      # The deployer uploads everything under source_path, so stage exactly what may go live.
+      # The deployer uploads everything under source_path, so stage exactly what may go live,
+      # laid out like the server's wp-content/.
       - name: Stage theme and Core
         run: |
-          mkdir -p _deploy
-          rsync -a --exclude 'src/' "$THEME_SRC/" _deploy/egypt-roamer/
-          rsync -a "$CORE_SRC/" _deploy/egypt-roamer-core/
-          test -f _deploy/egypt-roamer/style.css
-          test -f _deploy/egypt-roamer-core/egypt-roamer-core.php
-          test ! -e _deploy/egypt-roamer/src
-          if find _deploy \( -name wp-config.php -o -name '.htaccess' -o -path '*/wp-admin/*' -o -path '*/wp-includes/*' -o -path '*/uploads/*' \) | grep -q .; then
+          mkdir -p _deploy/wp-content/themes _deploy/wp-content/plugins
+          rsync -a --exclude 'src/' "$THEME_SRC/" _deploy/wp-content/themes/egypt-roamer/
+          rsync -a "$CORE_SRC/" _deploy/wp-content/plugins/egypt-roamer-core/
+          test -f _deploy/wp-content/themes/egypt-roamer/style.css
+          test -f _deploy/wp-content/themes/egypt-roamer/index.php
+          test -f _deploy/wp-content/plugins/egypt-roamer-core/egypt-roamer-core.php
+          test ! -e _deploy/wp-content/themes/egypt-roamer/src
+          [ "$(ls -A _deploy)" = "wp-content" ] && [ "$(ls -A _deploy/wp-content | tr '\n' ' ')" = "plugins themes " ] \
+            && [ "$(ls -A _deploy/wp-content/themes)" = "egypt-roamer" ] && [ "$(ls -A _deploy/wp-content/plugins)" = "egypt-roamer-core" ] \
+            || { echo "::error::Only the Egypt Roamer theme and Core may be staged"; exit 1; }
+          if find _deploy \( -name wp-config.php -o -name '.htaccess' -o -path '*/wp-admin*' -o -path '*/wp-includes*' -o -path '*/uploads*' \
+               -o -name 'wp-load.php' -o -name 'wp-settings.php' -o -name 'wp-login.php' -o -name 'xmlrpc.php' -o -name 'wp-cron.php' \) | grep -q .; then
             echo "::error::Staged files include WordPress core, config or uploads"; exit 1
           fi
-          echo "Theme: $(find _deploy/egypt-roamer -type f | wc -l) files · Core: $(find _deploy/egypt-roamer-core -type f | wc -l) files"
+          echo "Theme: $(find _deploy/wp-content/themes -type f | wc -l) files · Core: $(find _deploy/wp-content/plugins -type f | wc -l) files"
 
-      - name: Deploy Core
+      - name: 1/3 Deploy theme + Core together (health check on the new pair)
         uses: godaddy-wordpress/gd-wordpress-deployer@v1
         with:
           remote_host: 1284039.eu11.myftpupload.com
           ssh_user: git_deployer_71e07e2d98_1284039
           ssh_private_key: ${{ secrets.PRIVATE_KEY }}
-          source_path: _deploy/egypt-roamer-core
-          deployment_dest: wp-content/plugins/egypt-roamer-core # relative to html/
-          cleanup_deleted_files: "yes" # only inside this folder
-          enable_health_check: "yes" # rolls back if WordPress is unhealthy afterwards
+          source_path: _deploy/wp-content
+          deployment_dest: wp-content # relative to html/
+          cleanup_deleted_files: "no" # MUST stay "no": here it would delete other plugins, themes and uploads
+          enable_health_check: "yes" # rolls back this run if WordPress is unhealthy
 
-      - name: Deploy theme
+      - name: 2/3 Remove files deleted from git (Core folder only)
         uses: godaddy-wordpress/gd-wordpress-deployer@v1
         with:
           remote_host: 1284039.eu11.myftpupload.com
           ssh_user: git_deployer_71e07e2d98_1284039
           ssh_private_key: ${{ secrets.PRIVATE_KEY }}
-          source_path: _deploy/egypt-roamer
-          deployment_dest: wp-content/themes/egypt-roamer # relative to html/
-          cleanup_deleted_files: "yes" # only inside this folder
+          source_path: _deploy/wp-content/plugins/egypt-roamer-core
+          deployment_dest: wp-content/plugins/egypt-roamer-core
+          cleanup_deleted_files: "yes" # scoped to this folder
           enable_health_check: "yes"
 
-      - name: Live version check
+      - name: 3/3 Remove files deleted from git (theme folder only) + final health check
+        uses: godaddy-wordpress/gd-wordpress-deployer@v1
+        with:
+          remote_host: 1284039.eu11.myftpupload.com
+          ssh_user: git_deployer_71e07e2d98_1284039
+          ssh_private_key: ${{ secrets.PRIVATE_KEY }}
+          source_path: _deploy/wp-content/themes/egypt-roamer
+          deployment_dest: wp-content/themes/egypt-roamer
+          cleanup_deleted_files: "yes" # scoped to this folder
+          enable_health_check: "yes"
+
+      # Reads the public HTML as visitors get it. GoDaddy's page cache/CDN can serve an older copy
+      # for a while, so a mismatch is reported but never fails a deploy whose health checks passed.
+      - name: Live page version (report only)
+        continue-on-error: true
         run: |
           want=$(sed -n "s/.*define( 'ER_CORE_VERSION', '\([^']*\)'.*/\1/p" "$CORE_SRC/egypt-roamer-core.php")
-          got=$(curl -fsS -A "Mozilla/5.0 deploy-check" "https://egyptroamer.com/?deploy=$GITHUB_RUN_ID" | grep -o 'track\.js?ver=[^"&'"'"']*' | head -1 | cut -d= -f2 || true)
-          echo "Core in git: $want · live page: ${got:-not found}"
-          [ "$want" = "$got" ] || echo "::warning::The live page still shows Core ${got:-?}. GoDaddy's page cache may need a flush (WP admin bar → Flush cache)."
+          got=$(curl -fsS -m 30 -A "Mozilla/5.0 deploy-check" "https://egyptroamer.com/?deploy=$GITHUB_RUN_ID" | grep -o 'track\.js?ver=[^"&'"'"']*' | head -1 | cut -d= -f2 || true)
+          if [ "$want" = "$got" ]; then
+            msg="Live page shows the expected Core $want."
+          else
+            msg="Live page shows Core ${got:-(not found)}, expected $want. The deploy passed its health checks; the live HTML is probably still cached (flush in the WP admin bar)."
+            echo "::warning::$msg"
+          fi
+          echo "$msg"
+          echo "### Live page check"$'\n'"$msg" >> "$GITHUB_STEP_SUMMARY"
