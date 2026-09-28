@@ -36,12 +36,12 @@ class ER_CLI {
 	}
 
 	private function upsert( string $type, string $seed_id, array $post, array $meta = [] ): int {
-		$id   = $this->find( $type, $seed_id );
-		$post = array_merge( [ 'post_type' => $type ], $post );
-		if ( $id ) {
-			$post['ID'] = $id;
-			unset( $post['post_status'] ); // never flip an editor's status decision
-			wp_update_post( wp_slash( $post ) );
+		$id       = $this->find( $type, $seed_id );
+		$post     = array_merge( [ 'post_type' => $type ], $post );
+		$existing = (bool) $id;
+		if ( $existing ) {
+			// Re-runs (e.g. `seed --translations` after launch) must never overwrite what editors
+			// wrote: existing items keep their title, content, status and every meta value they have.
 		} else {
 			$id = (int) wp_insert_post( wp_slash( $post ), true );
 			if ( ! $id || is_wp_error( $id ) ) {
@@ -51,6 +51,9 @@ class ER_CLI {
 			update_post_meta( $id, '_er_seed_id', $seed_id );
 		}
 		foreach ( $meta as $key => $value ) {
+			if ( $existing && metadata_exists( 'post', $id, $key ) ) {
+				continue; // only fill fields that are still missing
+			}
 			if ( is_array( $value ) ) {
 				delete_post_meta( $id, $key );
 				foreach ( $value as $v ) {
