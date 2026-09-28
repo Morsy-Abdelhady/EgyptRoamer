@@ -562,6 +562,127 @@
   }
 }
 
+/* ---------- Editorial components inside .prose (core blocks only, so editors
+   can change them in the block editor): contents, callouts, FAQ, itinerary ---------- */
+.prose h2[id],
+.prose h3[id] {
+  scroll-margin-top: 6rem;
+}
+.prose ul:not(.er-itinerary) {
+  list-style: disc;
+}
+.prose ol:not(.er-itinerary) {
+  list-style: decimal;
+}
+.prose li::marker {
+  color: var(--gold-deep);
+}
+.prose .er-toc ul {
+  list-style: none;
+}
+.prose .er-toc {
+  padding: 1.1rem 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--stone) 55%, transparent);
+}
+.prose .er-toc > p {
+  margin: 0 0 0.5rem;
+  font-size: var(--fs-meta);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.prose .er-toc ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.2rem;
+}
+.prose .er-toc li + li {
+  margin-top: 0;
+}
+.prose .er-toc a {
+  text-decoration: none;
+  color: var(--text);
+}
+.prose .er-toc a:hover {
+  color: var(--gold-deep);
+}
+.prose .er-callout {
+  padding: 1.1rem 1.3rem;
+  border-radius: var(--r-md);
+  border-inline-start: 3px solid var(--gold);
+  background: color-mix(in srgb, var(--gold) 9%, var(--stone));
+}
+.prose .er-callout > :first-child {
+  margin-top: 0;
+}
+.prose .er-callout > * + * {
+  margin-top: 0.6em;
+}
+.prose .er-callout h3,
+.prose .er-callout h4 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+.prose details {
+  border-bottom: 1px solid var(--line);
+  padding: 0.9rem 0;
+}
+.prose details + details {
+  margin-top: 0;
+}
+.prose details > summary {
+  cursor: pointer;
+  font-weight: 500;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.prose details > summary::-webkit-details-marker {
+  display: none;
+}
+.prose details > summary::after {
+  content: "+";
+  color: var(--gold-deep);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+.prose details[open] > summary::after {
+  content: "−";
+}
+.prose details > summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.prose details > :not(summary) {
+  margin-top: 0.6rem;
+  color: var(--text-muted);
+}
+.prose .er-itinerary {
+  list-style: none;
+  padding: 0;
+  counter-reset: none;
+}
+.prose .er-itinerary > li {
+  padding-block: 0.9rem;
+  padding-inline-start: 1.2rem;
+  border-inline-start: 2px solid color-mix(in srgb, var(--gold) 60%, transparent);
+}
+.prose .er-itinerary > li + li {
+  margin-top: 0;
+}
+.prose .er-itinerary strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+
 /* ---------- Hero word in longer languages: the approved phone/tablet size
    (25vw, max 8rem) fits "EGYPT" but not "ÄGYPTEN" (360–552px) or "ЕГИПЕТ"
    (360–430px), whose glyphs ran past the right edge. Same look, capped so

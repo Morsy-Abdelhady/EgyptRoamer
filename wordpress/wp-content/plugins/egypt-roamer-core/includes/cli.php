@@ -4,6 +4,7 @@
  *
  *   wp egypt-roamer seed [--with-images] [--translations [--publish-translations]]
  *   wp egypt-roamer languages
+ *   wp egypt-roamer editorial [--dry-run]   (English bodies/excerpts from data/editorial/en, never overwrites edits)
  *   wp egypt-roamer health
  *
  * Seeding is idempotent (records are matched on _er_seed_id) and conservative:
@@ -627,6 +628,76 @@ class ER_CLI {
 				: "Draft translations created for {$lang} (review by a native speaker before publishing)." );
 		}
 		$this->language_menus( $languages, $default );
+	}
+
+	/**
+	 * Fill the English editorial bodies and excerpts from data/editorial/en/.
+	 *
+	 * A body or excerpt is written only while it is empty or still exactly the one-line text the seed
+	 * created (the prototype's `desc`). Anything an editor has changed is left alone, and so are
+	 * translations, statuses and the "Ready to index" flag. Guides stay drafts until an editor publishes them.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [--dry-run]
+	 * : Report what would change without writing.
+	 *
+	 * @when after_wp_load
+	 */
+	public function editorial( $args, $assoc ) {
+		$dir   = ER_CORE_DIR . 'data/editorial/en/';
+		$index = json_decode( (string) file_get_contents( $dir . 'index.json' ), true ) ?: []; // phpcs:ignore WordPress.WP.AlternativeFunctions
+		$dry   = ! empty( $assoc['dry-run'] );
+		$seed  = [];
+		foreach ( (array) ( $this->seed_data()['destinations'] ?? [] ) as $d ) {
+			$seed[ 'dest-' . $d['id'] ] = (string) ( $d['desc'] ?? '' );
+		}
+		$is_seed_text = static function ( string $value, string $seed_id ) use ( $seed ): bool {
+			$plain = trim( html_entity_decode( wp_strip_all_tags( $value ), ENT_QUOTES, 'UTF-8' ) );
+			return '' === $plain || ( isset( $seed[ $seed_id ] ) && trim( $seed[ $seed_id ] ) === $plain );
+		};
+		$counts = [ 'body' => 0, 'excerpt' => 0, 'link' => 0, 'kept' => 0, 'missing' => 0 ];
+		foreach ( $index as $seed_id => $item ) {
+			$id = $this->find( (string) $item['type'], (string) $seed_id );
+			if ( $id && function_exists( 'pll_get_post' ) && function_exists( 'pll_default_language' ) ) {
+				$id = (int) pll_get_post( $id, pll_default_language() ) ?: $id; // the English original, never a translation
+			}
+			if ( ! $id ) {
+				++$counts['missing'];
+				WP_CLI::warning( "No {$item['type']} with seed id {$seed_id}" );
+				continue;
+			}
+			$file   = $dir . $seed_id . '.html';
+			$body   = is_readable( $file ) ? trim( (string) file_get_contents( $file ) ) : ''; // phpcs:ignore WordPress.WP.AlternativeFunctions
+			$post   = get_post( $id );
+			$update = [];
+			if ( $body && $is_seed_text( (string) $post->post_content, (string) $seed_id ) ) {
+				$update['post_content'] = $body;
+				++$counts['body'];
+			} elseif ( $body ) {
+				++$counts['kept'];
+				WP_CLI::log( "Kept editor body: {$seed_id}" );
+			}
+			if ( ! empty( $item['excerpt'] ) && $is_seed_text( (string) $post->post_excerpt, (string) $seed_id ) ) {
+				$update['post_excerpt'] = (string) $item['excerpt'];
+				++$counts['excerpt'];
+			}
+			// Guides link to their destination so they appear under "Plan your trip to …" once published.
+			if ( ! empty( $item['destination'] ) && ! get_post_meta( $id, '_er_destination', true ) ) {
+				$dest = $this->find( 'er_destination', 'dest-' . $item['destination'] );
+				if ( $dest ) {
+					if ( ! $dry ) {
+						update_post_meta( $id, '_er_destination', $dest );
+					}
+					++$counts['link'];
+				}
+			}
+			if ( $update && ! $dry ) {
+				wp_update_post( wp_slash( [ 'ID' => $id ] + $update ) );
+			}
+			WP_CLI::log( sprintf( '%s %s: %s', $dry ? 'Would update' : 'Updated', $seed_id, $update ? implode( ', ', array_keys( $update ) ) : 'nothing' ) );
+		}
+		WP_CLI::success( sprintf( '%sbodies %d, excerpts %d, destination links %d, editor bodies kept %d, missing %d.', $dry ? '(dry run) ' : '', $counts['body'], $counts['excerpt'], $counts['link'], $counts['kept'], $counts['missing'] ) );
 	}
 
 	/**

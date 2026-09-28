@@ -75,6 +75,9 @@ jobs:
       - name: Seed data is valid JSON
         run: python3 -m json.tool "$CORE_SRC/data/seed.json" > /dev/null
 
+      - name: Editorial content compiled from content/editorial
+        run: python3 tools/editorial.py check
+
       - name: Theme JS bundles match src/js
         run: |
           python3 - <<'PY'

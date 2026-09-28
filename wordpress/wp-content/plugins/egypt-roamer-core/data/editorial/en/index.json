@@ -1,0 +1,79 @@
+{
+ "dest-alexandria": {
+  "type": "er_destination",
+  "excerpt": "Alexandria travel guide: the Mediterranean side of Egypt, from the Qaitbay Citadel and the Bibliotheca Alexandrina to Roman catacombs, seafood on the Corniche and day trips to Rosetta and El Alamein."
+ },
+ "dest-aswan": {
+  "type": "er_destination",
+  "excerpt": "Aswan travel guide: feluccas among granite islands, Philae temple, Nubian villages and Elephantine Island, the Abu Simbel day trip and sun festival, where Nile cruises begin, and how long to stay."
+ },
+ "dest-cairo": {
+  "type": "er_destination",
+  "excerpt": "A practical Cairo guide: the pyramids and the Grand Egyptian Museum at Giza, Islamic and Coptic Cairo, the Nile, which area to stay in, how many days you need and how to get around."
+ },
+ "dest-hurghada": {
+  "type": "er_destination",
+  "excerpt": "Hurghada travel guide: Red Sea reefs, the Giftun Islands, diving and snorkelling for every level, El Gouna and the southern resort bays, desert trips, the best season and how to combine the coast with Luxor."
+ },
+ "dest-luxor": {
+  "type": "er_destination",
+  "excerpt": "Luxor travel guide: Karnak and Luxor Temple on the East Bank, the Valley of the Kings and Hatshepsut's temple on the West Bank, balloon sunrises, Nile cruises, where to stay and how many days you need."
+ },
+ "dest-sharm": {
+  "type": "er_destination",
+  "excerpt": "Sharm El Sheikh travel guide: Ras Mohammed National Park, the Tiran reefs and the Thistlegorm wreck, Naama Bay, Mount Sinai and St Catherine's Monastery, Dahab, the best season and how long to stay."
+ },
+ "dest-siwa": {
+  "type": "er_destination",
+  "excerpt": "Siwa Oasis travel guide: the Shali fortress, the Oracle of Amun that Alexander the Great consulted, salt lakes and springs, the Great Sand Sea, local customs, the best season and how to plan the long journey."
+ },
+ "exp-abu": {
+  "type": "er_experience",
+  "excerpt": "The Abu Simbel day trip from Aswan: why the temples of Ramesses II and Nefertari are worth the early start, road or flight, the February and October sun festival, and how to plan the day."
+ },
+ "exp-dinner": {
+  "type": "er_experience",
+  "excerpt": "A Nile dinner cruise in Cairo: what the evening is like, the music and tanoura show, who it suits, how to choose a boat, and how it compares with a simple felucca ride at sunset."
+ },
+ "exp-dive": {
+  "type": "er_experience",
+  "excerpt": "Two guided reef dives in the Red Sea: what a dive day looks like, requirements for beginners and certified divers, how to choose a responsible dive centre, and where the best reefs are."
+ },
+ "exp-food": {
+  "type": "er_experience",
+  "excerpt": "A Cairo street food tour by night: the dishes you'll taste, from koshari and ful to feteer and sweets, the neighbourhoods you walk through, dietary needs, and why a local guide helps."
+ },
+ "exp-giza": {
+  "type": "er_experience",
+  "excerpt": "What a private guided visit to the Giza pyramids and the Sphinx is like, who it suits, how to time it, what to watch out for on the plateau, and how to combine it with the Grand Egyptian Museum and Saqqara."
+ },
+ "exp-safari": {
+  "type": "er_experience",
+  "excerpt": "A White Desert and Black Desert safari from Bahariya Oasis: chalk rock formations, volcanic hills, Crystal Mountain, a night camping under the stars, what to pack and who the trip suits."
+ },
+ "exp-siwa": {
+  "type": "er_experience",
+  "excerpt": "A 4×4 day in the Great Sand Sea from Siwa Oasis: dune driving, sand-boarding, desert springs and sunset over the dunes, what to bring, and how to choose a local operator."
+ },
+ "exp-valley": {
+  "type": "er_experience",
+  "excerpt": "A guided West Bank day in Luxor: the Valley of the Kings and Hatshepsut's temple at Deir el-Bahari, how tomb tickets work, the best time to go, and what to add if you have more time."
+ },
+ "g-7-days": {
+  "type": "er_guide",
+  "excerpt": "A realistic first-time Egypt itinerary for seven days: Cairo and the pyramids, Luxor's temples and tombs, and Aswan, with options for a Nile cruise, the Red Sea or Abu Simbel, and what to leave out."
+ },
+ "g-best-time": {
+  "type": "er_guide",
+  "excerpt": "When to visit Egypt, season by season and region by region: the Nile Valley's comfortable winter, the Red Sea's long beach season, the desert's cold nights, and how Ramadan and holidays change a trip."
+ },
+ "g-cairo": {
+  "type": "er_guide",
+  "excerpt": "Cairo beyond the pyramids: a neighbourhood-by-neighbourhood guide to Islamic Cairo, Coptic Cairo, Downtown, Zamalek and the Nile, with a walking route through the old city and tips for everyday Cairo.",
+  "destination": "cairo"
+ },
+ "g-gems": {
+  "type": "er_guide",
+  "excerpt": "Ten remarkable places in Egypt that most visitors skip: from the Bent Pyramid and Medinet Habu to Abydos, Dendera, Wadi Al-Hitan and Rosetta, with what makes each special and how to fit it into a trip."
+ }
+}

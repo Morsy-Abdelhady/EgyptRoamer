@@ -14,7 +14,12 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
 
 ## Hard rules
 - **Keep indexing off.** "Discourage search engines" stays ticked until the launch gate in `docs/LAUNCH-GATE.md` passes.
-- **Don't invent anything.** No content, translations, prices, ratings, reviews, photos, statistics or affiliate providers/URLs.
+- **Don't invent anything.** No translations, prices, opening hours, travel times, ratings, reviews, photos, statistics or affiliate providers/URLs.
+- **Editorial content** (owner-approved on 2026-09-28):
+  - English bodies are written in `content/editorial/en/*.md`, using only verifiable facts. Sources go in `docs/CONTENT-SOURCES.md`.
+  - Run `python tools/editorial.py` to compile them into Core's `data/editorial/en/`.
+  - On the server, `wp egypt-roamer editorial` fills only empty or untouched seed text.
+  - Guides stay drafts until the owner publishes them.
 - **Photography:** only brand assets are owned. On 2026-09-28 the owner approved the prototype's Unsplash photos as hot-linked stand-ins on every page until a featured image is set. No other photos, and nothing is downloaded into the Media Library without asking.
 - **No redesign, and don't touch the approved CSS.** WordPress-only CSS goes in `assets/css/pages.css`.
 - **Plugins:** at most one SEO plugin (Rank Math, planned). No WooCommerce, direct booking or extra cache plugins.
