@@ -1,0 +1,77 @@
+# Deploys the theme and Core plugin to production (GoDaddy Managed WordPress) over SSH.
+# Setup and rollback: docs/DEPLOY.md. Nothing here touches the database, content or settings.
+name: Deploy
+
+on:
+  push:
+    branches: [claude/dreamy-bardeen-6qqk2h]
+    paths:
+      - "wordpress/wp-content/themes/egypt-roamer/**"
+      - "wordpress/wp-content/plugins/egypt-roamer-core/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      WP_ROOT: html # relative to the SSH user's home; running wp from ~ fails
+      THEME: wordpress/wp-content/themes/egypt-roamer
+      CORE: wordpress/wp-content/plugins/egypt-roamer-core
+      SITE: https://egyptroamer.com
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: PHP lint
+        run: find "$THEME" "$CORE" -name '*.php' -print0 | xargs -0 -n1 php -l > lint.txt 2>&1 || { grep -v '^No syntax errors' lint.txt; exit 1; }
+
+      - name: Check secrets
+        env:
+          HOST: ${{ secrets.SSH_HOST }}
+          USER_: ${{ secrets.SSH_USER }}
+          KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          KNOWN: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          missing=""
+          [ -n "$HOST" ]  || missing="$missing SSH_HOST"
+          [ -n "$USER_" ] || missing="$missing SSH_USER"
+          [ -n "$KEY" ]   || missing="$missing SSH_PRIVATE_KEY"
+          [ -n "$KNOWN" ] || missing="$missing SSH_KNOWN_HOSTS"
+          if [ -n "$missing" ]; then echo "::error::Missing repository secrets:$missing (see docs/DEPLOY.md)"; exit 1; fi
+
+      - name: SSH setup
+        env:
+          KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          KNOWN: ${{ secrets.SSH_KNOWN_HOSTS }}
+          HOST: ${{ secrets.SSH_HOST }}
+          USER_: ${{ secrets.SSH_USER }}
+          PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/deploy && chmod 600 ~/.ssh/deploy
+          printf '%s\n' "$KNOWN" > ~/.ssh/known_hosts
+          printf 'Host prod\n  HostName %s\n  User %s\n  Port %s\n  IdentityFile ~/.ssh/deploy\n  IdentitiesOnly yes\n  StrictHostKeyChecking yes\n' "$HOST" "$USER_" "${PORT:-22}" > ~/.ssh/config
+          ssh prod "test -f $WP_ROOT/wp-config.php && command -v rsync >/dev/null" || { echo "::error::No WordPress at ~/$WP_ROOT or no rsync on the server"; exit 1; }
+
+      # No -t: files that did not change are skipped by checksum, and changed files get a fresh
+      # mtime on the server, which is what the theme uses to cache-bust its CSS/JS.
+      - name: Upload theme (without src/)
+        run: rsync -rlz --checksum --delete --delay-updates --exclude src/ "$THEME/" "prod:$WP_ROOT/wp-content/themes/egypt-roamer/"
+
+      - name: Upload Core
+        run: rsync -rlz --checksum --delete --delay-updates "$CORE/" "prod:$WP_ROOT/wp-content/plugins/egypt-roamer-core/"
+
+      - name: Flush object cache
+        run: ssh prod "cd $WP_ROOT && wp cache flush"
+
+      - name: Verify live version
+        run: |
+          want=$(sed -n "s/.*define( 'ER_CORE_VERSION', '\([^']*\)'.*/\1/p" "$CORE/egypt-roamer-core.php")
+          got=$(curl -fsS -A "Mozilla/5.0 deploy-check" "$SITE/?deploy=$GITHUB_RUN_ID" | grep -o 'track\.js?ver=[^"&'"'"']*' | head -1 | cut -d= -f2)
+          echo "Core in repo: $want · live: ${got:-not found}"
+          [ "$want" = "$got" ] || echo "::warning::Live page still shows Core ${got:-?}; GoDaddy's page cache may need a flush (WP admin bar → Flush cache)."

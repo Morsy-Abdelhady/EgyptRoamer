@@ -42,6 +42,7 @@ er_page_hero( [
 	'title'   => get_the_title(),
 	'intro'   => has_excerpt() ? get_the_excerpt() : '',
 	'image'   => (int) get_post_thumbnail_id(),
+	'stock'   => er_stock_id_for( (int) get_the_ID() ),
 	'meta'    => $er_meta,
 ] );
 ?>

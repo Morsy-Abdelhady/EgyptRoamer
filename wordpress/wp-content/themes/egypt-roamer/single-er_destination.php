@@ -30,6 +30,7 @@ while ( have_posts() ) :
 		'title'   => get_the_title(),
 		'intro'   => $er_tag,
 		'image'   => (int) get_post_thumbnail_id(),
+		'stock'   => er_stock_id_for( (int) get_the_ID() ),
 	] );
 	?>
 	<div class="page-body container">

@@ -32,7 +32,7 @@ $er_scene_link = static function ( int $n ) use ( $er_data ): array {
 	};
 	return [
 		1 => [ $dest_url( 'cairo' ), '' ],
-		2 => [ $er_data['partnerCategories'] ? '#partners' : ( get_post_type_archive_link( 'er_tour' ) ?: '#destinations' ), $er_data['partnerCategories'] ? 'data-partner-tab="cruises"' : '' ],
+		2 => [ $er_data['partnerCategories'] ? '#partners' : ( er_has_published( 'er_tour' ) ? get_post_type_archive_link( 'er_tour' ) : $dest_url( 'aswan' ) ), $er_data['partnerCategories'] ? 'data-partner-tab="cruises"' : '' ],
 		3 => [ '#experiences', 'data-exp-filter="all"' ],
 		4 => [ $dest_url( 'hurghada' ), '' ],
 	][ $n ];

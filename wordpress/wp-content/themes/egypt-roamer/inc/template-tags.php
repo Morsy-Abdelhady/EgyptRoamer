@@ -54,10 +54,14 @@ function er_stock_img( string $photo_id, string $alt, array $attrs = [], array $
 	return $html . ' />';
 }
 
-/** Post image: featured image, else nothing. */
+/** Post image: featured image, else the approved stock stand-in its seed entry names, else nothing. */
 function er_post_img( int $post_id, string $size = 'er-card', array $attrs = [] ): string {
 	$thumb = get_post_thumbnail_id( $post_id );
-	return $thumb ? er_img( (int) $thumb, $size, $attrs ) : '';
+	if ( $thumb ) {
+		return er_img( (int) $thumb, $size, $attrs );
+	}
+	$stock = function_exists( 'er_stock_id_for' ) ? er_stock_id_for( $post_id ) : '';
+	return $stock ? er_stock_img( $stock, (string) ( $attrs['alt'] ?? '' ), array_diff_key( $attrs, [ 'alt' => 1 ] ), [ 480, 720, 960 ] ) : '';
 }
 
 /** A registered menu, or nothing (editors manage navigation under Appearance → Menus). */
@@ -75,7 +79,16 @@ function er_menu( string $location, string $wrap = '<ul>%3$s</ul>' ): string {
 	] );
 }
 
-/** Only working links: drop menu items whose target is unpublished or does not exist. */
+/** Whether a post type has at least one published entry in the current language (cached per request). */
+function er_has_published( string $post_type ): bool {
+	static $cache = [];
+	if ( ! isset( $cache[ $post_type ] ) ) {
+		$cache[ $post_type ] = (bool) get_posts( [ 'post_type' => $post_type, 'post_status' => 'publish', 'numberposts' => 1, 'fields' => 'ids', 'no_found_rows' => true, 'suppress_filters' => false ] );
+	}
+	return $cache[ $post_type ];
+}
+
+/** Only working links: drop menu items whose target is unpublished, does not exist or is an empty archive. */
 add_filter( 'wp_nav_menu_objects', static function ( $items ) {
 	// Page links (/about/, /contact/ …): look up every page slug in this menu with one query.
 	static $pages = [];
@@ -95,7 +108,13 @@ add_filter( 'wp_nav_menu_objects', static function ( $items ) {
 	}
 	return array_filter( $items, static function ( $item ) use ( $pages ) {
 		if ( 'post_type' === $item->type ) {
-			return 'publish' === get_post_status( (int) $item->object_id );
+			$published = 'publish' === get_post_status( (int) $item->object_id );
+			// The Journal (posts page, in any language) only while it has articles.
+			$posts_page = (int) get_option( 'page_for_posts' );
+			if ( $published && $posts_page && (int) $item->object_id === er_translated_post_id( $posts_page ) ) {
+				return er_has_published( 'post' );
+			}
+			return $published;
 		}
 		$url = (string) $item->url;
 		if ( 'custom' !== $item->type || ! str_starts_with( $url, home_url( '/' ) ) || str_contains( $url, '#' ) ) {
@@ -112,12 +131,12 @@ add_filter( 'wp_nav_menu_objects', static function ( $items ) {
 		}
 		foreach ( get_post_types( [ 'public' => true ], 'objects' ) as $type ) {
 			if ( $type->has_archive && $path === $type->has_archive ) {
-				return true;
+				return er_has_published( $type->name ); // no link to an archive that would only say "nothing yet"
 			}
 		}
 		$posts_page = (int) get_option( 'page_for_posts' );
-		if ( $posts_page && untrailingslashit( $url ) === untrailingslashit( (string) get_permalink( $posts_page ) ) ) {
-			return 'publish' === get_post_status( $posts_page );
+		if ( $posts_page && untrailingslashit( $url ) === untrailingslashit( (string) get_permalink( er_translated_post_id( $posts_page ) ) ) ) {
+			return 'publish' === get_post_status( $posts_page ) && er_has_published( 'post' );
 		}
 		// The same link often sits in several menus: resolve each URL once per request.
 		static $resolved = [];
@@ -210,12 +229,18 @@ function er_type_label( string $post_type ): string {
 /* -------------------------------------------------------------------------- */
 
 function er_page_hero( array $args ): void {
-	$args += [ 'eyebrow' => '', 'title' => '', 'intro' => '', 'image' => 0, 'meta' => '' ];
+	$args += [ 'eyebrow' => '', 'title' => '', 'intro' => '', 'image' => 0, 'stock' => '', 'meta' => '' ];
+	$media = '';
+	if ( $args['image'] ) {
+		$media = er_img( (int) $args['image'], 'er-hero', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw', 'alt' => '' ] );
+	} elseif ( $args['stock'] ) {
+		$media = er_stock_img( (string) $args['stock'], '', [ 'loading' => 'eager', 'fetchpriority' => 'high' ] );
+	}
 	?>
-	<div class="page-hero on-dark<?php echo $args['image'] ? ' page-hero--image' : ''; ?>">
-		<?php if ( $args['image'] ) : ?>
+	<div class="page-hero on-dark<?php echo $media ? ' page-hero--image' : ''; ?>">
+		<?php if ( $media ) : ?>
 			<div class="page-hero__media" aria-hidden="true">
-				<?php echo er_img( (int) $args['image'], 'er-hero', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw', 'alt' => '' ] ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped by wp_get_attachment_image ?>
+				<?php echo $media; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped by wp_get_attachment_image / er_stock_img ?>
 			</div>
 		<?php endif; ?>
 		<div class="container page-hero__inner">

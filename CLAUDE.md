@@ -15,7 +15,7 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
 ## Hard rules
 - **Keep indexing off.** "Discourage search engines" stays ticked until the launch gate in `docs/LAUNCH-GATE.md` passes.
 - **Don't invent anything.** No content, translations, prices, ratings, reviews, photos, statistics or affiliate providers/URLs.
-- **Photography:** only brand assets are owned. The Unsplash stand-ins need the owner's approval first.
+- **Photography:** only brand assets are owned. On 2026-09-28 the owner approved the prototype's Unsplash photos as hot-linked stand-ins on every page until a featured image is set. No other photos, and nothing is downloaded into the Media Library without asking.
 - **No redesign, and don't touch the approved CSS.** WordPress-only CSS goes in `assets/css/pages.css`.
 - **Plugins:** at most one SEO plugin (Rank Math, planned). No WooCommerce, direct booking or extra cache plugins.
 - **Seed:** re-runs must never overwrite editors' titles, bodies, status or filled fields.
@@ -25,6 +25,7 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
 - Everything production-side goes through the owner:
   - wp-admin in their Chrome;
   - SSH in their terminal. The WordPress root is `~/html`; running `wp` from `~` fails.
+- Theme and Core deploy themselves: a push to `claude/dreamy-bardeen-6qqk2h` runs `.github/workflows/deploy.yml` (see `docs/DEPLOY.md`). Database changes still go through the owner.
 - Never ask for, print or store credentials.
 - Bump the Core version on each release. `track.js?ver=` in the page source shows which build is live.
 

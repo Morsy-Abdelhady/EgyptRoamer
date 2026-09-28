@@ -35,6 +35,11 @@ function er_stock_id_for( int $post_id ): string {
 		}
 	}
 	$seed_id = (string) get_post_meta( $post_id, '_er_seed_id', true );
+	if ( '' === $seed_id && function_exists( 'pll_get_post' ) && function_exists( 'pll_default_language' ) ) {
+		// A translation made by hand carries no seed id: use its default-language original's.
+		$source  = (int) pll_get_post( $post_id, (string) pll_default_language() );
+		$seed_id = $source ? (string) get_post_meta( $source, '_er_seed_id', true ) : '';
+	}
 	$seed_id = preg_replace( '/-(de|fr|it|es|ru|zh|ar)$/', '', $seed_id );
 	return $map[ $seed_id ] ?? '';
 }
@@ -181,6 +186,33 @@ function er_payload_guide( int $id ): array {
 	];
 }
 
+/**
+ * The default-language original of a translated term ("ancient" for "ancient-de"), or the term itself.
+ * The seed stores images, icons, tints and destinations on the originals only.
+ */
+function er_source_term( WP_Term $term ): WP_Term {
+	if ( function_exists( 'pll_get_term' ) && function_exists( 'pll_default_language' ) ) {
+		$source = (int) pll_get_term( $term->term_id, (string) pll_default_language() );
+		if ( $source && $source !== $term->term_id ) {
+			$found = get_term( $source, $term->taxonomy );
+			if ( $found instanceof WP_Term ) {
+				return $found;
+			}
+		}
+	}
+	return $term;
+}
+
+/** Term meta, falling back to the default-language original when the translation leaves it empty. */
+function er_term_meta_or_source( WP_Term $term, string $key ): string {
+	$value = (string) get_term_meta( $term->term_id, $key, true );
+	if ( '' === $value ) {
+		$source = er_source_term( $term );
+		$value  = $source === $term ? '' : (string) get_term_meta( $source->term_id, $key, true );
+	}
+	return $value;
+}
+
 /** Travel styles → moods, each with its destination and live offers (experience + stay). */
 function er_payload_moods(): array {
 	$terms = get_terms( [ 'taxonomy' => 'er_travel_style', 'hide_empty' => false, 'meta_key' => '_er_order', 'orderby' => 'meta_value_num', 'order' => 'ASC' ] );
@@ -192,22 +224,23 @@ function er_payload_moods(): array {
 		if ( ! $term instanceof WP_Term ) {
 			continue;
 		}
-		$dest_id = (int) get_term_meta( $term->term_id, '_er_destination', true );
+		$source  = er_source_term( $term );
+		$dest_id = (int) er_term_meta_or_source( $term, '_er_destination' );
 		$dest_id = $dest_id ? er_translated_post_id( $dest_id ) : 0;
 		$exp     = er_get_offers( [ 'style' => $term->slug, 'limit' => 5 ] );
 		$stay    = er_get_offers( [ 'style' => $term->slug, 'type' => 'hotels', 'limit' => 1 ] );
 		$exp     = array_values( array_diff( $exp, $stay ) );
-		$image   = (int) get_term_meta( $term->term_id, '_er_image', true );
+		$image   = (int) er_term_meta_or_source( $term, '_er_image' );
 		$moods[] = [
-			'id'    => $term->slug,
+			'id'    => $source->slug, // language-neutral: the planner's interests and analytics key on it
 			'label' => $term->name,
 			'word'  => (string) ( get_term_meta( $term->term_id, '_er_word', true ) ?: $term->name ),
-			'icon'  => (string) ( get_term_meta( $term->term_id, '_er_icon', true ) ?: 'i-compass' ),
-			'tint'  => 'var(--' . ( get_term_meta( $term->term_id, '_er_tint', true ) ?: 'clay' ) . ')',
-			'image' => er_payload_image( $image, er_mood_stock( $term->slug ) ),
+			'icon'  => er_term_meta_or_source( $term, '_er_icon' ) ?: 'i-compass',
+			'tint'  => 'var(--' . ( er_term_meta_or_source( $term, '_er_tint' ) ?: 'clay' ) . ')',
+			'image' => er_payload_image( $image, er_mood_stock( $source->slug ) ),
 			'desc'  => wp_strip_all_tags( term_description( $term ) ),
 			'recs'  => [
-				'dest' => $dest_id && 'publish' === get_post_status( $dest_id ) ? get_post_field( 'post_name', $dest_id ) : '',
+				'dest' => $dest_id && 'publish' === get_post_status( $dest_id ) ? er_neutral_slug( $dest_id ) : '',
 				'exp'  => $exp ? er_payload_offer( $exp[0], 'home-mood' ) : null,
 				'stay' => $stay ? er_payload_offer( $stay[0], 'home-mood-stay' ) : null,
 			],
@@ -243,10 +276,10 @@ function er_payload_partner_categories(): array {
 		$cat     = [
 			'id'       => $term->slug,
 			'label'    => $term->name,
-			'icon'     => (string) ( get_term_meta( $term->term_id, '_er_icon', true ) ?: 'i-compass' ),
+			'icon'     => er_term_meta_or_source( $term, '_er_icon' ) ?: 'i-compass',
 			'headline' => (string) get_term_meta( $term->term_id, '_er_headline', true ),
 			'copy'     => (string) ( get_term_meta( $term->term_id, '_er_copy', true ) ?: wp_strip_all_tags( term_description( $term ) ) ),
-			'image'    => er_payload_image( (int) get_term_meta( $term->term_id, '_er_image', true ), $stock[ $term->slug ] ?? '' ),
+			'image'    => er_payload_image( (int) er_term_meta_or_source( $term, '_er_image' ), $stock[ er_source_term( $term )->slug ] ?? '' ),
 			'trust'    => array_values( array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n/', (string) get_term_meta( $term->term_id, '_er_trust', true ) ) ), 'strlen' ) ),
 			'compare'  => (string) ( get_term_meta( $term->term_id, '_er_compare_label', true ) ?: er_t( 'Compare Options' ) ),
 			'allHref'  => '',
