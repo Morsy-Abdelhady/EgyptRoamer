@@ -561,3 +561,16 @@
     top: 0;
   }
 }
+
+/* ---------- Hero word in longer languages: the approved phone/tablet size
+   (25vw, max 8rem) fits "EGYPT" but not "ÄGYPTEN" (360–552px) or "ЕГИПЕТ"
+   (360–430px), whose glyphs ran past the right edge. Same look, capped so
+   the word fits the screen. ---------- */
+@media (max-width: 900px) {
+  html:lang(de) .hero__title .t-display {
+    font-size: clamp(3.2rem, 17vw, 6rem);
+  }
+  html:lang(ru) .hero__title .t-display {
+    font-size: clamp(3.2rem, 21vw, 7rem);
+  }
+}
