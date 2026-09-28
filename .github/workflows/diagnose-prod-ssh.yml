@@ -22,6 +22,7 @@ jobs:
   inspect:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    environment: production # PROD_SSH_* may be environment secrets; this job still only reads
     env:
       HOST: 1284039.eu11.ssh.myftpupload.com
       HOST_FP: SHA256:oxYa4nr7BL5hXCIG5j/OOk54R6yNokpACBoa3tn+Kp4 # GoDaddy SSH host key (ed25519)
