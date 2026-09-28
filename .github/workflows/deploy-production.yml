@@ -124,7 +124,7 @@ jobs:
       - name: 1/3 Deploy theme + Core together (health check on the new pair)
         uses: godaddy-wordpress/gd-wordpress-deployer@v1
         with:
-          remote_host: 1284039.eu11.myftpupload.com
+          remote_host: 1284039.eu11.ssh.myftpupload.com
           ssh_user: git_deployer_71e07e2d98_1284039
           ssh_private_key: ${{ secrets.PRIVATE_KEY }}
           source_path: _deploy/wp-content
@@ -135,7 +135,7 @@ jobs:
       - name: 2/3 Remove files deleted from git (Core folder only)
         uses: godaddy-wordpress/gd-wordpress-deployer@v1
         with:
-          remote_host: 1284039.eu11.myftpupload.com
+          remote_host: 1284039.eu11.ssh.myftpupload.com
           ssh_user: git_deployer_71e07e2d98_1284039
           ssh_private_key: ${{ secrets.PRIVATE_KEY }}
           source_path: _deploy/wp-content/plugins/egypt-roamer-core
@@ -146,7 +146,7 @@ jobs:
       - name: 3/3 Remove files deleted from git (theme folder only) + final health check
         uses: godaddy-wordpress/gd-wordpress-deployer@v1
         with:
-          remote_host: 1284039.eu11.myftpupload.com
+          remote_host: 1284039.eu11.ssh.myftpupload.com
           ssh_user: git_deployer_71e07e2d98_1284039
           ssh_private_key: ${{ secrets.PRIVATE_KEY }}
           source_path: _deploy/wp-content/themes/egypt-roamer
