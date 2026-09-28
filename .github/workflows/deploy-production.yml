@@ -132,7 +132,7 @@ jobs:
         env:
           KEY: ${{ secrets.PRIVATE_KEY }}
           HOST: 1284039.eu11.ssh.myftpupload.com
-          SSH_USER_NAME: git_deployer_71e07e2d98_1284039
+          SSH_USER_NAME: git_deployer_9ec75f13a2_1284039
           HOST_FP: SHA256:oxYa4nr7BL5hXCIG5j/OOk54R6yNokpACBoa3tn+Kp4 # GoDaddy SSH host key (ed25519)
           KEY_FP: SHA256:9D8q7VMPQGwk48UQ3ZYey6nkT4ixmrxTu0pnrydsmMY # public half registered in GoDaddy CI/CD
         run: |
@@ -163,7 +163,7 @@ jobs:
         uses: godaddy-wordpress/gd-wordpress-deployer@v1
         with:
           remote_host: 1284039.eu11.ssh.myftpupload.com
-          ssh_user: git_deployer_71e07e2d98_1284039
+          ssh_user: git_deployer_9ec75f13a2_1284039
           ssh_private_key: ${{ secrets.PRIVATE_KEY }}
           source_path: _deploy/wp-content
           deployment_dest: wp-content # relative to html/
@@ -174,7 +174,7 @@ jobs:
         uses: godaddy-wordpress/gd-wordpress-deployer@v1
         with:
           remote_host: 1284039.eu11.ssh.myftpupload.com
-          ssh_user: git_deployer_71e07e2d98_1284039
+          ssh_user: git_deployer_9ec75f13a2_1284039
           ssh_private_key: ${{ secrets.PRIVATE_KEY }}
           source_path: _deploy/wp-content/plugins/egypt-roamer-core
           deployment_dest: wp-content/plugins/egypt-roamer-core
@@ -185,7 +185,7 @@ jobs:
         uses: godaddy-wordpress/gd-wordpress-deployer@v1
         with:
           remote_host: 1284039.eu11.ssh.myftpupload.com
-          ssh_user: git_deployer_71e07e2d98_1284039
+          ssh_user: git_deployer_9ec75f13a2_1284039
           ssh_private_key: ${{ secrets.PRIVATE_KEY }}
           source_path: _deploy/wp-content/themes/egypt-roamer
           deployment_dest: wp-content/themes/egypt-roamer
