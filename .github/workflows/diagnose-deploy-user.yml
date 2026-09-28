@@ -1,0 +1,49 @@
+# READ-ONLY diagnostic: what filesystem does the GoDaddy CI/CD deploy user see?
+# It lives only on the diagnostics/deploy-user branch and never deploys: no rsync, no uploads, no writes.
+# Other hosting accounts under /home are masked, because Actions logs are visible to signed-in GitHub users.
+name: Diagnose deploy user (read-only)
+
+on:
+  push:
+    branches: [diagnostics/deploy-user]
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: List what the deploy user sees
+        env:
+          KEY: ${{ secrets.PRIVATE_KEY }}
+          HOST: 1284039.eu11.ssh.myftpupload.com
+          SSH_USER_NAME: git_deployer_9ec75f13a2_1284039
+          HOST_FP: SHA256:oxYa4nr7BL5hXCIG5j/OOk54R6yNokpACBoa3tn+Kp4
+        run: |
+          umask 077
+          d=$(mktemp -d)
+          trap 'rm -rf "$d"' EXIT
+          printf '%s\n' "$KEY" | tr -d '\r' > "$d/key"
+          ssh-keyscan -T 15 -t ed25519 "$HOST" > "$d/known" 2>/dev/null
+          [ "$(ssh-keygen -lf "$d/known" | awk '{print $2}')" = "$HOST_FP" ] || { echo "::error::host key mismatch"; exit 1; }
+          ssh -i "$d/key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes \
+              -o UserKnownHostsFile="$d/known" -o ConnectTimeout=30 "$SSH_USER_NAME@$HOST" 'bash -s' <<'REMOTE'
+          mask() { sed -E 's#(client_|git_deployer_)[0-9a-f]+_([0-9]+)#\1…_\2#g' | awk '/1284039/ || !/(client_|git_deployer_)/'; }
+          echo "== whoami / id";            whoami; id
+          echo "== pwd (login directory)";  pwd
+          echo "== \$HOME";                 echo "$HOME"
+          echo "== shell";                  echo "$SHELL"
+          echo "== ls -la /";               ls -la / 2>&1
+          echo "== ls -ld /html";           ls -ld /html 2>&1
+          echo "== ls -ld /html/wp-content"; ls -ld /html/wp-content 2>&1
+          echo "== test -d (same check as the GoDaddy action)"; [ -d /html/wp-content ] && echo "/html/wp-content: EXISTS" || echo "/html/wp-content: NOT a directory from this user"
+          echo "== ls -ld ~ ~/html ~/html/wp-content"; ls -ld ~ ~/html ~/html/wp-content 2>&1
+          echo "== ls -ld /home";           ls -ld /home 2>&1
+          echo "== ls -la /home (other accounts masked)"; ls -la /home 2>&1 | mask
+          echo "== site paths for 1284039"; ls -ld /home/*1284039* /home/*/html 2>&1 | mask
+          echo "== find wp-content (maxdepth 4, this site only)"; timeout 60 find / -maxdepth 4 -type d -name wp-content 2>/dev/null | mask
+          echo "== git-deployer app and upload dir (used by the action)"; ls -ld /html/git-deployer-app /git-deployer ~/html/git-deployer-app ~/git-deployer 2>&1
+          echo "== done"
+          REMOTE
