@@ -88,7 +88,7 @@ The Arabic import may write **only `post_content` and `post_excerpt`** of Arabic
 | `post_name` (Arabic slugs) | Live URLs, hreflang and internal links depend on them |
 | `post_status` | Destinations and experiences are already published. New Arabic guides are created as **draft** only |
 | "Ready to index" flag, `blog_public` | Indexing stays off until the launch gate |
-| Polylang language and translation group | Architecture. The import only uses existing groups (and adds the Arabic guide to its group) |
+| Polylang language and translation group | Architecture. The import only uses existing groups (and adds the Arabic guide to its group). Production sync is off for every field [prod, verified 2026-09-29] |
 | `_er_seed_id` | The import's own key |
 | `_er_destination` and other relations | Resolve across translations already (§2) |
 | `_er_lat`, `_er_lng`, `_er_nights`, featured image, `menu_order`, terms | Language-neutral |
@@ -142,7 +142,7 @@ The design keeps one pipeline. It is dry-run first, review-gated and never overw
    - RTL rendering of the contents box, callouts, FAQ and itinerary.
 3. Write Arabic drafts, Cairo first, then the other destinations, the experiences and the 4 guides. They should be Modern Standard Arabic, natural rather than literal, following the English structure and fact policy. They're committed with `review: pending`.
 4. The reviewer approves or edits per file, and the files are marked `approved`.
-5. Before any production import, a read-only check in wp-admin → Languages → Settings → **Synchronization**: custom-field sync must be off. It's `[]` locally; production is **not yet verified**.
+5. Polylang synchronisation on production: **verified off** (read-only in wp-admin, 2026-09-29). All 11 options are unticked: taxonomies, custom fields, comment/ping status, sticky, published date, post format, page parent/template/order, featured image. Every Core post type and taxonomy is translatable (locked on by Core). Writing an Arabic post therefore cannot change its English original. Re-check only if the Polylang settings change.
 6. On production, only when the owner asks: `cd ~/html && wp egypt-roamer editorial --lang=ar --dry-run`, show the counts, then the real run.
 7. Verify the Arabic pages live: word counts, anchors, rewritten links, RTL layout at 360–1440 px, no English leakage.
 
