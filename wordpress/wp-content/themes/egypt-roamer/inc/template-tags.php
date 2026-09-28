@@ -471,3 +471,31 @@ function er_check_list( array $lines ): string {
 	}
 	return $out . '</ul>';
 }
+
+/*
+ * "On this page" box: readers should meet the introduction first. The editorial import places the
+ * contents box at the top of the body, so on destination and guide pages it is moved, on output only,
+ * to just before the first section heading. The stored content is untouched; a body without a
+ * contents box, or with the box already after the introduction, renders unchanged.
+ */
+add_filter( 'the_content', static function ( string $content ): string {
+	if ( ! is_singular( [ 'er_destination', 'er_guide' ] ) || ! in_the_loop() || ! is_main_query() ) {
+		return $content;
+	}
+	// The contents group holds only a paragraph and a list, so the first closing </div> ends it.
+	if ( ! preg_match( '#<div class="wp-block-group er-toc[^"]*">.*?</div>#s', $content, $toc, PREG_OFFSET_CAPTURE ) ) {
+		return $content;
+	}
+	$first_h2 = strpos( $content, '<h2' );
+	if ( false !== $first_h2 && $first_h2 < $toc[0][1] ) {
+		return $content; // an editor placed the box inside the article: leave it where it is
+	}
+	$h2 = strpos( $content, '<h2', $toc[0][1] + strlen( $toc[0][0] ) );
+	$before = substr( $content, $toc[0][1] + strlen( $toc[0][0] ), false === $h2 ? 0 : $h2 - $toc[0][1] - strlen( $toc[0][0] ) );
+	if ( false === $h2 || '' === trim( wp_strip_all_tags( $before ) ) ) {
+		return $content; // no introduction between the box and the first section: nothing to reorder
+	}
+	$without = substr_replace( $content, '', $toc[0][1], strlen( $toc[0][0] ) );
+	$h2      = strpos( $without, '<h2' );
+	return substr_replace( $without, $toc[0][0] . "\n", $h2, 0 );
+}, 20 );
