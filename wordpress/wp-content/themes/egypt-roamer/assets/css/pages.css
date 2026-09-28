@@ -544,3 +544,20 @@
   color: var(--clay);
   font-weight: 500;
 }
+
+/* ---------- Logged-in editors: keep the fixed navigation below the WordPress
+   toolbar (32px, 46px on small screens; below 600px the toolbar scrolls away
+   with the page, so the navigation returns to the top edge) ---------- */
+.admin-bar .nav {
+  top: 32px;
+}
+@media (max-width: 782px) {
+  .admin-bar .nav {
+    top: 46px;
+  }
+}
+@media (max-width: 600px) {
+  .admin-bar .nav {
+    top: 0;
+  }
+}

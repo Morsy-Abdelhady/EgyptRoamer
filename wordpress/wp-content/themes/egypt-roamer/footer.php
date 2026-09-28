@@ -13,7 +13,8 @@ $er_col = static function ( string $title, string $location ) {
 	}
 	echo '<div><h3 class="t-label">' . esc_html( $title ) . '</h3>' . $menu . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput -- wp_nav_menu output
 };
-$er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#planner' : home_url( '/#planner' ) ) : '';
+// home_url( '/' ) first, then the anchor: Polylang only localises the bare home URL.
+$er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#planner' : home_url( '/' ) . '#planner' ) : '';
 ?>
 <footer class="footer on-dark" id="footer">
 	<div class="container">

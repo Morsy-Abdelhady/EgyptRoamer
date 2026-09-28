@@ -2,7 +2,8 @@
 /**
  * WP-CLI: migrate the static prototype's content and run health checks.
  *
- *   wp egypt-roamer seed [--with-images] [--translations]
+ *   wp egypt-roamer seed [--with-images] [--translations [--publish-translations]]
+ *   wp egypt-roamer languages
  *   wp egypt-roamer health
  *
  * Seeding is idempotent (records are matched on _er_seed_id) and conservative:
@@ -66,6 +67,23 @@ class ER_CLI {
 		return $id;
 	}
 
+	/**
+	 * Slug for a new translation. Latin-script titles get an ASCII slug (le-caire, alejandria);
+	 * other scripts keep their own (Cyrillic, Chinese, Arabic). Post slugs are unique per post type
+	 * across all languages, so a slug already taken ("luxor", "siwa") becomes "luxor-it" rather than
+	 * WordPress's "luxor-2".
+	 */
+	private function translation_slug( string $title, string $type, string $lang ): string {
+		global $wpdb;
+		$latin = ! preg_match( '/[^\p{Latin}\P{L}]/u', $title ); // every letter is Latin script (symbols like × are fine)
+		$slug  = $latin ? $this->slug( $title ) : sanitize_title( $title );
+		$taken = static fn ( $s ) => (bool) $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE post_type = %s AND post_name = %s LIMIT 1", $type, $s ) ); // phpcs:ignore WordPress.DB
+		if ( '' === $slug ) {
+			return $lang;
+		}
+		return $taken( $slug ) ? $slug . '-' . $lang : $slug;
+	}
+
 	/** ASCII slug: arrows, middots and symbols in titles must not leak into URLs. */
 	private function slug( string $title ): string {
 		return sanitize_title( preg_replace( '/[^\x20-\x7E]+/', ' ', remove_accents( $title ) ) );
@@ -106,6 +124,12 @@ class ER_CLI {
 	 *
 	 * [--translations]
 	 * : With Polylang active, create draft translations from the prototype's locale files (review before publishing).
+	 *
+	 * [--publish-translations]
+	 * : With --translations: publish new destination and experience translations instead of saving drafts.
+	 *   Only for copy taken verbatim from the static prototype's locale files (the approved reference).
+	 *   Like the English items they stay noindex until "Ready to index" is ticked. Existing translations
+	 *   keep their status (re-runs never change editors' work).
 	 *
 	 * @when after_wp_load
 	 */
@@ -243,7 +267,7 @@ class ER_CLI {
 		$this->menus( $dest );
 
 		if ( ! empty( $assoc['translations'] ) ) {
-			$this->translations( $dest, $exps );
+			$this->translations( $dest, $exps, ! empty( $assoc['publish-translations'] ) );
 		}
 		flush_rewrite_rules();
 		WP_CLI::success( 'Seed complete. Review drafts, add real affiliate providers/offers, then tick “Ready to index” page by page.' );
@@ -289,7 +313,10 @@ class ER_CLI {
 			update_option( 'page_for_posts', $journal );
 			WP_CLI::log( 'Reading settings: static front page + Journal posts page.' );
 		}
-		if ( in_array( get_option( 'permalink_structure' ), [ '', '/%postname%/' ], true ) ) {
+		// Repeated slashes are collapsed first: production had "//%postname%/", the default in disguise,
+		// which was left in place and would double the slash in every article URL.
+		$structure = (string) preg_replace( '#/{2,}#', '/', (string) get_option( 'permalink_structure' ) );
+		if ( in_array( $structure, [ '', '/', '/%postname%/' ], true ) ) {
 			update_option( 'permalink_structure', '/journal/%postname%/' );
 			WP_CLI::log( 'Permalinks: articles at /journal/{slug}/ (content types keep /destinations/, /tours/ …).' );
 		}
@@ -458,7 +485,7 @@ class ER_CLI {
 	}
 
 	/** Draft translations from the prototype's locale files, linked in Polylang. */
-	private function translations( array $dest, array $exps ): void {
+	private function translations( array $dest, array $exps, bool $publish = false ): void {
 		if ( ! function_exists( 'pll_languages_list' ) || ! function_exists( 'pll_save_post_translations' ) ) {
 			WP_CLI::warning( 'Polylang is not active — skipping translations.' );
 			return;
@@ -547,9 +574,10 @@ class ER_CLI {
 				}
 				$tid = $this->upsert( 'er_destination', 'dest-' . $seed_id . '-' . $lang, [
 					'post_title'   => $d['name'] ?? get_the_title( $post_id ),
+					'post_name'    => $this->translation_slug( $d['name'] ?? get_the_title( $post_id ), 'er_destination', $lang ),
 					'post_excerpt' => $d['desc'] ?? '',
 					'post_content' => isset( $d['desc'] ) ? '<!-- wp:paragraph --><p>' . esc_html( $d['desc'] ) . '</p><!-- /wp:paragraph -->' : '',
-					'post_status'  => 'draft',
+					'post_status'  => $publish ? 'publish' : 'draft',
 					'menu_order'   => (int) get_post_field( 'menu_order', $post_id ),
 				], [
 					'_er_tagline'       => $d['tagline'] ?? '',
@@ -577,7 +605,8 @@ class ER_CLI {
 				}
 				$tid = $this->upsert( 'er_experience', $seed_id . '-' . $lang, [
 					'post_title'  => $x['title'] ?? get_the_title( $post_id ),
-					'post_status' => 'draft',
+					'post_name'   => $this->translation_slug( $x['title'] ?? get_the_title( $post_id ), 'er_experience', $lang ),
+					'post_status' => $publish ? 'publish' : 'draft',
 					'menu_order'  => (int) get_post_field( 'menu_order', $post_id ),
 				], [
 					'_er_location'    => $x['location'] ?? '',
@@ -593,9 +622,66 @@ class ER_CLI {
 					pll_save_post_translations( array_merge( pll_get_post_translations( $post_id ), [ $lang => $tid ] ) );
 				}
 			}
-			WP_CLI::log( "Draft translations created for {$lang} (review by a native speaker before publishing)." );
+			WP_CLI::log( $publish
+				? "Translations for {$lang}: new items published from the static prototype's copy (noindex until \"Ready to index\")."
+				: "Draft translations created for {$lang} (review by a native speaker before publishing)." );
 		}
 		$this->language_menus( $languages, $default );
+	}
+
+	/**
+	 * Register the prototype's eight languages in Polylang and apply the URL settings from SETUP task 15.
+	 *
+	 * The list and order come from the static prototype (`LANGS` in Egypt Roamer/assets/js/i18n.js):
+	 * English first and default, Arabic last. Idempotent: existing languages are kept as they are.
+	 *
+	 * @when after_wp_load
+	 */
+	public function languages() {
+		if ( ! function_exists( 'PLL' ) || ! isset( PLL()->model ) ) {
+			WP_CLI::error( 'Polylang is not active. Run: wp plugin install polylang --activate' );
+		}
+		$wanted = [
+			[ 'en', 'en_US', 'English', false, 'us' ],
+			[ 'de', 'de_DE', 'Deutsch', false, 'de' ],
+			[ 'fr', 'fr_FR', 'Français', false, 'fr' ],
+			[ 'it', 'it_IT', 'Italiano', false, 'it' ],
+			[ 'es', 'es_ES', 'Español', false, 'es' ],
+			[ 'ru', 'ru_RU', 'Русский', false, 'ru' ],
+			[ 'zh', 'zh_CN', '中文', false, 'cn' ],
+			[ 'ar', 'ar', 'العربية', true, 'eg' ],
+		];
+		$model    = PLL()->model;
+		$existing = array_map( static fn ( $l ) => $l->slug, $model->get_languages_list() );
+		foreach ( $wanted as $order => [ $slug, $locale, $name, $rtl, $flag ] ) {
+			if ( in_array( $slug, $existing, true ) ) {
+				WP_CLI::log( "Language {$slug}: exists" );
+				continue;
+			}
+			$args = [ 'name' => $name, 'slug' => $slug, 'locale' => $locale, 'rtl' => $rtl, 'term_group' => $order, 'flag' => $flag, 'no_default_cat' => true ];
+			// Polylang ≥ 3.7 moved add_language() to the languages sub-model.
+			$result = isset( $model->languages ) && method_exists( $model->languages, 'add' ) ? $model->languages->add( $args ) : $model->add_language( $args );
+			if ( is_wp_error( $result ) ) {
+				WP_CLI::error( "Language {$slug}: " . $result->get_error_message() );
+			}
+			WP_CLI::log( "Language {$slug}: added" );
+		}
+		// Directory URLs without /language/, English at the root, /fr/ etc. for the others, the language
+		// code kept on each front page, and no browser-language redirect (pages stay cacheable).
+		$options = PLL()->options;
+		foreach ( [ 'force_lang' => 1, 'rewrite' => true, 'hide_default' => true, 'redirect_lang' => true, 'browser' => false, 'default_lang' => 'en' ] as $key => $value ) {
+			$options[ $key ] = $value;
+		}
+		if ( method_exists( $options, 'save' ) ) {
+			$options->save();
+		} else {
+			update_option( 'polylang', $options );
+		}
+		if ( method_exists( $model, 'clean_languages_cache' ) ) {
+			$model->clean_languages_cache();
+		}
+		flush_rewrite_rules();
+		WP_CLI::success( 'Languages: ' . implode( ', ', array_column( $wanted, 0 ) ) . ' (default en). Next: wp egypt-roamer seed --translations --publish-translations' );
 	}
 
 	/**

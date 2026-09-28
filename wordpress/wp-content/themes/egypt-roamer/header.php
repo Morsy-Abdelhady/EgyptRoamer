@@ -28,7 +28,8 @@ $er_brand_imgs = static function () {
 		);
 	}
 };
-$er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#planner' : home_url( '/#planner' ) ) : '';
+// home_url( '/' ) first, then the anchor: Polylang only localises the bare home URL.
+$er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#planner' : home_url( '/' ) . '#planner' ) : '';
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">

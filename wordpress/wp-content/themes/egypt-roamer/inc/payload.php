@@ -53,11 +53,26 @@ function er_home_destination_ids(): array {
 	return array_map( 'intval', $ids );
 }
 
+/**
+ * Language-neutral destination id: the default-language slug ("cairo", not "kairo" or "le-caire").
+ * The approved scripts key the map labels, travel legs, night weights, planner defaults and mood
+ * recommendations on these ids, so every language must send the same ones.
+ */
+function er_neutral_slug( int $id ): string {
+	if ( function_exists( 'pll_get_post' ) && function_exists( 'pll_default_language' ) ) {
+		$source = (int) pll_get_post( $id, (string) pll_default_language() );
+		if ( $source ) {
+			return (string) get_post_field( 'post_name', $source );
+		}
+	}
+	return (string) get_post_field( 'post_name', $id );
+}
+
 function er_payload_destination( int $id ): array {
 	$lat = get_post_meta( $id, '_er_lat', true );
 	$lng = get_post_meta( $id, '_er_lng', true );
 	return [
-		'id'         => get_post_field( 'post_name', $id ),
+		'id'         => er_neutral_slug( $id ),
 		'name'       => get_the_title( $id ),
 		'region'     => (string) get_post_meta( $id, '_er_region_label', true ),
 		'tagline'    => (string) get_post_meta( $id, '_er_tagline', true ),
@@ -305,7 +320,7 @@ function er_build_payload( string $context ): array {
 	}
 	$night_weights = [];
 	foreach ( $dest_ids as $id ) {
-		$night_weights[ get_post_field( 'post_name', $id ) ] = (float) ( get_post_meta( $id, '_er_nights', true ) ?: 2 );
+		$night_weights[ er_neutral_slug( $id ) ] = (float) ( get_post_meta( $id, '_er_nights', true ) ?: 2 );
 	}
 	$film_captions = [ 'Where history still breathes.', 'A river that wrote a civilization.', 'Columns taller than time.', 'Silence, as far as you can see.', 'Then, a different world.' ];
 	$film_kickers  = [ 'Chapter one', 'Chapter two', 'Chapter three', 'Chapter four', 'Chapter five' ];
@@ -316,7 +331,7 @@ function er_build_payload( string $context ): array {
 	$data['moods']             = (bool) er_home( 'moods_enabled' ) ? er_payload_moods() : [];
 	$data['experienceFilters'] = count( $filters ) > 2 ? $filters : [];
 	$data['partnerCategories'] = er_payload_partner_categories();
-	$data['routeOrder']        = array_map( static fn ( $id ) => get_post_field( 'post_name', $id ), $dest_ids );
+	$data['routeOrder']        = array_map( 'er_neutral_slug', $dest_ids );
 	$data['nightWeights']      = $night_weights;
 	$data['legs']              = er_payload_legs();
 	$data['styleRates']        = er_payload_style_rates();

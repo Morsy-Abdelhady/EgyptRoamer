@@ -99,7 +99,9 @@ function er_request_noindex(): bool {
 add_filter( 'wp_robots', static function ( array $robots ) {
 	if ( er_request_noindex() ) {
 		$robots['noindex'] = true;
-		$robots['follow']  = true;
+		if ( empty( $robots['nofollow'] ) ) { // "Discourage search engines" already set nofollow: don't contradict it
+			$robots['follow'] = true;
+		}
 		unset( $robots['index'], $robots['max-image-preview'] );
 	}
 	return $robots;
@@ -253,8 +255,10 @@ add_action( 'wp_head', static function () {
 	if ( is_singular() ) {
 		printf( "<meta property=\"og:url\" content=\"%s\" />\n", esc_url( get_permalink() ) );
 	} elseif ( ( is_post_type_archive() || is_home() || is_category() || is_tag() ) && ! is_search() ) {
-		// Core only prints canonicals for singular pages; archives get one here (filters stripped, page kept).
-		$canonical = remove_query_arg( er_filter_query_keys(), get_pagenum_link( max( 1, (int) get_query_var( 'paged' ) ), false ) );
+		// Core only prints canonicals for singular pages; archives get one here (page kept). The whole query
+		// string is dropped, not only the filter keys: get_pagenum_link() echoes any visitor parameter
+		// (?utm_source=…, cache busters), which made every tracked visit its own canonical URL.
+		$canonical = strtok( get_pagenum_link( max( 1, (int) get_query_var( 'paged' ) ), false ), '?' );
 		printf( "<link rel=\"canonical\" href=\"%s\" />\n<meta property=\"og:url\" content=\"%s\" />\n", esc_url( $canonical ), esc_url( $canonical ) );
 	}
 	if ( $image ) {

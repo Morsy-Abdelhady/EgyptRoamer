@@ -76,6 +76,22 @@ add_filter( 'pll_get_taxonomies', static function ( $taxonomies, $is_settings ) 
 	return $taxonomies;
 }, 10, 2 );
 
+/* hreflang="x-default": Polylang only prints it when it detects the browser language, which is off here
+   (pages stay cacheable). Point it at the default-language version, which is also what / serves. */
+add_filter( 'pll_rel_hreflang_attributes', static function ( $hreflangs ) {
+	if ( ! is_array( $hreflangs ) || isset( $hreflangs['x-default'] ) || count( $hreflangs ) < 2 || ! function_exists( 'pll_default_language' ) ) {
+		return $hreflangs;
+	}
+	$default = (string) pll_default_language( 'slug' );
+	foreach ( $hreflangs as $code => $url ) {
+		if ( strtolower( (string) $code ) === $default || str_starts_with( strtolower( (string) $code ), $default . '-' ) ) {
+			$hreflangs['x-default'] = $url;
+			break;
+		}
+	}
+	return $hreflangs;
+} );
+
 add_action( 'admin_init', static function () {
 	if ( ! function_exists( 'pll_register_string' ) ) {
 		return;
