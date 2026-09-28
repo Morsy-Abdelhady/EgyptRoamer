@@ -2,7 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
-## 1.1.5 — 2026-09-28
+## 1.1.6 — 2026-09-28
+- Release that ships 1.1.4 and 1.1.5 to production. No code changes.
+- First release through the direct deploy: rsync over SSH with the normal production account (see `docs/DEPLOY.md`). GoDaddy's CI/CD deploy users stopped accepting logins (Runs #6–#8), so 1.1.4 and 1.1.5 never reached production.
+
+## 1.1.5 — 2026-09-28 (not deployed; shipped in 1.1.6)
 - Release that ships 1.1.4 to production. No code changes.
 - 1.1.4 never deployed: GoDaddy refused the old CI/CD deploy user (Runs #6 and #7). GoDaddy CI/CD was re-enabled with a new deploy user, and this is the first release through it.
 
