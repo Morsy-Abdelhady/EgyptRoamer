@@ -158,3 +158,38 @@ foreach ( [ 'er_travel_style', 'er_offer_type' ] as $er_tax ) {
 	add_action( "created_{$er_tax}", $save );
 	add_action( "edited_{$er_tax}", $save );
 }
+
+/* -------------------------------------------------------------------------- */
+/* User enumeration: logins must not be discoverable by anonymous visitors     */
+/* -------------------------------------------------------------------------- */
+
+// REST: /wp/v2/users lists every user with published content (login slug included). Visitors
+// never need it; logged-in editors keep it for the block editor.
+add_filter( 'rest_endpoints', static function ( $endpoints ) {
+	if ( is_user_logged_in() ) {
+		return $endpoints;
+	}
+	foreach ( array_keys( $endpoints ) as $route ) {
+		if ( str_starts_with( $route, '/wp/v2/users' ) ) {
+			unset( $endpoints[ $route ] );
+		}
+	}
+	return $endpoints;
+} );
+
+// Author archives (/?author=1 → /author/{login}/) are not part of this site's structure.
+add_action( 'template_redirect', static function () {
+	if ( is_author() || ( isset( $_GET['author'] ) && ! is_admin() ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only
+		global $wp_query;
+		$wp_query->set_404();
+		status_header( 404 );
+		nocache_headers();
+	}
+}, 1 );
+add_filter( 'author_link', static fn() => home_url( '/' ) );
+
+// oEmbed responses name the author and link to the author archive.
+add_filter( 'oembed_response_data', static function ( $data ) {
+	unset( $data['author_name'], $data['author_url'] );
+	return $data;
+} );
