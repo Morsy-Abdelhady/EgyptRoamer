@@ -2,9 +2,26 @@
 
 The session that wrote this had **no WP-admin, SSH/WP-CLI or GoDaddy access**, so none of these steps have been performed on production. Every step below is for the owner, in WP admin (or WP-CLI over SSH). Nothing here enables indexing: keep **Settings → Reading → "Discourage search engines"** ticked throughout.
 
-## 0. Upload the security fix first
+> **Production state on 28 Sep 2026 (public inspection):**
+>
+> - **Done by the owner:**
+>   - Site Title/Tagline: `<title>Egypt Roamer – More than a destination</title>`, `og:site_name` "Egypt Roamer";
+>   - the `82ccc1d` Core, with the username fix, is live: `/wp/v2/users`, `?rest_route=`, `?author=1` and `/author/morsy/` all return 404, oEmbed has no author fields, and the rest of the REST API still answers.
+> - **Still open:**
+>   - front page = latest posts (`body.home.blog`);
+>   - Sample Page and "Hello world!" published;
+>   - no seeded content;
+>   - the account steps in §4.
+>
+> **Package `5f142e73c3c6` = Core 1.1.0.**
+>
+> - It adds re-run safety to the seed: existing items keep their title, content, status and meta, and only missing fields are filled.
+> - It makes the build visible: the Plugins screen shows 1.1.0 and page source shows `track.js?ver=1.1.0`.
+> - Upload it **before** running the seed.
 
-Upload `egypt-roamer-core-82ccc1de7bbf.zip` (from this branch; it replaces the current Core; same steps as [STAGING-DEPLOY.md](STAGING-DEPLOY.md)). Then click **Flush cache**.
+## 0. Upload the latest Core first
+
+Upload `egypt-roamer-core-5f142e73c3c6.zip` (from this branch; it replaces the current Core; same steps as [STAGING-DEPLOY.md](STAGING-DEPLOY.md)). Then click **Flush cache**.
 
 **Why.** Production exposes the login `morsy` in three places:
 
