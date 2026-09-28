@@ -94,3 +94,17 @@ add_filter( 'er_default_share_image', static fn () => er_brand_url( 'og-image.jp
 
 /** JS flag before first paint (the design's no-js/js states). */
 add_action( 'wp_head', static fn () => print( "<script>document.documentElement.classList.replace('no-js','js');</script>\n" ), 0 );
+
+/*
+ * GoDaddy's mu-plugins (godaddy-launch) enqueue WordPress's admin component styles and their own
+ * stylesheet on the front end. The theme uses none of them, and they block rendering for every
+ * visitor, so they are dropped for logged-out visitors (logged-in users keep GoDaddy's UI intact).
+ */
+add_action( 'wp_enqueue_scripts', static function () {
+	if ( is_user_logged_in() ) {
+		return;
+	}
+	foreach ( [ 'wp-components', 'wp-theme', 'godaddy-styles' ] as $handle ) {
+		wp_dequeue_style( $handle );
+	}
+}, 100 );

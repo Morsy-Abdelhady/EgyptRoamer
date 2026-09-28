@@ -239,8 +239,14 @@ add_action( 'wp_head', static function () {
 		$desc  = has_excerpt( $post ) ? get_the_excerpt( $post ) : wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post->post_content ) ), 28, '…' );
 		$image = (string) get_the_post_thumbnail_url( $post, 'large' );
 	} elseif ( is_post_type_archive() ) {
-		$obj  = get_queried_object();
-		$desc = $obj && ! empty( $obj->description ) ? $obj->description : $desc;
+		// The same editable intro the archive's page hero shows (Egypt Roamer → Settings), then the type description.
+		$type  = (string) get_query_var( 'post_type' );
+		$intro = (string) er_settings( 'archive_intro_' . $type );
+		$intro = $intro && function_exists( 'er_translate_string' ) ? er_translate_string( $intro ) : $intro;
+		$obj   = get_queried_object();
+		$desc  = $intro ?: ( $obj && ! empty( $obj->description ) ? $obj->description : $desc );
+	} elseif ( is_home() && (int) get_option( 'page_for_posts' ) && has_excerpt( (int) get_option( 'page_for_posts' ) ) ) {
+		$desc = get_the_excerpt( (int) get_option( 'page_for_posts' ) );
 	}
 	$desc  = (string) apply_filters( 'er_fallback_description', (string) $desc );
 	$image = $image ?: (string) apply_filters( 'er_default_share_image', '' );
@@ -252,6 +258,17 @@ add_action( 'wp_head', static function () {
 	printf( "<meta property=\"og:title\" content=\"%s\" />\n", esc_attr( wp_get_document_title() ) );
 	printf( "<meta property=\"og:type\" content=\"%s\" />\n", is_singular( [ 'post', 'er_guide' ] ) ? 'article' : 'website' );
 	printf( "<meta property=\"og:site_name\" content=\"%s\" />\n", esc_attr( get_bloginfo( 'name' ) ) );
+	// og:locale needs language_TERRITORY; WordPress's Arabic locale is plain "ar".
+	$og_locale = static fn ( string $l ): string => str_contains( $l, '_' ) ? $l : ( 'ar' === $l ? 'ar_AR' : $l . '_' . strtoupper( $l ) );
+	$locale    = get_locale();
+	printf( "<meta property=\"og:locale\" content=\"%s\" />\n", esc_attr( $og_locale( $locale ) ) );
+	if ( function_exists( 'pll_languages_list' ) ) {
+		foreach ( (array) pll_languages_list( [ 'fields' => 'locale' ] ) as $alt ) {
+			if ( $alt && $alt !== $locale ) {
+				printf( "<meta property=\"og:locale:alternate\" content=\"%s\" />\n", esc_attr( $og_locale( (string) $alt ) ) );
+			}
+		}
+	}
 	if ( is_singular() ) {
 		printf( "<meta property=\"og:url\" content=\"%s\" />\n", esc_url( get_permalink() ) );
 	} elseif ( ( is_post_type_archive() || is_home() || is_category() || is_tag() ) && ! is_search() ) {
