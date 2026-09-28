@@ -124,6 +124,41 @@ jobs:
           fi
           echo "Theme: $(find _deploy/wp-content/themes -type f | wc -l) files · Core: $(find _deploy/wp-content/plugins -type f | wc -l) files"
 
+      # The deployer's own check hides ssh's error output and tries once, so a dropped connection
+      # at GoDaddy's SSH gateway looks like "authentication failed" (Run #6). This checks the host
+      # key and the deploy key (fingerprints only; the key is never printed) and retries the login
+      # with the real error shown. A wrong secret fails here, and a transient drop is retried.
+      - name: SSH preflight (host key, deploy key, login with retries)
+        env:
+          KEY: ${{ secrets.PRIVATE_KEY }}
+          HOST: 1284039.eu11.ssh.myftpupload.com
+          SSH_USER_NAME: git_deployer_71e07e2d98_1284039
+          HOST_FP: SHA256:oxYa4nr7BL5hXCIG5j/OOk54R6yNokpACBoa3tn+Kp4 # GoDaddy SSH host key (ed25519)
+          KEY_FP: SHA256:9D8q7VMPQGwk48UQ3ZYey6nkT4ixmrxTu0pnrydsmMY # public half registered in GoDaddy CI/CD
+        run: |
+          umask 077
+          d=$(mktemp -d)
+          trap 'rm -rf "$d"' EXIT
+          printf '%s\n' "$KEY" | tr -d '\r' > "$d/key"
+          ssh-keyscan -T 15 -t ed25519 "$HOST" > "$d/known" 2>/dev/null || true
+          got_host=$(ssh-keygen -lf "$d/known" 2>/dev/null | awk '{print $2}' | head -1)
+          [ "$got_host" = "$HOST_FP" ] || { echo "::error::GoDaddy host key is '${got_host:-unreachable}', expected $HOST_FP"; exit 1; }
+          got_key=$(ssh-keygen -y -P "" -f "$d/key" 2>/dev/null | ssh-keygen -lf - 2>/dev/null | awk '{print $2}')
+          [ "$got_key" = "$KEY_FP" ] || { echo "::error::PRIVATE_KEY is not the passphrase-free deploy key registered with GoDaddy (got ${got_key:-an unreadable or passphrase-protected key})"; exit 1; }
+          echo "Host key and deploy key match."
+          for i in 1 2 3; do
+            if out=$(ssh -i "$d/key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes \
+                -o UserKnownHostsFile="$d/known" -o ConnectTimeout=30 -o ServerAliveInterval=10 -o ServerAliveCountMax=3 \
+                "$SSH_USER_NAME@$HOST" exit 2>&1); then
+              echo "SSH login OK (attempt $i)"
+              exit 0
+            fi
+            echo "::warning::SSH login attempt $i failed: $out"
+            sleep $((i * 20))
+          done
+          echo "::error::SSH login failed 3 times; nothing was uploaded."
+          exit 1
+
       - name: 1/3 Deploy theme + Core together (health check on the new pair)
         uses: godaddy-wordpress/gd-wordpress-deployer@v1
         with:
