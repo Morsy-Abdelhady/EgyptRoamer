@@ -1,0 +1,92 @@
+{
+ "dest-alexandria": {
+  "type": "er_destination",
+  "excerpt": "Alexandria-Reiseführer: Ägyptens Mittelmeerseite, von der Zitadelle von Qaitbay und der Bibliotheca Alexandrina bis zu römischen Katakomben, Fisch an der Corniche und Tagesausflügen nach Rosetta und El Alamein.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-aswan": {
+  "type": "er_destination",
+  "excerpt": "Assuan-Reiseführer: Feluken zwischen Graniteilanden, der Philae-Tempel, nubische Dörfer und die Insel Elephantine, der Tagesausflug nach Abu Simbel und das Sonnenwunder, wo Nilkreuzfahrten beginnen und wie lange Sie bleiben sollten.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-cairo": {
+  "type": "er_destination",
+  "excerpt": "Kairo praktisch erklärt: die Pyramiden und das Grand Egyptian Museum in Gizeh, das islamische und das koptische Kairo, der Nil, das passende Viertel zum Übernachten, wie viele Tage Sie brauchen und wie Sie sich in der Stadt bewegen.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-hurghada": {
+  "type": "er_destination",
+  "excerpt": "Hurghada-Reiseführer: Riffe im Roten Meer, die Giftun-Inseln, Tauchen und Schnorcheln für jedes Niveau, El Gouna und die Resortbuchten im Süden, Wüstentouren, die beste Reisezeit und wie Sie die Küste mit Luxor verbinden.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-luxor": {
+  "type": "er_destination",
+  "excerpt": "Luxor-Reiseführer: Karnak und der Luxor-Tempel am Ostufer, das Tal der Könige und der Hatschepsut-Tempel am Westufer, Ballonfahrten bei Sonnenaufgang, Nilkreuzfahrten, die passende Unterkunft und wie viele Tage Sie brauchen.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-sharm": {
+  "type": "er_destination",
+  "excerpt": "Sharm-El-Sheikh-Reiseführer: der Nationalpark Ras Mohammed, die Riffe von Tiran und das Wrack der Thistlegorm, Naama Bay, der Mosesberg (Berg Sinai) und das Katharinenkloster, Dahab, die beste Reisezeit und wie lange Sie bleiben sollten.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-siwa": {
+  "type": "er_destination",
+  "excerpt": "Reiseführer Oase Siwa: die Festung Shali, das Amun-Orakel, das Alexander der Große befragte, Salzseen und Quellen, das Große Sandmeer, lokale Sitten, die beste Reisezeit und wie Sie die lange Anreise planen.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-abu": {
+  "type": "er_experience",
+  "excerpt": "Der Tagesausflug nach Abu Simbel ab Assuan: warum die Tempel Ramses’ II. und der Nefertari den frühen Start wert sind, Straße oder Flug, das Sonnenwunder im Februar und Oktober und wie Sie den Tag planen.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-dinner": {
+  "type": "er_experience",
+  "excerpt": "Eine Dinner-Kreuzfahrt auf dem Nil in Kairo: wie der Abend abläuft, Musik und Tanoura-Show, für wen sie sich eignet, wie Sie ein Schiff wählen und wie sie sich von einer einfachen Feluken-Fahrt bei Sonnenuntergang unterscheidet.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-dive": {
+  "type": "er_experience",
+  "excerpt": "Zwei geführte Riff-Tauchgänge im Roten Meer: wie ein Tauchtag abläuft, was Einsteiger und zertifizierte Taucher mitbringen müssen, wie Sie eine verantwortungsvolle Tauchbasis wählen und wo die besten Riffe liegen.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-food": {
+  "type": "er_experience",
+  "excerpt": "Eine nächtliche Streetfood-Tour durch Kairo: die Gerichte, die Sie probieren, von Koshari und Ful bis Feteer und Süßem, die Viertel, durch die Sie gehen, besondere Ernährungswünsche und warum ein lokaler Guide hilft.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-giza": {
+  "type": "er_experience",
+  "excerpt": "Wie eine private, geführte Tour zu den Pyramiden von Gizeh und der Sphinx abläuft, für wen sie sich eignet, wann Sie starten sollten, worauf Sie auf dem Plateau achten müssen und wie Sie sie mit dem Grand Egyptian Museum und Sakkara verbinden.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-safari": {
+  "type": "er_experience",
+  "excerpt": "Eine Safari in die Weiße und Schwarze Wüste ab der Oase Bahariya: Kreidefelsen, Vulkanhügel, der Kristallberg, eine Nacht im Camp unter Sternen, was Sie einpacken sollten und für wen die Tour geeignet ist.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-siwa": {
+  "type": "er_experience",
+  "excerpt": "Ein Tag im Geländewagen im Großen Sandmeer ab der Oase Siwa: Dünenfahrten, Sandboarding, Quellen in der Wüste und Sonnenuntergang über den Dünen, was Sie mitnehmen sollten und wie Sie einen lokalen Anbieter wählen.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-valley": {
+  "type": "er_experience",
+  "excerpt": "Ein geführter Tag am Westufer von Luxor: das Tal der Könige und der Hatschepsut-Tempel in Deir el-Bahari, wie die Grabtickets funktionieren, die beste Besuchszeit und was Sie mit mehr Zeit ergänzen können.",
+  "review": "pending",
+  "current": true
+ }
+}

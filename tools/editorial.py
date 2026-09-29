@@ -47,7 +47,16 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC_ROOT = ROOT / "content" / "editorial"
 OUT_ROOT = ROOT / "wordpress" / "wp-content" / "plugins" / "egypt-roamer-core" / "data" / "editorial"
 # The one fixed UI string the compiler writes. A language needs its label here before it can be compiled.
-TOC_LABEL = {"en": "On this page", "ar": "في هذه الصفحة"}
+TOC_LABEL = {
+    "en": "On this page",
+    "de": "Auf dieser Seite",
+    "fr": "Sur cette page",
+    "it": "In questa pagina",
+    "es": "En esta página",
+    "ru": "На этой странице",
+    "zh": "本页内容",
+    "ar": "في هذه الصفحة",
+}
 
 
 def inline(text: str) -> str:
