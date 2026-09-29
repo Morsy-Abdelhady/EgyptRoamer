@@ -18,10 +18,11 @@ while ( have_posts() ) :
 	$er_guides = er_get_referencing( $er_id, 'er_guide', '_er_destination', 6 );
 	$er_offers = er_offers_for_post( $er_id, 4 );
 	$er_tag    = (string) get_post_meta( $er_id, '_er_tagline', true );
+	// No "Getting there" fact: its values are travel times, which the editorial fact policy leaves out
+	// (owner decision, 2026-09-29). The meta stays for the homepage map and cards.
 	$er_facts  = array_filter( [
-		er_t( 'Region' )        => (string) get_post_meta( $er_id, '_er_region_label', true ),
-		er_t( 'Best time' )     => (string) get_post_meta( $er_id, '_er_best_time', true ),
-		er_t( 'Getting there' ) => (string) get_post_meta( $er_id, '_er_map_reach', true ) ?: (string) get_post_meta( $er_id, '_er_getting_there', true ),
+		er_t( 'Region' )    => (string) get_post_meta( $er_id, '_er_region_label', true ),
+		er_t( 'Best time' ) => (string) get_post_meta( $er_id, '_er_best_time', true ),
 	] );
 	$er_hl     = er_lines( $er_id, '_er_highlights' );
 
