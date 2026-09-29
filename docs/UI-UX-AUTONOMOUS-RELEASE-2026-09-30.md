@@ -43,4 +43,36 @@ Theme only: `inc/sections.php` (new), `src/js/components/sections.js` (new), `as
 
 ## Verification
 
-(filled in below after the tests and the deploy)
+**Before the push (local, `reset.sh ml` build = production content):**
+- CI steps run locally: PHP lint 54 files, `seed.json`, `tools/editorial.py check`, JS bundles match `src/js`: all pass.
+- 120 compiled bodies through `er_sections_wrap()`: visible text identical (except the punctuation after card titles), sections balanced, no card lists inside callouts.
+- 120 singles × 390/1440: tabs = H2s (912), all targets exist, scroll spy follows, bar sticks, no sidebar/body overlap, no overflow, axe 0.
+- Page matrix (14 page types × 390–1920): no overflow, no page errors, axe 0.
+
+**Geometry after (production, fresh HTML), destination and experience identical:**
+
+| Width | Hero H1 x | Tabs x | Reading column | Sidebar | Related x |
+|---|---|---|---|---|---|
+| 390 | 16 | 4 (scrolls) | 16 + 358 | facts card first, in the column | 16 |
+| 768 | 31 | 31 | 31 + 707 | in the column | 31 |
+| 961 / 1024 | 38 / 41 | same | x + 736 | in the column | same |
+| 1280 | 51 | 51 | 51 + 736 | 893 + 336 (ends at the container edge) | 51 |
+| 1440 | 56 | 56 | 56 + 736 | 1048 + 336 (ends at 1384 = 1440 − 56) | 56 |
+
+Before (1.1.8, 1440): experience main 56 + 856 with a 528px empty track; destination body 340 + 760 against a hero at 56. Phone hero 523px instead of 658px; the tabs (523) and the key facts (613) are on the first 390×844 screen.
+
+**Deploy:** merge `c45ebbb` on `main` → run #14 "Deploy production": success (tests, rsync of theme and Core, health checks).
+
+**Production (after run #14):**
+- 120/120 singles, 8 languages, 390 + 1440, fresh HTML: 0 issues (tabs 912, overflow, overlap, console, axe 0).
+- 14 page types × 6 widths: no overflow, no page errors, axe 0.
+- Head on 15 sampled pages in 8 languages: canonical = clean URL, `noindex, nofollow`, full hreflang set.
+- Indexing unchanged: sitemap 404, default robots.txt, noindex on every page.
+- Homepage data: the Giza title is sent as plain text (`&`).
+- **Cloudflare:** pages cached before the deploy (for example `/destinations/hurghada/`, the homepage) keep the 1.1.8 HTML with its own 1.1.8 CSS until they expire or the cache is flushed: measured, they render exactly as before (no mixed state). **Owner action: GoDaddy → Flush Cache** to show 1.2.0 everywhere now.
+
+## Deferred (need the owner; unchanged from `docs/FINAL-RELEASE-BLOCKERS.md`)
+Affiliate programme (E1), legal pages and entity data (E2), consent/RUM (A3, E3), contact inbox (E4), 2FA (A4), stale `src/` (A1, SSH), HSTS (C2), PHP (C6), Arabic Giza title (A2), archive intros (settings), guides publication (C7).
+
+## Final decision
+Layout, navigation and body presentation defects from the audit are fixed on production for all 120 singles. **KEEP INDEXING OFF**: the launch gate in `docs/FINAL-RELEASE-BLOCKERS.md` G is not met (commercial, legal, privacy and security items above).
