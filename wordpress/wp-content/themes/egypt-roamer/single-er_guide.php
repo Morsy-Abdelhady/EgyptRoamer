@@ -28,14 +28,17 @@ while ( have_posts() ) :
 		'intro'   => has_excerpt() ? get_the_excerpt() : '',
 		'image'   => (int) get_post_thumbnail_id(),
 		'meta'    => $er_meta,
+		'measure' => true,
 	] );
 	$er_dests   = 'er_guide' === $er_type ? er_get_related( $er_id, '_er_destination' ) : [];
 	$er_related = 'er_guide' === $er_type ? er_get_related( $er_id, '_er_related' ) : [];
+	$er_body    = er_body();
+	er_section_nav( $er_body['links'], $er_body['label'], true );
 	?>
 	<div class="page-body container">
 		<div class="page-layout page-layout--single">
 			<article class="page-main">
-				<div class="prose"><?php the_content(); ?></div>
+				<div class="prose"><?php echo $er_body['html']; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
 				<?php
 				$er_bio = get_the_author_meta( 'description' );
 				if ( $er_bio ) :

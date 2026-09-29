@@ -229,7 +229,7 @@ function er_type_label( string $post_type ): string {
 /* -------------------------------------------------------------------------- */
 
 function er_page_hero( array $args ): void {
-	$args += [ 'eyebrow' => '', 'title' => '', 'intro' => '', 'image' => 0, 'stock' => '', 'meta' => '' ];
+	$args += [ 'eyebrow' => '', 'title' => '', 'intro' => '', 'image' => 0, 'stock' => '', 'meta' => '', 'measure' => false ];
 	$media = '';
 	if ( $args['image'] ) {
 		$media = er_img( (int) $args['image'], 'er-hero', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw', 'alt' => '' ] );
@@ -243,7 +243,7 @@ function er_page_hero( array $args ): void {
 				<?php echo $media; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped by wp_get_attachment_image / er_stock_img ?>
 			</div>
 		<?php endif; ?>
-		<div class="container page-hero__inner">
+		<div class="container page-hero__inner<?php echo $args['measure'] ? ' page-hero__inner--measure' : ''; ?>">
 			<?php er_breadcrumbs(); ?>
 			<?php if ( $args['eyebrow'] ) : ?>
 				<p class="eyebrow"><?php echo esc_html( $args['eyebrow'] ); ?></p>

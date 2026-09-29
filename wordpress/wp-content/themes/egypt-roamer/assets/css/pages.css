@@ -19,6 +19,12 @@
   display: flex;
   align-items: flex-end;
 }
+/* Phones: the photo keeps the first screen, but the page's first content comes into view. */
+@media (max-width: 600px) {
+  .page-hero--image {
+    min-height: min(62svh, 560px);
+  }
+}
 .page-hero__media {
   position: absolute;
   inset: 0;
@@ -102,18 +108,27 @@
   color: var(--gold);
 }
 
-/* ---------- Layout ---------- */
+/* ---------- Layout: one reading-column system for every inner page ----------
+   --measure  the reading column (≈70–75 characters of body text)
+   --aside    the optional sidebar, rendered only when a template has content for it
+   Axes: the hero text, tab bar, reading column and related sections all start on
+   the container edge; a sidebar sits on the opposite edge. Pages without any
+   sidebar (.page-layout--single) centre the column and their hero text on it. */
+:root {
+  --measure: 46rem;
+  --aside: 21rem;
+  --layout-gap: clamp(2.5rem, 5vw, 5rem);
+}
 .page-body {
   padding-block: clamp(2.5rem, 6vw, 5rem) var(--section-y);
 }
 .page-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 400px);
-  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, var(--measure));
+  gap: var(--s-6);
   align-items: start;
 }
 .page-layout--single {
-  grid-template-columns: minmax(0, 760px);
   justify-content: center;
 }
 .page-main {
@@ -122,16 +137,38 @@
   min-width: 0;
 }
 .page-aside {
-  position: sticky;
-  top: calc(var(--nav-h) + 1.5rem);
+  display: grid;
+  gap: 1rem;
+  align-content: start;
 }
-@media (max-width: 960px) {
-  .page-layout {
-    grid-template-columns: minmax(0, 1fr);
+@media (min-width: 1200px) {
+  .page-layout--aside {
+    grid-template-columns: minmax(0, var(--measure)) var(--aside);
+    justify-content: space-between;
+    column-gap: var(--layout-gap);
   }
-  .page-aside {
-    position: static;
+  .page-layout--aside > .page-aside {
+    position: sticky;
+    top: calc(var(--nav-h) + 5rem);
   }
+}
+@media (max-width: 1199.98px) {
+  /* One column: key facts above the body, everything else in the sidebar after it. */
+  .page-layout--aside > .page-aside {
+    display: contents;
+  }
+  .page-layout--aside > .page-aside > .glance:first-child {
+    order: -1;
+  }
+  .page-layout--aside > .page-aside > :not(.glance:first-child) {
+    order: 1;
+  }
+}
+/* Hero text on the same centred column as a .page-layout--single body. */
+.page-hero__inner--measure > * {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
 }
 
 /* ---------- Editorial prose (block editor output) ---------- */
@@ -738,5 +775,341 @@
   }
   html:lang(ru) .hero__title .t-display {
     font-size: clamp(3.2rem, 21vw, 7rem);
+  }
+}
+
+/* ==========================================================================
+   Inner pages: section tabs, sidebar and structured body (owner-approved
+   redesign, 2026-09-29). Markup from inc/sections.php; stored content unchanged.
+   ========================================================================== */
+
+/* ---------- Sticky section tabs ---------- */
+.secnav {
+  position: sticky;
+  top: 0;
+  z-index: calc(var(--z-nav) - 1);
+  background: var(--stone);
+  border-bottom: 1px solid var(--line-strong);
+  transition: top 0.35s var(--ease-out);
+}
+/* Sit under the navigation while it is shown (it hides on scroll down). */
+body:has(#nav:not(.is-hidden)) .secnav {
+  top: var(--nav-h);
+}
+.secnav__list {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.secnav__list::-webkit-scrollbar {
+  display: none;
+}
+.secnav__list li {
+  flex: 0 0 auto;
+}
+.secnav__link {
+  display: flex;
+  align-items: center;
+  min-height: 3.5rem;
+  padding: 0 0.9rem;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+.secnav__link:hover {
+  color: var(--text);
+}
+.secnav__link.is-active {
+  color: var(--text);
+  border-bottom-color: var(--gold);
+  font-weight: 600;
+}
+.secnav__link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -4px;
+}
+@media (max-width: 600px) {
+  .secnav .container {
+    padding-inline: 0.25rem;
+  }
+  .secnav__link {
+    min-height: 3.1rem;
+    padding: 0 0.75rem;
+  }
+}
+
+.glance {
+  display: grid;
+  gap: 1rem;
+  padding: 1.3rem 1.4rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-1);
+}
+.glance__label {
+  margin: 0;
+  font-size: var(--fs-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.glance__facts {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+.glance__facts > div {
+  display: grid;
+  grid-template-columns: minmax(6rem, 40%) 1fr;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding-block: 0.6rem;
+  border-top: 1px solid var(--line);
+}
+.glance__facts > div:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.glance__facts dt {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+.glance__facts dd {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+}
+.glance .chips {
+  gap: 0.4rem;
+}
+.glance__list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.glance__list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding-block: 0.7rem;
+  border-top: 1px solid var(--line);
+}
+.glance__list li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.glance__list a {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.glance__list a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.glance__list li {
+  position: relative;
+}
+.glance__list a:hover,
+.glance__list a:focus-visible {
+  color: var(--gold-deep);
+}
+.glance__list .icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: var(--gold-deep);
+}
+.page-aside .offer-box {
+  box-shadow: var(--shadow-1);
+}
+
+/* ---------- Structured body ---------- */
+.prose:has(> .er-sec) {
+  counter-reset: er-sec;
+}
+.prose > p:first-child {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 1.6vw, 1.4rem);
+  line-height: 1.55;
+  color: var(--text);
+}
+.prose > .er-sec {
+  counter-increment: er-sec;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+}
+.prose > .er-sec > * + * {
+  margin-top: 1.1em;
+}
+.prose > .er-sec > h2 {
+  margin-top: 0;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  scroll-margin-top: calc(var(--nav-h) + 5rem);
+}
+.prose > .er-sec > h2::before {
+  content: counter(er-sec, decimal-leading-zero);
+  display: block;
+  margin-bottom: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--gold-deep);
+}
+
+/* Bold-term lists → cards */
+.prose .er-sec > .er-points,
+.prose > .er-points {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+.prose .er-points > li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+.prose .er-points > li {
+  margin: 0;
+  padding: 1.15rem 1.25rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.prose .er-points__text {
+  display: block;
+}
+.prose .er-points__text::first-letter {
+  text-transform: uppercase;
+}
+.prose .er-points > li > strong:first-child {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* H3 + paragraph runs → card grid */
+.prose .er-subgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+.prose .er-subgrid > .er-sub:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+.prose .er-sub {
+  padding: 1.2rem 1.3rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  font-size: 0.98rem;
+}
+.prose .er-sub > h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+}
+.prose .er-sub > p + p {
+  margin-top: 0.6em;
+}
+@media (max-width: 700px) {
+  .prose .er-sec > .er-points,
+  .prose > .er-points,
+  .prose .er-subgrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Callouts: a dark panel */
+.prose .er-callout {
+  padding: clamp(1.3rem, 2.4vw, 1.8rem);
+  border-radius: var(--r-lg);
+  border: 0;
+  background: var(--nile);
+  color: var(--on-dark);
+}
+.prose .er-callout > * {
+  max-width: none;
+  margin-inline: 0;
+}
+.prose .er-callout h3,
+.prose .er-callout h4 {
+  color: var(--sand);
+  font-size: 1.3rem;
+}
+.prose .er-callout a {
+  color: var(--on-dark);
+  text-decoration-color: var(--sand);
+}
+.prose .er-callout a:hover {
+  color: var(--sand);
+}
+.prose .er-callout li::marker {
+  color: var(--sand);
+}
+
+/* FAQ box */
+.prose .er-faq {
+  padding-inline: 1.4rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+.prose .er-faq details {
+  padding: 1.1rem 0;
+}
+.prose .er-faq details:last-child {
+  border-bottom: 0;
+}
+.prose .er-faq summary {
+  align-items: center;
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 400;
+}
+.prose .er-faq details > summary::after {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--stone);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+}
+.prose .er-faq details[open] > summary::after {
+  background: var(--charcoal);
+  color: var(--white);
+}
+.secnav__inner--measure .secnav__list {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+@media (max-width: 1199.98px) {
+  .page-layout--aside .glance--things,
+  .page-layout--aside .glance__cta {
+    display: none;
   }
 }

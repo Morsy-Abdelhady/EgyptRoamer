@@ -123,6 +123,7 @@ return [
 		'Nile' => 'Нил',
 		'Nothing for “{q}” yet — try “Luxor”, “diving” or “cruise”.' => 'Ничего не найдено по запросу «{q}» — попробуйте «Луксор», «дайвинг» или «круиз».',
 		'Nothing published here yet.' => 'Здесь пока ничего не опубликовано.',
+		'On this page' => 'На этой странице',
 		'One beautiful email' => 'Одно красивое письмо',
 		'Open menu' => 'Открыть меню',
 		'Personal trip builder' => 'Персональный планировщик',

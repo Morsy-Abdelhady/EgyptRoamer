@@ -123,6 +123,7 @@ return [
 		'Nile' => 'النيل',
 		'Nothing for “{q}” yet — try “Luxor”, “diving” or “cruise”.' => 'لا نتائج لـ«{q}» بعد — جرّب «الأقصر» أو «غوص» أو «رحلة نيلية».',
 		'Nothing published here yet.' => 'لم يُنشر شيء هنا بعد.',
+		'On this page' => 'في هذه الصفحة',
 		'One beautiful email' => 'رسالة جميلة واحدة',
 		'Open menu' => 'فتح القائمة',
 		'Personal trip builder' => 'مخطِّط الرحلة الشخصي',
