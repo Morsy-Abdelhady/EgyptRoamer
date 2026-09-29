@@ -2,7 +2,7 @@
 
 **Status (2026-09-29): implemented and tested locally. Nothing has been imported into production.**
 - Tooling: `tools/editorial.py` compiles every language (`--lang`, `check`, `status`); the Arabic contents label is "في هذه الصفحة".
-- Core 1.2.4: `wp egypt-roamer editorial --lang=ar [--dry-run]`.
+- Core 1.2.5: `wp egypt-roamer editorial --lang=ar [--dry-run]`. It was numbered 1.2.4 until 2026-09-29, when Core 1.2.4 shipped the security headers instead.
 - Content: 15 Arabic files in `content/editorial/ar/` (7 destinations, 8 experiences). All are `review: pending`.
 - Guides: no Arabic guides (owner decision 5).
 - The production import waits for the owner's per-file approval and an explicit go (§5.4 step 6).
@@ -133,7 +133,7 @@ The design keeps one pipeline. It is dry-run first, review-gated and never overw
 - **Guides:** only with `--create-missing-guides`. The Arabic guide is created as **draft**, language `ar`, added to the English guide's Polylang group, and linked to the Arabic destination where the English one is.
 - **Output:** counts (bodies, excerpts, guides created, links rewritten, links left as text, kept, skipped-unreviewed, missing), like the English command.
 - **Never:** status (except new guide drafts), titles, slugs, meta, relations, "Ready to index", other languages.
-- **Version:** Core bumps to 1.2.4 and ships through the normal deploy. The deploy itself never runs the command.
+- **Version:** Core 1.2.5 (renumbered from 1.2.4), shipped through the normal deploy. The deploy itself never runs the command.
 
 ### 5.4 Order of work
 1. Owner confirms this plan, and names the **Arabic reviewer** (native speaker).
@@ -175,7 +175,7 @@ The design keeps one pipeline. It is dry-run first, review-gated and never overw
   - Links are stored root-relative (`/ar/destinations/…/`), so they work on any host.
   - A link whose Arabic target is missing or unpublished becomes plain text and is reported.
 
-## 8. Local test evidence (2026-09-29, local install, Core 1.2.4)
+## 8. Local test evidence (2026-09-29, local install; importer then numbered 1.2.4, now 1.2.5)
 
 | Test | Result |
 |---|---|
