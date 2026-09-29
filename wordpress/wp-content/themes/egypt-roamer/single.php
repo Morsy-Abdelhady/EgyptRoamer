@@ -28,6 +28,7 @@ while ( have_posts() ) :
 		'intro'   => has_excerpt() ? get_the_excerpt() : '',
 		'image'   => (int) get_post_thumbnail_id(),
 		'meta'    => $er_meta,
+		'measure' => true,
 	] );
 	$er_dests   = 'er_guide' === $er_type ? er_get_related( $er_id, '_er_destination' ) : [];
 	$er_related = 'er_guide' === $er_type ? er_get_related( $er_id, '_er_related' ) : [];

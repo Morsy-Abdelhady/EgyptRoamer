@@ -37,6 +37,19 @@ if ( ! empty( $er_facts[ er_t( 'Duration' ) ] ) ) {
 	$er_meta .= '<span>' . er_icon( 'i-clock', 'icon--sm' ) . esc_html( $er_facts[ er_t( 'Duration' ) ] ) . '</span>';
 }
 
+ob_start();
+er_glance( $er_facts );
+if ( $er_offers ) :
+	?>
+	<div class="offer-box" role="region" aria-labelledby="offers-title">
+		<h2 id="offers-title" class="t-label"><?php er_e( 'Book with our partners' ); ?></h2>
+		<?php er_offer_rows( $er_offers, str_replace( 'er_', '', $er_type ) . '-offers' ); ?>
+		<?php er_disclosure(); ?>
+	</div>
+	<?php
+endif;
+$er_aside = trim( (string) ob_get_clean() );
+
 er_page_hero( [
 	'eyebrow' => $er_eyebrows[ $er_type ] ?? '',
 	'title'   => get_the_title(),
@@ -44,55 +57,39 @@ er_page_hero( [
 	'image'   => (int) get_post_thumbnail_id(),
 	'stock'   => er_stock_id_for( (int) get_the_ID() ),
 	'meta'    => $er_meta,
+	'measure' => '' === $er_aside,
 ] );
+$er_body = er_body();
+er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
+
+ob_start();
+?>
+<div class="prose"><?php echo $er_body['html']; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
+<?php if ( $er_who || $er_not ) : ?>
+	<section class="decide" aria-labelledby="decide-title">
+		<h2 id="decide-title" class="t-h3"><?php er_e( 'Is it right for you?' ); ?></h2>
+		<div class="decide__cols">
+			<?php if ( $er_who ) : ?>
+				<div><h3 class="t-label"><?php er_e( 'Best for' ); ?></h3><?php echo er_check_list( $er_who ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+			<?php endif; ?>
+			<?php if ( $er_not ) : ?>
+				<div><h3 class="t-label"><?php er_e( 'You may prefer something else if' ); ?></h3><?php echo er_check_list( $er_not ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+			<?php endif; ?>
+		</div>
+	</section>
+<?php endif; ?>
+
+<?php if ( $er_tips ) : ?>
+	<section class="tips" aria-labelledby="tips-title">
+		<h2 id="tips-title" class="t-h3"><?php er_e( 'Good to know' ); ?></h2>
+		<?php echo er_check_list( $er_tips ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+	</section>
+<?php endif; ?>
+<?php
+$er_main = (string) ob_get_clean();
 ?>
 <div class="page-body container">
-	<div class="page-layout">
-		<article class="page-main">
-			<?php if ( $er_facts ) : ?>
-				<dl class="facts" aria-label="<?php echo esc_attr( er_t( 'Key facts' ) ); ?>">
-					<?php foreach ( $er_facts as $er_label => $er_value ) : ?>
-						<div><dt><?php echo esc_html( $er_label ); ?></dt><dd><?php echo esc_html( $er_value ); ?></dd></div>
-					<?php endforeach; ?>
-				</dl>
-			<?php endif; ?>
-
-			<div class="prose">
-				<?php the_content(); ?>
-			</div>
-
-			<?php if ( $er_who || $er_not ) : ?>
-				<section class="decide" aria-labelledby="decide-title">
-					<h2 id="decide-title" class="t-h3"><?php er_e( 'Is it right for you?' ); ?></h2>
-					<div class="decide__cols">
-						<?php if ( $er_who ) : ?>
-							<div><h3 class="t-label"><?php er_e( 'Best for' ); ?></h3><?php echo er_check_list( $er_who ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
-						<?php endif; ?>
-						<?php if ( $er_not ) : ?>
-							<div><h3 class="t-label"><?php er_e( 'You may prefer something else if' ); ?></h3><?php echo er_check_list( $er_not ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
-						<?php endif; ?>
-					</div>
-				</section>
-			<?php endif; ?>
-
-			<?php if ( $er_tips ) : ?>
-				<section class="tips" aria-labelledby="tips-title">
-					<h2 id="tips-title" class="t-h3"><?php er_e( 'Good to know' ); ?></h2>
-					<?php echo er_check_list( $er_tips ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-				</section>
-			<?php endif; ?>
-		</article>
-
-		<?php if ( $er_offers ) : ?>
-			<aside class="page-aside" aria-labelledby="offers-title">
-				<div class="offer-box">
-					<h2 id="offers-title" class="t-label"><?php er_e( 'Book with our partners' ); ?></h2>
-					<?php er_offer_rows( $er_offers, str_replace( 'er_', '', $er_type ) . '-offers' ); ?>
-					<?php er_disclosure(); ?>
-				</div>
-			</aside>
-		<?php endif; ?>
-	</div>
+	<?php er_layout( $er_main, $er_aside ); ?>
 
 	<?php if ( $er_hosted ) : ?>
 		<section class="related" aria-labelledby="hosted-title">

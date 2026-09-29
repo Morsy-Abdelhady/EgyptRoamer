@@ -15,6 +15,7 @@ while ( have_posts() ) :
 		'title' => get_the_title(),
 		'intro' => has_excerpt() ? get_the_excerpt() : '',
 		'image' => (int) get_post_thumbnail_id(),
+		'measure' => true,
 	] );
 	?>
 	<div class="page-body container">

@@ -25,7 +25,8 @@ $er_f_dest  = isset( $_GET['destination'] ) ? absint( $_GET['destination'] ) : 0
 $er_f_style = isset( $_GET['style'] ) ? sanitize_key( wp_unslash( $_GET['style'] ) ) : '';
 $er_f_topic = isset( $_GET['topic'] ) ? sanitize_key( wp_unslash( $_GET['topic'] ) ) : '';
 // phpcs:enable
-$er_filterable = in_array( $er_type, [ 'er_tour', 'er_experience', 'er_activity', 'er_guide' ], true );
+// A filter over an empty archive offers nothing to choose from; it stays once a filter is active.
+$er_filterable = in_array( $er_type, [ 'er_tour', 'er_experience', 'er_activity', 'er_guide' ], true ) && ( have_posts() || $er_f_dest || $er_f_style || $er_f_topic );
 
 echo '<main id="main">';
 er_page_hero( [ 'eyebrow' => er_t( 'Egypt Roamer' ), 'title' => $er_title, 'intro' => $er_intro ] );

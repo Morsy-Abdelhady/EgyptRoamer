@@ -26,34 +26,44 @@ while ( have_posts() ) :
 	] );
 	$er_hl     = er_lines( $er_id, '_er_highlights' );
 
+	$er_plan = (bool) er_home( 'planner_enabled' ) ? home_url( '/' ) . '#planner' : '';
+
+	// Sidebar (desktop): key facts, the first things to do, the planner. On phones the facts
+	// open the page and the rest is left to the full sections below.
+	ob_start();
+	er_glance( $er_facts, $er_hl );
+	if ( $er_things ) :
+		?>
+		<nav class="glance glance--things" aria-labelledby="glance-things">
+			<p class="glance__label" id="glance-things"><?php echo esc_html( er_t( 'Things to do in {name}', [ 'name' => get_the_title() ] ) ); ?></p>
+			<ul class="glance__list">
+				<?php foreach ( array_slice( $er_things, 0, 3 ) as $er_thing ) : ?>
+					<li><a href="<?php echo esc_url( get_permalink( $er_thing ) ); ?>"><?php echo esc_html( get_the_title( $er_thing ) ); ?></a><?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></li>
+				<?php endforeach; ?>
+			</ul>
+		</nav>
+		<?php
+	endif;
+	if ( $er_plan ) :
+		?>
+		<a href="<?php echo esc_url( $er_plan ); ?>" class="btn btn--primary btn--block glance__cta"><?php er_e( 'Plan My Trip' ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
+		<?php
+	endif;
+	$er_aside = trim( (string) ob_get_clean() );
+
 	er_page_hero( [
 		'eyebrow' => (string) get_post_meta( $er_id, '_er_region_label', true ) ?: er_t( 'Destinations' ),
 		'title'   => get_the_title(),
 		'intro'   => $er_tag,
 		'image'   => (int) get_post_thumbnail_id(),
 		'stock'   => er_stock_id_for( (int) get_the_ID() ),
+		'measure' => '' === $er_aside,
 	] );
+	$er_body = er_body();
+	er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
 	?>
 	<div class="page-body container">
-		<div class="page-layout page-layout--single">
-			<article class="page-main">
-				<?php if ( $er_facts ) : ?>
-					<dl class="facts" aria-label="<?php echo esc_attr( er_t( 'Key facts' ) ); ?>">
-						<?php foreach ( $er_facts as $er_label => $er_value ) : ?>
-							<div><dt><?php echo esc_html( $er_label ); ?></dt><dd><?php echo esc_html( $er_value ); ?></dd></div>
-						<?php endforeach; ?>
-					</dl>
-				<?php endif; ?>
-				<?php if ( $er_hl ) : ?>
-					<div class="chips" aria-label="<?php echo esc_attr( er_t( 'Highlights' ) ); ?>">
-						<?php foreach ( $er_hl as $er_h ) : ?>
-							<span class="chip"><?php echo esc_html( $er_h ); ?></span>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
-				<div class="prose"><?php the_content(); ?></div>
-			</article>
-		</div>
+		<?php er_layout( '<div class="prose">' . $er_body['html'] . '</div>', $er_aside ); ?>
 
 		<?php if ( $er_things ) : ?>
 			<section class="related" aria-labelledby="things-title">

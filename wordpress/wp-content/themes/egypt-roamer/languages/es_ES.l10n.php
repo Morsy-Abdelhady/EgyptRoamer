@@ -123,6 +123,7 @@ return [
 		'Nile' => 'Nilo',
 		'Nothing for “{q}” yet — try “Luxor”, “diving” or “cruise”.' => 'Nada para “{q}” todavía — prueba “Luxor”, “buceo” o “crucero”.',
 		'Nothing published here yet.' => 'Aquí aún no hay nada publicado.',
+		'On this page' => 'En esta página',
 		'One beautiful email' => 'Un correo precioso',
 		'Open menu' => 'Abrir menú',
 		'Personal trip builder' => 'Planificador de viaje',

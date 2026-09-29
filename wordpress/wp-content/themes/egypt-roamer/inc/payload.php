@@ -7,6 +7,15 @@
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * A post title as plain text, for script fields that escape it when they render (experience
+ * and guide titles); fields the scripts insert as HTML keep get_the_title().
+ * get_the_title() returns HTML (texturized "&#038;", "&#8217;"), which would show literally.
+ */
+function er_payload_title( int $post_id ): string {
+	return html_entity_decode( get_the_title( $post_id ), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+}
+
 /** Image payload for scripts: Media Library first, else the approved stock photo id. */
 function er_payload_image( int $attachment_id, string $stock = '' ) {
 	$img = $attachment_id && function_exists( 'er_image_payload' ) ? er_image_payload( $attachment_id ) : null;
@@ -133,7 +142,7 @@ function er_payload_experience( int $id, int $index ): array {
 	$offers = er_offers_for_post( $id, 1 );
 	$item   = [
 		'id'       => get_post_field( 'post_name', $id ),
-		'title'    => get_the_title( $id ),
+		'title'    => er_payload_title( $id ),
 		'location' => (string) get_post_meta( $id, '_er_location', true ),
 		'tag'      => $dest ? $dest[0]->post_name : 'other',
 		'duration' => (string) get_post_meta( $id, '_er_duration', true ),
@@ -176,7 +185,7 @@ function er_payload_guide( int $id ): array {
 	return [
 		'id'      => 'g-' . $id,
 		'href'    => get_permalink( $id ),
-		'title'   => get_the_title( $id ),
+		'title'   => er_payload_title( $id ),
 		'cat'     => $topics && ! is_wp_error( $topics ) ? $topics[0]->name : er_t( 'Travel Guide' ),
 		'read'    => er_read_minutes( $id ),
 		'excerpt' => has_excerpt( $id ) ? wp_strip_all_tags( get_the_excerpt( $id ) ) : '',
