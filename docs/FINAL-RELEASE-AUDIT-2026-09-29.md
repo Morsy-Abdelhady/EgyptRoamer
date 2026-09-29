@@ -1,5 +1,7 @@
 # Egypt Roamer — final release audit (2026-09-29)
 
+> **Update (2026-09-29, later):** translations are no longer blocked. The owner approved all 105 files (`review: approved`; 28 after corrections, see `docs/MULTILINGUAL-FULL-REVIEW.md`). None is imported into production yet. The statements below that say "pending" record the state at the time of this audit.
+
 Production: https://egyptroamer.com. This audit follows the master execution instruction (phases 1–18).
 
 **Evidence sources:**

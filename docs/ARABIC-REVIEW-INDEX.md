@@ -41,7 +41,7 @@ The owner is the final reviewer (decision 1). All 15 files are **`review: approv
 
 ## Review pass 1 (2026-09-29): owner decisions applied
 
-All 15 files were reviewed. Only the corrections the owner approved were made. Every file is still `review: pending`, nothing was imported, production was not touched, and no English file changed.
+All 15 files were reviewed. Only the corrections the owner approved were made. At the end of that pass every file was still `review: pending` (all 15 were approved on 2026-09-29), nothing was imported, production was not touched, and no English file changed.
 
 ### Corrections made
 
@@ -93,7 +93,7 @@ All 15 files were reviewed. Only the corrections the owner approved were made. E
 3. **Theme copy of the prototype locale.** `themes/egypt-roamer/src/js/locales/ar.js` still has the old exp-giza title. WordPress doesn't use it: `localizeData()` returns early for server data. It's a copy of the prototype, which is never edited. It was left alone to avoid a theme release for dead text.
 4. **Travel-time phrases in body text** (Siwa "most of a day each way", Abu Simbel by road "a very long day") are unchanged (decision 11). They belong to the separate travel-time task.
 5. **Sensitive references** (alcohol, belly dance, bars) are unchanged (decision 12). No editorial or legal reason to flag them was found.
-6. **Approval:** all 15 files stay `review: pending` until the owner explicitly approves them.
+6. **Approval:** done. The owner approved all 15 files on 2026-09-29 (7 after the corrections in `docs/MULTILINGUAL-FULL-REVIEW.md`).
 
 ### Tests passed (after the corrections)
 
@@ -105,7 +105,7 @@ All 15 files were reviewed. Only the corrections the owner approved were made. E
 | Latin script / new numbers | none (only CAI, SPX) / none |
 | Terminology consistency (13 banned variants, 12 required forms at exact counts) | 0 failures |
 | Fact/source consistency | 33/33 |
-| `review: pending` in all files; LF line endings | 15/15 |
+| `review: pending` in all files at the time of this pass (approved since 2026-09-29); LF line endings | 15/15 |
 | English sources and compiled English | 0 diff lines |
 | Local import (approval simulated in the compiled index only, then restored) | bodies 15, excerpts 15, 35 links pointed at Arabic pages; rerun: 0 writes |
 | English posts before/after import | md5 identical |

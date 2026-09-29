@@ -82,7 +82,7 @@ Each file has:
    - **APPROVE:** publishable as is. Any "optional" note is a polish suggestion, not a defect.
    - **NEEDS EDIT:** one or more concrete defects (a grammar or spelling error, a wrong term, untranslated English, a meaning change, or a calque a native editor would change). Every case names the exact place and gives a suggested fix. The fixes are small; none needs retranslating.
    - **BLOCKED:** can't be approved without an outside fact or decision. No file is BLOCKED.
-5. the full file text, copied byte for byte from the repository (front matter included), in a collapsible code block so nothing is re-rendered.
+5. the full file text as it was at review time, copied byte for byte from the repository (front matter included), in a collapsible code block so nothing is re-rendered. For the 28 corrected files, the current text is that copy plus the corrections in the table above; every file's front matter now has `review: approved`.
 
 Section references such as `#getting-around` are the file's own H2 anchors.
 
@@ -130,7 +130,7 @@ Section references such as `#getting-around` are the file's own H2 anchors.
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** الإسكندرية
 - **English source:** `content/editorial/en/dest-alexandria.md` (translated from version `9e6b07589923`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** «قلعة قايتباي», «عمود السواري», «كوم الشقافة», «كوم الدكة» (ة, as decided), «مكتبة الإسكندرية», «برج العرب», «رشيد» are the standard Arabic names.
@@ -140,7 +140,7 @@ Section references such as `#getting-around` are the file's own H2 anchors.
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found. "kebda iskandarani" is rendered as the dish name «الكبدة الإسكندراني», which is how the dish is known.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -241,7 +241,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** أسوان
 - **English source:** `content/editorial/en/dest-aswan.md` (translated from version `899175404b9a`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** «معالم النوبة من أبو سمبل إلى فيلة» (UNESCO), «جزيرة أجيلكيا», «دير الأنبا سمعان», «المسلّة الناقصة», «ظاهرة تعامد الشمس» all follow the approved decisions. «جزيرة كتشنر» and «غرب سهيل» are on the owner's unverified-names list (MULTILINGUAL-REVIEW-INDEX item 2).
@@ -251,7 +251,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -348,7 +348,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** القاهرة
 - **English source:** `content/editorial/en/dest-cairo.md` (translated from version `d29034d09df9`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Terms follow the approved list: «القاهرة التاريخية» and «ممفيس ومقبرتها – منطقة الأهرام من الجيزة إلى دهشور» (official UNESCO), «الحقبة الجميلة», «قهوة» شعبية, «متحف جاير أندرسون», «وسط البلد». No issue.
@@ -358,7 +358,7 @@ review: pending
 - **Untranslated English:** None (CAI and SPX are the airport codes, as in English).
 - **Missing or added meaning:** Small addition in #giza: «كما يتخيّل كثيرون» ("as many imagine") after "not out in the desert". It's harmless and anticipates the next sentence, but isn't in the English. Optional to remove.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -521,7 +521,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** الغردقة
 - **English source:** `content/editorial/en/dest-hurghada.md` (translated from version `58c12100abd1`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** The file uses «الغوص» for diving and «الغطس/الغطس السطحي» for snorkelling, but also «غطسة/غطسات» for individual dives ("try-dives", "two reef dives"). That's normal Arabic usage, but it makes the FAQ question «هل يمكنني الغطس إن لم أكن سبّاحًا ماهرًا؟» ambiguous (snorkelling or diving?). Suggested: «هل يمكنني ممارسة الغطس السطحي إن لم أكن سبّاحًا ماهرًا؟». «جبل موسى (جبل سيناء)» first mention ✓ (decision 7). «سوما باي» keeps the resort's marketed name while «خليج مكادي» is translated; acceptable, but the reviewer may prefer «خليج سوما» for consistency.
@@ -531,7 +531,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -617,7 +617,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** الأقصر
 - **English source:** `content/editorial/en/dest-luxor.md` (translated from version `48dfac96eb26`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** «مدينة طيبة القديمة ومقبرتها» (official UNESCO) ✓. "Avenue of Sphinxes" is «طريق الكباش», the name used in Egypt, and the sentence still says the sphinxes line it: correct and natural.
@@ -627,7 +627,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** No omissions or additions found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -742,7 +742,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** شرم الشيخ
 - **English source:** `content/editorial/en/dest-sharm.md` (translated from version `7b794a12f4bf`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** «جبل موسى (جبل سيناء)» at first mention (excerpt and intro) ✓; «منطقة القديسة كاترين» (UNESCO) ✓; «دير سانت كاترين» elsewhere ✓. «ثيسلجورم» and «البلو هول» are on the unverified-names list.
@@ -752,7 +752,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -841,7 +841,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** سيوة
 - **English source:** `content/editorial/en/dest-siwa.md` (translated from version `2dd0c1475bbb`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** «بحر الرمال العظيم» and «الينابيع» (decision 3), «عين كليوباترا» (proper name), «الكرشيف», «أغورمي», «جزيرة فطناس» (the last three on the unverified-names list).
@@ -851,7 +851,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** Two parentheticals are dropped: "(Berber)" after Amazigh, and "(Fantasy)" after Fatnas Island. Both are reasonable in Arabic («بربر» is often considered dated or pejorative, and "Fantasy" is an English nickname). Flagged only for completeness.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -934,7 +934,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** رحلة يوم إلى أبو سمبل من أسوان
 - **English source:** `content/editorial/en/exp-abu.md` (translated from version `74ad81ad490c`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** «ظاهرة تعامد الشمس» (decision 8), «معالم النوبة من أبو سمبل إلى فيلة» (UNESCO), «أبو سمبل» invariant after prepositions (approved), «حتحور», «نفرتاري».
@@ -944,7 +944,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -1006,7 +1006,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** رحلة عشاء نيلية مع عرض حي
 - **English source:** `content/editorial/en/exp-dinner.md` (translated from version `5149373e0b50`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** «عرض التنورة», «الرقص الشرقي» (belly dance, kept per decision 12), «الفلوكة», «مركب مطعم».
@@ -1016,7 +1016,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -1075,7 +1075,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** غوص في البحر الأحمر: غطستان بين الشعاب
 - **English source:** `content/editorial/en/exp-dive.md` (translated from version `427d7ee0dd08`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Consistent within the file: «الغوص» for diving, «غطسة» for one dive, «الغطس السطحي» for snorkelling. «الشفنين» for rays, «بدلة غوص» for wetsuit, «سجلّ غطساتك» for logbook: correct technical Arabic. «ثيسلجورم» is on the unverified-names list.
@@ -1085,7 +1085,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -1143,7 +1143,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** جولة طعام الشارع في القاهرة ليلًا
 - **English source:** `content/editorial/en/exp-food.md` (translated from version `bd0a2d2d49a4`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** «الفول المدمّس والطعمية», «الفطير المشلتت», «الحواوشي», «قهوة» شعبية (decision 8): consistent with dest-cairo.
@@ -1153,7 +1153,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -1213,7 +1213,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** جولة خاصة إلى أهرامات الجيزة وأبي الهول (the corrected title in `seed.json`; the live post 202 still has «…وأبو الهول» until production action A2 runs)
 - **English source:** `content/editorial/en/exp-giza.md` (translated from version `3ee5ad6375d6`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** «ممفيس ومقبرتها – منطقة الأهرام من الجيزة إلى دهشور» (UNESCO); «أبا الهول / أبي الهول / أبو الهول» are correctly case-inflected (decision 4). The page title «…وأبي الهول» lives in `seed.json`; the live title on production changes only through the separate A2 action.
@@ -1223,7 +1223,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -1290,7 +1290,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** سفاري الصحراء البيضاء والسوداء
 - **English source:** `content/editorial/en/exp-safari.md` (translated from version `82c1e5ba7f71`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** «واحة البحرية», «الصحراء البيضاء/السوداء», «جبل الكريستال», «محمية الصحراء البيضاء» are the standard names; «العجبات» is on the unverified-names list.
@@ -1300,7 +1300,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -1363,7 +1363,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** بحر الرمال العظيم بسيارات الدفع الرباعي والينابيع الساخنة
 - **English source:** `content/editorial/en/exp-siwa.md` (translated from version `18a508992ce2`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** «بحر الرمال العظيم» and «الينابيع» (decision 3), «عين كليوباترا», «منظّم سيوي».
@@ -1373,7 +1373,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -1434,7 +1434,7 @@ review: pending
 - **Language:** Arabic (العربية)
 - **Title (existing post title, unchanged):** وادي الملوك ومعبد حتشبسوت
 - **English source:** `content/editorial/en/exp-valley.md` (translated from version `eadd9c3d01a0`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** «مدينة طيبة القديمة ومقبرتها» (UNESCO), «الدير البحري», «تمثالا ممنون», «بلاد بونت», «سيتي الأول», «دير المدينة».
@@ -1444,7 +1444,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -1504,7 +1504,7 @@ review: pending
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Alexandria
 - **English source:** `content/editorial/en/dest-alexandria.md` (translated from version `9e6b07589923`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Zitadelle von Qaitbay, Pompeiussäule, Diokletian, Kom el-Schoqafa, Kom el-Dikka, Stein von Rosetta, Raschid, Borg El Arab.
@@ -1514,7 +1514,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -1615,7 +1615,7 @@ Zurück über [Kairo](/destinations/cairo/) ins Niltal – nach [Luxor](/destina
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Assuan
 - **English source:** `content/editorial/en/dest-aswan.md` (translated from version `899175404b9a`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** *Nubische Denkmäler von Abu Simbel bis Philae* matches the Commission list. "Sonnenwunder" is the usual German name for the Abu Simbel sun event. Kitchener-Insel and Gharb Soheil are on the unverified-names list.
@@ -1625,7 +1625,7 @@ Zurück über [Kairo](/destinations/cairo/) ins Niltal – nach [Luxor](/destina
 - **Untranslated English:** **Untranslated English** in the #monuments H3: «Die Gräber der Nobles» → «Die Gräber der Noblen» or «Die Felsgräber der Fürsten» (the usual German name is «Gräber der Fürsten/Noblen» at Qubbet el-Hawa).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -1722,7 +1722,7 @@ Ja, wenn er mit Bedacht geschieht. Gehen Sie mit einem lokalen Anbieter, kaufen 
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Kairo
 - **English source:** `content/editorial/en/dest-cairo.md` (translated from version `d29034d09df9`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** Follows the site terms: Kairo, Gizeh, Sakkara, Dahschur, Cheops/Chephren/Mykerinos (the usual German names), Grand Egyptian Museum, Nationalmuseum der Ägyptischen Zivilisation. The UNESCO names *Historisches Kairo* and *Memphis und seine Nekropole – die Pyramidenfelder von Giseh bis Dahschur* match the German UNESCO Commission list (re-checked on unesco.de, 2026-09-29). "Giseh" there vs "Gizeh" elsewhere is the Commission's own spelling inside a quoted title: intentional.
@@ -1732,7 +1732,7 @@ Ja, wenn er mit Bedacht geschieht. Gehen Sie mit einem lokalen Anbieter, kaufen 
 - **Untranslated English:** "Guide", "Tour", "Sightseeing", "Streetfood" and "Downtown" are established loanwords in German travel writing; "Downtown" is also used as the area's name next to *Wust el-Balad*. Acceptable, reviewer's choice.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -1895,7 +1895,7 @@ Die meisten Routen führen weiter nach Süden nach [Luxor](/destinations/luxor/)
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Hurghada
 - **English source:** `content/editorial/en/dest-hurghada.md` (translated from version `58c12100abd1`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Mosesberg (Berg Sinai) at the only mention ✓. Giftun-Inseln, Sakkala, Dahar, El Gouna, Sahl Hasheesh, Makadi Bay, Soma Bay (resort names). Schnuppertauchgang, Hausriff, feste Bojen, UV-Shirt: standard German diving terms.
@@ -1905,7 +1905,7 @@ Die meisten Routen führen weiter nach Süden nach [Luxor](/destinations/luxor/)
 - **Untranslated English:** Resort names only.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -1991,7 +1991,7 @@ Drei Tage reichen für einen Eindruck. Fünf Tage oder mehr, wenn Tauchen ein Ha
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Luxor
 - **English source:** `content/editorial/en/dest-luxor.md` (translated from version `48dfac96eb26`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** *Antikes Theben mit seiner Nekropole* matches the German UNESCO Commission list. Hatschepsut, Pharaonin, Sphingenallee, Memnonkolosse, Ramesseum, Deir el-Medina: standard German forms.
@@ -2001,7 +2001,7 @@ Drei Tage reichen für einen Eindruck. Fünf Tage oder mehr, wenn Tauchen ein Ha
 - **Untranslated English:** "Guide" (loanword, see dest-cairo).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -2116,7 +2116,7 @@ Beides geht, die Kreuzfahrten fahren in beide Richtungen. Viele Routen fliegen v
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Sharm El-Sheikh
 - **English source:** `content/editorial/en/dest-sharm.md` (translated from version `7b794a12f4bf`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Mosesberg (Berg Sinai) at the first mention (excerpt and intro) ✓. The UNESCO name *Katharinenkloster* matches the German Commission list (re-checked). Straße von Tiran, SS *Thistlegorm*, Blue Hole (on the unverified-names list).
@@ -2126,7 +2126,7 @@ Beides geht, die Kreuzfahrten fahren in beide Richtungen. Viele Routen fliegen v
 - **Untranslated English:** «Der **Old Market**» keeps the English name. It's what the area is called locally and in many German guides, but «der Alte Markt (Old Market)» would be clearer. Reviewer's choice.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -2215,7 +2215,7 @@ Ein Flug nach [Kairo](/destinations/cairo/) zu den Pyramiden und Museen ist die 
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Siwa
 - **English source:** `content/editorial/en/dest-siwa.md` (translated from version `2dd0c1475bbb`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Großes Sandmeer (site term), Kleopatra-Quelle, Aghurmi, Kershef, Amazigh (Berber). Fatnas and Aghurmi are on the unverified-names list.
@@ -2225,7 +2225,7 @@ Ein Flug nach [Kairo](/destinations/cairo/) zu den Pyramiden und Museen ist die 
 - **Untranslated English:** «Insel Fatnas (Fantasy Island)» keeps the English nickname, which is how the place is known to visitors. Acceptable; reviewer's choice.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -2308,7 +2308,7 @@ Nein. Wüstentouren brauchen einen Geländewagen und einen lizenzierten einheimi
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Tagesausflug nach Abu Simbel ab Assuan
 - **English source:** `content/editorial/en/exp-abu.md` (translated from version `74ad81ad490c`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Sonnenwunder, Nubische Denkmäler von Abu Simbel bis Philae, Hathor, Nefertari, Hochdamm, Nassersee.
@@ -2318,7 +2318,7 @@ Nein. Wüstentouren brauchen einen Geländewagen und einen lizenzierten einheimi
 - **Untranslated English:** "Tour", "Snacks" (loanwords).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -2380,7 +2380,7 @@ Es ist unvergesslich, aber sehr voll. An anderen Tagen haben Sie in den Tempeln 
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Dinner-Kreuzfahrt auf dem Nil mit Live-Show
 - **English source:** `content/editorial/en/exp-dinner.md` (translated from version `5149373e0b50`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Tanoura, Bauchtanz (kept, decision 12), Feluke.
@@ -2390,7 +2390,7 @@ Es ist unvergesslich, aber sehr voll. An anderen Tagen haben Sie in den Tempeln 
 - **Untranslated English:** "Buffet", "Show", "Live-Musik" (established loanwords).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -2449,7 +2449,7 @@ Elegant-lässig ist in Ordnung. Nehmen Sie eine leichte Schicht mit, denn im Win
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Tauchen im Roten Meer: zwei Riff-Tauchgänge
 - **English source:** `content/editorial/en/exp-dive.md` (translated from version `427d7ee0dd08`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Schnuppertauchgang, Brevetstufe, Logbuch, Oberflächenpause, Tauchbasis, feste Bojen: correct German diving terms.
@@ -2459,7 +2459,7 @@ Elegant-lässig ist in Ordnung. Nehmen Sie eine leichte Schicht mit, denn im Win
 - **Untranslated English:** "Check-in", "Briefing", "Guide" (established diving loanwords).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -2517,7 +2517,7 @@ Rifffische, Schildkröten und Rochen sind an vielen Plätzen häufig. Begegnunge
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Streetfood-Tour durch Kairo bei Nacht
 - **English source:** `content/editorial/en/exp-food.md` (translated from version `bd0a2d2d49a4`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Koshari, Ful medames, Ta'meya, Feteer meshaltet, Hawawshi, Ahwa: consistent with dest-cairo.
@@ -2527,7 +2527,7 @@ Rifffische, Schildkröten und Rochen sind an vielen Plätzen häufig. Begegnunge
 - **Untranslated English:** "Streetfood", "Guide", "Downtown" (see dest-cairo).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -2587,7 +2587,7 @@ Abendtouren beginnen meist nach Sonnenuntergang und dauern einige Stunden. Klär
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Private Tour: Pyramiden von Gizeh & Sphinx
 - **English source:** `content/editorial/en/exp-giza.md` (translated from version `3ee5ad6375d6`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Cheops/Chephren/Mykerinos, Aufwege, Königinnenpyramiden, Knick- und Rote Pyramide; UNESCO name as in dest-cairo.
@@ -2597,7 +2597,7 @@ Abendtouren beginnen meist nach Sonnenuntergang und dauern einige Stunden. Klär
 - **Untranslated English:** "Guide", "Tour" (loanwords).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -2664,7 +2664,7 @@ So früh, wie die Stätte öffnet. Morgens ist es kühler, und die Menge wächst
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Safari in die Weiße & Schwarze Wüste
 - **English source:** `content/editorial/en/exp-safari.md` (translated from version `82c1e5ba7f71`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Oase Bahariya, Schwarze/Weiße Wüste, Kristallberg, Agabat (on the unverified-names list), Schutzgebiet Weiße Wüste.
@@ -2674,7 +2674,7 @@ So früh, wie die Stätte öffnet. Morgens ist es kühler, und die Menge wächst
 - **Untranslated English:** None beyond "Camp", "Tour".
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -2737,7 +2737,7 @@ Eigentlich nicht. Die Entfernungen sind groß, und die Formationen sind bei Sonn
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Großes Sandmeer im 4×4 & heiße Quellen
 - **English source:** `content/editorial/en/exp-siwa.md` (translated from version `18a508992ce2`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Großes Sandmeer, Kleopatra-Quelle, Amun-Orakel, Festung Shali.
@@ -2747,7 +2747,7 @@ Eigentlich nicht. Die Entfernungen sind groß, und die Formationen sind bei Sonn
 - **Untranslated English:** "Sandboarding" (the usual term in German).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -2808,7 +2808,7 @@ Ja, viele Anbieter bieten eine Nacht im Camp in den Dünen an, für eine Nacht u
 - **Language:** German (Deutsch)
 - **Title (existing post title, unchanged):** Tal der Könige & Hatschepsut-Tempel
 - **English source:** `content/editorial/en/exp-valley.md` (translated from version `eadd9c3d01a0`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Sethos I. (the usual German name for Seti I), Amenhotep III., Land Punt, Deir el-Bahari, *Antikes Theben mit seiner Nekropole* (Commission list).
@@ -2818,7 +2818,7 @@ Ja, viele Anbieter bieten eine Nacht im Camp in den Dünen an, für eine Nacht u
 - **Untranslated English:** "Guide" (loanword).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -2878,7 +2878,7 @@ Ja, aber mit Guide haben Sie von den Gräbern viel mehr, besonders beim ersten B
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Alexandrie
 - **English source:** `content/editorial/en/dest-alexandria.md` (translated from version `9e6b07589923`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Citadelle de Qaitbay, Kom el-Chougafa, colonne de Pompée, Dioclétien, Montazah, pierre de Rosette, Rosette (Rachid), Borg El Arab.
@@ -2888,7 +2888,7 @@ Ja, aber mit Guide haben Sie von den Gräbern viel mehr, besonders beim ersten B
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -2989,7 +2989,7 @@ Retour par [Le Caire](/destinations/cairo/) vers la vallée du Nil — [Louxor](
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Assouan
 - **English source:** `content/editorial/en/dest-aswan.md` (translated from version `899175404b9a`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** *Monuments de Nubie d’Abou Simbel à Philae* (official UNESCO FR). «Phénomène solaire» for the sun event, consistent with fr/exp-abu. Île Kitchener and Gharb Soheil are on the unverified-names list.
@@ -2999,7 +2999,7 @@ Retour par [Le Caire](/destinations/cairo/) vers la vallée du Nil — [Louxor](
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -3096,7 +3096,7 @@ Oui, si c’est fait avec tact. Passez par un opérateur local, achetez directem
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Le Caire
 - **English source:** `content/editorial/en/dest-cairo.md` (translated from version `d29034d09df9`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** Follows the site terms: Le Caire, Gizeh, Saqqarah, Dahchour, Khéops/Khéphren/Mykérinos, Grand Musée égyptien, Musée national de la civilisation égyptienne, Méhémet-Ali, Ibn Touloun, église Suspendue. UNESCO names *Le Caire historique* and *Memphis et sa nécropole – les zones des pyramides de Guizeh à Dahchour* are quoted from whc.unesco.org/fr; "Guizeh" inside the quote vs "Gizeh" elsewhere is intentional.
@@ -3106,7 +3106,7 @@ Oui, si c’est fait avec tact. Passez par un opérateur local, achetez directem
 - **Untranslated English:** The link text «tour street food by night» mirrors the existing French experience title, which is owner item 4 in MULTILINGUAL-REVIEW-INDEX (keep or change). If that title changes, change this link text too (e.g. «tour street food nocturne», as the fr/exp-food excerpt already says).
 - **Missing or added meaning:** As in "literal" above.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -3269,7 +3269,7 @@ La plupart des itinéraires continuent vers le sud, à [Louxor](/destinations/lu
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Hurghada
 - **English source:** `content/editorial/en/dest-hurghada.md` (translated from version `58c12100abd1`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Mont Sinaï (site term). Baptême, plongée dérivante, récif frangeant, lycra anti-UV: correct French diving terms. «Snorkeling» is common in France (alternative «randonnée palmée»).
@@ -3279,7 +3279,7 @@ La plupart des itinéraires continuent vers le sud, à [Louxor](/destinations/lu
 - **Untranslated English:** Resort names only (Makadi Bay, Soma Bay).
 - **Missing or added meaning:** None found (the FAQ wording follows the English).
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -3365,7 +3365,7 @@ Trois jours suffisent pour un avant-goût. Cinq jours ou plus si la plongée est
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Louxor
 - **English source:** `content/editorial/en/dest-luxor.md` (translated from version `48dfac96eb26`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** *Thèbes antique et sa nécropole* (official UNESCO FR). Femme pharaon, Medinet Habou, Deir el-Médineh, Ramesséum, colosses de Memnon, allée des Sphinx: standard French forms.
@@ -3375,7 +3375,7 @@ Trois jours suffisent pour un avant-goût. Cinq jours ou plus si la plongée est
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -3490,7 +3490,7 @@ Peu importe, les croisières naviguent dans les deux sens. Beaucoup d’itinéra
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Charm el-Cheikh
 - **English source:** `content/editorial/en/dest-sharm.md` (translated from version `7b794a12f4bf`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Mont Sinaï, monastère Sainte-Catherine; the UNESCO name *Zone Sainte-Catherine* is quoted from whc.unesco.org/fr. Baie de Naama, détroit de Tiran, SS *Thistlegorm*, Blue Hole (on the unverified-names list).
@@ -3500,7 +3500,7 @@ Peu importe, les croisières naviguent dans les deux sens. Beaucoup d’itinéra
 - **Untranslated English:** «Le **Old Market**» keeps the English name used locally. Acceptable; «le Vieux Marché (Old Market)» is an option. Reviewer's choice.
 - **Missing or added meaning:** "a torch" → «une lampe frontale» (a head torch): a small, practical shift. Acceptable.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -3589,7 +3589,7 @@ Un vol pour [Le Caire](/destinations/cairo/), pour les pyramides et les musées,
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Siwa
 - **English source:** `content/editorial/en/dest-siwa.md` (translated from version `2dd0c1475bbb`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Grande mer de sable (site term), source de Cléopâtre, siwi, amazighs (berbères), broderies siwies, Marsa Matrouh. Fatnas and Aghurmi are on the unverified-names list.
@@ -3599,7 +3599,7 @@ Un vol pour [Le Caire](/destinations/cairo/), pour les pyramides et les musées,
 - **Untranslated English:** «L’île de Fatnas (Fantasy Island)» keeps the English nickname visitors use. Acceptable; reviewer's choice.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -3682,7 +3682,7 @@ Non. Les sorties dans le désert exigent un 4×4 et un chauffeur local agréé q
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Excursion à Abou Simbel depuis Assouan
 - **English source:** `content/editorial/en/exp-abu.md` (translated from version `74ad81ad490c`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Phénomène solaire, *Monuments de Nubie d’Abou Simbel à Philae*, Hathor, Néfertari, haut barrage, lac Nasser.
@@ -3692,7 +3692,7 @@ Non. Les sorties dans le désert exigent un 4×4 et un chauffeur local agréé q
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -3754,7 +3754,7 @@ C’est inoubliable, mais très fréquenté. Les autres jours, vous aurez bien p
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Dîner-croisière sur le Nil avec spectacle
 - **English source:** `content/editorial/en/exp-dinner.md` (translated from version `5149373e0b50`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Tanoura, danse orientale (kept, decision 12), felouque, bateau-restaurant.
@@ -3764,7 +3764,7 @@ C’est inoubliable, mais très fréquenté. Les autres jours, vous aurez bien p
 - **Untranslated English:** «musique live» (common in French).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -3823,7 +3823,7 @@ Une tenue décontractée mais soignée suffit. Prévoyez une couche légère, ca
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Plongée en mer Rouge : deux plongées sur récif
 - **English source:** `content/editorial/en/exp-dive.md` (translated from version `427d7ee0dd08`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Baptême, carnet de plongée, intervalle de surface, amarrages fixes, combinaison: correct French diving terms.
@@ -3833,7 +3833,7 @@ Une tenue décontractée mais soignée suffit. Prévoyez une couche légère, ca
 - **Untranslated English:** «briefing» (standard in French diving).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -3891,7 +3891,7 @@ Poissons de récif, tortues et raies sont fréquents sur de nombreux sites. Les 
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Tour street food du Caire by night
 - **English source:** `content/editorial/en/exp-food.md` (translated from version `bd0a2d2d49a4`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Koshari, foul medames, ta’meya, feteer meshaltet, hawawshi, ahwa: consistent with dest-cairo.
@@ -3901,7 +3901,7 @@ Poissons de récif, tortues et raies sont fréquents sur de nombreux sites. Les 
 - **Untranslated English:** «street food» (common in French). The excerpt says «tour street food nocturne», while the post title is «…by night» (owner item 4).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -3961,7 +3961,7 @@ Les tours du soir commencent généralement après le coucher du soleil et duren
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Visite privée des pyramides de Gizeh et du Sphinx
 - **English source:** `content/editorial/en/exp-giza.md` (translated from version `3ee5ad6375d6`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Khéops/Khéphren/Mykérinos, chaussées, pyramides des reines, rhomboïdale; UNESCO name as in dest-cairo.
@@ -3971,7 +3971,7 @@ Les tours du soir commencent généralement après le coucher du soleil et duren
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -4038,7 +4038,7 @@ Dès l’ouverture du site. Les matinées sont plus fraîches et la foule grossi
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Safari Désert blanc & Désert noir
 - **English source:** `content/editorial/en/exp-safari.md` (translated from version `82c1e5ba7f71`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** Oasis de Bahariya, Désert blanc/noir, montagne de Cristal, Agabat (on the unverified-names list), aire protégée du Désert blanc.
@@ -4048,7 +4048,7 @@ Dès l’ouverture du site. Les matinées sont plus fraîches et la foule grossi
 - **Untranslated English:** None.
 - **Missing or added meaning:** "a hat" → «un bonnet» (a woolly hat, for the night): sensible and in context.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -4111,7 +4111,7 @@ Pas vraiment. Les distances sont longues, et les formations sont à leur plus be
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Grande mer de sable en 4×4 & sources chaudes
 - **English source:** `content/editorial/en/exp-siwa.md` (translated from version `18a508992ce2`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Grande mer de sable, source de Cléopâtre, oracle d’Amon, opérateur siwi.
@@ -4121,7 +4121,7 @@ Pas vraiment. Les distances sont longues, et les formations sont à leur plus be
 - **Untranslated English:** «sandboard» (the usual term).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -4182,7 +4182,7 @@ Oui, de nombreux opérateurs proposent une nuit de bivouac dans les dunes, pour 
 - **Language:** French (Français)
 - **Title (existing post title, unchanged):** Vallée des Rois & temple d'Hatchepsout
 - **English source:** `content/editorial/en/exp-valley.md` (translated from version `eadd9c3d01a0`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Séthi Ier, Amenhotep III, pays de Pount, Deir el-Bahari, *Thèbes antique et sa nécropole*.
@@ -4192,7 +4192,7 @@ Oui, de nombreux opérateurs proposent une nuit de bivouac dans les dunes, pour 
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -4252,7 +4252,7 @@ Oui, mais vous tirerez bien plus des tombes avec un guide, surtout lors d’une 
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Alessandria
 - **English source:** `content/editorial/en/dest-alexandria.md` (translated from version `9e6b07589923`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** Cittadella di Qaitbay, Faro, Colonna di Pompeo, Diocleziano, Kom el-Shoqafa, Stele di Rosetta, Montaza, Borg El Arab.
@@ -4262,7 +4262,7 @@ Oui, mais vous tirerez bien plus des tombes avec un guide, surtout lors d’une 
 - **Untranslated English:** «ride-hailing».
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -4363,7 +4363,7 @@ Di nuovo attraverso il [Cairo](/destinations/cairo/) verso la valle del Nilo —
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Assuan
 - **English source:** `content/editorial/en/dest-aswan.md` (translated from version `899175404b9a`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Isola Elefantina, isola di Kitchener (on the unverified-names list), Agilkia, Obelisco Incompiuto, Monastero di San Simeone, Alta Diga, «fenomeno del sole». UNESCO site described.
@@ -4373,7 +4373,7 @@ Di nuovo attraverso il [Cairo](/destinations/cairo/) verso la valle del Nilo —
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -4470,7 +4470,7 @@ Sì, se lo si fa con garbo. Affidati a un operatore locale, compra direttamente 
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Il Cairo
 - **English source:** `content/editorial/en/dest-cairo.md` (translated from version `d29034d09df9`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** Follows the site terms: Il Cairo, Giza, Saqqara, Dahshur, Menfi, Cheope/Chefren/Micerino, Grand Egyptian Museum (kept in English as the Italian site term), Museo Nazionale della Civiltà Egizia. UNESCO sites are described, not quoted, as agreed (no official Italian names).
@@ -4480,7 +4480,7 @@ Sì, se lo si fa con garbo. Affidati a un operatore locale, compra direttamente 
 - **Untranslated English:** **«Le app di ride-hailing»** is English jargon that many Italian readers won't know. Suggested: «Le app per prenotare un’auto con autista» (also in it/dest-alexandria). "Transfer", "tour", "street food" are established in Italian travel writing.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -4643,7 +4643,7 @@ La maggior parte degli itinerari prosegue verso sud, a [Luxor](/destinations/lux
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Hurghada
 - **English source:** `content/editorial/en/dest-hurghada.md` (translated from version `58c12100abd1`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Monte Sinai (site term). Battesimo, immersioni in corrente, barriera frangente, ormeggi fissi, maglia anti-UV: correct Italian diving terms.
@@ -4653,7 +4653,7 @@ La maggior parte degli itinerari prosegue verso sud, a [Luxor](/destinations/lux
 - **Untranslated English:** "diving center", "reef", "spot", "all inclusive", "kitesurfer" are common in Italian diving and resort writing. Acceptable.
 - **Missing or added meaning:** None beyond the optional «reef privato» note.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -4739,7 +4739,7 @@ Tre giorni bastano per un assaggio. Cinque giorni o più se le immersioni sono u
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Luxor
 - **English source:** `content/editorial/en/dest-luxor.md` (translated from version `48dfac96eb26`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Tebe, Nuovo Regno, Amon, regina faraone, Viale delle Sfingi, Colossi di Memnone, Ramesseum, Deir el-Medina. UNESCO site described («antica Tebe con la sua necropoli»), as agreed.
@@ -4749,7 +4749,7 @@ Tre giorni bastano per un assaggio. Cinque giorni o più se le immersioni sono u
 - **Untranslated English:** "guesthouse", "hotel" (established loanwords).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -4864,7 +4864,7 @@ Indifferente: le crociere viaggiano in entrambe le direzioni. Molti itinerari vo
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Sharm el-Sheikh
 - **English source:** `content/editorial/en/dest-sharm.md` (translated from version `7b794a12f4bf`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** Monte Sinai, Monastero di Santa Caterina; UNESCO site described («l’area di Santa Caterina»), as agreed. Stretto di Tiran, *Thistlegorm*, Blue Hole (on the unverified-names list).
@@ -4874,7 +4874,7 @@ Indifferente: le crociere viaggiano in entrambe le direzioni. Molti itinerari vo
 - **Untranslated English:** «Old Market» kept as the local name; acceptable once the article is fixed. "Diving center" (common).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -4963,7 +4963,7 @@ Un volo per il [Cairo](/destinations/cairo/), per le piramidi e i musei, è l’
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Siwa
 - **English source:** `content/editorial/en/dest-siwa.md` (translated from version `2dd0c1475bbb`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Grande Mare di Sabbia (site term), sorgente di Cleopatra, siwi, amazigh (berberi), Marsa Matruh. Fatnas and Aghurmi are on the unverified-names list.
@@ -4973,7 +4973,7 @@ Un volo per il [Cairo](/destinations/cairo/), per le piramidi e i musei, è l’
 - **Untranslated English:** «Fantasy Island» kept as the visitors’ nickname; acceptable.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -5056,7 +5056,7 @@ No. Le escursioni nel deserto richiedono un 4×4 e un autista locale autorizzato
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Gita di un giorno ad Abu Simbel da Assuan
 - **English source:** `content/editorial/en/exp-abu.md` (translated from version `74ad81ad490c`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Tempio Maggiore, fenomeno del sole, Hathor, Nefertari, Alta Diga, Lago Nasser; UNESCO site described.
@@ -5066,7 +5066,7 @@ No. Le escursioni nel deserto richiedono un 4×4 e un autista locale autorizzato
 - **Untranslated English:** "snack", "tour", "transfer" (established).
 - **Missing or added meaning:** "vehicle" → «in auto»: fine.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -5128,7 +5128,7 @@ Di solito qualche ora, sufficiente per entrambi i templi senza fretta.
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Crociera con cena sul Nilo e spettacolo dal vivo
 - **English source:** `content/editorial/en/exp-dinner.md` (translated from version `5149373e0b50`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Tanoura, danza del ventre (kept, decision 12), feluca, barca-ristorante.
@@ -5138,7 +5138,7 @@ Di solito qualche ora, sufficiente per entrambi i templi senza fretta.
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -5197,7 +5197,7 @@ Va bene un abbigliamento elegante ma informale. Porta uno strato leggero, perch�
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Immersioni nel Mar Rosso: due immersioni in barriera
 - **English source:** `content/editorial/en/exp-dive.md` (translated from version `427d7ee0dd08`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Battesimo, brevetto, didattica, intervallo di superficie, muta: correct Italian diving jargon.
@@ -5207,7 +5207,7 @@ Va bene un abbigliamento elegante ma informale. Porta uno strato leggero, perch�
 - **Untranslated English:** "diving", "check-in", "briefing", "logbook", "snack" (all standard in Italian diving).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -5265,7 +5265,7 @@ Pesci di barriera, tartarughe e razze sono comuni in molti siti. Gli incontri co
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Street food del Cairo di sera
 - **English source:** `content/editorial/en/exp-food.md` (translated from version `bd0a2d2d49a4`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Koshari, ful medames, ta’meya, feteer meshaltet, hawawshi, ahwa: consistent with dest-cairo.
@@ -5275,7 +5275,7 @@ Pesci di barriera, tartarughe e razze sono comuni in molti siti. Gli incontri co
 - **Untranslated English:** "street food", "tour" (established).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -5335,7 +5335,7 @@ I tour serali iniziano di solito dopo il tramonto e durano qualche ora. Verifica
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Tour privato delle Piramidi di Giza e della Sfinge
 - **English source:** `content/editorial/en/exp-giza.md` (translated from version `3ee5ad6375d6`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Cheope/Chefren/Micerino, piramidi delle regine, piramide romboidale; UNESCO site described.
@@ -5345,7 +5345,7 @@ I tour serali iniziano di solito dopo il tramonto e durano qualche ora. Verifica
 - **Untranslated English:** "tour" (established).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -5412,7 +5412,7 @@ All’apertura del sito. La mattina fa più fresco e la folla aumenta nel corso 
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Safari nel Deserto Bianco e Nero
 - **English source:** `content/editorial/en/exp-safari.md` (translated from version `82c1e5ba7f71`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** **«formazioni di gesso»** (3×, including the excerpt): in Italian *gesso* is primarily gypsum, a different rock from the chalk of the White Desert. Suggested: «formazioni di calcare» / «di creta» (e.g. «il vento ha scolpito il calcare in enormi funghi»). Other terms: Montagna di Cristallo, Agabat (on the unverified-names list), Area Protetta del Deserto Bianco.
@@ -5422,7 +5422,7 @@ All’apertura del sito. La mattina fa più fresco e la folla aumenta nel corso 
 - **Untranslated English:** "snack", "transfer".
 - **Missing or added meaning:** The rock type, as above.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -5485,7 +5485,7 @@ Non proprio. Le distanze sono lunghe, e le formazioni danno il meglio al tramont
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Grande Mare di Sabbia in 4×4 e sorgenti calde
 - **English source:** `content/editorial/en/exp-siwa.md` (translated from version `18a508992ce2`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Grande Mare di Sabbia, sorgente di Cleopatra, oracolo di Amon.
@@ -5495,7 +5495,7 @@ Non proprio. Le distanze sono lunghe, e le formazioni danno il meglio al tramont
 - **Untranslated English:** "sandboard" (standard).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -5556,7 +5556,7 @@ Sì, molti operatori offrono una notte in campo tra le dune, per dormire sotto l
 - **Language:** Italian (Italiano)
 - **Title (existing post title, unchanged):** Valle dei Re e Tempio di Hatshepsut
 - **English source:** `content/editorial/en/exp-valley.md` (translated from version `eadd9c3d01a0`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Amenofi III, Seti I, terra di Punt, Deir el-Bahari, Deir el-Medina; UNESCO site described.
@@ -5566,7 +5566,7 @@ Sì, molti operatori offrono una notte in campo tra le dune, per dormire sotto l
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -5626,7 +5626,7 @@ Sì, ma con una guida ti godrai molto di più le tombe, soprattutto alla prima v
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Alejandría
 - **English source:** `content/editorial/en/dest-alexandria.md` (translated from version `9e6b07589923`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Ciudadela de Qaitbay, columna de Pompeyo, Diocleciano, Kom el-Shoqafa, piedra de Rosetta, Montaza, Borg El Arab.
@@ -5636,7 +5636,7 @@ Sì, ma con una guida ti godrai molto di più le tombe, soprattutto alla prima v
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -5737,7 +5737,7 @@ De vuelta por [El Cairo](/destinations/cairo/) hacia el valle del Nilo — [Luxo
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Asuán
 - **English source:** `content/editorial/en/dest-aswan.md` (translated from version `899175404b9a`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Filé (site term), *Monumentos de Nubia, desde Abu Simbel hasta Philae* (official UNESCO ES, which keeps "Philae"), isla Elefantina, isla Kitchener (on the unverified-names list), Presa Alta, monasterio de San Simeón, «fenómeno solar». «Falucho» (see dest-cairo).
@@ -5747,7 +5747,7 @@ De vuelta por [El Cairo](/destinations/cairo/) hacia el valle del Nilo — [Luxo
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -5844,7 +5844,7 @@ Sí, si se hace con tacto. Ve con un operador local, compra directamente a los a
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** El Cairo
 - **English source:** `content/editorial/en/dest-cairo.md` (translated from version `d29034d09df9`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** Follows the site terms: El Cairo, Guiza, Saqqara, Dahshur, Menfis, Keops/Kefrén/Micerinos, Zoser, Gran Museo Egipcio, Museo Nacional de la Civilización Egipcia, Jan el-Jalili. UNESCO names *El Cairo histórico* and *Menfis y su necrópolis – Zonas de las pirámides desde Guizeh hasta Dahshur* are quoted from whc.unesco.org/es ("Guizeh" inside the quote is intentional). Felucca is rendered «falucho»; «faluca» is the more usual word in Spanish guides to Egypt (both are in the RAE dictionary). Optional, but it affects dest-aswan, exp-abu and exp-dinner too, so decide once.
@@ -5854,7 +5854,7 @@ Sí, si se hace con tacto. Ve con un operador local, compra directamente a los a
 - **Untranslated English:** "tour", "Belle Époque" (established).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -6017,7 +6017,7 @@ La mayoría de los itinerarios siguen hacia el sur, a [Luxor](/destinations/luxo
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Hurghada
 - **English source:** `content/editorial/en/dest-hurghada.md` (translated from version `58c12100abd1`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Monte Sinaí; bautismo, pecio, inmersión a la deriva, arrecife de franja, amarres fijos, esnórquel (RAE spelling): correct Spanish diving terms.
@@ -6027,7 +6027,7 @@ La mayoría de los itinerarios siguen hacia el sur, a [Luxor](/destinations/luxo
 - **Untranslated English:** Resort names only, plus "kitesurf", "windsurf" (standard).
 - **Missing or added meaning:** None found (the FAQ wording follows the English).
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -6113,7 +6113,7 @@ Tres días bastan para tomarle el pulso. Cinco o más si el buceo es uno de los 
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Luxor
 - **English source:** `content/editorial/en/dest-luxor.md` (translated from version `48dfac96eb26`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** *Antigua Tebas y su necrópolis* (official UNESCO ES). Imperio Nuevo, Amón, mujer faraón, Rameseo, Colosos de Memnón, avenida de las Esfinges.
@@ -6123,7 +6123,7 @@ Tres días bastan para tomarle el pulso. Cinco o más si el buceo es uno de los 
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -6238,7 +6238,7 @@ Da igual: los cruceros navegan en ambos sentidos. Muchos itinerarios vuelan de [
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Sharm el-Sheij
 - **English source:** `content/editorial/en/dest-sharm.md` (translated from version `7b794a12f4bf`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Monte Sinaí, monasterio de Santa Catalina; the UNESCO name *Zona de Santa Catalina* is quoted from whc.unesco.org/es. Estrecho de Tirán, pecio del *Thistlegorm*, Blue Hole (on the unverified-names list).
@@ -6248,7 +6248,7 @@ Da igual: los cruceros navegan en ambos sentidos. Muchos itinerarios vuelan de [
 - **Untranslated English:** «El **Old Market**» keeps the local English name; «el Mercado Viejo (Old Market)» is an option. Reviewer's choice.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -6337,7 +6337,7 @@ Un vuelo a [El Cairo](/destinations/cairo/) para ver las pirámides y los museos
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Siwa
 - **English source:** `content/editorial/en/dest-siwa.md` (translated from version `2dd0c1475bbb`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Gran Mar de Arena (site term), manantial de Cleopatra, siwi, amazigh (bereberes), bordados siwíes, Marsa Matruh. Fatnas and Aghurmi are on the unverified-names list.
@@ -6347,7 +6347,7 @@ Un vuelo a [El Cairo](/destinations/cairo/) para ver las pirámides y los museos
 - **Untranslated English:** «Fantasy Island» kept as the visitors’ nickname; acceptable.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -6430,7 +6430,7 @@ No. Las salidas al desierto requieren un 4×4 y un conductor local con licencia 
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Excursión de un día a Abu Simbel desde Asuán
 - **English source:** `content/editorial/en/exp-abu.md` (translated from version `74ad81ad490c`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Fenómeno solar, Gran Templo, Presa Alta, Hathor, Nefertari; UNESCO name as in dest-aswan.
@@ -6440,7 +6440,7 @@ No. Las salidas al desierto requieren un 4×4 y un conductor local con licencia 
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -6502,7 +6502,7 @@ Es inolvidable, pero hay muchísima gente. Otros días tendrás mucho más espac
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Crucero con cena por el Nilo y espectáculo en vivo
 - **English source:** `content/editorial/en/exp-dinner.md` (translated from version `5149373e0b50`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** Tanura (Spanish spelling), danza del vientre (kept, decision 12), falucho (see dest-cairo).
@@ -6512,7 +6512,7 @@ Es inolvidable, pero hay muchísima gente. Otros días tendrás mucho más espac
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -6571,7 +6571,7 @@ Vale un estilo arreglado pero informal. Lleva una capa ligera, porque en inviern
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Buceo en el mar Rojo: dos inmersiones en arrecife
 - **English source:** `content/editorial/en/exp-dive.md` (translated from version `427d7ee0dd08`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Bautismo, titulación, libro de inmersiones, intervalo en superficie, amarres, traje: correct Spanish diving terms.
@@ -6581,7 +6581,7 @@ Vale un estilo arreglado pero informal. Lleva una capa ligera, porque en inviern
 - **Untranslated English:** «briefing» (standard in Spanish diving).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -6639,7 +6639,7 @@ Los peces de arrecife, las tortugas y las rayas son habituales en muchos puntos.
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Tour nocturno de comida callejera en El Cairo
 - **English source:** `content/editorial/en/exp-food.md` (translated from version `bd0a2d2d49a4`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Koshari, ful medames, ta’meya, feteer meshaltet, hawawshi, basbusa, konafa, ahwa: consistent with dest-cairo.
@@ -6649,7 +6649,7 @@ Los peces de arrecife, las tortugas y las rayas son habituales en muchos puntos.
 - **Untranslated English:** «tour» (established).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -6709,7 +6709,7 @@ Los tours nocturnos suelen empezar después de la puesta de sol y durar unas hor
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Tour privado por las pirámides de Guiza y la Esfinge
 - **English source:** `content/editorial/en/exp-giza.md` (translated from version `3ee5ad6375d6`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** **«gancheros»** (2×) for touts is not the usual word in Spanish (it more often means a log driver). Suggested: «ganchos», «buscavidas» or simply «vendedores insistentes». Other terms: Keops/Kefrén/Micerinos, calzadas, pirámide acodada; UNESCO name as in dest-cairo.
@@ -6719,7 +6719,7 @@ Los tours nocturnos suelen empezar después de la puesta de sol y durar unas hor
 - **Untranslated English:** «tour» (established).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -6786,7 +6786,7 @@ En cuanto abra el recinto. Por la mañana hace más fresco y la gente va en aume
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Safari por el Desierto Blanco y Negro
 - **English source:** `content/editorial/en/exp-safari.md` (translated from version `82c1e5ba7f71`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** Creta (chalk), Montaña de Cristal, Agabat (on the unverified-names list), Área Protegida del Desierto Blanco, braga de cuello.
@@ -6796,7 +6796,7 @@ En cuanto abra el recinto. Por la mañana hace más fresco y la gente va en aume
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -6859,7 +6859,7 @@ En realidad, no. Las distancias son largas, y las formaciones lucen más al atar
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Gran Mar de Arena en 4×4 y fuentes termales
 - **English source:** `content/editorial/en/exp-siwa.md` (translated from version `18a508992ce2`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Gran Mar de Arena, manantiales / fuentes termales (the latter matches the existing title), manantial de Cleopatra, operador siwí.
@@ -6869,7 +6869,7 @@ En realidad, no. Las distancias son largas, y las formaciones lucen más al atar
 - **Untranslated English:** «sandboard» (standard).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -6930,7 +6930,7 @@ Sí, muchos operadores ofrecen una noche de acampada en las dunas, para dormir b
 - **Language:** Spanish (Español)
 - **Title (existing post title, unchanged):** Valle de los Reyes y templo de Hatshepsut
 - **English source:** `content/editorial/en/exp-valley.md` (translated from version `eadd9c3d01a0`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Amenhotep III, Seti I, país de Punt, Deir el-Bahari, *Antigua Tebas y su necrópolis*.
@@ -6940,7 +6940,7 @@ Sí, muchos operadores ofrecen una noche de acampada en las dunas, para dormir b
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -7000,7 +7000,7 @@ Sí, pero con guía sacarás mucho más partido a las tumbas, sobre todo en una 
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Александрия
 - **English source:** `content/editorial/en/dest-alexandria.md` (translated from version `9e6b07589923`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Кайт-бей (site term), Фаросский маяк, Александрийская библиотека, Ком-эль-Шукафа, Колонна Помпея, Диоклетиан, Розеттский камень, Монтаза, Борг-эль-Араб.
@@ -7010,7 +7010,7 @@ Sí, pero con guía sacarás mucho más partido a las tumbas, sobre todo en una 
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -7111,7 +7111,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Асуан
 - **English source:** `content/editorial/en/dest-aswan.md` (translated from version `899175404b9a`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** «Памятники Нубии от Абу-Симбел до Филэ» matches whc.unesco.org/ru exactly (UNESCO's own «Филэ» and undeclined «Абу-Симбел»; the site term elsewhere is «Филе»). Остров Китченера and Гарб-Сохейль are on the unverified-names list. «Солнечный феномен», Высотная плотина, монастырь Святого Симеона.
@@ -7121,7 +7121,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** #monuments: "reached by a short boat ride" → «добраться туда можно за несколько минут на лодке» adds a time claim. Suggested: «туда добираются на лодке — это недолго».
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -7218,7 +7218,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Каир
 - **English source:** `content/editorial/en/dest-cairo.md` (translated from version `d29034d09df9`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** Follows the site terms: Каир, Гиза, Саккара, Дахшур, Хеопс/Хефрен/Микерин, Большой Египетский музей, Хан-эль-Халили, Национальный музей египетской цивилизации. UNESCO names «Исламский Каир» and «Мемфис и его некрополи – район пирамид от Гизы до Дахшура» match whc.unesco.org/ru (re-checked 2026-09-29; owner item 3 covers the narrower «Исламский»). The Red Pyramid is «Розовая пирамида»; that name is used in Russian sources, but «Красная (Розовая) пирамида» matches the English and is more recognisable. Optional; the same applies in exp-giza.
@@ -7228,7 +7228,7 @@ review: pending
 - **Untranslated English:** None (CAI/SPX, as in English).
 - **Missing or added meaning:** As in "literal".
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -7391,7 +7391,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Хургада
 - **English source:** `content/editorial/en/dest-hurghada.md` (translated from version `58c12100abd1`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Гора Моисея (Синай) at the only mention ✓. Дайвинг, снорклинг, пробное погружение, дрейфовые погружения, домашний риф, гидромайка: standard Russian diving vocabulary.
@@ -7401,7 +7401,7 @@ review: pending
 - **Untranslated English:** Resort names only.
 - **Missing or added meaning:** As above (minor).
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -7487,7 +7487,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Луксор
 - **English source:** `content/editorial/en/dest-luxor.md` (translated from version `48dfac96eb26`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** «Древние Фивы с их некрополями» matches whc.unesco.org/ru. Новое царство, Амон, женщина-фараон, Мединет-Абу, Рамессеум, Колоссы Мемнона, Дейр-эль-Медина: standard Russian forms.
@@ -7497,7 +7497,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -7612,7 +7612,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Шарм-эш-Шейх
 - **English source:** `content/editorial/en/dest-sharm.md` (translated from version `7b794a12f4bf`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Гора Моисея (Синай) at the first mention (excerpt and intro) ✓. The UNESCO name «Монастырь Св. Екатерины с окрестностями» matches whc.unesco.org/ru exactly. Тиранский пролив, «Тистлегорм», Голубая дыра (on the unverified-names list). «Старый рынок» is translated: good.
@@ -7622,7 +7622,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -7711,7 +7711,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Сива
 - **English source:** `content/editorial/en/dest-siwa.md` (translated from version `2dd0c1475bbb`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Великое песчаное море (site term), источник Клеопатры, сиви, амазиги (берберы), кершеф, Агурми, Фатнас (Фэнтези-Айленд) (the last three on the unverified-names list).
@@ -7721,7 +7721,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** As in "fact".
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -7804,7 +7804,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Поездка в Абу-Симбел из Асуана
 - **English source:** `content/editorial/en/exp-abu.md` (translated from version `74ad81ad490c`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Солнечный феномен, Большой/Малый храм, Высотная плотина, Хатхор, Нефертари; UNESCO name as in dest-aswan.
@@ -7814,7 +7814,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -7876,7 +7876,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Круиз с ужином по Нилу и шоу
 - **English source:** `content/editorial/en/exp-dinner.md` (translated from version `5149373e0b50`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Танура, восточный танец (kept, decision 12), фелука, теплоход-ресторан.
@@ -7886,7 +7886,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -7945,7 +7945,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Дайвинг в Красном море: два погружения на рифах
 - **English source:** `content/editorial/en/exp-dive.md` (translated from version `427d7ee0dd08`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Пробное погружение, поверхностный интервал, логбук, дайв-бот, постоянные буи, гидрокостюм: standard Russian diving vocabulary.
@@ -7955,7 +7955,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -8013,7 +8013,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Ночной гастротур по Каиру
 - **English source:** `content/editorial/en/exp-food.md` (translated from version `bd0a2d2d49a4`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** Кошари, фуль медамес, тамейя, фетир мешальтет, хававши, басбуса, кунафа, ахва: consistent with dest-cairo.
@@ -8023,7 +8023,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -8083,7 +8083,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Индивидуальная экскурсия к пирамидам Гизы и Сфинксу
 - **English source:** `content/editorial/en/exp-giza.md` (translated from version `3ee5ad6375d6`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Хеопс/Хефрен/Микерин, нижний храм, пирамиды цариц, зазывалы; UNESCO name as in dest-cairo. «Розовая пирамида» (see dest-cairo).
@@ -8093,7 +8093,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -8160,7 +8160,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Сафари по Белой и Чёрной пустыне
 - **English source:** `content/editorial/en/exp-safari.md` (translated from version `82c1e5ba7f71`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Оазис Бахария, Белая/Чёрная пустыня, Хрустальная гора, Агабат (on the unverified-names list), меловые скалы, заповедник Белая пустыня.
@@ -8170,7 +8170,7 @@ review: pending
 - **Untranslated English:** «бафф» (the usual word).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -8233,7 +8233,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Великое песчаное море на 4×4 и горячие источники
 - **English source:** `content/editorial/en/exp-siwa.md` (translated from version `18a508992ce2`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** **«водитель-пустынник»** in #choosing: «пустынник» means a hermit. Suggested: «опытный водитель, хорошо знающий пустыню». Other terms: Великое песчаное море, источник Клеопатры, оракул Амона, сэндбординг.
@@ -8243,7 +8243,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** As in "term".
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -8304,7 +8304,7 @@ review: pending
 - **Language:** Russian (Русский)
 - **Title (existing post title, unchanged):** Долина царей и храм Хатшепсут
 - **English source:** `content/editorial/en/exp-valley.md` (translated from version `eadd9c3d01a0`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** Аменхотеп III, Сети I, страна Пунт, Дейр-эль-Бахри, Дейр-эль-Медина; UNESCO name as in dest-luxor.
@@ -8314,7 +8314,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -8374,7 +8374,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 亚历山大
 - **English source:** `content/editorial/en/dest-alexandria.md` (translated from version `9e6b07589923`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** #food: «亚历山大式肝脏三明治（亚历山大炒肝）»: «炒肝» is the name of a specific Beijing dish (a stewed liver and intestine soup), so the parenthesis misleads. Suggested: «亚历山大式肝脏三明治（当地叫“克卜达”）» or simply drop the parenthesis. Other terms: 盖贝依城堡, 法罗斯灯塔, 亚历山大图书馆, 孔姆·舒卡法, 庞贝柱, 戴克里先, 罗塞塔石碑, 蒙塔扎宫, 博格阿拉伯机场.
@@ -8384,7 +8384,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** As in "term".
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -8485,7 +8485,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 阿斯旺
 - **English source:** `content/editorial/en/dest-aswan.md` (translated from version `899175404b9a`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** «阿布辛拜勒至菲莱的努比亚遗址» matches whc.unesco.org/zh exactly (UNESCO's own «阿布辛拜勒»; the site term elsewhere is «阿布辛贝»). 象岛, 阿吉勒基亚岛, 库贝特·哈瓦山, 圣西蒙修道院, 阿斯旺高坝, «太阳奇观». 基奇纳岛 and 西苏海勒村 are on the unverified-names list.
@@ -8495,7 +8495,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -8592,7 +8592,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 开罗
 - **English source:** `content/editorial/en/dest-cairo.md` (translated from version `d29034d09df9`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** Follows the site terms: 开罗, 吉萨, 萨卡拉, 代赫舒尔, 胡夫/哈夫拉/孟卡拉, 大埃及博物馆, 汗·哈利利市场, 埃及文明国家博物馆. UNESCO names «开罗古城» and «孟菲斯及其墓地金字塔» match whc.unesco.org/zh exactly (re-checked 2026-09-29). The readability renderings 焖蚕豆与塔梅亚, 千层饼（费提尔）, 阿赫瓦, 乌斯特·巴拉德 and 美好年代 are owner item 5.
@@ -8602,7 +8602,7 @@ review: pending
 - **Untranslated English:** None (CAI/SPX, as in English).
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -8765,7 +8765,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 赫尔格达
 - **English source:** `content/editorial/en/dest-hurghada.md` (translated from version `58c12100abd1`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** 西奈山 (the zh site term; no parenthetical needed). 吉夫顿岛, 放流潜水, 岸礁, 船宿潜水, 固定系泊浮标, 防晒泳衣: correct Chinese diving vocabulary. Resort names: 萨赫勒哈希什, 马卡迪湾, 索玛湾, 埃尔古纳.
@@ -8775,7 +8775,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -8861,7 +8861,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 卢克索
 - **English source:** `content/editorial/en/dest-luxor.md` (translated from version `48dfac96eb26`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** «底比斯古城及其墓地» matches whc.unesco.org/zh. 新王国, 阿蒙神, 大多柱厅, 女法老, 哈布城神庙, 拉美西姆祭庙, 代尔麦地那, 门农巨像.
@@ -8871,7 +8871,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** As in "style" (minor).
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -8986,7 +8986,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 沙姆沙伊赫
 - **English source:** `content/editorial/en/dest-sharm.md` (translated from version `7b794a12f4bf`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** 西奈山, 圣凯瑟琳修道院; the UNESCO name «圣卡特琳娜地区» matches whc.unesco.org/zh exactly. 蒂朗海峡, 蓟花号, 蓝洞 (on the unverified-names list), 纳马湾, «老市场» (translated: good), 达哈卜.
@@ -8996,7 +8996,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -9085,7 +9085,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 锡瓦
 - **English source:** `content/editorial/en/dest-siwa.md` (translated from version `2dd0c1475bbb`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **NEEDS EDIT**
 
 - **Terminology:** 大沙海 (site term), 克娄巴特拉泉, 阿马齐格人（柏柏尔人）, 锡瓦语, 卡谢夫, 阿古尔米, 法特纳斯岛（幻想岛） (the last three on the unverified-names list), 马特鲁港.
@@ -9095,7 +9095,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** The added «只能»; also #what-to-see drops the Arabic name "Gebel al-Mawta" (keeps «死亡之山» only). That's harmless; add «（杰贝尔·毛塔）» if you want parity.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -9178,7 +9178,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 从阿斯旺出发的阿布辛贝一日游
 - **English source:** `content/editorial/en/exp-abu.md` (translated from version `74ad81ad490c`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** 太阳奇观, 大神庙/小神庙, 阿斯旺高坝, 哈索尔女神, 奈菲尔塔利; UNESCO name as in dest-aswan.
@@ -9188,7 +9188,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -9250,7 +9250,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 尼罗河晚餐游船（含现场表演）
 - **English source:** `content/editorial/en/exp-dinner.md` (translated from version `5149373e0b50`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** 坦努拉 (owner item 5), 肚皮舞 (kept, decision 12), 三角帆船, 滨河大道.
@@ -9260,7 +9260,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -9319,7 +9319,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 红海潜水：两次珊瑚礁潜水
 - **English source:** `content/editorial/en/exp-dive.md` (translated from version `427d7ee0dd08`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** 体验潜水, 水面休息, 潜水日志, 固定系泊浮标, 潜水服, 鳐鱼: correct Chinese diving vocabulary.
@@ -9329,7 +9329,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -9387,7 +9387,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 开罗夜间街头美食之旅
 - **English source:** `content/editorial/en/exp-food.md` (translated from version `bd0a2d2d49a4`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** 库莎丽, 焖蚕豆与塔梅亚, 哈瓦瓦希, 千层饼（费提尔）, 巴斯布萨, 库纳法, 阿赫瓦: consistent with dest-cairo (owner item 5).
@@ -9397,7 +9397,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -9457,7 +9457,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 吉萨金字塔与狮身人面像私人游
 - **English source:** `content/editorial/en/exp-giza.md` (translated from version `3ee5ad6375d6`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** 胡夫/哈夫拉/孟卡拉, 河谷神庙, 堤道, 王后金字塔, 弯曲/红色金字塔; UNESCO name as in dest-cairo.
@@ -9467,7 +9467,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -9534,7 +9534,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 白沙漠与黑沙漠探险
 - **English source:** `content/editorial/en/exp-safari.md` (translated from version `82c1e5ba7f71`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** 拜哈里耶绿洲, 黑/白沙漠, 白垩, 水晶山, 阿加巴特 (on the unverified-names list), 白沙漠保护区.
@@ -9544,7 +9544,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** As in "style" (minor).
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -9607,7 +9607,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 大沙海四驱越野与温泉
 - **English source:** `content/editorial/en/exp-siwa.md` (translated from version `18a508992ce2`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** 大沙海, 冲沙 (the usual Chinese term for dune bashing), 滑沙, 克娄巴特拉泉, 阿蒙神谕神庙.
@@ -9617,7 +9617,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -9678,7 +9678,7 @@ review: pending
 - **Language:** Chinese (中文)
 - **Title (existing post title, unchanged):** 帝王谷与哈特谢普苏特神庙
 - **English source:** `content/editorial/en/exp-valley.md` (translated from version `eadd9c3d01a0`; up to date)
-- **Repository status:** `review: pending` (unchanged)
+- **Repository status:** `review: pending` at review time; **`review: approved`** since 2026-09-29 (owner decision)
 - **Recommendation:** **APPROVE**
 
 - **Terminology:** 阿蒙霍特普三世, 塞提一世, 蓬特之地, 代尔拜赫里, 代尔麦地那; UNESCO name as in dest-luxor.
@@ -9688,7 +9688,7 @@ review: pending
 - **Untranslated English:** None.
 - **Missing or added meaning:** None found.
 
-<details><summary>Full file text (exact copy)</summary>
+<details><summary>Full file text as reviewed (exact copy at review time, before approval and corrections)</summary>
 
 ````markdown
 ---
@@ -9768,9 +9768,10 @@ Each line points to the full note above. Optional notes are not listed here.
 | Chinese (`zh`) | 15 | 12 | 3 | 0 |
 | **Total** | **105** | **77** | **28** | **0** |
 
-All 105 files remain `review: pending`. When the owner approves a file:
-1. Make any edits from its entry.
-2. Set `review: approved`, `reviewer:` and `reviewed:` in its front matter.
-3. Run `python tools/editorial.py`, then commit.
+The table above is the recommendation at review time.
 
-The multilingual branch is not merged or pushed until the approved set is ready (the owner's translation process).
+**Final status (2026-09-29): 105/105 `review: approved`**, reviewer Morsy Abdelhady, 0 pending, 0 blocked:
+- 77 files were approved as written;
+- 28 were approved after the 44 corrections listed at the top of this document and a full re-test.
+
+Nothing has been imported into production. The branch is not merged or pushed until the owner says so.

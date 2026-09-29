@@ -78,7 +78,7 @@ Only items that can't be settled from a source are listed. Nothing was changed f
 | No English leakage | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Terminology rules (banned variants 0, required terms present) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Sourced fact strings present | 15/15 | 28/28 | 28/28 | 28/28 | 28/28 | 28/28 | 28/28 |
-| `review: pending`, up to date with English (`current`), LF | 15/15 | 15/15 | 15/15 | 15/15 | 15/15 | 15/15 | 15/15 |
+| `review: pending` at check time (all approved since 2026-09-29), up to date with English (`current`), LF | 15/15 | 15/15 | 15/15 | 15/15 | 15/15 | 15/15 | 15/15 |
 | Local dry run: bodies/excerpts, links pointed at the language | 15/15, 35 | 15/15, 35 | 15/15, 35 | 15/15, 35 | 15/15, 35 | 15/15, 35 | 15/15, 35 |
 | Local real run while pending | 0 writes | 0 writes | 0 writes | 0 writes | 0 writes | 0 writes | 0 writes |
 | English posts before/after import (md5 of all fields and meta) | unchanged | unchanged | unchanged | unchanged | unchanged | unchanged | unchanged |
