@@ -1,10 +1,21 @@
 #!/usr/bin/env python3
-"""Compile the English editorial sources (content/editorial/en/*.md) into WordPress block markup.
+"""Compile the editorial sources (content/editorial/<lang>/*.md) into WordPress block markup.
 
-    python tools/editorial.py          # writes wordpress/wp-content/plugins/egypt-roamer-core/data/editorial/en/
-    python tools/editorial.py check    # fails if the compiled files are stale
+    python tools/editorial.py              # every language -> wordpress/wp-content/plugins/egypt-roamer-core/data/editorial/<lang>/
+    python tools/editorial.py --lang ar    # one language
+    python tools/editorial.py check        # fails if any compiled file is stale or a translation is malformed
 
-Then, on the server: `wp egypt-roamer editorial` (fills only empty or untouched seed text).
+Then, on the server: `wp egypt-roamer editorial [--lang=ar] --dry-run` (fills only empty or untouched seed text).
+
+Translations (any language but English) are named like the English file they translate and must keep its
+type, destination and section anchors. Extra front matter:
+
+    source: 1a2b3c4d5e6f          # printed by this script: the English file it was translated from
+    review: pending               # pending | approved. Only approved, up-to-date files are imported
+    reviewer: Name                # who approved it
+    reviewed: 2026-09-29          # when
+
+Internal links keep the English paths (/destinations/luxor/); the import points them at the translation.
 
 Source format (one file per item, named after its seed id):
 
@@ -25,6 +36,7 @@ Source format (one file per item, named after its seed id):
     ?? Question?                    # FAQ item (accordion); the following lines are the answer
     Answer paragraph.
 """
+import hashlib
 import html
 import json
 import pathlib
@@ -32,8 +44,19 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SRC = ROOT / "content" / "editorial" / "en"
-OUT = ROOT / "wordpress" / "wp-content" / "plugins" / "egypt-roamer-core" / "data" / "editorial" / "en"
+SRC_ROOT = ROOT / "content" / "editorial"
+OUT_ROOT = ROOT / "wordpress" / "wp-content" / "plugins" / "egypt-roamer-core" / "data" / "editorial"
+# The one fixed UI string the compiler writes. A language needs its label here before it can be compiled.
+TOC_LABEL = {
+    "en": "On this page",
+    "de": "Auf dieser Seite",
+    "fr": "Sur cette page",
+    "it": "In questa pagina",
+    "es": "En esta página",
+    "ru": "На этой странице",
+    "zh": "本页内容",
+    "ar": "في هذه الصفحة",
+}
 
 
 def inline(text: str) -> str:
@@ -137,7 +160,7 @@ def blocks(lines):
     return out
 
 
-def compile_file(path: pathlib.Path):
+def compile_file(path: pathlib.Path, lang: str = "en"):
     raw = path.read_text(encoding="utf-8")
     m = re.match(r"^---\n(.*?)\n---\n(.*)$", raw, re.S)
     if not m:
@@ -147,25 +170,57 @@ def compile_file(path: pathlib.Path):
     parts = blocks([l for l in lines if l.strip() != "[[toc]]"])
     if any(l.strip() == "[[toc]]" for l in lines):
         heads = re.findall(r'<h2 class="wp-block-heading" id="([^"]+)">(.*?)</h2>', "\n".join(parts))
-        toc = group(para("On this page") + lst([f"[{html.unescape(re.sub('<[^>]+>', '', t))}](#{a})" for a, t in heads]), "er-toc")
+        toc = group(para(TOC_LABEL[lang]) + lst([f"[{html.unescape(re.sub('<[^>]+>', '', t))}](#{a})" for a, t in heads]), "er-toc")
         parts.insert(0, toc)
     return meta, "\n\n".join(parts) + "\n"
 
 
-def build(write=True) -> bool:
+def source_hash(path: pathlib.Path) -> str:
+    """Short fingerprint of an English source file; a translation records the one it was made from."""
+    return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+
+
+def anchors(body: str):
+    return re.findall(r'<h2 class="wp-block-heading" id="([^"]+)">', body)
+
+
+def build(lang="en", write=True) -> bool:
+    if lang not in TOC_LABEL:
+        raise SystemExit(f"{lang}: add its 'On this page' label to TOC_LABEL first")
+    src_dir, out_dir = SRC_ROOT / lang, OUT_ROOT / lang
     index, stale = {}, False
-    OUT.mkdir(parents=True, exist_ok=True)
-    for src in sorted(SRC.glob("*.md")):
-        meta, body = compile_file(src)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for src in sorted(src_dir.glob("*.md")):
+        meta, body = compile_file(src, lang)
         seed_id = src.stem
         index[seed_id] = {k: meta[k] for k in ("type", "excerpt", "destination") if k in meta}
-        target = OUT / f"{seed_id}.html"
+        if lang != "en":
+            en = SRC_ROOT / "en" / src.name
+            if not en.exists():
+                raise SystemExit(f"{lang}/{src.name}: no English file with that name")
+            en_meta, en_body = compile_file(en)
+            for key in ("type", "destination"):
+                if meta.get(key) != en_meta.get(key):
+                    raise SystemExit(f"{lang}/{src.name}: {key} must match the English file")
+            if anchors(body) != anchors(en_body):
+                raise SystemExit(f"{lang}/{src.name}: section anchors differ from the English file")
+            if not meta.get("excerpt"):
+                raise SystemExit(f"{lang}/{src.name}: excerpt is missing")
+            review = meta.get("review", "")
+            if review not in ("pending", "approved"):
+                raise SystemExit(f"{lang}/{src.name}: review must be pending or approved")
+            if review == "approved" and not (meta.get("reviewer") and meta.get("reviewed")):
+                raise SystemExit(f"{lang}/{src.name}: an approved file needs reviewer and reviewed")
+            index[seed_id]["review"] = review
+            # The English changed since this was translated: re-review before it can be imported.
+            index[seed_id]["current"] = meta.get("source") == source_hash(en)
+        target = out_dir / f"{seed_id}.html"
         if not target.exists() or target.read_text(encoding="utf-8") != body:
             stale = True
             if write:
                 target.write_text(body, encoding="utf-8", newline="\n")
     idx = json.dumps(index, ensure_ascii=False, indent=1) + "\n"
-    target = OUT / "index.json"
+    target = out_dir / "index.json"
     if not target.exists() or target.read_text(encoding="utf-8") != idx:
         stale = True
         if write:
@@ -173,8 +228,28 @@ def build(write=True) -> bool:
     return stale
 
 
+def status(lang: str) -> None:
+    """Review state of each translation, and whether its English source changed since."""
+    for src in sorted((SRC_ROOT / lang).glob("*.md")):
+        meta, _ = compile_file(src, lang)
+        en = SRC_ROOT / "en" / src.name
+        current = en.exists() and meta.get("source") == source_hash(en)
+        print(f"{lang}/{src.stem:12} {meta.get('review', '?'):9} {'current' if current else 'OUTDATED (English source ' + (source_hash(en) if en.exists() else 'missing') + ')'}")
+
+
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "check":
-        sys.exit("editorial HTML is stale: run python tools/editorial.py" if build(write=False) else 0)
-    build()
-    print("editorial compiled:", len(list(SRC.glob("*.md"))), "items ->", OUT.relative_to(ROOT))
+    args = sys.argv[1:]
+    langs = sorted(d.name for d in SRC_ROOT.iterdir() if d.is_dir())
+    if "--lang" in args:
+        langs = [args[args.index("--lang") + 1]]
+    if "check" in args:
+        stale = [l for l in langs if build(l, write=False)]
+        sys.exit(f"editorial HTML is stale ({', '.join(stale)}): run python tools/editorial.py" if stale else 0)
+    if "status" in args:
+        for l in langs:
+            if l != "en":
+                status(l)
+        sys.exit(0)
+    for l in langs:
+        build(l)
+        print(f"editorial compiled ({l}):", len(list((SRC_ROOT / l).glob("*.md"))), "items ->", (OUT_ROOT / l).relative_to(ROOT))

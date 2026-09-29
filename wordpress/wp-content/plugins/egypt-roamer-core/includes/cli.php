@@ -631,13 +631,22 @@ class ER_CLI {
 	}
 
 	/**
-	 * Fill the English editorial bodies and excerpts from data/editorial/en/.
+	 * Fill the editorial bodies and excerpts from data/editorial/<lang>/ (English by default).
 	 *
 	 * A body or excerpt is written only while it is empty or still exactly the one-line text the seed
-	 * created (the prototype's `desc`). Anything an editor has changed is left alone, and so are
-	 * translations, statuses and the "Ready to index" flag. Guides stay drafts until an editor publishes them.
+	 * created (the prototype's `desc`, in that language). Anything an editor has changed is left alone, and so
+	 * are titles, slugs, statuses, meta, relations and the "Ready to index" flag. Guides stay drafts until an
+	 * editor publishes them.
+	 *
+	 * With --lang, only that language's translation of each item is written, never the English original.
+	 * Only files marked `review: approved` and translated from the current English are imported; a dry run
+	 * also reports the rest. Internal links are pointed at the translation, or left as text when it doesn't
+	 * exist. Translated guides are not created by this command.
 	 *
 	 * ## OPTIONS
+	 *
+	 * [--lang=<code>]
+	 * : Language to import, e.g. ar. Default: the site's default language.
 	 *
 	 * [--dry-run]
 	 * : Report what would change without writing.
@@ -645,45 +654,75 @@ class ER_CLI {
 	 * @when after_wp_load
 	 */
 	public function editorial( $args, $assoc ) {
-		$dir   = ER_CORE_DIR . 'data/editorial/en/';
+		$default = function_exists( 'pll_default_language' ) ? (string) pll_default_language() : 'en';
+		$lang    = sanitize_key( (string) ( $assoc['lang'] ?? $default ) );
+		$is_tr   = $lang !== $default && 'en' !== $lang;
+		$dir     = ER_CORE_DIR . 'data/editorial/' . ( $is_tr ? $lang : 'en' ) . '/';
+		if ( ! is_readable( $dir . 'index.json' ) ) {
+			WP_CLI::error( "No editorial content for {$lang} (expected {$dir}index.json)." );
+		}
+		if ( $is_tr && ( ! function_exists( 'pll_get_post' ) || ! in_array( $lang, (array) pll_languages_list(), true ) ) ) {
+			WP_CLI::error( "Polylang has no language {$lang}." );
+		}
 		$index = json_decode( (string) file_get_contents( $dir . 'index.json' ), true ) ?: []; // phpcs:ignore WordPress.WP.AlternativeFunctions
 		$dry   = ! empty( $assoc['dry-run'] );
+		$data  = $this->seed_data();
 		$seed  = [];
-		foreach ( (array) ( $this->seed_data()['destinations'] ?? [] ) as $d ) {
-			$seed[ 'dest-' . $d['id'] ] = (string) ( $d['desc'] ?? '' );
+		foreach ( (array) ( $data['destinations'] ?? [] ) as $d ) {
+			$seed[ 'dest-' . $d['id'] ] = (string) ( $is_tr ? ( $data['translations'][ $lang ]['destinations'][ $d['id'] ]['desc'] ?? '' ) : ( $d['desc'] ?? '' ) );
 		}
 		$is_seed_text = static function ( string $value, string $seed_id ) use ( $seed ): bool {
 			$plain = trim( html_entity_decode( wp_strip_all_tags( $value ), ENT_QUOTES, 'UTF-8' ) );
-			return '' === $plain || ( isset( $seed[ $seed_id ] ) && trim( $seed[ $seed_id ] ) === $plain );
+			return '' === $plain || ( ! empty( $seed[ $seed_id ] ) && trim( $seed[ $seed_id ] ) === $plain );
 		};
-		$counts = [ 'body' => 0, 'excerpt' => 0, 'link' => 0, 'kept' => 0, 'missing' => 0 ];
+		$counts = [ 'body' => 0, 'excerpt' => 0, 'link' => 0, 'kept' => 0, 'missing' => 0, 'unreviewed' => 0, 'guide' => 0, 'relinked' => 0, 'unlinked' => 0 ];
 		foreach ( $index as $seed_id => $item ) {
-			$id = $this->find( (string) $item['type'], (string) $seed_id );
-			if ( $id && function_exists( 'pll_get_post' ) && function_exists( 'pll_default_language' ) ) {
-				$id = (int) pll_get_post( $id, pll_default_language() ) ?: $id; // the English original, never a translation
+			$seed_id = (string) $seed_id;
+			if ( $is_tr && 'er_guide' === $item['type'] ) {
+				++$counts['guide'];
+				WP_CLI::log( "Skipped {$seed_id}: translated guides are not created by this command." );
+				continue;
+			}
+			$approved = ! $is_tr || ( 'approved' === ( $item['review'] ?? '' ) && ! empty( $item['current'] ) );
+			if ( ! $approved ) {
+				++$counts['unreviewed'];
+				if ( ! $dry ) {
+					WP_CLI::log( "Skipped {$seed_id}: " . ( empty( $item['current'] ) ? 'the English changed since it was translated.' : 'not approved yet.' ) );
+					continue;
+				}
+			}
+			$id = $this->find( (string) $item['type'], $seed_id );
+			if ( $id && function_exists( 'pll_get_post' ) ) {
+				$id = (int) pll_get_post( $id, $default ) ?: $id; // the English original
+				if ( $is_tr ) {
+					$id = (int) pll_get_post( $id, $lang ); // its translation, never the original
+					if ( $id && pll_get_post_language( $id ) !== $lang ) {
+						$id = 0;
+					}
+				}
 			}
 			if ( ! $id ) {
 				++$counts['missing'];
-				WP_CLI::warning( "No {$item['type']} with seed id {$seed_id}" );
+				WP_CLI::warning( "No {$lang} {$item['type']} for seed id {$seed_id}" );
 				continue;
 			}
 			$file   = $dir . $seed_id . '.html';
 			$body   = is_readable( $file ) ? trim( (string) file_get_contents( $file ) ) : ''; // phpcs:ignore WordPress.WP.AlternativeFunctions
 			$post   = get_post( $id );
 			$update = [];
-			if ( $body && $is_seed_text( (string) $post->post_content, (string) $seed_id ) ) {
-				$update['post_content'] = $body;
+			if ( $body && $is_seed_text( (string) $post->post_content, $seed_id ) ) {
+				$update['post_content'] = $is_tr ? $this->editorial_links( $body, $lang, $counts ) : $body;
 				++$counts['body'];
 			} elseif ( $body ) {
 				++$counts['kept'];
 				WP_CLI::log( "Kept editor body: {$seed_id}" );
 			}
-			if ( ! empty( $item['excerpt'] ) && $is_seed_text( (string) $post->post_excerpt, (string) $seed_id ) ) {
+			if ( ! empty( $item['excerpt'] ) && $is_seed_text( (string) $post->post_excerpt, $seed_id ) ) {
 				$update['post_excerpt'] = (string) $item['excerpt'];
 				++$counts['excerpt'];
 			}
 			// Guides link to their destination so they appear under "Plan your trip to …" once published.
-			if ( ! empty( $item['destination'] ) && ! get_post_meta( $id, '_er_destination', true ) ) {
+			if ( ! $is_tr && ! empty( $item['destination'] ) && ! get_post_meta( $id, '_er_destination', true ) ) {
 				$dest = $this->find( 'er_destination', 'dest-' . $item['destination'] );
 				if ( $dest ) {
 					if ( ! $dry ) {
@@ -695,9 +734,35 @@ class ER_CLI {
 			if ( $update && ! $dry ) {
 				wp_update_post( wp_slash( [ 'ID' => $id ] + $update ) );
 			}
-			WP_CLI::log( sprintf( '%s %s: %s', $dry ? 'Would update' : 'Updated', $seed_id, $update ? implode( ', ', array_keys( $update ) ) : 'nothing' ) );
+			WP_CLI::log( sprintf( '%s %s (#%d)%s: %s', $dry ? 'Would update' : 'Updated', $seed_id, $id, $approved ? '' : ' [not approved: skipped in a real run]', $update ? implode( ', ', array_keys( $update ) ) : 'nothing' ) );
 		}
-		WP_CLI::success( sprintf( '%sbodies %d, excerpts %d, destination links %d, editor bodies kept %d, missing %d.', $dry ? '(dry run) ' : '', $counts['body'], $counts['excerpt'], $counts['link'], $counts['kept'], $counts['missing'] ) );
+		$summary = sprintf( '%s%s: bodies %d, excerpts %d, editor bodies kept %d, missing %d', $dry ? '(dry run) ' : '', $lang, $counts['body'], $counts['excerpt'], $counts['kept'], $counts['missing'] );
+		$summary .= $is_tr
+			? sprintf( ', not approved %d, guides skipped %d, links pointed at %s %d, links left as text %d.', $counts['unreviewed'], $counts['guide'], $lang, $counts['relinked'], $counts['unlinked'] )
+			: sprintf( ', destination links %d.', $counts['link'] );
+		WP_CLI::success( $summary );
+	}
+
+	/**
+	 * Point a translated body's internal links (English paths such as /destinations/luxor/#when) at the
+	 * published translation in $lang, keeping the #anchor. A link with no published translation becomes text.
+	 */
+	private function editorial_links( string $body, string $lang, array &$counts ): string {
+		return (string) preg_replace_callback(
+			'~<a href="(/[^"#]*)(#[^"]*)?">(.*?)</a>~s',
+			static function ( $m ) use ( $lang, &$counts ) {
+				$source = url_to_postid( home_url( $m[1] ) );
+				$target = $source ? (int) pll_get_post( $source, $lang ) : 0;
+				if ( $target && 'publish' === get_post_status( $target ) ) {
+					++$counts['relinked'];
+					return '<a href="' . esc_attr( wp_make_link_relative( (string) get_permalink( $target ) ) . ( $m[2] ?? '' ) ) . '">' . $m[3] . '</a>';
+				}
+				++$counts['unlinked'];
+				WP_CLI::log( "  Link left as text (no published {$lang} page): {$m[1]}" );
+				return $m[3];
+			},
+			$body
+		);
 	}
 
 	/**

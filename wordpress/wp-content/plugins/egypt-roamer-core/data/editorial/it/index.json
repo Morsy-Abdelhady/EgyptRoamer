@@ -1,0 +1,92 @@
+{
+ "dest-alexandria": {
+  "type": "er_destination",
+  "excerpt": "Guida di Alessandria: l’Egitto affacciato sul Mediterraneo, dalla Cittadella di Qaitbay e dalla Bibliotheca Alexandrina alle catacombe romane, il pesce sulla Corniche e le gite a Rosetta ed El Alamein.",
+  "review": "approved",
+  "current": true
+ },
+ "dest-aswan": {
+  "type": "er_destination",
+  "excerpt": "Guida di Assuan: feluche tra isole di granito, il tempio di Philae, i villaggi nubiani e l’isola Elefantina, la gita ad Abu Simbel e il fenomeno del sole, dove iniziano le crociere sul Nilo e quanto fermarsi.",
+  "review": "approved",
+  "current": true
+ },
+ "dest-cairo": {
+  "type": "er_destination",
+  "excerpt": "Il Cairo in pratica: le piramidi e il Grand Egyptian Museum a Giza, il Cairo islamico e copto, il Nilo, in quale quartiere dormire, quanti giorni servono e come muoversi in città.",
+  "review": "approved",
+  "current": true
+ },
+ "dest-hurghada": {
+  "type": "er_destination",
+  "excerpt": "Guida di Hurghada: le barriere coralline del Mar Rosso, le isole Giftun, immersioni e snorkeling per ogni livello, El Gouna e le baie dei resort a sud, le escursioni nel deserto, la stagione migliore e come abbinare la costa a Luxor.",
+  "review": "approved",
+  "current": true
+ },
+ "dest-luxor": {
+  "type": "er_destination",
+  "excerpt": "Guida di Luxor: Karnak e il Tempio di Luxor sulla riva est, la Valle dei Re e il tempio di Hatshepsut sulla riva ovest, le mongolfiere all’alba, le crociere sul Nilo, dove dormire e quanti giorni servono.",
+  "review": "approved",
+  "current": true
+ },
+ "dest-sharm": {
+  "type": "er_destination",
+  "excerpt": "Guida di Sharm el-Sheikh: il Parco Nazionale di Ras Mohammed, le barriere di Tiran e il relitto della Thistlegorm, Naama Bay, il Monte Sinai e il Monastero di Santa Caterina, Dahab, la stagione migliore e quanto fermarsi.",
+  "review": "approved",
+  "current": true
+ },
+ "dest-siwa": {
+  "type": "er_destination",
+  "excerpt": "Guida dell’oasi di Siwa: la fortezza di Shali, l’oracolo di Amon consultato da Alessandro Magno, laghi salati e sorgenti, il Grande Mare di Sabbia, le usanze locali, la stagione migliore e come organizzare il lungo viaggio.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-abu": {
+  "type": "er_experience",
+  "excerpt": "La gita di un giorno ad Abu Simbel da Assuan: perché i templi di Ramses II e di Nefertari valgono la sveglia all’alba, strada o aereo, il fenomeno del sole di febbraio e ottobre e come organizzare la giornata.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-dinner": {
+  "type": "er_experience",
+  "excerpt": "Una crociera con cena sul Nilo al Cairo: com’è la serata, la musica e lo spettacolo di tanoura, a chi è adatta, come scegliere la barca e che differenza c’è con un semplice giro in feluca al tramonto.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-dive": {
+  "type": "er_experience",
+  "excerpt": "Due immersioni guidate sulla barriera corallina del Mar Rosso: com’è una giornata di immersioni, cosa serve a principianti e subacquei certificati, come scegliere un diving responsabile e dove sono le barriere più belle.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-food": {
+  "type": "er_experience",
+  "excerpt": "Un tour serale dello street food al Cairo: i piatti che assaggerai, dal koshari al ful fino al feteer e ai dolci, i quartieri che attraverserai, le esigenze alimentari e perché aiuta una guida locale.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-giza": {
+  "type": "er_experience",
+  "excerpt": "Com’è una visita guidata privata alle piramidi di Giza e alla Sfinge, a chi è adatta, quando farla, a cosa fare attenzione sull’altopiano e come abbinarla al Grand Egyptian Museum e a Saqqara.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-safari": {
+  "type": "er_experience",
+  "excerpt": "Un safari nel Deserto Bianco e nel Deserto Nero dall’oasi di Bahariya: formazioni di calcare, colline vulcaniche, la Montagna di Cristallo, una notte in campo tendato sotto le stelle, cosa portare e a chi è adatto.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-siwa": {
+  "type": "er_experience",
+  "excerpt": "Una giornata in 4×4 nel Grande Mare di Sabbia dall’oasi di Siwa: guida sulle dune, sandboard, sorgenti nel deserto e tramonto sulle dune, cosa portare e come scegliere un operatore locale.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-valley": {
+  "type": "er_experience",
+  "excerpt": "Una giornata guidata sulla riva ovest di Luxor: la Valle dei Re e il tempio di Hatshepsut a Deir el-Bahari, come funzionano i biglietti delle tombe, il momento migliore per andarci e cosa aggiungere se hai più tempo.",
+  "review": "approved",
+  "current": true
+ }
+}

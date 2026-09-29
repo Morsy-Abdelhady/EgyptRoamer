@@ -1,6 +1,14 @@
 # Editorial content: sources and fact policy
 
-Sources: `content/editorial/en/*.md`. They are compiled by `tools/editorial.py` into `wordpress/wp-content/plugins/egypt-roamer-core/data/editorial/en/`, and imported on the server with `wp egypt-roamer editorial`.
+Sources: `content/editorial/<lang>/*.md`. They are compiled by `tools/editorial.py` into `wordpress/wp-content/plugins/egypt-roamer-core/data/editorial/<lang>/`, and imported on the server with `wp egypt-roamer editorial [--lang=<code>] --dry-run`.
+
+## Translations
+
+- A translation follows the English file: same name, type, sections and anchors, and no facts the English doesn't have. It uses the same sources as this page.
+- Each file records the English version it was made from (`source:`) and its review state (`review: pending | approved`).
+- Only approved files that are up to date with the English are imported, and only into that language's posts.
+- Translations are written as natural editorial text in the target language, not literal or blind machine translation. Arabic is Modern Standard Arabic.
+- Current state: every language (ar, de, fr, it, es, ru, zh) has 15 files (destinations and experiences), all approved by the owner on 2026-09-29 (see `docs/MULTILINGUAL-FULL-REVIEW.md`); none imported into production yet. No translated guides yet. See `docs/ARABIC-REVIEW-INDEX.md` and `docs/MULTILINGUAL-REVIEW-INDEX.md`.
 
 ## Policy
 
@@ -20,6 +28,25 @@ Sources: `content/editorial/en/*.md`. They are compiled by `tools/editorial.py` 
 | Citadel of Qaitbay built 1477 on the site of the Pharos lighthouse, reusing its stone | https://en.wikipedia.org/wiki/Citadel_of_Qaitbay |
 | Ras Mohammed declared Egypt's first national park in 1983 | https://iucngreenlist.org/sites/ras-mohammed-national-park/ ; https://en.wikipedia.org/wiki/Ras_Muhammad_National_Park |
 | Abydos: the Temple of Seti I; Dendera: the temple built for the goddess Hathor (used in the `g-gems` guide) | https://egymonuments.gov.eg/en/news/completion-of-the-restoration-of-a-chapel-dedicated-to-the-god-amun-ra-in-the-temple-of-seti-i-at-abydos/ ; https://egymonuments.gov.eg/monuments/temple-of-dendera/ (Ministry of Tourism and Antiquities, checked 2026-09-29) |
+
+## Arabic names and where they were checked (2026-09-29)
+
+| Arabic name used | Source |
+|---|---|
+| «القاهرة التاريخية»; «ممفيس ومقبرتها – منطقة الأهرام من الجيزة إلى دهشور»; «مدينة طيبة القديمة ومقبرتها»; «معالم النوبة من أبو سمبل إلى فيلة»; «منطقة القديسة كاترين» (official UNESCO names, quoted exactly; UNESCO's page drops the dash in the Memphis name, which follows the English "–") | https://whc.unesco.org/ar/list/89 , /86 , /87 , /88 , /954 |
+| متحف جاير أندرسون | https://egymonuments.gov.eg/ar/museums/gayer-anderson-museum (Ministry of Tourism and Antiquities) |
+| جزيرة أجيلكيا (Philae moved there during the UNESCO Nubia campaign); إيزيس، حتحور | https://egymonuments.gov.eg/ar/archaeological-sites/philae |
+| دير الأنبا سمعان | https://egymonuments.gov.eg/ar/monuments/monastery-of-st-simeon |
+| أبو سمبل (invariant after prepositions, as in UNESCO's «من أبو سمبل»); نفرتاري، حتحور | https://egymonuments.gov.eg/ar/archaeological-sites/abu-simbel |
+| المسلة الناقصة | https://egymonuments.gov.eg/ar/monuments/the-unfinished-obelisk |
+
+UNESCO names in the other languages (checked 2026-09-29):
+- **Official lists:** French, Spanish, Russian and Chinese names are quoted exactly from whc.unesco.org/fr|es|ru|zh/list/89, /86, /87, /88, /954.
+- **German:** the German names are from the German UNESCO Commission list, unesco.de/orte/welterbe/welterbeliste.
+- **Italian:** there are no official Italian names, so the Italian text describes the sites instead of quoting a title.
+- Details are in `docs/MULTILINGUAL-REVIEW-INDEX.md`.
+
+The Ministry sometimes spells the final letter with ه (فيله، كوم الدكه). This site uses the standard ة consistently (فيلة، كوم الدكة), as UNESCO does.
 
 ## General knowledge used without a separate citation
 

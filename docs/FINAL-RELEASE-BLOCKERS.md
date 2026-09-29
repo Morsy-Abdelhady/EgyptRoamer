@@ -48,7 +48,7 @@ This is the single list for the project owner. Supporting detail:
   - `/go/` two-step redirect with a per-provider host allow-list;
   - click log without personal data;
   - no cart, checkout or payment.
-- **Translations:** 105 files (7 languages), all technically validated, all `review: pending`, all up to date with English; the importer refuses unapproved or outdated files; English is proven unchanged by imports.
+- **Translations:** 105 files (7 languages), all technically validated, **all `review: approved`** (owner, 2026-09-29; 28 after corrections), all up to date with English; the importer refuses unapproved or outdated files; English is proven unchanged by imports.
 - **English guides:** the 4 written guides contain no prices, hours, distances or travel times; all links target published pages; the Abydos and Dendera facts are now sourced (Ministry of Tourism and Antiquities).
 
 ## B. SAFE FIXES READY TO MERGE
@@ -97,14 +97,14 @@ After A1–A3, tell me and I'll re-verify on production (404 for `src/`; the tit
 
 | Language | Files | pending | approved | Up to date with English | Imported |
 |---|---|---|---|---|---|
-| العربية | 15 | 15 | 0 | 15 | 0 |
-| Deutsch | 15 | 15 | 0 | 15 | 0 |
-| Français | 15 | 15 | 0 | 15 | 0 |
-| Italiano | 15 | 15 | 0 | 15 | 0 |
-| Español | 15 | 15 | 0 | 15 | 0 |
-| Русский | 15 | 15 | 0 | 15 | 0 |
-| 中文 | 15 | 15 | 0 | 15 | 0 |
-| **Total** | **105** | **105** | **0** | **105** | **0** |
+| العربية | 15 | 0 | 15 | 15 | 0 |
+| Deutsch | 15 | 0 | 15 | 15 | 0 |
+| Français | 15 | 0 | 15 | 15 | 0 |
+| Italiano | 15 | 0 | 15 | 15 | 0 |
+| Español | 15 | 0 | 15 | 15 | 0 |
+| Русский | 15 | 0 | 15 | 15 | 0 |
+| 中文 | 15 | 0 | 15 | 15 | 0 |
+| **Total** | **105** | **0** | **105** | **105** | **0** |
 
 **Process:**
 1. Approve per file (`review: approved`, `reviewer`, `reviewed`) → `python tools/editorial.py` → commit on `arabic-editorial`.
