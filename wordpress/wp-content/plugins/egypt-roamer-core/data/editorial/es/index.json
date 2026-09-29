@@ -1,0 +1,92 @@
+{
+ "dest-alexandria": {
+  "type": "er_destination",
+  "excerpt": "Guía de Alejandría: el Egipto mediterráneo, de la ciudadela de Qaitbay y la Bibliotheca Alexandrina a las catacumbas romanas, el marisco en la Corniche y las excursiones a Rosetta y El Alamein.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-aswan": {
+  "type": "er_destination",
+  "excerpt": "Guía de Asuán: faluchos entre islas de granito, el templo de Filé, las aldeas nubias y la isla Elefantina, la excursión a Abu Simbel y el fenómeno solar, dónde empiezan los cruceros por el Nilo y cuánto tiempo quedarse.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-cairo": {
+  "type": "er_destination",
+  "excerpt": "El Cairo en la práctica: las pirámides y el Gran Museo Egipcio en Guiza, El Cairo islámico y copto, el Nilo, en qué barrio alojarse, cuántos días necesitas y cómo moverte por la ciudad.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-hurghada": {
+  "type": "er_destination",
+  "excerpt": "Guía de Hurghada: los arrecifes del mar Rojo, las islas Giftun, buceo y esnórquel para todos los niveles, El Gouna y las bahías de complejos del sur, excursiones al desierto, la mejor época y cómo combinar la costa con Luxor.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-luxor": {
+  "type": "er_destination",
+  "excerpt": "Guía de Luxor: Karnak y el templo de Luxor en la orilla este, el Valle de los Reyes y el templo de Hatshepsut en la orilla oeste, globos al amanecer, cruceros por el Nilo, dónde alojarse y cuántos días necesitas.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-sharm": {
+  "type": "er_destination",
+  "excerpt": "Guía de Sharm el-Sheij: el Parque Nacional de Ras Mohammed, los arrecifes de Tirán y el pecio del Thistlegorm, Naama Bay, el monte Sinaí y el monasterio de Santa Catalina, Dahab, la mejor época y cuánto tiempo quedarse.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-siwa": {
+  "type": "er_destination",
+  "excerpt": "Guía del oasis de Siwa: la fortaleza de Shali, el oráculo de Amón que consultó Alejandro Magno, lagos salados y manantiales, el Gran Mar de Arena, las costumbres locales, la mejor época y cómo planificar el largo viaje.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-abu": {
+  "type": "er_experience",
+  "excerpt": "La excursión de un día a Abu Simbel desde Asuán: por qué los templos de Ramsés II y de Nefertari merecen el madrugón, carretera o avión, el fenómeno solar de febrero y octubre y cómo organizar el día.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-dinner": {
+  "type": "er_experience",
+  "excerpt": "Un crucero con cena por el Nilo en El Cairo: cómo es la noche, la música y el espectáculo de tanura, para quién es, cómo elegir barco y en qué se diferencia de un simple paseo en falucho al atardecer.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-dive": {
+  "type": "er_experience",
+  "excerpt": "Dos inmersiones guiadas en arrecife en el mar Rojo: cómo es un día de buceo, qué necesitan principiantes y buceadores titulados, cómo elegir un centro responsable y dónde están los mejores arrecifes.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-food": {
+  "type": "er_experience",
+  "excerpt": "Un tour nocturno de comida callejera en El Cairo: los platos que probarás, del koshari y el ful al feteer y los dulces, los barrios que recorrerás, las necesidades alimentarias y por qué ayuda un guía local.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-giza": {
+  "type": "er_experience",
+  "excerpt": "Cómo es una visita guiada privada a las pirámides de Guiza y la Esfinge, para quién es, cuándo hacerla, qué vigilar en la meseta y cómo combinarla con el Gran Museo Egipcio y Saqqara.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-safari": {
+  "type": "er_experience",
+  "excerpt": "Un safari por el Desierto Blanco y el Desierto Negro desde el oasis de Bahariya: formaciones de creta, colinas volcánicas, la Montaña de Cristal, una noche de acampada bajo las estrellas, qué llevar y para quién es.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-siwa": {
+  "type": "er_experience",
+  "excerpt": "Un día en 4×4 por el Gran Mar de Arena desde el oasis de Siwa: conducción por dunas, sandboard, manantiales en el desierto y atardecer sobre las dunas, qué llevar y cómo elegir un operador local.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-valley": {
+  "type": "er_experience",
+  "excerpt": "Un día guiado por la orilla oeste de Luxor: el Valle de los Reyes y el templo de Hatshepsut en Deir el-Bahari, cómo funcionan las entradas de las tumbas, el mejor momento para ir y qué añadir si tienes más tiempo.",
+  "review": "pending",
+  "current": true
+ }
+}
