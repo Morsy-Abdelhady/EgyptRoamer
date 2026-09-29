@@ -189,3 +189,42 @@ The design keeps one pipeline. It is dry-run first, review-gated and never overw
 | Unknown language `xx` | error, no writes |
 | English posts (title, slug, status, body, excerpt, all meta) | md5 identical before and after |
 | Content QA | no Latin words except the airport codes CAI/SPX; no number absent from the English; all internal links match the English |
+
+## 9. How the Arabic content reaches production (release gate 1, verified 2026-09-29)
+
+**The server never reads `content/editorial/`.** The Markdown sources are authoring files only. The importer reads the compiled files inside Core, so the normal Theme/Core deploy delivers everything it needs. No architecture change is needed.
+
+```
+content/editorial/ar/*.md                       (repo only; never deployed)
+      │  python tools/editorial.py              (local; CI re-runs `check` and fails if stale)
+      ▼
+plugins/egypt-roamer-core/data/editorial/ar/    (15 × .html + index.json, committed)
+      │  deploy-production.yml: rsync of the Core folder only
+      ▼
+~/html/wp-content/plugins/egypt-roamer-core/data/editorial/ar/
+      │  wp egypt-roamer editorial --lang=ar    (reads ER_CORE_DIR . 'data/editorial/ar/')
+      ▼
+Arabic posts (only approved files, only empty or seed bodies)
+```
+
+### Evidence
+
+| Check | Result |
+|---|---|
+| Importer source path | `cli.php`: `$dir = ER_CORE_DIR . 'data/editorial/' . $lang . '/'`, where `ER_CORE_DIR = plugin_dir_path(__FILE__)`. No code in `wordpress/` references `content/editorial` |
+| Deploy scope | the Core folder is staged and rsynced whole. The excludes (`wp-config.php`, `.htaccess`, `wp-admin/`, `wp-includes/`, `uploads/`, core WP files, `*.sql*`, `*.sqlite`, `*.db`, `*.wpress`, `.git/`, `.github/`, `src/`) match nothing in `data/editorial/` |
+| Files tracked in git | all 16 files in `data/editorial/ar/` are committed and not gitignored |
+| The same path works on production today | the public files `…/egypt-roamer-core/data/editorial/en/` on egyptroamer.com (index.json with 19 items, dest-cairo.html, g-cairo.html, exp-giza.html) are byte-identical (SHA-256) to the repo. The English import used this route. `data/editorial/ar/index.json` is 404 today, as expected before the deploy |
+| Local deploy emulation | Core staged with the workflow's exclude rules: 16 Arabic files present, byte-identical, no `.md` sources in the package |
+| Local import without sources | with `content/editorial/` moved away, `wp egypt-roamer editorial --lang=ar --dry-run` reported bodies 15, excerpts 15, 35 links pointed at Arabic pages, not approved 15 (real run: 0 writes) |
+
+### Approval takes effect only through a deploy
+
+The review state travels in the compiled `index.json`. After the owner approves files, run `python tools/editorial.py` and commit. The next Core deploy then ships the approval. Until then, a production real run skips every file. A dry run works before approval and shows what would change.
+
+### Owner note: the compiled files are publicly readable
+
+- Files under the plugin folder can be fetched over HTTP, as `data/seed.json` and the English files already are.
+- After the deploy, the unreviewed Arabic drafts will be readable at `/wp-content/plugins/egypt-roamer-core/data/editorial/ar/…`. They are unlinked, and the site is noindex.
+- A `.htaccess` deny rule would not deploy, because `.htaccess` is deliberately excluded by the workflow.
+- If this matters, the alternative is to commit compiled Arabic files only once they are approved. The cost is that production could no longer dry-run the pending files. **Owner decision; nothing changed.**
