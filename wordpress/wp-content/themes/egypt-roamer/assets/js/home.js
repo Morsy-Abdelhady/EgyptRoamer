@@ -1430,7 +1430,6 @@
         <div class="dest__foot">
           <div class="dest__facts">
             <span>${t("Best time")}<b>${d.best}</b></span>
-            <span>${t("Getting there")}<b>${d.reach}</b></span>
           </div>
           <div style="display:flex;gap:.6rem;align-items:center">
             ${saveButton({ id: `dest-${d.id}`, title: d.name, image: d.image, meta: d.region })}
@@ -1648,7 +1647,7 @@
 
     list.innerHTML = destinations
       .map(
-        (d) => `<li><button type="button" data-map-item="${d.id}"><span class="pip"></span><span class="map__li-name">${d.name}</span><small>${d.reach}</small></button></li>`
+        (d) => `<li><button type="button" data-map-item="${d.id}"><span class="pip"></span><span class="map__li-name">${d.name}</span></button></li>`
       )
       .join("");
 
@@ -1687,7 +1686,6 @@
           <div class="map__card-body">
             <span class="t-label">${d.region}</span>
             <h3>${d.name}</h3>
-            <p>${d.mapReach}</p>
             <p>${t("Best time · {best}", { best: d.best })}</p>
             <a class="link" ${d.url ? `href="${escapeHtml(d.url)}"` : `href="#destinations" data-dest-link="${d.id}"`}>${t("Explore Destination")} ${icon("i-arrow", "icon--sm")}</a>
           </div>`;

@@ -2,6 +2,14 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.1.8 — 2026-09-29
+- The homepage no longer shows destination travel times, matching 1.1.7's key-facts change (owner decision of 2026-09-29), in every language:
+  - the "Getting there" fact in the destination panel;
+  - the line under each destination in the map list;
+  - the first line of the map card.
+- The homepage data no longer includes `reach`/`mapReach`, so travel times are gone from the page source too. The stored meta is kept.
+- Experience and activity durations are unchanged.
+
 ## 1.1.7 — 2026-09-29
 - Destination key facts no longer show "Getting there". Its values were travel times (flights, drives, trains), which the editorial fact policy leaves out. This follows the owner's decision of 2026-09-29 and applies to every language.
 - Region and Best time remain. Experience durations are unchanged.

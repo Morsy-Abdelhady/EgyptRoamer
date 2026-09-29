@@ -66,7 +66,6 @@ export function initDestinations() {
       <div class="dest__foot">
         <div class="dest__facts">
           <span>${t("Best time")}<b>${d.best}</b></span>
-          <span>${t("Getting there")}<b>${d.reach}</b></span>
         </div>
         <div style="display:flex;gap:.6rem;align-items:center">
           ${saveButton({ id: `dest-${d.id}`, title: d.name, image: d.image, meta: d.region })}

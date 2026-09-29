@@ -84,8 +84,6 @@ function er_payload_destination( int $id ): array {
 		'desc'       => wp_strip_all_tags( get_the_excerpt( $id ) ),
 		'highlights' => er_lines( $id, '_er_highlights' ),
 		'best'       => (string) get_post_meta( $id, '_er_best_time', true ),
-		'reach'      => (string) get_post_meta( $id, '_er_getting_there', true ),
-		'mapReach'   => (string) ( get_post_meta( $id, '_er_map_reach', true ) ?: get_post_meta( $id, '_er_getting_there', true ) ),
 		'image'      => er_post_image_payload( $id ),
 		'coords'     => is_numeric( $lat ) && is_numeric( $lng ) ? [ (float) $lng, (float) $lat ] : null,
 		'url'        => get_permalink( $id ),
