@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guide de l’oasis de Siwa : la forteresse de Shali, l’oracle d’Amon consulté par Alexandre le Grand, les lacs salés et les sources, la Grande mer de sable, les usages locaux, la meilleure saison et l’organisation du long trajet.
 source: 2dd0c1475bbb
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

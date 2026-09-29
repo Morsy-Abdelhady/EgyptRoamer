@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Una crociera con cena sul Nilo al Cairo: com’è la serata, la musica e lo spettacolo di tanoura, a chi è adatta, come scegliere la barca e che differenza c’è con un semplice giro in feluca al tramonto.
 source: 5149373e0b50
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Di cosa si tratta {#what-it-is}
 

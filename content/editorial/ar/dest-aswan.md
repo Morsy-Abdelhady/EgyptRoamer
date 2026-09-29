@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: دليل السفر إلى أسوان: الفلوكة بين الجزر الغرانيتية، ومعبد فيلة، والقرى النوبية وجزيرة إلفنتين، ورحلة اليوم إلى أبو سمبل وظاهرة تعامد الشمس، ومن أين تبدأ رحلات النيل، وكم تبقى فيها.
 source: 899175404b9a
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guida di Alessandria: l’Egitto affacciato sul Mediterraneo, dalla Cittadella di Qaitbay e dalla Bibliotheca Alexandrina alle catacombe romane, il pesce sulla Corniche e le gite a Rosetta ed El Alamein.
 source: 9e6b07589923
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 
@@ -10,7 +12,7 @@ Alessandria sembra un altro Paese rispetto al Cairo. Fondata da Alessandro Magno
 
 ## Perché andarci {#why-go}
 
-- **Una città mediterranea con un ritmo tutto suo.** Un lungo lungomare, la Corniche, la brezza marina e una cultura del caffè più vicina al Levante che alla valle del Nilo.
+- **Una città mediterranea con un ritmo tutto suo.** Un ampio lungomare, la Corniche, la brezza marina e una cultura del caffè più vicina al Levante che alla valle del Nilo.
 - **Strati di storia.** L’Alessandria faraonica, greca, romana, cristiana, islamica ed europea del XIX secolo, spesso nella stessa strada.
 - **Un facile cambio di ritmo.** Una pausa naturale di due o tre giorni dall’intensità del Cairo, o una prima tappa prima di scendere verso sud.
 
@@ -23,7 +25,7 @@ Il sultano mamelucco Qaitbay costruì questo forte sul mare nel XV secolo sul si
 La biblioteca moderna è un omaggio all’antica Biblioteca di Alessandria. Il suo edificio a disco inclinato guarda il mare; all’interno, oltre all’immensa sala di lettura, ci sono musei e mostre.
 
 ### Le catacombe di Kom el-Shoqafa
-Un complesso funerario di epoca romana scavato in profondità nella roccia. Le sue decorazioni mescolano divinità egizie e stile greco-romano, un’istantanea perfetta della cultura fusa di Alessandria.
+Un complesso funerario di epoca romana scavato in profondità nella roccia. Le sue decorazioni mescolano divinità egizie e stile greco-romano, un’istantanea perfetta della cultura meticcia di Alessandria.
 
 ### La Colonna di Pompeo e il Serapeo
 Un’unica, altissima colonna di granito sulla collina dell’antico tempio del Serapeo. Porta il nome di Pompeo per errore: fu innalzata per l’imperatore Diocleziano.
@@ -72,7 +74,7 @@ Alessandria è la città egiziana del pesce. Il modo classico di mangiare è sce
 - **I treni** collegano il Cairo e Alessandria per tutto il giorno e sono il modo più comodo per arrivare.
 - **Transfer via strada e autobus** collegano anch’essi le due città.
 - **L’aeroporto di Borg El Arab** serve Alessandria per chi arriva in aereo.
-- **In città:** app di ride-hailing e taxi sono semplici da usare. I vecchi tram gialli sono lenti, ma fanno parte dell’esperienza.
+- **In città:** app per prenotare un’auto con autista e taxi sono semplici da usare. I vecchi tram gialli sono lenti, ma fanno parte dell’esperienza.
 
 ## Domande frequenti {#faq}
 

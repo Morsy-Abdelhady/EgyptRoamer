@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: يوم بسيارة الدفع الرباعي في بحر الرمال العظيم من واحة سيوة: القيادة على الكثبان، والتزلّج على الرمال، وينابيع الصحراء، والغروب فوق الكثبان، وما تحمله معك، وكيف تختار منظّمًا محليًا.
 source: 18a508992ce2
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## ما هي هذه التجربة {#what-it-is}
 

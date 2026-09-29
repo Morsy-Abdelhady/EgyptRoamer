@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: رحلة عشاء نيلية في القاهرة: كيف تبدو الأمسية، والموسيقى وعرض التنورة، ولمن تناسب، وكيف تختار المركب، وكيف تقارَن بجولة بسيطة بالفلوكة عند الغروب.
 source: 5149373e0b50
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## ما هي هذه التجربة {#what-it-is}
 

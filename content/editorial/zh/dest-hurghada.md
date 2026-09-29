@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: 赫尔格达旅行指南：红海珊瑚礁、吉夫顿岛、适合各种水平的潜水与浮潜、埃尔古纳和南部度假海湾、沙漠之旅、最佳季节，以及如何把海岸与卢克索结合起来。
 source: 58c12100abd1
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

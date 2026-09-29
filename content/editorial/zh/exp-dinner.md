@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: 开罗尼罗河晚餐游船：夜晚是怎样度过的、音乐与坦努拉旋转舞表演、适合谁、如何选船，以及它与日落时简单乘一趟三角帆船有何不同。
 source: 5149373e0b50
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## 这是什么 {#what-it-is}
 

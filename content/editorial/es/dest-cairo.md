@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: El Cairo en la práctica: las pirámides y el Gran Museo Egipcio en Guiza, El Cairo islámico y copto, el Nilo, en qué barrio alojarse, cuántos días necesitas y cómo moverte por la ciudad.
 source: d29034d09df9
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 
@@ -122,7 +124,7 @@ Añade un cuarto día para Saqqara, Menfis y Dahshur.
 
 ## Cómo llegar y moverse {#getting-around}
 
-- **Llegada.** La mayoría de los vuelos internacionales aterrizan en el aeropuerto internacional de El Cairo (CAI), al noreste de la ciudad. Algunas rutas usan el aeropuerto internacional Sphinx (SPX), al oeste, más cerca de Guiza. Un traslado reservado de antemano es la primera llegada menos estresante.
+- **Llegada.** La mayoría de los vuelos internacionales aterrizan en el aeropuerto internacional de El Cairo (CAI), al noreste de la ciudad. Algunas rutas usan el aeropuerto internacional Sphinx (SPX), al oeste, más cerca de Guiza. Para la primera llegada, un traslado reservado de antemano es la opción menos estresante.
 - **Por la ciudad.** Las aplicaciones de VTC están muy extendidas y evitan regatear la tarifa. El metro es útil para el centro y El Cairo copto. Para Guiza, Saqqara y Dahshur, contrata un conductor o una excursión.
 - **El tráfico.** Es denso buena parte del día, así que agrupa las visitas por barrios y reduce al mínimo los trayectos de un extremo a otro de la ciudad.
 

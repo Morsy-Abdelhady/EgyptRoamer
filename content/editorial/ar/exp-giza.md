@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: كيف تبدو الزيارة الخاصة المصحوبة بمرشد إلى أهرامات الجيزة وأبي الهول، ولمن تناسب، ومتى تبدأها، وما الذي تنتبه له على الهضبة، وكيف تجمعها مع المتحف المصري الكبير وسقارة.
 source: 3ee5ad6375d6
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## ما هي هذه التجربة {#what-it-is}
 

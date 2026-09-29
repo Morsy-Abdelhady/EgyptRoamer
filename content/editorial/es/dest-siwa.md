@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guía del oasis de Siwa: la fortaleza de Shali, el oráculo de Amón que consultó Alejandro Magno, lagos salados y manantiales, el Gran Mar de Arena, las costumbres locales, la mejor época y cómo planificar el largo viaje.
 source: 2dd0c1475bbb
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

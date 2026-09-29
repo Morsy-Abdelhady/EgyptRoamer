@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Une journée guidée sur la rive ouest de Louxor : la Vallée des Rois et le temple d’Hatchepsout à Deir el-Bahari, le fonctionnement des billets des tombes, le meilleur moment pour y aller et quoi ajouter si vous avez plus de temps.
 source: eadd9c3d01a0
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## De quoi s’agit-il {#what-it-is}
 

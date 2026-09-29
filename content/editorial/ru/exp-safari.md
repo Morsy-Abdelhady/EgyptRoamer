@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Сафари по Белой и Чёрной пустыне из оазиса Бахария: меловые скалы, вулканические холмы, Хрустальная гора, ночь в лагере под звёздами, что взять с собой и кому подойдёт поездка.
 source: 82c1e5ba7f71
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Что это такое {#what-it-is}
 

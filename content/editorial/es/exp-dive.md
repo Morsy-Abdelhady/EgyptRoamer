@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Dos inmersiones guiadas en arrecife en el mar Rojo: cómo es un día de buceo, qué necesitan principiantes y buceadores titulados, cómo elegir un centro responsable y dónde están los mejores arrecifes.
 source: 427d7ee0dd08
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## En qué consiste {#what-it-is}
 

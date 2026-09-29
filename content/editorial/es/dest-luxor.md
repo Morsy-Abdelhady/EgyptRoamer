@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guía de Luxor: Karnak y el templo de Luxor en la orilla este, el Valle de los Reyes y el templo de Hatshepsut en la orilla oeste, globos al amanecer, cruceros por el Nilo, dónde alojarse y cuántos días necesitas.
 source: 48dfac96eb26
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

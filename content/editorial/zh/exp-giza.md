@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: 吉萨金字塔与狮身人面像私人导览是什么样的体验、适合谁、何时出发、在高原上要注意什么，以及如何与大埃及博物馆和萨卡拉搭配。
 source: 3ee5ad6375d6
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## 这是什么 {#what-it-is}
 

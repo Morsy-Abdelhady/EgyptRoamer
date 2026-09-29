@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guía de Alejandría: el Egipto mediterráneo, de la ciudadela de Qaitbay y la Bibliotheca Alexandrina a las catacumbas romanas, el marisco en la Corniche y las excursiones a Rosetta y El Alamein.
 source: 9e6b07589923
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

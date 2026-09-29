@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Un tour nocturno de comida callejera en El Cairo: los platos que probarás, del koshari y el ful al feteer y los dulces, los barrios que recorrerás, las necesidades alimentarias y por qué ayuda un guía local.
 source: bd0a2d2d49a4
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## En qué consiste {#what-it-is}
 

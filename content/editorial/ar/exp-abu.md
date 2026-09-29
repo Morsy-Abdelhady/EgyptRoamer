@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: رحلة اليوم إلى أبو سمبل من أسوان: لماذا يستحق معبدا رمسيس الثاني ونفرتاري عناء البداية المبكرة، والطريق البري أو الجوي، وظاهرة تعامد الشمس في فبراير وأكتوبر، وكيف تخطّط ليومك.
 source: 74ad81ad490c
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## ما هي هذه التجربة {#what-it-is}
 

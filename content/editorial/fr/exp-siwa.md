@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Une journée en 4×4 dans la Grande mer de sable depuis l’oasis de Siwa : conduite dans les dunes, sandboard, sources du désert et coucher de soleil sur les dunes, ce qu’il faut emporter et comment choisir un opérateur local.
 source: 18a508992ce2
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## De quoi s’agit-il {#what-it-is}
 

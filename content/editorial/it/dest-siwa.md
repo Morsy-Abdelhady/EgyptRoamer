@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guida dell’oasi di Siwa: la fortezza di Shali, l’oracolo di Amon consultato da Alessandro Magno, laghi salati e sorgenti, il Grande Mare di Sabbia, le usanze locali, la stagione migliore e come organizzare il lungo viaggio.
 source: 2dd0c1475bbb
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

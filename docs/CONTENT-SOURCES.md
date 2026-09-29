@@ -8,7 +8,7 @@ Sources: `content/editorial/<lang>/*.md`. They are compiled by `tools/editorial.
 - Each file records the English version it was made from (`source:`) and its review state (`review: pending | approved`).
 - Only approved files that are up to date with the English are imported, and only into that language's posts.
 - Translations are written as natural editorial text in the target language, not literal or blind machine translation. Arabic is Modern Standard Arabic.
-- Current state: every language (ar, de, fr, it, es, ru, zh) has 15 files (destinations and experiences), all pending the owner's review. No translated guides yet. See `docs/ARABIC-REVIEW-INDEX.md` and `docs/MULTILINGUAL-REVIEW-INDEX.md`.
+- Current state: every language (ar, de, fr, it, es, ru, zh) has 15 files (destinations and experiences), all approved by the owner on 2026-09-29 (see `docs/MULTILINGUAL-FULL-REVIEW.md`); none imported into production yet. No translated guides yet. See `docs/ARABIC-REVIEW-INDEX.md` and `docs/MULTILINGUAL-REVIEW-INDEX.md`.
 
 ## Policy
 

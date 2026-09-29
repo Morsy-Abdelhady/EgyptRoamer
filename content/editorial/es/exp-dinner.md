@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Un crucero con cena por el Nilo en El Cairo: cómo es la noche, la música y el espectáculo de tanura, para quién es, cómo elegir barco y en qué se diferencia de un simple paseo en falucho al atardecer.
 source: 5149373e0b50
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## En qué consiste {#what-it-is}
 
@@ -28,7 +30,7 @@ Para viajeros que quieren una noche fácil y entretenida con vistas, para famili
 > **Qué comprobar antes de reservar**
 > - **Comida y bebida:** bufé o menú cerrado, y si las bebidas están incluidas (no en todos los barcos se sirve alcohol).
 > - **El programa del espectáculo:** tanura, danza del vientre o ambos.
-> - **Dónde sale el barco**, y si incluye traslados desde el hotel.
+> - **De dónde sale el barco**, y si incluye traslados desde el hotel.
 > - **Los asientos:** mesas junto a las ventanas o en cubierta descubierta.
 
 ## Combínalo con {#combine}

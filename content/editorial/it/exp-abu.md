@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: La gita di un giorno ad Abu Simbel da Assuan: perché i templi di Ramses II e di Nefertari valgono la sveglia all’alba, strada o aereo, il fenomeno del sole di febbraio e ottobre e come organizzare la giornata.
 source: 74ad81ad490c
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Di cosa si tratta {#what-it-is}
 

@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Sharm-El-Sheikh-Reiseführer: der Nationalpark Ras Mohammed, die Riffe von Tiran und das Wrack der Thistlegorm, Naama Bay, der Mosesberg (Berg Sinai) und das Katharinenkloster, Dahab, die beste Reisezeit und wie lange Sie bleiben sollten.
 source: 7b794a12f4bf
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: 从阿斯旺出发的阿布辛贝一日游：为什么拉美西斯二世和奈菲尔塔利的神庙值得早起、走陆路还是坐飞机、2月和10月的太阳奇观，以及如何安排这一天。
 source: 74ad81ad490c
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## 这是什么 {#what-it-is}
 

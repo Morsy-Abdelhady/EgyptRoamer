@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Ein geführter Tag am Westufer von Luxor: das Tal der Könige und der Hatschepsut-Tempel in Deir el-Bahari, wie die Grabtickets funktionieren, die beste Besuchszeit und was Sie mit mehr Zeit ergänzen können.
 source: eadd9c3d01a0
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Worum es geht {#what-it-is}
 

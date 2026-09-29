@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Wie eine private, geführte Tour zu den Pyramiden von Gizeh und der Sphinx abläuft, für wen sie sich eignet, wann Sie starten sollten, worauf Sie auf dem Plateau achten müssen und wie Sie sie mit dem Grand Egyptian Museum und Sakkara verbinden.
 source: 3ee5ad6375d6
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Worum es geht {#what-it-is}
 

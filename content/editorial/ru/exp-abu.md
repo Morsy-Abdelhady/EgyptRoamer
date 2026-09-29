@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Поездка в Абу-Симбел из Асуана на один день: почему храмы Рамсеса II и Нефертари стоят раннего подъёма, дорога или перелёт, солнечный феномен в феврале и октябре и как спланировать день.
 source: 74ad81ad490c
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Что это такое {#what-it-is}
 

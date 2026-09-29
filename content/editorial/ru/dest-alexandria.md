@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Путеводитель по Александрии: средиземноморский Египет — от цитадели Кайт-бей и Александрийской библиотеки до римских катакомб, морепродукты на Корнише и поездки в Розетту и Эль-Аламейн.
 source: 9e6b07589923
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

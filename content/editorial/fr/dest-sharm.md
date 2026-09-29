@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guide de Charm el-Cheikh : le parc national de Ras Mohammed, les récifs de Tiran et l’épave du Thistlegorm, la baie de Naama, le mont Sinaï et le monastère Sainte-Catherine, Dahab, la meilleure saison et la durée idéale du séjour.
 source: 7b794a12f4bf
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

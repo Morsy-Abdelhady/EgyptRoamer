@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: 开罗夜间街头美食之旅：你会尝到哪些美食，从库莎丽、焖蚕豆到千层饼和甜点，会走过哪些街区，饮食需求如何安排，以及为什么当地导游能帮上忙。
 source: bd0a2d2d49a4
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## 这是什么 {#what-it-is}
 

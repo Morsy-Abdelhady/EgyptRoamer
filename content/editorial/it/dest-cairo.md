@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Il Cairo in pratica: le piramidi e il Grand Egyptian Museum a Giza, il Cairo islamico e copto, il Nilo, in quale quartiere dormire, quanti giorni servono e come muoversi in città.
 source: d29034d09df9
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 
@@ -122,8 +124,8 @@ Aggiungi un quarto giorno per Saqqara, Menfi e Dahshur.
 
 ## Come arrivare e come muoversi {#getting-around}
 
-- **Arrivo.** La maggior parte dei voli internazionali atterra all’aeroporto internazionale del Cairo (CAI), nella parte nord-orientale della città. Alcune rotte usano lo Sphinx International Airport (SPX) a ovest, più vicino a Giza. Un transfer prenotato in anticipo è il primo arrivo meno stressante.
-- **In città.** Le app di ride-hailing sono molto diffuse ed evitano di dover contrattare il prezzo. La metropolitana è utile per il centro e il Cairo copto. Per Giza, Saqqara e Dahshur, prendi un autista o un tour.
+- **Arrivo.** La maggior parte dei voli internazionali atterra all’aeroporto internazionale del Cairo (CAI), nella parte nord-orientale della città. Alcune rotte usano lo Sphinx International Airport (SPX) a ovest, più vicino a Giza. Per il primo arrivo, un transfer prenotato in anticipo è la soluzione meno stressante.
+- **In città.** Le app per prenotare un’auto con autista sono molto diffuse ed evitano di dover contrattare il prezzo. La metropolitana è utile per il centro e il Cairo copto. Per Giza, Saqqara e Dahshur, prendi un autista o un tour.
 - **Il traffico.** È intenso per gran parte della giornata: raggruppa le visite per quartiere e riduci al minimo gli spostamenti da una parte all’altra della città.
 
 ## Quando andare {#when-to-go}

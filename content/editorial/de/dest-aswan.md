@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Assuan-Reiseführer: Feluken zwischen Graniteilanden, der Philae-Tempel, nubische Dörfer und die Insel Elephantine, der Tagesausflug nach Abu Simbel und das Sonnenwunder, wo Nilkreuzfahrten beginnen und wie lange Sie bleiben sollten.
 source: 899175404b9a
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 
@@ -30,7 +32,7 @@ Ein gewaltiger Obelisk, der im Granitsteinbruch aufgegeben wurde, in dem man ihn
 ### Die Insel Elephantine
 Ruinen des antiken Abu, einer der ältesten Siedlungen der Region, mit einem Nilometer und nubischen Dörfern zwischen Palmen.
 
-### Die Gräber der Nobles und das Westufer
+### Die Gräber der Noblen und das Westufer
 Felsgräber am Hügel Qubbet el-Hawa mit weitem Blick über den Fluss. In der Nähe liegen die Wüstenruinen des **Simeonsklosters**.
 
 ### Das Nubische Museum

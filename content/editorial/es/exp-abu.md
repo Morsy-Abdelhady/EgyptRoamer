@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: La excursión de un día a Abu Simbel desde Asuán: por qué los templos de Ramsés II y de Nefertari merecen el madrugón, carretera o avión, el fenómeno solar de febrero y octubre y cómo organizar el día.
 source: 74ad81ad490c
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## En qué consiste {#what-it-is}
 

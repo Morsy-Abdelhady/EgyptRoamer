@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Com’è una visita guidata privata alle piramidi di Giza e alla Sfinge, a chi è adatta, quando farla, a cosa fare attenzione sull’altopiano e come abbinarla al Grand Egyptian Museum e a Saqqara.
 source: 3ee5ad6375d6
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Di cosa si tratta {#what-it-is}
 

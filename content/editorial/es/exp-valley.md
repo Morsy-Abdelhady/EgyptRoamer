@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Un día guiado por la orilla oeste de Luxor: el Valle de los Reyes y el templo de Hatshepsut en Deir el-Bahari, cómo funcionan las entradas de las tumbas, el mejor momento para ir y qué añadir si tienes más tiempo.
 source: eadd9c3d01a0
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## En qué consiste {#what-it-is}
 

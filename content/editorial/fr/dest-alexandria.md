@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guide d’Alexandrie : l’Égypte côté Méditerranée, de la citadelle de Qaitbay et de la Bibliotheca Alexandrina aux catacombes romaines, des fruits de mer sur la Corniche aux excursions à Rosette et El Alamein.
 source: 9e6b07589923
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

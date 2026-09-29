@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Una giornata in 4×4 nel Grande Mare di Sabbia dall’oasi di Siwa: guida sulle dune, sandboard, sorgenti nel deserto e tramonto sulle dune, cosa portare e come scegliere un operatore locale.
 source: 18a508992ce2
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Di cosa si tratta {#what-it-is}
 

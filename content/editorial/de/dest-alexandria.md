@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Alexandria-Reiseführer: Ägyptens Mittelmeerseite, von der Zitadelle von Qaitbay und der Bibliotheca Alexandrina bis zu römischen Katakomben, Fisch an der Corniche und Tagesausflügen nach Rosetta und El Alamein.
 source: 9e6b07589923
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Eine Dinner-Kreuzfahrt auf dem Nil in Kairo: wie der Abend abläuft, Musik und Tanoura-Show, für wen sie sich eignet, wie Sie ein Schiff wählen und wie sie sich von einer einfachen Feluken-Fahrt bei Sonnenuntergang unterscheidet.
 source: 5149373e0b50
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Worum es geht {#what-it-is}
 

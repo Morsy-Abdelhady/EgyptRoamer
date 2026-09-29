@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guida di Hurghada: le barriere coralline del Mar Rosso, le isole Giftun, immersioni e snorkeling per ogni livello, El Gouna e le baie dei resort a sud, le escursioni nel deserto, la stagione migliore e come abbinare la costa a Luxor.
 source: 58c12100abd1
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

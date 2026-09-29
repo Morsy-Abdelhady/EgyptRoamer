@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guida di Assuan: feluche tra isole di granito, il tempio di Philae, i villaggi nubiani e l’isola Elefantina, la gita ad Abu Simbel e il fenomeno del sole, dove iniziano le crociere sul Nilo e quanto fermarsi.
 source: 899175404b9a
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

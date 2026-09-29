@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Der Tagesausflug nach Abu Simbel ab Assuan: warum die Tempel Ramses’ II. und der Nefertari den frühen Start wert sind, Straße oder Flug, das Sonnenwunder im Februar und Oktober und wie Sie den Tag planen.
 source: 74ad81ad490c
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Worum es geht {#what-it-is}
 

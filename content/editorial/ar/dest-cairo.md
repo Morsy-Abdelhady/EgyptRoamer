@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: دليل عملي إلى القاهرة: الأهرامات والمتحف المصري الكبير في الجيزة، والقاهرة الإسلامية والقبطية، والنيل، وأين تقيم، وكم يومًا تحتاج، وكيف تتنقّل في المدينة.
 source: d29034d09df9
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

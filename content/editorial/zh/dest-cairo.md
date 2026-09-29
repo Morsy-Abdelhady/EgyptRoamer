@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: 开罗实用指南：吉萨的金字塔与大埃及博物馆、伊斯兰开罗与科普特开罗、尼罗河、住在哪个区、需要几天，以及如何在城里出行。
 source: d29034d09df9
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 
@@ -80,7 +82,7 @@ review: pending
 
 尼罗河是开罗喘息的地方。
 
-- **三角帆船。** 这种传统帆船从滨海大道沿岸的码头出发。日落前后在水上待一个小时，是这座城市最简单的乐趣之一。
+- **三角帆船。** 这种传统帆船从滨河大道沿岸的码头出发。日落前后在水上待一个小时，是这座城市最简单的乐趣之一。
 - **晚餐游船**加入了音乐和表演。请看我们的[尼罗河晚餐游船](/experiences/nile-dinner-cruise-with-live-show/)。
 - **扎马雷克。** 位于杰济拉岛上的绿荫街区，遍布画廊、咖啡馆和使馆，南端矗立着开罗塔。
 

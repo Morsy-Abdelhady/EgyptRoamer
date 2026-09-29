@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Un safari por el Desierto Blanco y el Desierto Negro desde el oasis de Bahariya: formaciones de creta, colinas volcánicas, la Montaña de Cristal, una noche de acampada bajo las estrellas, qué llevar y para quién es.
 source: 82c1e5ba7f71
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## En qué consiste {#what-it-is}
 
@@ -29,7 +31,7 @@ El campamento se monta normalmente al abrigo de las formaciones: cena hecha al f
 
 ## Para quién es {#who-it-suits}
 
-Para viajeros que buscan paisaje y aventura y no les importa una acampada sencilla sin instalaciones. No es una experiencia de lujo, y el trayecto desde El Cairo es largo.
+Para viajeros que buscan paisaje y aventura y a quienes no les importa una acampada sencilla sin instalaciones. No es una experiencia de lujo, y el trayecto desde El Cairo es largo.
 
 ## Duración y época {#when}
 

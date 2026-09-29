@@ -2,11 +2,13 @@
 type: er_destination
 excerpt: Guide d’Assouan : felouques entre les îles de granit, le temple de Philae, les villages nubiens et l’île Éléphantine, l’excursion à Abou Simbel et le phénomène solaire, le départ des croisières sur le Nil et la durée idéale du séjour.
 source: 899175404b9a
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 
-Assouan, c’est l’Égypte à son plus paisible. Ici, le Nil se resserre entre des blocs de granit et des îles verdoyantes, et sur la rive ouest le désert descend jusqu’à l’eau. C’est aussi le cœur de la culture nubienne. Beaucoup de voyageurs arrivent épuisés par l’enchaînement des temples et découvrent qu’Assouan est l’endroit où le voyage ralentit : une felouque au coucher du soleil, un dîner sur une terrasse au-dessus du fleuve et un seul réveil matinal pour Abou Simbel.
+Assouan, c’est l’Égypte dans ce qu’elle a de plus paisible. Ici, le Nil se resserre entre des blocs de granit et des îles verdoyantes, et sur la rive ouest le désert descend jusqu’à l’eau. C’est aussi le cœur de la culture nubienne. Beaucoup de voyageurs arrivent épuisés par l’enchaînement des temples et découvrent qu’Assouan est l’endroit où le voyage ralentit : une felouque au coucher du soleil, un dîner sur une terrasse au-dessus du fleuve et un seul réveil matinal pour Abou Simbel.
 
 ## Pourquoi y aller {#why-go}
 

@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guía de Sharm el-Sheij: el Parque Nacional de Ras Mohammed, los arrecifes de Tirán y el pecio del Thistlegorm, Naama Bay, el monte Sinaí y el monasterio de Santa Catalina, Dahab, la mejor época y cuánto tiempo quedarse.
 source: 7b794a12f4bf
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

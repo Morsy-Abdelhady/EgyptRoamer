@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: День с гидом на западном берегу Луксора: Долина царей и храм Хатшепсут в Дейр-эль-Бахри, как устроены билеты в гробницы, когда лучше ехать и что добавить, если есть больше времени.
 source: eadd9c3d01a0
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Что это такое {#what-it-is}
 

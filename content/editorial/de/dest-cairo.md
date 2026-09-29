@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Kairo praktisch erklärt: die Pyramiden und das Grand Egyptian Museum in Gizeh, das islamische und das koptische Kairo, der Nil, das passende Viertel zum Übernachten, wie viele Tage Sie brauchen und wie Sie sich in der Stadt bewegen.
 source: d29034d09df9
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 
@@ -122,7 +124,7 @@ Nehmen Sie einen vierten Tag für Sakkara, Memphis und Dahschur dazu.
 
 ## Anreise und unterwegs in der Stadt {#getting-around}
 
-- **Ankunft.** Die meisten internationalen Flüge landen am Cairo International Airport (CAI) im Nordosten der Stadt. Einige Verbindungen nutzen den Sphinx International Airport (SPX) im Westen, der näher an Gizeh liegt. Ein vorab gebuchter Transfer ist bei der ersten Ankunft die stressfreiste Lösung.
+- **Ankunft.** Die meisten internationalen Flüge landen am Cairo International Airport (CAI) im Nordosten der Stadt. Einige Verbindungen nutzen den Sphinx International Airport (SPX) im Westen, der näher an Gizeh liegt. Ein vorab gebuchter Transfer ist bei der ersten Ankunft die stressfreieste Lösung.
 - **In der Stadt.** Fahrdienst-Apps sind weit verbreitet und ersparen das Verhandeln über den Fahrpreis. Die Metro ist praktisch für das Zentrum und das koptische Kairo. Für Gizeh, Sakkara und Dahschur nehmen Sie einen Fahrer oder eine Tour.
 - **Verkehr.** Er ist den größten Teil des Tages dicht. Planen Sie Ihre Besichtigungen deshalb nach Vierteln und halten Sie Fahrten quer durch die Stadt möglichst gering.
 

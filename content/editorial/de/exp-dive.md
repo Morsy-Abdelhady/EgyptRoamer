@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Zwei geführte Riff-Tauchgänge im Roten Meer: wie ein Tauchtag abläuft, was Einsteiger und zertifizierte Taucher mitbringen müssen, wie Sie eine verantwortungsvolle Tauchbasis wählen und wo die besten Riffe liegen.
 source: 427d7ee0dd08
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Worum es geht {#what-it-is}
 

@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: À quoi ressemble une visite guidée privée des pyramides de Gizeh et du Sphinx, à qui elle s’adresse, quand la faire, à quoi faire attention sur le plateau et comment la combiner avec le Grand Musée égyptien et Saqqarah.
 source: 3ee5ad6375d6
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## De quoi s’agit-il {#what-it-is}
 

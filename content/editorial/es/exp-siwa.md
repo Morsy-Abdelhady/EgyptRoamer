@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Un día en 4×4 por el Gran Mar de Arena desde el oasis de Siwa: conducción por dunas, sandboard, manantiales en el desierto y atardecer sobre las dunas, qué llevar y cómo elegir un operador local.
 source: 18a508992ce2
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## En qué consiste {#what-it-is}
 

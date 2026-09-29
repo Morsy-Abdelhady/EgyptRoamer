@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: 沙姆沙伊赫旅行指南：穆罕默德角国家公园、蒂朗珊瑚礁与蓟花号沉船、纳马湾、西奈山与圣凯瑟琳修道院、达哈卜、最佳季节，以及该待多久。
 source: 7b794a12f4bf
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

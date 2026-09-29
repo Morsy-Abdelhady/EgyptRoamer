@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Luxor-Reiseführer: Karnak und der Luxor-Tempel am Ostufer, das Tal der Könige und der Hatschepsut-Tempel am Westufer, Ballonfahrten bei Sonnenaufgang, Nilkreuzfahrten, die passende Unterkunft und wie viele Tage Sie brauchen.
 source: 48dfac96eb26
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

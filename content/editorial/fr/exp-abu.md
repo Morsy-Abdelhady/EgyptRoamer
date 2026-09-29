@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: L’excursion à Abou Simbel depuis Assouan : pourquoi les temples de Ramsès II et de Néfertari valent le réveil matinal, route ou avion, le phénomène solaire de février et d’octobre, et comment organiser la journée.
 source: 74ad81ad490c
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## De quoi s’agit-il {#what-it-is}
 

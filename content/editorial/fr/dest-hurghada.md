@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guide d’Hurghada : les récifs de la mer Rouge, les îles Giftun, la plongée et le snorkeling pour tous les niveaux, El Gouna et les baies balnéaires du sud, les sorties dans le désert, la meilleure saison et comment combiner la côte avec Louxor.
 source: 58c12100abd1
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

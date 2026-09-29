@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Le Caire en pratique : les pyramides et le Grand Musée égyptien à Gizeh, le Caire islamique et copte, le Nil, le quartier où loger, le nombre de jours à prévoir et comment se déplacer.
 source: d29034d09df9
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 
@@ -14,7 +16,7 @@ La ville est immense et sa circulation légendaire : le secret consiste donc à 
 
 - **Deux sites du patrimoine mondial dans une seule ville.** L’UNESCO inscrit à la fois *Le Caire historique* et *Memphis et sa nécropole – les zones des pyramides de Guizeh à Dahchour*.
 - **Le Grand Musée égyptien.** Entièrement ouvert en novembre 2025 à côté du plateau de Gizeh, il présente pour la première fois la collection complète de Toutânkhamon réunie en un seul lieu.
-- **Des strates que vous ne trouverez nulle part ailleurs en Égypte.** Le Caire pharaonique, copte, islamique et Belle Époque se trouvent à quelques minutes les uns des autres.
+- **Des strates que vous ne trouverez nulle part ailleurs en Égypte.** Le Caire pharaonique, copte, islamique et Belle Époque se trouvent à courte distance les uns des autres.
 - **La meilleure ville du pays pour manger.** Des comptoirs de koshari aux vieux cafés, la table fait partie de la visite.
 
 ## Gizeh : les pyramides et le Grand Musée égyptien {#giza}
@@ -122,7 +124,7 @@ Ajoutez un quatrième jour pour Saqqarah, Memphis et Dahchour.
 
 ## Arriver et se déplacer {#getting-around}
 
-- **Arrivée.** La plupart des vols internationaux atterrissent à l’aéroport international du Caire (CAI), au nord-est de la ville. Certaines lignes desservent l’aéroport international Sphinx (SPX), à l’ouest, plus proche de Gizeh. Un transfert réservé à l’avance reste la première arrivée la moins stressante.
+- **Arrivée.** La plupart des vols internationaux atterrissent à l’aéroport international du Caire (CAI), au nord-est de la ville. Certaines lignes desservent l’aéroport international Sphinx (SPX), à l’ouest, plus proche de Gizeh. Pour une première arrivée, un transfert réservé à l’avance reste la solution la moins stressante.
 - **En ville.** Les applications de VTC sont très utilisées et évitent de négocier la course. Le métro est pratique pour le centre et le Caire copte. Pour Gizeh, Saqqarah et Dahchour, prenez un chauffeur ou une excursion.
 - **La circulation.** Elle est dense une bonne partie de la journée : regroupez vos visites par quartier et limitez au maximum les traversées de la ville.
 

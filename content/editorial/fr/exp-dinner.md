@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Un dîner-croisière sur le Nil au Caire : le déroulé de la soirée, la musique et le spectacle de tanoura, à qui il s’adresse, comment choisir un bateau et en quoi il diffère d’une simple balade en felouque au coucher du soleil.
 source: 5149373e0b50
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## De quoi s’agit-il {#what-it-is}
 

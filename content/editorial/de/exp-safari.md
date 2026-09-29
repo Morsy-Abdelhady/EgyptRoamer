@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Eine Safari in die Weiße und Schwarze Wüste ab der Oase Bahariya: Kreidefelsen, Vulkanhügel, der Kristallberg, eine Nacht im Camp unter Sternen, was Sie einpacken sollten und für wen die Tour geeignet ist.
 source: 82c1e5ba7f71
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Worum es geht {#what-it-is}
 

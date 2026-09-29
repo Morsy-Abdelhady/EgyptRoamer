@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Un tour street food nocturne au Caire : les plats que vous goûterez, du koshari et du foul au feteer et aux douceurs, les quartiers traversés, les régimes alimentaires et pourquoi un guide local aide.
 source: bd0a2d2d49a4
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## De quoi s’agit-il {#what-it-is}
 

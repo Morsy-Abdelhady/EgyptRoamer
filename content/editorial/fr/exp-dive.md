@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Deux plongées encadrées sur récif en mer Rouge : le déroulé d’une journée de plongée, ce qu’il faut pour les débutants et les plongeurs certifiés, comment choisir un centre responsable et où se trouvent les plus beaux récifs.
 source: 427d7ee0dd08
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## De quoi s’agit-il {#what-it-is}
 

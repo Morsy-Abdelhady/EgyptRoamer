@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Hurghada-Reiseführer: Riffe im Roten Meer, die Giftun-Inseln, Tauchen und Schnorcheln für jedes Niveau, El Gouna und die Resortbuchten im Süden, Wüstentouren, die beste Reisezeit und wie Sie die Küste mit Luxor verbinden.
 source: 58c12100abd1
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guía de Asuán: faluchos entre islas de granito, el templo de Filé, las aldeas nubias y la isla Elefantina, la excursión a Abu Simbel y el fenómeno solar, dónde empiezan los cruceros por el Nilo y cuánto tiempo quedarse.
 source: 899175404b9a
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

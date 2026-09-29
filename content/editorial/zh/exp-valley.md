@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: 卢克索西岸导览一日游：帝王谷与代尔拜赫里的哈特谢普苏特神庙、墓室门票如何运作、最佳参观时间，以及时间充裕时还可以加什么。
 source: eadd9c3d01a0
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## 这是什么 {#what-it-is}
 

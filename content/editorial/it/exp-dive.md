@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Due immersioni guidate sulla barriera corallina del Mar Rosso: com’è una giornata di immersioni, cosa serve a principianti e subacquei certificati, come scegliere un diving responsabile e dove sono le barriere più belle.
 source: 427d7ee0dd08
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Di cosa si tratta {#what-it-is}
 

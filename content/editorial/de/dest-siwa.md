@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Reiseführer Oase Siwa: die Festung Shali, das Amun-Orakel, das Alexander der Große befragte, Salzseen und Quellen, das Große Sandmeer, lokale Sitten, die beste Reisezeit und wie Sie die lange Anreise planen.
 source: 2dd0c1475bbb
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guida di Sharm el-Sheikh: il Parco Nazionale di Ras Mohammed, le barriere di Tiran e il relitto della Thistlegorm, Naama Bay, il Monte Sinai e il Monastero di Santa Caterina, Dahab, la stagione migliore e quanto fermarsi.
 source: 7b794a12f4bf
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 
@@ -40,7 +42,7 @@ All’interno, le montagne di granito del Sinai meridionale custodiscono il **Mo
 
 ## Naama Bay e la vita in città {#naama-bay}
 
-**Naama Bay** è il centro vivace, con il lungomare, i ristoranti e i bar. Il **Old Market**, nella città vecchia, offre spezie e souvenir. La maggior parte degli hotel si allunga sulla costa in resort indipendenti, molti con una propria barriera raggiungibile da un pontile.
+**Naama Bay** è il centro vivace, con il lungomare, i ristoranti e i bar. L’**Old Market**, nella città vecchia, offre spezie e souvenir. La maggior parte degli hotel si allunga sulla costa in resort indipendenti, molti con una propria barriera raggiungibile da un pontile.
 
 ## Dahab e oltre {#dahab}
 

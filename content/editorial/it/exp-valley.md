@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Una giornata guidata sulla riva ovest di Luxor: la Valle dei Re e il tempio di Hatshepsut a Deir el-Bahari, come funzionano i biglietti delle tombe, il momento migliore per andarci e cosa aggiungere se hai più tempo.
 source: eadd9c3d01a0
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Di cosa si tratta {#what-it-is}
 

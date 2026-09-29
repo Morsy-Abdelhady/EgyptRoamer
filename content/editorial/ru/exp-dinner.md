@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Круиз с ужином по Нилу в Каире: как проходит вечер, музыка и шоу танура, кому он подойдёт, как выбрать теплоход и чем он отличается от простой прогулки на фелуке на закате.
 source: 5149373e0b50
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Что это такое {#what-it-is}
 

@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guide de Louxor : Karnak et le temple de Louxor sur la rive est, la Vallée des Rois et le temple d’Hatchepsout sur la rive ouest, les montgolfières à l’aube, les croisières sur le Nil, où loger et combien de jours prévoir.
 source: 48dfac96eb26
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 
@@ -23,7 +25,7 @@ Des bacs et un pont relient les deux rives. Une journée par rive est un minimum
 Un immense ensemble de temples, de pylônes et d’obélisques, construit et agrandi au fil de nombreux siècles et dédié avant tout au dieu Amon. La grande salle hypostyle, forêt de colonnes géantes sculptées, est le moment dont se souviennent la plupart des visiteurs. Venez tôt et prévoyez au moins deux heures.
 
 ### Le temple de Louxor
-Plus petit et plus ramassé, en plein centre-ville. Il est à son meilleur en fin d’après-midi et après la tombée de la nuit, lorsqu’il est illuminé.
+Plus petit et plus ramassé, en plein centre-ville. C’est en fin d’après-midi et à la nuit tombée, lorsqu’il est illuminé, qu’il est le plus beau.
 
 ### L’allée des Sphinx
 La voie processionnelle bordée de sphinx qui reliait autrefois Karnak au temple de Louxor a été dégagée et restaurée sur toute sa longueur. Elle se prête bien à une promenade entre les deux.

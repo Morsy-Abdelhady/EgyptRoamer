@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: غطستان مصحوبتان بمرشد في شعاب البحر الأحمر: كيف يبدو يوم الغوص، والمتطلّبات للمبتدئين وللغوّاصين الحاصلين على شهادات، وكيف تختار مركز غوص مسؤولًا، وأين أجمل الشعاب.
 source: 427d7ee0dd08
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## ما هي هذه التجربة {#what-it-is}
 

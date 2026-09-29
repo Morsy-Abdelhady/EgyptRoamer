@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: دليل السفر إلى واحة سيوة: قلعة شالي، ومعبد وحي آمون الذي استشاره الإسكندر الأكبر، والبحيرات المالحة والينابيع، وبحر الرمال العظيم، والعادات المحلية، وأفضل موسم للزيارة، وكيف تخطّط للرحلة الطويلة.
 source: 2dd0c1475bbb
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

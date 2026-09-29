@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guía de Hurghada: los arrecifes del mar Rojo, las islas Giftun, buceo y esnórquel para todos los niveles, El Gouna y las bahías de complejos del sur, excursiones al desierto, la mejor época y cómo combinar la costa con Luxor.
 source: 58c12100abd1
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

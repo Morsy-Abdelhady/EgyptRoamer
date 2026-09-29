@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Два погружения на рифах Красного моря с гидом: как проходит день дайвинга, что нужно новичкам и сертифицированным дайверам, как выбрать ответственный дайв-центр и где лучшие рифы.
 source: 427d7ee0dd08
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Что это такое {#what-it-is}
 

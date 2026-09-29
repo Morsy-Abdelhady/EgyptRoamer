@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: 卢克索旅行指南：东岸的卡纳克神庙与卢克索神庙，西岸的帝王谷与哈特谢普苏特神庙，黎明热气球，尼罗河游轮，住在哪里以及需要几天。
 source: 48dfac96eb26
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: 从拜哈里耶绿洲出发的白沙漠与黑沙漠探险：白垩岩石、火山丘、水晶山、星空下露营一晚、要带什么，以及这趟行程适合谁。
 source: 82c1e5ba7f71
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## 这是什么 {#what-it-is}
 

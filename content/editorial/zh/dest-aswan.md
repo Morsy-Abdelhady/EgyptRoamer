@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: 阿斯旺旅行指南：在花岗岩岛屿间乘三角帆船、菲莱神庙、努比亚村落与象岛、阿布辛贝一日游与太阳奇观、尼罗河游轮的起点，以及该待多久。
 source: 899175404b9a
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

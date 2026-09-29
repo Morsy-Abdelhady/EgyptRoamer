@@ -3,7 +3,7 @@
 **Status (2026-09-29): implemented and tested locally. Nothing has been imported into production.**
 - Tooling: `tools/editorial.py` compiles every language (`--lang`, `check`, `status`); the Arabic contents label is "في هذه الصفحة".
 - Core 1.2.5: `wp egypt-roamer editorial --lang=ar [--dry-run]`. It was numbered 1.2.4 until 2026-09-29, when Core 1.2.4 shipped the security headers instead.
-- Content: 15 Arabic files in `content/editorial/ar/` (7 destinations, 8 experiences). All are `review: pending`.
+- Content: 15 Arabic files in `content/editorial/ar/` (7 destinations, 8 experiences). All are `review: approved` (owner, 2026-09-29).
 - Guides: no Arabic guides (owner decision 5).
 - The production import waits for the owner's per-file approval and an explicit go (§5.4 step 6).
 

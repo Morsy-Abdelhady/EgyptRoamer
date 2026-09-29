@@ -1,19 +1,21 @@
 ---
 type: er_experience
-excerpt: Un safari nel Deserto Bianco e nel Deserto Nero dall’oasi di Bahariya: formazioni di gesso, colline vulcaniche, la Montagna di Cristallo, una notte in campo tendato sotto le stelle, cosa portare e a chi è adatto.
+excerpt: Un safari nel Deserto Bianco e nel Deserto Nero dall’oasi di Bahariya: formazioni di calcare, colline vulcaniche, la Montagna di Cristallo, una notte in campo tendato sotto le stelle, cosa portare e a chi è adatto.
 source: 82c1e5ba7f71
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Di cosa si tratta {#what-it-is}
 
-Un viaggio in 4×4 nel Deserto Occidentale, che di solito parte dall’**oasi di Bahariya**, raggiungibile via strada dal Cairo. Il percorso attraversa il **Deserto Nero**, con le sue scure colline vulcaniche, fino al **Deserto Bianco**, dove il vento ha scolpito il gesso in enormi funghi e pilastri bianchi. La maggior parte delle escursioni include una notte in campo tra le formazioni.
+Un viaggio in 4×4 nel Deserto Occidentale, che di solito parte dall’**oasi di Bahariya**, raggiungibile via strada dal Cairo. Il percorso attraversa il **Deserto Nero**, con le sue scure colline vulcaniche, fino al **Deserto Bianco**, dove il vento ha scolpito il calcare in enormi funghi e pilastri bianchi. La maggior parte delle escursioni include una notte in campo tra le formazioni.
 
 ## Cosa vedrai {#what-you-see}
 
 - **Il Deserto Nero:** sabbia punteggiata di colline coniche coperte di pietra vulcanica nera.
 - **La Montagna di Cristallo:** una cresta di cristalli di quarzo lungo la strada.
 - **Agabat:** valli e dune spettacolari tra i due deserti.
-- **Il Deserto Bianco:** formazioni di gesso modellate dal vento, splendide al tramonto e all’alba e spettrali sotto la luna piena. La zona è tutelata come Area Protetta del Deserto Bianco.
+- **Il Deserto Bianco:** formazioni di calcare modellate dal vento, splendide al tramonto e all’alba e spettrali sotto la luna piena. La zona è tutelata come Area Protetta del Deserto Bianco.
 
 ## Una notte nel deserto {#camping}
 

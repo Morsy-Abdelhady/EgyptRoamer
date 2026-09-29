@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: 从锡瓦绿洲出发的大沙海四驱越野一日游：冲沙、滑沙、沙漠温泉和沙丘日落，要带什么，以及如何选择当地经营者。
 source: 18a508992ce2
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## 这是什么 {#what-it-is}
 

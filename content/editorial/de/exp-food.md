@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Eine nächtliche Streetfood-Tour durch Kairo: die Gerichte, die Sie probieren, von Koshari und Ful bis Feteer und Süßem, die Viertel, durch die Sie gehen, besondere Ernährungswünsche und warum ein lokaler Guide hilft.
 source: bd0a2d2d49a4
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Worum es geht {#what-it-is}
 

@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Путеводитель по Луксору: Карнак и Луксорский храм на восточном берегу, Долина царей и храм Хатшепсут на западном, воздушные шары на рассвете, круизы по Нилу, где остановиться и сколько нужно дней.
 source: 48dfac96eb26
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

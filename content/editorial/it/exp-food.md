@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: Un tour serale dello street food al Cairo: i piatti che assaggerai, dal koshari al ful fino al feteer e ai dolci, i quartieri che attraverserai, le esigenze alimentari e perché aiuta una guida locale.
 source: bd0a2d2d49a4
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## Di cosa si tratta {#what-it-is}
 

@@ -2,7 +2,9 @@
 type: er_destination
 excerpt: Guida di Luxor: Karnak e il Tempio di Luxor sulla riva est, la Valle dei Re e il tempio di Hatshepsut sulla riva ovest, le mongolfiere all’alba, le crociere sul Nilo, dove dormire e quanti giorni servono.
 source: 48dfac96eb26
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 [[toc]]
 

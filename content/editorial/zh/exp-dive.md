@@ -2,7 +2,9 @@
 type: er_experience
 excerpt: 两次由导游带领的红海珊瑚礁潜水：潜水日是怎样安排的、初学者和持证潜水员各需要什么、如何选择负责任的潜水中心，以及最好的珊瑚礁在哪里。
 source: 427d7ee0dd08
-review: pending
+review: approved
+reviewer: Morsy Abdelhady
+reviewed: 2026-09-29
 ---
 ## 这是什么 {#what-it-is}
 
