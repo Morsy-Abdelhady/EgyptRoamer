@@ -1,0 +1,92 @@
+{
+ "dest-alexandria": {
+  "type": "er_destination",
+  "excerpt": "亚历山大旅行指南：地中海边的埃及，从盖贝依城堡、亚历山大图书馆到罗马地下墓穴，滨海大道上的海鲜，以及前往罗塞塔和阿拉曼的一日游。",
+  "review": "pending",
+  "current": true
+ },
+ "dest-aswan": {
+  "type": "er_destination",
+  "excerpt": "阿斯旺旅行指南：在花岗岩岛屿间乘三角帆船、菲莱神庙、努比亚村落与象岛、阿布辛贝一日游与太阳奇观、尼罗河游轮的起点，以及该待多久。",
+  "review": "pending",
+  "current": true
+ },
+ "dest-cairo": {
+  "type": "er_destination",
+  "excerpt": "开罗实用指南：吉萨的金字塔与大埃及博物馆、伊斯兰开罗与科普特开罗、尼罗河、住在哪个区、需要几天，以及如何在城里出行。",
+  "review": "pending",
+  "current": true
+ },
+ "dest-hurghada": {
+  "type": "er_destination",
+  "excerpt": "赫尔格达旅行指南：红海珊瑚礁、吉夫顿岛、适合各种水平的潜水与浮潜、埃尔古纳和南部度假海湾、沙漠之旅、最佳季节，以及如何把海岸与卢克索结合起来。",
+  "review": "pending",
+  "current": true
+ },
+ "dest-luxor": {
+  "type": "er_destination",
+  "excerpt": "卢克索旅行指南：东岸的卡纳克神庙与卢克索神庙，西岸的帝王谷与哈特谢普苏特神庙，黎明热气球，尼罗河游轮，住在哪里以及需要几天。",
+  "review": "pending",
+  "current": true
+ },
+ "dest-sharm": {
+  "type": "er_destination",
+  "excerpt": "沙姆沙伊赫旅行指南：穆罕默德角国家公园、蒂朗珊瑚礁与蓟花号沉船、纳马湾、西奈山与圣凯瑟琳修道院、达哈卜、最佳季节，以及该待多久。",
+  "review": "pending",
+  "current": true
+ },
+ "dest-siwa": {
+  "type": "er_destination",
+  "excerpt": "锡瓦绿洲旅行指南：沙利古城、亚历山大大帝曾求问的阿蒙神谕神庙、盐湖与泉水、大沙海、当地习俗、最佳季节，以及如何安排漫长的旅途。",
+  "review": "pending",
+  "current": true
+ },
+ "exp-abu": {
+  "type": "er_experience",
+  "excerpt": "从阿斯旺出发的阿布辛贝一日游：为什么拉美西斯二世和奈菲尔塔利的神庙值得早起、走陆路还是坐飞机、2月和10月的太阳奇观，以及如何安排这一天。",
+  "review": "pending",
+  "current": true
+ },
+ "exp-dinner": {
+  "type": "er_experience",
+  "excerpt": "开罗尼罗河晚餐游船：夜晚是怎样度过的、音乐与坦努拉旋转舞表演、适合谁、如何选船，以及它与日落时简单乘一趟三角帆船有何不同。",
+  "review": "pending",
+  "current": true
+ },
+ "exp-dive": {
+  "type": "er_experience",
+  "excerpt": "两次由导游带领的红海珊瑚礁潜水：潜水日是怎样安排的、初学者和持证潜水员各需要什么、如何选择负责任的潜水中心，以及最好的珊瑚礁在哪里。",
+  "review": "pending",
+  "current": true
+ },
+ "exp-food": {
+  "type": "er_experience",
+  "excerpt": "开罗夜间街头美食之旅：你会尝到哪些美食，从库莎丽、焖蚕豆到千层饼和甜点，会走过哪些街区，饮食需求如何安排，以及为什么当地导游能帮上忙。",
+  "review": "pending",
+  "current": true
+ },
+ "exp-giza": {
+  "type": "er_experience",
+  "excerpt": "吉萨金字塔与狮身人面像私人导览是什么样的体验、适合谁、何时出发、在高原上要注意什么，以及如何与大埃及博物馆和萨卡拉搭配。",
+  "review": "pending",
+  "current": true
+ },
+ "exp-safari": {
+  "type": "er_experience",
+  "excerpt": "从拜哈里耶绿洲出发的白沙漠与黑沙漠探险：白垩岩石、火山丘、水晶山、星空下露营一晚、要带什么，以及这趟行程适合谁。",
+  "review": "pending",
+  "current": true
+ },
+ "exp-siwa": {
+  "type": "er_experience",
+  "excerpt": "从锡瓦绿洲出发的大沙海四驱越野一日游：冲沙、滑沙、沙漠温泉和沙丘日落，要带什么，以及如何选择当地经营者。",
+  "review": "pending",
+  "current": true
+ },
+ "exp-valley": {
+  "type": "er_experience",
+  "excerpt": "卢克索西岸导览一日游：帝王谷与代尔拜赫里的哈特谢普苏特神庙、墓室门票如何运作、最佳参观时间，以及时间充裕时还可以加什么。",
+  "review": "pending",
+  "current": true
+ }
+}
