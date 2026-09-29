@@ -8,7 +8,7 @@ Sources: `content/editorial/<lang>/*.md`. They are compiled by `tools/editorial.
 - Each file records the English version it was made from (`source:`) and its review state (`review: pending | approved`).
 - Only approved files that are up to date with the English are imported, and only into that language's posts.
 - Translations are written as natural editorial text in the target language, not literal or blind machine translation. Arabic is Modern Standard Arabic.
-- Current state: Arabic has 15 files (destinations and experiences), all pending the owner's review. No other language has files yet. See `docs/ARABIC-EDITORIAL-PLAN.md`.
+- Current state: every language (ar, de, fr, it, es, ru, zh) has 15 files (destinations and experiences), all pending the owner's review. No translated guides yet. See `docs/ARABIC-REVIEW-INDEX.md` and `docs/MULTILINGUAL-REVIEW-INDEX.md`.
 
 ## Policy
 
@@ -38,6 +38,12 @@ Sources: `content/editorial/<lang>/*.md`. They are compiled by `tools/editorial.
 | دير الأنبا سمعان | https://egymonuments.gov.eg/ar/monuments/monastery-of-st-simeon |
 | أبو سمبل (invariant after prepositions, as in UNESCO's «من أبو سمبل»); نفرتاري، حتحور | https://egymonuments.gov.eg/ar/archaeological-sites/abu-simbel |
 | المسلة الناقصة | https://egymonuments.gov.eg/ar/monuments/the-unfinished-obelisk |
+
+UNESCO names in the other languages (checked 2026-09-29):
+- **Official lists:** French, Spanish, Russian and Chinese names are quoted exactly from whc.unesco.org/fr|es|ru|zh/list/89, /86, /87, /88, /954.
+- **German:** the German names are from the German UNESCO Commission list, unesco.de/orte/welterbe/welterbeliste.
+- **Italian:** there are no official Italian names, so the Italian text describes the sites instead of quoting a title.
+- Details are in `docs/MULTILINGUAL-REVIEW-INDEX.md`.
 
 The Ministry sometimes spells the final letter with ه (فيله، كوم الدكه). This site uses the standard ة consistently (فيلة، كوم الدكة), as UNESCO does.
 
