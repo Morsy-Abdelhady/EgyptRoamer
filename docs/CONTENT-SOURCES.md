@@ -27,6 +27,7 @@ Sources: `content/editorial/<lang>/*.md`. They are compiled by `tools/editorial.
 | Abu Simbel sun alignment on or around 22 February and 22 October; temples relocated in the 1960s | https://www.memphistours.com/egypt/abu-simbel-sun-festival ; https://www.onthegotours.com/Egypt/Guides/Abu-Simbel-Sun-Festival-FAQs |
 | Citadel of Qaitbay built 1477 on the site of the Pharos lighthouse, reusing its stone | https://en.wikipedia.org/wiki/Citadel_of_Qaitbay |
 | Ras Mohammed declared Egypt's first national park in 1983 | https://iucngreenlist.org/sites/ras-mohammed-national-park/ ; https://en.wikipedia.org/wiki/Ras_Muhammad_National_Park |
+| Abydos: the Temple of Seti I; Dendera: the temple built for the goddess Hathor (used in the `g-gems` guide) | https://egymonuments.gov.eg/en/news/completion-of-the-restoration-of-a-chapel-dedicated-to-the-god-amun-ra-in-the-temple-of-seti-i-at-abydos/ ; https://egymonuments.gov.eg/monuments/temple-of-dendera/ (Ministry of Tourism and Antiquities, checked 2026-09-29) |
 
 ## Arabic names and where they were checked (2026-09-29)
 
@@ -57,6 +58,7 @@ These are established and consistent across standard references. Re-check any th
 - **Siwa:** Shali is built of kershef and was damaged by rain in the 20th century; Siwi (Amazigh) language; route via Marsa Matruh.
 - **Red Sea:** Giftun Islands protected area; SS Thistlegorm (WWII); Blue Hole deep-dive danger.
 - **Desert:** White Desert Protected Area; Wadi Al-Hitan whale fossils with hind limbs.
+- **Abydos and Dendera** (`g-gems`): Abydos's king list in the Temple of Seti I; Dendera's painted ceilings and rooftop chapels.
 - **Food:** koshari, ful medames, ta'meya, feteer, hawawshi, molokhia, sayadeya.
 
 ## Not written (would need facts we don't have)
