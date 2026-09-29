@@ -28,6 +28,19 @@ Sources: `content/editorial/<lang>/*.md`. They are compiled by `tools/editorial.
 | Citadel of Qaitbay built 1477 on the site of the Pharos lighthouse, reusing its stone | https://en.wikipedia.org/wiki/Citadel_of_Qaitbay |
 | Ras Mohammed declared Egypt's first national park in 1983 | https://iucngreenlist.org/sites/ras-mohammed-national-park/ ; https://en.wikipedia.org/wiki/Ras_Muhammad_National_Park |
 
+## Arabic names and where they were checked (2026-09-29)
+
+| Arabic name used | Source |
+|---|---|
+| «القاهرة التاريخية»; «ممفيس ومقبرتها – منطقة الأهرام من الجيزة إلى دهشور»; «مدينة طيبة القديمة ومقبرتها»; «معالم النوبة من أبو سمبل إلى فيلة»; «منطقة القديسة كاترين» (official UNESCO names, quoted exactly; UNESCO's page drops the dash in the Memphis name, which follows the English "–") | https://whc.unesco.org/ar/list/89 , /86 , /87 , /88 , /954 |
+| متحف جاير أندرسون | https://egymonuments.gov.eg/ar/museums/gayer-anderson-museum (Ministry of Tourism and Antiquities) |
+| جزيرة أجيلكيا (Philae moved there during the UNESCO Nubia campaign); إيزيس، حتحور | https://egymonuments.gov.eg/ar/archaeological-sites/philae |
+| دير الأنبا سمعان | https://egymonuments.gov.eg/ar/monuments/monastery-of-st-simeon |
+| أبو سمبل (invariant after prepositions, as in UNESCO's «من أبو سمبل»); نفرتاري، حتحور | https://egymonuments.gov.eg/ar/archaeological-sites/abu-simbel |
+| المسلة الناقصة | https://egymonuments.gov.eg/ar/monuments/the-unfinished-obelisk |
+
+The Ministry sometimes spells the final letter with ه (فيله، كوم الدكه). This site uses the standard ة consistently (فيلة، كوم الدكة), as UNESCO does.
+
 ## General knowledge used without a separate citation
 
 These are established and consistent across standard references. Re-check any that editors change:
