@@ -1,0 +1,89 @@
+---
+type: er_destination
+excerpt: Guide d’Alexandrie : l’Égypte côté Méditerranée, de la citadelle de Qaitbay et de la Bibliotheca Alexandrina aux catacombes romaines, des fruits de mer sur la Corniche aux excursions à Rosette et El Alamein.
+source: 9e6b07589923
+review: pending
+---
+[[toc]]
+
+Alexandrie semble appartenir à un autre pays que Le Caire. Fondée par Alexandre le Grand, devenue la capitale des Ptolémées, elle fut pendant des siècles le visage grec et cosmopolite de l’Égypte. La cité antique repose en grande partie sous la ville moderne, ou sous la mer : Alexandrie récompense donc la curiosité plus que les listes à cocher. Venez pour la Corniche, la lumière marine, les vieux cafés et le poisson, et laissez les monuments combler les vides.
+
+## Pourquoi y aller {#why-go}
+
+- **Une ville méditerranéenne au rythme bien à elle.** Une longue Corniche en front de mer, la brise marine et une culture des cafés plus proche du Levant que de la vallée du Nil.
+- **Des strates d’histoire.** Alexandrie pharaonique, grecque, romaine, chrétienne, islamique et européenne du XIXe siècle, souvent dans la même rue.
+- **Un changement de rythme facile.** Une pause naturelle de deux ou trois jours loin de l’intensité du Caire, ou une première étape avant de partir vers le sud.
+
+## Des strates d’histoire : que voir {#what-to-see}
+
+### La citadelle de Qaitbay
+Le sultan mamelouk Qaitbay fit bâtir ce fort maritime au XVe siècle sur l’emplacement de l’antique phare d’Alexandrie, l’une des Sept Merveilles du monde antique, en réutilisant ses pierres. Parcourez les remparts pour la vue sur le port Est.
+
+### La Bibliotheca Alexandrina
+La bibliothèque moderne rend hommage à l’antique bibliothèque d’Alexandrie. Son bâtiment en forme de disque incliné fait face à la mer ; à l’intérieur, des musées et des expositions complètent l’immense salle de lecture.
+
+### Les catacombes de Kom el-Chougafa
+Un ensemble funéraire d’époque romaine creusé profondément dans la roche. Son décor mêle les dieux égyptiens au style gréco-romain, un instantané parfait de la culture métissée d’Alexandrie.
+
+### La colonne de Pompée et le Sérapéum
+Une colonne de granit solitaire et vertigineuse sur la colline de l’ancien temple du Sérapéum. Elle doit son nom à Pompée par erreur : elle fut érigée pour l’empereur Dioclétien.
+
+### Le théâtre romain de Kom el-Dikka
+Un petit théâtre romain bien conservé, entouré de vestiges de thermes et de salles d’enseignement, mis au jour en plein cœur de la ville moderne.
+
+### Le musée national d’Alexandrie
+Un musée compact installé dans une demeure restaurée. Il retrace l’histoire de la ville, des objets pharaoniques aux découvertes faites dans le port.
+
+### Les jardins du palais de Montazah
+Le domaine de l’ancien palais royal, à l’extrémité est de la Corniche, avec ses jardins et ses petites plages. Très apprécié des familles locales.
+
+## La Corniche et la vie en ville {#corniche}
+
+La Corniche épouse la courbe du port Est et au-delà. C’est la promenade de la ville, son axe de circulation et son lieu de rendez-vous, surtout le soir. Dans le centre, autour de la place Saad-Zaghloul et des rues qui la bordent, les vieilles pâtisseries et les cafés rappellent l’époque cosmopolite d’Alexandrie. Prenez le temps de vous y asseoir.
+
+## La table : la mer dans l’assiette {#food}
+
+Alexandrie est la ville des fruits de mer en Égypte. Le rituel classique consiste à choisir son poisson et ses fruits de mer sur la glace d’un restaurant de poisson. Tout est pesé, puis grillé ou frit selon votre choix. À goûter :
+
+- **Sayadeya :** du poisson cuisiné avec des oignons caramélisés et du riz épicé.
+- **Poisson et crevettes grillés**, avec tahini, salades et pain.
+- **Sandwichs au foie (kebda iskandarani)** à l’alexandrine : épicés, aux poivrons.
+- Pâtisseries et glaces des maisons historiques du centre-ville.
+
+> **Commander du poisson**
+> Dans les restaurants de poisson, les prix se font généralement au poids. Confirmez le prix et le mode de cuisson avant que le poisson parte en cuisine.
+
+## Excursions à la journée {#day-trips}
+
+- **Rosette (Rachid).** La ville où fut découverte la pierre de Rosette, avec des maisons de marchands d’époque ottomane, sur la branche ouest du delta du Nil.
+- **El Alamein.** Le champ de bataille de la Seconde Guerre mondiale, avec ses cimetières militaires et son musée militaire, à l’ouest le long de la côte.
+
+## Durée du séjour et saison {#when-to-go}
+
+**Durée.** Deux jours pleins suffisent pour les principaux sites et laissent du temps pour la Corniche et les cafés. Une excursion d’une journée depuis Le Caire est possible, mais l’aller-retour en mange une bonne partie. Rester au moins une nuit est bien préférable.
+
+**Saison.**
+- **Le printemps et l’automne** sont les saisons les plus agréables.
+- **L’été** est la saison des vacances égyptiennes sur la côte : animée, humide et bondée.
+- **L’hiver** est plus frais, avec certains jours de la pluie et du vent venant de la mer.
+
+## Arriver et se déplacer {#getting-there}
+
+- **Les trains** relient Le Caire et Alexandrie toute la journée ; c’est la façon la plus confortable d’arriver.
+- **Les transferts par la route et les bus** relient aussi les deux villes.
+- **L’aéroport de Borg El Arab** dessert Alexandrie par avion.
+- **En ville :** les applications de VTC et les taxis sont simples à utiliser. Les vieux tramways jaunes sont lents, mais font partie de l’expérience.
+
+## Questions fréquentes {#faq}
+
+?? Alexandrie vaut-elle le détour lors d’un court séjour en Égypte ?
+Si vous disposez d’une semaine ou moins, la vallée du Nil passe généralement en premier. Avec plus de temps, Alexandrie offre un visage tout autre de l’Égypte : méditerranéen, gréco-romain et cosmopolite.
+
+?? Peut-on voir le phare ou la bibliothèque antiques ?
+Ni l’un ni l’autre n’a survécu. La citadelle de Qaitbay se dresse sur l’emplacement du phare, et la Bibliotheca Alexandrina moderne rend hommage à la bibliothèque antique.
+
+?? Peut-on se baigner à Alexandrie ?
+Les plages de la ville sont bondées et surtout fréquentées par les familles locales en été. Pour des vacances balnéaires, les stations plus à l’ouest sur la côte ou la mer Rouge sont de meilleurs choix.
+
+?? Où aller après Alexandrie ?
+Retour par [Le Caire](/destinations/cairo/) vers la vallée du Nil — [Louxor](/destinations/luxor/) et [Assouan](/destinations/aswan/) — ou direction la mer Rouge à [Hurghada](/destinations/hurghada/).

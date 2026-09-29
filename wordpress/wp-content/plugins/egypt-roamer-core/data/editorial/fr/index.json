@@ -1,0 +1,92 @@
+{
+ "dest-alexandria": {
+  "type": "er_destination",
+  "excerpt": "Guide d’Alexandrie : l’Égypte côté Méditerranée, de la citadelle de Qaitbay et de la Bibliotheca Alexandrina aux catacombes romaines, des fruits de mer sur la Corniche aux excursions à Rosette et El Alamein.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-aswan": {
+  "type": "er_destination",
+  "excerpt": "Guide d’Assouan : felouques entre les îles de granit, le temple de Philae, les villages nubiens et l’île Éléphantine, l’excursion à Abou Simbel et le phénomène solaire, le départ des croisières sur le Nil et la durée idéale du séjour.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-cairo": {
+  "type": "er_destination",
+  "excerpt": "Le Caire en pratique : les pyramides et le Grand Musée égyptien à Gizeh, le Caire islamique et copte, le Nil, le quartier où loger, le nombre de jours à prévoir et comment se déplacer.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-hurghada": {
+  "type": "er_destination",
+  "excerpt": "Guide d’Hurghada : les récifs de la mer Rouge, les îles Giftun, la plongée et le snorkeling pour tous les niveaux, El Gouna et les baies balnéaires du sud, les sorties dans le désert, la meilleure saison et comment combiner la côte avec Louxor.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-luxor": {
+  "type": "er_destination",
+  "excerpt": "Guide de Louxor : Karnak et le temple de Louxor sur la rive est, la Vallée des Rois et le temple d’Hatchepsout sur la rive ouest, les montgolfières à l’aube, les croisières sur le Nil, où loger et combien de jours prévoir.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-sharm": {
+  "type": "er_destination",
+  "excerpt": "Guide de Charm el-Cheikh : le parc national de Ras Mohammed, les récifs de Tiran et l’épave du Thistlegorm, la baie de Naama, le mont Sinaï et le monastère Sainte-Catherine, Dahab, la meilleure saison et la durée idéale du séjour.",
+  "review": "pending",
+  "current": true
+ },
+ "dest-siwa": {
+  "type": "er_destination",
+  "excerpt": "Guide de l’oasis de Siwa : la forteresse de Shali, l’oracle d’Amon consulté par Alexandre le Grand, les lacs salés et les sources, la Grande mer de sable, les usages locaux, la meilleure saison et l’organisation du long trajet.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-abu": {
+  "type": "er_experience",
+  "excerpt": "L’excursion à Abou Simbel depuis Assouan : pourquoi les temples de Ramsès II et de Néfertari valent le réveil matinal, route ou avion, le phénomène solaire de février et d’octobre, et comment organiser la journée.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-dinner": {
+  "type": "er_experience",
+  "excerpt": "Un dîner-croisière sur le Nil au Caire : le déroulé de la soirée, la musique et le spectacle de tanoura, à qui il s’adresse, comment choisir un bateau et en quoi il diffère d’une simple balade en felouque au coucher du soleil.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-dive": {
+  "type": "er_experience",
+  "excerpt": "Deux plongées encadrées sur récif en mer Rouge : le déroulé d’une journée de plongée, ce qu’il faut pour les débutants et les plongeurs certifiés, comment choisir un centre responsable et où se trouvent les plus beaux récifs.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-food": {
+  "type": "er_experience",
+  "excerpt": "Un tour street food nocturne au Caire : les plats que vous goûterez, du koshari et du foul au feteer et aux douceurs, les quartiers traversés, les régimes alimentaires et pourquoi un guide local aide.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-giza": {
+  "type": "er_experience",
+  "excerpt": "À quoi ressemble une visite guidée privée des pyramides de Gizeh et du Sphinx, à qui elle s’adresse, quand la faire, à quoi faire attention sur le plateau et comment la combiner avec le Grand Musée égyptien et Saqqarah.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-safari": {
+  "type": "er_experience",
+  "excerpt": "Un safari dans le Désert blanc et le Désert noir depuis l’oasis de Bahariya : formations de craie, collines volcaniques, la montagne de Cristal, une nuit de bivouac sous les étoiles, ce qu’il faut emporter et à qui s’adresse l’excursion.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-siwa": {
+  "type": "er_experience",
+  "excerpt": "Une journée en 4×4 dans la Grande mer de sable depuis l’oasis de Siwa : conduite dans les dunes, sandboard, sources du désert et coucher de soleil sur les dunes, ce qu’il faut emporter et comment choisir un opérateur local.",
+  "review": "pending",
+  "current": true
+ },
+ "exp-valley": {
+  "type": "er_experience",
+  "excerpt": "Une journée guidée sur la rive ouest de Louxor : la Vallée des Rois et le temple d’Hatchepsout à Deir el-Bahari, le fonctionnement des billets des tombes, le meilleur moment pour y aller et quoi ajouter si vous avez plus de temps.",
+  "review": "pending",
+  "current": true
+ }
+}
