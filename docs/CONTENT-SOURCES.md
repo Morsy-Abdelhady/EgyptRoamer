@@ -1,6 +1,14 @@
 # Editorial content: sources and fact policy
 
-Sources: `content/editorial/en/*.md`. They are compiled by `tools/editorial.py` into `wordpress/wp-content/plugins/egypt-roamer-core/data/editorial/en/`, and imported on the server with `wp egypt-roamer editorial`.
+Sources: `content/editorial/<lang>/*.md`. They are compiled by `tools/editorial.py` into `wordpress/wp-content/plugins/egypt-roamer-core/data/editorial/<lang>/`, and imported on the server with `wp egypt-roamer editorial [--lang=<code>] --dry-run`.
+
+## Translations
+
+- A translation follows the English file: same name, type, sections and anchors, and no facts the English doesn't have. It uses the same sources as this page.
+- Each file records the English version it was made from (`source:`) and its review state (`review: pending | approved`).
+- Only approved files that are up to date with the English are imported, and only into that language's posts.
+- Translations are written as natural editorial text in the target language, not literal or blind machine translation. Arabic is Modern Standard Arabic.
+- Current state: Arabic has 15 files (destinations and experiences), all pending the owner's review. No other language has files yet. See `docs/ARABIC-EDITORIAL-PLAN.md`.
 
 ## Policy
 
