@@ -193,3 +193,21 @@ add_filter( 'oembed_response_data', static function ( $data ) {
 	unset( $data['author_name'], $data['author_url'] );
 	return $data;
 } );
+
+/* -------------------------------------------------------------------------- */
+/* Security headers (front end)                                                */
+/* -------------------------------------------------------------------------- */
+
+// Only directives that restrict nothing the site uses. The CSP sets frame-ancestors alone: a full
+// script/style policy would have to list GSAP, Unsplash, GoDaddy and Google assets, so it is left out.
+// HSTS is an owner decision (docs/FINAL-RELEASE-BLOCKERS.md). wp-admin and wp-login send their own.
+add_action( 'send_headers', static function () {
+	if ( headers_sent() ) {
+		return;
+	}
+	header( 'X-Content-Type-Options: nosniff' );
+	header( 'Referrer-Policy: strict-origin-when-cross-origin' );
+	header( 'X-Frame-Options: SAMEORIGIN' );
+	header( "Content-Security-Policy: frame-ancestors 'self'" );
+	header( 'Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()' );
+} );
