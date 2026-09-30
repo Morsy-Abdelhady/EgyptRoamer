@@ -1,3 +1,50 @@
+# Run 2 — final launch preparation (same day)
+
+Decision log: `docs/FINAL-LAUNCH-AUTONOMOUS-2026-09-30.md`.
+
+PHASE 01 BASELINE — COMPLETE
+PHASE 02 LEGAL — COMPLETE (Privacy, Cookies, Affiliate Disclosure published) · Terms: BLOCKED — OWNER INPUT (governing law, liability wording)
+PHASE 03 CONTACT — COMPLETE (page + form published, recipient set)
+PHASE 04 EMAIL — BLOCKED — OWNER INPUT (no MX/SPF/DKIM for egyptroamer.com; DNS/mail setup)
+PHASE 05 VIATOR — BLOCKED — OWNER INPUT (product selection needs the owner's Selector sign-in; provider/offer creation in wp-admin)
+PHASE 06 VIATOR UX — COMPLETE (card, disclosure, empty/paused/inactive/deleted states verified)
+PHASE 07 CONTENT — COMPLETE for the Arabic Giza title and sample content · archive intros + guide publication: BLOCKED — OWNER INPUT (admin writes refused to this session; texts and IDs ready)
+PHASE 08 SEO — COMPLETE (legal pages: canonical, noindex; no English archive copy on translated archives)
+PHASE 09 SECURITY — COMPLETE for code/affiliate · stale `src/` + HSTS + 2FA: BLOCKED — OWNER INPUT
+PHASE 10 PERFORMANCE — COMPLETE (measured in run 1; self-hosting photos: DEFERRED — NON-BLOCKING, owner decision)
+PHASE 11 ACCESSIBILITY — COMPLETE (axe 0 after the `link-in-text-block` fix; contact form labelled)
+PHASE 12 UI/UX — COMPLETE (legal/contact on the shared reading column; prose spacing fixed)
+PHASE 13 RESPONSIVE — COMPLETE (18 page types × 390–1920 local, axe 0)
+PHASE 14 PRODUCTION — COMPLETE (runs #17, #18 success)
+PHASE 15 POST-DEPLOY VERIFICATION — COMPLETE (bounded; production rate limit respected)
+PHASE 16 FINAL LAUNCH GATE — COMPLETE (table in the decision log's final section below)
+
+INCOMPLETE = 0
+
+| Area | Status | Evidence | Blocker? |
+|---|---|---|---|
+| UI/UX, design system, IA, homepage | COMPLETE | runs 1–2, geometry + sweeps | no |
+| Destination / experience pages | COMPLETE | 120 pages × 2 widths, 0 issues | no |
+| Guides | BLOCKED — OWNER INPUT | 4 ready drafts (33, 34, 37, 39) | no (can launch without) |
+| Content | BLOCKED — OWNER INPUT | archive intros text ready | no |
+| Multilingual / Arabic RTL | COMPLETE | footers in 8 languages; Giza title fixed | no |
+| Viator | BLOCKED — OWNER INPUT | account + pipeline proven; no live offer | **yes (commercial launch)** |
+| Affiliate tracking | COMPLETE | `/go/` → Viator with `er-{lang}-{placement}-{page}`; abuse cases safe | no |
+| Legal (Privacy, Cookies, Disclosure) | COMPLETE | published 200, noindex, canonical | no |
+| Terms | BLOCKED — OWNER INPUT | draft; governing law + liability | **yes** |
+| Privacy / cookies / consent | COMPLETE | only `__cf_bm`; no banner needed | no |
+| Contact page | COMPLETE | 200, form, axe 0 | no |
+| Email | BLOCKED — OWNER INPUT | no MX/SPF/DKIM; DMARC quarantine | **yes** |
+| SEO | COMPLETE | noindex kept; sitemap off | no |
+| Performance | COMPLETE | medians in run 1 | no |
+| Security | BLOCKED — OWNER INPUT | `src/` public; no 2FA | **yes** |
+| Accessibility, responsive | COMPLETE | axe 0; 320–1920 | no |
+| Production | COMPLETE | theme 1.2.4, Core 1.2.7 live | no |
+
+**Indexing: KEEP INDEXING OFF.**
+
+---
+
 # Autonomous execution ledger — 2026-09-30
 
 PHASE 01 — BASELINE
