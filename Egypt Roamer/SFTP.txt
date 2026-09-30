@@ -1,0 +1,6 @@
+SSH Command
+ ssh client_c52f6cc536_1284039@1284039.eu11.ssh.myftpupload.com
+Username
+ client_c52f6cc536_1284039
+Password
+ GPlXj@Y@@Z50Fk

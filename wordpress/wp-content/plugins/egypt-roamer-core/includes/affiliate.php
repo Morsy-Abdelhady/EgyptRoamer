@@ -375,7 +375,14 @@ function er_offer_intent( int $offer_id ): string {
 
 /** Short disclosure text, translatable. */
 function er_disclosure_html( string $class = 'disclosure' ): string {
-	$text = er_translate_string( (string) er_settings( 'disclosure_text' ) );
+	$setting = (string) er_settings( 'disclosure_text' );
+	$text    = er_translate_string_strict( $setting );
+	if ( '' === $text && '' !== trim( $setting ) ) {
+		// No Polylang translation: the translation shipped with Core while the setting holds the stock
+		// wording; otherwise the English setting (a disclosure must never disappear).
+		$stock = json_decode( (string) file_get_contents( ER_CORE_DIR . 'data/ui-copy.json' ), true )['disclosure']['en'] ?? ''; // phpcs:ignore WordPress.WP.AlternativeFunctions
+		$text  = trim( $setting ) === trim( (string) $stock ) && '' !== er_ui_copy( 'disclosure' ) ? er_ui_copy( 'disclosure' ) : $setting;
+	}
 	if ( '' === trim( $text ) ) {
 		return '';
 	}

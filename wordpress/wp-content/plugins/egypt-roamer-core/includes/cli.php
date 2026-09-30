@@ -744,6 +744,25 @@ class ER_CLI {
 	}
 
 	/**
+	 * Create or update the translations of the published legal/trust pages (see includes/legal.php).
+	 *
+	 * ## OPTIONS
+	 *
+	 * [--dry-run]
+	 * : Report what would change without writing.
+	 *
+	 * @when after_wp_load
+	 */
+	public function legal( $args, $assoc ) {
+		$dry    = ! empty( $assoc['dry-run'] );
+		$result = er_legal_sync( $dry );
+		foreach ( $result['lines'] as $line ) {
+			WP_CLI::log( $line );
+		}
+		WP_CLI::success( ( $dry ? '(dry run) ' : '' ) . wp_json_encode( $result['counts'] ) );
+	}
+
+	/**
 	 * Point a translated body's internal links (English paths such as /destinations/luxor/#when) at the
 	 * published translation in $lang, keeping the #anchor. A link with no published translation becomes text.
 	 */

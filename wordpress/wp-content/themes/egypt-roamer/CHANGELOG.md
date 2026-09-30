@@ -2,6 +2,14 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.5 — 2026-09-30
+Multilingual parity for everything added after the 105-file translation review (with Core 1.2.8):
+- Legal/contact pages (`page.php`): documents read on the centred column with section tabs (three or more sections), a quiet "last updated" line, hairline section dividers, compact headings, a bordered table that stacks into label/value blocks on phones, and a translation note on translated pages. No cards.
+- Contact: intro, details (email, phone) and booking note beside the form on desktop (container width, one axis with the hero); stacked on phones; email/phone kept left-to-right in Arabic.
+- Footer legal row built from the pages (Privacy, Terms, Cookies, Affiliate Disclosure, Contact) in the page's language with each page's own title, no longer from the hand-edited menus.
+- Archive intros: `er_archive_intro()` (Core), localized in 8 languages; the guides intro only while guides are published in that language.
+- `er_body()` option `cards => false` for documents.
+
 ## 1.2.4 — 2026-09-30
 - Menu link check: it compared links with `home_url( '/' )`, which Polylang turns into `/de/`, `/fr/` … on translated pages, so links to unprefixed pages were treated as external and never checked. A German footer link to the unpublished Terms page (404) was shown. It now compares with the site's own origin.
 

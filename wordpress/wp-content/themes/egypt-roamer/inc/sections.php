@@ -19,7 +19,11 @@ defined( 'ABSPATH' ) || exit;
  *
  * @return array{html:string,links:array<int,array{0:string,1:string}>,label:string}
  */
-function er_body(): array {
+/**
+ * @param array $opts cards: false keeps lists and H3 runs as plain text (documents such as legal pages).
+ */
+function er_body( array $opts = [] ): array {
+	$opts += [ 'cards' => true ];
 	$html  = (string) apply_filters( 'the_content', get_the_content() ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals -- core hook
 	$html  = str_replace( ']]>', ']]&gt;', $html );
 	$label = er_t( 'On this page' );
@@ -40,22 +44,25 @@ function er_body(): array {
 			$label = trim( wp_strip_all_tags( $m[1] ) ) ?: $label;
 			$html  = str_replace( $m[0], '', $html );
 		}
-		$html = er_sections_wrap( $html );
+		$html = er_sections_wrap( $html, $opts );
 	}
 	return [ 'html' => trim( $html ), 'links' => $links, 'label' => $label ];
 }
 
 /** Wrap each H2 and what follows it in a section; mark lists, H3 runs and FAQs. */
-function er_sections_wrap( string $html ): string {
+function er_sections_wrap( string $html, array $opts = [ 'cards' => true ] ): string {
 	$parts = preg_split( '#(?=<h2\b[^>]*\bid=")#', $html );
-	$out   = er_sections_mark( (string) array_shift( $parts ) );
+	$out   = er_sections_mark( (string) array_shift( $parts ), $opts );
 	foreach ( $parts as $part ) {
-		$out .= '<section class="er-sec">' . er_sections_mark( $part ) . '</section>';
+		$out .= '<section class="er-sec">' . er_sections_mark( $part, $opts ) . '</section>';
 	}
 	return $out;
 }
 
-function er_sections_mark( string $chunk ): string {
+function er_sections_mark( string $chunk, array $opts = [ 'cards' => true ] ): string {
+	if ( empty( $opts['cards'] ) ) {
+		return $chunk;
+	}
 	// Callouts keep their plain lists: set them aside while the lists are marked.
 	$kept  = [];
 	$chunk = preg_replace_callback(

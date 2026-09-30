@@ -1,0 +1,55 @@
+{
+ "_note": "Visitor-facing copy added after the 105-file translation review (2026-09-30). Defaults: a text set in Egypt Roamer → Settings (and its Polylang translations) overrides these. Translations drafted 2026-09-30, pending native review (docs/MULTILINGUAL-PARITY-POST-105-AUDIT-2026-09-30.md).",
+ "archive_intro": {
+  "en": {
+   "er_destination": "Seven places, seven different Egypts, from Cairo and the Nile Valley to the Red Sea and the Siwa oasis. Each guide covers what to see, when to go and the questions travellers ask most.",
+   "er_experience": "Tours and day trips across Egypt, from a private visit to the Giza plateau to an early start for Abu Simbel. Each page explains what the experience is, who it suits and what to know before you book.",
+   "er_guide": "Planning guides for Egypt: when to go, how to spend a first week, Cairo beyond the pyramids, and places most visitors miss."
+  },
+  "ar": {
+   "er_destination": "سبعة أماكن وسبعة وجوه مختلفة لمصر، من القاهرة ووادي النيل إلى البحر الأحمر وواحة سيوة. يتناول كل دليل ما يستحق المشاهدة، وأفضل وقت للزيارة، وأكثر ما يسأل عنه المسافرون.",
+   "er_experience": "جولات ورحلات يومية في أنحاء مصر، من زيارة خاصة إلى هضبة الجيزة إلى رحلة تبدأ مع الفجر إلى أبو سمبل. تشرح كل صفحة طبيعة التجربة، ولمن تناسب، وما ينبغي معرفته قبل الحجز.",
+   "er_guide": "أدلة لتخطيط رحلتك إلى مصر: متى تسافر، وكيف تقضي أسبوعك الأول، والقاهرة بعيدًا عن الأهرامات، وأماكن يفوّتها معظم الزوار."
+  },
+  "de": {
+   "er_destination": "Sieben Orte, sieben verschiedene Gesichter Ägyptens – von Kairo und dem Niltal bis zum Roten Meer und zur Oase Siwa. Jeder Reiseführer zeigt, was sich lohnt, wann die beste Reisezeit ist und was Reisende am häufigsten fragen.",
+   "er_experience": "Touren und Tagesausflüge in ganz Ägypten – vom privaten Besuch des Plateaus von Gizeh bis zum frühen Aufbruch nach Abu Simbel. Jede Seite erklärt, worum es geht, für wen es passt und was Sie vor der Buchung wissen sollten.",
+   "er_guide": "Reiseplanung für Ägypten: wann Sie reisen sollten, wie Sie Ihre erste Woche verbringen, Kairo jenseits der Pyramiden und Orte, die die meisten Besucher verpassen."
+  },
+  "fr": {
+   "er_destination": "Sept lieux, sept visages de l’Égypte, du Caire et de la vallée du Nil à la mer Rouge et à l’oasis de Siwa. Chaque guide présente ce qu’il faut voir, la meilleure période pour y aller et les questions que les voyageurs posent le plus.",
+   "er_experience": "Visites et excursions à la journée dans toute l’Égypte, d’une visite privée du plateau de Gizeh à un départ matinal pour Abou Simbel. Chaque page explique de quoi il s’agit, à qui cela s’adresse et ce qu’il faut savoir avant de réserver.",
+   "er_guide": "Des guides pour préparer votre voyage en Égypte : quand partir, comment passer une première semaine, Le Caire au-delà des pyramides et les lieux que la plupart des visiteurs manquent."
+  },
+  "it": {
+   "er_destination": "Sette luoghi, sette Egitti diversi, dal Cairo e dalla valle del Nilo al Mar Rosso e all’oasi di Siwa. Ogni guida racconta cosa vedere, quando andare e le domande che i viaggiatori fanno più spesso.",
+   "er_experience": "Tour ed escursioni di un giorno in tutto l’Egitto, da una visita privata all’altopiano di Giza a una partenza all’alba per Abu Simbel. Ogni pagina spiega di cosa si tratta, a chi è adatta e cosa sapere prima di prenotare.",
+   "er_guide": "Guide per organizzare il viaggio in Egitto: quando andare, come trascorrere una prima settimana, il Cairo oltre le piramidi e i luoghi che la maggior parte dei visitatori non vede."
+  },
+  "es": {
+   "er_destination": "Siete lugares, siete Egiptos distintos, desde El Cairo y el valle del Nilo hasta el mar Rojo y el oasis de Siwa. Cada guía explica qué ver, cuándo ir y las preguntas que más se hacen los viajeros.",
+   "er_experience": "Tours y excursiones de un día por todo Egipto, desde una visita privada a la meseta de Guiza hasta una salida de madrugada hacia Abu Simbel. Cada página explica en qué consiste, para quién es y qué conviene saber antes de reservar.",
+   "er_guide": "Guías para planificar tu viaje a Egipto: cuándo ir, cómo pasar una primera semana, El Cairo más allá de las pirámides y lugares que la mayoría de los visitantes se pierde."
+  },
+  "ru": {
+   "er_destination": "Семь мест — семь разных Египтов: от Каира и долины Нила до Красного моря и оазиса Сива. В каждом путеводителе — что посмотреть, когда ехать и ответы на самые частые вопросы путешественников.",
+   "er_experience": "Экскурсии и однодневные поездки по всему Египту — от частного визита на плато Гиза до раннего выезда в Абу-Симбел. На каждой странице — в чём суть, кому подойдёт и что важно знать до бронирования.",
+   "er_guide": "Путеводители для планирования поездки в Египет: когда ехать, как провести первую неделю, Каир за пределами пирамид и места, которые пропускает большинство туристов."
+  },
+  "zh": {
+   "er_destination": "七个地方，七种不同的埃及：从开罗和尼罗河谷，到红海和锡瓦绿洲。每篇指南都会介绍值得看什么、什么时候去，以及旅行者最常问的问题。",
+   "er_experience": "遍及埃及的游览和一日游：从吉萨高原私人游，到清晨出发前往阿布辛拜勒。每个页面都会说明这是什么体验、适合哪些人，以及预订前需要了解的事项。",
+   "er_guide": "埃及旅行规划指南：什么时候去、第一周怎么安排、金字塔之外的开罗，以及大多数游客会错过的地方。"
+  }
+ },
+ "disclosure": {
+  "en": "Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you. It never influences what we recommend.",
+  "ar": "Egypt Roamer منصة مستقلة. عندما تحجز عبر روابط شركائنا قد نحصل على عمولة صغيرة دون أي تكلفة إضافية عليك، ولا تؤثر هذه العمولة أبدًا في ما نوصي به.",
+  "de": "Egypt Roamer ist unabhängig. Wenn Sie über unsere Partnerlinks buchen, erhalten wir möglicherweise eine kleine Provision – für Sie ohne Mehrkosten. Sie hat nie Einfluss auf unsere Empfehlungen.",
+  "fr": "Egypt Roamer est indépendant. Lorsque vous réservez via nos liens partenaires, nous pouvons percevoir une petite commission, sans frais supplémentaires pour vous. Elle n’influence jamais nos recommandations.",
+  "it": "Egypt Roamer è indipendente. Quando prenoti tramite i nostri link partner potremmo ricevere una piccola commissione, senza alcun costo aggiuntivo per te. Non influenza mai ciò che consigliamo.",
+  "es": "Egypt Roamer es independiente. Cuando reservas a través de nuestros enlaces de socios, podemos recibir una pequeña comisión, sin coste adicional para ti. Nunca influye en lo que recomendamos.",
+  "ru": "Egypt Roamer — независимое издание. Когда вы бронируете через наши партнёрские ссылки, мы можем получить небольшую комиссию — для вас это ничего не стоит. Она никогда не влияет на наши рекомендации.",
+  "zh": "Egypt Roamer 是独立媒体。当你通过我们的合作伙伴链接预订时，我们可能会获得一小笔佣金，你无需支付任何额外费用。佣金绝不会影响我们的推荐。"
+ }
+}

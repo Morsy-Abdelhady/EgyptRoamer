@@ -1,0 +1,131 @@
+{
+ "_note": "Built by tools/legal.py from content/legal. Translations drafted 2026-09-30, pending native review.",
+ "pages": {
+  "privacy-policy": {
+   "ar": {
+    "title": "سياسة الخصوصية",
+    "slug": "privacy-policy-ar"
+   },
+   "de": {
+    "title": "Datenschutzerklärung",
+    "slug": "privacy-policy-de"
+   },
+   "fr": {
+    "title": "Politique de confidentialité",
+    "slug": "privacy-policy-fr"
+   },
+   "it": {
+    "title": "Informativa sulla privacy",
+    "slug": "privacy-policy-it"
+   },
+   "es": {
+    "title": "Política de privacidad",
+    "slug": "privacy-policy-es"
+   },
+   "ru": {
+    "title": "Политика конфиденциальности",
+    "slug": "privacy-policy-ru"
+   },
+   "zh": {
+    "title": "隐私政策",
+    "slug": "privacy-policy-zh"
+   }
+  },
+  "cookies": {
+   "ar": {
+    "title": "سياسة ملفات تعريف الارتباط",
+    "slug": "cookies-ar"
+   },
+   "de": {
+    "title": "Cookie-Richtlinie",
+    "slug": "cookies-de"
+   },
+   "fr": {
+    "title": "Politique relative aux cookies",
+    "slug": "cookies-fr"
+   },
+   "it": {
+    "title": "Informativa sui cookie",
+    "slug": "cookies-it"
+   },
+   "es": {
+    "title": "Política de cookies",
+    "slug": "cookies-es"
+   },
+   "ru": {
+    "title": "Политика использования файлов cookie",
+    "slug": "cookies-ru"
+   },
+   "zh": {
+    "title": "Cookie 政策",
+    "slug": "cookies-zh"
+   }
+  },
+  "affiliate-disclosure": {
+   "ar": {
+    "title": "الإفصاح عن الروابط التابعة",
+    "slug": "affiliate-disclosure-ar"
+   },
+   "de": {
+    "title": "Offenlegung zu Partnerlinks",
+    "slug": "affiliate-disclosure-de"
+   },
+   "fr": {
+    "title": "Divulgation des liens affiliés",
+    "slug": "affiliate-disclosure-fr"
+   },
+   "it": {
+    "title": "Informativa sui link di affiliazione",
+    "slug": "affiliate-disclosure-it"
+   },
+   "es": {
+    "title": "Divulgación de afiliados",
+    "slug": "affiliate-disclosure-es"
+   },
+   "ru": {
+    "title": "Раскрытие информации о партнёрских ссылках",
+    "slug": "affiliate-disclosure-ru"
+   },
+   "zh": {
+    "title": "联盟链接披露",
+    "slug": "affiliate-disclosure-zh"
+   }
+  },
+  "contact": {
+   "ar": {
+    "title": "اتصل بنا",
+    "slug": "contact-ar"
+   },
+   "de": {
+    "title": "Kontakt",
+    "slug": "contact-de"
+   },
+   "fr": {
+    "title": "Contact",
+    "slug": "contact-fr"
+   },
+   "it": {
+    "title": "Contatti",
+    "slug": "contact-it"
+   },
+   "es": {
+    "title": "Contacto",
+    "slug": "contact-es"
+   },
+   "ru": {
+    "title": "Контакты",
+    "slug": "contact-ru"
+   },
+   "zh": {
+    "title": "联系我们",
+    "slug": "contact-zh"
+   }
+  }
+ },
+ "en_updates": {
+  "contact": {
+   "file": "en/contact.html",
+   "replaces_sha1": "f3a53c653c371213f9cb2ea16f6ff0d4c0698009"
+  }
+ }
+}

@@ -80,17 +80,16 @@ function er_menu( string $location, string $wrap = '<ul>%3$s</ul>' ): string {
 }
 
 /**
- * Footer legal row: the "legal" menu, completed with every published legal/trust page
- * (Privacy, Terms, Cookies, Affiliate Disclosure, Contact) not already linked elsewhere in the footer.
- * Each page is taken in the current language when translated, else in the language it exists in
- * (the legal pages are English-only), so every language reaches them without a redirect.
+ * Footer legal row, built from the pages themselves (not a menu), so every language shows the same
+ * set with each page's own title: Privacy, Terms, Cookies, Affiliate Disclosure, Contact, when
+ * published and not already linked in the footer columns. Each page is taken in the current language
+ * when a published translation exists, else in English (with hreflang), never via a redirect.
  *
  * @param string $footer_html Other footer link HTML, so a page is not linked twice.
  */
 function er_legal_links( string $footer_html = '' ): string {
-	$menu  = er_menu( 'legal', '%3$s' );
-	$html  = (string) $menu;
-	$seen  = $footer_html . $html;
+	$html  = '';
+	$seen  = $footer_html;
 	$ids   = array_filter( [
 		function_exists( 'er_settings' ) ? (int) er_settings( 'privacy_page' ) : 0,
 		(int) ( get_page_by_path( 'terms' )->ID ?? 0 ),

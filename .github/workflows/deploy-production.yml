@@ -77,6 +77,9 @@ jobs:
       - name: Editorial content compiled from content/editorial
         run: python3 tools/editorial.py check
 
+      - name: Legal page translations built from content/legal
+        run: python3 tools/legal.py check
+
       - name: Theme JS bundles match src/js
         run: |
           python3 - <<'PY'

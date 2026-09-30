@@ -78,6 +78,32 @@ function er_translate_string_strict( string $text ): string {
 	return $translated !== $text ? $translated : '';
 }
 
+/** Copy shipped with Core (data/ui-copy.json) for the current language, or ''. */
+function er_ui_copy( string $group, string $key = '' ): string {
+	static $data = null;
+	if ( null === $data ) {
+		$file = ER_CORE_DIR . 'data/ui-copy.json';
+		$data = is_readable( $file ) ? ( json_decode( (string) file_get_contents( $file ), true ) ?: [] ) : []; // phpcs:ignore WordPress.WP.AlternativeFunctions
+	}
+	$lang = er_current_lang();
+	$set  = $data[ $group ][ $lang ] ?? null;
+	return (string) ( '' === $key ? ( is_string( $set ) ? $set : '' ) : ( $set[ $key ] ?? '' ) );
+}
+
+/**
+ * Archive introduction: the editor's text from Settings (translated through Polylang, never shown in
+ * English on a translated archive), else the copy shipped with Core. The guides intro describes the
+ * guides, so it only appears while the archive has published guides in this language.
+ */
+function er_archive_intro( string $type ): string {
+	$custom = function_exists( 'er_settings' ) ? (string) er_settings( 'archive_intro_' . $type ) : '';
+	$intro  = '' !== trim( $custom ) ? er_translate_string_strict( $custom ) : er_ui_copy( 'archive_intro', $type );
+	if ( '' !== $intro && 'er_guide' === $type && ! get_posts( [ 'post_type' => 'er_guide', 'post_status' => 'publish', 'numberposts' => 1, 'fields' => 'ids', 'no_found_rows' => true, 'suppress_filters' => false ] ) ) {
+		return '';
+	}
+	return $intro;
+}
+
 add_filter( 'pll_get_post_types', static function ( $types, $is_settings ) {
 	foreach ( er_public_type_keys() as $type ) {
 		$types[ $type ] = $type;

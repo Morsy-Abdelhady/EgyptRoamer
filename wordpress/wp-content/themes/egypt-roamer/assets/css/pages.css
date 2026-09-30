@@ -1138,3 +1138,158 @@ body:has(#nav:not(.is-hidden)) .secnav {
 .page-main.prose {
   display: block;
 }
+
+/* ---------- Documents: legal pages (page.php, .prose--doc) ----------
+   Calm and scannable: a quiet "last updated" line, sections divided by a hairline, compact
+   section headings, readable tables. No cards or decoration. */
+.prose--doc > p:first-child:has(> em:only-child) {
+  font-family: var(--font-sans);
+  font-size: var(--fs-meta);
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+.prose--doc > p:first-child:has(> em:only-child) em {
+  font-style: normal;
+}
+.prose--doc > .er-sec {
+  margin-top: clamp(2.25rem, 4vw, 3rem);
+  padding-top: clamp(2rem, 3.5vw, 2.5rem);
+  border-top: 1px solid var(--line);
+}
+.prose--doc > .er-sec > h2 {
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+}
+.prose--doc table {
+  display: table;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  font-size: var(--fs-small);
+}
+.prose--doc th {
+  background: color-mix(in srgb, var(--warm-gray) 45%, var(--paper));
+  font-weight: 600;
+}
+.prose--doc th,
+.prose--doc td {
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.prose--doc tr:last-child td {
+  border-bottom: 0;
+}
+@media (max-width: 600px) {
+  /* Phones: each row becomes a small block (label: value), no sideways scrolling. */
+  .prose--doc table,
+  .prose--doc tbody,
+  .prose--doc tr,
+  .prose--doc td {
+    display: block;
+  }
+  .prose--doc thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .prose--doc td {
+    border-bottom: 0;
+    padding: 0.2rem 0.9rem;
+  }
+  .prose--doc td:first-child {
+    padding-top: 0.8rem;
+    font-weight: 600;
+  }
+  .prose--doc tr {
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .prose--doc tr:last-child {
+    border-bottom: 0;
+  }
+}
+/* A translated legal page names its English original. */
+.prose .er-translation-note {
+  padding: 0.8rem 1rem;
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--warm-gray) 40%, var(--stone));
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+/* ---------- Contact: intro and details beside the form (container width) ---------- */
+.page-layout--wide {
+  grid-template-columns: minmax(0, 1fr);
+}
+.prose .er-contact {
+  display: grid;
+  gap: var(--s-7);
+}
+.prose .er-contact > * {
+  margin: 0;
+}
+@media (min-width: 960px) {
+  .prose .er-contact {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    column-gap: clamp(3rem, 6vw, 6rem);
+    align-items: start;
+  }
+}
+.prose .er-contact__info > * + * {
+  margin-top: 1.4rem;
+}
+.prose .er-contact__info > p:first-child {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 1.6vw, 1.4rem);
+  line-height: 1.55;
+  color: var(--text);
+}
+.prose .er-contact__details {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.prose .er-contact__details li {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, 30%) 1fr;
+  gap: 1rem;
+  align-items: baseline;
+  margin: 0;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.prose .er-contact__details li > span:first-child {
+  font-size: var(--fs-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.prose .er-contact__details a {
+  font-size: 1.05rem;
+  unicode-bidi: isolate;
+}
+.prose .er-contact__form {
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-1);
+}
+.prose .er-contact__form > h2 {
+  margin-top: 0;
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+}
+.prose .er-contact__form .er-form {
+  max-width: none;
+  margin-top: 1.2rem;
+}
+.prose .er-contact__form .er-form :is(input, select, textarea) {
+  width: 100%;
+}

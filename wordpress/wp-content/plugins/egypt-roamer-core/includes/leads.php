@@ -41,7 +41,7 @@ function er_install_subscribers_table(): void {
 function er_form_guard_fields(): string {
 	$t = (string) time();
 	return sprintf(
-		'<div class="er-hp" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Website <input type="text" name="er_website" value="" tabindex="-1" autocomplete="off" /></label></div><input type="hidden" name="er_t" value="%s" /><input type="hidden" name="er_ts" value="%s" />',
+		'<div class="er-hp" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%%);white-space:nowrap"><label>Website <input type="text" name="er_website" value="" tabindex="-1" autocomplete="off" /></label></div><input type="hidden" name="er_t" value="%s" /><input type="hidden" name="er_ts" value="%s" />',
 		esc_attr( $t ),
 		esc_attr( wp_hash( 'er_form|' . $t ) )
 	);
