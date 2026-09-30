@@ -118,3 +118,30 @@ CLS stayed at 0–0.03 in every run.
    - **Options:**
      - keep it, but with Consent Mode, a consent banner and policy updates (legal);
      - or use Core's GTM setting, which defaults to consent "denied".
+
+## Final (theme 1.2.10 + Site Kit tag off), GTmetrix, same settings
+Owner decisions of 2026-09-30:
+- "reveal the text with the loader" (theme 1.2.10);
+- "disable Google Analytics until consent" (Site Kit → Analytics → "Place Google Analytics code" off; the Analytics connection is kept).
+
+The deploy (run #25) and the GoDaddy "Flush Cache" came first. The anonymous check found no request to Google.
+
+| | Baseline 1.2.7 (09:28) | 1.2.9 + Site Kit tag (10:26) | **Final 1.2.10 (≈10:58)** |
+|---|---|---|---|
+| Grade | C | C | **B** |
+| Performance | 63 % | 60 % | **71 %** |
+| Structure | 97 % | 98 % | 98 % |
+| LCP | 4.8 s | 3.8 s | **2.0 s** |
+| TBT | 182 ms | 326 ms | 303 ms |
+| FCP | 946 ms | 803 ms | 1.1 s |
+| TTI | 2.6 s | 1.6 s | 1.8 s |
+| Fully loaded | 4.8 s | 3.8 s | 2.0 s |
+| CLS | 0 | 0 | 0 |
+| TTFB | 61 ms | 75 ms | 79 ms |
+| Page size / requests | 872 KB / 31 | 1.03 MB / 33 | 873 KB / 31 |
+| JS | 80.9 KB | 258 KB | 80.2 KB |
+
+- **LCP ≤ 2.5 s: met.** 4.8 → 2.0 s.
+- **TBT < 200 ms: not met.** There are 8 long tasks: the GSAP/ScrollTrigger scroll journey set-up and its layout refreshes (approved design). The same JS weight measured 182 ms in the baseline, so TBT varies by about ±120 ms between runs.
+- **Single sample.** The Basic plan's 5 on-demand tests are used up, so the final column is one run, not a median.
+- **The next lever for TBT** is to set up the scroll journey only when the visitor starts to scroll. That changes behaviour on the first scroll, so it is an owner decision.

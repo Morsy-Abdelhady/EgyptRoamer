@@ -1,6 +1,6 @@
 # Launch-gate report (2026-09-30, evening)
 
-Status: **BLOCKED**. The engineering work that did not need owner input is done and verified; launch waits on owner decisions, legal wording and external providers (below).
+Status: **BLOCKED**. Updated after the owner's decisions: theme 1.2.10, run #25, Site Kit tag off, GTmetrix B/71 %, LCP 2.0 s. The engineering work that did not need owner input is done and verified; launch waits on owner decisions, legal wording and external providers (below).
 
 Details:
 - `docs/FULL-SITE-AUDIT-2026-09-30.md`: inventory, parity, links, SEO, accessibility, security;
@@ -60,10 +60,10 @@ Cache: GoDaddy "Flush Cache" was run after #22 and #24. Anonymous production (cl
 | D9 | P3 | Accessibility | mobile menu outside a landmark | markup | nav | ✓ | deployed |
 | D10 | P2 | Assistant | drawer footer wider than 320 px | min-content | CSS | ✓ | deployed |
 | D11 | P2 | Assistant | launcher covered footer legal links (desktop) | fixed position | footer room | ✓ | deployed |
-| O1 | **P1** | Privacy/legal | Google Analytics (Site Kit, GT-NBJ3VQHR) sets `_ga` cookies without consent; Cookie/Privacy policies don't mention it | Site Kit connected on production today | **owner/legal** | – | open |
+| O1 | **P1** | Privacy/legal | Google Analytics (Site Kit, GT-NBJ3VQHR) set `_ga` cookies without consent; Cookie/Privacy policies don't mention it | Site Kit connected on production today | owner decision: tag off until consent (Site Kit setting, connection kept) | – | **fixed**: no Google requests (anonymous) |
 | O2 | **P1** | Cache | HTML sent with `Cache-Control: public, max-age=2678400` (31 days). Returning visitors' browsers keep old pages for weeks after a deploy and flush; different caches served different copies | GoDaddy CDN replaces the origin's header (known since 28 Sep) | **owner/host setting** | – | open |
-| O3 | P1 | Performance | LCP still 3.8–4.4 s (target ≤ 2.5 s) | approved hero entrance (0.55 s delay + 1.2 s fade after the loader) | **owner decision** (options in the performance doc) | – | open |
-| O4 | P2 | Performance | TBT ~330 ms | gtag.js (+88 KB, 74 ms task) and GSAP/ScrollTrigger journey set-up | O1 decision; journey is approved design | – | open |
+| O3 | P1 | Performance | LCP 3.8–4.4 s (target ≤ 2.5 s) | hero entrance (0.55 s delay + 1.2 s fade after the loader) | owner decision: reveal with the loader (theme 1.2.10) | ✓ 2.28 s | **fixed**: GTmetrix LCP 2.0 s, grade B, 71 % |
+| O4 | P2 | Performance | TBT ~300 ms (target < 200) | GSAP/ScrollTrigger journey set-up and refreshes (gtag removed) | option: set the journey up on first scroll (owner decision) | – | open |
 | O5 | P3 | Security | theme `src/` public on production | stale early deploy | **owner**: one SSH command (the automated deletion was declined by the permission system) | – | open |
 
 ## Status model
@@ -72,15 +72,15 @@ Cache: GoDaddy "Flush Cache" was run after #22 and #24. Anonymous production (cl
 | A. Engineering | complete for everything not blocked |
 | B. QA | complete: local full audit after the assistant, and production spot checks |
 | C. Production verified | yes: anonymous browser, after cache flush, Core 1.2.10 |
-| D. Performance verified | measured with GTmetrix before/after; **target not met**: O3, O4 |
+| D. Performance verified | GTmetrix C/63 % → **B/71 %**, LCP 4.8 → **2.0 s**, TBT 182 → 303 ms (one run each; O4 open) |
 | E. Business | Viator offer (affiliate end to end), email DNS (no MX/SPF) |
 | F. Legal | Terms; Privacy/Cookie wording for Google Analytics (O1) and, later, the AI assistant |
-| G. Owner decisions | O1 analytics/consent, O2 host cache TTL, O3 hero entrance, O5 `src/`, HSTS |
+| G. Owner decisions | O2 host cache TTL, O4 journey on first scroll, O5 `src/`, HSTS; analytics consent before re-enabling GA |
 | H. External provider | AI assistant mode: Anthropic key, budget, daily cap |
 
 ## Not verified, and why
 - **Production mobile GTmetrix:** mobile devices need GTmetrix PRO, and the account is Basic.
-- **A 3rd "after" GTmetrix run:** two tests are kept for after the owner's O1/O3 decisions (the Basic plan allows 5).
+- **More GTmetrix runs:** the Basic plan's 5 tests are used up, so the final result is a single run.
 - **Affiliate end to end:** there is no live offer.
 - **Email delivery:** there is no MX record.
 - **AI mode:** there is no provider key.
