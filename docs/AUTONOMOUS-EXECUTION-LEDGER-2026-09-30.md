@@ -55,6 +55,8 @@ COMPLETE = 13 · BLOCKED = 4 (each with an external dependency below) · INCOMPL
 
 Every BLOCKED phase had its independent parts done; only the owner-dependent sub-items remain.
 
+Accessibility beyond axe (13): keyboard order, focus visibility, hidden-menu focus trap (fixed in 1.2.2), anchor focus management (fixed), reduced motion, `lang`/`dir` on every page, one H1, landmarks (nav/main/aside/footer, labelled section nav).
+
 ---
 
 ## 01 Baseline
@@ -63,7 +65,7 @@ Every BLOCKED phase had its independent parts done; only the owner-dependent sub
 - Blockers source: `docs/FINAL-RELEASE-BLOCKERS.md`.
 
 ## 02–05, 07, 13, 14 UI/UX, design system, IA, homepage, multilingual, accessibility, responsive
-Done in theme 1.2.0 (see `docs/UI-UX-AUTONOMOUS-RELEASE-2026-09-30.md`): one reading-column system (`--measure`, `--aside`, sidebar only with content), one axis per page, section tabs with scroll spy, structured body, phone hero, homepage `&#038;` fix, guides empty filter. Evidence: geometry tables at 320–1440 identical for destination and experience; 120/120 singles × 390/1440 on production 0 issues; 14 page types × 390–1920 axe 0; Arabic RTL mirrored (sidebar left, column right).
+Done in theme 1.2.0 (see `docs/UI-UX-AUTONOMOUS-RELEASE-2026-09-30.md`): one reading-column system (`--measure`, `--aside`, sidebar only with content), one axis per page, section tabs with scroll spy, structured body, phone hero, homepage `&#038;` fix, guides empty filter. Evidence: geometry tables at 320/390/768/961/1024/1280/1440 identical for destination and experience; 120/120 singles × 390/1440 on production 0 issues; 14 page types × 390–1920 axe 0; Arabic RTL mirrored (sidebar left, column right).
 - IA: destination → first 3 experiences in the sidebar (desktop) + full "Things to do"; experience → "Where it happens"; offers sit next to the text with the disclosure (verified with a local Viator offer).
 - Homepage: composition is the approved prototype; defects only (title encoding; loader timing in 1.2.1). No redesign justified.
 
@@ -91,8 +93,25 @@ Production: `nosniff`, Referrer-Policy, `X-Frame-Options: SAMEORIGIN`, CSP `fram
 ## 12 Legal / trust / contact — BLOCKED (owner: legal entity data, lawyer, inbox, DNS)
 Privacy, Terms, Cookies, Affiliate Disclosure, Contact, email sender/SPF/DKIM/DMARC need the legal entity, address, contact inbox and DNS access (E2, E4, E5). Nothing was invented. The disclosure line under every offer already exists in code.
 
-## 15–16 Release and verification
-See below (filled after run #15).
+## 15 Production release — COMPLETE
+| Commit on `main` | Content | Deploy run |
+|---|---|---|
+| `c45ebbb` | theme 1.2.0 layout system | #14 success |
+| `2bd7e15` | Core 1.2.6 tracking placeholders, theme 1.2.1 performance | #15 success |
+| `bd122de` | theme 1.2.2 keyboard fixes + this ledger | #16 success |
+
+Before each push: PHP lint (all changed files; 54 files for 1.2.0), `seed.json`, `tools/editorial.py check`, JS bundles = `src/js`, local page matrix (14 page types × 390–1920: overflow none, page errors none, axe 0). No content, translation, URL or database change in any commit.
+
+## 16 Production verification — COMPLETE
+- Live versions: `track.js?ver=1.2.6` (Core 1.2.6); theme CSS `ver=1790743384` (1.2.2 build).
+- **Cache:** Cloudflare kept pre-release HTML for normal URLs (HIT). Flushed through GoDaddy → Quick Links → Flush Cache in the owner's wp-admin (authorised by the protocol; non-destructive). After: `/`, `/ar/`, `/destinations/`, `/destinations/hurghada/`, `/experiences/abu-simbel…/`, `/de/destinations/kairo/` = MISS with the 1.2.2 build. No mixed version.
+- 120/120 singles × 390/1440 on 1.2.2: 0 issues (912 tabs, targets, scroll spy, sticky, overlap, console, axe 0).
+- 14 page types (incl. `/`, `/ar/`, `/fr/`, archives, search, 404) × 390/430/768/1024/1440/1920: overflow none, page errors none, axe 0.
+- Keyboard (normal URLs, after the flush): skip link first; 2px focus ring on every stop; closed language menu not in the tab order; tab jump → heading at y=164 under a 56px bar, focus on the section; reduced motion: loader 203 ms.
+- Loader: first visit 2.07 s, repeat 0.17 s; 1440px hero = 1600px file; preconnect present.
+- Performance medians (3 runs, 2026-09-30, after 1.2.1/1.2.2): desktop `/` 0.66 s, `/destinations/` 1.80 s, destination 2.74 s, experience 3.34 s, `/ar/` 3.45 s; phone 1.36–2.13 s; CLS ≤ 0.008 everywhere. Run-to-run spread 0.7–4.1 s on the same page comes from hot-linked `images.unsplash.com` fetches; CSS and fonts finish by ~1.1 s. **Remaining lever (owner decision): host hero photos in the Media Library** (owner rule of 2026-09-28: nothing is downloaded there without asking).
+- Head (15 pages, 8 languages): canonical = clean URL, `noindex, nofollow`, full hreflang; sitemap 404; wp-admin shows "Search engines discouraged".
+- Widths 320/961/1280 were measured for destination + experience (geometry tables); a wider sweep at those widths was stopped by Cloudflare rate limiting of this test machine (HTTP 429 after ~1000 automated loads) — protection working, not a site fault.
 
 ## 17 Final launch gate
 

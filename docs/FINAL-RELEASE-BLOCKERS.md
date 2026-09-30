@@ -9,6 +9,15 @@ This is the single list for the project owner. Supporting detail:
 - `docs/SEO-PLUGIN-RECOMMENDATION.md`
 - `docs/MULTILINGUAL-REVIEW-INDEX.md` (on the `arabic-editorial` branch)
 
+## Update 2026-09-30 (autonomous release run; ledger: `docs/AUTONOMOUS-EXECUTION-LEDGER-2026-09-30.md`)
+
+- **Live:** theme **1.2.2** (layout system, section tabs, keyboard fixes, LCP fixes), Core **1.2.6** (`{lang}` and `{provider}` tracking placeholders). Deploy runs #14–#16 success. Cache flushed after #16; normal URLs serve 1.2.2.
+- **Translations:** imported and live (105/105), verified on production.
+- **Viator (E1):** the owner's partner account exists (`pid=P00322579`, `mcid=42383`; links/widgets/banners, no API key). The provider → offer → `/go/` → Viator chain is proven locally with the real parameters. **Still needed before a live offer:** the owner picks the Viator pages/products per experience (the Selector needs the owner's sign-in), and the Affiliate Disclosure page is published (E5). Setup steps: ledger, phase 08.
+- **GoDaddy RUM (A3/E3):** no `wsimg.com` requests observed on 2026-09-30 (only `images.unsplash.com` is third-party). Cookies not re-checked; confirm A3 before the consent decision.
+- **Still open, unchanged:** A1 (`src/` public, 200), A2 (Arabic Giza title), A4 (2FA), C2 (HSTS), C6 (PHP), C7 (guides), archive intros, E2/E4/E5 (legal, contact, disclosure).
+- **Indexing:** OFF ("Search engines discouraged" confirmed in wp-admin).
+
 **Indexing stays OFF** (`blog_public` = 0; `noindex, nofollow` served on every page).
 
 ## Production state (read 2026-09-29, after this round)
