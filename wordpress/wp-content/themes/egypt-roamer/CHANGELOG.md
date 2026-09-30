@@ -2,6 +2,14 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.3 — 2026-09-30
+Legal/trust launch (the pages were published on production the same day; the texts are in `content/legal/en/`):
+- Footer legal row (`er_legal_links()`): the "legal" menu, completed with every published legal/trust page (Privacy, Terms, Cookies, Affiliate Disclosure, Contact) not already in the footer columns. Every language reaches the English-only pages directly.
+- Menus: a language-prefixed link to a page that exists only in another language (`/ar/privacy-policy/`) now links the page itself instead of a URL that only redirects.
+- `page.php` pages (legal, contact): the article was both a 3rem-gap grid and `.prose`, doubling the space between every paragraph. Plain prose flow now.
+- Archive intros and their meta descriptions use Core's `er_translate_string_strict()`: shown in English only until a real translation exists, so no English text on a translated archive.
+- Footer newsletter note: its Privacy link is underlined (axe `link-in-text-block`, shown on every page once the Privacy Policy was published).
+
 ## 1.2.2 — 2026-09-30
 Keyboard audit on production (every page, every language):
 - The closed language menu was only transparent: its 8 links were invisible tab stops. It is now hidden until opened (the fade is kept).

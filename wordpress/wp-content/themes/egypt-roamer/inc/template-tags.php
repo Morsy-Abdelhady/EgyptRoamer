@@ -79,6 +79,41 @@ function er_menu( string $location, string $wrap = '<ul>%3$s</ul>' ): string {
 	] );
 }
 
+/**
+ * Footer legal row: the "legal" menu, completed with every published legal/trust page
+ * (Privacy, Terms, Cookies, Affiliate Disclosure, Contact) not already linked elsewhere in the footer.
+ * Each page is taken in the current language when translated, else in the language it exists in
+ * (the legal pages are English-only), so every language reaches them without a redirect.
+ *
+ * @param string $footer_html Other footer link HTML, so a page is not linked twice.
+ */
+function er_legal_links( string $footer_html = '' ): string {
+	$menu  = er_menu( 'legal', '%3$s' );
+	$html  = (string) $menu;
+	$seen  = $footer_html . $html;
+	$ids   = array_filter( [
+		function_exists( 'er_settings' ) ? (int) er_settings( 'privacy_page' ) : 0,
+		(int) ( get_page_by_path( 'terms' )->ID ?? 0 ),
+		(int) ( get_page_by_path( 'cookies' )->ID ?? 0 ),
+		function_exists( 'er_settings' ) ? (int) er_settings( 'disclosure_page' ) : 0,
+		(int) ( get_page_by_path( 'contact' )->ID ?? 0 ),
+	] );
+	foreach ( array_unique( $ids ) as $id ) {
+		$tr = function_exists( 'er_translated_post_id' ) ? (int) er_translated_post_id( $id ) : $id;
+		$id = $tr && 'publish' === get_post_status( $tr ) ? $tr : $id;
+		if ( 'publish' !== get_post_status( $id ) ) {
+			continue;
+		}
+		$url  = (string) get_permalink( $id );
+		$path = (string) wp_parse_url( $url, PHP_URL_PATH );
+		if ( '' === $path || str_contains( $seen, '"' . $url . '"' ) || str_contains( $seen, '/' . trim( (string) get_post_field( 'post_name', $id ), '/' ) . '/"' ) ) {
+			continue;
+		}
+		$html .= sprintf( '<li><a href="%s"%s>%s</a></li>', esc_url( $url ), er_lang() !== ( function_exists( 'pll_get_post_language' ) ? (string) pll_get_post_language( $id ) : er_lang() ) ? ' hreflang="' . esc_attr( (string) pll_get_post_language( $id ) ) . '"' : '', esc_html( get_the_title( $id ) ) );
+	}
+	return $html;
+}
+
 /** Whether a post type has at least one published entry in the current language (cached per request). */
 function er_has_published( string $post_type ): bool {
 	static $cache = [];
@@ -143,13 +178,21 @@ add_filter( 'wp_nav_menu_objects', static function ( $items ) {
 		if ( ! isset( $resolved[ $url ] ) ) {
 			// Known page slugs were looked up above; url_to_postid() (several queries) only for anything else.
 			if ( $path === $full && isset( $pages[ $path ] ) ) {
-				$resolved[ $url ] = 'publish' === $pages[ $path ];
+				$resolved[ $url ] = 'publish' === $pages[ $path ] ? $url : '';
 			} else {
 				$id               = url_to_postid( $url );
-				$resolved[ $url ] = $id && 'publish' === get_post_status( $id );
+				$resolved[ $url ] = $id && 'publish' === get_post_status( $id ) ? $url : '';
+				// A language-prefixed link to a page that exists only in another language (the English-only
+				// legal pages): link the page itself instead of a URL that only redirects to it.
+				if ( $resolved[ $url ] && $path !== $full ) {
+					$resolved[ $url ] = (string) get_permalink( $id );
+				}
 			}
 		}
-		return $resolved[ $url ];
+		if ( $resolved[ $url ] ) {
+			$item->url = $resolved[ $url ];
+		}
+		return '' !== $resolved[ $url ];
 	} );
 } );
 

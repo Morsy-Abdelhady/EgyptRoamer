@@ -538,6 +538,9 @@
 }
 .subscribe__note a {
   color: var(--on-dark-muted);
+  /* A link inside a sentence needs more than colour to stand out (axe link-in-text-block). */
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .er-form button {
   justify-self: start;
@@ -1128,4 +1131,10 @@ body:has(#nav:not(.is-hidden)) .secnav {
 /* Sections focused after a tab/anchor jump: no ring on the heading itself. */
 .prose h2[tabindex="-1"]:focus {
   outline: none;
+}
+
+/* page.php renders the article as both .page-main (a grid with a 3rem gap) and .prose:
+   the grid gap doubled the prose rhythm between every paragraph. Plain flow for prose. */
+.page-main.prose {
+  display: block;
 }

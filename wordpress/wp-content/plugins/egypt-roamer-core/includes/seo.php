@@ -242,7 +242,7 @@ add_action( 'wp_head', static function () {
 		// The same editable intro the archive's page hero shows (Egypt Roamer → Settings), then the type description.
 		$type  = (string) get_query_var( 'post_type' );
 		$intro = (string) er_settings( 'archive_intro_' . $type );
-		$intro = $intro && function_exists( 'er_translate_string' ) ? er_translate_string( $intro ) : $intro;
+		$intro = $intro && function_exists( 'er_translate_string_strict' ) ? er_translate_string_strict( $intro ) : $intro;
 		$obj   = get_queried_object();
 		$desc  = $intro ?: ( $obj && ! empty( $obj->description ) ? $obj->description : $desc );
 	} elseif ( is_home() && (int) get_option( 'page_for_posts' ) && has_excerpt( (int) get_option( 'page_for_posts' ) ) ) {

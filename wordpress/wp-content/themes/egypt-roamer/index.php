@@ -14,7 +14,7 @@ $er_type  = is_post_type_archive() ? (string) get_query_var( 'post_type' ) : ( i
 $er_title = $er_type ? er_type_label( $er_type ) : wp_strip_all_tags( get_the_archive_title() );
 $er_intro = '';
 if ( $er_type && function_exists( 'er_settings' ) && 'post' !== $er_type ) {
-	$er_intro = er_translate_string( (string) er_settings( 'archive_intro_' . $er_type ) );
+	$er_intro = function_exists( 'er_translate_string_strict' ) ? er_translate_string_strict( (string) er_settings( 'archive_intro_' . $er_type ) ) : er_translate_string( (string) er_settings( 'archive_intro_' . $er_type ) );
 } elseif ( is_home() && (int) get_option( 'page_for_posts' ) ) {
 	$er_intro = get_the_excerpt( (int) get_option( 'page_for_posts' ) );
 } else {

@@ -6,11 +6,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$er_col = static function ( string $title, string $location ) {
+$er_footer_links = ''; // the column links, so the legal row does not repeat a page
+$er_col          = static function ( string $title, string $location ) use ( &$er_footer_links ) {
 	$menu = er_menu( $location );
 	if ( ! $menu ) {
 		return;
 	}
+	$er_footer_links .= $menu;
 	echo '<div><h3 class="t-label">' . esc_html( $title ) . '</h3>' . $menu . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput -- wp_nav_menu output
 };
 // home_url( '/' ) first, then the anchor: Polylang only localises the bare home URL.
@@ -60,7 +62,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 		<div class="footer__bottom">
 			<p><?php echo esc_html( er_t( '© {year} Egypt Roamer. Independent travel discovery. All rights reserved.', [ 'year' => wp_date( 'Y' ) ] ) ); ?></p>
 			<?php
-			$er_legal = er_menu( 'legal', '%3$s' );
+			$er_legal = er_legal_links( (string) ( $er_footer_links ?? '' ) );
 			if ( $er_legal ) {
 				echo '<p class="footer__legal">' . wp_kses_post( str_replace( [ '<li', '</li>' ], [ '<span', '</span>' ], $er_legal ) ) . '</p>';
 			}

@@ -64,7 +64,8 @@ add_filter( 'er_fallback_description', static function ( $desc ) {
 		return trim( er_home( 'hero_copy' ) . ' ' . er_home( 'hero_copy_more' ) );
 	}
 	if ( is_post_type_archive() && function_exists( 'er_settings' ) ) {
-		$intro = er_translate_string( (string) er_settings( 'archive_intro_' . get_query_var( 'post_type' ) ) );
+		$raw   = (string) er_settings( 'archive_intro_' . get_query_var( 'post_type' ) );
+		$intro = function_exists( 'er_translate_string_strict' ) ? er_translate_string_strict( $raw ) : er_translate_string( $raw );
 		return '' !== trim( $intro ) ? $intro : '';
 	}
 	return $desc;

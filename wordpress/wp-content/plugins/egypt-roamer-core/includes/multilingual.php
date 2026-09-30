@@ -61,6 +61,23 @@ function er_translate_string( string $text ): string {
 	return function_exists( 'pll__' ) ? (string) pll__( $text ) : $text;
 }
 
+/**
+ * Like er_translate_string(), but '' in another language when no translation exists, instead of
+ * the English original. For visible editorial copy (archive intros) that must not appear in English
+ * on a translated page.
+ */
+function er_translate_string_strict( string $text ): string {
+	if ( '' === $text || ! function_exists( 'pll__' ) || ! function_exists( 'pll_current_language' ) || ! function_exists( 'pll_default_language' ) ) {
+		return $text;
+	}
+	$current = (string) pll_current_language();
+	if ( '' === $current || pll_default_language() === $current ) {
+		return $text;
+	}
+	$translated = (string) pll__( $text );
+	return $translated !== $text ? $translated : '';
+}
+
 add_filter( 'pll_get_post_types', static function ( $types, $is_settings ) {
 	foreach ( er_public_type_keys() as $type ) {
 		$types[ $type ] = $type;
