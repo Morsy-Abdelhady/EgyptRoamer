@@ -78,5 +78,43 @@ CLS stayed at 0–0.03 in every run.
 - **Mobile main thread.** The cinematic scroll journey (GSAP + ScrollTrigger, pinned scenes) is the largest cost: set-up ≈270–440 ms and layout refreshes of 100–200 ms. Reducing it means simplifying the approved journey on phones (owner decision).
 - **Render-blocking CSS** (7 files). Merging them into one file would save round trips on slow networks without changing any rule. Not done in this release; it needs a build step and a CI check.
 
-## To do after deploy (owner)
-- Run GTmetrix on `https://egyptroamer.com/` 3 times, desktop (default) and mobile, and record the median. Use the same test location as the first run.
+## GTmetrix on production (owner's account, Seattle, Chrome desktop, unthrottled; Lighthouse 12.6.1)
+| | Before: 1.2.7, 09:28 (owner's run) | After: 1.2.9, run 1, 10:16 | After: 1.2.9, run 2, 10:26 |
+|---|---|---|---|
+| Grade / Performance / Structure | C / 63 % / 97 % | C / 53 % / 98 % | C / 60 % / 98 % |
+| LCP | 4.8 s | 4.4 s | **3.8 s** |
+| TBT | 182 ms | 330 ms | 326 ms |
+| FCP | 946 ms | 1.3 s | 803 ms |
+| TTI | 2.6 s | 2.4 s | 1.6 s |
+| Speed Index / fully loaded | – / 4.8 s | – / 4.4 s | – / 3.8 s |
+| CLS | 0 | 0 | 0 |
+| TTFB | 61 ms | 76 ms | 75 ms |
+| Page size / requests | 872 KB / 31 | 1.03 MB / 33 | 1.03 MB / 33 |
+| JS | 80.9 KB | 258 KB | 258 KB |
+| LCP element | `p.hero__copy`, 99 % render delay | `p.hero__copy`, 98 % render delay (4.3 s) | same |
+
+- **Baseline build:** the 09:28 run loaded assets `?ver=1790775270` (the 1.2.7 cache flush), so it measured 1.2.7. The 1.2.8 fix had been deployed but its HTML was not yet served. The after-runs followed the 1.2.9 deploy and a GoDaddy "Flush Cache".
+- **LCP:** 4.8 → 4.4 / 3.8 s. The remaining delay is the approved entrance, confirmed by GTmetrix's own LCP breakdown.
+- **TBT went up (182 → ~330 ms) because of a change outside the theme.** Site Kit by Google was connected on production between the runs. It now loads `gtag.js?id=GT-NBJ3VQHR`: 174 KB (88 KB transferred), a 74 ms long task, and requests to google-analytics.com. JS rose from 81 to 258 KB accordingly. The theme's own JS is unchanged at about 85 KB.
+- **Same pattern on every run:** long tasks from ScrollTrigger (114 ms), home.js (152 ms, the journey set-up) and gsap (94 ms).
+- **Tests used:** 3 of the Basic plan's 5 on-demand tests (the owner's run plus two after). 2 are kept for after the owner's decision below.
+
+## Owner decisions that set the remaining numbers
+1. **Hero entrance.** A local measurement, 3 runs each:
+
+   | Hero text | LCP |
+   |---|---|
+   | Current fade | 2.7 / 3.4 / 3.6 s |
+   | Visible (no fade) | 0.9 / 0.8 / 0.9 s |
+
+   With the loader kept, "visible" only moves the metric (the text is painted under the loader), which is not a real improvement. The honest options:
+   - (a) no intro loader on the first visit plus a shorter fade;
+   - (b) keep the loader but reveal the text as the loader fades (no separate 0.55 s delay and 1.2 s fade).
+
+   Both change the approved intro.
+2. **Google Analytics via Site Kit.**
+   - **Performance:** about +100–150 ms TBT and +88 KB of JavaScript.
+   - **Privacy:** it sets `_ga`/`_ga_*` cookies without consent, which the published Cookie Policy does not mention.
+   - **Options:**
+     - keep it, but with Consent Mode, a consent banner and policy updates (legal);
+     - or use Core's GTM setting, which defaults to consent "denied".
