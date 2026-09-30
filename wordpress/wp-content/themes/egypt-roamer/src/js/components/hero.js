@@ -20,7 +20,10 @@ export function initLoader() {
     seen = sessionStorage.getItem("er-intro") === "1";
     sessionStorage.setItem("er-intro", "1");
   } catch (e) {}
-  const minTime = new Promise((r) => setTimeout(r, seen ? 0 : reducedMotion() ? 200 : 1300));
+  // Both times count from the start of the page (performance.now()), not from when this script runs:
+  // the loader is on screen from the first paint, so a slow phone must not sit through it twice.
+  const since = (ms) => Math.max(0, ms - performance.now());
+  const minTime = new Promise((r) => setTimeout(r, since(seen ? 0 : reducedMotion() ? 200 : 1300)));
   const imgReady = heroImg?.complete
     ? Promise.resolve()
     : new Promise((r) => {
@@ -28,8 +31,10 @@ export function initLoader() {
         heroImg?.addEventListener("error", r, { once: true });
       });
   const fonts = document.fonts?.ready ?? Promise.resolve();
-  // Never hold the page longer than this for the photo: a slow image host must not delay the first content.
-  const maxTime = new Promise((r) => setTimeout(r, seen ? 0 : 2200));
+  // Never hold the page longer than this for the photo: a slow image host must not delay the first
+  // content. 1.6 s from the start of the page (was 2.2 s from script start); the photo still fades in
+  // when it arrives. Measured: docs/PERFORMANCE-2026-09-30.md.
+  const maxTime = new Promise((r) => setTimeout(r, since(seen ? 0 : 1600)));
 
   return Promise.race([Promise.all([minTime, imgReady, fonts]), maxTime]).then(() => {
     loader?.classList.add("is-done");

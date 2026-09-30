@@ -755,7 +755,10 @@
       seen = sessionStorage.getItem("er-intro") === "1";
       sessionStorage.setItem("er-intro", "1");
     } catch (e) {}
-    const minTime = new Promise((r) => setTimeout(r, seen ? 0 : reducedMotion() ? 200 : 1300));
+    // Both times count from the start of the page (performance.now()), not from when this script runs:
+    // the loader is on screen from the first paint, so a slow phone must not sit through it twice.
+    const since = (ms) => Math.max(0, ms - performance.now());
+    const minTime = new Promise((r) => setTimeout(r, since(seen ? 0 : reducedMotion() ? 200 : 1300)));
     const imgReady = heroImg?.complete
       ? Promise.resolve()
       : new Promise((r) => {
@@ -763,8 +766,10 @@
           heroImg?.addEventListener("error", r, { once: true });
         });
     const fonts = document.fonts?.ready ?? Promise.resolve();
-    // Never hold the page longer than this for the photo: a slow image host must not delay the first content.
-    const maxTime = new Promise((r) => setTimeout(r, seen ? 0 : 2200));
+    // Never hold the page longer than this for the photo: a slow image host must not delay the first
+    // content. 1.6 s from the start of the page (was 2.2 s from script start); the photo still fades in
+    // when it arrives. Measured: docs/PERFORMANCE-2026-09-30.md.
+    const maxTime = new Promise((r) => setTimeout(r, since(seen ? 0 : 1600)));
 
     return Promise.race([Promise.all([minTime, imgReady, fonts]), maxTime]).then(() => {
       loader?.classList.add("is-done");
@@ -2637,23 +2642,38 @@
   safe("smooth-scroll", initSmoothScroll);
   safe("nav", initNav);
   safe("hero", initHero);
-  safe("moods", initMoods);
-  safe("destinations", initDestinations);
-  safe("map", initMap);
-  safe("partners", initPartners);
-  safe("experiences", initExperiences);
-  safe("guide", initGuide);
-  safe("planner", initPlanner);
-  safe("search", initSearch);
-  safe("film", initFilm);
-  safe("magnetic", initMagnetic);
-  safe("reveals", initReveals);
-  safe("progress", initScrollProgress);
-  safe("affiliate", initAffiliateLinks);
-  safe("newsletter", initNewsletter);
-  safe("journey", initJourney);
-  safe("parallax", initParallax);
-  initLoader().then(restoreScroll);
+  // The intro starts now, not after every section below is set up: the hero can come in while they load.
+  const intro = initLoader();
+
+  // The rest in the same order, one task each, so the browser can paint and respond between them
+  // (one ~450 ms task on a mid-range phone before; see docs/PERFORMANCE-2026-09-30.md).
+  const yieldToMain = () =>
+    window.scheduler?.yield ? window.scheduler.yield() : new Promise((r) => setTimeout(r, 0));
+  const rest = [
+    ["moods", initMoods],
+    ["destinations", initDestinations],
+    ["map", initMap],
+    ["partners", initPartners],
+    ["experiences", initExperiences],
+    ["guide", initGuide],
+    ["planner", initPlanner],
+    ["search", initSearch],
+    ["film", initFilm],
+    ["magnetic", initMagnetic],
+    ["reveals", initReveals],
+    ["progress", initScrollProgress],
+    ["affiliate", initAffiliateLinks],
+    ["newsletter", initNewsletter],
+    ["journey", initJourney],
+    ["parallax", initParallax],
+  ];
+  (async () => {
+    for (const [name, fn] of rest) {
+      await yieldToMain();
+      safe(name, fn);
+    }
+    intro.then(restoreScroll); // after the journey: it sets the scroll positions
+  })();
 
   window.addEventListener("load", () => window.ScrollTrigger?.refresh());
   return {  };

@@ -2,6 +2,13 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.8 — 2026-09-30
+Homepage performance (measurements in `docs/PERFORMANCE-2026-09-30.md`; the look and the entrance animation are unchanged):
+- The intro loader's minimum (1.3 s) and its cap count from the start of the page, not from when the script runs. The loader is on screen from the first paint, so a slow phone no longer sits through it twice.
+- The loader waits for the hero photo at most 1.6 s from the start of the page (was 2.2 s after the script started). The photo is hot-linked from a third-party host, and a slow response held the whole hero back. The photo still fades in when it arrives.
+- The intro starts as soon as the hero is ready, not after every homepage section has been set up.
+- The homepage sections are set up one task at a time, in the same order: one ~450 ms task on a mid-range phone became separate ones, so the page stays responsive while they load.
+
 ## 1.2.7 — 2026-09-30
 From the full-site audit (every public URL × 8 languages; `docs/FULL-SITE-AUDIT-2026-09-30.md`):
 - Homepage display titles fit their column in every language: "КРАСНОЕ МОРЕ" was clipped at every width (desktop included), "ROTES MEER" on phones up to 480 px, and "ÉGYPTE", "EGITTO" and "EGIPTO" touched the edge on small phones. A fitter (`src/js/components/fit.js`) keeps the approved size while the word fits and shrinks it just enough when it does not; English and Chinese are unchanged at every width.

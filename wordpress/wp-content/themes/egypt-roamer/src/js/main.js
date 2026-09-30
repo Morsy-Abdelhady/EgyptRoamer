@@ -80,22 +80,37 @@ safe("favorites", initFavorites);
 safe("smooth-scroll", initSmoothScroll);
 safe("nav", initNav);
 safe("hero", initHero);
-safe("moods", initMoods);
-safe("destinations", initDestinations);
-safe("map", initMap);
-safe("partners", initPartners);
-safe("experiences", initExperiences);
-safe("guide", initGuide);
-safe("planner", initPlanner);
-safe("search", initSearch);
-safe("film", initFilm);
-safe("magnetic", initMagnetic);
-safe("reveals", initReveals);
-safe("progress", initScrollProgress);
-safe("affiliate", initAffiliateLinks);
-safe("newsletter", initNewsletter);
-safe("journey", initJourney);
-safe("parallax", initParallax);
-initLoader().then(restoreScroll);
+// The intro starts now, not after every section below is set up: the hero can come in while they load.
+const intro = initLoader();
+
+// The rest in the same order, one task each, so the browser can paint and respond between them
+// (one ~450 ms task on a mid-range phone before; see docs/PERFORMANCE-2026-09-30.md).
+const yieldToMain = () =>
+  window.scheduler?.yield ? window.scheduler.yield() : new Promise((r) => setTimeout(r, 0));
+const rest = [
+  ["moods", initMoods],
+  ["destinations", initDestinations],
+  ["map", initMap],
+  ["partners", initPartners],
+  ["experiences", initExperiences],
+  ["guide", initGuide],
+  ["planner", initPlanner],
+  ["search", initSearch],
+  ["film", initFilm],
+  ["magnetic", initMagnetic],
+  ["reveals", initReveals],
+  ["progress", initScrollProgress],
+  ["affiliate", initAffiliateLinks],
+  ["newsletter", initNewsletter],
+  ["journey", initJourney],
+  ["parallax", initParallax],
+];
+(async () => {
+  for (const [name, fn] of rest) {
+    await yieldToMain();
+    safe(name, fn);
+  }
+  intro.then(restoreScroll); // after the journey: it sets the scroll positions
+})();
 
 window.addEventListener("load", () => window.ScrollTrigger?.refresh());
