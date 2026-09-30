@@ -1,3 +1,27 @@
+# Run 5 — full-site audit (same day)
+
+Report: `docs/FULL-SITE-AUDIT-2026-09-30.md`. It covered 233 URLs × 8 languages, 1,232 responsive checks, a keyboard review in 8 languages and 38 production pages.
+
+| Item | Status | Evidence |
+|---|---|---|
+| URL inventory (local = production) | COMPLETE | 233 URLs; REST counts identical |
+| Header / footer / switcher / dock / mobile menu parity ×8 | COMPLETE | crawl ×233, production ×38 |
+| Translation parity (rendered) | COMPLETE | no English left except intentional names/codes |
+| Links | COMPLETE | 225 internal URLs 200; 0 wrong-language links |
+| Responsive 320–1600 | COMPLETE | 1,232 checks 0 bad; display titles fixed (D1) |
+| Accessibility | COMPLETE | axe 0 on 233; keyboard ×16 after D3/D4 |
+| SEO | COMPLETE | noindex, self-canonical, reciprocal hreflang, OG, JSON-LD valid |
+| Security | COMPLETE except O1 | headers, XML-RPC, users, author, debug, readme; stale `src/`: OWNER |
+| Fixes D1–D6 | COMPLETE | theme 1.2.7 `1d5ad1f`, run #22 |
+| Production verification after cache flush | COMPLETE | 38 pages |
+| Affiliate end-to-end | BLOCKED — OWNER INPUT | no Viator offer exists |
+| Email delivery | BLOCKED — OWNER INPUT | no MX/SPF |
+| Terms | BLOCKED — OWNER INPUT | lawyer |
+
+INCOMPLETE = 0
+
+---
+
 # Run 4 — global footer parity (same day)
 
 Audit: `docs/FOOTER-PARITY-AUDIT-2026-09-30.md`. Run 3 reported parity without auditing the footer columns: English had 3 columns, the other 7 languages had 1.
@@ -11,7 +35,7 @@ Audit: `docs/FOOTER-PARITY-AUDIT-2026-09-30.md`. Run 3 reported parity without a
 | Automated parity test | COMPLETE | `tools/qa/footer-parity.mjs`: fails on the old footer, passes 9 page types × 7 languages |
 | Responsive / RTL / keyboard / axe | COMPLETE | 8 languages × 320–1440, 0 overflow, 0 axe, focus visible, Arabic mirrored |
 | Visual comparison | COMPLETE | en/ar/de desktop, en/ar/zh/ru phones |
-| Production verification | see audit doc | |
+| Production verification | COMPLETE | 38 pages after cache flush, identical footer in 8 languages |
 
 ---
 

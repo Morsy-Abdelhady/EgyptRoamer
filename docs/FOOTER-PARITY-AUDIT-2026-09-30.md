@@ -115,4 +115,11 @@ The "Egypt Roamer" column heading is the brand in every language (the approved s
 Observation (not changed): footer text links are about 17 px tall (the approved design's link style); axe reports no target-size issue because of their spacing.
 
 ## Production
-See the section below, added after the deploy.
+- **Deploys:** runs #20 and #21 (theme 1.2.6, Core 1.2.9); run #22 (theme 1.2.7), after which GoDaddy "Flush Cache" was run.
+- **Before the fix (live):** English showed 3 columns; ar, de, fr, it, es and ru showed 1. zh was challenged by Cloudflare and was identical locally.
+- **After the fix:** read page by page in the owner's Chrome, 6 s apart, 38 pages:
+  - every language's homepage and contact page;
+  - legal pages, archives, destinations, experiences, search, 404.
+- **Result:** every page has the same footer, `explore: destinations + experiences | plan: #planner | company: affiliate-disclosure + contact || privacy-policy + cookies`, with every link in the page's own language. Header, brand and switcher were checked on the same pages.
+- **Not verifiable:** anonymous HTML through Cloudflare (bot challenge; not bypassed). The cache was flushed after the last deploy.
+- **Full-site context:** `docs/FULL-SITE-AUDIT-2026-09-30.md`.
