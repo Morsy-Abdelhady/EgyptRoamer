@@ -97,7 +97,7 @@ function er_subid( string $value ): string {
 /**
  * Build and validate the outbound URL for an offer.
  *
- * @param array $ctx placement, page (source slug), search [destination, month, adults]
+ * @param array $ctx placement, page (source slug), lang (source page language), search [destination, month, adults]
  * @return string|WP_Error
  */
 function er_offer_destination_url( int $offer_id, array $ctx = [] ) {
@@ -144,6 +144,8 @@ function er_offer_destination_url( int $offer_id, array $ctx = [] ) {
 		'{placement}' => er_subid( (string) ( $ctx['placement'] ?? '' ) ),
 		'{page}'      => er_subid( (string) ( $ctx['page'] ?? '' ) ),
 		'{offer}'     => er_subid( (string) get_post_field( 'post_name', $offer_id ) ),
+		'{lang}'      => er_subid( (string) ( $ctx['lang'] ?? '' ) ),
+		'{provider}'  => er_subid( (string) get_post_field( 'post_name', $provider_id ) ),
 	];
 	foreach ( preg_split( '/\r\n|\r|\n/', (string) get_post_meta( $offer_id, '_er_params', true ) ) as $line ) {
 		if ( ! str_contains( $line, '=' ) ) {

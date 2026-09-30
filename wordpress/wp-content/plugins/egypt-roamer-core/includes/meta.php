@@ -107,7 +107,7 @@ function er_meta_fields( string $post_type ): array {
 			'_er_utm_source' => [ 'type' => 'text', 'label' => __( 'Source (utm_source)', 'egypt-roamer-core' ) ],
 			'_er_utm_medium' => [ 'type' => 'text', 'label' => __( 'Medium (utm_medium)', 'egypt-roamer-core' ) ],
 			'_er_utm_campaign' => [ 'type' => 'text', 'label' => __( 'Campaign (utm_campaign)', 'egypt-roamer-core' ) ],
-			'_er_params'     => [ 'type' => 'lines', 'label' => __( 'Extra tracking parameters (key=value, one per line)', 'egypt-roamer-core' ), 'help' => __( 'Sub-ID placeholders: {placement} {page} {offer}. Example: cmp=er-{placement}', 'egypt-roamer-core' ) ],
+			'_er_params'     => [ 'type' => 'lines', 'label' => __( 'Extra tracking parameters (key=value, one per line)', 'egypt-roamer-core' ), 'help' => __( 'Sub-ID placeholders: {placement} {page} {offer} {lang} {provider}. Example: campaign=er-{lang}-{placement}-{page}', 'egypt-roamer-core' ) ],
 			'h_sched'        => [ 'type' => 'heading', 'label' => __( 'Status & schedule', 'egypt-roamer-core' ) ],
 			'_er_status'     => [ 'type' => 'select', 'label' => __( 'Offer status', 'egypt-roamer-core' ), 'options' => [ 'active' => __( 'Active', 'egypt-roamer-core' ), 'paused' => __( 'Paused', 'egypt-roamer-core' ) ], 'default' => 'active' ],
 			'_er_priority'   => [ 'type' => 'number', 'label' => __( 'Priority (higher shows first)', 'egypt-roamer-core' ), 'step' => '1', 'default' => 10 ],

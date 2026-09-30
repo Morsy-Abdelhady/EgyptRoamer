@@ -234,7 +234,8 @@ function er_page_hero( array $args ): void {
 	if ( $args['image'] ) {
 		$media = er_img( (int) $args['image'], 'er-hero', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw', 'alt' => '' ] );
 	} elseif ( $args['stock'] ) {
-		$media = er_stock_img( (string) $args['stock'], '', [ 'loading' => 'eager', 'fetchpriority' => 'high' ] );
+		// Widths up to the common desktop sizes, so a 1440px screen takes 1600, not 2000 (−30% bytes).
+		$media = er_stock_img( (string) $args['stock'], '', [ 'loading' => 'eager', 'fetchpriority' => 'high' ], [ 640, 960, 1280, 1600, 2000, 2560 ] );
 	}
 	?>
 	<div class="page-hero on-dark<?php echo $media ? ' page-hero--image' : ''; ?>">

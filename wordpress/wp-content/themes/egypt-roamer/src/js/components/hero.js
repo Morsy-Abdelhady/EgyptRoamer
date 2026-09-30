@@ -14,7 +14,13 @@ export function initLoader() {
   const loader = $("#loader");
   const hero = $("#hero");
   const heroImg = $(".scene--pyramids .scene__img--a");
-  const minTime = new Promise((r) => setTimeout(r, reducedMotion() ? 200 : 1300));
+  // The intro plays once per visit: later homepage views in the same session skip the wait.
+  let seen = false;
+  try {
+    seen = sessionStorage.getItem("er-intro") === "1";
+    sessionStorage.setItem("er-intro", "1");
+  } catch (e) {}
+  const minTime = new Promise((r) => setTimeout(r, seen ? 0 : reducedMotion() ? 200 : 1300));
   const imgReady = heroImg?.complete
     ? Promise.resolve()
     : new Promise((r) => {
@@ -22,7 +28,8 @@ export function initLoader() {
         heroImg?.addEventListener("error", r, { once: true });
       });
   const fonts = document.fonts?.ready ?? Promise.resolve();
-  const maxTime = new Promise((r) => setTimeout(r, 3500));
+  // Never hold the page longer than this for the photo: a slow image host must not delay the first content.
+  const maxTime = new Promise((r) => setTimeout(r, seen ? 0 : 2200));
 
   return Promise.race([Promise.all([minTime, imgReady, fonts]), maxTime]).then(() => {
     loader?.classList.add("is-done");

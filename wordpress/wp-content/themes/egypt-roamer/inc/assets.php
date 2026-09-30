@@ -60,6 +60,11 @@ add_action( 'wp_enqueue_scripts', static function () {
 	wp_add_inline_script( 'er-app', 'window.ER_DATA = ' . wp_json_encode( er_payload( $home ? 'home' : 'site' ), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP ) . ';', 'before' );
 } );
 
+/** Every page shows the approved stock photos (hero or cards) until featured images exist: connect early. */
+add_action( 'wp_head', static function () {
+	echo '<link rel="preconnect" href="https://images.unsplash.com" />' . "\n";
+}, 2 );
+
 /** The homepage LCP image: preload it with high priority (Media Library image or approved stock photo). */
 add_action( 'wp_head', static function () {
 	if ( ! is_front_page() ) {
@@ -74,7 +79,6 @@ add_action( 'wp_head', static function () {
 	}
 	$photo = er_home_stock()['hero'];
 	$url   = static fn ( $w ) => 'https://images.unsplash.com/photo-' . $photo . '?auto=format&fit=crop&w=' . $w . '&q=76';
-	echo '<link rel="preconnect" href="https://images.unsplash.com" />' . "\n";
 	printf( '<link rel="preload" as="image" href="%s" imagesrcset="%s" imagesizes="100vw" fetchpriority="high" />' . "\n", esc_url( $url( 2000 ) ), esc_attr( $url( 900 ) . ' 900w, ' . $url( 1400 ) . ' 1400w, ' . $url( 2000 ) . ' 2000w, ' . $url( 2800 ) . ' 2800w' ) );
 }, 3 );
 

@@ -163,7 +163,7 @@ function er_handle_go( string $slug, bool $themed_404 ): void {
 		$source = er_click_source();
 		$place  = isset( $_GET['pl'] ) ? substr( sanitize_key( wp_unslash( $_GET['pl'] ) ), 0, 64 ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$place  = '' === $place ? 'direct' : $place;
-		$url    = er_offer_destination_url( $offer->ID, [ 'placement' => $place, 'page' => $source['page'], 'search' => er_finder_search() ] );
+		$url    = er_offer_destination_url( $offer->ID, [ 'placement' => $place, 'page' => $source['page'], 'lang' => $source['lang'], 'search' => er_finder_search() ] );
 		if ( is_wp_error( $url ) ) {
 			wp_safe_redirect( er_offer_fallback_url( $offer->ID ), 302 );
 			exit;
