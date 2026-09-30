@@ -2,6 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.10 — 2026-09-30
+Homepage entrance, owner decision of 2026-09-30 ("reveal the text with the loader"):
+- The hero comes in as the loader's wipe starts. Before, it came 250 ms after the loader, the paragraph waited another 0.55 s, and the fade lasted 1.2 s. Now it is one 0.6 s fade with a light stagger (overrides in `pages.css`; the approved stylesheets are unchanged).
+- The hero paragraph was the Largest Contentful Paint (GTmetrix: 98-99 % render delay). Local LCP went from 2.7-3.6 s to 2.28 s, including with a slow third-party hero photo.
+
 ## 1.2.9 — 2026-09-30
 Trip assistant (with Core 1.2.10; `docs/ASSISTANT-2026-09-30.md`):
 - A "Trip assistant" button on every page (bottom corner, mirrored in Arabic; above the dock on phones) opens a drawer. The drawer reuses the Saved drawer: focus trap, Escape, focus return.

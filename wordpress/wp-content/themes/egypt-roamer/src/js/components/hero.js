@@ -38,7 +38,8 @@ export function initLoader() {
 
   return Promise.race([Promise.all([minTime, imgReady, fonts]), maxTime]).then(() => {
     loader?.classList.add("is-done");
-    setTimeout(() => hero?.classList.add("is-in"), 250);
+    // The hero comes in with the loader's wipe, not after it (owner decision 2026-09-30; see pages.css).
+    requestAnimationFrame(() => hero?.classList.add("is-in"));
     setTimeout(() => loader?.remove(), 1500);
   });
 }
