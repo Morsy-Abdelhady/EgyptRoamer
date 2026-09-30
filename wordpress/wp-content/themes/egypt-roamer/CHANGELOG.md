@@ -2,6 +2,17 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.9 — 2026-09-30
+Trip assistant (with Core 1.2.10; `docs/ASSISTANT-2026-09-30.md`):
+- A "Trip assistant" button on every page (bottom corner, mirrored in Arabic; above the dock on phones) opens a drawer. The drawer reuses the Saved drawer: focus trap, Escape, focus return.
+- The visitor asks a question, or taps a suggestion (Pyramids, Nile, Desert, Red Sea: the approved scene titles). The answer lists the published pages that match, in the page's language, with live offers when a page has any (through /go/, `rel="sponsored"`). With no match, it offers the destination and experience archives.
+- The script (`assets/js/assistant.js`, 4.6 KB) loads only when the drawer is first opened. Questions asked while it loads are queued.
+- New UI strings: drafted in 7 languages in `tools/i18n/new-strings.json` (unreviewed, like the other WordPress-only strings).
+- Accessibility found while testing:
+  - the drawers' `<header>` counted as a second page banner while open (the Saved drawer too); it is now a `div`;
+  - the mobile menu's links were outside any landmark; the menu is now a `<nav>`.
+- Desktop: room under the footer's last row, so the launcher never covers the legal links.
+
 ## 1.2.8 — 2026-09-30
 Homepage performance (measurements in `docs/PERFORMANCE-2026-09-30.md`; the look and the entrance animation are unchanged):
 - The intro loader's minimum (1.3 s) and its cap count from the start of the page, not from when the script runs. The loader is on screen from the first paint, so a slow phone no longer sits through it twice.

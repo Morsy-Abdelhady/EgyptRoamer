@@ -16,6 +16,8 @@ node site-crawl.mjs && node site-analyze.mjs   # full-site audit: HTTP, SEO/href
 node responsive.mjs                          # page types × 8 languages × 320–1600: overflow, clipping, overlap (types.json)
 node display-fit.mjs [/path/]                # one-line display words (hero, scene titles) clipped by their section, 8 languages × 320–1600
 node keyboard.mjs                            # 8 languages × desktop/phone: skip link, focus rings, language menu, overlays, menu focus trap
+node overlays.mjs                            # axe with saved / search / mobile menu / assistant open (en, ar, zh)
+node assistant.mjs                           # trip assistant end to end: lazy load, keyboard, languages, links, axe, Escape
 node footer-parity.mjs [/path/ …]           # global footer: same columns, links, order and legal row in all 8 languages, localized (GAP=3000 on production)
 python3 index-gate.py '{"tour":"<url>"}' A # Ready to index OFF (A) / ON (B): robots, canonical, sitemap, H1, JSON-LD
 EDGE=.. HOSTHDR=.. WP=wp DB=wp FALLBACK_ID=.. ./go-architecture.sh   # /go/ two-step design through a cache: clicks, freshness, security (own test data)

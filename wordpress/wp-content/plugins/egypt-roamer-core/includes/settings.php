@@ -27,6 +27,8 @@ function er_settings_fields(): array {
 		'archive_intro_er_experience'  => [ 'type' => 'textarea', 'label' => __( 'Experiences', 'egypt-roamer-core' ) ],
 		'archive_intro_er_activity'    => [ 'type' => 'textarea', 'label' => __( 'Activities', 'egypt-roamer-core' ) ],
 		'archive_intro_er_guide'       => [ 'type' => 'textarea', 'label' => __( 'Guides', 'egypt-roamer-core' ) ],
+		'h_assistant'        => [ 'type' => 'heading', 'label' => __( 'Trip assistant', 'egypt-roamer-core' ) ],
+		'assistant_mode'     => [ 'type' => 'select', 'label' => __( 'Trip assistant', 'egypt-roamer-core' ), 'options' => [ 'search' => __( 'On: answers with pages published on the site (nothing leaves the server)', 'egypt-roamer-core' ), 'ai' => __( 'On, with AI answers (Anthropic; needs ER_ASSISTANT_API_KEY in wp-config.php and a Privacy Policy update)', 'egypt-roamer-core' ), 'off' => __( 'Off', 'egypt-roamer-core' ) ], 'default' => 'search', 'help' => __( 'Questions are not stored. AI mode sends the question and the matching published pages to Anthropic; until the key is set it behaves like the first option.', 'egypt-roamer-core' ) ],
 		'h_seo'              => [ 'type' => 'heading', 'label' => __( 'SEO guards', 'egypt-roamer-core' ) ],
 		'legacy_redirects'   => [ 'type' => 'checkbox', 'label' => __( 'Redirect legacy static-site paths (/guide/*, /about …) with 301', 'egypt-roamer-core' ), 'default' => 1 ],
 		'place_schema'       => [ 'type' => 'checkbox', 'label' => __( 'Add TouristDestination structured data to destination pages', 'egypt-roamer-core' ), 'default' => 1 ],

@@ -8,6 +8,7 @@ import { initFavorites } from "./components/favorites.js";
 import { initNav } from "./components/nav.js";
 import { initSearch } from "./components/search.js";
 import { initSectionNav } from "./components/sections.js";
+import { initAssistantLoader } from "./components/assistant-loader.js";
 import { initMagnetic, initReveals, initScrollProgress, initAffiliateLinks, initNewsletter, initImageFallback } from "./components/micro.js";
 
 function safe(name, fn) {
@@ -21,6 +22,7 @@ function safe(name, fn) {
 safe("images", initImageFallback);
 safe("favorites", initFavorites);
 safe("nav", initNav);
+safe("assistant", initAssistantLoader);
 safe("search", initSearch);
 safe("sections", initSectionNav);
 safe("magnetic", initMagnetic);

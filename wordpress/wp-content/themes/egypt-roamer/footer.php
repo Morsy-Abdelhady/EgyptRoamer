@@ -80,7 +80,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 	<?php endif; ?>
 </nav>
 
-<div class="menu" id="menu" hidden>
+<nav class="menu" id="menu" aria-label="<?php echo esc_attr( er_t( 'Primary' ) ); ?>" hidden>
 	<div class="menu__inner">
 		<?php echo er_menu( 'primary', '<ul class="menu__links">%3$s</ul>' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		<?php if ( $er_planner_url ) : ?>
@@ -88,7 +88,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 		<?php endif; ?>
 		<?php er_lang_switcher( 'mobile' ); ?>
 	</div>
-</div>
+</nav>
 
 <div class="overlay search" id="search" role="dialog" aria-modal="true" aria-label="<?php echo esc_attr( er_t( 'Search' ) ); ?>" hidden>
 	<div class="search__box">
@@ -103,13 +103,59 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 
 <div class="overlay drawer" id="saved" role="dialog" aria-modal="true" aria-label="<?php echo esc_attr( er_t( 'Saved' ) ); ?>" hidden>
 	<div class="drawer__panel">
-		<header class="drawer__head">
+		<div class="drawer__head">
 			<h2 class="t-h3"><?php er_e( 'Saved for later' ); ?></h2>
 			<button class="icon-btn" type="button" data-close aria-label="<?php echo esc_attr( er_t( 'Close saved' ) ); ?>"><?php echo er_icon( 'i-close' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></button>
-		</header>
+		</div>
 		<div class="drawer__body" data-saved-list></div>
 	</div>
 </div>
+
+<?php
+// Trip assistant (Core): answers from the site's published pages. Its script loads when it is first opened.
+$er_assistant = function_exists( 'er_assistant_mode' ) ? er_assistant_mode() : 'off';
+if ( 'off' !== $er_assistant ) :
+	$er_assistant_data = [
+		'endpoint' => esc_url_raw( rest_url( 'egypt-roamer/v1/assistant' ) ),
+		'lang'     => er_lang(),
+		'script'   => ER_THEME_URI . '/assets/js/assistant.js?ver=' . rawurlencode( (string) er_asset_ver( 'assets/js/assistant.js' ) ),
+		'i18n'     => [
+			'intro'    => er_t( 'Pages on Egypt Roamer that match your question:' ),
+			'none'     => er_t( 'Nothing on Egypt Roamer matches that yet. Try a place or an experience, or browse:' ),
+			'busy'     => er_t( 'Searching…' ),
+			'retry'    => er_t( 'Please try again in a few minutes.' ),
+			'er_destination' => er_t( 'Destinations' ),
+			'er_experience'  => er_t( 'Experiences' ),
+		],
+	];
+	?>
+	<button type="button" class="assistant-launch" data-open="assistant" aria-haspopup="dialog" aria-controls="assistant">
+		<?php echo er_icon( 'i-sparkle' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+		<span><?php er_e( 'Trip assistant' ); ?></span>
+	</button>
+	<div class="overlay drawer assistant" id="assistant" role="dialog" aria-modal="true" aria-labelledby="assistant-title" data-assistant="<?php echo esc_attr( wp_json_encode( $er_assistant_data ) ); ?>" hidden>
+		<div class="drawer__panel">
+			<div class="drawer__head">
+				<h2 class="t-h3" id="assistant-title"><?php er_e( 'Trip assistant' ); ?></h2>
+				<button class="icon-btn" type="button" data-close aria-label="<?php echo esc_attr( er_t( 'Close assistant' ) ); ?>"><?php echo er_icon( 'i-close' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></button>
+			</div>
+			<div class="drawer__body assistant__log" data-assistant-log aria-live="polite"></div>
+			<div class="assistant__foot">
+				<p class="assistant__try"><span><?php er_e( 'Try:' ); ?></span>
+					<?php foreach ( [ 'Pyramids', 'Nile', 'Desert', 'Red Sea' ] as $er_chip ) : ?>
+						<button type="button" class="assistant__chip" data-assistant-ask><?php echo esc_html( er_t( $er_chip ) ); ?></button>
+					<?php endforeach; ?>
+				</p>
+				<form class="assistant__form" data-assistant-form>
+					<label class="visually-hidden" for="assistant-q"><?php er_e( 'Ask about a place, a trip or an experience' ); ?></label>
+					<input id="assistant-q" type="text" name="q" maxlength="300" autocomplete="off" placeholder="<?php echo esc_attr( er_t( 'Ask about a place, a trip or an experience' ) ); ?>" required />
+					<button class="btn btn--primary btn--sm" type="submit"><?php er_e( 'Search' ); ?></button>
+				</form>
+				<p class="assistant__note"><?php echo esc_html( 'ai' === $er_assistant ? er_t( 'Answers are written by AI (Anthropic) from pages published on Egypt Roamer and can contain mistakes. Your question is sent to Anthropic; Egypt Roamer does not save it.' ) : er_t( 'Answers come only from pages published on Egypt Roamer. Your question is not saved.' ) ); ?></p>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>
 
 <?php if ( is_front_page() && er_home( 'film_enabled' ) ) : ?>
 	<div class="overlay film" id="film" role="dialog" aria-modal="true" aria-label="<?php echo esc_attr( er_t( 'Egypt Roamer film' ) ); ?>" hidden>

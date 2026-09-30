@@ -32,7 +32,9 @@ for (const [type, map] of Object.entries(T)) for (const l of LANGS) {
         const b = e.getBoundingClientRect(); if (!b.width || !b.height || !vis(e)) continue;
         if ((b.right > vw + 1 || b.left < -1) && !inScroller(e)) over.push((e.className?.toString() || e.tagName).slice(0, 40));
         const s = getComputedStyle(e);
-        if (e.children.length === 0 && e.textContent.trim() && /(hidden|clip)/.test(s.overflowX) && e.scrollWidth > e.clientWidth + 2 && s.textOverflow !== "ellipsis") clipped.push((e.className?.toString() || e.tagName).slice(0, 30) + ":" + e.textContent.trim().slice(0, 20));
+        // visually hidden text (1px clip) is meant to be clipped
+        const srOnly = b.width <= 1 || b.height <= 1 || /inset\(50%\)/.test(s.clipPath) || s.clip === "rect(0px, 0px, 0px, 0px)";
+        if (!srOnly && e.children.length === 0 && e.textContent.trim() && /(hidden|clip)/.test(s.overflowX) && e.scrollWidth > e.clientWidth + 2 && s.textOverflow !== "ellipsis") clipped.push((e.className?.toString() || e.tagName).slice(0, 30) + ":" + e.textContent.trim().slice(0, 20));
       }
       // Overlap: header/fixed elements vs main heading at scroll top; buttons overlapping text in cards.
       const h1 = document.querySelector("h1"), nav = document.querySelector("header.nav");

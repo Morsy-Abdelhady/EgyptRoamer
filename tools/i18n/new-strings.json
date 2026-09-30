@@ -667,6 +667,96 @@
    "На этой странице",
    "本页内容",
    "في هذه الصفحة"
+  ],
+  "Answers are written by AI (Anthropic) from pages published on Egypt Roamer and can contain mistakes. Your question is sent to Anthropic; Egypt Roamer does not save it.": [
+   "Die Antworten schreibt eine KI (Anthropic) auf Grundlage der auf Egypt Roamer veröffentlichten Seiten; sie können Fehler enthalten. Ihre Frage wird an Anthropic gesendet; Egypt Roamer speichert sie nicht.",
+   "Les réponses sont rédigées par une IA (Anthropic) à partir des pages publiées sur Egypt Roamer et peuvent contenir des erreurs. Votre question est envoyée à Anthropic ; Egypt Roamer ne l’enregistre pas.",
+   "Le risposte sono scritte da un'IA (Anthropic) a partire dalle pagine pubblicate su Egypt Roamer e possono contenere errori. La tua domanda viene inviata ad Anthropic; Egypt Roamer non la salva.",
+   "Las respuestas las escribe una IA (Anthropic) a partir de las páginas publicadas en Egypt Roamer y pueden contener errores. Tu pregunta se envía a Anthropic; Egypt Roamer no la guarda.",
+   "Ответы пишет ИИ (Anthropic) на основе страниц, опубликованных на Egypt Roamer, и в них возможны ошибки. Ваш вопрос отправляется в Anthropic; Egypt Roamer его не сохраняет.",
+   "回答由 AI（Anthropic）根据 Egypt Roamer 已发布的页面撰写，可能有误。您的问题会发送给 Anthropic；Egypt Roamer 不会保存。",
+   "يكتب الإجاباتِ ذكاءٌ اصطناعي (Anthropic) استنادًا إلى الصفحات المنشورة على Egypt Roamer، وقد تحتوي على أخطاء. يُرسَل سؤالك إلى Anthropic، ولا يحفظه Egypt Roamer."
+  ],
+  "Answers come only from pages published on Egypt Roamer. Your question is not saved.": [
+   "Die Antworten stammen ausschließlich aus Seiten, die auf Egypt Roamer veröffentlicht sind. Ihre Frage wird nicht gespeichert.",
+   "Les réponses proviennent uniquement des pages publiées sur Egypt Roamer. Votre question n’est pas enregistrée.",
+   "Le risposte provengono solo dalle pagine pubblicate su Egypt Roamer. La tua domanda non viene salvata.",
+   "Las respuestas proceden solo de páginas publicadas en Egypt Roamer. Tu pregunta no se guarda.",
+   "Ответы берутся только со страниц, опубликованных на Egypt Roamer. Ваш вопрос не сохраняется.",
+   "回答仅来自 Egypt Roamer 已发布的页面。您的问题不会被保存。",
+   "تأتي الإجابات فقط من الصفحات المنشورة على Egypt Roamer. لا يُحفظ سؤالك."
+  ],
+  "Ask about a place, a trip or an experience": [
+   "Fragen Sie nach einem Ort, einer Reise oder einem Erlebnis",
+   "Posez une question sur un lieu, un voyage ou une expérience",
+   "Chiedi di un luogo, un viaggio o un'esperienza",
+   "Pregunta por un lugar, un viaje o una experiencia",
+   "Спросите о месте, поездке или впечатлении",
+   "询问目的地、行程或体验",
+   "اسأل عن مكان أو رحلة أو تجربة"
+  ],
+  "Close assistant": [
+   "Assistenten schließen",
+   "Fermer l’assistant",
+   "Chiudi l'assistente",
+   "Cerrar el asistente",
+   "Закрыть помощника",
+   "关闭助手",
+   "إغلاق المساعد"
+  ],
+  "Nothing on Egypt Roamer matches that yet. Try a place or an experience, or browse:": [
+   "Dazu gibt es auf Egypt Roamer noch nichts. Versuchen Sie einen Ort oder ein Erlebnis, oder stöbern Sie hier:",
+   "Rien sur Egypt Roamer ne correspond encore à cette question. Essayez un lieu ou une expérience, ou parcourez :",
+   "Su Egypt Roamer non c'è ancora nulla su questo. Prova con un luogo o un'esperienza, oppure sfoglia:",
+   "Todavía no hay nada en Egypt Roamer sobre eso. Prueba con un lugar o una experiencia, o explora:",
+   "На Egypt Roamer пока нет ничего по этому запросу. Попробуйте место или впечатление или посмотрите:",
+   "Egypt Roamer 上暂时没有相关内容。请尝试输入目的地或体验，或浏览：",
+   "لا يوجد على Egypt Roamer ما يطابق ذلك بعد. جرّب مكانًا أو تجربة، أو تصفّح:"
+  ],
+  "Pages on Egypt Roamer that match your question:": [
+   "Seiten auf Egypt Roamer, die zu Ihrer Frage passen:",
+   "Les pages d’Egypt Roamer qui correspondent à votre question :",
+   "Pagine di Egypt Roamer che corrispondono alla tua domanda:",
+   "Páginas de Egypt Roamer que responden a tu pregunta:",
+   "Страницы Egypt Roamer по вашему вопросу:",
+   "Egypt Roamer 上与您的问题相关的页面：",
+   "صفحات على Egypt Roamer تتعلق بسؤالك:"
+  ],
+  "Please try again in a few minutes.": [
+   "Bitte versuchen Sie es in ein paar Minuten erneut.",
+   "Veuillez réessayer dans quelques minutes.",
+   "Riprova tra qualche minuto.",
+   "Vuelve a intentarlo dentro de unos minutos.",
+   "Пожалуйста, попробуйте ещё раз через несколько минут.",
+   "请过几分钟再试。",
+   "يرجى المحاولة مرة أخرى بعد بضع دقائق."
+  ],
+  "Searching…": [
+   "Suche läuft…",
+   "Recherche…",
+   "Ricerca in corso…",
+   "Buscando…",
+   "Поиск…",
+   "正在搜索…",
+   "جارٍ البحث…"
+  ],
+  "Trip assistant": [
+   "Reiseassistent",
+   "Assistant de voyage",
+   "Assistente di viaggio",
+   "Asistente de viaje",
+   "Помощник в поездке",
+   "旅行助手",
+   "مساعد الرحلة"
+  ],
+  "Try:": [
+   "Zum Beispiel:",
+   "Par exemple :",
+   "Per esempio:",
+   "Por ejemplo:",
+   "Например:",
+   "例如：",
+   "مثلًا:"
   ]
  }
 }

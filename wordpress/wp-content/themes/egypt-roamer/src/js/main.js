@@ -18,6 +18,7 @@ import { initPlanner } from "./components/planner.js";
 import { initSearch } from "./components/search.js";
 import { initFilm } from "./components/film.js";
 import { initFit } from "./components/fit.js";
+import { initAssistantLoader } from "./components/assistant-loader.js";
 import {
   initMagnetic,
   initReveals,
@@ -79,6 +80,7 @@ safe("images", initImageFallback);
 safe("favorites", initFavorites);
 safe("smooth-scroll", initSmoothScroll);
 safe("nav", initNav);
+safe("assistant", initAssistantLoader);
 safe("hero", initHero);
 // The intro starts now, not after every section below is set up: the hero can come in while they load.
 const intro = initLoader();
