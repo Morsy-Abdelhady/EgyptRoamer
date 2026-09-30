@@ -127,9 +127,12 @@ function er_has_published( string $post_type ): bool {
 add_filter( 'wp_nav_menu_objects', static function ( $items ) {
 	// Page links (/about/, /contact/ …): look up every page slug in this menu with one query.
 	static $pages = [];
-	$names = [];
+	// The site's own origin. Not home_url( '/' ): Polylang makes that /de/, /fr/ … on translated pages,
+	// so links to unprefixed pages (/terms/) looked external there and were never checked.
+	$origin = (string) preg_replace( '#^(https?://[^/]+).*$#', '$1/', home_url( '/' ) );
+	$names  = [];
 	foreach ( $items as $item ) {
-		$slug = 'custom' === $item->type && str_starts_with( (string) $item->url, home_url( '/' ) ) ? trim( (string) wp_parse_url( (string) $item->url, PHP_URL_PATH ), '/' ) : '';
+		$slug = 'custom' === $item->type && str_starts_with( (string) $item->url, $origin ) ? trim( (string) wp_parse_url( (string) $item->url, PHP_URL_PATH ), '/' ) : '';
 		if ( '' !== $slug && ! str_contains( $slug, '/' ) && ! array_key_exists( $slug, $pages ) ) {
 			$names[]        = $slug;
 			$pages[ $slug ] = null;
@@ -141,7 +144,7 @@ add_filter( 'wp_nav_menu_objects', static function ( $items ) {
 			$pages[ $page->post_name ] = 'publish' === $pages[ $page->post_name ] ? 'publish' : $page->post_status;
 		}
 	}
-	return array_filter( $items, static function ( $item ) use ( $pages ) {
+	return array_filter( $items, static function ( $item ) use ( $pages, $origin ) {
 		if ( 'post_type' === $item->type ) {
 			$published = 'publish' === get_post_status( (int) $item->object_id );
 			// The Journal (posts page, in any language) only while it has articles.
@@ -152,7 +155,7 @@ add_filter( 'wp_nav_menu_objects', static function ( $items ) {
 			return $published;
 		}
 		$url = (string) $item->url;
-		if ( 'custom' !== $item->type || ! str_starts_with( $url, home_url( '/' ) ) || str_contains( $url, '#' ) ) {
+		if ( 'custom' !== $item->type || ! str_starts_with( $url, $origin ) || str_contains( $url, '#' ) ) {
 			return true; // external links and in-page anchors are the editor's call
 		}
 		$path = trim( (string) wp_parse_url( $url, PHP_URL_PATH ), '/' );
