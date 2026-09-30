@@ -671,8 +671,12 @@
       if (a.dataset.scrollTo === "journey") return emit("journey:goto", 0);
       // scenes live inside the pinned journey — delegate
       if (a.dataset.rail !== undefined) return emit("journey:goto", Number(a.dataset.rail));
-      scrollToTarget(target, { offset: 0 });
+      // Respect the target's scroll-margin-top (inner-page sections sit below the sticky bars).
+      scrollToTarget(target, { offset: -(parseFloat(getComputedStyle(target).scrollMarginTop) || 0) });
       history.replaceState(null, "", hash);
+      // Keyboard and screen-reader users continue from the section they jumped to.
+      if (!target.hasAttribute("tabindex") && !target.matches("a, button, input, select, textarea, summary")) target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
     });
   }
 

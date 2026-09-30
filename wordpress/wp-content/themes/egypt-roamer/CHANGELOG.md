@@ -2,6 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.2 — 2026-09-30
+Keyboard audit on production (every page, every language):
+- The closed language menu was only transparent: its 8 links were invisible tab stops. It is now hidden until opened (the fade is kept).
+- In-page links (section tabs, contents links) scrolled the heading under the sticky bars: the anchor handler now respects the target's `scroll-margin-top`, and moves focus to the section so the next Tab continues there.
+
 ## 1.2.1 — 2026-09-30
 Performance, from measurements on production (desktop LCP: homepage 4.45 s, inner pages 2.3–2.6 s; CLS ≤ 0.003):
 - Homepage intro loader: waits at most 2.2 s for the hero photo (was 3.5 s) and plays once per browser session; later homepage views in the session show the page at once. The look is unchanged.

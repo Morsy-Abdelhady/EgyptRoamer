@@ -1113,3 +1113,19 @@ body:has(#nav:not(.is-hidden)) .secnav {
     display: none;
   }
 }
+
+/* ---------- Accessibility fixes (2026-09-30 keyboard audit) ---------- */
+/* The closed language menu was only transparent: its 8 links stayed in the tab order as
+   invisible focus stops. Hidden when closed; visibility flips after the fade-out. */
+.lang__menu {
+  visibility: hidden;
+  transition: opacity var(--t-base) var(--ease-out), transform var(--t-base) var(--ease-out), visibility 0s linear var(--t-base);
+}
+.lang.is-open .lang__menu {
+  visibility: visible;
+  transition-delay: 0s;
+}
+/* Sections focused after a tab/anchor jump: no ring on the heading itself. */
+.prose h2[tabindex="-1"]:focus {
+  outline: none;
+}
