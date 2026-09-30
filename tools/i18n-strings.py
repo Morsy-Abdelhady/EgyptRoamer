@@ -38,5 +38,10 @@ pt = pt[pt.index("function er_public_types"):pt.index("function er_public_type_k
 plugin_strings += [unq(m) for m in re.findall(r"__\(\s*" + lit, pt)]
 meta = (plugin / "includes/meta.php").read_text()
 plugin_strings += [unq(m) for m in re.findall(r"=>\s*__\(\s*" + lit, meta[meta.index("function er_cta_options"):meta.index("/** Field schema per post type")])]
+# Menu labels from the seed's menus (the footer renders the default-language menu localized in every
+# language, er_localize_menu_item(), labelled with these translations).
+cli = (plugin / "includes/cli.php").read_text()
+cli = cli[cli.index("private function menus("):cli.index("set_theme_mod( 'nav_menu_locations', $locations );")]
+theme_strings += [unq(m) for m in re.findall(r"\[\s*" + lit + r"\s*,\s*\$home", cli)]
 out = {"theme": sorted(set(theme_strings)), "plugin": sorted(set(plugin_strings))}
 json.dump(out, sys.stdout, ensure_ascii=False, indent=1)

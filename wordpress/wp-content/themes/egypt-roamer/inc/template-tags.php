@@ -64,20 +64,128 @@ function er_post_img( int $post_id, string $size = 'er-card', array $attrs = [] 
 	return $stock ? er_stock_img( $stock, (string) ( $attrs['alt'] ?? '' ), array_diff_key( $attrs, [ 'alt' => 1 ] ), [ 480, 720, 960 ] ) : '';
 }
 
-/** A registered menu, or nothing (editors manage navigation under Appearance → Menus). */
+/**
+ * A registered menu, or nothing (editors manage navigation under Appearance → Menus).
+ *
+ * Footer columns (footer_*) have one canonical menu, the default language's: every language renders
+ * that menu's columns and links, localized item by item (er_localize_menu_item()), so the footer has
+ * the same structure in every language. Per-language menus assigned to these locations are not used.
+ */
 function er_menu( string $location, string $wrap = '<ul>%3$s</ul>' ): string {
-	if ( ! has_nav_menu( $location ) ) {
+	$args = [
+		'container'   => false,
+		'items_wrap'  => $wrap,
+		'depth'       => 1,
+		'echo'        => false,
+		'fallback_cb' => false,
+	];
+	$canonical = str_starts_with( $location, 'footer_' ) ? er_canonical_menu_id( $location ) : 0;
+	if ( $canonical ) {
+		$args['menu']        = $canonical;
+		$args['er_localize'] = $canonical;
+	} elseif ( has_nav_menu( $location ) ) {
+		$args['theme_location'] = $location;
+	} else {
 		return '';
 	}
-	return (string) wp_nav_menu( [
-		'theme_location' => $location,
-		'container'      => false,
-		'items_wrap'     => $wrap,
-		'depth'          => 1,
-		'echo'           => false,
-		'fallback_cb'    => false,
-	] );
+	return (string) wp_nav_menu( $args );
 }
+
+/** The default language's menu for a location (Polylang keeps one per language), else the theme's own. */
+function er_canonical_menu_id( string $location ): int {
+	$id = 0;
+	if ( function_exists( 'PLL' ) && function_exists( 'pll_default_language' ) && isset( PLL()->options ) ) {
+		$menus = PLL()->options['nav_menus'];
+		$id    = (int) ( $menus[ get_stylesheet() ][ $location ][ pll_default_language() ] ?? 0 );
+	}
+	if ( ! $id ) {
+		$id = (int) ( get_nav_menu_locations()[ $location ] ?? 0 );
+	}
+	return $id && wp_get_nav_menu_object( $id ) ? $id : 0;
+}
+
+/**
+ * One canonical menu item in the current language, or null when that language has no version of it
+ * (the item is left out rather than shown in English):
+ * - a page or post: its translation, labelled with the approved UI label or the translation's title;
+ * - an archive: the language's archive; an anchor on the homepage: the language's homepage;
+ * - both labelled with the approved UI label only;
+ * - external links are the same in every language.
+ */
+function er_localize_menu_item( WP_Post $item ): ?WP_Post {
+	$lang = er_lang();
+	if ( ! function_exists( 'pll_get_post' ) || ! function_exists( 'pll_default_language' ) || pll_default_language() === $lang ) {
+		return $item;
+	}
+	$label  = er_t_strict( (string) $item->title );
+	$origin = (string) preg_replace( '#^(https?://[^/]+).*$#', '$1/', home_url( '/' ) );
+	$target = 0;
+	if ( 'post_type' === $item->type ) {
+		$target = (int) $item->object_id;
+	} elseif ( 'post_type_archive' === $item->type ) {
+		$url = get_post_type_archive_link( (string) $item->object );
+		return $url && $label ? er_menu_item_to( $item, (string) $url, $label ) : null;
+	} elseif ( 'custom' === $item->type ) {
+		$url = (string) $item->url;
+		if ( ! str_starts_with( $url, $origin ) ) {
+			return $item; // external
+		}
+		$path = trim( (string) wp_parse_url( $url, PHP_URL_PATH ), '/' );
+		$frag = (string) wp_parse_url( $url, PHP_URL_FRAGMENT );
+		// Polylang may already have prefixed archive links with the language (/ar/destinations/).
+		$path = (string) preg_replace( '#^(?:' . implode( '|', array_map( 'preg_quote', (array) pll_languages_list() ) ) . ')(?:/|$)#', '', $path );
+		if ( '' === $path ) {
+			return $label ? er_menu_item_to( $item, trailingslashit( (string) pll_home_url( $lang ) ) . ( '' !== $frag ? '#' . $frag : '' ), $label ) : null;
+		}
+		foreach ( get_post_types( [ 'public' => true ], 'objects' ) as $type ) {
+			if ( $type->has_archive && $path === $type->has_archive ) {
+				$link = get_post_type_archive_link( $type->name );
+				return $link && $label ? er_menu_item_to( $item, (string) $link, $label ) : null;
+			}
+		}
+		$post = get_page_by_path( $path, OBJECT, 'page' );
+		if ( ! $post && str_contains( $path, '/' ) ) {
+			[ $base, $name ] = [ dirname( $path ), basename( $path ) ];
+			foreach ( get_post_types( [ 'public' => true ], 'objects' ) as $type ) {
+				if ( $type->has_archive === $base || ( $type->rewrite['slug'] ?? '' ) === $base ) {
+					$post = get_page_by_path( $name, OBJECT, $type->name );
+					break;
+				}
+			}
+		}
+		$target = $post ? (int) $post->ID : 0;
+	}
+	$tr = $target ? (int) pll_get_post( $target, $lang ) : 0;
+	if ( ! $tr ) {
+		return null;
+	}
+	$item->type      = 'post_type';
+	$item->object    = (string) get_post_type( $tr );
+	$item->object_id = (string) $tr;
+	return er_menu_item_to( $item, (string) get_permalink( $tr ), $label ?? get_the_title( $tr ) );
+}
+
+function er_menu_item_to( WP_Post $item, string $url, string $label ): WP_Post {
+	$item->url   = $url;
+	$item->title = $label;
+	return $item;
+}
+
+// Polylang swaps a menu assigned to a location for that language's copy (wp_nav_menu_args): keep the canonical one.
+add_filter( 'wp_nav_menu_args', static function ( $args ) {
+	if ( ! empty( $args['er_localize'] ) ) {
+		$args['menu'] = (int) $args['er_localize'];
+	}
+	return $args;
+}, 3000 );
+
+// Localize the canonical footer menus before the link check below (priority 10) sees them.
+add_filter( 'wp_nav_menu_objects', static function ( $items, $args ) {
+	if ( empty( $args->er_localize ) ) {
+		return $items;
+	}
+	return array_values( array_filter( array_map( static fn( $item ) => er_localize_menu_item( $item ), $items ) ) );
+}, 5, 2 );
 
 /**
  * Footer legal row, built from the pages themselves (not a menu), so every language shows the same

@@ -23,7 +23,7 @@ Classes: **A** must localize · **B** should localize · **C** intentionally Eng
 | 11 | **Contact** page text | page 60 | A | **Localized** ×7, new two-column layout (English updated too, only if unchanged since publication) |
 | 12 | Contact form labels, topics, note, button, success and error messages, "Privacy Policy" link | Core `[er_contact_form]` | A | Already localized (Core l10n; extractor: 0 missing) |
 | 13 | Form validation | browser (`required`, `type=email`) | A | Browser-native messages, in the visitor's browser language |
-| 14 | **Footer legal row** | theme | A | **Localized**: built from the pages in the page's language, each with its own title |
+| 14 | **Footer legal row** | theme | A | **Localized**: built from the pages in the page’s language, each with its own title. **The footer columns were not at parity** (English 3 columns, other languages 1): fixed in theme 1.2.6, see `docs/FOOTER-PARITY-AUDIT-2026-09-30.md` |
 | 15 | Terms of Use | page 63 (draft) | B | **BLOCKED — owner/lawyer**: governing law and liability wording. Not published in any language; hidden from every footer until published |
 | 16 | Company legal name and address | legal pages | C | Kept in the official Arabic form in every language (legal identity, `lang="ar" dir="rtl"`) |
 | 17 | Email `info@egyptroamer.com`, phone `+20 10 6049 4260` | legal/contact | C | Same everywhere; shown left-to-right in Arabic |

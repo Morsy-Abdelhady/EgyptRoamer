@@ -2,6 +2,14 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.6 — 2026-09-30
+Global footer parity (with Core 1.2.9). The English footer had three columns (Explore, Plan, Egypt Roamer) and a two-link legal row; the seven other languages had only Explore, with Affiliate Disclosure and Contact moved into the legal row. The columns came from per-language menus the seed had generated, which left out every item it could not translate at the time: the "Trip Builder" anchor, and the Affiliate Disclosure and Contact pages (English-only then).
+- One canonical footer: every language renders the default language's footer menus, localized item by item (`er_localize_menu_item()`): pages → their translation, archives → the language's archive, homepage anchors → the language's homepage, labels → the approved prototype translations (else the translated page's title). An item with no version in a language is left out, never shown in English. Polylang's swap to a per-language menu is undone for these locations.
+- Theme translations: the footer menu labels ("Trip Builder", "Affiliate Disclosure", "Contact", "Our Story", …) from the prototype's approved locale files (`tools/i18n-strings.py` now reads the seed's menu labels).
+- `er_t_strict()`: a theme string only when this language has a translation.
+- Footer columns carry `data-footer-col` (the menu location) for the parity test `tools/qa/footer-parity.mjs`.
+- Menu locations are labelled "(all languages)" in Appearance → Menus.
+
 ## 1.2.5 — 2026-09-30
 Multilingual parity for everything added after the 105-file translation review (with Core 1.2.8):
 - Legal/contact pages (`page.php`): documents read on the centred column with section tabs (three or more sections), a quiet "last updated" line, hairline section dividers, compact headings, a bordered table that stacks into label/value blocks on phones, and a translation note on translated pages. No cards.

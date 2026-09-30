@@ -27,6 +27,18 @@ function er_t( string $text, array $vars = [] ): string {
 	return $out;
 }
 
+/**
+ * A UI string only when this language has a real translation for it, else null (never the
+ * English source on a translated page). English returns the text itself.
+ */
+function er_t_strict( string $text ): ?string {
+	if ( 'en' === er_lang() ) {
+		return $text;
+	}
+	$out = class_exists( 'WP_Translation_Controller' ) ? WP_Translation_Controller::get_instance()->translate( $text, '', 'egypt-roamer' ) : false;
+	return false === $out || '' === $out ? null : (string) $out;
+}
+
 /** Echo an escaped UI string. */
 function er_e( string $text, array $vars = [] ): void {
 	echo esc_html( er_t( $text, $vars ) );

@@ -15,9 +15,9 @@ add_action( 'after_setup_theme', static function () {
 
 	register_nav_menus( [
 		'primary'        => __( 'Primary navigation', 'egypt-roamer' ),
-		'footer_explore' => __( 'Footer — Explore', 'egypt-roamer' ),
-		'footer_plan'    => __( 'Footer — Plan', 'egypt-roamer' ),
-		'footer_company' => __( 'Footer — Egypt Roamer', 'egypt-roamer' ),
+		'footer_explore' => __( 'Footer — Explore (all languages)', 'egypt-roamer' ),
+		'footer_plan'    => __( 'Footer — Plan (all languages)', 'egypt-roamer' ),
+		'footer_company' => __( 'Footer — Egypt Roamer (all languages)', 'egypt-roamer' ),
 		'legal'          => __( 'Legal links', 'egypt-roamer' ),
 	] );
 

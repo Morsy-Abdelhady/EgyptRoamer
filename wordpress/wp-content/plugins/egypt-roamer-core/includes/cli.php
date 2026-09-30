@@ -436,6 +436,9 @@ class ER_CLI {
 			$lang_home = trailingslashit( pll_home_url( $lang ) );
 			$messages  = $this->theme_messages( $language->locale );
 			foreach ( $base as $location => $menu_id ) {
+				if ( str_starts_with( (string) $location, 'footer_' ) ) {
+					continue; // the theme renders the default-language footer menus, localized, in every language
+				}
 				$menu = $menu_id ? wp_get_nav_menu_object( (int) $menu_id ) : null;
 				if ( ! $menu ) {
 					continue;
