@@ -111,7 +111,7 @@ Before each push: PHP lint (all changed files; 54 files for 1.2.0), `seed.json`,
 - Loader: first visit 2.07 s, repeat 0.17 s; 1440px hero = 1600px file; preconnect present.
 - Performance medians (3 runs, 2026-09-30, after 1.2.1/1.2.2): desktop `/` 0.66 s, `/destinations/` 1.80 s, destination 2.74 s, experience 3.34 s, `/ar/` 3.45 s; phone 1.36–2.13 s; CLS ≤ 0.008 everywhere. Run-to-run spread 0.7–4.1 s on the same page comes from hot-linked `images.unsplash.com` fetches; CSS and fonts finish by ~1.1 s. **Remaining lever (owner decision): host hero photos in the Media Library** (owner rule of 2026-09-28: nothing is downloaded there without asking).
 - Head (15 pages, 8 languages): canonical = clean URL, `noindex, nofollow`, full hreflang; sitemap 404; wp-admin shows "Search engines discouraged".
-- Widths 320/961/1280 were measured for destination + experience (geometry tables); a wider sweep at those widths was stopped by Cloudflare rate limiting of this test machine (HTTP 429 after ~1000 automated loads) — protection working, not a site fault.
+- Widths 320/961/1280: geometry tables for destination + experience on production; production sweep stopped by Cloudflare rate limiting of this test machine (HTTP 429 / challenge after ~1000 automated loads — protection working, not a site fault; the 5 renders before it were clean). Same sweep on the local 1.2.2 build (same code and imported content): 8 language roots + 3 archives + 404 + a destination in all 8 languages × 320/961/1280 = 60 renders, 0 overflow, 0 page errors, axe 0.
 
 ## 17 Final launch gate
 
