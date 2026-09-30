@@ -1,3 +1,29 @@
+# Run 3 — multilingual parity for post-105 pages (same day)
+
+Audit: `docs/MULTILINGUAL-PARITY-POST-105-AUDIT-2026-09-30.md`.
+
+| Item | Status | Evidence |
+|---|---|---|
+| Inventory of post-105 user-facing text | COMPLETE | 22 items classified A/B/C/D; extractor: 0 missing strings in 7 languages |
+| Archive intros ×8 | COMPLETE | Core `data/ui-copy.json`; live ar/de intros |
+| Disclosure sentence ×8 | COMPLETE | Core fallback; renders with the first live offer |
+| Privacy, Cookies, Affiliate Disclosure, Contact ×7 | COMPLETE | 28 pages live (IDs 431–459), hreflang 9, self-canonical |
+| Terms ×8 | BLOCKED — OWNER INPUT | governing law + liability wording (lawyer) |
+| Legal page UX | COMPLETE | tabs, dividers, stacked table on phones, translation note |
+| Contact UX | COMPLETE | two columns ≥960px, stacked on phones, RTL-correct |
+| Footer legal row ×8 | COMPLETE | localized titles, no draft/redirect links |
+| Arabic RTL | COMPLETE | honeypot overflow found and fixed (11,439px → 1,440px) |
+| Accessibility | COMPLETE | 24 page types × 390–1920 axe 0 (local); live `/ar/contact-ar/` axe 0 |
+| SEO | COMPLETE | canonical, hreflang, noindex on every new page |
+| 105 approved files protected | COMPLETE | 0 changes in `content/editorial`, `data/editorial`, `seed.json` |
+| Production release | COMPLETE | `cfb3c27`, run #19; sync run in wp-admin |
+| Native/legal review of new translations | DEFERRED — NON-BLOCKING | owner |
+| Email delivery (MX/SPF/DKIM) | BLOCKED — OWNER INPUT | unchanged from run 2 |
+
+INCOMPLETE = 0
+
+---
+
 # Run 2 — final launch preparation (same day)
 
 Decision log: `docs/FINAL-LAUNCH-AUTONOMOUS-2026-09-30.md`.

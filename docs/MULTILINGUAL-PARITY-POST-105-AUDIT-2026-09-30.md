@@ -54,5 +54,14 @@ URLs: `/<lang>/<slug>-<lang>/` (the site's existing convention for translated pa
 - Page matrix: 24 page types (incl. ar/de/zh/ru legal + contact) × 390–1920 → overflow none, page errors none, axe 0; 320px: no overflow or clipping, cookie table stacks.
 - Found and fixed: the form honeypot was hidden with `left:-9999px`, which in RTL made `/ar/contact-ar/` 11,439px wide; now clipped in place (Core 1.2.8).
 
-## Production
-See `docs/AUTONOMOUS-EXECUTION-LEDGER-2026-09-30.md` (run 3).
+## Production (2026-09-30)
+- Commit `cfb3c27` → deploy run #19 success (Core 1.2.8, theme 1.2.5).
+- Egypt Roamer → Legal pages (owner's wp-admin session): preview identical to local (28 create + English Contact #60 matching its published hash) → run: **28 pages created (IDs 431–459), Contact #60 updated**; re-preview: 29 current (idempotent).
+- Live (fresh HTML, 3s between requests): ar/de/zh/ru/fr/it/es legal and contact pages 200, correct `lang`/`dir`, self-canonical, hreflang 9, `noindex, nofollow`, section tabs on long documents (Privacy 7, Cookies 4, Disclosure 4), localized footer rows in every language checked, localized archive intros (ar, de), no `-9999px` honeypot; Contact (en, ar) in the two-column layout with LTR email/phone; the private receiving mailbox appears nowhere.
+- `/ar/contact-ar/` at 390px, real browser: no overflow, 0 page errors, axe 0.
+- Cache: normal URLs `cf-cache-status: MISS` with the 1.2.5 CSS version (GoDaddy flushed on the content change).
+- Indexing unchanged (noindex everywhere).
+
+## Remaining
+- Terms (all languages): BLOCKED — owner/lawyer (governing law, liability wording).
+- Native-speaker and legal review of the 28 translated pages, the archive intros and the disclosure sentence: owner (non-blocking for the site to work; edit in WordPress — the sync never overwrites an edited page).
