@@ -335,12 +335,12 @@ function er_payload( string $context ): array {
 
 function er_build_payload( string $context ): array {
 	if ( ! function_exists( 'er_get_offers' ) ) {
-		return [ 'lang' => er_lang(), 'homeUrl' => home_url( '/' ) ];
+		return [ 'lang' => er_lang(), 'homeUrl' => er_home_url() ];
 	}
 	$dest_ids = er_home_destination_ids();
 	$data     = [
 		'lang'         => er_lang(),
-		'homeUrl'      => home_url( '/' ),
+		'homeUrl'      => er_home_url(),
 		'guidesUrl'    => (string) get_post_type_archive_link( 'er_guide' ),
 		'destinations' => array_values( array_map( 'er_payload_destination', $dest_ids ) ),
 		'experiences'  => array_map( 'er_payload_experience', er_home_experience_ids(), array_keys( er_home_experience_ids() ) ),

@@ -26,7 +26,7 @@ while ( have_posts() ) :
 	] );
 	$er_hl     = er_lines( $er_id, '_er_highlights' );
 
-	$er_plan = (bool) er_home( 'planner_enabled' ) ? home_url( '/' ) . '#planner' : '';
+	$er_plan = (bool) er_home( 'planner_enabled' ) ? er_home_url() . '#planner' : '';
 
 	// Sidebar (desktop): key facts, the first things to do, the planner. On phones the facts
 	// open the page and the rest is left to the full sections below.

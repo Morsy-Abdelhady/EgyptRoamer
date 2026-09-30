@@ -12,9 +12,9 @@ er_page_hero( [ 'eyebrow' => '404', 'title' => er_t( 'This page wandered off' ),
 <div class="page-body container">
 	<?php get_search_form(); ?>
 	<p class="links-row">
-		<a class="btn btn--outline" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php er_e( 'Home' ); ?></a>
-		<a class="btn btn--outline" href="<?php echo esc_url( get_post_type_archive_link( 'er_destination' ) ?: home_url( '/' ) ); ?>"><?php er_e( 'Destinations' ); ?></a>
-		<a class="btn btn--outline" href="<?php echo esc_url( get_post_type_archive_link( 'er_experience' ) ?: home_url( '/' ) ); ?>"><?php er_e( 'Experiences' ); ?></a>
+		<a class="btn btn--outline" href="<?php echo esc_url( er_home_url() ); ?>"><?php er_e( 'Home' ); ?></a>
+		<a class="btn btn--outline" href="<?php echo esc_url( get_post_type_archive_link( 'er_destination' ) ?: er_home_url() ); ?>"><?php er_e( 'Destinations' ); ?></a>
+		<a class="btn btn--outline" href="<?php echo esc_url( get_post_type_archive_link( 'er_experience' ) ?: er_home_url() ); ?>"><?php er_e( 'Experiences' ); ?></a>
 	</p>
 </div>
 </main>

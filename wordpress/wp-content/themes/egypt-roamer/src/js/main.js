@@ -17,6 +17,7 @@ import { initGuide } from "./components/guide.js";
 import { initPlanner } from "./components/planner.js";
 import { initSearch } from "./components/search.js";
 import { initFilm } from "./components/film.js";
+import { initFit } from "./components/fit.js";
 import {
   initMagnetic,
   initReveals,
@@ -73,6 +74,7 @@ safe("i18n", () => {
   translateStatic();
   localizeData(data);
 });
+safe("fit", initFit); // before the hero splits its title into lines
 safe("images", initImageFallback);
 safe("favorites", initFavorites);
 safe("smooth-scroll", initSmoothScroll);

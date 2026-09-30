@@ -49,6 +49,15 @@ function er_lang(): string {
 	return function_exists( 'er_current_lang' ) ? er_current_lang() : substr( determine_locale(), 0, 2 );
 }
 
+/**
+ * The current language's homepage (/, /de/, /ar/ …). Explicit rather than home_url( '/' ), which
+ * Polylang localises only by matching the caller's file path against the theme folder.
+ */
+function er_home_url(): string {
+	$url = function_exists( 'pll_home_url' ) ? (string) pll_home_url() : '';
+	return trailingslashit( '' !== $url ? $url : home_url( '/' ) );
+}
+
 /** Languages the interface JavaScript has dictionaries for. */
 function er_js_languages(): array {
 	return [ 'en', 'de', 'fr', 'it', 'es', 'ru', 'zh', 'ar' ];

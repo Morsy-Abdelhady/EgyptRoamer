@@ -312,7 +312,7 @@ add_filter( 'wp_nav_menu_objects', static function ( $items ) {
 
 /** Trail as [ [label, url|null], … ] */
 function er_breadcrumb_trail(): array {
-	$trail = [ [ er_t( 'Home' ), home_url( '/' ) ] ];
+	$trail = [ [ er_t( 'Home' ), er_home_url() ] ];
 	if ( is_singular() ) {
 		$post = get_queried_object();
 		$type = get_post_type_object( $post->post_type );
@@ -548,7 +548,20 @@ function er_languages(): array {
 		return [];
 	}
 	$langs = pll_the_languages( [ 'raw' => 1, 'hide_if_empty' => 1, 'hide_if_no_translation' => 0 ] );
-	return is_array( $langs ) && count( $langs ) > 1 ? $langs : [];
+	if ( ! is_array( $langs ) || count( $langs ) < 2 ) {
+		return [];
+	}
+	// An archive with nothing published yet: Polylang falls back to each language's homepage; link the
+	// same archive in each language instead (/de/tours/), like every other page.
+	$type = is_post_type_archive() ? get_post_type_object( (string) get_query_var( 'post_type' ) ) : null;
+	if ( $type && is_string( $type->has_archive ) && function_exists( 'pll_home_url' ) ) {
+		foreach ( $langs as $slug => $l ) {
+			if ( untrailingslashit( (string) $l['url'] ) === untrailingslashit( (string) pll_home_url( $slug ) ) ) {
+				$langs[ $slug ]['url'] = trailingslashit( (string) pll_home_url( $slug ) ) . $type->has_archive . '/';
+			}
+		}
+	}
+	return $langs;
 }
 
 function er_lang_switcher( string $variant = 'desktop' ): void {

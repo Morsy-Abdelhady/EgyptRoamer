@@ -1,3 +1,20 @@
+# Run 4 — global footer parity (same day)
+
+Audit: `docs/FOOTER-PARITY-AUDIT-2026-09-30.md`. Run 3 reported parity without auditing the footer columns: English had 3 columns, the other 7 languages had 1.
+
+| Item | Status | Evidence |
+|---|---|---|
+| Footer source traced | COMPLETE | `footer.php` → `er_menu()` (Polylang per-language menus) + `er_legal_links()` |
+| Rendered inventory ×8 | COMPLETE | production en ar de fr it es ru, local ×8 (production zh challenged by Cloudflare) |
+| Root cause | COMPLETE | seed-generated per-language footer menus without untranslatable-at-the-time items |
+| One canonical footer, localized per item | COMPLETE | theme 1.2.6 / Core 1.2.9, `ba34a42` + `a5a527a`, runs #20 #21 |
+| Automated parity test | COMPLETE | `tools/qa/footer-parity.mjs`: fails on the old footer, passes 9 page types × 7 languages |
+| Responsive / RTL / keyboard / axe | COMPLETE | 8 languages × 320–1440, 0 overflow, 0 axe, focus visible, Arabic mirrored |
+| Visual comparison | COMPLETE | en/ar/de desktop, en/ar/zh/ru phones |
+| Production verification | see audit doc | |
+
+---
+
 # Run 3 — multilingual parity for post-105 pages (same day)
 
 Audit: `docs/MULTILINGUAL-PARITY-POST-105-AUDIT-2026-09-30.md`.
@@ -11,7 +28,7 @@ Audit: `docs/MULTILINGUAL-PARITY-POST-105-AUDIT-2026-09-30.md`.
 | Terms ×8 | BLOCKED — OWNER INPUT | governing law + liability wording (lawyer) |
 | Legal page UX | COMPLETE | tabs, dividers, stacked table on phones, translation note |
 | Contact UX | COMPLETE | two columns ≥960px, stacked on phones, RTL-correct |
-| Footer legal row ×8 | COMPLETE | localized titles, no draft/redirect links |
+| Footer legal row ×8 | COMPLETE | localized titles, no draft/redirect links (footer **columns** were not audited in run 3: see run 4) |
 | Arabic RTL | COMPLETE | honeypot overflow found and fixed (11,439px → 1,440px) |
 | Accessibility | COMPLETE | 24 page types × 390–1920 axe 0 (local); live `/ar/contact-ar/` axe 0 |
 | SEO | COMPLETE | canonical, hreflang, noindex on every new page |

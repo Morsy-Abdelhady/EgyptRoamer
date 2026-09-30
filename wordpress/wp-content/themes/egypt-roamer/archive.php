@@ -81,7 +81,7 @@ er_page_hero( [ 'eyebrow' => er_t( 'Egypt Roamer' ), 'title' => $er_title, 'intr
 		<div class="empty-state">
 			<p class="t-h3"><?php er_e( 'Nothing published here yet.' ); ?></p>
 			<p class="muted"><?php er_e( 'We only publish pages when they are genuinely useful. Explore what is ready:' ); ?></p>
-			<p><a class="btn btn--outline" href="<?php echo esc_url( get_post_type_archive_link( 'er_destination' ) ?: home_url( '/' ) ); ?>"><?php er_e( 'Destinations' ); ?></a></p>
+			<p><a class="btn btn--outline" href="<?php echo esc_url( get_post_type_archive_link( 'er_destination' ) ?: er_home_url() ); ?>"><?php er_e( 'Destinations' ); ?></a></p>
 		</div>
 	<?php endif; ?>
 </div>

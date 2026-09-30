@@ -28,8 +28,8 @@ $er_brand_imgs = static function () {
 		);
 	}
 };
-// home_url( '/' ) first, then the anchor: Polylang only localises the bare home URL.
-$er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#planner' : home_url( '/' ) . '#planner' ) : '';
+// The language's homepage, then the anchor.
+$er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#planner' : er_home_url() . '#planner' ) : '';
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
@@ -57,7 +57,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 
 <header class="nav" id="nav" data-state="top">
 	<div class="nav__inner">
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="brand" aria-label="<?php echo esc_attr( er_t( 'Egypt Roamer — home' ) ); ?>" rel="home">
+		<a href="<?php echo esc_url( er_home_url() ); ?>" class="brand" aria-label="<?php echo esc_attr( er_t( 'Egypt Roamer — home' ) ); ?>" rel="home">
 			<?php $er_brand_imgs(); ?>
 		</a>
 

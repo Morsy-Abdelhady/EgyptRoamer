@@ -128,6 +128,16 @@ function initLang() {
   document.addEventListener("click", (e) => {
     if (!root.contains(e.target)) open(false);
   });
+  // Keyboard: the menu closes when focus leaves it, and Escape closes it wherever focus is.
+  root.addEventListener("focusout", (e) => {
+    if (root.classList.contains("is-open") && !root.contains(e.relatedTarget)) open(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && root.classList.contains("is-open")) {
+      open(false);
+      toggle.focus();
+    }
+  });
 }
 
 /* ---------------- Overlays ---------------- */
@@ -166,6 +176,21 @@ export function closeOverlay(el) {
   lastFocus?.focus?.({ preventScroll: true });
 }
 
+// Tab and Shift+Tab stay inside an open overlay or the mobile menu (plus the menu button that closes it),
+// so keyboard focus never moves to the page hidden behind it.
+function trapFocus(e) {
+  const el = $(".overlay.is-open, .menu.is-open");
+  if (!el) return;
+  const visible = (n) => n.offsetParent !== null || getComputedStyle(n).position === "fixed";
+  const items = [...(el.id === "menu" ? $$('header [data-open="menu"]') : []), ...el.querySelectorAll('a[href], button:not([disabled]), input:not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])')].filter(visible);
+  if (!items.length) return;
+  // The menu button sits outside the menu in the page order, so move focus explicitly on every Tab.
+  e.preventDefault();
+  const i = items.indexOf(document.activeElement);
+  const next = i < 0 ? (e.shiftKey ? items.length - 1 : 0) : (i + (e.shiftKey ? -1 : 1) + items.length) % items.length;
+  items[next].focus();
+}
+
 function initOverlays() {
   document.addEventListener("click", (e) => {
     const opener = e.target.closest("[data-open]");
@@ -187,6 +212,7 @@ function initOverlays() {
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") $$(".overlay.is-open, .menu.is-open").forEach(closeOverlay);
+    if (e.key === "Tab") trapFocus(e);
     const typing = /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName);
     if ((e.key === "/" && !typing) || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k")) {
       e.preventDefault();

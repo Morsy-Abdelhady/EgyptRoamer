@@ -15,8 +15,8 @@ $er_col          = static function ( string $title, string $location ) use ( &$e
 	$er_footer_links .= $menu;
 	echo '<div data-footer-col="' . esc_attr( $location ) . '"><h3 class="t-label">' . esc_html( $title ) . '</h3>' . $menu . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput -- wp_nav_menu output
 };
-// home_url( '/' ) first, then the anchor: Polylang only localises the bare home URL.
-$er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#planner' : home_url( '/' ) . '#planner' ) : '';
+// The language's homepage, then the anchor.
+$er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#planner' : er_home_url() . '#planner' ) : '';
 ?>
 <footer class="footer on-dark" id="footer">
 	<div class="container">
@@ -72,7 +72,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 </footer>
 
 <nav class="dock" aria-label="<?php echo esc_attr( er_t( 'Quick actions' ) ); ?>">
-	<a href="<?php echo esc_url( get_post_type_archive_link( 'er_destination' ) ?: home_url( '/' ) ); ?>" class="dock__item"><?php echo er_icon( 'i-compass' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span><?php er_e( 'Explore' ); ?></span></a>
+	<a href="<?php echo esc_url( get_post_type_archive_link( 'er_destination' ) ?: er_home_url() ); ?>" class="dock__item"><?php echo er_icon( 'i-compass' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span><?php er_e( 'Explore' ); ?></span></a>
 	<button type="button" class="dock__item" data-open="saved"><?php echo er_icon( 'i-heart' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span><?php er_e( 'Saved' ); ?></span><i class="dock__badge" data-fav-count></i></button>
 	<button type="button" class="dock__item" data-open="search"><?php echo er_icon( 'i-search' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span><?php er_e( 'Search' ); ?></span></button>
 	<?php if ( $er_planner_url ) : ?>
@@ -92,7 +92,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 
 <div class="overlay search" id="search" role="dialog" aria-modal="true" aria-label="<?php echo esc_attr( er_t( 'Search' ) ); ?>" hidden>
 	<div class="search__box">
-		<form class="search__field" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+		<form class="search__field" role="search" method="get" action="<?php echo esc_url( er_home_url() ); ?>">
 			<?php echo er_icon( 'i-search' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			<input type="search" name="s" placeholder="<?php echo esc_attr( er_t( 'Search destinations, tours, cruises, guides…' ) ); ?>" aria-label="<?php echo esc_attr( er_t( 'Search' ) ); ?>" data-search-input />
 			<button class="icon-btn" type="button" data-close aria-label="<?php echo esc_attr( er_t( 'Close search' ) ); ?>"><?php echo er_icon( 'i-close' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></button>

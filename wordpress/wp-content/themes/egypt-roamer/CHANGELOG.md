@@ -2,6 +2,16 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.7 — 2026-09-30
+From the full-site audit (every public URL × 8 languages; `docs/FULL-SITE-AUDIT-2026-09-30.md`):
+- Homepage display titles fit their column in every language: "КРАСНОЕ МОРЕ" was clipped at every width (desktop included), "ROTES MEER" on phones up to 480 px, and "ÉGYPTE", "EGITTO" and "EGIPTO" touched the edge on small phones. A fitter (`src/js/components/fit.js`) keeps the approved size while the word fits and shrinks it just enough when it does not; English and Chinese are unchanged at every width.
+- Keyboard:
+  - Tab and Shift+Tab stay inside an open overlay (search, saved) or the mobile menu, with the menu button, instead of moving to the page hidden behind it.
+  - The language menu closes when focus leaves it, and Escape closes it wherever focus is.
+- Home links (logo, Plan My Trip, planner links, 404, breadcrumbs, search overlay, script data) use `er_home_url()`, the language's homepage, explicitly. `home_url( '/' )` was localized by Polylang only when the calling file's path matched the theme folder: correct on production, English on an installation whose theme is a symlink.
+- Language switcher on an archive with nothing published yet (tours, activities, guides) links the same archive in each language instead of the homepages.
+- `tools/build.py` writes LF on Windows (it wrote CRLF bundles).
+
 ## 1.2.6 — 2026-09-30
 Global footer parity (with Core 1.2.9). The English footer had three columns (Explore, Plan, Egypt Roamer) and a two-link legal row; the seven other languages had only Explore, with Affiliate Disclosure and Contact moved into the legal row. The columns came from per-language menus the seed had generated, which left out every item it could not translate at the time: the "Trip Builder" anchor, and the Affiliate Disclosure and Contact pages (English-only then).
 - One canonical footer: every language renders the default language's footer menus, localized item by item (`er_localize_menu_item()`): pages → their translation, archives → the language's archive, homepage anchors → the language's homepage, labels → the approved prototype translations (else the translated page's title). An item with no version in a language is left out, never shown in English. Polylang's swap to a per-language menu is undone for these locations.
