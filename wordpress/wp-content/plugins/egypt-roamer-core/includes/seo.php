@@ -150,10 +150,80 @@ add_filter( 'wp_sitemaps_add_provider', static function ( $provider, $name ) {
 	return 'users' === $name ? false : $provider; // author archives are not a content strategy here
 }, 10, 2 );
 
-// Keep the redirect endpoint out of crawling (it also sends X-Robots-Tag: noindex).
+/*
+ * Core sitemap: the content-type hubs (/destinations/, /experiences/ …) are indexable pages with their own
+ * intro and links, but WordPress's sitemap lists no post-type archives. Listed here, per language, only
+ * while the archive is indexable (at least one published item ticked "Ready to index").
+ */
+add_action( 'init', static function () {
+	if ( er_seo_plugin_active() || ! class_exists( 'WP_Sitemaps_Provider' ) ) {
+		return;
+	}
+	if ( ! class_exists( 'ER_Sitemaps_Archives' ) ) {
+		/** Post-type archives provider for the core sitemap. */
+		class ER_Sitemaps_Archives extends WP_Sitemaps_Provider {
+			public function __construct() {
+				$this->name        = 'archives';
+				$this->object_type = 'archive';
+			}
+
+			public function get_url_list( $page_num, $object_subtype = '' ) {
+				if ( 1 !== (int) $page_num ) {
+					return [];
+				}
+				// Polylang serves one sitemap per language (/de/wp-sitemap-archives-1.xml …): list that language only.
+				$langs = [ function_exists( 'pll_current_language' ) ? (string) ( pll_current_language() ?: pll_default_language() ) : '' ];
+				$urls  = [];
+				foreach ( er_public_type_keys() as $type ) {
+					foreach ( $langs as $lang ) {
+						$latest = get_posts( [ 'post_type' => $type, 'post_status' => 'publish', 'numberposts' => 1, 'meta_key' => '_er_indexable', 'meta_value' => '1', 'lang' => $lang, 'orderby' => 'modified', 'order' => 'DESC' ] );
+						if ( ! $latest ) {
+							continue; // an archive with nothing ready to index is noindex (er_request_noindex)
+						}
+						$link = er_post_type_archive_link_in( $type, (string) $lang );
+						if ( $link ) {
+							$urls[] = [ 'loc' => $link, 'lastmod' => get_post_modified_time( DATE_W3C, true, $latest[0] ) ];
+						}
+					}
+				}
+				return $urls;
+			}
+
+			public function get_max_num_pages( $object_subtype = '' ) {
+				return 1;
+			}
+		}
+	}
+	wp_register_sitemap_provider( 'archives', new ER_Sitemaps_Archives() );
+}, 20 );
+
+/** A post-type archive's URL in one language (Polylang directory URLs; the default language has no prefix). */
+function er_post_type_archive_link_in( string $type, string $lang ): string {
+	$link = (string) get_post_type_archive_link( $type );
+	if ( ! $link || '' === $lang || ! function_exists( 'pll_languages_list' ) ) {
+		return $link;
+	}
+	// Polylang prefixes the current request's language: strip any language prefix, then add $lang's.
+	$path  = (string) wp_parse_url( $link, PHP_URL_PATH );
+	$root  = (string) wp_parse_url( home_url( '/' ), PHP_URL_PATH );
+	$rest  = ltrim( substr( $path, strlen( $root ) ), '/' );
+	$slugs = (array) pll_languages_list();
+	$first = strtok( $rest, '/' );
+	if ( false !== $first && in_array( $first, $slugs, true ) ) {
+		$rest = (string) substr( $rest, strlen( $first ) + 1 );
+	}
+	$prefix = pll_default_language() === $lang ? '' : $lang . '/';
+	return home_url( '/' . $prefix . $rest ); // home_url() itself is never language-prefixed
+}
+
+// Keep the redirect endpoint out of crawling (it also sends X-Robots-Tag: noindex). Placed in the
+// "User-agent: *" block, before WordPress's Sitemap line, so every robots.txt parser reads it as a rule.
 add_filter( 'robots_txt', static function ( $output, $public ) {
 	if ( $public ) {
-		$output .= "\n# Egypt Roamer affiliate redirects\nDisallow: /go/\n";
+		$rule = "Disallow: /go/\n";
+		$output = str_contains( $output, "\nSitemap:" )
+			? preg_replace( '/\n(?=\nSitemap:)/', "\n" . $rule, $output, 1 )
+			: $output . $rule;
 	}
 	return $output;
 }, 20, 2 );
@@ -225,6 +295,72 @@ add_action( 'wp_head', static function () {
 	}
 	$data['containedInPlace'] = [ '@type' => 'Country', 'name' => 'Egypt' ];
 	echo '<script type="application/ld+json">' . wp_json_encode( array_filter( $data ), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
+}, 20 );
+
+/*
+ * Guides and journal articles (once published and ticked "Ready to index"): Article with the real dates.
+ * The author is the publication itself (no named editor is published on the site), the image only when the
+ * article has its own featured image.
+ */
+add_action( 'wp_head', static function () {
+	if ( er_seo_plugin_active() || ! is_singular( [ 'er_guide', 'post' ] ) ) {
+		return;
+	}
+	$id = (int) get_queried_object_id();
+	if ( ! er_is_indexable( $id ) ) {
+		return;
+	}
+	$org  = [ '@type' => 'Organization', '@id' => home_url( '/' ) . '#organization', 'name' => get_bloginfo( 'name' ), 'url' => home_url( '/' ) ];
+	$data = [
+		'@context'         => 'https://schema.org',
+		'@type'            => 'Article',
+		'headline'         => wp_strip_all_tags( get_the_title( $id ) ),
+		'description'      => wp_strip_all_tags( get_the_excerpt( $id ) ),
+		'url'              => get_permalink( $id ),
+		'mainEntityOfPage' => get_permalink( $id ),
+		'datePublished'    => get_post_time( DATE_W3C, true, $id ),
+		'dateModified'     => get_post_modified_time( DATE_W3C, true, $id ),
+		'inLanguage'       => str_replace( '_', '-', get_locale() ),
+		'author'           => $org,
+		'publisher'        => $org,
+	];
+	$image = get_the_post_thumbnail_url( $id, 'large' );
+	if ( $image ) {
+		$data['image'] = $image;
+	}
+	echo '<script type="application/ld+json">' . wp_json_encode( array_filter( $data ), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
+}, 20 );
+
+/*
+ * Homepage (every language): the brand as an Organization and the site as a WebSite, until an SEO plugin
+ * provides its own. Only facts that are true today: no contactPoint (the public mailbox has no MX record
+ * yet), no sameAs (no social profiles), no SearchAction (Google retired the sitelinks search box).
+ */
+add_action( 'wp_head', static function () {
+	if ( er_seo_plugin_active() || ! is_front_page() || is_paged() ) {
+		return;
+	}
+	$root  = home_url( '/' );
+	$langs = function_exists( 'pll_languages_list' ) ? (array) pll_languages_list( [ 'fields' => 'locale' ] ) : [ get_locale() ];
+	$org   = [
+		'@type' => 'Organization',
+		'@id'   => $root . '#organization',
+		'name'  => get_bloginfo( 'name' ),
+		'url'   => $root,
+	];
+	$logo = (string) apply_filters( 'er_brand_logo', '' );
+	if ( $logo ) {
+		$org['logo'] = $logo;
+	}
+	$site = [
+		'@type'      => 'WebSite',
+		'@id'        => $root . '#website',
+		'name'       => get_bloginfo( 'name' ),
+		'url'        => $root,
+		'publisher'  => [ '@id' => $root . '#organization' ],
+		'inLanguage' => array_values( array_map( static fn ( $l ) => str_replace( '_', '-', (string) $l ), array_filter( $langs ) ) ),
+	];
+	echo '<script type="application/ld+json">' . wp_json_encode( [ '@context' => 'https://schema.org', '@graph' => [ $org, $site ] ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
 }, 20 );
 
 /* Minimal fallback while no SEO plugin is installed — removed automatically once Rank Math is active. */

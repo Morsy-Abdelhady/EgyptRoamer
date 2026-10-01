@@ -2,6 +2,18 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.13 — 2026-10-01
+SEO, with Core 1.2.11 (`docs/SEO-AUDIT-2026-10-01.md`). Indexing stays off; nothing here changes what visitors see on the page:
+- Destination titles follow the search intent: "Kairo – Reiseführer – Egypt Roamer", built only from approved strings (the destination's title and the theme's "Travel Guide" in each language).
+- The theme provides the logo for Core's Organization data (`er_brand_logo`).
+
+Core 1.2.11:
+- Homepage structured data: Organization (name, URL, logo) and WebSite (languages), true facts only: no contact point (the public mailbox has no MX record yet), no sameAs, no retired SearchAction.
+- Article data for guides and journal posts once they are published and ready to index (real dates; the publication as author; the image only when the article has its own).
+- The core sitemap now lists the indexable hubs (/destinations/, /experiences/, and /guides/ etc. once they have an indexable item), one per language, with the newest item's date as lastmod.
+- robots.txt: `Disallow: /go/` sits in the `User-agent: *` block, before the Sitemap line.
+- `wp egypt-roamer index`: the launch switch, step 1. Reviews (or with `--apply`, ticks "Ready to index" on) published destinations and experiences in every language on quality, not length: own description, in-content links, a translation complete against its English original (sections, FAQ items, list items, links) and written in its language's script. Local launch simulation: 176 sitemap URLs, 0 failures (`tools/qa/launch-sim.py`).
+
 ## 1.2.12 — 2026-10-01
 Trip assistant launcher, keyboard safety for the 1.2.11 phone behaviour:
 - The launcher never steps aside while it has keyboard focus or while its drawer is open (focus returns to it when the drawer closes), and it re-checks when it loses focus or an overlay closes.

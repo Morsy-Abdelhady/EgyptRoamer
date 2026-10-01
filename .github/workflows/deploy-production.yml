@@ -298,7 +298,10 @@ jobs:
           for path in / /ar/ /destinations/ /destinations/cairo/ \
                       /ar/destinations/%d8%a7%d9%84%d9%82%d8%a7%d9%87%d8%b1%d8%a9/ /experiences/ /journal/; do
             code=$(curl -sS -m 30 -A "Mozilla/5.0 deploy-check" -o /tmp/page.html -w '%{http_code}' "$SITE$path?deploy=$GITHUB_RUN_ID" || echo 000)
-            if [ "$code" != 200 ]; then echo "FAIL  $path HTTP $code"; fail=1
+            # 429 = Cloudflare rate-limiting this runner, not a site failure (the server checks above are
+            # authoritative): a warning, and no further public requests from this run.
+            if [ "$code" = 429 ]; then echo "::warning::$path HTTP 429 (Cloudflare rate limit); public page check skipped"; break
+            elif [ "$code" != 200 ]; then echo "FAIL  $path HTTP $code"; fail=1
             elif grep -qiE 'Fatal error|Parse error|There has been a critical error|Warning</b>:' /tmp/page.html; then echo "FAIL  $path shows a PHP error"; fail=1
             else echo "OK    $path HTTP 200"; fi
           done

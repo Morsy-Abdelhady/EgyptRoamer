@@ -96,6 +96,9 @@ add_action( 'wp_head', static fn () => print( '<meta name="theme-color" content=
 /** Default share image for pages without a featured image (used by the Core fallback; set Rank Math's default to the same file). */
 add_filter( 'er_default_share_image', static fn () => er_brand_url( 'og-image.jpg' ) );
 
+/** Logo for the Organization structured data (Core): the dark wordmark, made for light backgrounds. */
+add_filter( 'er_brand_logo', static fn () => er_brand_url( 'egypt-roamer-logo-dark-600.png' ) );
+
 /** JS flag before first paint (the design's no-js/js states). */
 add_action( 'wp_head', static fn () => print( "<script>document.documentElement.classList.replace('no-js','js');</script>\n" ), 0 );
 

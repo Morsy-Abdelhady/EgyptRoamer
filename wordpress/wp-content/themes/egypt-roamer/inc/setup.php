@@ -48,6 +48,10 @@ add_action( 'admin_notices', static function () {
 add_filter( 'document_title_parts', static function ( $parts ) {
 	if ( is_front_page() ) {
 		$parts['tagline'] = er_t( 'More than a destination' );
+	} elseif ( is_singular( 'er_destination' ) ) {
+		// Search intent for a place is "<place> travel guide"; both parts are approved strings in every
+		// language (the destination's title and the theme's "Travel Guide"), so nothing is newly translated.
+		$parts['title'] = single_post_title( '', false ) . ' – ' . er_t( 'Travel Guide' );
 	} elseif ( is_post_type_archive() ) {
 		$parts['title'] = er_type_label( (string) get_query_var( 'post_type' ) );
 	} elseif ( is_search() ) {

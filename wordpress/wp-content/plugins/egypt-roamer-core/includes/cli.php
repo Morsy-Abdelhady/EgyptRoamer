@@ -843,6 +843,115 @@ class ER_CLI {
 	}
 
 	/**
+	 * The launch indexing switch, step 1: review (default) or tick "Ready to index" on published pages, in every
+	 * language. The decision is quality-based, not a word count. A page passes when:
+	 *
+	 * - it has a real body and its own description (excerpt);
+	 * - a translation is complete against its English original: same sections (h2), FAQ items and list items,
+	 *   and at least as many in-content links (a shortened or partial translation fails);
+	 * - the body links to other pages of the site (no dead end);
+	 * - its text is in the page's language (Arabic, Russian and Chinese bodies are checked for their script).
+	 *
+	 * It never touches "Discourage search engines" (step 2, Settings → Reading, the owner) and never unticks.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [--type=<types>]
+	 * : Comma-separated content types. Default: er_destination,er_experience.
+	 *
+	 * [--apply]
+	 * : Tick the pages that pass. Without it, nothing is written.
+	 *
+	 * [--format=<format>]
+	 * : table (default), csv or json.
+	 *
+	 * @when after_wp_load
+	 */
+	public function index( $args, $assoc ) {
+		$types = array_intersect( array_map( 'trim', explode( ',', (string) ( $assoc['type'] ?? 'er_destination,er_experience' ) ) ), er_gated_types() );
+		$apply = ! empty( $assoc['apply'] );
+		if ( ! $types ) {
+			WP_CLI::error( 'No gated content type given (' . implode( ', ', er_gated_types() ) . ').' );
+		}
+		$home  = preg_quote( untrailingslashit( home_url() ), '/' );
+		$shape = static function ( string $html ) use ( $home ): array {
+			return [
+				'h2'    => (int) preg_match_all( '/<h2[\s>]/i', $html ),
+				'faq'   => (int) preg_match_all( '/<(?:dt|summary|h3)[\s>]/i', $html ),
+				'li'    => (int) preg_match_all( '/<li[\s>]/i', $html ),
+				'links' => (int) preg_match_all( '/<a\s[^>]*href=["\'](?:\/(?!\/)|' . $home . ')/i', $html ),
+				'text'  => trim( html_entity_decode( wp_strip_all_tags( strip_shortcodes( $html ) ), ENT_QUOTES, 'UTF-8' ) ),
+			];
+		};
+		// Languages that don't use the Latin alphabet: most of the body's letters must be in their script.
+		$scripts = [ 'ar' => '\p{Arabic}', 'ru' => '\p{Cyrillic}', 'zh' => '\p{Han}' ];
+		$default = function_exists( 'pll_default_language' ) ? (string) pll_default_language() : 'en';
+		$counts  = [ 'pass' => 0, 'fail' => 0, 'ticked' => 0, 'already' => 0 ];
+		$rows    = [];
+		foreach ( $types as $type ) {
+			$ids = get_posts( [ 'post_type' => $type, 'post_status' => 'publish', 'numberposts' => -1, 'fields' => 'ids', 'lang' => '', 'orderby' => 'ID', 'order' => 'ASC' ] );
+			foreach ( $ids as $id ) {
+				$lang  = function_exists( 'pll_get_post_language' ) ? (string) pll_get_post_language( $id ) : $default;
+				$s     = $shape( (string) get_post_field( 'post_content', $id ) );
+				$fails = [];
+				if ( '' === $s['text'] ) {
+					$fails[] = 'no body';
+				}
+				if ( '' === trim( (string) get_post_field( 'post_excerpt', $id ) ) ) {
+					$fails[] = 'no description (excerpt)';
+				}
+				if ( ! $s['links'] ) {
+					$fails[] = 'no in-content links';
+				}
+				$source = $lang !== $default && function_exists( 'pll_get_post' ) ? (int) pll_get_post( $id, $default ) : 0;
+				if ( $source ) {
+					$o = $shape( (string) get_post_field( 'post_content', $source ) );
+					foreach ( [ 'h2' => 'sections', 'faq' => 'FAQ items', 'li' => 'list items' ] as $k => $label ) {
+						if ( $s[ $k ] !== $o[ $k ] ) {
+							$fails[] = "{$label} {$s[ $k ]} vs {$o[ $k ]} in English";
+						}
+					}
+					if ( $s['links'] < $o['links'] ) {
+						$fails[] = "links {$s['links']} vs {$o['links']} in English";
+					}
+				} elseif ( $lang !== $default ) {
+					$fails[] = 'no English original linked';
+				}
+				if ( isset( $scripts[ $lang ] ) && '' !== $s['text'] ) {
+					$letters = max( 1, (int) preg_match_all( '/\p{L}/u', $s['text'] ) );
+					$own     = (int) preg_match_all( '/' . $scripts[ $lang ] . '/u', $s['text'] );
+					if ( $own / $letters < 0.6 ) {
+						$fails[] = sprintf( 'only %d%% of the letters in %s script', round( 100 * $own / $letters ), $lang );
+					}
+				}
+				$ready = (bool) get_post_meta( $id, '_er_indexable', true );
+				if ( $ready ) {
+					++$counts['already'];
+				} elseif ( ! $fails ) {
+					++$counts['pass'];
+					if ( $apply ) {
+						update_post_meta( $id, '_er_indexable', 1 );
+						++$counts['ticked'];
+					}
+				} else {
+					++$counts['fail'];
+				}
+				$rows[] = [
+					'id'     => $id,
+					'type'   => $type,
+					'lang'   => $lang,
+					'h2'     => $s['h2'],
+					'links'  => $s['links'],
+					'result' => $ready ? 'already ready' : ( $fails ? 'stays noindex: ' . implode( '; ', $fails ) : ( $apply ? 'ticked' : 'would tick' ) ),
+					'url'    => rawurldecode( wp_make_link_relative( (string) get_permalink( $id ) ) ),
+				];
+			}
+		}
+		WP_CLI\Utils\format_items( (string) ( $assoc['format'] ?? 'table' ), $rows, [ 'id', 'type', 'lang', 'h2', 'links', 'result', 'url' ] );
+		WP_CLI::success( sprintf( '%s%d pass, %d stay noindex, %d already ready, %d ticked. Indexing also needs "Discourage search engines" unticked (Settings → Reading).', $apply ? '' : '(dry run) ', $counts['pass'], $counts['fail'], $counts['already'], $counts['ticked'] ) );
+	}
+
+	/**
 	 * Print content & affiliate health checks.
 	 *
 	 * @when after_wp_load
