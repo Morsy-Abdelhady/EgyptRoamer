@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.11 — 2026-10-01
+Homepage: the Trip assistant launcher no longer covers hero or journey content (the hero's right-side crop is the approved composition: the image geometry matches the prototype at every width, so the hero CSS is unchanged):
+- Desktop (≥ 901 px): the launcher sat on the journey's scene counter ("01 / 04", same corner; mirrored in Arabic) at every width. While the journey is on screen it now sits above the counter (`body.assistant-raised`), and drops back at the footer.
+- Phones: at 320 px (6 languages) and 360 px (German) the launcher covered the hero's play button. It now steps aside while those buttons are visible under it (`body.assistant-clear`) and returns on scroll.
+- `assistant-loader.js` sets the classes; the rules are in `pages.css`. The approved stylesheets are unchanged.
+
 ## 1.2.10 — 2026-09-30
 Homepage entrance, owner decision of 2026-09-30 ("reveal the text with the loader"):
 - The hero comes in as the loader's wipe starts. Before, it came 250 ms after the loader, the paragraph waited another 0.55 s, and the fade lasted 1.2 s. Now it is one 0.6 s fade with a light stagger (overrides in `pages.css`; the approved stylesheets are unchanged).

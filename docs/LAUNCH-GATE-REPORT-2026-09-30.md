@@ -65,6 +65,7 @@ Cache: GoDaddy "Flush Cache" was run after #22 and #24. Anonymous production (cl
 | O3 | P1 | Performance | LCP 3.8–4.4 s (target ≤ 2.5 s) | hero entrance (0.55 s delay + 1.2 s fade after the loader) | owner decision: reveal with the loader (theme 1.2.10) | ✓ 2.28 s | **fixed**: GTmetrix LCP 2.0 s, grade B, 71 % |
 | O4 | P2 | Performance | TBT ~300 ms (target < 200) | GSAP/ScrollTrigger journey set-up and refreshes (gtag removed) | option: set the journey up on first scroll (owner decision) | – | open |
 | O5 | P3 | Security | theme `src/` public on production | stale early deploy | **owner**: one SSH command (the automated deletion was declined by the permission system) | – | open |
+| D12 | P2 | Homepage | the Trip assistant launcher covered the journey's scene counter (desktop ≥ 901 px, en and ar, every width) and the hero's play button (320 px in 6 languages, 360 px in German). The hero's right-side crop itself is the approved composition: image geometry identical to the prototype at 320–1600 px | fixed-position launcher in the same corner as the counter and the hero buttons | theme 1.2.11: launcher raised above the counter while the journey is on screen; on phones it steps aside while the hero buttons are under it, back on scroll | ✓ 8 languages × 10 widths 0 overlaps; responsive 1,232 checks 0 bad; display fit; axe with overlays 0; keyboard; assistant e2e | pending deploy |
 
 ## Status model
 | Track | Status |

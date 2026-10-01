@@ -2421,6 +2421,59 @@
   function initAssistantLoader() {
     const root = $("#assistant");
     if (!root) return;
+    // Homepage: while the journey stage is on screen, its scene counter ("01 / 04") sits in the same
+    // corner as the launcher; the launcher moves up above it (CSS: body.assistant-raised).
+    const stage = $("#journey-stage");
+    if (stage && "IntersectionObserver" in window) {
+      new IntersectionObserver(([entry]) => document.body.classList.toggle("assistant-raised", entry.isIntersecting)).observe(stage);
+    }
+    // Phones: on narrow screens the hero's buttons (play) reach the launcher's corner; the launcher steps
+    // aside while they are actually visible there (the hero is pinned by the journey, so this checks
+    // geometry and opacity rather than viewport intersection). CSS: body.assistant-clear.
+    const ctas = $(".hero__ctas");
+    const launch = $(".assistant-launch");
+    if (ctas && launch && window.matchMedia) {
+      const phone = window.matchMedia("(max-width: 900px)");
+      let queued = false;
+      const check = () => {
+        queued = false;
+        let hide = false;
+        if (phone.matches) {
+          const b = launch.getBoundingClientRect();
+          const hit = [...ctas.querySelectorAll("a, button")].some((el) => {
+            const a = el.getBoundingClientRect();
+            return !(a.right <= b.left || a.left >= b.right || a.bottom <= b.top || a.top >= b.bottom);
+          });
+          if (hit) {
+            // the row's own entrance fade doesn't count (the launcher should not appear, then leave);
+            // the journey fades the hero through its ancestors
+            hide = true;
+            for (let e = ctas.parentElement; e && e !== document.body; e = e.parentElement) {
+              if (parseFloat(getComputedStyle(e).opacity) < 0.05) hide = false;
+            }
+          }
+        }
+        document.body.classList.toggle("assistant-clear", hide);
+      };
+      const schedule = () => {
+        if (!queued) {
+          queued = true;
+          requestAnimationFrame(check);
+        }
+      };
+      // The journey's scrubbed animation keeps fading the hero after the last scroll event: check again
+      // once scrolling has settled.
+      let settle;
+      const onScroll = () => {
+        schedule();
+        clearTimeout(settle);
+        settle = setTimeout(schedule, 700);
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", schedule);
+      phone.addEventListener?.("change", schedule);
+      schedule();
+    }
     const queue = (window.__erAssistantQueue = window.__erAssistantQueue || []);
     let loaded = false;
     const load = () => {

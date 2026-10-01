@@ -16,6 +16,16 @@ for (const [l, w, path, q] of cases) {
   const scripts = []; p.on("request", (r) => r.url().includes("assistant.js") && scripts.push(r.url()));
   await p.goto(B + path, { waitUntil: "load", timeout: 120000 }); await p.waitForTimeout(path.split("/").length <= 3 ? 3500 : 800);
   const probs = [];
+  // Homepage on narrow phones: the launcher steps aside while the hero's buttons are under it (theme 1.2.11).
+  // It must then be out of reach (hidden, so not focusable), and back once the hero has scrolled away.
+  let stepped = "";
+  if (await p.evaluate(() => document.body.classList.contains("assistant-clear"))) {
+    const hidden = await p.evaluate(() => getComputedStyle(document.querySelector(".assistant-launch")).visibility === "hidden");
+    if (!hidden) probs.push("launcher stepped aside but still visible");
+    await p.evaluate(() => scrollTo(0, innerHeight * 1.5)); await p.waitForTimeout(1500);
+    if (await p.evaluate(() => document.body.classList.contains("assistant-clear"))) probs.push("launcher did not come back after scrolling");
+    stepped = " (stepped aside over the hero, back after scrolling)";
+  }
   const loadedEarly = scripts.length;
   if (loadedEarly) probs.push("assistant.js loaded before opening");
   const launch = await p.evaluate(() => { const b = document.querySelector(".assistant-launch"); const r = b.getBoundingClientRect(); const d = document.querySelector("nav.dock")?.getBoundingClientRect(); const vis = getComputedStyle(b).display !== "none"; return { vis, r: [Math.round(r.left), Math.round(r.top), Math.round(r.right), Math.round(r.bottom)], overlapDock: d && d.height && getComputedStyle(document.querySelector("nav.dock")).display !== "none" ? !(r.bottom <= d.top || r.top >= d.bottom || r.right <= d.left || r.left >= d.right) : false, inView: r.right <= innerWidth && r.left >= 0 && r.bottom <= innerHeight, label: b.getAttribute("aria-label") || b.textContent.trim() }; });
@@ -46,7 +56,7 @@ for (const [l, w, path, q] of cases) {
   if (!back) probs.push("Escape did not close/return focus");
   if (errs.length) probs.push("errors " + errs.join("|"));
   if (probs.length) bad++;
-  console.log(`${probs.length ? "FAIL" : "ok  "} ${l} ${w} launcher="${launch.label}" q="${q}" → ${res.text.replace(/\s+/g, " ")} | links ${res.links.length} | ${probs.join(" ; ")}`);
+  console.log(`${probs.length ? "FAIL" : "ok  "} ${l} ${w} launcher="${launch.label}"${stepped} q="${q}" → ${res.text.replace(/\s+/g, " ")} | links ${res.links.length} | ${probs.join(" ; ")}`);
   await ctx.close();
 }
 await br.close();
