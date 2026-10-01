@@ -124,6 +124,10 @@ Short polling, chosen over WebSockets or SSE:
 
 > **Chat with our team.** If you start a chat in the Trip assistant, we keep your messages, the name and email address you choose to give (both optional), the site language, the pages you wrote from, and the questions you asked the assistant in that visit, so that our team can reply and follow up. Chats are stored in our website's administration area; only the Egypt Roamer team can read them. Your browser keeps a random code for the chat in its local storage so that you can continue it; "End chat" removes it. To limit abuse, a scrambled (hashed) form of your IP address is kept for up to one hour, not with your messages.
 
+The policy also doesn't mention the Trip assistant itself (independent of the chat). A proposed item:
+
+> **Trip assistant.** Questions you ask the Trip assistant are matched against the pages of this site and answered; we do not store them. To limit abuse, a scrambled (hashed) form of your IP address is kept for 10 minutes. (If AI answers are switched on later, the question and the matching pages are sent to Anthropic to write the answer; this sentence must be added before that happens.)
+
 And for "How long we keep it":
 
 > Chat conversations: deleted automatically 90 days after their last message once they are closed; open conversations are kept until they are closed.

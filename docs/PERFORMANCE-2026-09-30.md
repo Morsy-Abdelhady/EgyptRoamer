@@ -145,3 +145,34 @@ The deploy (run #25) and the GoDaddy "Flush Cache" came first. The anonymous che
 - **TBT < 200 ms: not met.** There are 8 long tasks: the GSAP/ScrollTrigger scroll journey set-up and its layout refreshes (approved design). The same JS weight measured 182 ms in the baseline, so TBT varies by about ±120 ms between runs.
 - **Single sample.** The Basic plan's 5 on-demand tests are used up, so the final column is one run, not a median.
 - **The next lever for TBT** is to set up the scroll journey only when the visitor starts to scroll. That changes behaviour on the first scroll, so it is an owner decision.
+
+## TBT investigation: setting the journey up on first scroll (2026-10-01, measured, nothing changed)
+Owner instruction: investigate, but don't change the approved GSAP/ScrollTrigger journey just to hit TBT < 200 ms.
+
+**Where the start-up time goes.** CPU profile of the homepage, local, 390 px, CPU throttled 4× (`jprof.mjs`), one valid run:
+
+| Work | Inclusive time |
+|---|---|
+| `initJourney`: split the scene titles into letters, build the timeline, pin the stage | **269 ms** |
+| ScrollTrigger `_refreshAll`: layout measurement for every trigger | **247 ms** (4 refreshes) |
+| `initMap` | 84 ms |
+| `initExperiences`, `initReveals` | 33 / 27 ms |
+| Long tasks | 172, 79, 86, 274, 112, 159, 65 ms (TBT-like sum ≈ 600 ms; the 884 ms of the earlier Lighthouse mobile run is the same order) |
+
+**Refreshes.** There are 4 full ScrollTrigger refreshes during start-up:
+1. when the journey is created;
+2. on font/fit layout changes;
+3. the theme's own `window.addEventListener("load", () => ScrollTrigger.refresh())` (`main.js`, inherited from the prototype): ≈ 70 ms at 4× CPU;
+4. ScrollTrigger's **automatic** refresh on `load`, about 70 ms later. Its default `autoRefreshEvents` includes `load`, and the theme doesn't change them.
+
+So refreshes 3 and 4 do the same work twice.
+
+**Options:**
+
+| Option | Expected TBT effect (mobile) | UX risk | Recommendation |
+|---|---|---|---|
+| A. Remove the duplicate `load` refresh (3) | about −70 ms | none expected: ScrollTrigger refreshes on `load` itself. Needs a visual check that the scene positions are identical after load, plus the font and fit timing | proposal; owner OK |
+| B. Split `initJourney` into 2–3 tasks (titles / timeline / pin) with a yield between | about −150 ms (one 270 ms task becomes 3 × ~90 ms) | none expected: same final state, a few ms later; the pin must exist before the intro loader lifts (it does, about 1.3 s after start) | proposal; owner OK |
+| C. Set the journey up on the visitor's first scroll | the largest | **high.** Until then the page has no pin spacer (about 4.6–5.4 screen heights), so it would grow under the visitor's finger on the first scroll: a jump and a layout shift (CLS). `#planner` and other anchors and the scroll restore after a language switch would point to the wrong place. Avoiding that means reserving the height with CSS and rebuilding the first pinned frame without GSAP, which changes the approved journey | **not recommended** |
+
+A + B together would put mobile TBT at roughly −220 ms of today's figure without visible change. Desktop TBT (GTmetrix 303 ms) would fall proportionally less. These are estimates from the profile, not measurements: measure after any change. **Mobile performance stays an open verification gap:** GTmetrix mobile needs PRO, and the local mobile Lighthouse figure (≈ 9 s LCP, 884 ms TBT, simulated slow 4G) has not been re-measured on production.
