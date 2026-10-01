@@ -145,7 +145,8 @@
     if (!current) return;
     const id = current;
     try {
-      const data = await api(`${id}?after=${lastId}&read=1`);
+      // From a little before the newest id seen: with concurrent writes a lower id can be committed late.
+      const data = await api(`${id}?after=${Math.max(0, lastId - 20)}&read=1`);
       if (id !== current) return;
       connection(true);
       conv = data.conversation;
@@ -191,7 +192,8 @@
   }
 
   function appendMessage(m) {
-    if (m.id <= lastId || log.querySelector(`[data-id="${m.id}"]`)) return;
+    // Ids already shown are skipped (polls overlap: see loadConv); new ones go in server order.
+    if (log.querySelector(`[data-id="${m.id}"]`)) return;
     lastId = Math.max(lastId, m.id);
     // A reply sent from this page is already shown: swap the pending bubble for the stored one.
     const pending = m.client ? log.querySelector(`[data-client="${CSS.escape(m.client)}"]`) : null;
@@ -201,7 +203,9 @@
     let body = m.body;
     if (m.sender === "ai" && m.meta && m.meta.items && m.meta.items.length) body = [m.body, ...m.meta.items.map((i) => "• " + i.title)].filter(Boolean).join("\n");
     li.append(el("p", {}, body));
-    if (pending) pending.replaceWith(li);
+    if (pending) pending.remove();
+    const later = [...log.children].find((c) => (c.dataset.id && Number(c.dataset.id) > m.id) || c.classList.contains("is-pending") || c.classList.contains("is-failed"));
+    if (later) log.insertBefore(li, later);
     else log.append(li);
     log.scrollTop = log.scrollHeight;
   }

@@ -187,6 +187,9 @@
     let failures = 0;
     let openedAt = 0;
     const shown = new Set();
+    // Fetch from a little before the newest id seen: with concurrent writes, a message with a lower id can be
+    // committed after a higher one was already read. Ids already shown are skipped.
+    const since = () => Math.max(0, lastId - 20);
 
     const store = {
       get() {
@@ -257,21 +260,31 @@
       return p;
     }
 
+    // Messages are shown in the server's order (by id), whatever order they arrive in: a reply stored
+    // just before my own message goes above it. Messages still being sent stay at the end.
+    function place(node, id) {
+      node.dataset.id = String(id);
+      const later = [...log.children].find((c) => (c.dataset.id && Number(c.dataset.id) > id) || c.classList.contains("is-pending") || c.classList.contains("is-failed"));
+      if (later && later !== node) log.insertBefore(node, later);
+      else if (!later) log.append(node);
+    }
+
     function show(messages) {
       let fresh = 0;
       for (const m of messages || []) {
-        // My own message, already shown while it was being sent: keep that bubble.
+        // My own message, already shown while it was being sent: keep that bubble, move it to its place.
         const pending = m.client ? log.querySelector(`.is-pending[data-client="${CSS.escape(m.client)}"]`) : null;
         if (pending) {
           pending.classList.remove("is-pending");
           pending.querySelector(".assistant__who").textContent = t.you;
           shown.add(m.id);
           lastId = Math.max(lastId, m.id);
+          place(pending, m.id);
           continue;
         }
         const b = bubble(m);
         if (b) {
-          log.append(b);
+          place(b, m.id);
           if (m.sender !== "visitor") fresh++;
         }
       }
@@ -290,7 +303,7 @@
     async function poll() {
       if (!conv) return;
       try {
-        const data = await call("poll", { id: conv.id, after: lastId });
+        const data = await call("poll", { id: conv.id, after: since() });
         if (failures) statusLine.textContent = "";
         failures = 0;
         calm = show(data.messages) ? 0 : calm + 1;
@@ -323,7 +336,7 @@
         b.querySelector("button")?.remove();
       }
       try {
-        const data = await call("send", { id: conv.id, text, client_id: client, after: lastId, page: location.href });
+        const data = await call("send", { id: conv.id, text, client_id: client, after: since(), page: location.href });
         calm = 0;
         show(data.messages);
         setStatus(data.status, data.online);
@@ -393,7 +406,7 @@
     $("[data-chat-cancel]").addEventListener("click", closeForm);
     humanBtn.addEventListener("click", async () => {
       try {
-        const data = await call("human", { id: conv.id, after: lastId });
+        const data = await call("human", { id: conv.id, after: since() });
         show(data.messages);
         setStatus(data.status, data.online);
         schedule();

@@ -22,6 +22,7 @@ node launcher-keyboard.mjs                    # homepage launcher on phones, key
 node chat.mjs                                 # chat with the team end to end: visitor + logged-in team browser, live replies both ways, AI hand-back/takeover, offline, isolation, tokens, RTL, axe, phone inbox
 node chat-adversarial.mjs                     # chat edge cases: reload mid-chat, double start, language switch, offline send + Retry, rapid open/close, 2,000-character Arabic
 node chat-i18n.mjs                            # assistant + chat in 8 languages × 320/1440: every state translated, nothing clipped, button contrast, RTL
+node chat-multi.mjs                           # chat concurrency: two team members, two visitor tabs, simultaneous replies/takeover, close vs reply, reconnect, late-committed ids
 node journey-perf.mjs                         # homepage start-up: TBT-like, longest task, CLS, LCP, refreshes, journey geometry, screenshots (OUT_DIR=before|after)
 node journey-nav.mjs                          # journey: rail navigation, counter order on phones, reduced-motion fallback
 node stale-html.mjs                           # stale-HTML guard: fresh, throttled, stale browser copy, stale edge (?nocache=), search page, content change, failing check

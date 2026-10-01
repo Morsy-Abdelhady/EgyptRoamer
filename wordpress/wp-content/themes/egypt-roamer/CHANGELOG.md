@@ -2,6 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.16 — 2026-10-01
+Chat message order and completeness under concurrency (with Core 1.2.15; `tools/qa/chat-multi.mjs` 11/11):
+- **Order.** The visitor who sent a message saw it after a team reply that the server had stored first; other views showed the server order. Messages are now placed by their server id in both the visitor UI and the team inbox; a message being sent stays at the end until stored.
+- **No message lost.** Views polled "after the newest id seen". With concurrent inserts (MySQL), a lower id can be committed after a higher one was read, and was then never fetched; the inbox also dropped any id at or below the newest seen. Polls now re-read a small overlap (the last 20 ids) and skip ids already shown. Reproduced by inserting a lower id late: before, the inbox never showed it; now both views do, in order.
+
 ## 1.2.15 — 2026-10-01
 With Core 1.2.14.
 - **Homepage start-up (TBT), no visible change** (`docs/PERFORMANCE-2026-09-30.md`):
