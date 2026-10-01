@@ -176,7 +176,8 @@
     for (const [k, v] of rows) {
       info.append(el("dt", {}, f[k]));
       const dd = el("dd");
-      if ((k === "page" || k === "entry") && v.startsWith("/")) dd.append(el("a", { href: new URL(v, cfg.home).href, target: "_blank", rel: "noopener" }, v));
+      // Only this site's own paths become links ("//host" would be another site).
+      if ((k === "page" || k === "entry") && /^\/(?!\/)/.test(v) && new URL(v, cfg.home).origin === new URL(cfg.home).origin) dd.append(el("a", { href: new URL(v, cfg.home).href, target: "_blank", rel: "noopener" }, v));
       else if (k === "email" && v.includes("@")) dd.append(el("a", { href: "mailto:" + v }, v));
       else dd.textContent = v;
       info.append(dd);

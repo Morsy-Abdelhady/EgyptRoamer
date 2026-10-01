@@ -26,6 +26,7 @@ const ER_CHAT_MAX_CHARS   = 2000;
 const ER_CHAT_NAME_CHARS  = 80;
 const ER_CHAT_SEND_RATE   = 15; // visitor messages per conversation per minute
 const ER_CHAT_START_RATE  = 10; // new conversations per visitor (hashed IP) per hour (shared hotel/office IPs)
+const ER_CHAT_START_TOTAL = 60; // new conversations per hour, whole site (a flood from many IPs can't fill the inbox)
 const ER_CHAT_ONLINE_SECS = 150; // a team member counts as online this long after their inbox last checked in
 const ER_CHAT_STATUSES    = [ 'ai', 'requested', 'waiting', 'human', 'closed', 'archived' ];
 const ER_CHAT_CAP         = 'manage_er_conversations';
@@ -193,7 +194,9 @@ function er_chat_clean_url( string $url ): string {
 	if ( ! $u || ( $u['host'] ?? '' ) !== ( $home['host'] ?? '' ) ) {
 		return '';
 	}
-	return mb_substr( ( $u['path'] ?? '/' ) . ( isset( $u['query'] ) ? '?' . $u['query'] : '' ), 0, 250 );
+	// One leading slash only: "//evil.example/x" would be a protocol-relative link to another site in the inbox.
+	$path = '/' . ltrim( (string) ( $u['path'] ?? '/' ), '/' );
+	return mb_substr( $path . ( isset( $u['query'] ) ? '?' . $u['query'] : '' ), 0, 250 );
 }
 
 /* -------------------------------------------------------------------------- */
@@ -295,7 +298,7 @@ function er_chat_rest_start( WP_REST_Request $request ) {
 	if ( '' === $text ) {
 		return er_chat_error( 'er_chat_empty', 'Empty message.', 400 );
 	}
-	if ( ! er_chat_rate( er_chat_ip_key( 'start' ), ER_CHAT_START_RATE, HOUR_IN_SECONDS ) ) {
+	if ( ! er_chat_rate( 'er_ch_start_all', ER_CHAT_START_TOTAL, HOUR_IN_SECONDS ) || ! er_chat_rate( er_chat_ip_key( 'start' ), ER_CHAT_START_RATE, HOUR_IN_SECONDS ) ) {
 		return er_chat_error( 'er_chat_rate', 'Too many conversations.', 429 );
 	}
 	$email = sanitize_email( er_chat_param( $request, 'email' ) );

@@ -2,6 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## Core 1.2.16 — 2026-10-01 (no theme change)
+Adversarial pass on the chat:
+- A visitor-supplied page path like `//evil.example/x` passed the same-host check and appeared in the team inbox as a protocol-relative link to another site. Paths are now stored with a single leading slash, and the inbox links only same-site paths.
+- A site-wide cap of 60 new conversations per hour, besides the 10 per IP: a flood from many IPs can't fill the inbox or the database.
+
 ## 1.2.16 — 2026-10-01
 Chat message order and completeness under concurrency (with Core 1.2.15; `tools/qa/chat-multi.mjs` 11/11):
 - **Order.** The visitor who sent a message saw it after a team reply that the server had stored first; other views showed the server order. Messages are now placed by their server id in both the visitor UI and the team inbox; a message being sent stays at the end until stored.
