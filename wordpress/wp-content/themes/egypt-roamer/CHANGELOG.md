@@ -2,6 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.21 — 2026-10-02
+Production accessibility pass (axe on live pages):
+- **The chat transcript is reachable by keyboard.** A long transcript scrolls, but the log could not be focused, so keyboard users could not scroll it (axe "scrollable-region-focusable", serious). It is now a labelled `role="log"` region with `tabindex="0"`.
+- **No nested complementary landmarks on the homepage.** The draft itinerary and the scene "Roamer pick" cards were `<aside>` elements inside `<main>`. They are now labelled `<section>`s (axe "landmark-complementary-is-top-level"). No visual change.
+
 ## 1.2.20 — 2026-10-02 (with Core 1.2.17)
 - **Chat messages keep their order.** Messages typed in quick succession were sent as concurrent requests and could reach the team out of order (seen in the 8-language test: 1, 3, 2). The visitor's messages now go out one at a time; each bubble still appears at once.
 - **A stalled request no longer freezes the chat.** Visitor requests give up after 20 s (a failed message shows Retry, and later messages still go out). In Core 1.2.17, the team inbox's requests give up after 15 s: before, one unanswered request stopped all inbox refreshes until a reload. Test: `tools/qa/chat-stall.mjs`.

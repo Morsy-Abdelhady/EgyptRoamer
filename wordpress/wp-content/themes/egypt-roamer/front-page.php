@@ -59,7 +59,7 @@ $er_pick = static function ( int $n ) {
 	}
 	$o = er_offer_data( $offer, 'home-scene-' . $n, (int) get_option( 'page_on_front' ) );
 	?>
-	<aside class="scene__pick" aria-label="<?php echo esc_attr( er_t( 'Roamer pick' ) . ': ' . $o['title'] ); ?>">
+	<section class="scene__pick" aria-label="<?php echo esc_attr( er_t( 'Roamer pick' ) . ': ' . $o['title'] ); ?>">
 		<span class="t-label"><?php er_e( 'Roamer pick' ); ?></span>
 		<p class="scene__pick-title"><?php echo esc_html( $o['title'] ); ?></p>
 		<?php if ( $o['price_text'] || $o['provider'] ) : ?>
@@ -68,7 +68,7 @@ $er_pick = static function ( int $n ) {
 			</p>
 		<?php endif; ?>
 		<?php echo er_offer_cta_html( $offer, [ 'placement' => 'home-scene-' . $n, 'class' => 'link', 'icon' => ' ' . er_icon( 'i-arrow', 'icon--sm' ) ] ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-	</aside>
+	</section>
 	<?php
 };
 
@@ -485,7 +485,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 							</div>
 						</fieldset>
 					</div>
-					<aside class="itin" aria-live="polite" aria-label="<?php echo esc_attr( er_t( 'Your draft itinerary' ) ); ?>">
+					<section class="itin" aria-live="polite" aria-label="<?php echo esc_attr( er_t( 'Your draft itinerary' ) ); ?>">
 						<div class="itin__head">
 							<span class="t-label"><?php er_e( 'Your Egypt, drafted' ); ?></span>
 							<p class="itin__title" data-itin-title></p>
@@ -501,7 +501,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 							<?php endif; ?>
 							<a href="<?php echo esc_url( get_post_type_archive_link( 'er_destination' ) ); ?>" class="btn btn--ghost btn--block"><?php er_e( 'Explore Egypt' ); ?></a>
 						</div>
-					</aside>
+					</section>
 				</form>
 			</div>
 		</section>
