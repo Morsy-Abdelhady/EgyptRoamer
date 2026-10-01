@@ -1,6 +1,6 @@
 # Final hardening report (2026-10-01)
 
-Live versions: theme **1.2.16**, Core **1.2.16** (deploys #26–#33, all successful except #27, whose files did deploy; see D13). **The launch gate stays OPEN**: owner decisions and external items remain (section 4). Production indexing is **off**.
+Live versions: theme **1.2.17**, Core **1.2.16** (deploys #26–#33, all successful except #27, whose files did deploy; see D13). **The launch gate stays OPEN**: owner decisions and external items remain (section 4). Production indexing is **off**.
 
 Production checks today were deliberately small. Cloudflare rate-limits automated clients from this machine's IP (Playwright, Lighthouse, Python), so production was checked with the anonymous in-app browser, the owner's Chrome, and Google PageSpeed Insights. Each production request is accounted for below.
 
@@ -12,9 +12,11 @@ Production checks today were deliberately small. Cloudflare rate-limits automate
 | D14 | Chat with the team | anonymous visitor ↔ owner inbox: the reply arrived in 3 s without reload; close, archive; 0 errors |
 | D17 | Assistant caption instead of a cut placeholder; chat buttons readable | `/de/destinations/`: German caption complete; "Mit Egypt Roamer chatten" contrast **16.4:1** (was 1.1:1) |
 | D16 (behaviour) | Journey set up in 3 tasks | homepage: journey live; ScrollTrigger geometry matches the formula (pin end 3,211 = 4.6 × 698) |
-| D18 (part) | Stale-HTML guard deployed | page build `08115d9294a8` = live `/build`; the guard stores it. **Still to verify:** the automatic reload of an outdated page needs the next deploy (section 5) |
+| D18 | Stale-HTML guard | **verified end to end:** a page cached with build `08115d9294a8` reloaded itself once after the 1.2.17 deploy and came back as `de315fa1c25d` (= live) |
 | D13 | Deploy no longer fails on Cloudflare 429 | runs #28–#33 succeeded |
 | – | Core 1.2.16 live | `track.js?ver=1.2.16` |
+
+| V1–V6 | Visual audit fixes (theme 1.2.17) | see `docs/VISUAL-AUDIT-2026-10-01.md`, production section |
 
 ## 2. Fixed and verified locally (deployed; production behaviour not yet observed)
 | ID | What | Local evidence |

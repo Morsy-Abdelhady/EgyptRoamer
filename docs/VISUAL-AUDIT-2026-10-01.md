@@ -48,3 +48,15 @@ Trigger: the owner's production screenshot showed two defects that the automated
 - **Experience single pages in non-English languages** (the English template and the archives were inspected).
 - **Safari/iOS:** not available here.
 - **Production screenshots** after 1.2.17: Cloudflare rate-limits automated clients from this IP. The in-app browser works for a few pages.
+
+## Production verification (theme 1.2.17, run #34, after a GoDaddy flush)
+Anonymous in-app browser and the owner's Chrome. Cloudflare still rate-limits automated tools from this IP.
+
+| Item | Evidence on production |
+|---|---|
+| V1 Arabic hero, 1440 px | screenshot: Great Pyramid free on the left, title/text/buttons on the right, note legible on clear sky (the first frame caught the title's entrance animation; the title was confirmed present and visible) |
+| V2 stale page heals | the in-app browser held `/destinations/?ui=1216` from build `08115d9294a8`; on revisit it **reloaded itself once** (navigation type `reload`, marker = old build) and showed build `de315fa1c25d` = the live `/build` endpoint |
+| V2/V3 Arabic drawer, 390 px | screenshot: welcome line; "تحدث مع Egypt Roamer" dark outline on light, clearly visible |
+| V5 French dock, 320 px | screenshot: "Planifier mon voyage" inside the button |
+| V6 logged in (owner's Chrome, Arabic, desktop) | toolbar bottom 32 px = drawer header top 32 px = site header top 32 px |
+| V7 | local only (herohit2) |
