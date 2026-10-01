@@ -173,7 +173,9 @@ if ( 'off' !== $er_assistant ) :
 				<h2 class="t-h3" id="assistant-title"><?php er_e( 'Trip assistant' ); ?></h2>
 				<button class="icon-btn" type="button" data-close aria-label="<?php echo esc_attr( er_t( 'Close assistant' ) ); ?>"><?php echo er_icon( 'i-close' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></button>
 			</div>
-			<div class="drawer__body assistant__log" data-assistant-log aria-live="polite"></div>
+			<div class="drawer__body assistant__log" data-assistant-log aria-live="polite">
+				<p class="assistant__welcome" data-assistant-welcome><?php er_e( 'Hello! I can point you to the right pages on Egypt Roamer. Ask about a place, a trip or an experience.' ); ?></p>
+			</div>
 			<div class="assistant__foot">
 				<p class="assistant__try" data-assistant-try><span><?php er_e( 'Try:' ); ?></span>
 					<?php foreach ( [ 'Pyramids', 'Nile', 'Desert', 'Red Sea' ] as $er_chip ) : ?>

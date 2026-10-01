@@ -887,7 +887,9 @@
         let hide = false;
         // Never while it has keyboard focus or its drawer is open (focus returns to it on close).
         if (phone.matches && document.activeElement !== launch && root.hidden) {
-          const b = launch.getBoundingClientRect();
+          // Too close counts too (20px): right next to the hero buttons, the round launcher reads as one of them.
+          const r = launch.getBoundingClientRect();
+          const b = { left: r.left - 20, right: r.right + 20, top: r.top - 20, bottom: r.bottom + 20 };
           const hit = [...ctas.querySelectorAll("a, button")].some((el) => {
             const a = el.getBoundingClientRect();
             return !(a.right <= b.left || a.left >= b.right || a.bottom <= b.top || a.top >= b.bottom);

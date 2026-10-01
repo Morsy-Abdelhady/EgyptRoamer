@@ -614,9 +614,25 @@
     top: 46px;
   }
 }
+/* Below 600px WordPress lets the toolbar scroll away, but at the top of the page it covered the fixed header
+   (its avatar took the clicks meant for the menu button). The toolbar stays fixed there too, so the header
+   and the drawers can always sit below it. */
 @media (max-width: 600px) {
-  .admin-bar .nav {
-    top: 0;
+  .admin-bar #wpadminbar {
+    position: fixed;
+  }
+}
+/* Drawers (Trip assistant, saved, search) and the mobile menu: their header and close button were under the
+   toolbar for logged-in editors. */
+.admin-bar .overlay {
+  top: 32px;
+}
+@media (max-width: 782px) {
+  .admin-bar .overlay {
+    top: 46px;
+  }
+  .admin-bar .menu {
+    padding-top: calc(var(--nav-h) + 2rem + 46px);
   }
 }
 
@@ -1486,9 +1502,27 @@ body:has(#nav:not(.is-hidden)) .secnav {
 }
 .assistant__note a {
   color: inherit;
+  text-decoration: underline; /* recognisable as a link inside muted text */
+  text-underline-offset: 2px;
+}
+.assistant__welcome {
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--r-md);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 0.92rem;
 }
 
 /* Chat with the team (Core includes/chat.php): same drawer, messages as bubbles */
+.assistant .btn--ghost {
+  /* the light-on-dark ghost button is unreadable on the drawer's light surface (pages cached before
+     theme 1.2.15 still use it there): give it the outline colours */
+  --btn-fg: var(--charcoal);
+  --btn-bd: var(--line-strong);
+  backdrop-filter: none;
+}
 .assistant [hidden] {
   display: none; /* the parts switched by assistant.js have their own display rules */
 }
@@ -1633,4 +1667,38 @@ p.assistant__msg--ai {
 }
 .hero.is-in .hero__note {
   transition-delay: 0.2s;
+}
+
+/* ---------- Arabic (RTL) hero composition ----------
+   The layout mirrors in RTL (text, its shade and the note move to the other side) but the photo did not:
+   the hero text then sat on the Great Pyramid (the photo's subject, on its right) and the bare sun glared
+   under the note on the left. Mirroring the opening photos restores the approved composition: subject
+   opposite the text, sun under the text's shade. The individual `scale` property is used because GSAP
+   writes `transform` on these images (pointer parallax) and on their frame (scroll zoom). */
+[dir="rtl"] .scene--pyramids .scene__img {
+  scale: -1 1;
+}
+
+/* ---------- Phone dock: long translated labels (≤ 400 px) ----------
+   "Planifier mon voyage" (fr) broke into three lines and was clipped by the button's fixed height;
+   "Спланировать" (ru) touched its edges. Slightly smaller, tighter text, a minimum height instead of a fixed
+   one (a longer translation grows the button instead of being cut), a little inline padding. */
+@media (max-width: 400px) {
+  .dock__plan {
+    height: auto;
+    min-height: 48px;
+    padding: 0.3rem 0.55rem;
+    gap: 0.35rem;
+    font-size: 0.74rem;
+    line-height: 1.15;
+    text-align: center;
+  }
+  .dock__plan .icon {
+    flex: none;
+    width: 16px;
+    height: 16px;
+  }
+  .dock__item {
+    letter-spacing: 0;
+  }
 }

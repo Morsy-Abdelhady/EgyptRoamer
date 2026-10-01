@@ -26,6 +26,18 @@
   const root = document.getElementById("assistant");
 
   function init() {
+    // A page without a build id was cached by a browser before the stale-page guard existed (theme < 1.2.15;
+    // the host keeps pages up to 31 days) and shows an outdated drawer. This script is fetched fresh when the
+    // drawer is first opened, so it can still bring the page up to date: reload once (never in a loop).
+    if (!document.querySelector("meta[name=er-build]")) {
+      try {
+        if (!sessionStorage.getItem("er-legacy-reload")) {
+          sessionStorage.setItem("er-legacy-reload", "1");
+          location.reload();
+          return;
+        }
+      } catch (e) {}
+    }
     let cfg;
     try {
       cfg = JSON.parse(root.dataset.assistant || "{}");
@@ -177,6 +189,9 @@
     const submit = $("[data-assistant-submit]");
     const title = root.querySelector("#assistant-title");
     const label = $("[data-assistant-label]");
+    const welcome = $("[data-assistant-welcome]");
+    // Messages only: the welcome line stays (hidden during a chat).
+    const clearLog = () => [...log.children].forEach((c) => c !== welcome && c.remove());
     const original = { title: title.textContent, label: label ? label.textContent : "", submit: submit.textContent, note: note.textContent, max: input.maxLength };
     const KEY = "er-chat";
     let conv = null; // { id, token }
@@ -225,6 +240,7 @@
       root.classList.toggle("is-chat", on);
       title.textContent = on ? t.title : original.title;
       if (label) label.textContent = on ? t.label : original.label;
+      if (welcome) welcome.hidden = on;
       input.maxLength = on ? 2000 : original.max;
       submit.textContent = on ? t.send : original.submit;
       note.textContent = on ? t.note : original.note;
@@ -389,7 +405,7 @@
         startForm.hidden = true;
         form.hidden = false;
         chatMode(true);
-        log.replaceChildren();
+        clearLog();
         shown.clear();
         lastId = 0;
         show(data.messages);
@@ -421,7 +437,7 @@
       } catch (e) {}
       clearTimeout(timer);
       forget();
-      log.replaceChildren();
+      clearLog();
       shown.clear();
       input.focus();
     });

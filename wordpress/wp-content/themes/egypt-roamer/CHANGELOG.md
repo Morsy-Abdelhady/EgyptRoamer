@@ -2,6 +2,16 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.17 — 2026-10-01
+Visual audit (rendered screenshots in 8 languages × 320–1920 px, every assistant state, logged-in and adversarial states; `tools/qa/visual-sheets.mjs`, `visual-adversarial.mjs`):
+- **Arabic hero composition.** The layout mirrors in RTL but the photo did not: the hero text sat on the Great Pyramid (the photo's subject, on its right), and the bare sun glared under the note on the left. The opening photos are now mirrored in RTL (CSS `scale: -1 1`, which composes with GSAP's transforms): subject opposite the text, sun under the text's shade, as in the other languages.
+- **Outdated cached pages heal themselves.** Pages cached in browsers before 1.2.15 (no build id, 31-day host cache) still showed the 1.1:1 ghost "Chat with Egypt Roamer" button. The assistant script, fetched fresh when the drawer opens, reloads such a page once. And the ghost style inside the drawer is readable even if an old page gets the new stylesheet.
+- **Welcome line** in the assistant drawer (it opened as an empty panel). One new string, drafted in 7 languages (unreviewed).
+- The Privacy Policy link in the chat form is underlined (it looked like plain muted text).
+- **Phone dock:** "Planifier mon voyage" (fr) was cut by the button's fixed height at 320 px; "Спланировать" (ru) touched its edges. A smaller, tighter label, with a minimum height instead of a fixed one.
+- **Logged-in editors:** the WordPress toolbar covered the drawers' title and close button, and below 600 px it covered the header (the menu button could not be clicked). The drawers and the menu now sit below the toolbar, and the toolbar stays fixed on small screens.
+- **Launcher at 320 px (Arabic):** 12 px from the play button, it read as a third hero button. "Too close" (20 px) now counts as an overlap, so it steps aside there too and returns on scroll.
+
 ## Core 1.2.16 — 2026-10-01 (no theme change)
 Adversarial pass on the chat:
 - A visitor-supplied page path like `//evil.example/x` passed the same-host check and appeared in the team inbox as a protocol-relative link to another site. Paths are now stored with a single leading slash, and the inbox links only same-site paths.
