@@ -1,6 +1,6 @@
 # Launch report (2026-10-02)
 
-Live: theme **1.2.21**, Core **1.2.17**. Production indexing is **OFF** (`noindex, nofollow` on all 16 sampled pages; `blog_public = 0` is checked by every deploy).
+Live: theme **1.2.21**, Core **1.2.17** (deploy #38). The owner's Chrome disconnected before the cache flush, so cached pages (`/`, `/ar/`, archives) still come from the edge as 1.2.20 until **Flush Cache** (WP admin bar). Meanwhile the stale-page guard sends each visitor to the live version (verified below). Production indexing is **OFF** (`noindex, nofollow` on all 16 sampled pages; `blog_public = 0` is checked by every deploy).
 
 **Verdict: not launch-ready yet.**
 - **Mobile LCP is still 4.2 s on production** (target ≤ 2.5 s). Section 2 explains why no further internal change can close that gap without the owner's design decisions, and gives the measured options.
@@ -60,8 +60,8 @@ Even all three together are estimated at about 2.8–3.1 s on production. Reachi
 | SEO consistency, 8 languages × home + destinations archive | 200; live build; self-canonical; 9 hreflang; `noindex, nofollow`; 1 H1; JSON-LD; `lang`/`dir` correct |
 | Human Chat in Arabic, end to end | visitor (anonymous, 375 px) → team inbox (owner's account): language AR and page shown; reply arrived 0.5 s after the tab became visible, no reload; three quick messages in order; drawer closed and reopened, page reloaded: transcript kept; team closed: visitor saw it |
 | Background tab | the hidden visitor tab did not poll; the reply showed as soon as it was visible |
-| Stale-page guard | twice: `/ar/` from build `32e86…` reloaded once into `71396…` |
-| Accessibility (axe) | experience page: 0. Arabic homepage: 1 moderate. Destinations with the chat open: 1 serious. Both fixed in 1.2.21 (production re-check owed) |
+| Stale-page guard, both paths | **stale browser copy:** `/ar/` from build `32e86…` reloaded once into `71396…`. **Stale edge** (1.2.21 deployed, edge not flushed): `/destinations/` → one reload → `?nocache=4655bb1ffa75` → live 1.2.21 page, address bar clean |
+| Accessibility (axe) | **1.2.20:** experience page 0; Arabic homepage 1 moderate (nested landmark); destinations with the chat open 1 serious (log not focusable). **1.2.21:** destinations with the assistant open: **0**. The homepage fix shows once the edge is flushed |
 | PSI mobile | three runs after the change: LCP 4.4 / 4.2 / 4.2 s, FCP 2.2 / 1.7 / 2.3 s, TBT 110 / 10 / 20 ms, CLS 0 |
 
 ## B) Verified locally only
