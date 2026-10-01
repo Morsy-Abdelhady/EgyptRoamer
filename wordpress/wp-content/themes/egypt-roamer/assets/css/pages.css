@@ -1702,3 +1702,11 @@ p.assistant__msg--ai {
     letter-spacing: 0;
   }
 }
+
+/* ---------- Homepage hero: the dune foreground reached only 98% of the width ----------
+   journey.css sizes it 104% wide from -2% (overhanging both edges), but the base reset
+   (img, svg { max-width: 100% }) capped it at 100%: it ended 2% short of the right edge, a hard vertical
+   seam at the bottom right of the banner (owner's screenshot, 2026-10-01). */
+.scene__fg--dune {
+  max-width: none;
+}

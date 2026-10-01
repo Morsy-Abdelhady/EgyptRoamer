@@ -29,6 +29,7 @@ Trigger: the owner's production screenshot showed two defects that the automated
 | V4 | Privacy Policy link in the chat form indistinguishable from text | `color: inherit`, no underline | underline | – |
 | V5 | **fr 320:** "Planifier mon voyage" cut by the dock button; **ru 320:** label touching the edges | fixed 48 px height, 0.82 rem label | ≤ 400 px: 0.74 rem, line-height 1.15, `min-height`, inline padding | dock crops fr/ru/de/es at 320 and 360 |
 | V6 | **Logged-in editors:** the toolbar covered the drawers' title and close button; below 600 px it covered the header (menu button not clickable) | drawers at `inset: 0`; header returned to `top: 0` below 600 px while the toolbar was still on screen | drawers and menu below the toolbar; toolbar fixed on small screens too | logged-in sheet: ar 390, en 700, en 1280 |
+| V8 | **Banner bottom right (owner's 2nd screenshot):** hard vertical seam where the dark dune shape stopped 2% before the right edge | the base reset `svg { max-width: 100% }` capped the dune's designed 104% width; it was 2% short on the right at every width | `max-width: none` for the dune (theme 1.2.18) | dune box −18 → 930 px at 912 (was → 894); crop screenshot; homepage responsive 44/0 |
 | V7 | **ar 320:** the round launcher 12 px from the play button read as a third hero button | overlap test counted true overlaps only | "too close" (20 px) counts; it steps aside and returns on scroll | herohit2: ar 320 hidden at the top, shown from 0.6 screen heights |
 
 ## Checked visually and found right

@@ -2,6 +2,9 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.18 — 2026-10-01
+- **Homepage banner, bottom right (owner's screenshot):** the dune foreground ended 2% short of the right edge, leaving a hard vertical seam next to the Trip assistant button at every width. `journey.css` sizes it 104% wide from −2%, but the base reset (`img, svg { max-width: 100% }`) capped it at 100%. The cap is lifted for this layer (`pages.css`); it now overhangs both edges as designed. Measured −18 → 930 px at 912 px (was −18 → 894), −29 → 1469 at 1440; no horizontal overflow (homepage 44 checks, 4 languages).
+
 ## 1.2.17 — 2026-10-01
 Visual audit (rendered screenshots in 8 languages × 320–1920 px, every assistant state, logged-in and adversarial states; `tools/qa/visual-sheets.mjs`, `visual-adversarial.mjs`):
 - **Arabic hero composition.** The layout mirrors in RTL but the photo did not: the hero text sat on the Great Pyramid (the photo's subject, on its right), and the bare sun glared under the note on the left. The opening photos are now mirrored in RTL (CSS `scale: -1 1`, which composes with GSAP's transforms): subject opposite the text, sun under the text's shade, as in the other languages.
