@@ -21,24 +21,32 @@ add_action( 'wp_enqueue_scripts', static function () {
 	$home = is_front_page();
 	$lang = er_lang();
 
-	wp_enqueue_style( 'er-fonts', $css( 'fonts' ), [], er_asset_ver( 'assets/css/fonts.css' ) );
 	if ( 'ar' === $lang ) {
 		wp_enqueue_style( 'er-fonts-ar', $css( 'fonts-arabic' ), [], er_asset_ver( 'assets/css/fonts-arabic.css' ) );
 	} elseif ( 'zh' === $lang ) {
 		wp_enqueue_style( 'er-fonts-zh', 'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600&display=swap', [], null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 	}
 
-	$deps = [ 'er-fonts' ];
-	foreach ( [ 'tokens', 'base', 'layout' ] as $name ) {
-		wp_enqueue_style( 'er-' . $name, $css( $name ), $deps, er_asset_ver( "assets/css/{$name}.css" ) );
-		$deps = [ 'er-' . $name ];
+	// One stylesheet per template, built from the sources below by tools/build.py (CSS_BUNDLES): same rules,
+	// same order, one render-blocking request instead of six or seven (docs/PERFORMANCE-2026-10-02.md).
+	// Without a bundle (a checkout that was never built) the sources load one by one, as before.
+	$bundle_css = $home ? 'bundle-home' : 'bundle-site';
+	if ( file_exists( ER_THEME_DIR . "/assets/css/{$bundle_css}.css" ) ) {
+		wp_enqueue_style( 'er-pages', $css( $bundle_css ), [], er_asset_ver( "assets/css/{$bundle_css}.css" ) );
+	} else {
+		wp_enqueue_style( 'er-fonts', $css( 'fonts' ), [], er_asset_ver( 'assets/css/fonts.css' ) );
+		$deps = [ 'er-fonts' ];
+		foreach ( [ 'tokens', 'base', 'layout' ] as $name ) {
+			wp_enqueue_style( 'er-' . $name, $css( $name ), $deps, er_asset_ver( "assets/css/{$name}.css" ) );
+			$deps = [ 'er-' . $name ];
+		}
+		if ( $home ) {
+			wp_enqueue_style( 'er-journey', $css( 'journey' ), $deps, er_asset_ver( 'assets/css/journey.css' ) );
+			$deps = [ 'er-journey' ];
+		}
+		wp_enqueue_style( 'er-sections', $css( 'sections' ), $deps, er_asset_ver( 'assets/css/sections.css' ) );
+		wp_enqueue_style( 'er-pages', $css( 'pages' ), [ 'er-sections' ], er_asset_ver( 'assets/css/pages.css' ) );
 	}
-	if ( $home ) {
-		wp_enqueue_style( 'er-journey', $css( 'journey' ), $deps, er_asset_ver( 'assets/css/journey.css' ) );
-		$deps = [ 'er-journey' ];
-	}
-	wp_enqueue_style( 'er-sections', $css( 'sections' ), $deps, er_asset_ver( 'assets/css/sections.css' ) );
-	wp_enqueue_style( 'er-pages', $css( 'pages' ), [ 'er-sections' ], er_asset_ver( 'assets/css/pages.css' ) );
 	if ( is_rtl() || in_array( $lang, [ 'ar', 'zh' ], true ) ) {
 		wp_enqueue_style( 'er-rtl', $css( 'rtl' ), [ 'er-pages' ], er_asset_ver( 'assets/css/rtl.css' ) );
 	}
@@ -82,6 +90,26 @@ add_action( 'wp_head', static function () {
 	printf( '<link rel="preload" as="image" href="%s" imagesrcset="%s" imagesizes="100vw" fetchpriority="high" />' . "\n", esc_url( $url( 2000 ) ), esc_attr( $url( 900 ) . ' 900w, ' . $url( 1400 ) . ' 1400w, ' . $url( 2000 ) . ' 2000w, ' . $url( 2800 ) . ' 2800w' ) );
 }, 3 );
 
+/**
+ * The homepage's first view is set in two faces: the display serif (the hero word) and the light sans (the
+ * hero text, the LCP element on phones). Preloading them starts both downloads with the stylesheet instead
+ * of after it (measured: docs/PERFORMANCE-2026-10-02.md). Faces for the page's script only; Chinese uses
+ * Google's fonts, which are not preloaded.
+ */
+add_action( 'wp_head', static function () {
+	if ( ! is_front_page() ) {
+		return;
+	}
+	$faces = [
+		'ar' => [ 'noto-naskh-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-300-normal' ],
+		'ru' => [ 'playfair-display-cyrillic-400-normal', 'inter-cyrillic-300-normal' ],
+		'zh' => [],
+	][ er_lang() ] ?? [ 'playfair-display-latin-400-normal', 'inter-latin-300-normal' ];
+	foreach ( $faces as $face ) {
+		printf( '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin />' . "\n", esc_url( ER_THEME_URI . '/assets/fonts/' . $face . '.woff2' ) );
+	}
+}, 3 );
+
 /** Brand icons and theme colour. */
 add_action( 'wp_head', static function () {
 	if ( has_site_icon() ) {
@@ -107,7 +135,7 @@ add_filter( 'er_brand_logo', static fn () => er_brand_url( 'egypt-roamer-logo-da
  */
 add_filter( 'er_build_id_parts', static function ( array $parts ): array {
 	$parts['theme']  = ER_THEME_VERSION;
-	$parts['assets'] = er_asset_ver( 'style.css' ) . '.' . er_asset_ver( 'assets/js/home.js' ) . '.' . er_asset_ver( 'assets/js/site.js' ) . '.' . er_asset_ver( 'assets/css/pages.css' );
+	$parts['assets'] = er_asset_ver( 'style.css' ) . '.' . er_asset_ver( 'assets/js/home.js' ) . '.' . er_asset_ver( 'assets/js/site.js' ) . '.' . er_asset_ver( 'assets/css/pages.css' ) . '.' . er_asset_ver( 'assets/css/bundle-home.css' ) . '.' . er_asset_ver( 'assets/css/bundle-site.css' );
 	return $parts;
 } );
 add_action( 'wp_head', static function () {

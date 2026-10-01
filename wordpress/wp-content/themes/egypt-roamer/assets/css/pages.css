@@ -1669,14 +1669,59 @@ p.assistant__msg--ai {
   transition-delay: 0.2s;
 }
 
-/* ---------- Arabic (RTL) hero composition ----------
-   The layout mirrors in RTL (text, its shade and the note move to the other side) but the photo did not:
-   the hero text then sat on the Great Pyramid (the photo's subject, on its right) and the bare sun glared
-   under the note on the left. Mirroring the opening photos restores the approved composition: subject
-   opposite the text, sun under the text's shade. The individual `scale` property is used because GSAP
-   writes `transform` on these images (pointer parallax) and on their frame (scroll zoom). */
-[dir="rtl"] .scene--pyramids .scene__img {
-  scale: -1 1;
+/* ---------- Arabic (RTL) opening scene composition ----------
+   rtl.css mirrors the layout (text, its shade, the note, the pick card) but a photo cannot be mirrored
+   honestly: the Great Pyramid is on the photo's right and the sun on its left, so the mirrored text sat
+   on the pyramid and the bare sun glared under the note. Instead of flipping the real landmark, the
+   opening scene keeps the photo's own composition on wide screens: the Arabic text block (still
+   right-aligned and read right to left) sits on the open sky on the left, under the shade, and the note
+   and pick card stay on the right as in the photo's design. Phones (≤ 900 px) stack the text at the
+   bottom under a full-width shade, so they need no change. `html` outweighs rtl.css, which loads later. */
+@media (min-width: 901px) {
+  html[dir="rtl"] .hero::before {
+    background: linear-gradient(
+        100deg,
+        color-mix(in srgb, var(--charcoal) 58%, transparent) 0%,
+        color-mix(in srgb, var(--charcoal) 22%, transparent) 42%,
+        transparent 65%
+      ),
+      linear-gradient(to top, color-mix(in srgb, var(--charcoal) 50%, transparent) 0%, transparent 35%);
+  }
+  html[dir="rtl"] .hero__content {
+    grid-template-columns: minmax(0, max-content);
+    justify-content: end;
+    padding-left: clamp(4.5rem, 10vw, 10rem);
+    padding-right: var(--gutter);
+  }
+  html[dir="rtl"] .hero__note {
+    left: auto;
+    right: var(--edge);
+    text-align: right;
+    transform: rotate(-4deg);
+  }
+  html[dir="rtl"] .scene--pyramids .scene__shade {
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--charcoal) 62%, transparent) 0%,
+        color-mix(in srgb, var(--charcoal) 22%, transparent) 45%,
+        transparent 70%
+      ),
+      linear-gradient(to top, color-mix(in srgb, var(--charcoal) 55%, transparent), transparent 40%);
+  }
+  html[dir="rtl"] .scene--pyramids .scene__content {
+    grid-template-columns: minmax(0, max-content);
+    justify-content: end;
+    padding-left: clamp(4.5rem, 10vw, 10rem);
+    padding-right: var(--gutter);
+  }
+  html[dir="rtl"] .scene--pyramids .scene__pick {
+    left: auto;
+    right: var(--edge);
+  }
+  html[dir="rtl"] .scene--pyramids .scene__coords {
+    right: auto;
+    left: calc(var(--edge) + clamp(4.5rem, 10vw, 10rem) - var(--gutter));
+  }
 }
 
 /* ---------- Phone dock: long translated labels (≤ 400 px) ----------

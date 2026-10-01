@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.19 — 2026-10-02
+- **Arabic hero: the landmark photo is no longer mirrored.** 1.2.17 flipped the Giza photo in RTL so the text would not sit on the Great Pyramid. Instead, on screens wider than 900 px the opening scene keeps the photo's own composition in Arabic: the Arabic text block (right-aligned, read right to left) sits on the open sky on the left under the shade, the note and pick card on the right. Phones stack the text at the bottom and needed no change. `pages.css`; screenshots 320–1920.
+- **One stylesheet per template.** The six or seven render-blocking stylesheets are served as one file built by `tools/build.py theme` (`bundle-home.css`, `bundle-site.css`): the same rules in the same order, comments and indentation removed (−20%). Computed styles of every element are identical to the separate files (12 pages × 2 widths). The source files stay the ones to edit; CI fails if a bundle is stale. Arabic fonts and `rtl.css` still load separately.
+- **Homepage fonts preloaded:** the hero word's serif and the hero text's light sans (per script: Latin, Cyrillic, Arabic) start downloading with the stylesheet instead of after it.
+- Measured (Lighthouse mobile, local, median of 3): homepage FCP 2.73 → 1.68 s, LCP 5.16 → 4.65 s; destination FCP 2.79 → 2.04 s; experiences 2.48 → 1.86 s. Details: `docs/PERFORMANCE-2026-10-02.md`.
+
 ## 1.2.18 — 2026-10-01
 - **Homepage banner, bottom right (owner's screenshot):** the dune foreground ended 2% short of the right edge, leaving a hard vertical seam next to the Trip assistant button at every width. `journey.css` sizes it 104% wide from −2%, but the base reset (`img, svg { max-width: 100% }`) capped it at 100%. The cap is lifted for this layer (`pages.css`); it now overhangs both edges as designed. Measured −18 → 930 px at 912 px (was −18 → 894), −29 → 1469 at 1440; no horizontal overflow (homepage 44 checks, 4 languages).
 

@@ -80,7 +80,7 @@ jobs:
       - name: Legal page translations built from content/legal
         run: python3 tools/legal.py check
 
-      - name: Theme JS bundles match src/js
+      - name: Theme JS and CSS bundles match their sources
         run: |
           python3 - <<'PY'
           import sys
@@ -94,6 +94,11 @@ jobs:
               print("::error::Rebuild with `python3 tools/build.py theme`; stale:", ", ".join(stale))
               sys.exit(1)
           print("home.js, site.js and assistant.js match src/js")
+          stale = [out for out, names in b.CSS_BUNDLES.items() if b.css_bundle(names) != (b.THEME_CSS / out).read_text(encoding="utf-8")]
+          if stale:
+              print("::error::Rebuild with `python3 tools/build.py theme`; stale CSS:", ", ".join(stale))
+              sys.exit(1)
+          print("bundle-home.css and bundle-site.css match assets/css")
           PY
 
   deploy:
@@ -313,4 +318,10 @@ jobs:
           else msg="Live HTML shows Core ${got:-(not found)}, expected $CORE_VERSION. Files on disk are verified; the HTML is probably still cached (Flush cache in the WP admin bar)."; echo "::warning::$msg"; fi
           echo "$msg"
           echo "### Live page check"$'\n'"$msg" >> "$GITHUB_STEP_SUMMARY"
+          # The homepage as a returning visitor requests it (no query string, so the edge copy): its build id
+          # should equal the live one once the cache is flushed (docs/CACHE-2026-10-02.md). Warning only.
+          live=$(curl -fsS -m 30 "$SITE/wp-json/egypt-roamer/v1/build" | grep -o '"build":"[0-9a-f]*"' | cut -d'"' -f4 || true)
+          page=$(curl -fsS -m 30 -A "Mozilla/5.0 deploy-check" "$SITE/" | grep -o 'name="er-build" content="[0-9a-f]*"' | cut -d'"' -f4 || true)
+          if [ -n "$live" ] && [ "$live" = "$page" ]; then echo "OK    edge copy of / carries the live build $live"
+          else echo "::warning::Edge copy of / has build '${page:-?}', live is '${live:-?}': flush the cache (WP admin bar → Flush Cache). The stale-page guard corrects old pages per visitor meanwhile."; fi
           exit $fail
