@@ -128,6 +128,40 @@ if ( 'off' !== $er_assistant ) :
 			'er_experience'  => er_t( 'Experiences' ),
 		],
 	];
+	// Chat with the team (Core includes/chat.php): same drawer, its own endpoints. Strings for the script.
+	$er_chat = function_exists( 'er_chat_enabled' ) && er_chat_enabled();
+	if ( $er_chat ) {
+		$er_assistant_data['chat'] = [
+			'endpoint' => esc_url_raw( rest_url( 'egypt-roamer/v1/chat/' ) ),
+			'i18n'     => [
+				'online'    => er_t( 'Team is online' ),
+				'offline'   => er_t( 'Leave us a message and we’ll get back to you.' ),
+				'title'     => er_t( 'Live chat' ),
+				'type'      => er_t( 'Type a message…' ),
+				'send'      => er_t( 'Send' ),
+				'waiting'   => er_t( 'Waiting for the team…' ),
+				'left'      => er_t( 'Thanks! We’ll reply here as soon as we can. You can close this window and come back later.' ),
+				'human'     => er_t( 'You’re chatting with the Egypt Roamer team.' ),
+				'ai'        => er_t( 'You’re back with the trip assistant. You can ask for the team again at any time.' ),
+				'closed'    => er_t( 'This chat is closed. Write again to reopen it.' ),
+				'sending'   => er_t( 'Sending…' ),
+				'failed'    => er_t( 'Message couldn’t be sent. Try again.' ),
+				'retry'     => er_t( 'Retry' ),
+				'offline_c' => er_t( 'Connection interrupted. Retrying…' ),
+				'team'      => er_t( 'Egypt Roamer team' ),
+				'you'       => er_t( 'You' ),
+				'assistant' => er_t( 'Trip assistant' ),
+				'connect'   => er_t( 'Of course. I can connect you with the Egypt Roamer team.' ),
+				'open'      => er_t( 'Chat with Egypt Roamer' ),
+				'note'      => er_t( 'Your messages, and your name and email if you add them, are saved so our team can reply.' ),
+			],
+		];
+		$er_privacy = (int) get_option( 'wp_page_for_privacy_policy' );
+		if ( $er_privacy && function_exists( 'pll_get_post' ) ) {
+			$er_privacy = (int) pll_get_post( $er_privacy ) ?: $er_privacy;
+		}
+		$er_privacy_url = $er_privacy && 'publish' === get_post_status( $er_privacy ) ? get_permalink( $er_privacy ) : '';
+	}
 	?>
 	<button type="button" class="assistant-launch" data-open="assistant" aria-haspopup="dialog" aria-controls="assistant">
 		<?php echo er_icon( 'i-sparkle' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
@@ -141,7 +175,7 @@ if ( 'off' !== $er_assistant ) :
 			</div>
 			<div class="drawer__body assistant__log" data-assistant-log aria-live="polite"></div>
 			<div class="assistant__foot">
-				<p class="assistant__try"><span><?php er_e( 'Try:' ); ?></span>
+				<p class="assistant__try" data-assistant-try><span><?php er_e( 'Try:' ); ?></span>
 					<?php foreach ( [ 'Pyramids', 'Nile', 'Desert', 'Red Sea' ] as $er_chip ) : ?>
 						<button type="button" class="assistant__chip" data-assistant-ask><?php echo esc_html( er_t( $er_chip ) ); ?></button>
 					<?php endforeach; ?>
@@ -149,9 +183,34 @@ if ( 'off' !== $er_assistant ) :
 				<form class="assistant__form" data-assistant-form>
 					<label class="visually-hidden" for="assistant-q"><?php er_e( 'Ask about a place, a trip or an experience' ); ?></label>
 					<input id="assistant-q" type="text" name="q" maxlength="300" autocomplete="off" placeholder="<?php echo esc_attr( er_t( 'Ask about a place, a trip or an experience' ) ); ?>" required />
-					<button class="btn btn--primary btn--sm" type="submit"><?php er_e( 'Search' ); ?></button>
+					<button class="btn btn--primary btn--sm" type="submit" data-assistant-submit><?php er_e( 'Search' ); ?></button>
 				</form>
-				<p class="assistant__note"><?php echo esc_html( 'ai' === $er_assistant ? er_t( 'Answers are written by AI (Anthropic) from pages published on Egypt Roamer and can contain mistakes. Your question is sent to Anthropic; Egypt Roamer does not save it.' ) : er_t( 'Answers come only from pages published on Egypt Roamer. Your question is not saved.' ) ); ?></p>
+				<p class="assistant__note" data-assistant-note><?php echo esc_html( 'ai' === $er_assistant ? er_t( 'Answers are written by AI (Anthropic) from pages published on Egypt Roamer and can contain mistakes. Your question is sent to Anthropic; Egypt Roamer does not save it.' ) : er_t( 'Answers come only from pages published on Egypt Roamer. Your question is not saved.' ) ); ?></p>
+				<?php if ( $er_chat ) : ?>
+					<div class="assistant__human" data-chat-entry>
+						<p><b><?php er_e( 'Need personal help?' ); ?></b> <span data-chat-avail><?php er_e( 'Have a question? Talk to our team.' ); ?></span></p>
+						<button type="button" class="btn btn--ghost btn--sm" data-chat-open><?php er_e( 'Chat with Egypt Roamer' ); ?></button>
+					</div>
+					<form class="assistant__start" data-chat-form hidden>
+						<p class="assistant__start-intro"><?php er_e( 'Before we connect you with our team:' ); ?></p>
+						<label><?php er_e( 'Name (optional)' ); ?> <input type="text" name="name" maxlength="80" autocomplete="name" /></label>
+						<label><?php er_e( 'Email (optional, so we can also reply by email)' ); ?> <input type="email" name="email" maxlength="190" autocomplete="email" /></label>
+						<label><?php er_e( 'Your message' ); ?> <textarea name="message" rows="3" maxlength="2000" required></textarea></label>
+						<div class="er-hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+						<p class="assistant__note"><?php echo esc_html( er_t( 'Your messages, and your name and email if you add them, are saved so our team can reply.' ) ); ?>
+							<?php if ( $er_privacy_url ) : ?><a href="<?php echo esc_url( $er_privacy_url ); ?>"><?php er_e( 'Privacy Policy' ); ?></a><?php endif; ?></p>
+						<p class="assistant__start-error" data-chat-error role="alert" hidden></p>
+						<div class="assistant__start-actions">
+							<button type="submit" class="btn btn--primary btn--sm"><?php er_e( 'Start chat' ); ?></button>
+							<button type="button" class="btn btn--ghost btn--sm" data-chat-cancel><?php er_e( 'Cancel' ); ?></button>
+						</div>
+					</form>
+					<div class="assistant__chatbar" data-chat-bar hidden>
+						<p class="assistant__chatstatus" data-chat-status role="status"></p>
+						<button type="button" class="link" data-chat-human hidden><?php er_e( 'Ask for the team' ); ?></button>
+						<button type="button" class="link" data-chat-end><?php er_e( 'End chat' ); ?></button>
+					</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

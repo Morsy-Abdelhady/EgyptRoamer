@@ -19,6 +19,7 @@ node keyboard.mjs                            # 8 languages × desktop/phone: ski
 node overlays.mjs                            # axe with saved / search / mobile menu / assistant open (en, ar, zh)
 node assistant.mjs                           # trip assistant end to end: lazy load, keyboard, languages, links, axe, Escape
 node launcher-keyboard.mjs                    # homepage launcher on phones, keyboard only: Tab reach, never focused while hidden, Enter/Escape, focus kept at the hero
+node chat.mjs                                 # chat with the team end to end: visitor + logged-in team browser, live replies both ways, AI hand-back/takeover, offline, isolation, tokens, RTL, axe, phone inbox
 python launch-sim.py [BASE]                   # indexing launch state: robots.txt, every sitemap URL (200, no noindex, self-canonical, reciprocal hreflang), pages that must stay out
 node footer-parity.mjs [/path/ …]           # global footer: same columns, links, order and legal row in all 8 languages, localized (GAP=3000 on production)
 python3 index-gate.py '{"tour":"<url>"}' A # Ready to index OFF (A) / ON (B): robots, canonical, sitemap, H1, JSON-LD

@@ -1,10 +1,20 @@
 /* ==========================================================================
-   Egypt Roamer — trip assistant (loaded on first open by assistant-loader.js)
-   Sends the question to Core's /wp-json/egypt-roamer/v1/assistant and shows
-   the published pages it returns (and live offers attached to them). Every
-   element is built with textContent: nothing from the server is parsed as
-   HTML, and only this site's own links are followed. Nothing is stored in
-   the browser.
+   Egypt Roamer — trip assistant and chat with the team (loaded on first open
+   by assistant-loader.js).
+
+   Assistant: sends the question to Core's /wp-json/egypt-roamer/v1/assistant
+   and shows the published pages it returns (and live offers attached to them).
+   Nothing is stored.
+
+   Chat (Core includes/chat.php): "Chat with Egypt Roamer" starts a
+   conversation with the team in the same drawer; the questions asked so far
+   go with it. The conversation's id and secret token stay in this browser
+   (localStorage) so a reload continues it. New messages are fetched only
+   while the drawer is open and the tab is visible: every 3 s right after
+   activity, then less often.
+
+   Every element is built with textContent: nothing from the server is parsed
+   as HTML, and only this site's own links are followed.
    ========================================================================== */
 const root = document.getElementById("assistant");
 
@@ -19,11 +29,12 @@ function init() {
   const log = root.querySelector("[data-assistant-log]");
   const form = root.querySelector("[data-assistant-form]");
   const input = form.elements.q;
+  const transcript = []; // this visit's assistant questions, for the team if the visitor asks for a person
   let busy = false;
 
   const el = (tag, attrs = {}, text) => {
     const n = document.createElement(tag);
-    for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+    for (const [k, v] of Object.entries(attrs)) if (v != null) n.setAttribute(k, v);
     if (text != null) n.textContent = text;
     return n;
   };
@@ -36,6 +47,7 @@ function init() {
       return null;
     }
   };
+  const scroll = () => (log.scrollTop = log.scrollHeight);
 
   function render(data) {
     const box = el("div", { class: "assistant__a" });
@@ -74,14 +86,33 @@ function init() {
     return box;
   }
 
+  // "Can I talk to someone?" in the site's eight languages: offer the team instead of searching pages.
+  const WANTS_PERSON = /\b(human|person|someone|somebody|agent|real people|staff|operator|mensch|mitarbeiter|jemand|humain|quelqu'un|conseiller|umano|qualcuno|operatore|humano|alguien|persona|agente)\b|человек|оператор|менеджер|人工|客服|真人|شخص|موظف|بشري|خدمة العملاء/i;
+
   async function ask(raw) {
+    // In a chat, the message goes to the team (up to 2,000 characters); otherwise it is a question (300).
+    if (chat && chat.active()) {
+      const text = String(raw || "").trim().slice(0, 2000);
+      return text ? chat.send(text) : undefined;
+    }
     const q = String(raw || "").trim().slice(0, 300);
     if (!q || busy) return;
     busy = true;
     log.append(el("p", { class: "assistant__q" }, q));
+    if (chat && WANTS_PERSON.test(q)) {
+      const box = el("div", { class: "assistant__a" });
+      box.append(el("p", {}, chat.t.connect));
+      const b = el("button", { type: "button", class: "btn btn--primary btn--sm" }, chat.t.open);
+      b.addEventListener("click", () => chat.openForm(q));
+      box.append(b);
+      log.append(box);
+      busy = false;
+      scroll();
+      return;
+    }
     const status = el("p", { class: "assistant__status", role: "status" }, t.busy);
     log.append(status);
-    log.scrollTop = log.scrollHeight;
+    scroll();
     try {
       const res = await fetch(cfg.endpoint, {
         method: "POST",
@@ -92,12 +123,15 @@ function init() {
       if (!res.ok) throw new Error(String(res.status));
       const data = await res.json();
       status.replaceWith(render(data));
+      transcript.push({ q, a: (data.items || []).map((i) => i.title).slice(0, 4) });
     } catch (e) {
       status.textContent = t.retry;
     }
     busy = false;
-    log.scrollTop = log.scrollHeight;
+    scroll();
   }
+
+  const chat = cfg.chat ? initChat(cfg, { el, own, log, form, input, render, transcript, scroll }) : null;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -114,6 +148,294 @@ function init() {
   // Questions asked while this script was loading.
   const queued = (window.__erAssistantQueue || []).splice(0);
   queued.forEach((q) => ask(q));
+}
+
+/* --------------------------------------------------------------------------
+   Chat with the team
+   -------------------------------------------------------------------------- */
+function initChat(cfg, ui) {
+  const c = cfg.chat;
+  const t = c.i18n || {};
+  const { el, log, form, input, render, transcript, scroll } = ui;
+  const $ = (s) => root.querySelector(s);
+  const entry = $("[data-chat-entry]");
+  const avail = $("[data-chat-avail]");
+  const startForm = $("[data-chat-form]");
+  const errorBox = $("[data-chat-error]");
+  const bar = $("[data-chat-bar]");
+  const statusLine = $("[data-chat-status]");
+  const humanBtn = $("[data-chat-human]");
+  const tryRow = $("[data-assistant-try]");
+  const note = $("[data-assistant-note]");
+  const submit = $("[data-assistant-submit]");
+  const title = root.querySelector("#assistant-title");
+  const original = { title: title.textContent, placeholder: input.placeholder, submit: submit.textContent, note: note.textContent, max: input.maxLength };
+  const KEY = "er-chat";
+  let conv = null; // { id, token }
+  let status = "";
+  let lastId = 0;
+  let timer = 0;
+  let calm = 0; // polls without news (the interval grows with it)
+  let failures = 0;
+  let openedAt = 0;
+  const shown = new Set();
+
+  const store = {
+    get() {
+      try {
+        const v = JSON.parse(localStorage.getItem(KEY) || "null");
+        return v && /^[a-f0-9]{24}$/.test(v.id) && /^[a-f0-9]{64}$/.test(v.token) ? v : null;
+      } catch (e) {
+        return null;
+      }
+    },
+    set(v) {
+      try {
+        if (v) localStorage.setItem(KEY, JSON.stringify(v));
+        else localStorage.removeItem(KEY);
+      } catch (e) {}
+    },
+  };
+
+  async function call(path, body, withToken = true) {
+    const headers = { "Content-Type": "application/json" };
+    if (withToken && conv) headers["X-ER-Chat"] = conv.token;
+    const res = await fetch(c.endpoint + path, { method: "POST", credentials: "omit", headers, body: JSON.stringify(body || {}) });
+    if (!res.ok) {
+      const err = new Error(String(res.status));
+      err.status = res.status;
+      throw err;
+    }
+    return res.json();
+  }
+
+  /* ---------- mode switching ---------- */
+  function chatMode(on) {
+    root.classList.toggle("is-chat", on);
+    title.textContent = on ? t.title : original.title;
+    input.placeholder = on ? t.type : original.placeholder;
+    input.maxLength = on ? 2000 : original.max;
+    submit.textContent = on ? t.send : original.submit;
+    note.textContent = on ? t.note : original.note;
+    if (tryRow) tryRow.hidden = on;
+    entry.hidden = on;
+    bar.hidden = !on;
+  }
+
+  function setStatus(s, online) {
+    status = s;
+    const text = { requested: t.waiting, waiting: t.left, human: t.human, ai: t.ai, closed: t.closed }[s] || "";
+    statusLine.textContent = s === "requested" && online === false ? t.left : text;
+    humanBtn.hidden = s !== "ai";
+    $("[data-chat-end]").hidden = s === "closed";
+  }
+
+  /* ---------- messages ---------- */
+  function bubble(m) {
+    if (m.id && shown.has(m.id)) return null;
+    if (m.id) shown.add(m.id);
+    lastId = Math.max(lastId, m.id || 0);
+    if (m.sender === "ai") {
+      // The assistant's turn: titles carried over from before the chat, or a fresh answer with page links.
+      if (m.meta && m.meta.assistant) return el("p", { class: "assistant__msg assistant__msg--ai" }, (m.meta.titles || []).join(" · ") || "—");
+      const box = render({ answer: m.body, items: (m.meta && m.meta.items) || [], browse: (m.meta && m.meta.browse) || [] });
+      box.classList.add("assistant__msg--ai");
+      return box;
+    }
+    const mine = m.sender === "visitor";
+    const p = el("div", { class: "assistant__msg assistant__msg--" + (mine ? "me" : "team"), "data-client": m.client || null });
+    p.append(el("span", { class: "assistant__who" }, mine ? t.you : m.author ? `${m.author} · ${t.team}` : t.team));
+    p.append(el("p", {}, m.body));
+    return p;
+  }
+
+  function show(messages) {
+    let fresh = 0;
+    for (const m of messages || []) {
+      // My own message, already shown while it was being sent: keep that bubble.
+      const pending = m.client ? log.querySelector(`.is-pending[data-client="${CSS.escape(m.client)}"]`) : null;
+      if (pending) {
+        pending.classList.remove("is-pending");
+        pending.querySelector(".assistant__who").textContent = t.you;
+        shown.add(m.id);
+        lastId = Math.max(lastId, m.id);
+        continue;
+      }
+      const b = bubble(m);
+      if (b) {
+        log.append(b);
+        if (m.sender !== "visitor") fresh++;
+      }
+    }
+    if (fresh || (messages || []).length) scroll();
+    return fresh;
+  }
+
+  /* ---------- polling: only while the drawer is open and the tab is visible ---------- */
+  const visible = () => !root.hidden && !document.hidden;
+  function schedule() {
+    clearTimeout(timer);
+    if (!conv || !visible() || status === "closed") return;
+    const delay = failures ? Math.min(30000, 3000 * 2 ** failures) : calm < 20 ? 3000 : calm < 60 ? 8000 : 15000;
+    timer = setTimeout(poll, delay);
+  }
+  async function poll() {
+    if (!conv) return;
+    try {
+      const data = await call("poll", { id: conv.id, after: lastId });
+      if (failures) statusLine.textContent = "";
+      failures = 0;
+      calm = show(data.messages) ? 0 : calm + 1;
+      setStatus(data.status, data.online);
+    } catch (e) {
+      if (e.status === 404) return forget();
+      failures++;
+      statusLine.textContent = t.offline_c;
+    }
+    schedule();
+  }
+  function forget() {
+    conv = null;
+    store.set(null);
+    chatMode(false);
+  }
+
+  /* ---------- sending ---------- */
+  const clientId = () => "v" + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+  async function send(text, client = clientId(), existing = null) {
+    const b = existing || el("div", { class: "assistant__msg assistant__msg--me is-pending", "data-client": client });
+    if (!existing) {
+      b.append(el("span", { class: "assistant__who" }, t.sending), el("p", {}, text));
+      log.append(b);
+      scroll();
+    } else {
+      b.classList.add("is-pending");
+      b.classList.remove("is-failed");
+      b.querySelector(".assistant__who").textContent = t.sending;
+      b.querySelector("button")?.remove();
+    }
+    try {
+      const data = await call("send", { id: conv.id, text, client_id: client, after: lastId, page: location.href });
+      calm = 0;
+      show(data.messages);
+      setStatus(data.status, data.online);
+      schedule();
+    } catch (e) {
+      // Not shown as sent when the server did not take it: the visitor can retry (same id, so no duplicate).
+      b.classList.remove("is-pending");
+      b.classList.add("is-failed");
+      b.querySelector(".assistant__who").textContent = t.failed;
+      const retry = el("button", { type: "button", class: "link" }, t.retry);
+      retry.addEventListener("click", () => send(text, client, b));
+      b.append(retry);
+    }
+  }
+
+  /* ---------- starting ---------- */
+  function openForm(prefill) {
+    entry.hidden = true;
+    startForm.hidden = false;
+    form.hidden = true;
+    if (tryRow) tryRow.hidden = true;
+    openedAt = Date.now();
+    if (prefill && !startForm.elements.message.value) startForm.elements.message.value = prefill;
+    startForm.elements.name.focus();
+  }
+  function closeForm() {
+    startForm.hidden = true;
+    form.hidden = false;
+    entry.hidden = false;
+    if (tryRow) tryRow.hidden = false;
+    $("[data-chat-open]").focus();
+  }
+  startForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const f = startForm.elements;
+    const message = f.message.value.trim();
+    if (!message) return f.message.focus();
+    const btn = startForm.querySelector("[type=submit]");
+    btn.disabled = true;
+    errorBox.hidden = true;
+    try {
+      const data = await call(
+        "start",
+        { name: f.name.value, email: f.email.value, message, lang: cfg.lang, page: location.href, website: f.website.value, hp: f.website.value, elapsed: Date.now() - openedAt, transcript, client_id: clientId() },
+        false
+      );
+      conv = { id: data.id, token: data.token };
+      store.set(conv);
+      startForm.reset();
+      startForm.hidden = true;
+      form.hidden = false;
+      chatMode(true);
+      log.replaceChildren();
+      shown.clear();
+      lastId = 0;
+      show(data.messages);
+      setStatus(data.status, data.online);
+      input.focus();
+      schedule();
+    } catch (err) {
+      errorBox.textContent = t.failed;
+      errorBox.hidden = false;
+    }
+    btn.disabled = false;
+  });
+  $("[data-chat-open]").addEventListener("click", () => openForm(""));
+  $("[data-chat-cancel]").addEventListener("click", closeForm);
+  humanBtn.addEventListener("click", async () => {
+    try {
+      const data = await call("human", { id: conv.id, after: lastId });
+      show(data.messages);
+      setStatus(data.status, data.online);
+      schedule();
+    } catch (e) {
+      statusLine.textContent = t.failed;
+    }
+  });
+  $("[data-chat-end]").addEventListener("click", async () => {
+    try {
+      const data = await call("end", { id: conv.id });
+      setStatus(data.status, data.online);
+    } catch (e) {}
+    clearTimeout(timer);
+    forget();
+    log.replaceChildren();
+    shown.clear();
+    input.focus();
+  });
+
+  /* ---------- drawer open/close, tab visibility ---------- */
+  async function resume() {
+    conv = store.get();
+    if (!conv) {
+      // Who is around (one request, only when the drawer opens).
+      try {
+        const s = await call("status", {}, false);
+        avail.textContent = s.online ? t.online : t.offline;
+      } catch (e) {}
+      return;
+    }
+    chatMode(true);
+    calm = 0;
+    await poll();
+  }
+  new MutationObserver(() => {
+    if (root.hidden) clearTimeout(timer);
+    else if (conv) {
+      calm = 0;
+      poll();
+    } else resume();
+  }).observe(root, { attributes: true, attributeFilter: ["hidden"] });
+  document.addEventListener("visibilitychange", () => {
+    if (visible() && conv) {
+      calm = 0;
+      poll();
+    } else clearTimeout(timer);
+  });
+  resume();
+
+  return { t, active: () => !!conv, send, openForm };
 }
 
 if (root && !window.__erAssistant) init();

@@ -757,6 +757,267 @@
    "Например:",
    "例如：",
    "مثلًا:"
+  ],
+  "Team is online": [
+   "Das Team ist online",
+   "L’équipe est en ligne",
+   "Il team è online",
+   "El equipo está en línea",
+   "Команда на связи",
+   "团队在线",
+   "الفريق متصل الآن"
+  ],
+  "Leave us a message and we’ll get back to you.": [
+   "Hinterlassen Sie uns eine Nachricht, wir melden uns bei Ihnen.",
+   "Laissez-nous un message, nous vous répondrons.",
+   "Lasciaci un messaggio e ti risponderemo.",
+   "Déjanos un mensaje y te responderemos.",
+   "Оставьте нам сообщение, и мы вам ответим.",
+   "给我们留言，我们会回复您。",
+   "اترك لنا رسالة وسنعود إليك."
+  ],
+  "Live chat": [
+   "Live-Chat",
+   "Chat en direct",
+   "Chat dal vivo",
+   "Chat en directo",
+   "Онлайн-чат",
+   "在线聊天",
+   "محادثة مباشرة"
+  ],
+  "Type a message…": [
+   "Nachricht schreiben …",
+   "Écrivez un message…",
+   "Scrivi un messaggio…",
+   "Escribe un mensaje…",
+   "Напишите сообщение…",
+   "输入消息…",
+   "اكتب رسالة…"
+  ],
+  "Send": [
+   "Senden",
+   "Envoyer",
+   "Invia",
+   "Enviar",
+   "Отправить",
+   "发送",
+   "إرسال"
+  ],
+  "Waiting for the team…": [
+   "Warten auf das Team …",
+   "En attente de l’équipe…",
+   "In attesa del team…",
+   "Esperando al equipo…",
+   "Ждём ответа команды…",
+   "正在等待团队回复…",
+   "في انتظار الفريق…"
+  ],
+  "Thanks! We’ll reply here as soon as we can. You can close this window and come back later.": [
+   "Danke! Wir antworten hier, so schnell wir können. Sie können dieses Fenster schließen und später zurückkommen.",
+   "Merci ! Nous vous répondrons ici dès que possible. Vous pouvez fermer cette fenêtre et revenir plus tard.",
+   "Grazie! Ti risponderemo qui il prima possibile. Puoi chiudere questa finestra e tornare più tardi.",
+   "¡Gracias! Te responderemos aquí lo antes posible. Puedes cerrar esta ventana y volver más tarde.",
+   "Спасибо! Мы ответим здесь, как только сможем. Можно закрыть это окно и вернуться позже.",
+   "谢谢！我们会尽快在这里回复。您可以关闭此窗口，稍后再回来查看。",
+   "شكرًا! سنرد هنا في أقرب وقت ممكن. يمكنك إغلاق هذه النافذة والعودة لاحقًا."
+  ],
+  "You’re chatting with the Egypt Roamer team.": [
+   "Sie chatten mit dem Team von Egypt Roamer.",
+   "Vous discutez avec l’équipe d’Egypt Roamer.",
+   "Stai chattando con il team di Egypt Roamer.",
+   "Estás chateando con el equipo de Egypt Roamer.",
+   "Вы общаетесь с командой Egypt Roamer.",
+   "您正在与 Egypt Roamer 团队聊天。",
+   "أنت تتحدث مع فريق Egypt Roamer."
+  ],
+  "You’re back with the trip assistant. You can ask for the team again at any time.": [
+   "Sie sind wieder beim Reiseassistenten. Sie können jederzeit wieder nach dem Team fragen.",
+   "Vous êtes de retour avec l’assistant de voyage. Vous pouvez redemander l’équipe à tout moment.",
+   "Sei di nuovo con l’assistente di viaggio. Puoi chiedere di nuovo il team in qualsiasi momento.",
+   "Has vuelto con el asistente de viaje. Puedes volver a pedir hablar con el equipo cuando quieras.",
+   "Вы снова с помощником в поездке. Команду можно позвать в любой момент.",
+   "您已回到旅行助手。您可以随时再次联系团队。",
+   "عدت إلى مساعد الرحلة. يمكنك طلب الفريق مرة أخرى في أي وقت."
+  ],
+  "This chat is closed. Write again to reopen it.": [
+   "Dieser Chat ist beendet. Schreiben Sie erneut, um ihn wieder zu öffnen.",
+   "Cette conversation est fermée. Écrivez à nouveau pour la rouvrir.",
+   "Questa chat è chiusa. Scrivi di nuovo per riaprirla.",
+   "Este chat está cerrado. Escribe de nuevo para reabrirlo.",
+   "Этот чат закрыт. Напишите снова, чтобы открыть его.",
+   "此聊天已关闭。再次发送消息即可重新打开。",
+   "تم إغلاق هذه المحادثة. اكتب مجددًا لإعادة فتحها."
+  ],
+  "Sending…": [
+   "Wird gesendet …",
+   "Envoi…",
+   "Invio…",
+   "Enviando…",
+   "Отправка…",
+   "正在发送…",
+   "جارٍ الإرسال…"
+  ],
+  "Message couldn’t be sent. Try again.": [
+   "Die Nachricht konnte nicht gesendet werden. Bitte erneut versuchen.",
+   "Le message n’a pas pu être envoyé. Réessayez.",
+   "Impossibile inviare il messaggio. Riprova.",
+   "No se pudo enviar el mensaje. Inténtalo de nuevo.",
+   "Не удалось отправить сообщение. Попробуйте ещё раз.",
+   "消息发送失败，请重试。",
+   "تعذّر إرسال الرسالة. حاول مرة أخرى."
+  ],
+  "Retry": [
+   "Erneut versuchen",
+   "Réessayer",
+   "Riprova",
+   "Reintentar",
+   "Повторить",
+   "重试",
+   "إعادة المحاولة"
+  ],
+  "Connection interrupted. Retrying…": [
+   "Verbindung unterbrochen. Neuer Versuch …",
+   "Connexion interrompue. Nouvelle tentative…",
+   "Connessione interrotta. Nuovo tentativo…",
+   "Conexión interrumpida. Reintentando…",
+   "Соединение прервано. Повторяем…",
+   "连接中断，正在重试…",
+   "انقطع الاتصال. جارٍ إعادة المحاولة…"
+  ],
+  "Egypt Roamer team": [
+   "Egypt-Roamer-Team",
+   "Équipe Egypt Roamer",
+   "Team Egypt Roamer",
+   "Equipo de Egypt Roamer",
+   "Команда Egypt Roamer",
+   "Egypt Roamer 团队",
+   "فريق Egypt Roamer"
+  ],
+  "You": [
+   "Sie",
+   "Vous",
+   "Tu",
+   "Tú",
+   "Вы",
+   "您",
+   "أنت"
+  ],
+  "Of course. I can connect you with the Egypt Roamer team.": [
+   "Gern. Ich kann Sie mit dem Team von Egypt Roamer verbinden.",
+   "Bien sûr. Je peux vous mettre en relation avec l’équipe d’Egypt Roamer.",
+   "Certo. Posso metterti in contatto con il team di Egypt Roamer.",
+   "Por supuesto. Puedo ponerte en contacto con el equipo de Egypt Roamer.",
+   "Конечно. Я могу связать вас с командой Egypt Roamer.",
+   "当然可以。我可以为您联系 Egypt Roamer 团队。",
+   "بالتأكيد. يمكنني توصيلك بفريق Egypt Roamer."
+  ],
+  "Chat with Egypt Roamer": [
+   "Mit Egypt Roamer chatten",
+   "Discuter avec Egypt Roamer",
+   "Chatta con Egypt Roamer",
+   "Chatea con Egypt Roamer",
+   "Написать Egypt Roamer",
+   "与 Egypt Roamer 聊天",
+   "تحدث مع Egypt Roamer"
+  ],
+  "Your messages, and your name and email if you add them, are saved so our team can reply.": [
+   "Ihre Nachrichten sowie Name und E-Mail-Adresse, falls Sie sie angeben, werden gespeichert, damit unser Team antworten kann.",
+   "Vos messages, ainsi que votre nom et votre e-mail si vous les indiquez, sont enregistrés pour que notre équipe puisse vous répondre.",
+   "I tuoi messaggi, e il tuo nome ed e-mail se li inserisci, vengono salvati perché il nostro team possa risponderti.",
+   "Tus mensajes, y tu nombre y correo si los añades, se guardan para que nuestro equipo pueda responderte.",
+   "Ваши сообщения, а также имя и e-mail, если вы их укажете, сохраняются, чтобы наша команда могла ответить.",
+   "您的消息，以及您填写的姓名和邮箱，会被保存，以便我们的团队回复您。",
+   "تُحفظ رسائلك، واسمك وبريدك الإلكتروني إن أضفتهما، حتى يتمكن فريقنا من الرد عليك."
+  ],
+  "Need personal help?": [
+   "Persönliche Hilfe gewünscht?",
+   "Besoin d’une aide personnalisée ?",
+   "Ti serve un aiuto personale?",
+   "¿Necesitas ayuda personal?",
+   "Нужна личная помощь?",
+   "需要个人帮助？",
+   "هل تحتاج إلى مساعدة شخصية؟"
+  ],
+  "Have a question? Talk to our team.": [
+   "Eine Frage? Sprechen Sie mit unserem Team.",
+   "Une question ? Parlez à notre équipe.",
+   "Hai una domanda? Parla con il nostro team.",
+   "¿Tienes una pregunta? Habla con nuestro equipo.",
+   "Есть вопрос? Напишите нашей команде.",
+   "有问题？与我们的团队交流。",
+   "لديك سؤال؟ تحدّث مع فريقنا."
+  ],
+  "Before we connect you with our team:": [
+   "Bevor wir Sie mit unserem Team verbinden:",
+   "Avant de vous mettre en relation avec notre équipe :",
+   "Prima di metterti in contatto con il nostro team:",
+   "Antes de ponerte en contacto con nuestro equipo:",
+   "Прежде чем мы свяжем вас с командой:",
+   "在为您联系我们的团队之前：",
+   "قبل أن نوصلك بفريقنا:"
+  ],
+  "Name (optional)": [
+   "Name (optional)",
+   "Nom (facultatif)",
+   "Nome (facoltativo)",
+   "Nombre (opcional)",
+   "Имя (необязательно)",
+   "姓名（可选）",
+   "الاسم (اختياري)"
+  ],
+  "Email (optional, so we can also reply by email)": [
+   "E-Mail (optional, damit wir auch per E-Mail antworten können)",
+   "E-mail (facultatif, pour pouvoir aussi vous répondre par e-mail)",
+   "E-mail (facoltativa, per poterti rispondere anche via e-mail)",
+   "Correo electrónico (opcional, para poder responderte también por correo)",
+   "E-mail (необязательно, чтобы мы могли ответить и по почте)",
+   "邮箱（可选，以便我们也通过邮件回复）",
+   "البريد الإلكتروني (اختياري، لنتمكن من الرد عبره أيضًا)"
+  ],
+  "Your message": [
+   "Ihre Nachricht",
+   "Votre message",
+   "Il tuo messaggio",
+   "Tu mensaje",
+   "Ваше сообщение",
+   "您的消息",
+   "رسالتك"
+  ],
+  "Start chat": [
+   "Chat starten",
+   "Démarrer la conversation",
+   "Avvia la chat",
+   "Iniciar chat",
+   "Начать чат",
+   "开始聊天",
+   "ابدأ المحادثة"
+  ],
+  "Cancel": [
+   "Abbrechen",
+   "Annuler",
+   "Annulla",
+   "Cancelar",
+   "Отмена",
+   "取消",
+   "إلغاء"
+  ],
+  "Ask for the team": [
+   "Nach dem Team fragen",
+   "Demander l’équipe",
+   "Chiedi del team",
+   "Pedir hablar con el equipo",
+   "Позвать команду",
+   "联系团队",
+   "اطلب الفريق"
+  ],
+  "End chat": [
+   "Chat beenden",
+   "Terminer la conversation",
+   "Termina la chat",
+   "Terminar chat",
+   "Завершить чат",
+   "结束聊天",
+   "إنهاء المحادثة"
   ]
  }
 }

@@ -2,6 +2,16 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.14 — 2026-10-01
+Chat with the Egypt Roamer team, inside the Trip assistant (with Core 1.2.12; `docs/HUMAN-LIVE-CHAT-2026-10-01.md`):
+- The drawer offers "Chat with Egypt Roamer", with the team's real availability ("Team is online" or "Leave us a message"). Asking the assistant for a person offers the same.
+- A short start form (optional name and email, the message, a storage notice with the Privacy Policy link) starts a conversation; the questions asked so far go with it.
+- In the chat, the drawer becomes "Live chat": bubbles for the visitor, the team and the assistant; pending, sent and failed states with Retry (no duplicates); "Ask for the team" and "End chat"; resumed after a reload.
+- New messages are fetched only while the drawer is open and the tab visible (every 3 s, slowing to 15 s when quiet). Nothing new loads on the page until the drawer is opened.
+- 29 new UI strings in 8 languages (drafted, unreviewed: `tools/i18n/new-strings.json`); Arabic mirrored.
+
+Core 1.2.12: tables `er_chat_conversations` and `er_chat_messages` (DB version 2); visitor and team REST routes; Egypt Roamer → Conversations (inbox, filters, search, take over, return to AI, close, reopen, assign, archive, presence, unread badge through Heartbeat); capability `manage_er_conversations` (administrators, editors); settings "Chat with the team" and retention (90 days); email notification of new or reopened chats; daily purge; privacy export and erasure.
+
 ## 1.2.13 — 2026-10-01
 SEO, with Core 1.2.11 (`docs/SEO-AUDIT-2026-10-01.md`). Indexing stays off; nothing here changes what visitors see on the page:
 - Destination titles follow the search intent: "Kairo – Reiseführer – Egypt Roamer", built only from approved strings (the destination's title and the theme's "Travel Guide" in each language).

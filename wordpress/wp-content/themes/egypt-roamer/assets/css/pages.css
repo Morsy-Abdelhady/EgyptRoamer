@@ -1478,6 +1478,136 @@ body:has(#nav:not(.is-hidden)) .secnav {
   font-size: 0.78rem;
   color: var(--text-muted);
 }
+.assistant__note a {
+  color: inherit;
+}
+
+/* Chat with the team (Core includes/chat.php): same drawer, messages as bubbles */
+.assistant [hidden] {
+  display: none; /* the parts switched by assistant.js have their own display rules */
+}
+.assistant__human {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 0.8rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--line);
+}
+.assistant__human p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.assistant__human b {
+  display: block;
+  color: var(--text);
+  font-weight: 500;
+}
+.assistant__start {
+  display: grid;
+  gap: 0.6rem;
+}
+.assistant__start-intro {
+  margin: 0;
+  font-weight: 500;
+}
+.assistant__start label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.assistant__start input,
+.assistant__start textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--paper);
+  color: var(--text);
+  font: inherit;
+}
+.assistant__start textarea {
+  resize: vertical;
+}
+.assistant__start-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.assistant__start-error {
+  margin: 0;
+  color: var(--clay);
+}
+.er-hp {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.assistant__chatbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.9rem;
+}
+.assistant__chatstatus {
+  flex: 1 1 12rem;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.assistant__chatbar .link {
+  font-size: 0.85rem;
+}
+.assistant__msg {
+  max-width: 85%;
+  margin: 0;
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--r-md);
+  overflow-wrap: anywhere;
+}
+.assistant__msg p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.assistant__msg--me {
+  justify-self: end;
+  background: var(--ink);
+  color: var(--white);
+}
+.assistant__msg--team {
+  justify-self: start;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+p.assistant__msg--ai {
+  justify-self: start;
+  padding: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.assistant__who {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: 0.72rem;
+  opacity: 0.75;
+}
+.assistant__msg.is-pending {
+  opacity: 0.65;
+}
+.assistant__msg.is-failed {
+  outline: 1px solid var(--clay);
+}
+.assistant__msg.is-failed .link {
+  margin-top: 0.3rem;
+  color: inherit;
+}
 
 /* ---------- Homepage entrance, revealed with the loader (owner decision 2026-09-30) ----------
    The hero text used to wait 250 ms after the loader, then 0.55 s, then fade for 1.2 s, which
