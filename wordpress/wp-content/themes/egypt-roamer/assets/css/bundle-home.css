@@ -6406,3 +6406,37 @@ letter-spacing: 0;
 .scene__fg--dune {
 max-width: none;
 }
+html:lang(ar),
+html:lang(zh) {
+--fs-label: 0.8rem;
+}
+@media (max-width: 900px) {
+.hero {
+padding-bottom: calc(5.6rem + env(safe-area-inset-bottom));
+}
+}
+.page-hero--image .page-hero__media::before {
+content: "";
+position: absolute;
+inset: 0;
+z-index: 1;
+background: linear-gradient(to right, color-mix(in srgb, var(--ink) 62%, transparent) 0%, color-mix(in srgb, var(--ink) 28%, transparent) 45%, transparent 70%);
+}
+[dir="rtl"] .page-hero--image .page-hero__media::before {
+background: linear-gradient(to left, color-mix(in srgb, var(--ink) 62%, transparent) 0%, color-mix(in srgb, var(--ink) 28%, transparent) 45%, transparent 70%);
+}
+@media (max-width: 900px) {
+.page-hero--image .page-hero__media::before,
+[dir="rtl"] .page-hero--image .page-hero__media::before {
+background: linear-gradient(to top, color-mix(in srgb, var(--ink) 35%, transparent), transparent 70%);
+}
+}
+@media (max-width: 900px) {
+body:has(.assistant-launch) .footer__bottom {
+padding-bottom: 3rem;
+}
+}
+.page-hero__title {
+hyphens: auto;
+-webkit-hyphens: auto;
+}

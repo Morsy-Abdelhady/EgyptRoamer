@@ -85,8 +85,24 @@ The render-blocking estimate went from 2,135 ms to 699 ms (local).
    - **Fidelity check:** 36 computed properties of every element, plus `::before`/`::after`, are identical with the bundle and with the separate files. Tested on 12 pages (en, ar, ru, zh, fr homepages; archives; destination; experiences in de; 404; privacy) at 390 and 1440 px: 0 differences.
 2. **Font preload on the homepage:** the display serif and the light sans of the page's script (Latin, Cyrillic or Arabic; none for Chinese, which uses Google Fonts). They now download alongside the stylesheet instead of after it.
 
-## 6. Production result
-_To be filled from PageSpeed Insights after the deploy and a cache flush (section 8)._
+## 6. Production result (theme 1.2.19, deploy #36, after a GoDaddy flush)
+PageSpeed Insights, mobile, homepage. Two runs; PSI runs vary by ±0.3 s and ±50 ms TBT between runs.
+
+| Run | Perf | FCP | LCP | TBT | CLS | SI | Render-blocking est. |
+|---|---|---|---|---|---|---|---|
+| before (1.2.17, 1 Oct 13:54) | 82 | 2.0 s | 4.1 s | 0 ms | 0 | 4.6 s | 1,730 ms |
+| 1.2.19 run 1 (19:35, first request after the flush: edge MISS) | 76 | 2.2 s | 4.4 s | 110 ms | 0 | 6.3 s | 500 ms |
+| 1.2.19 run 2 (19:38) | 83 | **1.7 s** | 4.2 s | 10 ms | 0 | 4.5 s | – |
+
+PSI's LCP breakdown on production:
+- LCP element: `p.hero__copy`;
+- time to first byte: 0 ms;
+- **element render delay: 3,230 ms**.
+
+**Verdict:**
+- The CSS work removed most of the render-blocking cost (estimate 1,730 → 500 ms) and improved FCP (2.0 → 1.7 s in the warm run).
+- **It did not improve LCP.** 4.1 → 4.2 s is within run-to-run noise. On production, LCP is decided by the intro hand-off (the render delay), not by CSS.
+- So performance is **not fixed** by 1.2.19. See section 7.
 
 ## 7. Why LCP stays above 2.5 s, and what would close the gap
 The rest of the LCP comes from three deliberate design choices, not from defects:

@@ -12,12 +12,14 @@ export function initAssistantLoader() {
   if (stage && "IntersectionObserver" in window) {
     new IntersectionObserver(([entry]) => document.body.classList.toggle("assistant-raised", entry.isIntersecting)).observe(stage);
   }
-  // Phones: on narrow screens the hero's buttons (play) reach the launcher's corner; the launcher steps
-  // aside while they are actually visible there (the hero is pinned by the journey, so this checks
-  // geometry and opacity rather than viewport intersection). CSS: body.assistant-clear.
-  const ctas = $(".hero__ctas");
+  // Phones: on narrow screens the homepage hero's buttons (play) and the text of an inner page's header
+  // reach the launcher's corner; the launcher steps aside while they are actually visible there (the hero
+  // is pinned by the journey, so this checks geometry and opacity rather than viewport intersection).
+  // CSS: body.assistant-clear.
+  const area = $(".hero__ctas") || $(".page-hero__inner");
   const launch = $(".assistant-launch");
-  if (ctas && launch && window.matchMedia) {
+  if (area && launch && window.matchMedia) {
+    const targets = () => [...area.querySelectorAll(area.matches(".hero__ctas") ? "a, button" : "h1, p, a, li, .page-hero__meta > *")];
     const phone = window.matchMedia("(max-width: 900px)");
     let queued = false;
     const check = () => {
@@ -28,7 +30,7 @@ export function initAssistantLoader() {
         // Too close counts too (20px): right next to the hero buttons, the round launcher reads as one of them.
         const r = launch.getBoundingClientRect();
         const b = { left: r.left - 20, right: r.right + 20, top: r.top - 20, bottom: r.bottom + 20 };
-        const hit = [...ctas.querySelectorAll("a, button")].some((el) => {
+        const hit = targets().some((el) => {
           const a = el.getBoundingClientRect();
           return !(a.right <= b.left || a.left >= b.right || a.bottom <= b.top || a.top >= b.bottom);
         });
@@ -36,7 +38,7 @@ export function initAssistantLoader() {
           // the row's own entrance fade doesn't count (the launcher should not appear, then leave);
           // the journey fades the hero through its ancestors
           hide = true;
-          for (let e = ctas.parentElement; e && e !== document.body; e = e.parentElement) {
+          for (let e = area.parentElement; e && e !== document.body; e = e.parentElement) {
             if (parseFloat(getComputedStyle(e).opacity) < 0.05) hide = false;
           }
         }

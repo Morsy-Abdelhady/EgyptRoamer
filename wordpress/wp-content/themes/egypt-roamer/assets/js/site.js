@@ -874,12 +874,14 @@
     if (stage && "IntersectionObserver" in window) {
       new IntersectionObserver(([entry]) => document.body.classList.toggle("assistant-raised", entry.isIntersecting)).observe(stage);
     }
-    // Phones: on narrow screens the hero's buttons (play) reach the launcher's corner; the launcher steps
-    // aside while they are actually visible there (the hero is pinned by the journey, so this checks
-    // geometry and opacity rather than viewport intersection). CSS: body.assistant-clear.
-    const ctas = $(".hero__ctas");
+    // Phones: on narrow screens the homepage hero's buttons (play) and the text of an inner page's header
+    // reach the launcher's corner; the launcher steps aside while they are actually visible there (the hero
+    // is pinned by the journey, so this checks geometry and opacity rather than viewport intersection).
+    // CSS: body.assistant-clear.
+    const area = $(".hero__ctas") || $(".page-hero__inner");
     const launch = $(".assistant-launch");
-    if (ctas && launch && window.matchMedia) {
+    if (area && launch && window.matchMedia) {
+      const targets = () => [...area.querySelectorAll(area.matches(".hero__ctas") ? "a, button" : "h1, p, a, li, .page-hero__meta > *")];
       const phone = window.matchMedia("(max-width: 900px)");
       let queued = false;
       const check = () => {
@@ -890,7 +892,7 @@
           // Too close counts too (20px): right next to the hero buttons, the round launcher reads as one of them.
           const r = launch.getBoundingClientRect();
           const b = { left: r.left - 20, right: r.right + 20, top: r.top - 20, bottom: r.bottom + 20 };
-          const hit = [...ctas.querySelectorAll("a, button")].some((el) => {
+          const hit = targets().some((el) => {
             const a = el.getBoundingClientRect();
             return !(a.right <= b.left || a.left >= b.right || a.bottom <= b.top || a.top >= b.bottom);
           });
@@ -898,7 +900,7 @@
             // the row's own entrance fade doesn't count (the launcher should not appear, then leave);
             // the journey fades the hero through its ancestors
             hide = true;
-            for (let e = ctas.parentElement; e && e !== document.body; e = e.parentElement) {
+            for (let e = area.parentElement; e && e !== document.body; e = e.parentElement) {
               if (parseFloat(getComputedStyle(e).opacity) < 0.05) hide = false;
             }
           }
@@ -959,6 +961,83 @@
     });
   }
   return { initAssistantLoader };
+  })();
+  /* ---- components/fit.js ---- */
+  __m["components/fit.js"] = (() => {
+  /* Display words that must stay on one line (hero word, scene titles) keep the approved size while it
+     fits and shrink just enough when a translation is wider than its column ("КРАСНОЕ МОРЕ", "ROTES
+     MEER" on a phone). Measured on a canvas with the computed font, so scene titles that are hidden
+     until their scene plays are fitted too. */
+  const { $$ } = __m["utils.js"];
+
+  function initFit() {
+    const els = $$(".scene__title, .hero__title .t-display");
+    if (!els.length) return;
+    const ctx = document.createElement("canvas").getContext("2d");
+    const lang = document.documentElement.lang || undefined;
+    const run = () => {
+      const vw = document.documentElement.clientWidth;
+      els.forEach((el) => {
+        el.style.fontSize = "";
+        const cs = getComputedStyle(el);
+        const box = el.closest(".container") || el.parentElement;
+        const bs = getComputedStyle(box);
+        const outer = box.clientWidth > 0 ? box.clientWidth : Math.min(vw, parseFloat(bs.maxWidth) || vw);
+        const avail = outer - (parseFloat(bs.paddingLeft) || 0) - (parseFloat(bs.paddingRight) || 0);
+        let text = el.textContent.replace(/\s+/g, " ").trim();
+        if (cs.textTransform === "uppercase") text = text.toLocaleUpperCase(lang);
+        ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+        const size = parseFloat(cs.fontSize);
+        // The rendered width when the title is laid out; the canvas estimate for hidden scene titles.
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        const rendered = range.getBoundingClientRect().width;
+        const width = rendered > 0 ? rendered : ctx.measureText(text).width + (parseFloat(cs.letterSpacing) || 0) * text.length;
+        // A measured width is exact; the canvas estimate keeps 4% headroom (per-letter animation spans).
+        const limit = rendered > 0 ? avail : avail * 0.96;
+        if (width > limit) el.style.fontSize = `${Math.floor((size * limit * 0.98) / width)}px`;
+      });
+    };
+    run();
+    // Again once the display font is in (a fallback font measures narrower).
+    document.fonts?.ready.then(run);
+    document.fonts?.addEventListener?.("loadingdone", run);
+    window.addEventListener("load", run);
+    let t;
+    window.addEventListener("resize", () => {
+      clearTimeout(t);
+      t = setTimeout(run, 120);
+    });
+  }
+
+  /* Page titles wrap, but a single word must still fit its line: a long Russian or German word on a 320 px
+     phone ("Индивидуальная") was broken mid-word without a hyphen (browsers on Windows have no Russian
+     hyphenation). Shrink the title just enough for its longest word; titles that fit are untouched. */
+  function initWordFit() {
+    const els = $$(".page-hero__title");
+    if (!els.length) return;
+    const ctx = document.createElement("canvas").getContext("2d");
+    const run = () => {
+      els.forEach((el) => {
+        el.style.fontSize = "";
+        const cs = getComputedStyle(el);
+        const avail = el.clientWidth;
+        if (!avail) return;
+        ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+        const ls = parseFloat(cs.letterSpacing) || 0;
+        const widest = Math.max(...el.textContent.split(/\s+/).filter(Boolean).map((w) => ctx.measureText(w).width + ls * w.length));
+        if (widest > avail) el.style.fontSize = `${Math.floor((parseFloat(cs.fontSize) * avail * 0.97) / widest)}px`;
+      });
+    };
+    run();
+    document.fonts?.ready.then(run);
+    let t;
+    window.addEventListener("resize", () => {
+      clearTimeout(t);
+      t = setTimeout(run, 120);
+    });
+  }
+  return { initFit, initWordFit };
   })();
   /* ---- components/micro.js ---- */
   __m["components/micro.js"] = (() => {
@@ -1129,6 +1208,7 @@
   const { initSearch } = __m["components/search.js"];
   const { initSectionNav } = __m["components/sections.js"];
   const { initAssistantLoader } = __m["components/assistant-loader.js"];
+  const { initWordFit } = __m["components/fit.js"];
   const { initMagnetic, initReveals, initScrollProgress, initAffiliateLinks, initNewsletter, initImageFallback } = __m["components/micro.js"];
 
   function safe(name, fn) {
@@ -1139,6 +1219,7 @@
     }
   }
 
+  safe("title-fit", initWordFit); // first: before the page is laid out further
   safe("images", initImageFallback);
   safe("favorites", initFavorites);
   safe("nav", initNav);

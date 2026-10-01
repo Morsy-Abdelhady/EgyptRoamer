@@ -226,7 +226,9 @@
     async function call(path, body, withToken = true) {
       const headers = { "Content-Type": "application/json" };
       if (withToken && conv) headers["X-ER-Chat"] = conv.token;
-      const res = await fetch(c.endpoint + path, { method: "POST", credentials: "omit", headers, body: JSON.stringify(body || {}) });
+      // A stalled request must not hold the queue of messages behind it: give up after 20 s (the visitor can retry).
+      const signal = typeof AbortSignal !== "undefined" && AbortSignal.timeout ? AbortSignal.timeout(20000) : undefined;
+      const res = await fetch(c.endpoint + path, { method: "POST", credentials: "omit", headers, body: JSON.stringify(body || {}), signal });
       if (!res.ok) {
         const err = new Error(String(res.status));
         err.status = res.status;
@@ -339,7 +341,10 @@
 
     /* ---------- sending ---------- */
     const clientId = () => "v" + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
-    async function send(text, client = clientId(), existing = null) {
+    // One request at a time: messages typed in quick succession were sent concurrently and could be stored
+    // (and shown to the team) out of order. The bubble still appears at once; the request waits its turn.
+    let outbox = Promise.resolve();
+    function send(text, client = clientId(), existing = null) {
       const b = existing || el("div", { class: "assistant__msg assistant__msg--me is-pending", "data-client": client });
       if (!existing) {
         b.append(el("span", { class: "assistant__who" }, t.sending), el("p", {}, text));
@@ -351,6 +356,11 @@
         b.querySelector(".assistant__who").textContent = t.sending;
         b.querySelector("button")?.remove();
       }
+      const turn = outbox.then(() => deliver(text, client, b));
+      outbox = turn;
+      return turn;
+    }
+    async function deliver(text, client, b) {
       try {
         const data = await call("send", { id: conv.id, text, client_id: client, after: since(), page: location.href });
         calm = 0;

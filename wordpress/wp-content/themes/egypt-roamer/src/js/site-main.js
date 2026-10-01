@@ -9,6 +9,7 @@ import { initNav } from "./components/nav.js";
 import { initSearch } from "./components/search.js";
 import { initSectionNav } from "./components/sections.js";
 import { initAssistantLoader } from "./components/assistant-loader.js";
+import { initWordFit } from "./components/fit.js";
 import { initMagnetic, initReveals, initScrollProgress, initAffiliateLinks, initNewsletter, initImageFallback } from "./components/micro.js";
 
 function safe(name, fn) {
@@ -19,6 +20,7 @@ function safe(name, fn) {
   }
 }
 
+safe("title-fit", initWordFit); // first: before the page is laid out further
 safe("images", initImageFallback);
 safe("favorites", initFavorites);
 safe("nav", initNav);

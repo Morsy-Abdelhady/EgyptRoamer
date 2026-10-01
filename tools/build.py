@@ -10,6 +10,7 @@ Usage
   python tools/build.py prototype   # Egypt Roamer/assets/js/main.js -> app.js (the static prototype)
   python tools/build.py theme       # theme src -> assets/js/{home,site}.js + locales/<code>.js
                                     #   + assets/css/bundle-{home,site}.css (see CSS_BUNDLES)
+  python tools/build.py css         # only the CSS bundles (after editing assets/css/*.css)
   python tools/build.py check       # rebuild the prototype in memory and compare with its app.js
 """
 import json
@@ -221,6 +222,10 @@ if __name__ == "__main__":
         print("wrote", PROTO / "app.js")
     elif cmd == "theme":
         build_theme()
+    elif cmd == "css":
+        for out, names in CSS_BUNDLES.items():
+            (THEME_CSS / out).write_text(css_bundle(names), encoding="utf-8", newline="\n")
+            print("wrote", out)
     elif cmd == "check":
         sys.exit(0 if check() else 1)
     else:

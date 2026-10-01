@@ -1755,3 +1755,62 @@ p.assistant__msg--ai {
 .scene__fg--dune {
   max-width: none;
 }
+
+/* ---------- Arabic label size (audit 2026-10-02) ----------
+   Latin labels are spaced capitals (0.32em tracking) at 11 px; Arabic drops the tracking and has no
+   capitals, so the same 11 px reads as a faint, cramped line (the hero's eyebrow, scene kickers, card
+   labels). Chinese characters at 11 px are just as hard to read. Both use a slightly larger size; the
+   Latin and Cyrillic scripts are unchanged. */
+html:lang(ar),
+html:lang(zh) {
+  --fs-label: 0.8rem;
+}
+
+/* ---------- Phones: hero buttons clear the dock (audit 2026-10-02) ----------
+   The hero's buttons ended 4 px above the fixed dock, and the play button's pulse ring (scaled 1.6×)
+   reached 14 px below the button, across the dock's edge. 0.7 rem more room under the hero. */
+@media (max-width: 900px) {
+  .hero {
+    padding-bottom: calc(5.6rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* ---------- Page headers over photos: shade on the text's side (audit 2026-10-02) ----------
+   The header photo was shaded top and bottom only, so the eyebrow and breadcrumb could land on a bright
+   sky (Arabic experience page: gold label on an orange sky, about 1.4:1). A side shade under the text,
+   as on the homepage scenes: from the left in LTR, from the right in RTL. */
+.page-hero--image .page-hero__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1; /* the photo has a filter (its own layer), which would paint over an earlier sibling */
+  background: linear-gradient(to right, color-mix(in srgb, var(--ink) 62%, transparent) 0%, color-mix(in srgb, var(--ink) 28%, transparent) 45%, transparent 70%);
+}
+[dir="rtl"] .page-hero--image .page-hero__media::before {
+  background: linear-gradient(to left, color-mix(in srgb, var(--ink) 62%, transparent) 0%, color-mix(in srgb, var(--ink) 28%, transparent) 45%, transparent 70%);
+}
+@media (max-width: 900px) {
+  /* phones: the text spans the width; the bottom shade already carries it */
+  .page-hero--image .page-hero__media::before,
+  [dir="rtl"] .page-hero--image .page-hero__media::before {
+    background: linear-gradient(to top, color-mix(in srgb, var(--ink) 35%, transparent), transparent 70%);
+  }
+}
+
+/* ---------- Phones: the launcher never covers the footer's legal links (audit 2026-10-02) ----------
+   At the end of the page the legal row ended 20 px below the launcher's top edge ("Cookie-Richtlinie" in
+   German at 320 px). Desktop already has this room (above); phones get it too. */
+@media (max-width: 900px) {
+  body:has(.assistant-launch) .footer__bottom {
+    padding-bottom: 3rem;
+  }
+}
+
+/* ---------- Long words in page titles (audit 2026-10-02) ----------
+   On a 320 px phone the Russian experience title broke "Индивидуальная" as "Индивидуал / ьная" (the
+   overflow-wrap fallback breaks anywhere, without a hyphen). The browser now hyphenates by the page's
+   language first; the anywhere-break only remains for words it can't hyphenate. */
+.page-hero__title {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}

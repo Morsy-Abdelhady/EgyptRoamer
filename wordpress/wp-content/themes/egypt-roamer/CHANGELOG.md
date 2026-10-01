@@ -2,6 +2,17 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.20 — 2026-10-02 (with Core 1.2.17)
+- **Chat messages keep their order.** Messages typed in quick succession were sent as concurrent requests and could reach the team out of order (seen in the 8-language test: 1, 3, 2). The visitor's messages now go out one at a time; each bubble still appears at once.
+- **A stalled request no longer freezes the chat.** Visitor requests give up after 20 s (a failed message shows Retry, and later messages still go out). In Core 1.2.17, the team inbox's requests give up after 15 s: before, one unanswered request stopped all inbox refreshes until a reload. Test: `tools/qa/chat-stall.mjs`.
+- **Arabic and Chinese labels** (the hero's eyebrow, scene kickers, card and footer labels) are 12.8 px instead of 11 px. Without Latin capitals and tracking, 11 px Arabic or Chinese read as a faint, cramped line.
+- **Phones:** the hero's buttons clear the bottom dock. The play button's pulse ring crossed the dock's edge.
+- **Phones: the Trip assistant launcher no longer covers text.**
+  - On inner pages it steps aside while the page header's text is under it (as on the homepage hero). It covered the experience intro at 320 px.
+  - The footer's legal links end above it (it covered "Cookie-Richtlinie" in German).
+- **Page headers over photos get a side shade under the text** (left in LTR, right in RTL), as on the homepage scenes. The Arabic experience page's gold label sat on a bright sky at about 1.4:1 contrast.
+- **Long words in page titles fit their line.** The title shrinks just enough for its longest word. On a 320 px phone the Russian "Индивидуальная" broke mid-word without a hyphen. `hyphens: auto` was also added, for browsers that hyphenate the language.
+
 ## 1.2.19 — 2026-10-02
 - **Arabic hero: the landmark photo is no longer mirrored.** 1.2.17 flipped the Giza photo in RTL so the text would not sit on the Great Pyramid. Instead, on screens wider than 900 px the opening scene keeps the photo's own composition in Arabic: the Arabic text block (right-aligned, read right to left) sits on the open sky on the left under the shade, the note and pick card on the right. Phones stack the text at the bottom and needed no change. `pages.css`; screenshots 320–1920.
 - **One stylesheet per template.** The six or seven render-blocking stylesheets are served as one file built by `tools/build.py theme` (`bundle-home.css`, `bundle-site.css`): the same rules in the same order, comments and indentation removed (−20%). Computed styles of every element are identical to the separate files (12 pages × 2 widths). The source files stay the ones to edit; CI fails if a bundle is stale. Arabic fonts and `rtl.css` still load separately.

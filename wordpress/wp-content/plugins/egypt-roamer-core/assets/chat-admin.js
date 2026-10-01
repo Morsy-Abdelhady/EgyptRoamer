@@ -44,8 +44,12 @@
   const cid = () => "a" + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
 
   async function api(path, opts = {}) {
+    // A request that never answers (dropped connection, captive Wi-Fi) must not stop the inbox: the list and
+    // conversation refresh only after the previous request settles, so give up after 15 s and try again.
+    const signal = typeof AbortSignal !== "undefined" && AbortSignal.timeout ? AbortSignal.timeout(15000) : undefined;
     const res = await fetch(cfg.root + path, {
       credentials: "same-origin",
+      signal,
       ...opts,
       headers: { "X-WP-Nonce": cfg.nonce, ...(opts.body ? { "Content-Type": "application/json" } : {}) },
     });

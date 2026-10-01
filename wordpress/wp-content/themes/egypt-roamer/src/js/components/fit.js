@@ -43,3 +43,31 @@ export function initFit() {
     t = setTimeout(run, 120);
   });
 }
+
+/* Page titles wrap, but a single word must still fit its line: a long Russian or German word on a 320 px
+   phone ("Индивидуальная") was broken mid-word without a hyphen (browsers on Windows have no Russian
+   hyphenation). Shrink the title just enough for its longest word; titles that fit are untouched. */
+export function initWordFit() {
+  const els = $$(".page-hero__title");
+  if (!els.length) return;
+  const ctx = document.createElement("canvas").getContext("2d");
+  const run = () => {
+    els.forEach((el) => {
+      el.style.fontSize = "";
+      const cs = getComputedStyle(el);
+      const avail = el.clientWidth;
+      if (!avail) return;
+      ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+      const ls = parseFloat(cs.letterSpacing) || 0;
+      const widest = Math.max(...el.textContent.split(/\s+/).filter(Boolean).map((w) => ctx.measureText(w).width + ls * w.length));
+      if (widest > avail) el.style.fontSize = `${Math.floor((parseFloat(cs.fontSize) * avail * 0.97) / widest)}px`;
+    });
+  };
+  run();
+  document.fonts?.ready.then(run);
+  let t;
+  window.addEventListener("resize", () => {
+    clearTimeout(t);
+    t = setTimeout(run, 120);
+  });
+}
