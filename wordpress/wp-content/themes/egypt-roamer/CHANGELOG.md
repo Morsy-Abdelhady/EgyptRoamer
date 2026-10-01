@@ -2,6 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.23 — 2026-10-02
+- **The stale-page check waits for the first paint and runs at low priority.** PageSpeed listed its request on the homepage's critical path (452 ms). It decides whether to reload a stale copy, never what is drawn, so it no longer competes with the first view. `stale-html.mjs` 7/7.
+- **Every face the homepage's first view draws is preloaded** (Latin: 6; Cyrillic: 6; Arabic: 5), not just two. The rest were found only after the stylesheet arrived. Local mobile FCP 2.29 → 1.63 s.
+- The phone hero text settles in like the title (drawn from the first frame). In Arabic it is the largest element on screen, and its fade from transparent made it a later LCP. The homepage launcher on phones waits for its first placement instead of flashing next to the play button.
+
 ## 1.2.22 — 2026-10-02
 **Phones: content-first homepage.** Desktop is unchanged; it keeps the cinematic intro. Before this, phone visitors saw nothing but the loader until the intro's 1.3 s hold, the hero photo, every font and ~86 KB of homepage JavaScript had finished. PageSpeed measured 3.2 s of "render delay" on the hero text (`docs/PERFORMANCE-2026-10-02.md`).
 - **No loader screen on phones (≤ 900 px, the hero's phone layout).** The hero is drawn at the first paint and plays its own entrance in CSS:

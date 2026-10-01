@@ -91,20 +91,21 @@ add_action( 'wp_head', static function () {
 }, 3 );
 
 /**
- * The homepage's first view is set in two faces: the display serif (the hero word) and the light sans (the
- * hero text, the LCP element on phones). Preloading them starts both downloads with the stylesheet instead
- * of after it (measured: docs/PERFORMANCE-2026-10-02.md). Faces for the page's script only; Chinese uses
+ * The homepage's first view is drawn in these faces (the display serif and its italic, the sans in four
+ * weights; per script). Preloading them starts the downloads with the stylesheet instead of after it (measured: docs/PERFORMANCE-2026-10-02.md). Faces for the page's script only; Chinese uses
  * Google's fonts, which are not preloaded.
  */
 add_action( 'wp_head', static function () {
 	if ( ! is_front_page() ) {
 		return;
 	}
+	// Every face the phone's first view draws (measured: title, "Feel", hero text, labels, dock, buttons).
+	$latin = [ 'playfair-display-latin-400-normal', 'inter-latin-300-normal', 'playfair-display-latin-400-italic', 'inter-latin-500-normal', 'inter-latin-400-normal', 'inter-latin-600-normal' ];
 	$faces = [
-		'ar' => [ 'noto-naskh-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-300-normal' ],
-		'ru' => [ 'playfair-display-cyrillic-400-normal', 'inter-cyrillic-300-normal' ],
+		'ar' => [ 'noto-naskh-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-300-normal', 'ibm-plex-sans-arabic-arabic-500-normal', 'ibm-plex-sans-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-600-normal' ],
+		'ru' => [ 'playfair-display-cyrillic-400-normal', 'inter-cyrillic-300-normal', 'playfair-display-cyrillic-400-italic', 'inter-cyrillic-500-normal', 'inter-cyrillic-400-normal', 'inter-cyrillic-600-normal' ],
 		'zh' => [],
-	][ er_lang() ] ?? [ 'playfair-display-latin-400-normal', 'inter-latin-300-normal' ];
+	][ er_lang() ] ?? $latin;
 	foreach ( $faces as $face ) {
 		printf( '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin />' . "\n", esc_url( ER_THEME_URI . '/assets/fonts/' . $face . '.woff2' ) );
 	}
@@ -131,7 +132,9 @@ add_filter( 'er_brand_logo', static fn () => er_brand_url( 'egypt-roamer-logo-da
  * Stale-HTML guard (Core includes/freshness.php, docs/CACHE-2026-10-01.md): the page's build id, and a check
  * against the current one. The host's edge makes browsers keep pages for 31 days; a page older than the
  * site reloads once (or is fetched once past the caches with ?nocache=…). At most one request per browser
- * every 30 minutes while pages are current; at once when a page's id is not the last one seen.
+ * every 30 minutes while pages are current; at once when a page's id is not the last one seen. The check runs
+ * after the first contentful paint, at low priority: it decides about a reload, never about what is drawn,
+ * so it stays off the first view's critical path (PageSpeed listed it there, 2026-10-02).
  */
 add_filter( 'er_build_id_parts', static function ( array $parts ): array {
 	$parts['theme']  = ER_THEME_VERSION;
@@ -146,7 +149,7 @@ add_action( 'wp_head', static function () {
 	$endpoint = wp_json_encode( esc_url_raw( rest_url( 'egypt-roamer/v1/build' ) ) );
 	// The edge bypasses its cache only when the query string STARTS with "nocache", so it goes first.
 	// phpcs:ignore WordPress.Security.EscapeOutput -- fixed script; the endpoint is JSON-encoded
-	echo "<script>(function(){var q=location.search,u;if(/[?&]nocache=/.test(q)){u=new URL(location.href);u.searchParams.delete('nocache');history.replaceState(null,'',u)}var m=document.querySelector('meta[name=er-build]');if(!m||!window.fetch||!window.JSON)return;var b=m.content,K='er-build',s={};try{s=JSON.parse(localStorage.getItem(K)||'{}')||{}}catch(e){}if(s.cur===b&&Date.now()-s.at<18e5)return;fetch({$endpoint},{cache:'no-store',credentials:'omit'}).then(function(r){return r.ok?r.json():null}).then(function(d){if(!d||!d.build)return;try{localStorage.setItem(K,JSON.stringify({cur:d.build,at:Date.now()}))}catch(e){}if(d.build===b)return;var R='er-build-reload',done=null;try{done=sessionStorage.getItem(R);sessionStorage.setItem(R,b)}catch(e){return}if(done!==b){location.reload();return}if(!/[?&]nocache=/.test(q)){location.replace(location.pathname+'?nocache='+d.build+(q?'&'+q.slice(1):'')+location.hash)}})['catch'](function(){})})();</script>\n";
+	echo "<script>(function(){var q=location.search,u;if(/[?&]nocache=/.test(q)){u=new URL(location.href);u.searchParams.delete('nocache');history.replaceState(null,'',u)}var m=document.querySelector('meta[name=er-build]');if(!m||!window.fetch||!window.JSON)return;var b=m.content,K='er-build',s={};try{s=JSON.parse(localStorage.getItem(K)||'{}')||{}}catch(e){}if(s.cur===b&&Date.now()-s.at<18e5)return;var go=function(){fetch({$endpoint},{cache:'no-store',credentials:'omit',priority:'low'}).then(function(r){return r.ok?r.json():null}).then(function(d){if(!d||!d.build)return;try{localStorage.setItem(K,JSON.stringify({cur:d.build,at:Date.now()}))}catch(e){}if(d.build===b)return;var R='er-build-reload',done=null;try{done=sessionStorage.getItem(R);sessionStorage.setItem(R,b)}catch(e){return}if(done!==b){location.reload();return}if(!/[?&]nocache=/.test(q)){location.replace(location.pathname+'?nocache='+d.build+(q?'&'+q.slice(1):'')+location.hash)}})['catch'](function(){})},once=false,run=function(){if(!once){once=true;go()}};try{new PerformanceObserver(function(l){if(l.getEntriesByName('first-contentful-paint').length)run()}).observe({type:'paint',buffered:true})}catch(e){run()}setTimeout(run,1500)})();</script>\n";
 }, 1 );
 
 /** JS flag before first paint (the design's no-js/js states). */
