@@ -2,6 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.12 — 2026-10-01
+Trip assistant launcher, keyboard safety for the 1.2.11 phone behaviour:
+- The launcher never steps aside while it has keyboard focus or while its drawer is open (focus returns to it when the drawer closes), and it re-checks when it loses focus or an overlay closes.
+- New check `tools/qa/launcher-keyboard.mjs` (320/360 px, en/de/ar): reached by Tab, visible whenever focused, never focused while hidden, Enter opens the drawer with focus in the question field, Escape returns focus, stays visible when scrolled back to the hero while focused.
+
 ## 1.2.11 — 2026-10-01
 Homepage: the Trip assistant launcher no longer covers hero or journey content (the hero's right-side crop is the approved composition: the image geometry matches the prototype at every width, so the hero CSS is unchanged):
 - Desktop (≥ 901 px): the launcher sat on the journey's scene counter ("01 / 04", same corner; mirrored in Arabic) at every width. While the journey is on screen it now sits above the counter (`body.assistant-raised`), and drops back at the footer.

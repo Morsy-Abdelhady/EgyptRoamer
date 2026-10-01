@@ -2438,7 +2438,8 @@
       const check = () => {
         queued = false;
         let hide = false;
-        if (phone.matches) {
+        // Never while it has keyboard focus or its drawer is open (focus returns to it on close).
+        if (phone.matches && document.activeElement !== launch && root.hidden) {
           const b = launch.getBoundingClientRect();
           const hit = [...ctas.querySelectorAll("a, button")].some((el) => {
             const a = el.getBoundingClientRect();
@@ -2471,6 +2472,8 @@
       };
       window.addEventListener("scroll", onScroll, { passive: true });
       window.addEventListener("resize", schedule);
+      launch.addEventListener("blur", schedule);
+      on("overlay:close", schedule);
       phone.addEventListener?.("change", schedule);
       schedule();
     }
