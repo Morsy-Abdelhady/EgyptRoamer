@@ -27,6 +27,7 @@ node hygiene.mjs                              # page hygiene (en/ar): duplicate 
 node visual-sheets.mjs <hero|hero-states|assistant|templates|nav> [langs] && python sheets.py <sheet>-<lang>   # rendered screenshots as contact sheets, for inspection by eye
 node visual-adversarial.mjs && python sheets.py adv   # missing photos, reduced motion, logged in, keyboard focus, slow network, long text
 node chat-locales.mjs                         # chat with the team in all 8 languages: AI answer, start (double click), inbox, live reply, quick messages, close/reopen/reload, two tabs, background tab, offline + retry, long text, RTL, close
+node mobile-first-view.mjs                    # phones: no loader, hero text is the LCP at first paint, homepage scripts start after it, journey live, no layout shift; desktop keeps the intro (screenshots: python sheets.py mfv)
 node chat-stall.mjs                           # a stalled request must not freeze the inbox or the visitor's message queue
 node visual-locales.mjs [langs] [widths] && python sheets.py loc-<lang>-<w>   # every language × 320/390/768/1440: home, footer, destination, experience, menu, assistant, chat, 404, empty search, loading
 node journey-perf.mjs                         # homepage start-up: TBT-like, longest task, CLS, LCP, refreshes, journey geometry, screenshots (OUT_DIR=before|after)

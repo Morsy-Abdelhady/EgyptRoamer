@@ -109,6 +109,8 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 
 <main id="main">
 	<section class="journey" id="top" aria-label="<?php echo esc_attr( er_t( 'Egypt as a journey' ) ); ?>">
+		<?php // The pin's spacer is part of the markup: ScrollTrigger uses it instead of re-parenting the stage, which made Chrome re-report the hero as a new Largest Contentful Paint (journey.js). ?>
+		<div class="journey__spacer">
 		<div class="journey__stage" id="journey-stage">
 
 			<article class="scene scene--pyramids" id="scene-pyramids" data-scene="0">
@@ -253,6 +255,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 			</div>
 
 			<p class="journey__counter" aria-hidden="true"><span id="journey-count">01</span> / 04</p>
+		</div>
 		</div>
 	</section>
 	<span id="journey-start" aria-hidden="true"></span>

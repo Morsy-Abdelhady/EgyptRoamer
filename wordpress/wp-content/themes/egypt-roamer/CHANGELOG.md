@@ -2,6 +2,17 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.22 — 2026-10-02
+**Phones: content-first homepage.** Desktop is unchanged; it keeps the cinematic intro. Before this, phone visitors saw nothing but the loader until the intro's 1.3 s hold, the hero photo, every font and ~86 KB of homepage JavaScript had finished. PageSpeed measured 3.2 s of "render delay" on the hero text (`docs/PERFORMANCE-2026-10-02.md`).
+- **No loader screen on phones (≤ 900 px, the hero's phone layout).** The hero is drawn at the first paint and plays its own entrance in CSS:
+  - the eyebrow rises out of its mask;
+  - the title settles into place, fully drawn from the first frame;
+  - text and buttons fade up.
+  The brand mark stays in the header. `hero.js` hands over at once on these widths. Reduced motion: no movement.
+- **Homepage scripts on phones run after the first view is painted.** GSAP, ScrollTrigger, Lenis, the language file and the homepage bundle wait for the first contentful paint and the first-view fonts (at most 2 s). They were deferred scripts that ran before anything was shown. They still download early (`preload`); on desktop they run as before. Without them the page stays the static, stacked fallback.
+- **The journey's pin spacer is part of the markup** (`.journey__spacer`). ScrollTrigger used to re-parent the stage when pinning, and Chrome then reported the Arabic hero title a second time as a new, later Largest Contentful Paint.
+- **Logos download only where they show.** The full logo isn't downloaded on phones, the mark isn't downloaded on wider screens, and the loader logo isn't downloaded on phones (`<picture>` with a 1 px source for the hidden breakpoint). The light-background variants load lazily and are fetched after page load, so the header never shows an empty logo when it turns light. Phones save ~71 KB before the first paint.
+
 ## 1.2.21 — 2026-10-02
 Production accessibility pass (axe on live pages):
 - **The chat transcript is reachable by keyboard.** A long transcript scrolls, but the log could not be focused, so keyboard users could not scroll it (axe "scrollable-region-focusable", serious). It is now a labelled `role="log"` region with `tabindex="0"`.

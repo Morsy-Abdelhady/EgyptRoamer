@@ -23,6 +23,13 @@ export function initLoader() {
   // Both times count from the start of the page (performance.now()), not from when this script runs:
   // the loader is on screen from the first paint, so a slow phone must not sit through it twice.
   const since = (ms) => Math.max(0, ms - performance.now());
+  // Phones (the hero's phone layout): no loader screen and no wait; the hero's entrance already runs in
+  // CSS from the first paint (pages.css, "content-first homepage"). Desktop keeps the cinematic intro.
+  if (window.matchMedia?.("(max-width: 900px)").matches) {
+    loader?.remove();
+    hero?.classList.add("is-in");
+    return Promise.resolve();
+  }
   const minTime = new Promise((r) => setTimeout(r, since(seen ? 0 : reducedMotion() ? 200 : 1300)));
   const imgReady = heroImg?.complete
     ? Promise.resolve()

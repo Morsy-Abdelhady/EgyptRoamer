@@ -720,6 +720,12 @@
   }
 
   function initNav() {
+    // The light-background logo variants load lazily (header.php: they show only on light sections); fetch
+    // them once the page has loaded, so the header never shows an empty logo when it turns light.
+    const warm = () => document.querySelectorAll('.brand img[loading="lazy"]').forEach((img) => (img.loading = "eager"));
+    if (document.readyState === "complete") setTimeout(warm, 0);
+    else window.addEventListener("load", () => setTimeout(warm, 0), { once: true });
+
     initNavFit();
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -906,6 +912,7 @@
           }
         }
         document.body.classList.toggle("assistant-clear", hide);
+        document.body.classList.add("assistant-placed"); // pages.css: hidden on phones until this first decision
       };
       const schedule = () => {
         if (!queued) {

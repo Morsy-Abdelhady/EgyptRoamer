@@ -165,3 +165,51 @@ add_action( 'wp_enqueue_scripts', static function () {
 		wp_dequeue_style( $handle );
 	}
 }, 100 );
+
+/**
+ * Homepage scripts on phones run after the first paint (launch gate, 2026-10-02).
+ * The homepage bundle and its libraries (GSAP, ScrollTrigger, Lenis, the language file) were deferred
+ * scripts: they ran before the first paint, so phones showed nothing until ~86 KB of JavaScript had run.
+ * Their tags are kept as inert placeholders; a small runner at the end of the page starts them in order,
+ * at once on desktop (the cinematic intro is unchanged); on phones (the hero's phone layout, ≤ 900 px), where
+ * the hero is content-first (pages.css), once the first view is painted in its final fonts (first contentful
+ * paint and document.fonts.ready; at most 2 s), so script work never delays the hero's paint. Downloads still begin early
+ * (preload in <head>), so only the moment they run moves. Without the runner (an error, or no JS) the
+ * homepage still works as the stacked, static fallback.
+ */
+function er_home_deferred_handles(): array {
+	return [ 'er-gsap', 'er-gsap-st', 'er-lenis', 'er-i18n', 'er-app' ];
+}
+add_filter( 'script_loader_tag', static function ( string $tag, string $handle, string $src ): string {
+	if ( ! is_front_page() || ! in_array( $handle, er_home_deferred_handles(), true ) ) {
+		return $tag;
+	}
+	// Only the external <script src> becomes a placeholder; inline "before" scripts (ER_DATA) still run in place.
+	return (string) preg_replace(
+		'#<script\b[^>]*\bsrc=(["\'])' . preg_quote( $src, '#' ) . '\1[^>]*>\s*</script>#',
+		sprintf( '<script type="text/plain" data-er-run="%s" id="%s-js"></script>', esc_url( $src ), esc_attr( $handle ) ),
+		$tag,
+		1
+	);
+}, 10, 3 );
+add_action( 'wp_head', static function () {
+	if ( ! is_front_page() ) {
+		return;
+	}
+	$scripts = wp_scripts();
+	foreach ( er_home_deferred_handles() as $handle ) {
+		if ( ! wp_script_is( $handle, 'enqueued' ) || empty( $scripts->registered[ $handle ] ) ) {
+			continue;
+		}
+		$dep = $scripts->registered[ $handle ];
+		$url = $dep->ver ? add_query_arg( 'ver', $dep->ver, $dep->src ) : $dep->src;
+		printf( '<link rel="preload" href="%s" as="script" />' . "\n", esc_url( $url ) );
+	}
+}, 4 );
+add_action( 'wp_footer', static function () {
+	if ( ! is_front_page() ) {
+		return;
+	}
+	// phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript -- runs the enqueued scripts above
+	echo "<script>(function(){function run(){document.querySelectorAll('script[data-er-run]').forEach(function(p){var s=document.createElement('script');s.src=p.getAttribute('data-er-run');s.async=false;p.parentNode.replaceChild(s,p)})}if(!(window.matchMedia&&matchMedia('(max-width: 900px)').matches)){run();return}var done=false;function go(){if(done)return;done=true;requestAnimationFrame(function(){setTimeout(run,0)})}function painted(){if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go,go);else go()}try{new PerformanceObserver(function(l){if(l.getEntriesByName('first-contentful-paint').length)painted()}).observe({type:'paint',buffered:true})}catch(e){painted()}setTimeout(go,2000)})();</script>\n";
+}, 100 );

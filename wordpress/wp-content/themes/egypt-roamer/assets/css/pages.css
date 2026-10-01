@@ -1814,3 +1814,86 @@ html:lang(zh) {
   hyphens: auto;
   -webkit-hyphens: auto;
 }
+
+/* ---------- Phones: content-first homepage (launch gate, 2026-10-02) ----------
+   On phones the hero text is the Largest Contentful Paint, and it waited for the intro loader: its 1.3 s
+   hold, the photo, the fonts and the whole homepage script (PageSpeed: 3.2 s of "render delay").
+   Phones and small tablets (the hero's phone layout, ≤ 900 px) now get the same entrance without the
+   wait: no loader screen, and the hero's own motion (the eyebrow rising out of its mask, the title and text
+   settling into place, the buttons fading up) runs from the first paint in CSS, not after the script. The
+   brand mark stays in the header.
+   Desktop keeps the cinematic loader. hero.js hands over at once on these widths. */
+@media (max-width: 900px) {
+  .loader {
+    display: none;
+  }
+  .hero .split-line > span {
+    animation: er-line-rise 0.9s var(--ease-out) var(--d, 0ms) both;
+  }
+  /* the title is the first view's main content: fully drawn in the first frame (no mask, so no part of it
+     is clipped while it moves), settling into place */
+  .hero__title .split-line {
+    overflow: visible;
+  }
+  .hero__title .split-line > span {
+    animation: er-settle 0.9s var(--ease-out) both;
+  }
+  .hero [data-hero-fade] {
+    animation: er-fade-rise 0.6s var(--ease-out) both;
+  }
+  /* the hero text is the first view's content too (in Arabic it is larger than the title): drawn from the
+     first frame and settling, like the title; the buttons below fade up */
+  .hero .hero__copy {
+    animation: er-settle-text 0.7s var(--ease-out) both;
+  }
+  .hero .hero__ctas {
+    animation-delay: 0.2s;
+  }
+  .hero .finder {
+    animation-delay: 0.25s;
+  }
+}
+/* The homepage launcher on phones waits for its first placement (assistant-loader.js decides whether it
+   steps aside from the hero's buttons); before, it flashed next to the play button for a moment. */
+@media (max-width: 900px) {
+  body.home:not(.assistant-placed) .assistant-launch {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes er-line-rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes er-settle {
+  from {
+    transform: translateY(0.18em);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes er-settle-text {
+  from {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes er-fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

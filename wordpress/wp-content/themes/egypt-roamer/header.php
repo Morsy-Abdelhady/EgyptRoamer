@@ -13,18 +13,25 @@ $er_brand_imgs = static function () {
 	};
 	foreach ( [ 'dark', 'light' ] as $v ) {
 		printf(
-			'<img class="brand__logo brand__logo--%1$s" src="%2$s" srcset="%3$s" sizes="(max-width: 900px) 243px, 295px" width="1759" height="203" alt="" />',
+			// Phones show the mark instead (layout.css, ≤ 600 px): a 1 px placeholder there, so the logo isn't downloaded.
+			// The light variant shows only on light sections: loaded lazily, then warmed after the page (nav.js).
+			'<picture><source media="(max-width: 600px)" srcset="%4$s" /><img class="brand__logo brand__logo--%1$s" src="%2$s" srcset="%3$s" sizes="(max-width: 900px) 243px, 295px" width="1759" height="203" alt=""%5$s /></picture>',
 			esc_attr( $v ),
 			esc_url( er_brand_url( 'egypt-roamer-logo-' . $v . '-600.webp' ) ),
-			esc_attr( $set( $v ) )
+			esc_attr( $set( $v ) ),
+			ER_BLANK_IMG, // phpcs:ignore WordPress.Security.EscapeOutput -- constant data URI
+			'light' === $v ? ' loading="lazy"' : ''
 		);
 	}
 	foreach ( [ 'dark', 'light' ] as $v ) {
 		printf(
-			'<img class="brand__mark brand__mark--%1$s" src="%2$s" srcset="%2$s 256w, %3$s 525w" sizes="84px" width="525" height="187" alt="" />',
+			// The mark shows on phones only (≤ 600 px): a 1 px placeholder on wider screens.
+			'<picture><source media="(min-width: 601px)" srcset="%4$s" /><img class="brand__mark brand__mark--%1$s" src="%2$s" srcset="%2$s 256w, %3$s 525w" sizes="84px" width="525" height="187" alt=""%5$s /></picture>',
 			esc_attr( $v ),
 			esc_url( er_brand_url( 'egypt-roamer-mark-' . $v . '-256.webp' ) ),
-			esc_url( er_brand_url( 'egypt-roamer-mark-' . $v . '.webp' ) )
+			esc_url( er_brand_url( 'egypt-roamer-mark-' . $v . '.webp' ) ),
+			ER_BLANK_IMG, // phpcs:ignore WordPress.Security.EscapeOutput -- constant data URI
+			'light' === $v ? ' loading="lazy"' : ''
 		);
 	}
 };
@@ -47,7 +54,8 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 <?php if ( is_front_page() ) : ?>
 	<div class="loader" id="loader" aria-hidden="true">
 		<div class="loader__inner">
-			<img class="loader__logo" src="<?php echo esc_url( er_brand_url( 'egypt-roamer-logo-dark-600.webp' ) ); ?>" srcset="<?php echo esc_attr( er_brand_url( 'egypt-roamer-logo-dark-600.webp' ) . ' 600w, ' . er_brand_url( 'egypt-roamer-logo-dark-1200.webp' ) . ' 1200w, ' . er_brand_url( 'egypt-roamer-logo-dark.webp' ) . ' 1759w' ); ?>" sizes="min(320px, 70vw)" width="1759" height="203" alt="" />
+			<?php // Phones have no loader screen (pages.css): a 1 px placeholder there, so the logo isn't downloaded. ?>
+			<picture><source media="(max-width: 900px)" srcset="<?php echo ER_BLANK_IMG; // phpcs:ignore WordPress.Security.EscapeOutput -- constant data URI ?>" /><img class="loader__logo" src="<?php echo esc_url( er_brand_url( 'egypt-roamer-logo-dark-600.webp' ) ); ?>" srcset="<?php echo esc_attr( er_brand_url( 'egypt-roamer-logo-dark-600.webp' ) . ' 600w, ' . er_brand_url( 'egypt-roamer-logo-dark-1200.webp' ) . ' 1200w, ' . er_brand_url( 'egypt-roamer-logo-dark.webp' ) . ' 1759w' ); ?>" sizes="min(320px, 70vw)" width="1759" height="203" alt="" /></picture>
 			<span class="loader__bar"><i></i></span>
 		</div>
 	</div>

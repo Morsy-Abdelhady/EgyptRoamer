@@ -44,6 +44,7 @@ export function initAssistantLoader() {
         }
       }
       document.body.classList.toggle("assistant-clear", hide);
+      document.body.classList.add("assistant-placed"); // pages.css: hidden on phones until this first decision
     };
     const schedule = () => {
       if (!queued) {

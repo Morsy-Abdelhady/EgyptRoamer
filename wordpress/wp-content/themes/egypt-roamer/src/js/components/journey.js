@@ -256,6 +256,8 @@ export async function initJourney() {
     start: "top top",
     end: () => `+=${Math.round(window.innerHeight * (mobile ? 4.6 : 5.4))}`,
     pin: stage,
+    // the spacer is already in the markup (front-page.php): no re-parenting of the stage at pin time
+    pinSpacer: stage.parentElement?.classList.contains("journey__spacer") ? stage.parentElement : undefined,
     scrub: 0.9,
     animation: tl,
     anticipatePin: 1,
