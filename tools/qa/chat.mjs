@@ -212,6 +212,21 @@ await team.screenshot({ path: "chat-admin-390.png" });
 const badge = await team.evaluate(() => document.querySelector(".er-chat-badge .pending-count")?.textContent);
 check(badge != null, "unread badge in the admin menu", "count " + badge);
 
+/* ---------- inbox in a background tab (production finding 2026-10-01) ---------- */
+await team.setViewportSize({ width: 1440, height: 900 });
+await team.goto(`${B}/wp-admin/admin.php?page=er-conversations`, { waitUntil: "load", timeout: 120000 });
+await team.waitForSelector("[data-er-chat]");
+await team.evaluate(() => { Object.defineProperty(document, "hidden", { configurable: true, get: () => true }); document.dispatchEvent(new Event("visibilitychange")); });
+const bg = await br.newContext();
+const bgp = await bg.newPage();
+await bgp.goto(`${B}/robots.txt`);
+await api(bgp, "start", { name: `Background ${RUN}`, message: "Is anyone there?", elapsed: 3000, lang: "en" });
+const seenBg = await waitFor(() => team.evaluate((n) => [...document.querySelectorAll(".er-chat__row")].some((r) => r.textContent.includes(n)) && /^\(\d+\) /.test(document.title), `Background ${RUN}`), 45000, 1000);
+check(!!seenBg, "12 inbox in a background tab still updates (list + unread count in the tab title)", await team.title());
+const stillOnline = await api(bgp, "status", {});
+check(stillOnline.data.online === true, "team still counts as online with the inbox in the background");
+await bg.close();
+
 check(vErr.length === 0, "no script errors (visitor)", vErr.join(" | "));
 await br.close();
 const bad = results.filter((r) => !r).length;

@@ -10,6 +10,8 @@ Chat with the Egypt Roamer team, inside the Trip assistant (with Core 1.2.12; `d
 - New messages are fetched only while the drawer is open and the tab visible (every 3 s, slowing to 15 s when quiet). Nothing new loads on the page until the drawer is opened.
 - 29 new UI strings in 8 languages (drafted, unreviewed: `tools/i18n/new-strings.json`); Arabic mirrored.
 
+Core 1.2.13 (same day): the inbox keeps working in a background tab (polling every 30 s / 15 s, presence continues, unread count in the tab title), found in the production test. Visitor parameters accept only scalar values (crafted JSON arrays are ignored, no PHP warnings).
+
 Core 1.2.12: tables `er_chat_conversations` and `er_chat_messages` (DB version 2); visitor and team REST routes; Egypt Roamer → Conversations (inbox, filters, search, take over, return to AI, close, reopen, assign, archive, presence, unread badge through Heartbeat); capability `manage_er_conversations` (administrators, editors); settings "Chat with the team" and retention (90 days); email notification of new or reopened chats; daily purge; privacy export and erasure.
 
 ## 1.2.13 — 2026-10-01

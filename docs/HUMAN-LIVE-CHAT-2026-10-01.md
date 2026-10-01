@@ -1,6 +1,6 @@
 # Chat with the Egypt Roamer team (AI + human), 2026-10-01
 
-Theme 1.2.14, Core 1.2.12. The Trip assistant stays the entry point. It now has a "Chat with Egypt Roamer" option inside the same drawer, and the team answers from **Egypt Roamer → Conversations** in wp-admin. Egypt Roamer stays affiliate-only: there is no booking, payment, price or availability in the chat.
+Theme 1.2.14, Core 1.2.12 (1.2.13: inbox in a background tab). The Trip assistant stays the entry point. It now has a "Chat with Egypt Roamer" option inside the same drawer, and the team answers from **Egypt Roamer → Conversations** in wp-admin. Egypt Roamer stays affiliate-only: there is no booking, payment, price or availability in the chat.
 
 ## 1. Architecture
 | Part | File | Role |
@@ -162,10 +162,25 @@ And for "How long we keep it":
 
 **Regression run on this release:** `overlays.mjs`, `assistant.mjs`, `keyboard.mjs`, `launcher-keyboard.mjs`, `responsive.mjs` (see the launch-gate report).
 
-## 14. Production verification
-See the launch-gate report (section D14) for what was verified after the deploy.
-- **Constraint:** the human side needs a team member logged into wp-admin. I can do that only in the owner's Chrome, and posting in the live inbox is an outward action.
-- **Plan:** an anonymous visitor test message labelled "QA test", answered in the owner's inbox, then closed and archived.
+## 14. Production verification (2026-10-01, Core 1.2.12, run #29, after a GoDaddy cache flush)
+An anonymous visitor (Playwright, Chrome, 390 px) and the owner's logged-in inbox (Chrome). The test conversation was labelled "QA test" and archived afterwards.
+
+| Step | Result |
+|---|---|
+| Page load | no chat request or chat script before opening; Core 1.2.12 in the page |
+| Availability with the inbox open | "Team is online" |
+| Visitor starts | conversation appears in the inbox: unread, badge 1, language EN, entry and current page, message |
+| Team replies (09:25:47 local) | visitor receives it 3 s later, **without reload**; status "You're chatting with the Egypt Roamer team"; assigned to the replying member |
+| Visitor follow-up | arrives in the inbox |
+| Close | visitor sees "This chat is closed…" |
+| Archive | inbox empty, badge 0 |
+| Errors / rate limiting | 0 script errors, 0 Cloudflare 429 |
+
+**Defect found by this test, fixed in Core 1.2.13:**
+- **What happened:** the inbox stopped polling while its browser tab was in the background, so the new conversation only appeared on a manual refresh.
+- **The consequence:** the presence heartbeat stopped too, so the team would have looked offline about 2½ minutes after switching tabs.
+- **The fix:** the inbox now keeps polling in the background, more slowly (list 30 s, open conversation 15 s); presence continues; and the tab title shows the unread count, e.g. "(2) Conversations".
+- **Verified locally:** `chat.mjs` step 12 (34/34). The production re-check of this fix is in the launch-gate report.
 
 ## 15. Files changed
 - **Core:**

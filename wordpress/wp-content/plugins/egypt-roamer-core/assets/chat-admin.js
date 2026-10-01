@@ -1,6 +1,7 @@
 /* Egypt Roamer → Conversations: the team's inbox (includes/chat.php).
-   Short polling while this page is visible: the list every 5 s, the open conversation every 3 s.
-   Every message is rendered with textContent (never as HTML). */
+   Short polling: the list every 5 s and the open conversation every 3 s while the tab is in front; every
+   30 s / 15 s while it is in the background (teams keep the inbox in a background tab: it keeps the member
+   "online" and shows the unread count in the tab title). Every message is rendered with textContent. */
 (function () {
   "use strict";
   const cfg = window.erChat;
@@ -24,6 +25,7 @@
   let listTimer = 0;
   let convTimer = 0;
   let failures = 0;
+  const baseTitle = document.title.replace(/^\(\d+\) /, "");
 
   const el = (tag, attrs = {}, text) => {
     const n = document.createElement(tag);
@@ -66,6 +68,7 @@
       connection(true);
       renderList(data.rows);
       team.textContent = data.online.length ? t.online.replace("%d", data.online.length) : t.nobody;
+      document.title = (data.unread ? `(${data.unread}) ` : "") + baseTitle;
       document.querySelectorAll(".er-chat-badge").forEach((b) => {
         b.style.display = data.unread ? "" : "none";
         const p = b.querySelector(".pending-count");
@@ -74,7 +77,7 @@
     } catch (e) {
       connection(false);
     }
-    if (!document.hidden) listTimer = setTimeout(loadList, 5000);
+    listTimer = setTimeout(loadList, document.hidden ? 30000 : 5000);
   }
 
   function renderList(rows) {
@@ -122,7 +125,7 @@
     } catch (e) {}
   }
   presence.addEventListener("change", sendPresence);
-  setInterval(() => !document.hidden && presence.value !== "offline" && sendPresence(), 60000);
+  setInterval(() => presence.value !== "offline" && sendPresence(), 60000); // also in a background tab
 
   /* ---------- conversation ---------- */
   async function open(id) {
@@ -151,7 +154,7 @@
     } catch (e) {
       connection(false);
     }
-    if (!document.hidden) convTimer = setTimeout(() => loadConv(false), 3000);
+    convTimer = setTimeout(() => loadConv(false), document.hidden ? 15000 : 3000);
   }
 
   function renderInfo(c, agents) {
@@ -270,11 +273,9 @@
     loadList();
   });
 
+  // Back in front: refresh at once (the timers themselves keep running, slower, in the background).
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      clearTimeout(listTimer);
-      clearTimeout(convTimer);
-    } else {
+    if (!document.hidden) {
       loadList();
       loadConv(false);
     }
