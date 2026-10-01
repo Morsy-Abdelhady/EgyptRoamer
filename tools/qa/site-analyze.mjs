@@ -5,6 +5,7 @@ import fs from "fs";
 import { request } from "playwright";
 const B = process.env.BASE || "http://127.0.0.1:8080";
 const C = JSON.parse(fs.readFileSync(process.env.I || "crawl.json", "utf8"));
+const expected = new Set(); // intentional states, listed once at the end
 const LANGS = ["en", "ar", "de", "fr", "it", "es", "ru", "zh"];
 const issues = [];
 const add = (sev, comp, rec, msg) => issues.push({ sev, comp, lang: rec?.lang, url: rec?.url, msg });
@@ -25,7 +26,11 @@ for (const r of C.filter((x) => x && x.status)) {
   // SEO
   if (!/noindex/.test(r.robots)) add("P0", "seo", r, `robots="${r.robots}" (indexing must stay off)`);
   if (!r.title) add("P2", "seo", r, "no <title>");
-  if (!isUtil(r)) {
+  // An archive with nothing published yet (Tours, Activities, Guides; Journal while empty) is noindex and
+  // unlinked: Polylang gives it no hreflang and it has no description. Reported once in the summary, not per page.
+  const emptyArchive = /^archive:/.test(r.type) && !Object.keys(r.hreflang || {}).length && !r.desc;
+  if (emptyArchive) expected.add(`empty archive (noindex): ${r.type}`);
+  if (!isUtil(r) && !emptyArchive) {
     if (!r.desc) add("P2", "seo", r, "no meta description");
     if (r.canonical !== r.url) add("P2", "seo", r, `canonical ${r.canonical}`);
     const hl = r.hreflang; const n = Object.keys(hl).length;
@@ -47,7 +52,9 @@ for (const r of C.filter((x) => x && x.status)) {
   if (r.badAnchors.length) add("P2", "links", r, `in-page anchors without target: ${[...new Set(r.badAnchors)].join(",")}`);
   if (r.errs.length) add("P1", "js", r, "page errors: " + r.errs.join(" | "));
   const cons = r.cons.filter((c) => !c.includes("net::ERR_FAILED")); // photos blocked by the crawler
-  if (cons.length) add("P3", "js", r, "console errors: " + [...new Set(cons)].slice(0, 2).join(" | "));
+  // The 404 test pages log their own 404 response: expected.
+  if (r.type === "404" && cons.every((c) => /status of 404/.test(c))) { if (cons.length) expected.add("404 pages log their own 404 status"); }
+  else if (cons.length) add("P3", "js", r, "console errors: " + [...new Set(cons)].slice(0, 2).join(" | "));
   if (r.overflow) add("P1", "layout", r, "horizontal overflow at 1440");
   for (const v of r.axe) add(v.impact === "critical" || v.impact === "serious" ? "P2" : "P3", "a11y", r, `axe ${v.id} ×${v.n} (${v.impact}) ${v.t}`);
   if (r.imgsNoAlt) add("P2", "a11y", r, `${r.imgsNoAlt} img without alt`);
@@ -72,7 +79,9 @@ const sig = (links) => links.map((a) => key(a.h)).join(" ");
 for (const [k, g] of Object.entries(groups)) {
   const en = g.en; if (!en) { add("P2", "parity", Object.values(g)[0], `no English counterpart for group ${k}`); continue; }
   for (const L of LANGS.slice(1)) {
-    const r = g[L]; if (!r) { add("P1", "parity", en, `group ${k}: no ${L} version`); continue; }
+    const r = g[L];
+    if (!r && en.type === "tax:category") { expected.add(`English-only default category ${k} (noindex, unlinked)`); continue; }
+    if (!r) { add("P1", "parity", en, `group ${k}: no ${L} version`); continue; }
     const cmp = (name, a, b) => { if (a !== b) add("P1", name, r, `${name} [${b}] ≠ en [${a}]`); };
     cmp("header-nav", sig(en.header?.links || []), sig(r.header?.links || []));
     cmp("mobile-menu", sig(en.mobileMenu), sig(r.mobileMenu));
@@ -81,12 +90,19 @@ for (const [k, g] of Object.entries(groups)) {
     cmp("footer-cols", en.footerCols.map((c) => c.key + ":" + sig(c.links)).join(" | "), r.footerCols.map((c) => c.key + ":" + sig(c.links)).join(" | "));
     cmp("footer-legal", sig(en.footerLegal), sig(r.footerLegal));
     cmp("switcher-count", en.langSwitch.length, r.langSwitch.length);
-    cmp("main-link-count", en.mainLinks.filter((a) => a.h.startsWith("/")).length, r.mainLinks.filter((a) => a.h.startsWith("/")).length);
+    // Translated pages may add one link: the note pointing to the English original (hreflang="en").
+    // Search results differ by language by nature.
+    if (!/^search/.test(r.type)) {
+      const own = (x) => x.mainLinks.filter((a) => a.h.startsWith("/") && a.hl !== "en" && a.hl !== "en-US").length;
+      cmp("main-link-count", own(en), own(r));
+    }
     cmp("h1-count", en.h1, r.h1);
     cmp("jsonld", en.ld.join(","), r.ld.join(","));
     // English leaks: text segments identical to the English page's that contain 2+ English words.
     const enSegs = new Set(en.segs);
-    const allow = /^(Egypt Roamer|GetYourGuide|Viator|Klook|Booking\.com|Unsplash|info@egyptroamer\.com|\+20[\d ]+|©.*|[A-Z][a-z]+ [A-Z][a-z]+)$/;
+    // Names kept as-is in the approved translations: brands, contacts, the Grand Egyptian Museum's official
+    // name, transliterated Egyptian dishes (feteer meshaltet, koshari, ful medames …).
+    const allow = /^(Egypt Roamer|GetYourGuide|Viator|Klook|Booking\.com|Unsplash|info@egyptroamer\.com|\+20[\d ]+|©.*|[A-Z][a-z]+ [A-Z][a-z]+|Grand Egyptian Museum|(Feteer|Ful|Koshari|Ta'?meya) [a-z]+:?)$/;
     const leaks = r.segs.filter((s) => enSegs.has(s) && /[a-z]{3,} [a-z]{3,}/i.test(s) && !/[^\x00-ɏ]/.test(s) && !allow.test(s));
     for (const s of [...new Set(leaks)].slice(0, 8)) add("P1", "english-leak", r, `"${s.slice(0, 90)}"`);
     const enAttrs = new Set(en.attrs);
@@ -109,7 +125,13 @@ const RQ = await request.newContext({ maxRedirects: 0 });
 const statuses = {};
 for (const [u, from] of all) {
   if (u.startsWith("/go/")) continue;
-  const res = await RQ.get(B + u, { maxRedirects: 0 }).catch((e) => ({ status: () => 0, headers: () => ({}) }));
+  // A dropped connection (status 0) is retried before it counts: the local dev proxy drops one now and then.
+  let res;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    res = await RQ.get(B + u, { maxRedirects: 0 }).catch((e) => ({ status: () => 0, headers: () => ({}) }));
+    if (res.status() !== 0) break;
+    await new Promise((r) => setTimeout(r, 2000));
+  }
   statuses[u] = res.status();
   if (res.status() >= 400 || res.status() === 0) add("P1", "broken-link", from, `${u} → ${res.status()}`);
   else if (res.status() >= 300) add("P2", "redirect-link", from, `${u} → ${res.status()} ${res.headers().location}`);
@@ -118,3 +140,4 @@ fs.writeFileSync(process.env.OUT || "issues.json", JSON.stringify(issues, null, 
 const cnt = {}; for (const i of issues) cnt[i.comp + " " + i.sev] = (cnt[i.comp + " " + i.sev] || 0) + 1;
 console.log(Object.entries(cnt).sort().map(([k, v]) => `${k}: ${v}`).join("\n"));
 console.log("distinct internal URLs checked:", Object.keys(statuses).length);
+for (const e of expected) console.log("expected: " + e);
