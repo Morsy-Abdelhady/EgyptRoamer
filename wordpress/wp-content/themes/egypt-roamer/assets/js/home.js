@@ -1078,7 +1078,11 @@
     $$(".scene__canvas").forEach((c) => (c.style.display = "none"));
   }
 
-  function initJourney() {
+  /** Let the browser paint and respond between the set-up steps (one ~270 ms task on a 4x-slowed phone
+   *  before; docs/PERFORMANCE-2026-09-30.md). Same steps, same order, same final state. */
+  const yieldToMain = () => (window.scheduler?.yield ? window.scheduler.yield() : new Promise((r) => setTimeout(r, 0)));
+
+  async function initJourney() {
     const section = $(".journey");
     const stage = $("#journey-stage");
     if (!section || !stage) return;
@@ -1125,6 +1129,7 @@
     });
     gsap.set(riverCue, { autoAlpha: 0, x: 30 });
 
+    await yieldToMain(); // step 2: the timeline (tweens only, no layout reads)
     const tl = gsap.timeline({ defaults: { ease: "none" } });
 
     const textIn = (scene, at) => {
@@ -1198,6 +1203,8 @@
       .to({}, { duration: 0.4 }, 8.8);
     tint("#0F6B7A", 0.34, 6.6, 1.1);
     textIn(sea, 7.2);
+
+    await yieldToMain(); // step 3: particles, rail, pin (layout is measured here)
 
     /* ----- Particle fields ----- */
     const sand = new ParticleField(q(desert, "[data-fx=sand]"), "sand");
@@ -2727,10 +2734,15 @@
 
   function safe(name, fn) {
     try {
-      fn();
+      const result = fn();
+      // A component that sets itself up over several tasks (the journey) returns a promise.
+      if (result && typeof result.then === "function") {
+        return result.catch((err) => console.error(`[egypt-roamer] ${name} failed`, err));
+      }
     } catch (err) {
       console.error(`[egypt-roamer] ${name} failed`, err);
     }
+    return undefined;
   }
 
   // Language first: static copy + content must be localised before components render
@@ -2773,12 +2785,14 @@
   (async () => {
     for (const [name, fn] of rest) {
       await yieldToMain();
-      safe(name, fn);
+      await safe(name, fn); // in order: the next component starts after the journey's last step
     }
     intro.then(restoreScroll); // after the journey: it sets the scroll positions
   })();
 
-  window.addEventListener("load", () => window.ScrollTrigger?.refresh());
+  // No manual ScrollTrigger.refresh() on "load": ScrollTrigger refreshes on load by itself (default
+  // autoRefreshEvents), and triggers created after load measure themselves when created. The manual one
+  // repeated the same full layout pass (~70 ms on a 4x-slowed phone; docs/PERFORMANCE-2026-09-30.md).
   return {  };
   })();
 })();

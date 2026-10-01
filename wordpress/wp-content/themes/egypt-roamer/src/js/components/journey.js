@@ -102,7 +102,11 @@ function initFallback() {
   $$(".scene__canvas").forEach((c) => (c.style.display = "none"));
 }
 
-export function initJourney() {
+/** Let the browser paint and respond between the set-up steps (one ~270 ms task on a 4x-slowed phone
+ *  before; docs/PERFORMANCE-2026-09-30.md). Same steps, same order, same final state. */
+const yieldToMain = () => (window.scheduler?.yield ? window.scheduler.yield() : new Promise((r) => setTimeout(r, 0)));
+
+export async function initJourney() {
   const section = $(".journey");
   const stage = $("#journey-stage");
   if (!section || !stage) return;
@@ -149,6 +153,7 @@ export function initJourney() {
   });
   gsap.set(riverCue, { autoAlpha: 0, x: 30 });
 
+  await yieldToMain(); // step 2: the timeline (tweens only, no layout reads)
   const tl = gsap.timeline({ defaults: { ease: "none" } });
 
   const textIn = (scene, at) => {
@@ -222,6 +227,8 @@ export function initJourney() {
     .to({}, { duration: 0.4 }, 8.8);
   tint("#0F6B7A", 0.34, 6.6, 1.1);
   textIn(sea, 7.2);
+
+  await yieldToMain(); // step 3: particles, rail, pin (layout is measured here)
 
   /* ----- Particle fields ----- */
   const sand = new ParticleField(q(desert, "[data-fx=sand]"), "sand");

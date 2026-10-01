@@ -176,3 +176,26 @@ So refreshes 3 and 4 do the same work twice.
 | C. Set the journey up on the visitor's first scroll | the largest | **high.** Until then the page has no pin spacer (about 4.6–5.4 screen heights), so it would grow under the visitor's finger on the first scroll: a jump and a layout shift (CLS). `#planner` and other anchors and the scroll restore after a language switch would point to the wrong place. Avoiding that means reserving the height with CSS and rebuilding the first pinned frame without GSAP, which changes the approved journey | **not recommended** |
 
 A + B together would put mobile TBT at roughly −220 ms of today's figure without visible change. Desktop TBT (GTmetrix 303 ms) would fall proportionally less. These are estimates from the profile, not measurements: measure after any change. **Mobile performance stays an open verification gap:** GTmetrix mobile needs PRO, and the local mobile Lighthouse figure (≈ 9 s LCP, 884 ms TBT, simulated slow 4G) has not been re-measured on production.
+
+### Implemented: A + B (theme 1.2.15, owner instruction of 2026-10-01)
+Option C (first-scroll set-up) was **not** used. `tools/qa/journey-perf.mjs`, local, median of 5 valid runs per profile (a run is discarded when GSAP failed to load through the local proxy):
+
+| | Before | After |
+|---|---|---|
+| Phone 390 px, 4× CPU: TBT-like (sum over 50 ms) | 477 ms | **370 ms** (−107 ms, −22 %) |
+| Phone: longest task | 282 ms | 246 ms |
+| Phone: ScrollTrigger refreshes | 4 | 3 |
+| Desktop 1440 px: TBT-like / longest | 3 / 53 ms | 3 / 53 ms |
+| Desktop: refreshes | 4 | 2 |
+| Arabic phone: TBT-like / longest (2 runs) | 743 / 380 ms | 672 / 270 ms |
+| CLS phone / desktop | 0.0003 / 0.0012 | 0.0003 / 0.0019 |
+| LCP phone / desktop | 2.79 / 1.99 s | 2.92 / 1.99 s (inside the spread of the before runs, 2.17–2.93 s; the intro loader that reveals the LCP text isn't touched) |
+
+**Behaviour:**
+- **ScrollTrigger geometry identical:** every trigger's start and end, the pin spacer (4,726 px phone, 5,760 px desktop) and the page height.
+- **Screenshots:** identical at 5 scroll positions × 3 profiles; only the randomly generated sand and bubble particles differ (0.01–0.30 % of pixels).
+- **Navigation:** the `#planner` anchor lands identically. Rail navigation to each scene works (`journey-nav.mjs`, en/zh); on phones the counter advances 01→04 in order (ar, ru); reduced motion gives the stacked fallback (de, en).
+
+**Regression:** responsive, title fit in 8 languages, keyboard in 8 languages, launcher checks, assistant e2e, chat 34/34 and edge cases 7/7, axe with drawers open.
+
+The saving is about half the profile-based estimate (−220 ms). The rest of the long tasks are the pin set-up itself and the map.

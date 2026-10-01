@@ -137,7 +137,7 @@ if ( 'off' !== $er_assistant ) :
 				'online'    => er_t( 'Team is online' ),
 				'offline'   => er_t( 'Leave us a message and we’ll get back to you.' ),
 				'title'     => er_t( 'Live chat' ),
-				'type'      => er_t( 'Type a message…' ),
+				'label'     => er_t( 'Your message' ),
 				'send'      => er_t( 'Send' ),
 				'waiting'   => er_t( 'Waiting for the team…' ),
 				'left'      => er_t( 'Thanks! We’ll reply here as soon as we can. You can close this window and come back later.' ),
@@ -181,15 +181,16 @@ if ( 'off' !== $er_assistant ) :
 					<?php endforeach; ?>
 				</p>
 				<form class="assistant__form" data-assistant-form>
-					<label class="visually-hidden" for="assistant-q"><?php er_e( 'Ask about a place, a trip or an experience' ); ?></label>
-					<input id="assistant-q" type="text" name="q" maxlength="300" autocomplete="off" placeholder="<?php echo esc_attr( er_t( 'Ask about a place, a trip or an experience' ) ); ?>" required />
+					<?php // A visible label, not a placeholder: translated prompts are longer than the field on phones (and would be cut). ?>
+					<label class="assistant__label" for="assistant-q" data-assistant-label><?php er_e( 'Ask about a place, a trip or an experience' ); ?></label>
+					<input id="assistant-q" type="text" name="q" maxlength="300" autocomplete="off" required />
 					<button class="btn btn--primary btn--sm" type="submit" data-assistant-submit><?php er_e( 'Search' ); ?></button>
 				</form>
 				<p class="assistant__note" data-assistant-note><?php echo esc_html( 'ai' === $er_assistant ? er_t( 'Answers are written by AI (Anthropic) from pages published on Egypt Roamer and can contain mistakes. Your question is sent to Anthropic; Egypt Roamer does not save it.' ) : er_t( 'Answers come only from pages published on Egypt Roamer. Your question is not saved.' ) ); ?></p>
 				<?php if ( $er_chat ) : ?>
 					<div class="assistant__human" data-chat-entry>
 						<p><b><?php er_e( 'Need personal help?' ); ?></b> <span data-chat-avail><?php er_e( 'Have a question? Talk to our team.' ); ?></span></p>
-						<button type="button" class="btn btn--ghost btn--sm" data-chat-open><?php er_e( 'Chat with Egypt Roamer' ); ?></button>
+						<button type="button" class="btn btn--outline btn--sm" data-chat-open><?php er_e( 'Chat with Egypt Roamer' ); ?></button>
 					</div>
 					<form class="assistant__start" data-chat-form hidden>
 						<p class="assistant__start-intro"><?php er_e( 'Before we connect you with our team:' ); ?></p>
@@ -202,7 +203,7 @@ if ( 'off' !== $er_assistant ) :
 						<p class="assistant__start-error" data-chat-error role="alert" hidden></p>
 						<div class="assistant__start-actions">
 							<button type="submit" class="btn btn--primary btn--sm"><?php er_e( 'Start chat' ); ?></button>
-							<button type="button" class="btn btn--ghost btn--sm" data-chat-cancel><?php er_e( 'Cancel' ); ?></button>
+							<button type="button" class="btn btn--outline btn--sm" data-chat-cancel><?php er_e( 'Cancel' ); ?></button>
 						</div>
 					</form>
 					<div class="assistant__chatbar" data-chat-bar hidden>

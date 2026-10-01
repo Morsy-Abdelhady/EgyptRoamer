@@ -2,6 +2,21 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.15 — 2026-10-01
+With Core 1.2.14.
+- **Homepage start-up (TBT), no visible change** (`docs/PERFORMANCE-2026-09-30.md`):
+  - The journey sets itself up in three tasks (titles and initial states / timeline / particles, rail and pin) instead of one.
+  - The duplicate `ScrollTrigger.refresh()` on `load` is gone (ScrollTrigger refreshes on load by itself).
+  - Local, 4× CPU phone, median of 5: TBT-like 477 → 370 ms, longest task 282 → 246 ms, refreshes 4 → 3 (desktop 4 → 2).
+  - Identical ScrollTrigger geometry (every start and end, the pin spacer, the page height), screenshots identical at 5 scroll positions (only the random particles differ), `#planner` lands identically, CLS 0.0003 / 0.0019.
+- **Stale-HTML guard** (`docs/CACHE-2026-10-01.md`): every page carries its build id (`<meta name="er-build">`). A 0.7 KB inline script compares it with Core's `/wp-json/egypt-roamer/v1/build`, at once for an unknown id and otherwise at most every 30 minutes. An outdated page (the host keeps pages in browsers for 31 days) reloads once, or loads once with `?nocache=` when the edge copy is outdated too. Static asset caching is unchanged.
+
+- **Assistant and chat in 8 languages** (`tools/qa/chat-i18n.mjs`, every state at 320 and 1440 px):
+  - The input's prompt is a visible caption above the field instead of a placeholder. The translated prompts ("Ask about a place, a trip or an experience": 186–464 px) didn't fit the 119–238 px field on any phone in 7 of 8 languages; the cut was there since 1.2.9. The caption wraps, uses only existing translations, and is better for screen readers.
+  - "Chat with Egypt Roamer" and "Cancel" used the light-on-dark ghost button on the drawer's light background: contrast 1.1:1. They now use the outline button. axe had only listed them as "needs review", because of the button's backdrop blur.
+
+Core 1.2.14: `includes/freshness.php` (build id, content epoch on editor saves, `/build` endpoint).
+
 ## 1.2.14 — 2026-10-01
 Chat with the Egypt Roamer team, inside the Trip assistant (with Core 1.2.12; `docs/HUMAN-LIVE-CHAT-2026-10-01.md`):
 - The drawer offers "Chat with Egypt Roamer", with the team's real availability ("Team is online" or "Leave us a message"). Asking the assistant for a person offers the same.

@@ -64,10 +64,15 @@ function restoreScroll() {
 
 function safe(name, fn) {
   try {
-    fn();
+    const result = fn();
+    // A component that sets itself up over several tasks (the journey) returns a promise.
+    if (result && typeof result.then === "function") {
+      return result.catch((err) => console.error(`[egypt-roamer] ${name} failed`, err));
+    }
   } catch (err) {
     console.error(`[egypt-roamer] ${name} failed`, err);
   }
+  return undefined;
 }
 
 // Language first: static copy + content must be localised before components render
@@ -110,9 +115,11 @@ const rest = [
 (async () => {
   for (const [name, fn] of rest) {
     await yieldToMain();
-    safe(name, fn);
+    await safe(name, fn); // in order: the next component starts after the journey's last step
   }
   intro.then(restoreScroll); // after the journey: it sets the scroll positions
 })();
 
-window.addEventListener("load", () => window.ScrollTrigger?.refresh());
+// No manual ScrollTrigger.refresh() on "load": ScrollTrigger refreshes on load by itself (default
+// autoRefreshEvents), and triggers created after load measure themselves when created. The manual one
+// repeated the same full layout pass (~70 ms on a 4x-slowed phone; docs/PERFORMANCE-2026-09-30.md).

@@ -176,7 +176,8 @@
     const note = $("[data-assistant-note]");
     const submit = $("[data-assistant-submit]");
     const title = root.querySelector("#assistant-title");
-    const original = { title: title.textContent, placeholder: input.placeholder, submit: submit.textContent, note: note.textContent, max: input.maxLength };
+    const label = $("[data-assistant-label]");
+    const original = { title: title.textContent, label: label ? label.textContent : "", submit: submit.textContent, note: note.textContent, max: input.maxLength };
     const KEY = "er-chat";
     let conv = null; // { id, token }
     let status = "";
@@ -220,7 +221,7 @@
     function chatMode(on) {
       root.classList.toggle("is-chat", on);
       title.textContent = on ? t.title : original.title;
-      input.placeholder = on ? t.type : original.placeholder;
+      if (label) label.textContent = on ? t.label : original.label;
       input.maxLength = on ? 2000 : original.max;
       submit.textContent = on ? t.send : original.submit;
       note.textContent = on ? t.note : original.note;
