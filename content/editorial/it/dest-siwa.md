@@ -1,7 +1,7 @@
 ---
 type: er_destination
 excerpt: Guida dell’oasi di Siwa: la fortezza di Shali, l’oracolo di Amon consultato da Alessandro Magno, laghi salati e sorgenti, il Grande Mare di Sabbia, le usanze locali, la stagione migliore e come organizzare il lungo viaggio.
-source: 2dd0c1475bbb
+source: d84e32620b01
 review: approved
 reviewer: Morsy Abdelhady
 reviewed: 2026-09-29
@@ -70,4 +70,4 @@ Tre notti nell’oasi sono un buon minimo, più un giorno di viaggio all’andat
 No. Le escursioni nel deserto richiedono un 4×4 e un autista locale autorizzato che conosca il terreno e si occupi dei permessi.
 
 ?? Con cosa abbinare Siwa?
-[Alessandria](/destinations/alexandria/) e la costa mediterranea sono sulla strada naturale. Alcuni viaggiatori proseguono verso le oasi del Deserto Occidentale in un viaggio più lungo nel deserto.
+[Alessandria](/destinations/alexandria/) e la costa mediterranea sono sulla strada naturale. Alcuni viaggiatori proseguono verso le oasi del Deserto Occidentale in [un viaggio più lungo nel deserto](/experiences/white-desert-black-desert-safari/).

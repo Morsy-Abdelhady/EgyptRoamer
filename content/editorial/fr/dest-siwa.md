@@ -1,7 +1,7 @@
 ---
 type: er_destination
 excerpt: Guide de l’oasis de Siwa : la forteresse de Shali, l’oracle d’Amon consulté par Alexandre le Grand, les lacs salés et les sources, la Grande mer de sable, les usages locaux, la meilleure saison et l’organisation du long trajet.
-source: 2dd0c1475bbb
+source: d84e32620b01
 review: approved
 reviewer: Morsy Abdelhady
 reviewed: 2026-09-29
@@ -70,4 +70,4 @@ Trois nuits dans l’oasis sont un bon minimum, plus une journée de trajet à l
 Non. Les sorties dans le désert exigent un 4×4 et un chauffeur local agréé qui connaît le terrain et se charge des autorisations.
 
 ?? Avec quoi combiner Siwa ?
-[Alexandrie](/destinations/alexandria/) et la côte méditerranéenne se trouvent sur l’itinéraire naturel. Certains voyageurs poursuivent vers les oasis du désert occidental lors d’un voyage plus long dans le désert.
+[Alexandrie](/destinations/alexandria/) et la côte méditerranéenne se trouvent sur l’itinéraire naturel. Certains voyageurs poursuivent vers les oasis du désert occidental lors d’[un voyage plus long dans le désert](/experiences/white-desert-black-desert-safari/).

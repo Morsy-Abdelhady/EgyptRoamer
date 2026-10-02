@@ -47,7 +47,11 @@ add_action( 'admin_notices', static function () {
  */
 add_filter( 'document_title_parts', static function ( $parts ) {
 	if ( is_front_page() ) {
-		$parts['tagline'] = er_t( 'More than a destination' );
+		// Search intent for the site's home is "Egypt travel guide", as for a place ("Cairo – Travel Guide"):
+		// approved strings in every language. The slogan stays in the hero and the description.
+		$parts['title'] = er_t( 'Egypt' ) . ' – ' . er_t( 'Travel Guide' );
+		unset( $parts['tagline'] );
+		$parts['site'] = get_bloginfo( 'name' );
 	} elseif ( is_singular( 'er_destination' ) ) {
 		// Search intent for a place is "<place> travel guide"; both parts are approved strings in every
 		// language (the destination's title and the theme's "Travel Guide"), so nothing is newly translated.
@@ -58,6 +62,11 @@ add_filter( 'document_title_parts', static function ( $parts ) {
 		$parts['title'] = er_t( 'Results for “{q}”', [ 'q' => get_search_query( false ) ] );
 	} elseif ( is_404() ) {
 		$parts['title'] = er_t( 'This page wandered off' );
+	}
+	// A long title loses the brand rather than its end: search results cut titles at about 60 characters and
+	// show the site name separately ("Tour privado por las pirámides de Guiza y la Esfinge – Egypt Roamer").
+	if ( isset( $parts['title'], $parts['site'] ) && mb_strlen( wp_strip_all_tags( $parts['title'] ) . ' – ' . $parts['site'] ) > 60 ) {
+		unset( $parts['site'] );
 	}
 	return $parts;
 } );

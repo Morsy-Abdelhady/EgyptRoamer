@@ -1,7 +1,7 @@
 ---
 type: er_experience
 excerpt: Un safari dans le Désert blanc et le Désert noir depuis l’oasis de Bahariya : formations de craie, collines volcaniques, la montagne de Cristal, une nuit de bivouac sous les étoiles, ce qu’il faut emporter et à qui s’adresse l’excursion.
-source: 82c1e5ba7f71
+source: ae34419c4e87
 review: approved
 reviewer: Morsy Abdelhady
 reviewed: 2026-09-29
@@ -39,7 +39,7 @@ Une sortie type dure deux jours et une nuit depuis Bahariya, ou trois jours en c
 
 ## À combiner avec {#combine}
 
-[Le Caire](/destinations/cairo/) avant ou après. Avec plus de temps, un circuit plus long dans le désert occidental à travers les oasis.
+[Le Caire](/destinations/cairo/) avant ou après. Avec plus de temps, un circuit plus long dans le désert occidental à travers [les oasis](/destinations/siwa/).
 
 ## Questions fréquentes {#faq}
 

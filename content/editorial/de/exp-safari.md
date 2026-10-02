@@ -1,7 +1,7 @@
 ---
 type: er_experience
 excerpt: Eine Safari in die Weiße und Schwarze Wüste ab der Oase Bahariya: Kreidefelsen, Vulkanhügel, der Kristallberg, eine Nacht im Camp unter Sternen, was Sie einpacken sollten und für wen die Tour geeignet ist.
-source: 82c1e5ba7f71
+source: ae34419c4e87
 review: approved
 reviewer: Morsy Abdelhady
 reviewed: 2026-09-29
@@ -39,7 +39,7 @@ Eine typische Tour dauert zwei Tage und eine Nacht ab Bahariya oder drei Tage ei
 
 ## Kombinieren mit {#combine}
 
-[Kairo](/destinations/cairo/) davor oder danach. Mit mehr Zeit eine längere Rundreise durch die Oasen der Westlichen Wüste.
+[Kairo](/destinations/cairo/) davor oder danach. Mit mehr Zeit eine längere Rundreise durch die [Oasen der Westlichen Wüste](/destinations/siwa/).
 
 ## Häufige Fragen {#faq}
 

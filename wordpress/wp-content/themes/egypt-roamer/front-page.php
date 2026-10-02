@@ -187,7 +187,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 					<p class="hero__eyebrow t-label"><span class="split-line"><span><?php echo esc_html( er_home( 'hero_eyebrow' ) ); ?></span></span></p>
 					<h1 class="hero__title">
 						<span class="split-line"><span class="t-display"><?php echo esc_html( er_home( 'hero_title' ) ); ?></span></span>
-						<span class="split-line"><span class="hero__sub"><?php echo wp_kses( er_home( 'hero_sub' ), er_inline_kses_safe() ); ?></span></span>
+						<span class="split-line"><span class="hero__sub"><?php echo er_spaced_breaks( wp_kses( er_home( 'hero_sub' ), er_inline_kses_safe() ) ); ?></span></span>
 					</h1>
 					<p class="hero__copy" data-hero-fade>
 						<?php echo esc_html( er_home( 'hero_copy' ) ); ?><br />
@@ -263,7 +263,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 	<section class="interlude on-dark" aria-label="<?php echo esc_attr( er_home( 'interlude_eyebrow' ) ); ?>">
 		<div class="container interlude__inner">
 			<p class="eyebrow" data-reveal><?php echo esc_html( er_home( 'interlude_eyebrow' ) ); ?></p>
-			<p class="interlude__quote" data-reveal style="--d: 80ms"><?php echo wp_kses( er_home( 'interlude_quote' ), er_inline_kses_safe() ); ?></p>
+			<p class="interlude__quote" data-reveal style="--d: 80ms"><?php echo er_spaced_breaks( wp_kses( er_home( 'interlude_quote' ), er_inline_kses_safe() ) ); ?></p>
 			<dl class="interlude__facts">
 				<?php
 				$er_delay = 120;
@@ -289,7 +289,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 			<div class="container moods__inner">
 				<header class="moods__head">
 					<p class="eyebrow" data-reveal><?php echo esc_html( er_home( 'moods_eyebrow' ) ); ?></p>
-					<h2 class="t-h2" id="moods-title" data-reveal style="--d: 80ms"><?php echo wp_kses( er_home( 'moods_title' ), er_inline_kses_safe() ); ?></h2>
+					<h2 class="t-h2" id="moods-title" data-reveal style="--d: 80ms"><?php echo er_spaced_breaks( wp_kses( er_home( 'moods_title' ), er_inline_kses_safe() ) ); ?></h2>
 				</header>
 				<div class="moods__dial" role="tablist" aria-label="<?php echo esc_attr( er_t( 'Travel moods' ) ); ?>" data-mood-list data-reveal style="--d: 160ms"></div>
 				<div class="moods__body" id="mood-panel" role="tabpanel" aria-labelledby="moods-title">
@@ -315,7 +315,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 				<header class="section-head section-head--split">
 					<div>
 						<p class="eyebrow" data-reveal><?php echo esc_html( er_home( 'dest_eyebrow' ) ); ?></p>
-						<h2 class="t-h2" id="dest-title" data-reveal style="--d: 80ms"><?php echo wp_kses( er_home( 'dest_title' ), er_inline_kses_safe() ); ?></h2>
+						<h2 class="t-h2" id="dest-title" data-reveal style="--d: 80ms"><?php echo er_spaced_breaks( wp_kses( er_home( 'dest_title' ), er_inline_kses_safe() ) ); ?></h2>
 					</div>
 					<div class="section-head__aside" data-reveal style="--d: 160ms">
 						<p class="muted"><?php echo esc_html( er_home( 'dest_aside' ) ); ?></p>
@@ -343,7 +343,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 			<div class="container map__grid">
 				<div class="map__copy">
 					<p class="eyebrow" data-reveal><?php echo esc_html( er_home( 'map_eyebrow' ) ); ?></p>
-					<h2 class="t-h2" id="map-title" data-reveal style="--d: 80ms"><?php echo wp_kses( er_home( 'map_title' ), er_inline_kses_safe() ); ?></h2>
+					<h2 class="t-h2" id="map-title" data-reveal style="--d: 80ms"><?php echo er_spaced_breaks( wp_kses( er_home( 'map_title' ), er_inline_kses_safe() ) ); ?></h2>
 					<p class="map__intro" data-reveal style="--d: 160ms"><?php echo esc_html( er_home( 'map_intro' ) ); ?></p>
 					<ul class="map__list" data-map-list></ul>
 					<p class="map__legend t-meta">
@@ -378,7 +378,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 				<header class="section-head section-head--split">
 					<div>
 						<p class="eyebrow" data-reveal><?php echo esc_html( er_home( 'partners_eyebrow' ) ); ?></p>
-						<h2 class="t-h2" id="partners-title" data-reveal style="--d: 80ms"><?php echo wp_kses( er_home( 'partners_title' ), er_inline_kses_safe() ); ?></h2>
+						<h2 class="t-h2" id="partners-title" data-reveal style="--d: 80ms"><?php echo er_spaced_breaks( wp_kses( er_home( 'partners_title' ), er_inline_kses_safe() ) ); ?></h2>
 					</div>
 					<div class="section-head__aside" data-reveal style="--d: 160ms"><p class="muted"><?php echo esc_html( er_home( 'partners_aside' ) ); ?></p></div>
 				</header>
@@ -397,7 +397,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 				<header class="section-head section-head--split">
 					<div>
 						<p class="eyebrow" data-reveal><?php echo esc_html( er_home( 'exp_eyebrow' ) ); ?></p>
-						<h2 class="t-h2" id="exp-title" data-reveal style="--d: 80ms"><?php echo wp_kses( er_home( 'exp_title' ), er_inline_kses_safe() ); ?></h2>
+						<h2 class="t-h2" id="exp-title" data-reveal style="--d: 80ms"><?php echo er_spaced_breaks( wp_kses( er_home( 'exp_title' ), er_inline_kses_safe() ) ); ?></h2>
 					</div>
 					<div class="section-head__aside" data-reveal style="--d: 160ms">
 						<p class="muted"><?php echo esc_html( er_home( 'exp_aside' ) ); ?></p>
@@ -430,7 +430,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 			<div class="container">
 				<header class="guide__masthead">
 					<p class="eyebrow" data-reveal><?php echo esc_html( er_home( 'guide_eyebrow' ) ); ?></p>
-					<h2 class="t-h1" id="guide-title" data-reveal style="--d: 80ms"><?php echo wp_kses( er_home( 'guide_title' ), er_inline_kses_safe() ); ?></h2>
+					<h2 class="t-h1" id="guide-title" data-reveal style="--d: 80ms"><?php echo er_spaced_breaks( wp_kses( er_home( 'guide_title' ), er_inline_kses_safe() ) ); ?></h2>
 					<div class="guide__cats" role="group" aria-label="<?php echo esc_attr( er_t( 'Filter stories' ) ); ?>" data-guide-cats data-reveal style="--d: 160ms"></div>
 				</header>
 				<div class="guide__layout">
@@ -459,7 +459,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 			<div class="container planner__inner">
 				<header class="planner__head">
 					<p class="eyebrow" data-reveal><?php echo esc_html( er_home( 'planner_eyebrow' ) ); ?></p>
-					<h2 class="t-h1" id="planner-title" data-reveal style="--d: 80ms"><?php echo wp_kses( er_home( 'planner_title' ), er_inline_kses_safe() ); ?></h2>
+					<h2 class="t-h1" id="planner-title" data-reveal style="--d: 80ms"><?php echo er_spaced_breaks( wp_kses( er_home( 'planner_title' ), er_inline_kses_safe() ) ); ?></h2>
 					<p class="planner__intro" data-reveal style="--d: 160ms"><?php echo esc_html( er_home( 'planner_intro' ) ); ?></p>
 				</header>
 				<form class="builder" data-builder aria-label="<?php echo esc_attr( er_t( 'Trip builder' ) ); ?>"<?php echo $er_plan_href ? ' data-href="' . esc_url( $er_plan_href ) . '"' : ''; ?>>

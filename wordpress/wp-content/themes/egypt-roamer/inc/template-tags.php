@@ -10,6 +10,15 @@ function er_inline_kses_safe(): array {
 	return [ 'em' => [ 'class' => [] ], 'span' => [ 'class' => [] ], 'br' => [], 'strong' => [], 'b' => [], 'i' => [] ];
 }
 
+/**
+ * A space before every line break in a headline: "What kind of Egypt<br>are you looking for?" read as
+ * "Egyptare" wherever the text is taken without layout (search engines' text, previews, some assistive
+ * tools). The space is invisible at the end of a line.
+ */
+function er_spaced_breaks( string $html ): string {
+	return (string) preg_replace( '#(?<=\S)<br\s*/?>#i', ' <br />', $html );
+}
+
 /** Inline sprite icon (the sprite is printed once in header.php). */
 function er_icon( string $id, string $class = '' ): string {
 	return sprintf( '<svg class="icon %s" aria-hidden="true"><use href="#%s"/></svg>', esc_attr( $class ), esc_attr( $id ) );

@@ -1,7 +1,7 @@
 ---
 type: er_destination
 excerpt: 锡瓦绿洲旅行指南：沙利古城、亚历山大大帝曾求问的阿蒙神谕神庙、盐湖与泉水、大沙海、当地习俗、最佳季节，以及如何安排漫长的旅途。
-source: 2dd0c1475bbb
+source: d84e32620b01
 review: approved
 reviewer: Morsy Abdelhady
 reviewed: 2026-09-29
@@ -70,4 +70,4 @@ reviewed: 2026-09-29
 不可以。沙漠行程需要四驱车和熟悉地形、会代办许可的持证当地司机。
 
 ?? 锡瓦可以和哪里搭配？
-[亚历山大](/destinations/alexandria/)和地中海沿岸就在自然的路线上。有些旅行者会继续前往西部沙漠的其他绿洲，进行更长的沙漠之旅。
+[亚历山大](/destinations/alexandria/)和地中海沿岸就在自然的路线上。有些旅行者会继续前往西部沙漠的其他绿洲，进行[更长的沙漠之旅](/experiences/white-desert-black-desert-safari/)。

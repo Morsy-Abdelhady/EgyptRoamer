@@ -1,7 +1,7 @@
 ---
 type: er_experience
 excerpt: 从拜哈里耶绿洲出发的白沙漠与黑沙漠探险：白垩岩石、火山丘、水晶山、星空下露营一晚、要带什么，以及这趟行程适合谁。
-source: 82c1e5ba7f71
+source: ae34419c4e87
 review: approved
 reviewer: Morsy Abdelhady
 reviewed: 2026-09-29
@@ -39,7 +39,7 @@ reviewed: 2026-09-29
 
 ## 搭配推荐 {#combine}
 
-之前或之后游览[开罗](/destinations/cairo/)。时间更充裕的话，可以沿西部沙漠的绿洲走一条更长的环线。
+之前或之后游览[开罗](/destinations/cairo/)。时间更充裕的话，可以沿[西部沙漠的绿洲](/destinations/siwa/)走一条更长的环线。
 
 ## 常见问题 {#faq}
 

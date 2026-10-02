@@ -713,8 +713,13 @@ class ER_CLI {
 			$body   = is_readable( $file ) ? trim( (string) file_get_contents( $file ) ) : ''; // phpcs:ignore WordPress.WP.AlternativeFunctions
 			$post   = get_post( $id );
 			$update = [];
-			if ( $body && $is_seed_text( (string) $post->post_content, $seed_id ) ) {
-				$update['post_content'] = $is_tr ? $this->editorial_links( $body, $lang, $counts ) : $body;
+			$new_body = $body ? ( $is_tr ? $this->editorial_links( $body, $lang, $counts ) : $body ) : '';
+			// The same words as the new version (only links or markup differ): an earlier import nobody has
+			// rewritten since, so the new links can be added. Any change to the wording keeps the editor's body.
+			$plain    = static fn ( string $h ): string => trim( (string) preg_replace( '/\s+/u', ' ', html_entity_decode( wp_strip_all_tags( $h ), ENT_QUOTES, 'UTF-8' ) ) );
+			$same_txt = $new_body && $plain( (string) $post->post_content ) === $plain( $new_body ) && (string) $post->post_content !== $new_body;
+			if ( $body && ( $is_seed_text( (string) $post->post_content, $seed_id ) || $same_txt ) ) {
+				$update['post_content'] = $new_body;
 				++$counts['body'];
 			} elseif ( $body ) {
 				++$counts['kept'];
@@ -956,6 +961,46 @@ class ER_CLI {
 	 *
 	 * @when after_wp_load
 	 */
+	/**
+	 * Finds slugs cut inside a word by WordPress's 200-byte limit (long Arabic and Russian titles) and shortens
+	 * them. A dry run unless --apply. WordPress keeps each old slug, so old URLs redirect (301) to the new one.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [--set=<pairs>]
+	 * : Explicit slugs, "ID:slug,ID:slug" (words of the title); the others get the last whole word kept.
+	 *
+	 * [--apply]
+	 * : Change the slugs.
+	 *
+	 * @when after_wp_load
+	 */
+	public function slugs( $args, $assoc ) {
+		$set = [];
+		foreach ( array_filter( explode( ',', (string) ( $assoc['set'] ?? '' ) ) ) as $pair ) {
+			[ $id, $slug ] = array_map( 'trim', explode( ':', $pair, 2 ) ) + [ '', '' ];
+			if ( (int) $id && '' !== $slug ) {
+				$set[ (int) $id ] = sanitize_title( $slug );
+			}
+		}
+		$apply   = ! empty( $assoc['apply'] );
+		$changed = 0;
+		$posts   = get_posts( [ 'post_type' => array_merge( [ 'page', 'post' ], er_gated_types() ), 'post_status' => [ 'publish', 'draft', 'pending', 'future' ], 'numberposts' => -1, 'lang' => '' ] );
+		foreach ( $posts as $p ) {
+			$auto = er_slug_trim_partial( $p->post_name, $p->post_title );
+			if ( $auto === $p->post_name && ! isset( $set[ $p->ID ] ) ) {
+				continue;
+			}
+			$new = $set[ $p->ID ] ?? $auto;
+			WP_CLI::log( sprintf( '%d	%s	%s  →  %s%s', $p->ID, function_exists( 'pll_get_post_language' ) ? pll_get_post_language( $p->ID ) : '', urldecode( $p->post_name ), urldecode( $new ), $apply ? '' : '  (dry run)' ) );
+			if ( $apply ) {
+				wp_update_post( [ 'ID' => $p->ID, 'post_name' => $new ] );
+				$changed++;
+			}
+		}
+		WP_CLI::success( $apply ? "$changed slugs changed; the old ones redirect." : 'Dry run. Add --apply to change them.' );
+	}
+
 	public function health() {
 		$issues = er_health_checks();
 		foreach ( $issues as [ $sev, $msg ] ) {

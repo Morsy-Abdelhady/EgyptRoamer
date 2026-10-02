@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.29 — 2026-10-02 (with Core 1.2.18): SEO workstream
+- **Homepage title states the search intent:** "Egypt – Travel Guide – Egypt Roamer", in every language from approved strings ("مصر – دليل السفر", "Ägypten – Reiseführer" …). The slogan stays in the hero and the description.
+- **Long titles drop the brand suffix** instead of being cut in search results at about 60 characters. The site name shows separately there.
+- **Headlines no longer run words together.** "What kind of Egypt<br>are you looking for?" read as "Egyptare" to search engines and assistive tools; a space now precedes every line break (`er_spaced_breaks`).
+- **Destination structured data names the country in the page's language** (`er_country_name`: "مصر", "Ägypten" …).
+
 ## 1.2.28 — 2026-10-02
 - **Homepage font preloads: only the hero word's display face** (Latin/Cyrillic Playfair 400). None on Arabic and Chinese pages.
   - Measured in a real browser on a throttled phone connection (1.6 Mbps, 4× CPU, median of 3), preloading every first-view face made the first paint later: the fonts competed with the stylesheet.

@@ -66,4 +66,4 @@ Three nights in the oasis is a good minimum, plus a travel day each way.
 No. Desert trips need a 4×4 and a licensed local driver who knows the terrain and handles permits.
 
 ?? What should I combine Siwa with?
-[Alexandria](/destinations/alexandria/) and the Mediterranean coast are on the natural route. Some travellers continue to the Western Desert oases on a longer desert journey.
+[Alexandria](/destinations/alexandria/) and the Mediterranean coast are on the natural route. Some travellers continue to the Western Desert oases on [a longer desert journey](/experiences/white-desert-black-desert-safari/).

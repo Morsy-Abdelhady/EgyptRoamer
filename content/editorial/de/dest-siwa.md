@@ -1,7 +1,7 @@
 ---
 type: er_destination
 excerpt: Reiseführer Oase Siwa: die Festung Shali, das Amun-Orakel, das Alexander der Große befragte, Salzseen und Quellen, das Große Sandmeer, lokale Sitten, die beste Reisezeit und wie Sie die lange Anreise planen.
-source: 2dd0c1475bbb
+source: d84e32620b01
 review: approved
 reviewer: Morsy Abdelhady
 reviewed: 2026-09-29
@@ -70,4 +70,4 @@ Drei Nächte in der Oase sind ein gutes Minimum, dazu je ein Reisetag für Hin- 
 Nein. Wüstentouren brauchen einen Geländewagen und einen lizenzierten einheimischen Fahrer, der das Gelände kennt und sich um Genehmigungen kümmert.
 
 ?? Womit lässt sich Siwa kombinieren?
-[Alexandria](/destinations/alexandria/) und die Mittelmeerküste liegen auf der natürlichen Route. Manche Reisende fahren auf einer längeren Wüstenreise weiter zu den Oasen der Westlichen Wüste.
+[Alexandria](/destinations/alexandria/) und die Mittelmeerküste liegen auf der natürlichen Route. Manche Reisende fahren auf [einer längeren Wüstenreise](/experiences/white-desert-black-desert-safari/) weiter zu den Oasen der Westlichen Wüste.

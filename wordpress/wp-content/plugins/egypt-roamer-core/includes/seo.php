@@ -280,7 +280,7 @@ add_action( 'wp_head', static function () {
 	$data = [
 		'@context'    => 'https://schema.org',
 		'@type'       => 'TouristDestination',
-		'name'        => get_the_title( $id ),
+		'name'        => trim( str_replace( "\u{00A0}", ' ', html_entity_decode( wp_strip_all_tags( get_the_title( $id ) ), ENT_QUOTES, 'UTF-8' ) ) ), // as the visible H1 reads
 		'url'         => get_permalink( $id ),
 		'description' => wp_strip_all_tags( get_the_excerpt( $id ) ),
 	];
@@ -293,7 +293,7 @@ add_action( 'wp_head', static function () {
 	if ( is_numeric( $lat ) && is_numeric( $lng ) ) {
 		$data['geo'] = [ '@type' => 'GeoCoordinates', 'latitude' => (float) $lat, 'longitude' => (float) $lng ];
 	}
-	$data['containedInPlace'] = [ '@type' => 'Country', 'name' => 'Egypt' ];
+	$data['containedInPlace'] = [ '@type' => 'Country', 'name' => (string) apply_filters( 'er_country_name', 'Egypt' ) ]; // the page's language (theme)
 	echo '<script type="application/ld+json">' . wp_json_encode( array_filter( $data ), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
 }, 20 );
 
@@ -372,7 +372,7 @@ add_action( 'wp_head', static function () {
 	$image = '';
 	if ( is_singular() ) {
 		$post  = get_queried_object();
-		$desc  = has_excerpt( $post ) ? get_the_excerpt( $post ) : wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post->post_content ) ), 28, '…' );
+		$desc  = has_excerpt( $post ) ? get_the_excerpt( $post ) : er_description_from_content( (string) $post->post_content );
 		$image = (string) get_the_post_thumbnail_url( $post, 'large' );
 	} elseif ( is_post_type_archive() ) {
 		// The same editable intro the archive's page hero shows (Egypt Roamer → Settings), then the type description.
@@ -406,7 +406,9 @@ add_action( 'wp_head', static function () {
 	}
 	if ( is_singular() ) {
 		printf( "<meta property=\"og:url\" content=\"%s\" />\n", esc_url( get_permalink() ) );
-	} elseif ( ( is_post_type_archive() || is_home() || is_category() || is_tag() ) && ! is_search() ) {
+	} elseif ( ( is_post_type_archive() || is_home() || is_category() || is_tag() ) && ! is_search() && ! er_request_noindex() ) {
+		// A noindex view (filtered, sorted or empty) gets no canonical: noindex plus a canonical to another URL
+		// are contradictory signals.
 		// Core only prints canonicals for singular pages; archives get one here (page kept). The whole query
 		// string is dropped, not only the filter keys: get_pagenum_link() echoes any visitor parameter
 		// (?utm_source=…, cache busters), which made every tracked visit its own canonical URL.
@@ -417,3 +419,88 @@ add_action( 'wp_head', static function () {
 		printf( "<meta property=\"og:image\" content=\"%s\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n", esc_url( $image ) );
 	}
 }, 2 );
+
+/**
+ * A description for a page without an excerpt (legal and contact pages): its first real paragraph, never the
+ * "Last updated" line or the translation note, cut at the end of a sentence (or a word) at about 160
+ * characters. The body used to be trimmed to 28 words, which gave "Last updated: 30 September 2026 This page
+ * explains…" and, on translated pages, the translation note and table cells.
+ */
+function er_description_from_content( string $content, int $max = 160 ): string {
+	$content = strip_shortcodes( $content );
+	preg_match_all( '#<p\b([^>]*)>(.*?)</p>#is', $content, $m, PREG_SET_ORDER );
+	$text = '';
+	foreach ( $m as $p ) {
+		if ( str_contains( $p[1], 'er-translation-note' ) ) {
+			continue;
+		}
+		$inner = trim( $p[2] );
+		if ( preg_match( '#^<(em|i|small)\b[^>]*>.*</\1>$#is', $inner ) ) {
+			continue; // a date line or another aside set entirely in italics
+		}
+		$plain = trim( (string) preg_replace( '/\s+/u', ' ', wp_strip_all_tags( $inner ) ) );
+		if ( mb_strlen( $plain ) >= 30 ) {
+			$text = $plain;
+			break;
+		}
+	}
+	if ( '' === $text ) {
+		$text = trim( (string) preg_replace( '/\s+/u', ' ', wp_strip_all_tags( $content ) ) );
+	}
+	if ( mb_strlen( $text ) <= $max ) {
+		return $text;
+	}
+	$cut = mb_substr( $text, 0, $max );
+	// the last sentence end that still leaves a useful description (Latin, Arabic and CJK punctuation)
+	if ( ( preg_match( '/^(.{90,}[.!?。！？؟])(?=\s|$)/us', $cut, $s ) || preg_match( '/^(.{20,}[。！？])/us', $cut, $s ) ) ) {
+		return trim( $s[1] );
+	}
+	$space = mb_strrpos( $cut, ' ' );
+	return rtrim( false !== $space && $space > 60 ? mb_substr( $cut, 0, $space ) : $cut, " ,;:–-" ) . '…';
+}
+
+// Feeds are a reading channel, not search landing pages (and stay empty while nothing is published).
+add_action( 'template_redirect', static function () {
+	if ( is_feed() && ! headers_sent() ) {
+		header( 'X-Robots-Tag: noindex, follow', true );
+	}
+}, 0 );
+
+// /<page>/page/2/ on an unpaginated single answered 200 with the same content: one hop back to the page.
+add_action( 'template_redirect', static function () {
+	if ( ! is_singular() || max( (int) get_query_var( 'page' ), (int) get_query_var( 'paged' ) ) < 2 ) {
+		return;
+	}
+	$post = get_queried_object();
+	if ( $post instanceof WP_Post && ! str_contains( (string) $post->post_content, '<!--nextpage-->' ) ) {
+		wp_safe_redirect( get_permalink( $post ), 301 );
+		exit;
+	}
+}, 5 );
+
+/**
+ * Slugs never end mid-word. WordPress caps a slug at 200 bytes, and a URL-encoded Arabic or Cyrillic letter
+ * takes 4–6 of them, so long titles were cut inside a word (".../وأبي-الهو/" for "وأبي الهول", ".../к-пирамида/"
+ * for "к пирамидам"). When the cap was reached and the last part of the slug is not a whole word of the title,
+ * that part is dropped. Existing posts: `wp egypt-roamer slugs` (WordPress keeps the old slug as a redirect).
+ */
+function er_slug_trim_partial( string $slug, string $raw_title ): string {
+	if ( strlen( $slug ) < 180 || ! str_contains( $slug, '-' ) ) {
+		return $slug; // far from the cap: never touched
+	}
+	$words = array_values( array_filter( array_map( static fn ( $w ) => urldecode( sanitize_title_with_dashes( $w, '', 'save' ) ), preg_split( '/[\s\-–—:;,.!?،؛]+/u', $raw_title ) ) ) );
+	$parts = explode( '-', urldecode( $slug ) );
+	$last  = count( $parts ) - 1;
+	if ( isset( $words[ $last ] ) && $parts[ $last ] !== $words[ $last ] ) {
+		array_pop( $parts );
+		// nor on a dangling one- or two-letter connector ("…-к", "…-и", "…-de")
+		while ( count( $parts ) > 2 && mb_strlen( (string) end( $parts ) ) <= 2 ) {
+			array_pop( $parts );
+		}
+		return implode( '-', array_map( static fn ( $p ) => utf8_uri_encode( $p ), $parts ) );
+	}
+	return $slug;
+}
+add_filter( 'sanitize_title', static function ( $title, $raw_title = '', $context = 'display' ) {
+	return 'save' === $context && is_string( $title ) && '' !== (string) $raw_title ? er_slug_trim_partial( $title, (string) $raw_title ) : $title;
+}, 11, 3 );

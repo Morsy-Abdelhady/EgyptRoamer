@@ -1,7 +1,7 @@
 ---
 type: er_destination
 excerpt: Guía del oasis de Siwa: la fortaleza de Shali, el oráculo de Amón que consultó Alejandro Magno, lagos salados y manantiales, el Gran Mar de Arena, las costumbres locales, la mejor época y cómo planificar el largo viaje.
-source: 2dd0c1475bbb
+source: d84e32620b01
 review: approved
 reviewer: Morsy Abdelhady
 reviewed: 2026-09-29
@@ -70,4 +70,4 @@ Tres noches en el oasis son un buen mínimo, más un día de viaje de ida y otro
 No. Las salidas al desierto requieren un 4×4 y un conductor local con licencia que conozca el terreno y gestione los permisos.
 
 ?? ¿Con qué combino Siwa?
-[Alejandría](/destinations/alexandria/) y la costa mediterránea están en la ruta natural. Algunos viajeros siguen hacia los oasis del Desierto Occidental en un viaje más largo por el desierto.
+[Alejandría](/destinations/alexandria/) y la costa mediterránea están en la ruta natural. Algunos viajeros siguen hacia los oasis del Desierto Occidental en [un viaje más largo por el desierto](/experiences/white-desert-black-desert-safari/).

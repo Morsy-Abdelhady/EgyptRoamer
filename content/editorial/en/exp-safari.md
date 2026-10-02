@@ -35,7 +35,7 @@ A typical trip is two days and one night from Bahariya, or three days including 
 
 ## Combine it with {#combine}
 
-[Cairo](/destinations/cairo/) before or after. With more time, a longer Western Desert circuit through the oases.
+[Cairo](/destinations/cairo/) before or after. With more time, a longer Western Desert circuit through [the oases](/destinations/siwa/).
 
 ## Frequently asked questions {#faq}
 

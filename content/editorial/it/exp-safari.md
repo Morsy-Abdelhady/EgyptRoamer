@@ -1,7 +1,7 @@
 ---
 type: er_experience
 excerpt: Un safari nel Deserto Bianco e nel Deserto Nero dall’oasi di Bahariya: formazioni di calcare, colline vulcaniche, la Montagna di Cristallo, una notte in campo tendato sotto le stelle, cosa portare e a chi è adatto.
-source: 82c1e5ba7f71
+source: ae34419c4e87
 review: approved
 reviewer: Morsy Abdelhady
 reviewed: 2026-09-29
@@ -39,7 +39,7 @@ Un’escursione tipica dura due giorni e una notte da Bahariya, o tre giorni inc
 
 ## Da abbinare con {#combine}
 
-Il [Cairo](/destinations/cairo/) prima o dopo. Con più tempo, un circuito più lungo nel Deserto Occidentale attraverso le oasi.
+Il [Cairo](/destinations/cairo/) prima o dopo. Con più tempo, un circuito più lungo nel Deserto Occidentale attraverso [le oasi](/destinations/siwa/).
 
 ## Domande frequenti {#faq}
 

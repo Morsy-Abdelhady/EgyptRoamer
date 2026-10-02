@@ -23,7 +23,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 		<div class="footer__top">
 			<div class="footer__letter" id="newsletter">
 				<p class="eyebrow"><?php echo esc_html( er_home( 'letter_eyebrow' ) ); ?></p>
-				<h2 class="t-h2"><?php echo wp_kses( er_home( 'letter_title' ), er_inline_kses_safe() ); ?></h2>
+				<h2 class="t-h2"><?php echo er_spaced_breaks( wp_kses( er_home( 'letter_title' ), er_inline_kses_safe() ) ); ?></h2>
 				<p class="muted-dark"><?php echo esc_html( er_home( 'letter_copy' ) ); ?></p>
 				<?php if ( function_exists( 'er_form_guard_fields' ) ) : ?>
 					<form class="subscribe" data-subscribe method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
