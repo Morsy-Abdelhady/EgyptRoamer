@@ -24,10 +24,7 @@ add_action( 'wp_enqueue_scripts', static function () {
 	if ( 'ar' === $lang ) {
 		wp_enqueue_style( 'er-fonts-ar', $css( 'fonts-arabic' ), [], er_asset_ver( 'assets/css/fonts-arabic.css' ) );
 	} elseif ( 'zh' === $lang ) {
-		// Desktop as approved (render-blocking, swap); phones a non-blocking copy with display=optional (below).
-		$zh = 'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600&display=';
-		wp_enqueue_style( 'er-fonts-zh', $zh . 'swap', [], null, '(min-width: 901px)' ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-		wp_enqueue_style( 'er-fonts-zh-m', $zh . 'optional', [], null, '(max-width: 900px)' ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+		// Chinese faces (Noto SC): desktop only, added in <head> further below (er_zh_fonts_url).
 	}
 
 	// One stylesheet per template, built from the sources below by tools/build.py (CSS_BUNDLES): same rules,
@@ -109,7 +106,7 @@ add_action( 'wp_head', static function () {
 		// are drawn (and fetched) from Inter/Playfair; without a preload they were found only after the CSS.
 		'ar' => array_merge( [ 'noto-naskh-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-300-normal', 'ibm-plex-sans-arabic-arabic-500-normal', 'ibm-plex-sans-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-600-normal' ], $latin ),
 		'ru' => [ 'playfair-display-cyrillic-400-normal', 'inter-cyrillic-300-normal', 'playfair-display-cyrillic-400-italic', 'inter-cyrillic-500-normal', 'inter-cyrillic-400-normal', 'inter-cyrillic-600-normal' ],
-		'zh' => [],
+		'zh' => $latin, // Chinese text takes its spaces, digits and Latin words from these (phones: system CJK)
 	][ er_lang() ] ?? $latin;
 	foreach ( $faces as $face ) {
 		printf( '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin />' . "\n", esc_url( ER_THEME_URI . '/assets/fonts/' . $face . '.woff2' ) );
@@ -223,29 +220,25 @@ add_action( 'wp_footer', static function () {
 }, 100 );
 
 /**
- * Chinese pages on phones: Google's Noto SC stylesheet no longer blocks the first paint (launch gate,
- * 2026-10-02). It is 212 KB (every unicode-range slice of seven faces) and was render-blocking: PageSpeed
- * measured a 15 s first paint on the Chinese homepage. On phones (≤ 900 px) a copy with display=optional loads
- * without blocking rendering (media swap, <noscript> fallback): Chinese text is drawn at once in the device's
- * CJK font, and Noto SC is used when it is already at hand (a returning visitor's cache) instead of re-laying
- * out the page for each of ~100 slices as they arrive (that cost 530 ms of blocking time with swap).
- * Desktop keeps the approved behaviour (blocking, swap; the intro loader covers the load). The font host is
- * preconnected.
+ * Chinese pages: Google's Noto SC on desktop only (launch gate, 2026-10-02). Its stylesheet is 212 KB (every
+ * unicode-range slice of seven faces) and pulls ~100 font slices (several MB): PageSpeed measured a 15 s first
+ * paint on phones. Phones (≤ 900 px) use the device's CJK font (Android's is the same Noto/Source Han design),
+ * so the stylesheet is added only on wider screens, by a one-line script in <head>; a stylesheet with a
+ * non-matching media query would still be downloaded. Desktop keeps Noto SC with swap, under the intro loader.
  */
-add_filter( 'style_loader_tag', static function ( string $tag, string $handle ): string {
-	if ( 'er-fonts-zh-m' !== $handle ) {
-		return $tag;
-	}
-	$media = "media='(max-width: 900px)'";
-	$async = str_replace( $media, "media='print' onload=\"this.media='(max-width: 900px)'\"", $tag );
-	return $async . '<noscript>' . $tag . '</noscript>' . "
-";
-}, 10, 2 );
+function er_zh_fonts_url(): string {
+	return 'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600&display=swap';
+}
 add_action( 'wp_head', static function () {
-	if ( 'zh' === er_lang() ) {
-		echo '<link rel="preconnect" href="https://fonts.googleapis.com" />' . "
-";
-		echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />' . "
-";
+	if ( 'zh' !== er_lang() ) {
+		return;
 	}
-}, 2 );
+	$url = esc_url( er_zh_fonts_url() );
+	echo '<link rel="preconnect" href="https://fonts.googleapis.com" />' . "
+";
+	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />' . "
+";
+	// phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheets -- added only on wide screens, see above
+	printf( "<script>if(window.matchMedia&&matchMedia('(min-width: 901px)').matches){var l=document.createElement('link');l.rel='stylesheet';l.href=%s;document.head.appendChild(l)}</script><noscript><link rel=\"stylesheet\" href=\"%s\" media=\"(min-width: 901px)\" /></noscript>
+", wp_json_encode( html_entity_decode( $url ) ), $url );
+}, 6 );

@@ -2,6 +2,13 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.27 — 2026-10-02
+- **Chinese pages on phones use the device's CJK font; Noto SC stays on desktop.** 1.2.26's non-blocking, `optional` copy was not enough on production. Google's font servers are fast, so in PageSpeed's unthrottled pass all ~100 Noto SC slices (several MB) finished before the first paint and were counted in it (still 15 s).
+  - **Phones:** neither the 212 KB stylesheet nor its slices are fetched. A stylesheet with a non-matching media query would still be downloaded, so a one-line script adds it on screens wider than 900 px only, with a `<noscript>` fallback. Android's CJK system font is the same Noto/Source Han design.
+  - **Desktop:** Noto SC, swap, under the intro loader.
+  - The Latin faces are preloaded on Chinese pages too (spaces, digits, Latin words).
+  - Local mobile: Perf 90, LCP 3.35 s, TBT 34 ms; zero Google font requests on phones.
+
 ## 1.2.26 — 2026-10-02
 - **Chinese pages on phones no longer wait for Google's font stylesheet.** The Noto SC stylesheet is 212 KB (every unicode-range slice of seven faces) and was render-blocking: PageSpeed measured a **15.1 s** first paint on the Chinese homepage.
   - **Phones (≤ 900 px):** a non-blocking copy with `display=optional`. Chinese text is drawn at once in the device's CJK font, and Noto SC is used when it is already at hand (a returning visitor's cache). With `swap`, re-laying out the page for each of ~100 slices cost 530 ms of blocking time.
