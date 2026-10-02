@@ -320,8 +320,9 @@
   const isUrl = (v) => typeof v === "string" && /^(https?:)?\//.test(v);
 
   /** Image URL at a given width. Accepts a WordPress image payload { src, sizes },
-      a full URL, or an Unsplash photo id (prototype). */
-  const img = (id, w = 1200, q = 75) => {
+      a full URL, or an Unsplash photo id (prototype). `ratio` (height ÷ width) asks Unsplash for a
+      centred crop of that shape, for frames taller than the photo (see er_stock_url()). */
+  const img = (id, w = 1200, q = 75, ratio = 0) => {
     if (!id) return "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; // no image yet: transparent, keeps the neutral backdrop
     if (id && typeof id === "object") {
       const widths = Object.keys(id.sizes || {}).map(Number).sort((a, b) => a - b);
@@ -329,15 +330,15 @@
       return fit ? id.sizes[fit] : id.src;
     }
     if (isUrl(id)) return id;
-    return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=${q}`;
+    return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}${ratio ? `&h=${Math.round(w * ratio)}` : ""}&q=${q}`;
   };
 
   /** srcset helper for responsive images. */
-  const srcset = (id, widths = [480, 800, 1200, 1800]) => {
+  const srcset = (id, widths = [480, 800, 1200, 1800], ratio = 0, q = 75) => {
     if (!id) return "";
     if (id && typeof id === "object") return Object.entries(id.sizes || {}).map(([w, u]) => `${u} ${w}w`).join(", ");
     if (isUrl(id)) return "";
-    return widths.map((w) => `${img(id, w)} ${w}w`).join(", ");
+    return widths.map((w) => `${img(id, w, q, ratio)} ${w}w`).join(", ");
   };
 
   const destinations = pick("destinations", []);
@@ -1213,6 +1214,7 @@
       img.dataset.retried = "1";
       setTimeout(() => {
         if (img.srcset) img.srcset = bust(img.srcset);
+        if (img.parentElement?.tagName === "PICTURE") img.parentElement.querySelectorAll("source").forEach((s) => (s.srcset = bust(s.srcset)));
         if (img.getAttribute("src")) img.src = bust(img.getAttribute("src"));
       }, 1500);
     };

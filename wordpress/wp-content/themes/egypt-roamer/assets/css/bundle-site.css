@@ -5660,3 +5660,14 @@ opacity: 1;
 transform: none;
 }
 }
+.er-pic {
+display: contents;
+}
+@media (max-width: 900px) {
+.dest-card::before {
+background: linear-gradient(to top, color-mix(in srgb, var(--charcoal) 88%, transparent), color-mix(in srgb, var(--charcoal) 45%, transparent) 70%, color-mix(in srgb, var(--charcoal) 25%, transparent));
+}
+.dest-card__body {
+text-shadow: 0 1px 12px color-mix(in srgb, var(--ink) 55%, transparent);
+}
+}

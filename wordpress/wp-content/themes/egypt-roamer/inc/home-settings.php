@@ -35,7 +35,7 @@ function er_home_fields(): array {
 		'hero_title'      => [ 'type' => 'text', 'label' => __( 'Headline', 'egypt-roamer' ), 'default' => er_t( 'Egypt' ) ],
 		'hero_sub'        => [ 'type' => 'html', 'label' => __( 'Headline, second line (<em> allowed)', 'egypt-roamer' ), 'default' => er_t( 'You <em>Feel</em> It' ) ],
 		'hero_copy'       => [ 'type' => 'text', 'label' => __( 'Subtitle', 'egypt-roamer' ), 'default' => er_t( 'Ancient wonders. Endless adventures. Unforgettable moments.' ) ],
-		'hero_copy_more'  => [ 'type' => 'text', 'label' => __( 'Subtitle, second line', 'egypt-roamer' ), 'default' => er_t( 'Discover, compare and book the best experiences in Egypt — all in one place.' ) ],
+		'hero_copy_more'  => [ 'type' => 'text', 'label' => __( 'Subtitle, second line', 'egypt-roamer' ), 'default' => er_t( 'Discover and plan the best experiences in Egypt — all in one place.' ) ],
 		'hero_cta'        => [ 'type' => 'text', 'label' => __( 'Main button label', 'egypt-roamer' ), 'default' => er_t( 'Explore Egypt' ) ],
 		'hero_note'       => [ 'type' => 'lines', 'label' => __( 'Side note (one word per line)', 'egypt-roamer' ), 'default' => implode( "\n", [ er_t( 'Different.' ), er_t( 'Timeless.' ), er_t( 'Unforgettable.' ) ] ) ],
 		'hero_image'      => [ 'type' => 'image', 'label' => __( 'Hero image (also scene 1)', 'egypt-roamer' ) ],
@@ -76,7 +76,7 @@ function er_home_fields(): array {
 		'h_interlude'      => [ 'type' => 'heading', 'label' => __( 'Brand statement', 'egypt-roamer' ) ],
 		'interlude_eyebrow' => [ 'type' => 'text', 'label' => __( 'Eyebrow', 'egypt-roamer' ), 'default' => er_t( 'More than a destination' ) ],
 		'interlude_quote'  => [ 'type' => 'html', 'label' => __( 'Statement (<em>, <br> allowed)', 'egypt-roamer' ), 'default' => er_t( "Egypt isn't a checklist.<br />It's a story you <em>step&nbsp;into</em>." ) ],
-		'interlude_facts'  => [ 'type' => 'lines', 'label' => __( 'Facts (number | text, one per line — verifiable facts only)', 'egypt-roamer' ), 'default' => implode( "\n", [ '5,000 | ' . er_t( 'years of stories, still being told' ), '7 | ' . er_t( 'UNESCO World Heritage Sites' ), '1,200+ | ' . er_t( 'species of fish on Red Sea reefs' ), '1 | ' . er_t( 'place to discover, compare & book it all' ) ] ) ],
+		'interlude_facts'  => [ 'type' => 'lines', 'label' => __( 'Facts (number | text, one per line — verifiable facts only)', 'egypt-roamer' ), 'default' => implode( "\n", [ '5,000 | ' . er_t( 'years of stories, still being told' ), '7 | ' . er_t( 'UNESCO World Heritage Sites' ), '1,200+ | ' . er_t( 'species of fish on Red Sea reefs' ), '1 | ' . er_t( 'place to discover & plan it all' ) ] ) ],
 
 		'h_moods'          => [ 'type' => 'heading', 'label' => __( 'Travel styles (“What kind of Egypt”)', 'egypt-roamer' ) ],
 		'moods_enabled'    => [ 'type' => 'checkbox', 'label' => __( 'Show this section', 'egypt-roamer' ), 'default' => 1 ],
@@ -86,7 +86,7 @@ function er_home_fields(): array {
 		'h_dest'           => [ 'type' => 'heading', 'label' => __( 'Destinations', 'egypt-roamer' ) ],
 		'dest_eyebrow'     => [ 'type' => 'text', 'label' => __( 'Eyebrow', 'egypt-roamer' ), 'default' => er_t( 'Destinations' ) ],
 		'dest_title'       => [ 'type' => 'html', 'label' => __( 'Title', 'egypt-roamer' ), 'default' => $em( 'Seven places.', 'Seven different Egypts.' ) ],
-		'dest_aside'       => [ 'type' => 'textarea', 'label' => __( 'Intro', 'egypt-roamer' ), 'default' => er_t( "From Cairo's thousand minarets to the silence of Siwa, every region tells its own chapter. Hover a place to step inside it." ) ],
+		'dest_aside'       => [ 'type' => 'textarea', 'label' => __( 'Intro', 'egypt-roamer' ), 'default' => er_t( "From Cairo's thousand minarets to the silence of Siwa, every region tells its own chapter. Choose a place to step inside it." ) ],
 		'dest_featured'    => [ 'type' => 'posts', 'post_type' => 'er_destination', 'label' => __( 'Featured destinations (in order; empty = all published)', 'egypt-roamer' ) ],
 
 		'h_map'            => [ 'type' => 'heading', 'label' => __( 'Map', 'egypt-roamer' ) ],
@@ -103,7 +103,7 @@ function er_home_fields(): array {
 		'h_exp'            => [ 'type' => 'heading', 'label' => __( 'Experiences rail', 'egypt-roamer' ) ],
 		'exp_eyebrow'      => [ 'type' => 'text', 'label' => __( 'Eyebrow', 'egypt-roamer' ), 'default' => er_t( 'Handpicked experiences' ) ],
 		'exp_title'        => [ 'type' => 'html', 'label' => __( 'Title', 'egypt-roamer' ), 'default' => $em( "Moments we'd", 'book again.' ) ],
-		'exp_aside'        => [ 'type' => 'textarea', 'label' => __( 'Intro', 'egypt-roamer' ), 'default' => er_t( 'Handpicked by our editors, bookable with our partners.' ) ],
+		'exp_aside'        => [ 'type' => 'textarea', 'label' => __( 'Intro', 'egypt-roamer' ), 'default' => er_t( 'Handpicked by our editors, with the practical details to plan them.' ) ],
 		'exp_featured'     => [ 'type' => 'posts', 'post_type' => $commercial, 'label' => __( 'Featured tours / experiences / activities (in order; empty = latest)', 'egypt-roamer' ) ],
 
 		'h_guide'          => [ 'type' => 'heading', 'label' => __( 'Journal', 'egypt-roamer' ) ],

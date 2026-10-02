@@ -137,6 +137,7 @@ export function initImageFallback() {
     img.dataset.retried = "1";
     setTimeout(() => {
       if (img.srcset) img.srcset = bust(img.srcset);
+      if (img.parentElement?.tagName === "PICTURE") img.parentElement.querySelectorAll("source").forEach((s) => (s.srcset = bust(s.srcset)));
       if (img.getAttribute("src")) img.src = bust(img.getAttribute("src"));
     }, 1500);
   };

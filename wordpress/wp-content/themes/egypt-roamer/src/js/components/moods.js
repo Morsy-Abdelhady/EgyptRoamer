@@ -38,11 +38,13 @@ export function initMoods() {
     )
     .join("");
 
+  // On tall screens, crops shaped like the frame (as er_stock_crops( 'screen' ) in PHP): the same view, sharp.
+  const crop = matchMedia("(max-aspect-ratio: 2/3)").matches ? [1.5, [640, 720, 828]] : matchMedia("(max-aspect-ratio: 1/1)").matches ? [1, [768, 1024, 1366]] : null;
   bg.innerHTML = moods
     // Full-bleed backgrounds: the width the screen needs (a phone took the 1800 px files, up to 1.35 MB each).
     // Only the visible layer has a source; the others are stacked at opacity 0 and loaded all at once with it
     // (about 900 KB on a phone for one visible picture), so they wait for warm().
-    .map((m) => `<img class="moods__layer" data-layer="${m.id}" alt="" loading="lazy" decoding="async" data-src="${img(m.image, 1800, 72)}" data-srcset="${srcset(m.image, [600, 900, 1400, 1800])}" sizes="100vw" />`)
+    .map((m) => `<img class="moods__layer" data-layer="${m.id}" alt="" loading="lazy" decoding="async" data-src="${img(m.image, 1800, 72)}" data-srcset="${crop ? srcset(m.image, crop[1], crop[0], 72) : srcset(m.image, [600, 900, 1400, 1800])}" sizes="100vw" />`)
     .join("");
   const warm = (layer) => {
     if (!layer?.dataset.src) return;

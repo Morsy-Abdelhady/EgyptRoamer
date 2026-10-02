@@ -249,8 +249,9 @@
   const isUrl = (v) => typeof v === "string" && /^(https?:)?\//.test(v);
 
   /** Image URL at a given width. Accepts a WordPress image payload { src, sizes },
-      a full URL, or an Unsplash photo id (prototype). */
-  const img = (id, w = 1200, q = 75) => {
+      a full URL, or an Unsplash photo id (prototype). `ratio` (height ÷ width) asks Unsplash for a
+      centred crop of that shape, for frames taller than the photo (see er_stock_url()). */
+  const img = (id, w = 1200, q = 75, ratio = 0) => {
     if (!id) return "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; // no image yet: transparent, keeps the neutral backdrop
     if (id && typeof id === "object") {
       const widths = Object.keys(id.sizes || {}).map(Number).sort((a, b) => a - b);
@@ -258,15 +259,15 @@
       return fit ? id.sizes[fit] : id.src;
     }
     if (isUrl(id)) return id;
-    return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=${q}`;
+    return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}${ratio ? `&h=${Math.round(w * ratio)}` : ""}&q=${q}`;
   };
 
   /** srcset helper for responsive images. */
-  const srcset = (id, widths = [480, 800, 1200, 1800]) => {
+  const srcset = (id, widths = [480, 800, 1200, 1800], ratio = 0, q = 75) => {
     if (!id) return "";
     if (id && typeof id === "object") return Object.entries(id.sizes || {}).map(([w, u]) => `${u} ${w}w`).join(", ");
     if (isUrl(id)) return "";
-    return widths.map((w) => `${img(id, w)} ${w}w`).join(", ");
+    return widths.map((w) => `${img(id, w, q, ratio)} ${w}w`).join(", ");
   };
 
   const destinations = pick("destinations", []);
@@ -1328,11 +1329,13 @@
       )
       .join("");
 
+    // On tall screens, crops shaped like the frame (as er_stock_crops( 'screen' ) in PHP): the same view, sharp.
+    const crop = matchMedia("(max-aspect-ratio: 2/3)").matches ? [1.5, [640, 720, 828]] : matchMedia("(max-aspect-ratio: 1/1)").matches ? [1, [768, 1024, 1366]] : null;
     bg.innerHTML = moods
       // Full-bleed backgrounds: the width the screen needs (a phone took the 1800 px files, up to 1.35 MB each).
       // Only the visible layer has a source; the others are stacked at opacity 0 and loaded all at once with it
       // (about 900 KB on a phone for one visible picture), so they wait for warm().
-      .map((m) => `<img class="moods__layer" data-layer="${m.id}" alt="" loading="lazy" decoding="async" data-src="${img(m.image, 1800, 72)}" data-srcset="${srcset(m.image, [600, 900, 1400, 1800])}" sizes="100vw" />`)
+      .map((m) => `<img class="moods__layer" data-layer="${m.id}" alt="" loading="lazy" decoding="async" data-src="${img(m.image, 1800, 72)}" data-srcset="${crop ? srcset(m.image, crop[1], crop[0], 72) : srcset(m.image, [600, 900, 1400, 1800])}" sizes="100vw" />`)
       .join("");
     const warm = (layer) => {
       if (!layer?.dataset.src) return;
@@ -1481,7 +1484,7 @@
             <span class="dest__region">${d.region}</span>
           </button>
           <article class="dest-card">
-            <img src="${img(d.image, 800)}" alt="${escapeHtml(d.name)}" loading="lazy" decoding="async" />
+            <img src="${img(d.image, 800, 75, 1.3)}" srcset="${srcset(d.image, [400, 600, 800, 1000], 1.3)}" sizes="(max-width: 480px) 80vw, 360px" alt="${escapeHtml(d.name)}" loading="lazy" decoding="async" />
             <span class="dest-card__num">${pad(i + 1)} / ${pad(destinations.length)}</span>
             <div class="dest-card__body">
               <span class="t-label" style="color:var(--sand)">${d.region}</span>
@@ -1971,7 +1974,7 @@
     const cta = x.href && (x.track || !x.url) ? `href="${escapeHtml(x.href)}" ${affAttrs(x)}` : `href="${escapeHtml(detail)}"`;
     return `<li class="card" data-tag="${escapeHtml(x.tag)}">
     <a ${media} class="media media--hover" tabindex="-1" aria-hidden="true">
-      <img src="${img(x.image, 700)}" srcset="${srcset(x.image, [420, 700]) || `${img(x.image, 420)} 420w, ${img(x.image, 700)} 700w`}" sizes="(max-width: 700px) 78vw, 330px" alt="" loading="lazy" decoding="async" />
+      <img src="${img(x.image, 800, 75, 1.15)}" srcset="${srcset(x.image, [400, 600, 800, 1000], 1.15) || `${img(x.image, 420)} 420w, ${img(x.image, 700)} 700w`}" sizes="(max-width: 700px) 78vw, 330px" alt="" loading="lazy" decoding="async" />
     </a>
     <div class="card__top">
       ${x.badge ? `<span class="chip chip--gold card__badge">${escapeHtml(x.badge)}</span>` : "<span></span>"}
@@ -2746,6 +2749,7 @@
       img.dataset.retried = "1";
       setTimeout(() => {
         if (img.srcset) img.srcset = bust(img.srcset);
+        if (img.parentElement?.tagName === "PICTURE") img.parentElement.querySelectorAll("source").forEach((s) => (s.srcset = bust(s.srcset)));
         if (img.getAttribute("src")) img.src = bust(img.getAttribute("src"));
       }, 1500);
     };

@@ -98,9 +98,18 @@ add_action( 'wp_head', static function () {
 		printf( '<link rel="preload" as="image" href="%s" imagesrcset="%s" imagesizes="100vw" fetchpriority="high" />' . "\n", esc_url( (string) $src ), esc_attr( (string) $srcset ) );
 		return;
 	}
-	$photo = er_home_stock()['hero'];
-	$url   = static fn ( $w ) => 'https://images.unsplash.com/photo-' . $photo . '?auto=format&fit=crop&w=' . $w . '&q=76';
-	printf( '<link rel="preload" as="image" href="%s" imagesrcset="%s" imagesizes="100vw" fetchpriority="high" />' . "\n", esc_url( $url( 2000 ) ), esc_attr( $url( 900 ) . ' 900w, ' . $url( 1400 ) . ' 1400w, ' . $url( 2000 ) . ' 2000w, ' . $url( 2800 ) . ' 2800w' ) );
+	// The same candidates as the hero's <picture> (front-page.php, er_stock_crops( 'screen' )), one preload per
+	// screen shape: a preload that lists other widths than the image is a second download (it was, at 390-1280 px).
+	$photo  = er_home_stock()['hero'];
+	$crops  = er_stock_crops( 'screen' );
+	$shapes = [
+		[ $crops[0][0], $crops[0][2], $crops[0][1] ],
+		[ '(min-aspect-ratio: 2001/3000) and ' . $crops[1][0], $crops[1][2], $crops[1][1] ],
+		[ '(min-aspect-ratio: 1001/1000)', [ 900, 1200, 1600, 2000, 2800 ], 0.0 ],
+	];
+	foreach ( $shapes as [ $media, $widths, $ratio ] ) {
+		printf( '<link rel="preload" as="image" href="%s" imagesrcset="%s" imagesizes="100vw" media="%s" fetchpriority="high" />' . "\n", esc_url( er_stock_url( $photo, $widths[1], $ratio ) ), esc_attr( er_stock_srcset( $photo, $widths, $ratio ) ), esc_attr( $media ) );
+	}
 }, 3 );
 
 /**

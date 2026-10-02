@@ -27,7 +27,7 @@ export function initDestinations() {
           <span class="dest__region">${d.region}</span>
         </button>
         <article class="dest-card">
-          <img src="${img(d.image, 800)}" alt="${escapeHtml(d.name)}" loading="lazy" decoding="async" />
+          <img src="${img(d.image, 800, 75, 1.3)}" srcset="${srcset(d.image, [400, 600, 800, 1000], 1.3)}" sizes="(max-width: 480px) 80vw, 360px" alt="${escapeHtml(d.name)}" loading="lazy" decoding="async" />
           <span class="dest-card__num">${pad(i + 1)} / ${pad(destinations.length)}</span>
           <div class="dest-card__body">
             <span class="t-label" style="color:var(--sand)">${d.region}</span>

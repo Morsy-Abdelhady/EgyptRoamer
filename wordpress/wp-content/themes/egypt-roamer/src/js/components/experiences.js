@@ -13,7 +13,7 @@ export const experienceCard = (x) => {
   const cta = x.href && (x.track || !x.url) ? `href="${escapeHtml(x.href)}" ${affAttrs(x)}` : `href="${escapeHtml(detail)}"`;
   return `<li class="card" data-tag="${escapeHtml(x.tag)}">
   <a ${media} class="media media--hover" tabindex="-1" aria-hidden="true">
-    <img src="${img(x.image, 700)}" srcset="${srcset(x.image, [420, 700]) || `${img(x.image, 420)} 420w, ${img(x.image, 700)} 700w`}" sizes="(max-width: 700px) 78vw, 330px" alt="" loading="lazy" decoding="async" />
+    <img src="${img(x.image, 800, 75, 1.15)}" srcset="${srcset(x.image, [400, 600, 800, 1000], 1.15) || `${img(x.image, 420)} 420w, ${img(x.image, 700)} 700w`}" sizes="(max-width: 700px) 78vw, 330px" alt="" loading="lazy" decoding="async" />
   </a>
   <div class="card__top">
     ${x.badge ? `<span class="chip chip--gold card__badge">${escapeHtml(x.badge)}</span>` : "<span></span>"}

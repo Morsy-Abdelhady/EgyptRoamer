@@ -52,15 +52,56 @@ function er_img( int $attachment_id, string $size = 'large', array $attrs = [] )
  * The prototype's photography as a stand-in until an editor sets an image in
  * the Media Library. Returns a responsive <img> for an Unsplash photo id.
  */
-function er_stock_img( string $photo_id, string $alt, array $attrs = [], array $widths = [ 900, 1400, 2000 ] ): string {
-	$url    = static fn ( $w ) => 'https://images.unsplash.com/photo-' . rawurlencode( $photo_id ) . '?auto=format&fit=crop&w=' . $w . '&q=76';
-	$srcset = implode( ', ', array_map( static fn ( $w ) => $url( $w ) . ' ' . $w . 'w', $widths ) );
+function er_stock_img( string $photo_id, string $alt, array $attrs = [], array $widths = [ 900, 1400, 2000 ], float $ratio = 0.0 ): string {
 	$attrs += [ 'sizes' => '100vw', 'loading' => 'lazy', 'decoding' => 'async' ];
-	$html   = sprintf( '<img src="%s" srcset="%s" alt="%s"', esc_url( $url( $widths[ min( 1, count( $widths ) - 1 ) ] ) ), esc_attr( $srcset ), esc_attr( $alt ) );
+	$html   = sprintf( '<img src="%s" srcset="%s" alt="%s"', esc_url( er_stock_url( $photo_id, $widths[ min( 1, count( $widths ) - 1 ) ], $ratio ) ), esc_attr( er_stock_srcset( $photo_id, $widths, $ratio ) ), esc_attr( $alt ) );
 	foreach ( $attrs as $k => $v ) {
 		$html .= sprintf( ' %s="%s"', esc_attr( $k ), esc_attr( (string) $v ) );
 	}
 	return $html . ' />';
+}
+
+/**
+ * Unsplash URL. With $ratio (height ÷ width) Unsplash crops the photo to that shape, centred like the CSS
+ * (object-fit: cover, centred). A landscape photo in a tall frame then arrives with the pixels the frame
+ * shows, instead of a wide file of which a third is visible, stretched (a phone hero was upscaled 3×).
+ */
+function er_stock_url( string $photo_id, int $w, float $ratio = 0.0 ): string {
+	return 'https://images.unsplash.com/photo-' . rawurlencode( $photo_id ) . '?auto=format&fit=crop&w=' . $w . ( $ratio > 0 ? '&h=' . (int) round( $w * $ratio ) : '' ) . '&q=76';
+}
+
+function er_stock_srcset( string $photo_id, array $widths, float $ratio = 0.0 ): string {
+	return implode( ', ', array_map( static fn ( $w ) => er_stock_url( $photo_id, (int) $w, $ratio ) . ' ' . $w . 'w', $widths ) );
+}
+
+/**
+ * Crops for photos that fill a tall frame, by screen shape: [ media query, height ÷ width, widths ].
+ * Each crop is at least as wide, for its height, as any frame its query covers, so `cover` shows the same
+ * part of the photo as before (the full height, centred), only sharp.
+ *   screen: full-screen frames (homepage scenes, planner); hero: page heroes (wider than the screen).
+ * Widths stop at 828 / 1366: a 3× phone gets ~2× detail (it got under 1× before) without a heavier page.
+ */
+function er_stock_crops( string $kind ): array {
+	return [
+		'screen' => [
+			[ '(max-aspect-ratio: 2/3)', 1.5, [ 640, 720, 828 ] ],
+			[ '(max-aspect-ratio: 1/1)', 1.0, [ 768, 1024, 1366 ] ],
+		],
+		'hero'   => [
+			[ '(max-width: 480px)', 1.2, [ 640, 900, 1200 ] ],
+			[ '(max-width: 900px)', 0.8, [ 768, 1024, 1536, 1800 ] ],
+		],
+	][ $kind ] ?? [];
+}
+
+/** er_stock_img() inside a <picture> whose sources serve the crops of er_stock_crops( $kind ). */
+function er_stock_picture( string $photo_id, string $alt, array $attrs, array $widths, string $kind ): string {
+	$sizes   = (string) ( $attrs['sizes'] ?? '100vw' );
+	$sources = '';
+	foreach ( er_stock_crops( $kind ) as [ $media, $ratio, $crop_widths ] ) {
+		$sources .= sprintf( '<source media="%s" srcset="%s" sizes="%s" />', esc_attr( $media ), esc_attr( er_stock_srcset( $photo_id, $crop_widths, $ratio ) ), esc_attr( $sizes ) );
+	}
+	return '<picture class="er-pic">' . $sources . er_stock_img( $photo_id, $alt, $attrs, $widths ) . '</picture>';
 }
 
 /** Post image: featured image, else the approved stock stand-in its seed entry names, else nothing. */
@@ -70,7 +111,8 @@ function er_post_img( int $post_id, string $size = 'er-card', array $attrs = [] 
 		return er_img( (int) $thumb, $size, $attrs );
 	}
 	$stock = function_exists( 'er_stock_id_for' ) ? er_stock_id_for( $post_id ) : '';
-	return $stock ? er_stock_img( $stock, (string) ( $attrs['alt'] ?? '' ), array_diff_key( $attrs, [ 'alt' => 1 ] ), [ 480, 720, 960 ] ) : '';
+	// Cards are 4:4.6 portrait frames: crop to that shape, so a 2× screen gets a sharp card (it got 0.6× before).
+	return $stock ? er_stock_img( $stock, (string) ( $attrs['alt'] ?? '' ), array_diff_key( $attrs, [ 'alt' => 1 ] ), [ 400, 600, 800, 1000 ], 1.15 ) : '';
 }
 
 /**
@@ -397,7 +439,7 @@ function er_page_hero( array $args ): void {
 		$media = er_img( (int) $args['image'], 'er-hero', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw', 'alt' => '' ] );
 	} elseif ( $args['stock'] ) {
 		// Widths up to the common desktop sizes, so a 1440px screen takes 1600, not 2000 (−30% bytes).
-		$media = er_stock_img( (string) $args['stock'], '', [ 'loading' => 'eager', 'fetchpriority' => 'high' ], [ 640, 960, 1280, 1600, 2000, 2560 ] );
+		$media = er_stock_picture( (string) $args['stock'], '', [ 'loading' => 'eager', 'fetchpriority' => 'high' ], [ 640, 960, 1280, 1600, 2000, 2560 ], 'hero' );
 	}
 	?>
 	<div class="page-hero on-dark<?php echo $media ? ' page-hero--image' : ''; ?>">

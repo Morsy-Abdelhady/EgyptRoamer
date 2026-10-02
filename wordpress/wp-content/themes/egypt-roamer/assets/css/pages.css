@@ -1949,3 +1949,23 @@ html:lang(zh) {
     transform: none;
   }
 }
+
+/* ---------- Shaped photo crops (2026-10-02) ----------
+   Full-bleed stock photos sit in a <picture> whose sources serve a crop shaped like the frame on tall screens
+   (er_stock_picture()). The wrapper takes no box, so the image keeps the frame's layout rules. */
+.er-pic {
+  display: contents;
+}
+
+/* ---------- Phone destination cards on pale photos (2026-10-02) ----------
+   The shade covered the lower 65 % only, so the gold region label sat on the bare sky: on Cairo's pale haze it
+   all but vanished. A steadier shade up to the top and a soft shadow keep the text legible; the photo still
+   reads, as on the phone page heroes (1.2.32). */
+@media (max-width: 900px) {
+  .dest-card::before {
+    background: linear-gradient(to top, color-mix(in srgb, var(--charcoal) 88%, transparent), color-mix(in srgb, var(--charcoal) 45%, transparent) 70%, color-mix(in srgb, var(--charcoal) 25%, transparent));
+  }
+  .dest-card__body {
+    text-shadow: 0 1px 12px color-mix(in srgb, var(--ink) 55%, transparent);
+  }
+}

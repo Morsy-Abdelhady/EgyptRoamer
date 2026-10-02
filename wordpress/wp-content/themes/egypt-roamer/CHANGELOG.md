@@ -2,6 +2,18 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.33 — 2026-10-02: honest copy, sharp photos, lighter Arabic fonts
+- **Copy that matched what the site can do today.** No partner offers are live, so the homepage no longer says visitors can "book it all" or that experiences are "bookable with our partners". It now reads: "Discover and plan the best experiences in Egypt — all in one place." (hero and homepage description), "1 place to discover & plan it all", and "Handpicked by our editors, with the practical details to plan them." "Hover a place to step inside it" (meaningless on a phone) is now "Choose a place to step inside it." Applied in all 8 languages. Partner-only wording ("Book with our partners", the finder) still only shows when an offer is live.
+- **Sharp photos on phones, tablets and Retina screens, at the same weight.** Landscape photos sit in tall frames (`object-fit: cover`), so a phone was sent a 1200 px landscape file of which a third is visible, stretched about 3× (cards on a 2× laptop got 0.6× of the pixels they show). Unsplash now crops each photo to the frame's shape (`w` + `h` + `fit=crop`, centred like the CSS):
+  - full-screen homepage scenes, planner and moods: 2:3 on phones, 1:1 on portrait tablets (`<picture>` sources, `er_stock_picture()`);
+  - page heroes: their own phone and tablet shapes;
+  - cards: 4:4.6, the card frame; phone destination cards: 1:1.3.
+
+  Each crop is at least as wide, for its height, as any frame it serves, so the same part of the photo shows (verified on screenshots). On a 390 px iPhone the homepage photos weigh 379 KB instead of 470 KB.
+- **The homepage hero no longer downloads twice.** The preload listed other widths than the image (900/1400/2000/2800 vs 900/1200/1600/2000/2800), so phones, tablets and 1280 px laptops fetched two files. There is now one preload per screen shape, listing exactly the image's candidates.
+- **Arabic fonts 31-52 % smaller, pixel-identical.** IBM Plex Sans Arabic and Noto Naskh Arabic are cut to the basic Arabic block (U+0600-06FF: every letter, mark and digit, Persian letters included) with every shaping feature kept. Rendered pixel-identical on all 256 code points and 66,000 characters of the site's Arabic text in all 7 weights. The Arabic first view loads about 85 KB less. The Plex subset is renamed "ER Sans Arabic" inside the file, as the font licence (OFL, Reserved Font Name) asks for modified versions.
+- **Phone destination cards on pale photos:** the region label sat on the bare sky (Cairo's haze). A steadier shade and a soft text shadow fix it, as on the phone page heroes.
+
 ## 1.2.32 — 2026-10-02
 - **Inner-page heroes on phones stay readable on pale photos.** The shade faded out a third of the way down the hero, where the eyebrow and the title sit on a phone, so the gold eyebrow on the White Desert photo was nearly invisible. There is now a steadier shade plus a soft shadow under the text. Desktop is unchanged.
 

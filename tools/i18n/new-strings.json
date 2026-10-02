@@ -146,14 +146,14 @@
    "实用须知",
    "معلومات مفيدة"
   ],
-  "Handpicked by our editors, bookable with our partners.": [
-   "Von unserer Redaktion ausgewählt, bei unseren Partnern buchbar.",
-   "Sélectionnées par notre rédaction, réservables auprès de nos partenaires.",
-   "Scelte dalla nostra redazione, prenotabili con i nostri partner.",
-   "Elegidas por nuestra redacción, reservables con nuestros socios.",
-   "Отобраны нашей редакцией, бронируются у наших партнёров.",
-   "由编辑精选，可通过合作伙伴预订。",
-   "اختارها محررونا، ويمكن حجزها عبر شركائنا."
+  "Handpicked by our editors, with the practical details to plan them.": [
+   "Von unserer Redaktion ausgewählt, mit den praktischen Details für Ihre Planung.",
+   "Sélectionnées par notre rédaction, avec les détails pratiques pour les planifier.",
+   "Scelte dalla nostra redazione, con i dettagli pratici per pianificarle.",
+   "Elegidas por nuestra redacción, con los detalles prácticos para planearlas.",
+   "Отобраны нашей редакцией — с практическими деталями для планирования.",
+   "由编辑精选，并附上规划所需的实用信息。",
+   "اختارها محررونا، مع التفاصيل العملية للتخطيط لها."
   ],
   "Highlights": [
    "Highlights",
@@ -1027,6 +1027,33 @@
    "Здравствуйте! Я подскажу нужные страницы Egypt Roamer. Спросите о месте, поездке или впечатлении.",
    "您好！我可以为您找到 Egypt Roamer 上的相关页面。请询问某个地点、行程或体验。",
    "مرحبًا! يمكنني إرشادك إلى الصفحات المناسبة على Egypt Roamer. اسأل عن مكان أو رحلة أو تجربة."
+  ],
+  "Discover and plan the best experiences in Egypt — all in one place.": [
+   "Entdecken und planen Sie die besten Erlebnisse in Ägypten — alles an einem Ort.",
+   "Découvrez et planifiez les meilleures expériences en Égypte — au même endroit.",
+   "Scopri e pianifica le migliori esperienze in Egitto — tutto in un unico posto.",
+   "Descubre y planea las mejores experiencias en Egipto — todo en un solo lugar.",
+   "Открывайте и планируйте лучшие впечатления в Египте — всё в одном месте.",
+   "在同一个地方，发现并规划埃及最好的体验。",
+   "اكتشف أفضل التجارب في مصر وخطّط لها — كل ذلك في مكان واحد."
+  ],
+  "From Cairo's thousand minarets to the silence of Siwa, every region tells its own chapter. Choose a place to step inside it.": [
+   "Von Kairos tausend Minaretten bis zur Stille von Siwa — jede Region erzählt ihr eigenes Kapitel. Wählen Sie einen Ort, um einzutreten.",
+   "Des mille minarets du Caire au silence de Siwa, chaque région écrit son propre chapitre. Choisissez un lieu pour y entrer.",
+   "Dai mille minareti del Cairo al silenzio di Siwa, ogni regione racconta il suo capitolo. Scegli un luogo per entrarci.",
+   "De los mil minaretes de El Cairo al silencio de Siwa, cada región cuenta su propio capítulo. Elige un lugar para entrar en él.",
+   "От тысячи минаретов Каира до тишины Сивы — у каждого региона своя глава. Выберите место, чтобы войти в него.",
+   "从开罗的千座宣礼塔到锡瓦的寂静，每个地区都有自己的篇章。选择一个地方，走进它。",
+   "من مآذن القاهرة الألف إلى سكون سيوة، لكل منطقة فصلها الخاص. اختر أي مكان لتدخله."
+  ],
+  "place to discover & plan it all": [
+   "Ort, um alles zu entdecken & zu planen",
+   "seul endroit pour tout découvrir et planifier",
+   "posto per scoprire e pianificare tutto",
+   "lugar para descubrirlo y planearlo todo",
+   "место, чтобы всё найти и спланировать",
+   "站式发现与规划",
+   "مكان واحد لاكتشاف كل شيء والتخطيط له"
   ]
  }
 }
