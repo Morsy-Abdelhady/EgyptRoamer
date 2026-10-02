@@ -2,10 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.24 — 2026-10-02
+- **The mood section's background photos fit the screen.** They were requested at a fixed 1800 px on every device: up to 1.35 MB each, about 2 MB that phones didn't need (PageSpeed, "Improve image delivery"). They now have a responsive `srcset` (600–1800 px, `sizes="100vw"`): a phone takes the 900 px versions, and desktop is unchanged.
+
 ## 1.2.23 — 2026-10-02
 - **The stale-page check waits for the first paint and runs at low priority.** PageSpeed listed its request on the homepage's critical path (452 ms). It decides whether to reload a stale copy, never what is drawn, so it no longer competes with the first view. `stale-html.mjs` 7/7.
 - **Every face the homepage's first view draws is preloaded** (Latin: 6; Cyrillic: 6; Arabic: 5), not just two. The rest were found only after the stylesheet arrived. Local mobile FCP 2.29 → 1.63 s.
-- The phone hero text settles in like the title (drawn from the first frame). In Arabic it is the largest element on screen, and its fade from transparent made it a later LCP. The homepage launcher on phones waits for its first placement instead of flashing next to the play button.
 
 ## 1.2.22 — 2026-10-02
 **Phones: content-first homepage.** Desktop is unchanged; it keeps the cinematic intro. Before this, phone visitors saw nothing but the loader until the intro's 1.3 s hold, the hero photo, every font and ~86 KB of homepage JavaScript had finished. PageSpeed measured 3.2 s of "render delay" on the hero text (`docs/PERFORMANCE-2026-10-02.md`).
@@ -16,6 +18,7 @@ Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.ph
   The brand mark stays in the header. `hero.js` hands over at once on these widths. Reduced motion: no movement.
 - **Homepage scripts on phones run after the first view is painted.** GSAP, ScrollTrigger, Lenis, the language file and the homepage bundle wait for the first contentful paint and the first-view fonts (at most 2 s). They were deferred scripts that ran before anything was shown. They still download early (`preload`); on desktop they run as before. Without them the page stays the static, stacked fallback.
 - **The journey's pin spacer is part of the markup** (`.journey__spacer`). ScrollTrigger used to re-parent the stage when pinning, and Chrome then reported the Arabic hero title a second time as a new, later Largest Contentful Paint.
+- The phone hero text settles in like the title (drawn from the first frame). In Arabic it is the largest element on screen, and its fade from transparent made it a later LCP. The homepage launcher on phones waits for its first placement instead of flashing next to the play button.
 - **Logos download only where they show.** The full logo isn't downloaded on phones, the mark isn't downloaded on wider screens, and the loader logo isn't downloaded on phones (`<picture>` with a 1 px source for the hidden breakpoint). The light-background variants load lazily and are fetched after page load, so the header never shows an empty logo when it turns light. Phones save ~71 KB before the first paint.
 
 ## 1.2.21 — 2026-10-02

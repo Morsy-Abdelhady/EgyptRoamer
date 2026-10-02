@@ -1292,7 +1292,7 @@
      section, swaps imagery and updates recommendations. */
   const { t, isRTL } = __m["i18n.js"];
   const { $, $$, icon, escapeHtml, priceOf, affAttrs, emit } = __m["utils.js"];
-  const { moods, destinations, img } = __m["data.js"];
+  const { moods, destinations, img, srcset } = __m["data.js"];
   const { saveButton, refreshSaveButtons } = __m["components/favorites.js"];
 
   const ringSvg = `<svg class="mood__ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48"/><circle cx="50" cy="50" r="48"/></svg>`;
@@ -1329,7 +1329,8 @@
       .join("");
 
     bg.innerHTML = moods
-      .map((m) => `<img class="moods__layer" data-layer="${m.id}" alt="" loading="lazy" decoding="async" src="${img(m.image, 1800, 72)}" />`)
+      // Full-bleed backgrounds: the width the screen needs (a phone took the 1800 px files, up to 1.35 MB each)
+      .map((m) => `<img class="moods__layer" data-layer="${m.id}" alt="" loading="lazy" decoding="async" src="${img(m.image, 1800, 72)}" srcset="${srcset(m.image, [600, 900, 1400, 1800])}" sizes="100vw" />`)
       .join("");
 
     let current = null;
