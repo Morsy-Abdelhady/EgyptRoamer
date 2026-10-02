@@ -1329,9 +1329,27 @@
       .join("");
 
     bg.innerHTML = moods
-      // Full-bleed backgrounds: the width the screen needs (a phone took the 1800 px files, up to 1.35 MB each)
-      .map((m) => `<img class="moods__layer" data-layer="${m.id}" alt="" loading="lazy" decoding="async" src="${img(m.image, 1800, 72)}" srcset="${srcset(m.image, [600, 900, 1400, 1800])}" sizes="100vw" />`)
+      // Full-bleed backgrounds: the width the screen needs (a phone took the 1800 px files, up to 1.35 MB each).
+      // Only the visible layer has a source; the others are stacked at opacity 0 and loaded all at once with it
+      // (about 900 KB on a phone for one visible picture), so they wait for warm().
+      .map((m) => `<img class="moods__layer" data-layer="${m.id}" alt="" loading="lazy" decoding="async" data-src="${img(m.image, 1800, 72)}" data-srcset="${srcset(m.image, [600, 900, 1400, 1800])}" sizes="100vw" />`)
       .join("");
+    const warm = (layer) => {
+      if (!layer?.dataset.src) return;
+      layer.srcset = layer.dataset.srcset;
+      layer.src = layer.dataset.src;
+      delete layer.dataset.src;
+    };
+    const warmAll = () => $$(".moods__layer", bg).forEach(warm);
+    // The other moods are fetched when the visitor reaches for the dial (touch, focus) or, on a desktop, when the
+    // section comes near the screen — so a hover preview has its picture ready.
+    ["pointerdown", "focusin"].forEach((ev) => list.addEventListener(ev, warmAll, { once: true }));
+    if (matchMedia("(min-width: 901px)").matches && "IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { io.disconnect(); warmAll(); }
+      }, { rootMargin: "400px 0px" });
+      io.observe(section);
+    }
 
     let current = null;
     let swapTimer;
@@ -1343,7 +1361,13 @@
       current = id;
 
       $$(".mood", list).forEach((b) => b.setAttribute("aria-selected", String(b.dataset.mood === id)));
-      $$(".moods__layer", bg).forEach((l) => l.classList.toggle("is-on", l.dataset.layer === id));
+      // Keep the previous picture until the new one is decoded (no dark flash while it downloads).
+      const layer = $(`.moods__layer[data-layer="${id}"]`, bg);
+      const fresh = Boolean(layer?.dataset.src);
+      warm(layer);
+      const show = () => { if (current === id) $$(".moods__layer", bg).forEach((l) => l.classList.toggle("is-on", l === layer)); };
+      if (!fresh || !$(".moods__layer.is-on", bg) || !layer.decode) show();
+      else Promise.race([layer.decode(), new Promise((r) => setTimeout(r, 1500))]).then(show, show);
       section.style.setProperty("--mood", m.tint);
       document.documentElement.style.setProperty("--mood", m.tint);
 
@@ -2448,7 +2472,10 @@
         if (!avail) return;
         ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
         const ls = parseFloat(cs.letterSpacing) || 0;
-        const widest = Math.max(...el.textContent.split(/\s+/).filter(Boolean).map((w) => ctx.measureText(w).width + ls * w.length));
+        // Chinese (and other CJK) text may break between any two characters: each is its own unit, or a whole
+        // title with no spaces counts as one "word" and is shrunk to a single line.
+        const words = el.textContent.split(/\s+/).flatMap((w) => w.match(/[⺀-鿿가-힯豈-﫿＀-￯]|[^⺀-鿿가-힯豈-﫿＀-￯]+/g) || []);
+        const widest = Math.max(...words.map((w) => ctx.measureText(w).width + ls * w.length));
         if (widest > avail) el.style.fontSize = `${Math.floor((parseFloat(cs.fontSize) * avail * 0.97) / widest)}px`;
       });
     };
@@ -2548,6 +2575,17 @@
       s.async = true;
       document.head.appendChild(s);
     };
+    // A "Chat with Egypt Roamer" button outside the drawer (experience pages without an offer): open the drawer,
+    // then the team-chat form once the assistant script has wired it.
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest("[data-assistant-chat]")) return;
+      const t0 = Date.now();
+      const go = () => {
+        if (window.__erAssistant) $("[data-chat-open]", root)?.click();
+        else if (Date.now() - t0 < 8000) setTimeout(go, 100);
+      };
+      setTimeout(go, 120);
+    });
     on("overlay:open", (id) => {
       if (id !== "assistant") return;
       load();

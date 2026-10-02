@@ -49,4 +49,16 @@ export function initSectionNav() {
   );
   window.addEventListener("resize", update);
   update();
+
+  // A soft fade on the side that has more tabs, so a tab cut by the edge reads as "scroll for more"
+  // (physical sides from the tabs' positions, so the same code serves Arabic).
+  const edges = () => {
+    const br = list.getBoundingClientRect();
+    const rs = links.map((l) => l.getBoundingClientRect());
+    list.toggleAttribute("data-more-left", Math.min(...rs.map((r) => r.left)) < br.left - 1);
+    list.toggleAttribute("data-more-right", Math.max(...rs.map((r) => r.right)) > br.right + 1);
+  };
+  list.addEventListener("scroll", () => requestAnimationFrame(edges), { passive: true });
+  window.addEventListener("resize", edges);
+  edges();
 }

@@ -47,6 +47,31 @@ if ( $er_offers ) :
 		<?php er_disclosure(); ?>
 	</div>
 	<?php
+else :
+	// No live offer: the page used to end at the facts, with no next step. Offer the team chat (or the
+	// assistant) and the trip planner, in strings every language already has.
+	$er_help_mode = function_exists( 'er_assistant_mode' ) ? er_assistant_mode() : 'off';
+	$er_help_chat = 'off' !== $er_help_mode && function_exists( 'er_chat_enabled' ) && er_chat_enabled();
+	$er_help_plan = (bool) er_home( 'planner_enabled' );
+	if ( 'off' !== $er_help_mode || $er_help_plan ) :
+		?>
+		<div class="offer-box offer-box--help">
+			<?php if ( $er_help_chat ) : ?>
+				<p><b><?php er_e( 'Need personal help?' ); ?></b> <?php er_e( 'Have a question? Talk to our team.' ); ?></p>
+			<?php endif; ?>
+			<div class="offer-box__actions">
+				<?php if ( $er_help_chat ) : ?>
+					<button type="button" class="btn btn--outline btn--sm" data-open="assistant" data-assistant-chat aria-haspopup="dialog" aria-controls="assistant"><?php er_e( 'Chat with Egypt Roamer' ); ?></button>
+				<?php elseif ( 'off' !== $er_help_mode ) : ?>
+					<button type="button" class="btn btn--outline btn--sm" data-open="assistant" aria-haspopup="dialog" aria-controls="assistant"><?php echo er_icon( 'i-sparkle', 'icon--sm' ); // phpcs:ignore WordPress.Security.EscapeOutput ?> <?php er_e( 'Trip assistant' ); ?></button>
+				<?php endif; ?>
+				<?php if ( $er_help_plan ) : ?>
+					<a class="btn btn--primary btn--sm" href="<?php echo esc_url( er_home_url() . '#planner' ); ?>"><?php er_e( 'Plan My Trip' ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
+				<?php endif; ?>
+			</div>
+		</div>
+		<?php
+	endif;
 endif;
 $er_aside = trim( (string) ob_get_clean() );
 

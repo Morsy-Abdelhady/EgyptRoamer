@@ -861,6 +861,18 @@
     );
     window.addEventListener("resize", update);
     update();
+
+    // A soft fade on the side that has more tabs, so a tab cut by the edge reads as "scroll for more"
+    // (physical sides from the tabs' positions, so the same code serves Arabic).
+    const edges = () => {
+      const br = list.getBoundingClientRect();
+      const rs = links.map((l) => l.getBoundingClientRect());
+      list.toggleAttribute("data-more-left", Math.min(...rs.map((r) => r.left)) < br.left - 1);
+      list.toggleAttribute("data-more-right", Math.max(...rs.map((r) => r.right)) > br.right + 1);
+    };
+    list.addEventListener("scroll", () => requestAnimationFrame(edges), { passive: true });
+    window.addEventListener("resize", edges);
+    edges();
   }
   return { initSectionNav };
   })();
@@ -950,6 +962,17 @@
       s.async = true;
       document.head.appendChild(s);
     };
+    // A "Chat with Egypt Roamer" button outside the drawer (experience pages without an offer): open the drawer,
+    // then the team-chat form once the assistant script has wired it.
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest("[data-assistant-chat]")) return;
+      const t0 = Date.now();
+      const go = () => {
+        if (window.__erAssistant) $("[data-chat-open]", root)?.click();
+        else if (Date.now() - t0 < 8000) setTimeout(go, 100);
+      };
+      setTimeout(go, 120);
+    });
     on("overlay:open", (id) => {
       if (id !== "assistant") return;
       load();
@@ -1032,7 +1055,10 @@
         if (!avail) return;
         ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
         const ls = parseFloat(cs.letterSpacing) || 0;
-        const widest = Math.max(...el.textContent.split(/\s+/).filter(Boolean).map((w) => ctx.measureText(w).width + ls * w.length));
+        // Chinese (and other CJK) text may break between any two characters: each is its own unit, or a whole
+        // title with no spaces counts as one "word" and is shrunk to a single line.
+        const words = el.textContent.split(/\s+/).flatMap((w) => w.match(/[⺀-鿿가-힯豈-﫿＀-￯]|[^⺀-鿿가-힯豈-﫿＀-￯]+/g) || []);
+        const widest = Math.max(...words.map((w) => ctx.measureText(w).width + ls * w.length));
         if (widest > avail) el.style.fontSize = `${Math.floor((parseFloat(cs.fontSize) * avail * 0.97) / widest)}px`;
       });
     };

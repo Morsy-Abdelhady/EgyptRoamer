@@ -82,6 +82,17 @@ export function initAssistantLoader() {
     s.async = true;
     document.head.appendChild(s);
   };
+  // A "Chat with Egypt Roamer" button outside the drawer (experience pages without an offer): open the drawer,
+  // then the team-chat form once the assistant script has wired it.
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest("[data-assistant-chat]")) return;
+    const t0 = Date.now();
+    const go = () => {
+      if (window.__erAssistant) $("[data-chat-open]", root)?.click();
+      else if (Date.now() - t0 < 8000) setTimeout(go, 100);
+    };
+    setTimeout(go, 120);
+  });
   on("overlay:open", (id) => {
     if (id !== "assistant") return;
     load();

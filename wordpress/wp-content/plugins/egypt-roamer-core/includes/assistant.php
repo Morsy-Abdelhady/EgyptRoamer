@@ -164,7 +164,9 @@ function er_assistant_stopwords(): array {
 			. 'les des une pour avec quoi quand comment qui est sont que dans sur par mon nos vous est-ce quel quelle meilleur '
 			. 'gli delle della con per che cosa quando come chi sono una dove nel nella quale migliore '
 			. 'los las una para con qué que cuándo cuando cómo como quién son del por dónde donde cuál mejor '
-			. 'как что где когда кто это для или при над под все мне нам вам лучшее лучше какой какая' ) );
+			. 'как что где когда кто это для или при над под все мне нам вам лучшее лучше какой какая '
+			// Arabic question words (the English list's "when where how best time visit" and the like)
+			. 'متى أين كيف ماذا لماذا هل أفضل افضل وقت الوقت زيارة لزيارة أزور يمكن أريد اريد هذا هذه التي الذي' ) );
 	}
 	return $words;
 }
@@ -213,6 +215,14 @@ function er_assistant_find( string $q, string $lang, int $limit = 4 ): array {
 		if ( str_starts_with( $t, 'ال' ) && mb_strlen( $t ) > 4 ) {
 			$variants[] = mb_substr( $t, 2 );
 		}
+		// Latin words also by their stem, so spelling and inflection meet ("snorkeling" found nothing on pages
+		// that say "snorkelling"). Stems under 5 letters are not used ("diving" → "div" would match "individual").
+		if ( preg_match( '/^\p{Latin}+$/u', $t ) ) {
+			$stem = (string) preg_replace( '/(ings?|ers?|ed|es|s)$/u', '', $t );
+			if ( $stem !== $t && mb_strlen( $stem ) >= 5 ) {
+				$variants[] = $stem;
+			}
+		}
 		$df = 0;
 		foreach ( $docs as [ $title, $sum, $body ] ) {
 			foreach ( $variants as $v ) {
@@ -233,14 +243,18 @@ function er_assistant_find( string $q, string $lang, int $limit = 4 ): array {
 		$matched = 0;
 		$inTitle = false;
 		foreach ( $weighted as [ $variants, $w ] ) {
+			// The best-scoring variant (a stem in the title beats the plain word in the body).
+			$best_hit = 0;
 			foreach ( $variants as $v ) {
 				$hit = ( str_contains( $title, $v ) ? 12 : 0 ) + ( str_contains( $sum, $v ) ? 4 : 0 ) + min( 5, substr_count( $body, $v ) );
-				if ( $hit ) {
-					$score  += $hit * $w;
-					$inTitle = $inTitle || str_contains( $title, $v );
-					$matched++;
-					break;
+				if ( $hit > $best_hit ) {
+					$best_hit = $hit;
+					$inTitle  = $inTitle || str_contains( $title, $v );
 				}
+			}
+			if ( $best_hit ) {
+				$score += $best_hit * $w;
+				$matched++;
 			}
 		}
 		// More than half of the question's words must be on the page, or half with one in its title

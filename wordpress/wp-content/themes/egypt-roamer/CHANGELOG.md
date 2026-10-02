@@ -2,6 +2,14 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.30 — 2026-10-02 (with Core 1.2.19): post-launch improvements
+- **Mood section on phones: one background picture instead of seven.** The hidden mood layers (one was 457 KB) loaded with the visible one, about 900 KB on a phone. Now only the visible one loads. The others load when the dial is touched or focused, or on a desktop when the section nears the screen. A new mood's picture replaces the old one only once it is decoded (no dark flash).
+- **Scene images: closer srcset steps** (1200/1600/1800 px added), so a 1440 px desktop no longer receives 2,000–2,400 px files. The sharpness of what is shown is unchanged.
+- **Section tabs:** a soft fade on the side that has more tabs, instead of a label cut mid-word. A tab reached with the keyboard stops clear of the fade, and the fade follows the reading side in Arabic.
+- **Experience pages with no live offer end with a next step:** "Need personal help?", which opens the team chat (or the Trip assistant), plus Plan My Trip. All the strings are already translated in every language.
+- **Chinese page titles at full size:** the title fitting treated a Chinese title (no spaces) as one unbreakable word and shrank it (48 → about 30 px on phones). Each CJK character is now its own unit.
+- **Logged-in editors:** the sticky section tabs no longer slide under the WordPress toolbar.
+
 ## 1.2.29 — 2026-10-02 (with Core 1.2.18): SEO workstream
 - **Homepage title states the search intent:** "Egypt – Travel Guide – Egypt Roamer", in every language from approved strings ("مصر – دليل السفر", "Ägypten – Reiseführer" …). The slogan stays in the hero and the description.
 - **Long titles drop the brand suffix** instead of being cut in search results at about 60 characters. The site name shows separately there.

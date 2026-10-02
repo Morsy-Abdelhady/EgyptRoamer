@@ -48,7 +48,7 @@ $er_scene_img = static function ( int $n, string $class, array $extra = [] ) use
 		return er_img( $id, 'er-hero', $attrs );
 	}
 	$photo = [ 1 => $er_stock['hero'], 2 => $er_stock['scene2'], 3 => $er_stock['scene3'], 4 => $er_stock['scene4'] ][ $n ];
-	return er_stock_img( $photo, er_t( $alts[ $n ] ), $attrs, 3 === $n ? [ 1000, 2400, 3200 ] : [ 900, 1400, 2000, 2800 ] );
+	return er_stock_img( $photo, er_t( $alts[ $n ] ), $attrs, 3 === $n ? [ 1000, 1400, 1800, 2400, 3200 ] : [ 900, 1200, 1600, 2000, 2800 ] ); // steps close enough that a 1440 px desktop is not sent a 2400 px file
 };
 
 /** "Roamer pick" — only for a live offer; price only if verified. */
@@ -118,7 +118,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 					<?php echo $er_scene_img( 1, 'scene__img scene__img--a' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 					<?php
 					$er_b = (int) er_home( 'hero_image_b' );
-					echo $er_b ? er_img( $er_b, 'er-hero', [ 'class' => 'scene__img scene__img--b', 'sizes' => '100vw', 'alt' => '', 'fetchpriority' => 'low' ] ) : er_stock_img( $er_stock['hero_b'], '', [ 'class' => 'scene__img scene__img--b', 'fetchpriority' => 'low' ], [ 900, 2000 ] ); // phpcs:ignore WordPress.Security.EscapeOutput
+					echo $er_b ? er_img( $er_b, 'er-hero', [ 'class' => 'scene__img scene__img--b', 'sizes' => '100vw', 'alt' => '', 'fetchpriority' => 'low' ] ) : er_stock_img( $er_stock['hero_b'], '', [ 'class' => 'scene__img scene__img--b', 'fetchpriority' => 'low' ], [ 900, 1200, 1600, 2000 ] ); // phpcs:ignore WordPress.Security.EscapeOutput
 					?>
 				</div>
 				<div class="scene__sun" aria-hidden="true"></div>
@@ -454,7 +454,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 		?>
 		<section class="planner on-dark" id="planner" aria-labelledby="planner-title">
 			<div class="planner__bg" aria-hidden="true">
-				<?php echo $er_plan_img ? er_img( $er_plan_img, 'er-hero', [ 'alt' => '', 'sizes' => '100vw' ] ) : er_stock_img( $er_stock['planner'], '', [], [ 1200, 2000 ] ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+				<?php echo $er_plan_img ? er_img( $er_plan_img, 'er-hero', [ 'alt' => '', 'sizes' => '100vw' ] ) : er_stock_img( $er_stock['planner'], '', [], [ 900, 1200, 1600, 2000 ] ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			</div>
 			<div class="container planner__inner">
 				<header class="planner__head">

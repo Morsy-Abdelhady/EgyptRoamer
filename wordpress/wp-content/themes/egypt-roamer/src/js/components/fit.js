@@ -59,7 +59,10 @@ export function initWordFit() {
       if (!avail) return;
       ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
       const ls = parseFloat(cs.letterSpacing) || 0;
-      const widest = Math.max(...el.textContent.split(/\s+/).filter(Boolean).map((w) => ctx.measureText(w).width + ls * w.length));
+      // Chinese (and other CJK) text may break between any two characters: each is its own unit, or a whole
+      // title with no spaces counts as one "word" and is shrunk to a single line.
+      const words = el.textContent.split(/\s+/).flatMap((w) => w.match(/[⺀-鿿가-힯豈-﫿＀-￯]|[^⺀-鿿가-힯豈-﫿＀-￯]+/g) || []);
+      const widest = Math.max(...words.map((w) => ctx.measureText(w).width + ls * w.length));
       if (widest > avail) el.style.fontSize = `${Math.floor((parseFloat(cs.fontSize) * avail * 0.97) / widest)}px`;
     });
   };
