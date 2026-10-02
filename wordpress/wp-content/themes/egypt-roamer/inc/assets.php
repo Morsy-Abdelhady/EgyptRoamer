@@ -91,23 +91,22 @@ add_action( 'wp_head', static function () {
 }, 3 );
 
 /**
- * The homepage's first view is drawn in these faces (the display serif and its italic, the sans in four
- * weights; per script). Preloading them starts the downloads with the stylesheet instead of after it (measured: docs/PERFORMANCE-2026-10-02.md). Faces for the page's script only; Chinese uses
- * Google's fonts, which are not preloaded.
+ * The homepage's display face (the hero word, the phone's Largest Contentful Paint) starts downloading with the
+ * stylesheet instead of after it. The other faces load from the stylesheet and swap in.
  */
 add_action( 'wp_head', static function () {
 	if ( ! is_front_page() ) {
 		return;
 	}
-	// Every face the phone's first view draws (measured: title, "Feel", hero text, labels, dock, buttons).
-	$latin = [ 'playfair-display-latin-400-normal', 'inter-latin-300-normal', 'playfair-display-latin-400-italic', 'inter-latin-500-normal', 'inter-latin-400-normal', 'inter-latin-600-normal' ];
+	// Only the hero word's display face (the Largest Contentful Paint). Measured on a throttled phone connection
+	// (docs/PERFORMANCE-2026-10-02.md §9.4): preloading every first-view face made the first paint later
+	// (en 1.7 → 2.3 s, ar 2.0 → 2.8 s), because the fonts competed with the stylesheet; the other faces swap in.
+	// Arabic and Chinese: none (their display faces are larger and the paint was earliest without).
 	$faces = [
-		// Arabic text also needs the Latin faces: the stacks start with the Latin family, so its spaces and digits
-		// are drawn (and fetched) from Inter/Playfair; without a preload they were found only after the CSS.
-		'ar' => array_merge( [ 'noto-naskh-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-300-normal', 'ibm-plex-sans-arabic-arabic-500-normal', 'ibm-plex-sans-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-600-normal' ], $latin ),
-		'ru' => [ 'playfair-display-cyrillic-400-normal', 'inter-cyrillic-300-normal', 'playfair-display-cyrillic-400-italic', 'inter-cyrillic-500-normal', 'inter-cyrillic-400-normal', 'inter-cyrillic-600-normal' ],
-		'zh' => $latin, // Chinese text takes its spaces, digits and Latin words from these (phones: system CJK)
-	][ er_lang() ] ?? $latin;
+		'ar' => [],
+		'zh' => [],
+		'ru' => [ 'playfair-display-cyrillic-400-normal' ],
+	][ er_lang() ] ?? [ 'playfair-display-latin-400-normal' ];
 	foreach ( $faces as $face ) {
 		printf( '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin />' . "\n", esc_url( ER_THEME_URI . '/assets/fonts/' . $face . '.woff2' ) );
 	}
@@ -178,7 +177,8 @@ add_action( 'wp_enqueue_scripts', static function () {
  * Their tags are kept as inert placeholders; a small runner at the end of the page starts them in order,
  * at once on desktop (the cinematic intro is unchanged); on phones (the hero's phone layout, ≤ 900 px), where
  * the hero is content-first (pages.css), once the first view is painted in its final fonts (first contentful
- * paint and document.fonts.ready; at most 2 s), so script work never delays the hero's paint. Downloads still begin early
+ * paint and document.fonts.ready; at most 2 s), so script work never delays the hero's paint. A tab opened in
+ * the background never paints: there the 2 s fallback runs them directly (no animation frame to wait for). Downloads still begin early
  * (preload in <head>), so only the moment they run moves. Without the runner (an error, or no JS) the
  * homepage still works as the stacked, static fallback.
  */
@@ -216,7 +216,7 @@ add_action( 'wp_footer', static function () {
 		return;
 	}
 	// phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript -- runs the enqueued scripts above
-	echo "<script>(function(){function run(){document.querySelectorAll('script[data-er-run]').forEach(function(p){var s=document.createElement('script');s.src=p.getAttribute('data-er-run');s.async=false;p.parentNode.replaceChild(s,p)})}if(!(window.matchMedia&&matchMedia('(max-width: 900px)').matches)){run();return}var done=false;function go(){if(done)return;done=true;requestAnimationFrame(function(){setTimeout(run,0)})}function painted(){if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go,go);else go()}try{new PerformanceObserver(function(l){if(l.getEntriesByName('first-contentful-paint').length)painted()}).observe({type:'paint',buffered:true})}catch(e){painted()}setTimeout(go,2000)})();</script>\n";
+	echo "<script>(function(){function run(){document.querySelectorAll('script[data-er-run]').forEach(function(p){var s=document.createElement('script');s.src=p.getAttribute('data-er-run');s.async=false;p.parentNode.replaceChild(s,p)})}if(!(window.matchMedia&&matchMedia('(max-width: 900px)').matches)){run();return}var done=false;function go(){if(done)return;done=true;if(document.hidden){run();return}requestAnimationFrame(function(){setTimeout(run,0)})}function painted(){if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go,go);else go()}try{new PerformanceObserver(function(l){if(l.getEntriesByName('first-contentful-paint').length)painted()}).observe({type:'paint',buffered:true})}catch(e){painted()}setTimeout(go,2000)})();</script>\n";
 }, 100 );
 
 /**

@@ -2,6 +2,15 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.28 — 2026-10-02
+- **Homepage font preloads: only the hero word's display face** (Latin/Cyrillic Playfair 400). None on Arabic and Chinese pages.
+  - Measured in a real browser on a throttled phone connection (1.6 Mbps, 4× CPU, median of 3), preloading every first-view face made the first paint later: the fonts competed with the stylesheet.
+    - English: 2.32 s with all, 1.71 s title face only.
+    - Arabic: 2.84 s with all, 2.00 s with none.
+  - Lighthouse agrees for English: local LCP 3.0 → 2.55 s.
+  - This replaces 1.2.23/1.2.25's "preload everything". The other faces load from the stylesheet and swap in.
+- **Homepage scripts in a background tab:** a tab opened in the background never paints, so the phone runner now starts the scripts from its 2 s fallback directly instead of waiting for an animation frame that only comes when the tab is shown.
+
 ## 1.2.27 — 2026-10-02
 - **Chinese pages on phones use the device's CJK font; Noto SC stays on desktop.** 1.2.26's non-blocking, `optional` copy was not enough on production. Google's font servers are fast, so in PageSpeed's unthrottled pass all ~100 Noto SC slices (several MB) finished before the first paint and were counted in it (still 15 s).
   - **Phones:** neither the 212 KB stylesheet nor its slices are fetched. A stylesheet with a non-matching media query would still be downloaded, so a one-line script adds it on screens wider than 900 px only, with a `<noscript>` fallback. Android's CJK system font is the same Noto/Source Han design.
