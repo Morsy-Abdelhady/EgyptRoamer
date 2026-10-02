@@ -2,6 +2,13 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.26 — 2026-10-02
+- **Chinese pages on phones no longer wait for Google's font stylesheet.** The Noto SC stylesheet is 212 KB (every unicode-range slice of seven faces) and was render-blocking: PageSpeed measured a **15.1 s** first paint on the Chinese homepage.
+  - **Phones (≤ 900 px):** a non-blocking copy with `display=optional`. Chinese text is drawn at once in the device's CJK font, and Noto SC is used when it is already at hand (a returning visitor's cache). With `swap`, re-laying out the page for each of ~100 slices cost 530 ms of blocking time.
+  - **Desktop:** unchanged (blocking, `swap`; the intro loader covers the load).
+  - The font host is preconnected.
+  - Local mobile: LCP 3.08 s, TBT 65 ms.
+
 ## 1.2.25 — 2026-10-02
 - **Arabic homepage: the Latin faces are preloaded too.** The font stacks start with the Latin family, so the spaces and digits inside Arabic text are drawn from (and fetch) Inter and Playfair. On production these files were found only after the stylesheet: a 1.5 s chain in PageSpeed's dependency tree. Local mobile FCP 3.43 → 1.74 s; LCP is unchanged (4.7 → 4.6 s), because it is bound by the eleven font files' bytes (see `docs/PERFORMANCE-2026-10-02.md`).
 
