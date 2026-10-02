@@ -200,3 +200,30 @@ Each run follows a GoDaddy cache flush and a warm-up request, so the run measure
     - subset the Arabic fonts (tooling + typography review);
     - on phones, the device's Arabic font, as for Chinese. That would bring Arabic close to the English 2.9 s, but changes Arabic typography on phones.
 - **Desktop:** 0.9 s LCP, Perf 96, with the cinematic intro.
+
+### 9.4 Font preloads: the lab model and a real throttled browser disagree (theme 1.2.28)
+`tools/qa/slow-first-paint.mjs` measures a real Chrome page load:
+- 390 px, DPR 2;
+- CDP network throttling at 1.6 Mbps and 150 ms RTT;
+- 4× CPU;
+- median of 3.
+
+| First paint (= LCP) | All first-view faces preloaded (1.2.23–1.2.27) | Only the title's display face | No font preload |
+|---|---|---|---|
+| English homepage | 2.32 s | **1.71 s** | 1.73 s |
+| Arabic homepage | 2.84 s | 2.24 s | **2.00 s** |
+
+On a constrained connection, preloaded fonts compete with the render-blocking stylesheet. 1.2.28 therefore preloads only the hero word's display face on Latin and Cyrillic pages, and nothing on Arabic or Chinese pages; the other faces load from the stylesheet and swap in.
+
+PageSpeed's simulation goes the other way on FCP:
+
+| Production `/` | Preloads | Perf | FCP | LCP |
+|---|---|---|---|---|
+| 1.2.23–1.2.27 (4 runs) | all 6 | 95 | 1.2–1.3 s | 2.9 s |
+| 1.2.28 (2 runs) | title face | 94 / 93 | 1.9 s | 2.9 s |
+| `/ar/` 1.2.28 | none | 78 | 3.0 s | 4.3 s |
+
+- **LCP is the same 2.9 s.** On production every font file arrives within ~230 ms, before the first paint, so PSI counts them either way.
+- **PSI's simulated FCP is worse (1.2 → 1.9 s)**, because it serialises CSS → font.
+- **We optimise for the real browser**, which is what visitors get.
+- **To revisit:** if the owner prefers the PageSpeed score, restoring the six preloads is a one-line change (`inc/assets.php`). The trade-off is a later real first paint on slow connections.

@@ -1,6 +1,6 @@
 # Launch report (2026-10-02, updated after the mobile performance work)
 
-Live: theme **1.2.27**, Core **1.2.17**, deployed, cache flushed, verified. Production indexing is **OFF**: `noindex, nofollow` on every sampled page, and `blog_public = 0` is checked by every deploy.
+Live: theme **1.2.28**, Core **1.2.17**, deployed, cache flushed, verified. Production indexing is **OFF**: `noindex, nofollow` on every sampled page, and `blog_public = 0` is checked by every deploy.
 
 **Verdict: the launch gate stays OPEN.**
 - **Mobile performance decision: implemented and measured on production.**
@@ -66,7 +66,7 @@ No further change was found that is safe without your approval:
 | Background tab | the hidden visitor tab did not poll; the reply showed as soon as it was visible |
 | Stale-page guard, both paths | **stale browser copy:** `/ar/` from build `32e86…` reloaded once into `71396…`. **Stale edge** (1.2.21 deployed, edge not flushed): `/destinations/` → one reload → `?nocache=4655bb1ffa75` → live 1.2.21 page, address bar clean |
 | Accessibility (axe) | **1.2.20:** experience page 0; Arabic homepage 1 moderate (nested landmark); destinations with the chat open 1 serious (log not focusable). **1.2.21:** destinations with the assistant open: **0**. The homepage fix shows once the edge is flushed |
-| PSI mobile (1.2.23–1.2.27, after flush and warm-up) | en: Perf 95/95/95/95, **LCP 2.9/2.9/2.9/2.9 s**, FCP 1.2–1.3 s, TBT 0, CLS 0. de: 3.2 s. zh: 3.3 s (was 15.8). ar: 4.4/4.7 s. Desktop: 0.9 s, Perf 96 |
+| PSI mobile (1.2.23–1.2.28, after flush and warm-up) | en: **LCP 2.9 s in six runs** (Perf 93–95, FCP 1.2–1.9 s, TBT 0–10 ms, CLS 0). de: 3.2 s. zh: 3.3 s (was 15.8). ar: 4.4 / 4.7 / 4.3 s. Desktop: 0.9 s, Perf 96. The FCP difference between versions is explained in PERFORMANCE §9.4 |
 
 ## B) Verified locally only
 | Item | Evidence |
