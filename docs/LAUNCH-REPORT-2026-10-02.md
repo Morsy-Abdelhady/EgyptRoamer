@@ -29,6 +29,7 @@ Detail:
 | 4 Human Chat, 8 languages | **Done locally** (169/169 + 3 stall checks). **Production:** Arabic end to end, plus English on 1 Oct |
 | 5 HTML cache | **Root cause documented; deploy check added.** The cause is the host edge's 31-day browser TTL, an owner/GoDaddy setting. The automatic flush on deploy was refused here as a production write: owner decision |
 | 6 Independent audit | **Done on production:** SEO and metadata consistency in 8 languages; axe on 3 live pages (2 issues found → fixed in 1.2.21); stale-page guard seen working twice |
+| SEO workstream (Core 1.2.18 / theme 1.2.29) | **Full audit in `SEO-AUDIT-2026-10-02.md`.** The full inventory audit, in the local launch simulation, ends with 0 errors: 176 indexable URLs, the sitemap matches them exactly, and the hreflang matrix is complete. Fixes deployed and verified on production: titles, descriptions, feeds, paged single, redirects. **Not complete yet:** the owner runs the slug fix and editorial import (§9), then the indexing switch and Search Console |
 
 ## 2. Mobile LCP: what was done and what remains
 **Before:**
