@@ -2,6 +2,9 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.32 — 2026-10-02
+- **Inner-page heroes on phones stay readable on pale photos.** The shade faded out a third of the way down the hero, where the eyebrow and the title sit on a phone, so the gold eyebrow on the White Desert photo was nearly invisible. There is now a steadier shade plus a soft shadow under the text. Desktop is unchanged.
+
 ## 1.2.31 — 2026-10-02
 - **Arabic and Chinese pages: one render-blocking stylesheet instead of three.** The Arabic `@font-face` rules (1 KB) and the RTL/CJK rules (3 KB) are printed inside the page after the bundle, in the same cascade order. PageSpeed counted 1.6 s of render blocking on the Arabic homepage on a phone. The Arabic font URLs are absolute, and both files count in the stale-page build ID.
 

@@ -1838,7 +1838,14 @@ html:lang(zh) {
   /* phones: the text spans the width; the bottom shade already carries it */
   .page-hero--image .page-hero__media::before,
   [dir="rtl"] .page-hero--image .page-hero__media::before {
-    background: linear-gradient(to top, color-mix(in srgb, var(--ink) 35%, transparent), transparent 70%);
+    /* The text spans most of the hero's height on a phone. The shade used to fade out a third of the way
+       down, where the eyebrow and the title sit, and a pale photo (the White Desert) left the gold eyebrow
+       nearly invisible. A steadier shade plus a soft shadow under the text keeps pale photos readable
+       without darkening the others much. */
+    background: linear-gradient(to top, color-mix(in srgb, var(--ink) 45%, transparent), color-mix(in srgb, var(--ink) 30%, transparent) 60%, color-mix(in srgb, var(--ink) 22%, transparent));
+  }
+  .page-hero--image .page-hero__inner {
+    text-shadow: 0 1px 14px color-mix(in srgb, var(--ink) 55%, transparent);
   }
 }
 
