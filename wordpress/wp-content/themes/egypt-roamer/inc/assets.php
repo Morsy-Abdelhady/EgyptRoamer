@@ -102,7 +102,9 @@ add_action( 'wp_head', static function () {
 	// Every face the phone's first view draws (measured: title, "Feel", hero text, labels, dock, buttons).
 	$latin = [ 'playfair-display-latin-400-normal', 'inter-latin-300-normal', 'playfair-display-latin-400-italic', 'inter-latin-500-normal', 'inter-latin-400-normal', 'inter-latin-600-normal' ];
 	$faces = [
-		'ar' => [ 'noto-naskh-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-300-normal', 'ibm-plex-sans-arabic-arabic-500-normal', 'ibm-plex-sans-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-600-normal' ],
+		// Arabic text also needs the Latin faces: the stacks start with the Latin family, so its spaces and digits
+		// are drawn (and fetched) from Inter/Playfair; without a preload they were found only after the CSS.
+		'ar' => array_merge( [ 'noto-naskh-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-300-normal', 'ibm-plex-sans-arabic-arabic-500-normal', 'ibm-plex-sans-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-600-normal' ], $latin ),
 		'ru' => [ 'playfair-display-cyrillic-400-normal', 'inter-cyrillic-300-normal', 'playfair-display-cyrillic-400-italic', 'inter-cyrillic-500-normal', 'inter-cyrillic-400-normal', 'inter-cyrillic-600-normal' ],
 		'zh' => [],
 	][ er_lang() ] ?? $latin;

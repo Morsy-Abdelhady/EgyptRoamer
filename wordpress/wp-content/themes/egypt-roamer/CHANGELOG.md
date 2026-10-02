@@ -2,6 +2,9 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.25 — 2026-10-02
+- **Arabic homepage: the Latin faces are preloaded too.** The font stacks start with the Latin family, so the spaces and digits inside Arabic text are drawn from (and fetch) Inter and Playfair. On production these files were found only after the stylesheet: a 1.5 s chain in PageSpeed's dependency tree. Local mobile FCP 3.43 → 1.74 s; LCP is unchanged (4.7 → 4.6 s), because it is bound by the eleven font files' bytes (see `docs/PERFORMANCE-2026-10-02.md`).
+
 ## 1.2.24 — 2026-10-02
 - **The mood section's background photos fit the screen.** They were requested at a fixed 1800 px on every device: up to 1.35 MB each, about 2 MB that phones didn't need (PageSpeed, "Improve image delivery"). They now have a responsive `srcset` (600–1800 px, `sizes="100vw"`): a phone takes the 900 px versions, and desktop is unchanged.
 
