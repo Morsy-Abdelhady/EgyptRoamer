@@ -290,7 +290,7 @@ jobs:
           check "Core plugin status"    "$(wp plugin get egypt-roamer-core --field=status 2>&1 | head -1)" "active"
           check "Core version (WP-CLI)" "$(wp plugin get egypt-roamer-core --field=version 2>&1 | head -1)" "$3"
           check "theme version (WP-CLI)" "$(wp theme get egypt-roamer --field=version 2>&1 | head -1)" "$4"
-          check "blog_public (indexing off until the launch gate)" "$(wp option get blog_public 2>&1 | head -1)" "0"
+          check "blog_public (site public since the 2026-10-02 launch)" "$(wp option get blog_public 2>&1 | head -1)" "1"
           exit $fail
           REMOTE
 
