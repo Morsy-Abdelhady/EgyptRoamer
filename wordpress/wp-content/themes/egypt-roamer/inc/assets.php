@@ -50,6 +50,19 @@ add_action( 'wp_enqueue_scripts', static function () {
 	if ( is_rtl() || in_array( $lang, [ 'ar', 'zh' ], true ) ) {
 		wp_enqueue_style( 'er-rtl', $css( 'rtl' ), [ 'er-pages' ], er_asset_ver( 'assets/css/rtl.css' ) );
 	}
+	// With the bundle, the two small language stylesheets (Arabic @font-face 1 KB, RTL/CJK rules 3 KB) are
+	// printed inside the page instead: on a phone each was one more render-blocking request (PageSpeed,
+	// Arabic homepage: 3 stylesheets, 1.6 s of blocking). The Arabic font URLs become absolute.
+	if ( file_exists( ER_THEME_DIR . "/assets/css/{$bundle_css}.css" ) ) {
+		foreach ( [ 'er-fonts-ar' => 'fonts-arabic', 'er-rtl' => 'rtl' ] as $handle => $name ) {
+			$file = ER_THEME_DIR . "/assets/css/{$name}.css";
+			if ( wp_style_is( $handle, 'enqueued' ) && is_readable( $file ) ) {
+				$inline = str_replace( 'url(../fonts/', 'url(' . ER_THEME_URI . '/assets/fonts/', (string) file_get_contents( $file ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+				wp_dequeue_style( $handle );
+				wp_add_inline_style( 'er-pages', $inline );
+			}
+		}
+	}
 
 	// Scripts: the language dictionary and the CMS payload run before the bundle.
 	$bundle = $home ? 'home' : 'site';
@@ -142,7 +155,7 @@ add_filter( 'er_brand_logo', static fn () => er_brand_url( 'egypt-roamer-logo-da
  */
 add_filter( 'er_build_id_parts', static function ( array $parts ): array {
 	$parts['theme']  = ER_THEME_VERSION;
-	$parts['assets'] = er_asset_ver( 'style.css' ) . '.' . er_asset_ver( 'assets/js/home.js' ) . '.' . er_asset_ver( 'assets/js/site.js' ) . '.' . er_asset_ver( 'assets/css/pages.css' ) . '.' . er_asset_ver( 'assets/css/bundle-home.css' ) . '.' . er_asset_ver( 'assets/css/bundle-site.css' );
+	$parts['assets'] = er_asset_ver( 'style.css' ) . '.' . er_asset_ver( 'assets/js/home.js' ) . '.' . er_asset_ver( 'assets/js/site.js' ) . '.' . er_asset_ver( 'assets/css/pages.css' ) . '.' . er_asset_ver( 'assets/css/bundle-home.css' ) . '.' . er_asset_ver( 'assets/css/bundle-site.css' ) . '.' . er_asset_ver( 'assets/css/rtl.css' ) . '.' . er_asset_ver( 'assets/css/fonts-arabic.css' ); // the last two are printed inside the page
 	return $parts;
 } );
 add_action( 'wp_head', static function () {

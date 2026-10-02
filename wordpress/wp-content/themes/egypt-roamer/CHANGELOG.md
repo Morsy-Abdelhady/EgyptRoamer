@@ -2,6 +2,9 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.31 — 2026-10-02
+- **Arabic and Chinese pages: one render-blocking stylesheet instead of three.** The Arabic `@font-face` rules (1 KB) and the RTL/CJK rules (3 KB) are printed inside the page after the bundle, in the same cascade order. PageSpeed counted 1.6 s of render blocking on the Arabic homepage on a phone. The Arabic font URLs are absolute, and both files count in the stale-page build ID.
+
 ## 1.2.30 — 2026-10-02 (with Core 1.2.19): post-launch improvements
 - **Mood section on phones: one background picture instead of seven.** The hidden mood layers (one was 457 KB) loaded with the visible one, about 900 KB on a phone. Now only the visible one loads. The others load when the dial is touched or focused, or on a desktop when the section nears the screen. A new mood's picture replaces the old one only once it is decoded (no dark flash).
 - **Scene images: closer srcset steps** (1200/1600/1800 px added), so a 1440 px desktop no longer receives 2,000–2,400 px files. The sharpness of what is shown is unchanged.
