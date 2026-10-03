@@ -2,6 +2,16 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.38 — 2026-10-03 (with Core 1.2.24): structured data for answer engines
+- **Destinations and experiences describe themselves as web pages with real dates.** Each indexable destination and experience now carries a `WebPage` node with:
+  - its language;
+  - the real `datePublished` and `dateModified`;
+  - the site it belongs to and its publisher (the same Organization and WebSite ids as the homepage).
+  Before, only guides exposed dates or a publisher. Theme files are unchanged apart from the version.
+- **Experiences are described as a `TouristTrip`.** It holds only what the page shows: the title, the summary, and the destinations under "Where it happens" as its itinerary, in the page's language. No offers, prices, ratings or provider: the site sells nothing.
+- **Destination data gets an `@id`.** The existing `TouristDestination` gains `@id …#place`, which the page's `about` points to. Nothing else changes.
+- The same gating as before applies: only without an SEO plugin, and only on pages ticked "Ready to index".
+
 ## 1.2.37 — 2026-10-03 (with Core 1.2.23): Experience Immersion (Abu Simbel)
 - **Experiences can open as a journey instead of a photo strip.** A reusable "Experience Immersion" section (`template-parts/experience-immersion.php`) sits between the hero and the practical detail, on the hero's dark ground:
   - the opening: a short statement and the route at a glance (Before dawn → Arrival → The first view → Inside → The highlight → The second temple → Afterwards), each a link to its stage;

@@ -280,6 +280,7 @@ add_action( 'wp_head', static function () {
 	$data = [
 		'@context'    => 'https://schema.org',
 		'@type'       => 'TouristDestination',
+		'@id'         => get_permalink( $id ) . '#place',
 		'name'        => trim( str_replace( "\u{00A0}", ' ', html_entity_decode( wp_strip_all_tags( get_the_title( $id ) ), ENT_QUOTES, 'UTF-8' ) ) ), // as the visible H1 reads
 		'url'         => get_permalink( $id ),
 		'description' => wp_strip_all_tags( get_the_excerpt( $id ) ),
@@ -296,6 +297,65 @@ add_action( 'wp_head', static function () {
 	$data['containedInPlace'] = [ '@type' => 'Country', 'name' => (string) apply_filters( 'er_country_name', 'Egypt' ) ]; // the page's language (theme)
 	echo '<script type="application/ld+json">' . wp_json_encode( array_filter( $data ), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
 }, 20 );
+
+/*
+ * Destinations and experiences: the page itself as a WebPage, with its real dates, language and publisher,
+ * so answer engines can tell who stands behind it and how fresh it is (guides carry the same in Article).
+ * An experience is also described as a TouristTrip, strictly from what the page shows: its title, its
+ * summary and the destinations listed under "Where it happens". No offers, prices or ratings: the site
+ * sells nothing, and the partners' terms are theirs.
+ */
+add_action( 'wp_head', static function () {
+	if ( er_seo_plugin_active() || ! is_singular( [ 'er_destination', 'er_experience' ] ) ) {
+		return;
+	}
+	$id = (int) get_queried_object_id();
+	if ( ! er_is_indexable( $id ) ) {
+		return;
+	}
+	$root  = home_url( '/' );
+	$url   = get_permalink( $id );
+	$name  = trim( str_replace( "\u{00A0}", ' ', html_entity_decode( wp_strip_all_tags( get_the_title( $id ) ), ENT_QUOTES, 'UTF-8' ) ) );
+	$desc  = wp_strip_all_tags( get_the_excerpt( $id ) );
+	$graph = [];
+	$about = null;
+	if ( 'er_experience' === get_post_type( $id ) ) {
+		$stops = [];
+		$dests = function_exists( 'er_get_related' ) ? (array) er_get_related( $id, '_er_destination' ) : [];
+		foreach ( $dests as $d ) {
+			$d       = get_post( $d );
+			$stops[] = $d ? [ '@type' => 'TouristDestination', 'name' => wp_strip_all_tags( get_the_title( $d ) ), 'url' => get_permalink( $d ) ] : null;
+		}
+		$stops   = array_values( array_filter( $stops ) );
+		$trip    = array_filter( [
+			'@type'       => 'TouristTrip',
+			'@id'         => $url . '#trip',
+			'name'        => $name,
+			'description' => $desc,
+			'url'         => $url,
+			'itinerary'   => $stops ? [ '@type' => 'ItemList', 'itemListElement' => array_map( static fn ( $s, $i ) => [ '@type' => 'ListItem', 'position' => $i + 1, 'item' => $s ], $stops, array_keys( $stops ) ) ] : null,
+		] );
+		$graph[] = $trip;
+		$about   = [ '@id' => $url . '#trip' ];
+	} elseif ( er_settings( 'place_schema' ) ) {
+		$about = [ '@id' => $url . '#place' ]; // the TouristDestination printed above
+	}
+	$page = array_filter( [
+		'@type'         => 'WebPage',
+		'@id'           => $url . '#webpage',
+		'url'           => $url,
+		'name'          => $name,
+		'description'   => $desc,
+		'inLanguage'    => str_replace( '_', '-', get_locale() ),
+		'datePublished' => get_post_time( DATE_W3C, true, $id ),
+		'dateModified'  => get_post_modified_time( DATE_W3C, true, $id ),
+		'isPartOf'      => [ '@type' => 'WebSite', '@id' => $root . '#website', 'url' => $root, 'name' => get_bloginfo( 'name' ) ],
+		'publisher'     => [ '@type' => 'Organization', '@id' => $root . '#organization', 'name' => get_bloginfo( 'name' ), 'url' => $root ],
+		'about'         => $about,
+	] );
+	array_unshift( $graph, $page );
+	echo '<script type="application/ld+json">' . wp_json_encode( [ '@context' => 'https://schema.org', '@graph' => $graph ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
+}, 21 );
 
 /*
  * Guides and journal articles (once published and ticked "Ready to index"): Article with the real dates.
