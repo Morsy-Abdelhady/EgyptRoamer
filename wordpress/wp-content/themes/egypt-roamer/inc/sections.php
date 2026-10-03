@@ -51,10 +51,12 @@ function er_body( array $opts = [] ): array {
 
 /**
  * The sections of er_body()'s HTML by heading anchor, in body order, for templates that place each one
- * themselves (the experience story). 'items' are the section's list items without their bold lead term
- * ("Scale." / "Scale:"), for a story stage that tells one of them.
+ * themselves (the experience story). Besides the section's HTML:
+ *   - items / terms: its first list's items without their bold lead term ("By road"), and those terms;
+ *   - paras: its own paragraphs (outside lists and callouts);
+ *   - callout: the "Plan the day"-style box (its heading and list items), when there is one.
  *
- * @return array<string,array{title:string,html:string,items:string[]}>
+ * @return array<string,array{title:string,html:string,items:string[],terms:string[],paras:string[],callout:array}>
  */
 function er_body_parts( string $html ): array {
 	$parts = [];
@@ -63,16 +65,35 @@ function er_body_parts( string $html ): array {
 		if ( ! preg_match( '#^<h2\b[^>]*\bid="([^"]+)"[^>]*>(.*?)</h2>#s', $chunk, $h ) ) {
 			continue;
 		}
-		$body  = trim( substr( $chunk, strlen( $h[0] ) ) );
+		$body    = trim( substr( $chunk, strlen( $h[0] ) ) );
+		$callout = [];
+		$rest    = $body;
+		if ( preg_match( '#<div class="wp-block-group er-callout[^"]*">(.*?)</div>#s', $body, $c ) ) {
+			$rest    = str_replace( $c[0], '', $body );
+			$callout = [
+				'title' => preg_match( '#<h[34]\b[^>]*>(.*?)</h[34]>#s', $c[1], $ct ) ? trim( wp_strip_all_tags( $ct[1] ) ) : '',
+				'items' => preg_match_all( '#<li\b[^>]*>(.*?)</li>#s', $c[1], $ci ) ? array_map( 'trim', $ci[1] ) : [],
+			];
+		}
 		$items = [];
-		if ( preg_match( '#<ul\b[^>]*>(.*?)</ul>#s', $body, $ul ) && preg_match_all( '#<li\b[^>]*>(.*?)</li>#s', $ul[1], $lis ) ) {
+		$terms = [];
+		if ( preg_match( '#<ul\b[^>]*>(.*?)</ul>#s', $rest, $ul ) && preg_match_all( '#<li\b[^>]*>(.*?)</li>#s', $ul[1], $lis ) ) {
 			foreach ( $lis[1] as $li ) {
+				$terms[] = preg_match( '#^\s*<strong>(.*?)</strong>#s', $li, $t ) ? trim( wp_strip_all_tags( $t[1] ), " .:\u{FF1A}" ) : '';
 				$items[] = preg_match( '#<span class="er-points__text">(.*)</span>\s*$#s', $li, $t )
 					? trim( $t[1] )
 					: trim( (string) preg_replace( '#^\s*<strong>.*?</strong>\s*[:：]?\s*#su', '', $li ) );
 			}
 		}
-		$parts[ $h[1] ] = [ 'title' => trim( wp_strip_all_tags( $h[2] ) ), 'html' => $body, 'items' => $items ];
+		preg_match_all( '#<p\b[^>]*>(.*?)</p>#s', (string) preg_replace( '#<(ul|ol)\b.*?</\1>#s', '', $rest ), $ps );
+		$parts[ $h[1] ] = [
+			'title'   => trim( wp_strip_all_tags( $h[2] ) ),
+			'html'    => $body,
+			'items'   => $items,
+			'terms'   => $terms,
+			'paras'   => array_map( 'trim', $ps[1] ),
+			'callout' => $callout,
+		];
 	}
 	return $parts;
 }

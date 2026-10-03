@@ -166,23 +166,55 @@
    }
   ],
   "story": {
-   "_source": "Arrangement only. Body text comes from each language's approved editorial (sections by heading anchor; stage 'from'). English titles/eyebrows are new structural labels; other languages use the moments' approved titles.",
+   "_source": "Arrangement only. Body text comes from each language's approved editorial (sections by heading anchor; stage 'from'). English labels are structural; other languages use the moments' approved titles and their own section headings.",
    "label": {
     "en": "The journey"
    },
    "title": {
     "en": "From Aswan in the dark to the sanctuary of Ramesses II"
    },
+   "labels": {
+    "journey_cta": {
+     "en": "The journey"
+    },
+    "feel_eyebrow": {
+     "en": "The experience"
+    },
+    "feel_title": {
+     "en": "What it feels like"
+    },
+    "know_eyebrow": {
+     "en": "Plan your visit"
+    },
+    "know_title": {
+     "en": "What to know"
+    },
+    "combine_eyebrow": {
+     "en": "Make it a bigger journey"
+    },
+    "faq_eyebrow": {
+     "en": "Questions and answers"
+    },
+    "cta_eyebrow": {
+     "en": "Go further"
+    },
+    "cta_title": {
+     "en": "Plan your Abu Simbel day"
+    }
+   },
    "sections": {
     "opening": "what-it-is",
-    "fit": "who-it-suits",
-    "plan": "road-or-air",
+    "feel": "who-it-suits",
+    "know": "road-or-air",
     "combine": "combine",
     "faq": "faq",
     "absorbed": [
      "why",
      "sun-festival"
     ]
+   },
+   "feel": {
+    "moment": 1
    },
    "stages": [
     {
@@ -207,16 +239,6 @@
      "from": "why#1"
     },
     {
-     "layout": "detail",
-     "moment": 1,
-     "eyebrow": {
-      "en": "Looking up"
-     },
-     "title": {
-      "en": "Four colossi of the king"
-     }
-    },
-    {
      "layout": "split",
      "moment": 2,
      "eyebrow": {
@@ -239,7 +261,7 @@
      "from": "sun-festival"
     },
     {
-     "layout": "detail",
+     "layout": "band",
      "moment": 4,
      "eyebrow": {
       "en": "The second temple"

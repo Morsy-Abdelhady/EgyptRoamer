@@ -46,7 +46,7 @@ if ( $er_story ) {
 	$er_help_chat = 'off' !== $er_help_mode && function_exists( 'er_chat_enabled' ) && er_chat_enabled();
 	$er_help      = '';
 	if ( $er_help_chat ) {
-		$er_help .= '<p class="story-next__lede">' . esc_html( er_t( 'Have a question? Talk to our team.' ) ) . '</p>';
+		$er_help .= '<p class="xs-end__lede">' . esc_html( er_t( 'Have a question? Talk to our team.' ) ) . '</p>';
 	}
 	$er_btns = '';
 	if ( $er_help_chat ) {
@@ -57,7 +57,7 @@ if ( $er_story ) {
 	if ( er_home( 'planner_enabled' ) ) {
 		$er_btns .= '<a class="btn btn--primary" href="' . esc_url( er_home_url() . '#planner' ) . '">' . esc_html( er_t( 'Plan My Trip' ) ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>';
 	}
-	$er_help .= $er_btns ? '<div class="story-next__actions">' . $er_btns . '</div>' : '';
+	$er_help .= $er_btns ? '<div class="xs-end__actions">' . $er_btns . '</div>' : '';
 
 	$er_decide = '';
 	if ( $er_who || $er_not ) {
@@ -66,21 +66,31 @@ if ( $er_story ) {
 			. ( $er_not ? '<div><h3 class="t-label">' . esc_html( er_t( 'You may prefer something else if' ) ) . '</h3>' . er_check_list( $er_not ) . '</div>' : '' )
 			. '</div>';
 	}
+	// Hero actions: the next step (the partner offer further down, else the planner), and the way into the journey.
+	$er_jump = (string) ( $er_story['labels']['journey_cta'] ?? '' );
+	$er_acts_html = $er_offers
+		? '<a class="btn btn--primary" href="#plan">' . esc_html( er_t( 'Book with our partners' ) ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>'
+		: ( er_home( 'planner_enabled' ) ? '<a class="btn btn--primary" href="' . esc_url( er_home_url() . '#planner' ) . '">' . esc_html( er_t( 'Plan My Trip' ) ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>' : '' );
+	if ( '' !== $er_jump ) {
+		$er_acts_html .= '<a class="btn btn--ghost" href="#journey">' . esc_html( $er_jump ) . '</a>';
+	}
 	er_page_hero( [
-		'eyebrow' => $er_eyebrows[ $er_type ] ?? '',
-		'title'   => get_the_title(),
-		'intro'   => has_excerpt() ? get_the_excerpt() : '',
-		'image'   => (int) get_post_thumbnail_id(),
-		'stock'   => er_stock_id_for( (int) get_the_ID() ),
-		'meta'    => $er_meta,
+		'eyebrow'  => $er_eyebrows[ $er_type ] ?? '',
+		'title'    => get_the_title(),
+		'intro'    => has_excerpt() ? get_the_excerpt() : '',
+		'image'    => (int) get_post_thumbnail_id(),
+		'stock'    => er_stock_id_for( (int) get_the_ID() ),
+		'meta'     => $er_meta,
+		'actions'  => $er_acts_html,
+		'modifier' => 'story',
 	] );
 	get_template_part( 'template-parts/experience-story', null, [
 		'preview' => $er_preview,
 		'parts'   => er_body_parts( er_body()['html'] ),
-		// Location and duration are in the hero; the planning chapter adds only what the hero does not say.
-		'facts'   => array_intersect_key( $er_facts, array_flip( [ er_t( 'Best time' ), er_t( 'Starting point' ) ] ) ),
+		'facts'   => $er_facts,
 		'offers'  => $er_offers,
 		'help'    => $er_help,
+		'hero'    => [ 'image' => (int) get_post_thumbnail_id(), 'stock' => er_stock_id_for( (int) get_the_ID() ) ],
 		'related' => array_merge( wp_list_pluck( $er_dests, 'ID' ), wp_list_pluck( $er_guides, 'ID' ), wp_list_pluck( $er_alts, 'ID' ), wp_list_pluck( $er_acts, 'ID' ) ),
 		'who'     => $er_decide,
 		'tips'    => $er_tips ? er_check_list( $er_tips ) : '',

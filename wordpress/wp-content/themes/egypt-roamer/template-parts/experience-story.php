@@ -1,25 +1,30 @@
 <?php
 /**
- * Experience story: the whole experience page told as one narrative, under the hero.
+ * Experience story: everything below the hero of an experience that has a story, as one editorial sequence.
  *
- *   opening (why this journey matters + the route at a glance)
- *   → the journey: stages of different weight (a dark pause, the full-bleed reveal, smaller detail beats,
- *     a photo held beside its text, the peak, the closing beat)
- *   → chapters on the light ground: who it suits → getting there and the facts → what to combine it with
- *     (+ the related destination and guides) → the next step (partner offer or planner) → questions.
+ *   opening (light)      why the journey matters, and its chapters as a line to follow
+ *   the journey (dark)   stages of different weight: a quiet text chapter, the full-bleed reveal with its words
+ *                        over it, a photo held while the text passes, the peak centred in the dark, a photo edge
+ *                        to edge beside its text, a slow closing chapter
+ *   what it feels like   image-led, on the light ground
+ *   what to know         the plan: facts, getting there, the day's checklist
+ *   combine it with      the related destination and guides as picture links
+ *   questions (dark)     an editorial accordion
+ *   the end              the next step over the hero's own photograph
  *
  * Every sentence is the page's own approved body, in its own language: er_body_parts() splits the body by
- * heading anchor and the story (Core er_preview_story()) says where each section goes. Sections a journey
- * stage tells (its `from`) are not repeated as chapters. Sections the story does not name are kept as
- * chapters before the questions, so nothing an editor writes is lost.
+ * heading anchor and the story (Core er_preview_story()) says where each section goes. A section a journey
+ * stage tells (its `from`) is not repeated. Sections the story does not name stay, before the questions, so
+ * nothing an editor writes is lost. Structural labels (eyebrows, "What it feels like"…) exist only in the
+ * story's own languages; elsewhere the section's own translated heading is used.
  *
- * Below the hero by design: the hero stays the only first-view image; stage photos carry their addresses in
- * data-* and immersion.js loads each about a screen ahead (<noscript> keeps them without JavaScript).
- * Everything reads without JavaScript and without motion; the transitions are CSS, only when motion is welcome.
+ * Below the hero by design: the hero is the only first-view image. Stage photos carry their addresses in
+ * data-* and immersion.js loads each about a screen ahead (<noscript> keeps them without JavaScript); the
+ * other photos are lazy. Everything reads without JavaScript and without motion.
  *
  * @package EgyptRoamer
- * @var array $args { preview: er_preview_for(), parts: er_body_parts(), facts: label => value, offers: offer ids,
- *                    help: next-step HTML when there is no offer, related: post ids, who/not/tips: HTML lists }
+ * @var array $args { preview, parts, facts: label => value, offers: offer ids, help: next-step buttons HTML,
+ *                    related: post ids, who/tips: HTML lists, hero: [ image id, stock photo id ] }
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -30,8 +35,10 @@ if ( ! $er_s || empty( $er_s['stages'] ) ) {
 	return;
 }
 $er_map  = (array) ( $er_s['sections'] ?? [] );
+$er_lbl  = (array) ( $er_s['labels'] ?? [] );
 $er_part = static fn ( string $key ) => $er_parts[ (string) ( $er_map[ $key ] ?? '' ) ] ?? null;
 $er_num  = static fn ( int $i ): string => str_pad( (string) $i, 2, '0', STR_PAD_LEFT );
+$er_txt  = static fn ( string $s ): string => esc_html( html_entity_decode( $s, ENT_QUOTES, 'UTF-8' ) );
 
 // Body text for a stage: "why#2" is the second item of the "why" section, "sun-festival" the whole section.
 $er_used = [];
@@ -63,42 +70,7 @@ foreach ( (array) ( $er_map['absorbed'] ?? [] ) as $er_id ) {
 		$er_told[] = $er_id;
 	}
 }
-$er_total = count( $er_steps );
-
-// Frames per layout: [ phone ratio, phone widths, wide ratio, wide widths, wide sizes ]. Widths stop near 2× the frame.
-$er_frames = [
-	'reveal' => [ 1.25, [ 480, 640, 828, 1080 ], 0.56, [ 960, 1280, 1600, 1920 ], '100vw' ],
-	'detail' => [ 1.25, [ 400, 600, 800 ], 1.25, [ 480, 720, 960 ], '(min-width: 1024px) 34vw, 78vw' ],
-	'split'  => [ 1.25, [ 480, 640, 828, 1080 ], 0.9, [ 720, 960, 1280, 1600 ], '(min-width: 1024px) 58vw, 100vw' ],
-	'peak'   => [ 1.25, [ 400, 600, 800 ], 1.25, [ 480, 720, 960 ], '(min-width: 1024px) 30rem, 86vw' ],
-];
-$er_pic = static function ( string $photo, string $alt, string $layout ) use ( $er_frames ): string {
-	[ $pr, $pw, $wr, $ww, $wsizes ] = $er_frames[ $layout ] ?? $er_frames['split'];
-	$phone_sizes                   = 'detail' === $layout ? '78vw' : ( 'peak' === $layout ? '86vw' : '100vw' );
-	$phone                         = er_stock_srcset( $photo, $pw, $pr );
-	$wide                          = er_stock_srcset( $photo, $ww, $wr );
-	$src                           = er_stock_url( $photo, $ww[1], $wr );
-	$source                        = '<source media="(max-width: 1023.98px)" %s="' . esc_attr( $phone ) . '" sizes="' . esc_attr( $phone_sizes ) . '" />';
-	$real                          = '<picture class="er-pic">' . sprintf( $source, 'srcset' ) . er_stock_img( $photo, $alt, [ 'sizes' => $wsizes, 'loading' => 'lazy', 'decoding' => 'async' ], $ww, $wr ) . '</picture>';
-	$blank                         = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-	return '<picture class="er-pic">' . sprintf( $source, 'data-srcset' )
-		. sprintf( '<img src="%s" data-src="%s" data-srcset="%s" sizes="%s" alt="%s" decoding="async" data-defer />', $blank, esc_url( $src ), esc_attr( $wide ), esc_attr( $wsizes ), esc_attr( $alt ) )
-		. '</picture><noscript>' . $real . '</noscript>';
-};
-$er_credit = static function ( array $st ): string {
-	if ( ! $st['photographer'] ) {
-		return '';
-	}
-	// "name / Unsplash" keeps its own direction (<bdi>), so it doesn't reorder in Arabic.
-	$text = str_replace( [ '{name} / Unsplash', '{name}' ], [ '<bdi>' . esc_html( $st['photographer'] ) . ' / Unsplash</bdi>', '<bdi>' . esc_html( $st['photographer'] ) . '</bdi>' ], esc_html( er_t( 'Photo: {name} / Unsplash' ) ) );
-	return '<p class="imm-step__credit">' . ( $st['source'] ? '<a href="' . esc_url( $st['source'] ) . '" rel="nofollow noopener">' . $text . '</a>' : $text ) . '</p>';
-};
-
-// Opening: the story's statement (its own language) or, without it, the opening section's own heading.
-$er_open   = $er_part( 'opening' );
-$er_open_t = $er_s['title'] ?: (string) ( $er_open['title'] ?? '' );
-$er_open_id = (string) ( $er_map['opening'] ?? 'story-title' );
-// Anchors of the sections the journey tells, kept on the stage that tells them (links into the old page still land).
+// The anchors of told sections stay on the stage that tells them, so links into the old page still land.
 $er_anchor = [];
 foreach ( $er_told as $er_id ) {
 	foreach ( $er_steps as $er_k => $er_st ) {
@@ -108,65 +80,93 @@ foreach ( $er_told as $er_id ) {
 		}
 	}
 }
+$er_total = count( $er_steps );
 
-// Chapters in reading order; sections the story does not place come before the questions.
-$er_placed = array_merge( array_values( array_filter( array_map( static fn ( $k ) => is_string( $er_map[ $k ] ?? null ) ? $er_map[ $k ] : '', [ 'opening', 'fit', 'plan', 'combine', 'faq' ] ) ) ), $er_told );
-$er_rest   = array_diff_key( $er_parts, array_flip( $er_placed ) );
-$er_chap   = 0;
-$er_chapter = static function ( ?array $part, string $id, string $extra_before = '', string $extra_after = '', string $mod = '', string $outside = '' ) use ( &$er_chap, $er_num ): void {
-	if ( ! $part && '' === $extra_before . $extra_after . $outside ) {
-		return;
-	}
-	++$er_chap;
-	?>
-	<section class="chap<?php echo $mod ? ' chap--' . esc_attr( $mod ) : ''; ?>" aria-labelledby="<?php echo esc_attr( $id ); ?>">
-		<div class="chap__inner container">
-			<header class="chap__head">
-				<span class="chap__n" aria-hidden="true"><?php echo esc_html( $er_num( $er_chap ) ); ?></span>
-				<h2 class="chap__title" id="<?php echo esc_attr( $id ); ?>"><?php echo esc_html( html_entity_decode( (string) ( $part['title'] ?? '' ), ENT_QUOTES, 'UTF-8' ) ); ?></h2>
-			</header>
-			<div class="chap__body">
-				<div class="prose">
-					<?php echo $extra_before; // phpcs:ignore WordPress.Security.EscapeOutput -- built by the caller from escaped parts ?>
-					<?php echo (string) ( $part['html'] ?? '' ); // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?>
-					<?php echo $extra_after; // phpcs:ignore WordPress.Security.EscapeOutput -- built by the caller from escaped parts ?>
-				</div>
-				<?php echo $outside; // phpcs:ignore WordPress.Security.EscapeOutput -- cards built by er_card_grid() ?>
-			</div>
-		</div>
-	</section>
-	<?php
+// Deferred photo: [ phone ratio, phone widths, wide ratio, wide widths, wide sizes, phone sizes ].
+$er_frames = [
+	'reveal' => [ 1.25, [ 480, 640, 828, 1080 ], 0.56, [ 960, 1280, 1600, 1920 ], '100vw', '100vw' ],
+	'split'  => [ 1.25, [ 480, 640, 828, 1080 ], 0.9, [ 720, 960, 1280, 1600 ], '(min-width: 1024px) 56vw, 100vw', '100vw' ],
+	'peak'   => [ 1.25, [ 400, 600, 800 ], 1.25, [ 480, 720, 960 ], '(min-width: 1024px) 30rem, 86vw', '86vw' ],
+	'band'   => [ 1.25, [ 480, 640, 828, 1080 ], 0.85, [ 720, 960, 1280, 1600 ], '(min-width: 1024px) 56vw, 100vw', '100vw' ],
+	'detail' => [ 1.25, [ 400, 600, 800 ], 1.25, [ 480, 720, 960 ], '(min-width: 1024px) 34vw, 78vw', '78vw' ],
+	'feel'   => [ 1.1, [ 480, 640, 828, 1080 ], 1.0, [ 720, 960, 1280 ], '(min-width: 1024px) 50vw, 100vw', '100vw' ],
+];
+$er_pic = static function ( string $photo, string $alt, string $layout ) use ( $er_frames ): string {
+	[ $pr, $pw, $wr, $ww, $wsizes, $psizes ] = $er_frames[ $layout ] ?? $er_frames['split'];
+	$phone  = er_stock_srcset( $photo, $pw, $pr );
+	$wide   = er_stock_srcset( $photo, $ww, $wr );
+	$src    = er_stock_url( $photo, $ww[1], $wr );
+	$source = '<source media="(max-width: 1023.98px)" %s="' . esc_attr( $phone ) . '" sizes="' . esc_attr( $psizes ) . '" />';
+	$real   = '<picture class="er-pic">' . sprintf( $source, 'srcset' ) . er_stock_img( $photo, $alt, [ 'sizes' => $wsizes, 'loading' => 'lazy', 'decoding' => 'async' ], $ww, $wr ) . '</picture>';
+	$blank  = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+	return '<picture class="er-pic">' . sprintf( $source, 'data-srcset' )
+		. sprintf( '<img src="%s" data-src="%s" data-srcset="%s" sizes="%s" alt="%s" decoding="async" data-defer />', $blank, esc_url( $src ), esc_attr( $wide ), esc_attr( $wsizes ), esc_attr( $alt ) )
+		. '</picture><noscript>' . $real . '</noscript>';
 };
+$er_credit = static function ( array $st, string $class = 'imm-step__credit' ): string {
+	if ( empty( $st['photographer'] ) ) {
+		return '';
+	}
+	// "name / Unsplash" keeps its own direction (<bdi>), so it doesn't reorder in Arabic.
+	$text = str_replace( [ '{name} / Unsplash', '{name}' ], [ '<bdi>' . esc_html( $st['photographer'] ) . ' / Unsplash</bdi>', '<bdi>' . esc_html( $st['photographer'] ) . '</bdi>' ], esc_html( er_t( 'Photo: {name} / Unsplash' ) ) );
+	return '<p class="' . esc_attr( $class ) . '">' . ( ! empty( $st['source'] ) ? '<a href="' . esc_url( $st['source'] ) . '" rel="nofollow noopener">' . $text . '</a>' : $text ) . '</p>';
+};
+$er_eyebrow = static fn ( string $key ): string => ! empty( $er_lbl[ $key ] ) ? '<p class="eyebrow">' . esc_html( $er_lbl[ $key ] ) . '</p>' : '';
+
+$er_open    = $er_part( 'opening' );
+$er_open_t  = $er_s['title'] ?: (string) ( $er_open['title'] ?? '' );
+$er_open_id = (string) ( $er_map['opening'] ?? 'story-title' );
+$er_feel    = $er_part( 'feel' );
+$er_know    = $er_part( 'know' );
+$er_comb    = $er_part( 'combine' );
+$er_faq     = $er_part( 'faq' );
+$er_placed  = array_merge( array_values( array_filter( array_map( static fn ( $k ) => is_string( $er_map[ $k ] ?? null ) ? $er_map[ $k ] : '', [ 'opening', 'feel', 'know', 'combine', 'faq' ] ) ) ), $er_told );
+$er_rest    = array_diff_key( $er_parts, array_flip( $er_placed ) );
 ?>
 <div class="exp-story" data-imm>
-	<section class="story-open on-dark" aria-labelledby="<?php echo esc_attr( $er_open_id ); ?>">
-		<div class="story-open__inner container">
-			<?php if ( $er_s['full'] && $er_s['label'] ) : ?>
-				<p class="eyebrow"><?php echo esc_html( $er_s['label'] ); ?></p>
-			<?php endif; ?>
-			<h2 class="story-open__title" id="<?php echo esc_attr( $er_open_id ); ?>"><?php echo esc_html( html_entity_decode( $er_open_t, ENT_QUOTES, 'UTF-8' ) ); ?></h2>
+
+	<?php /* Opening: why the journey matters, and its chapters. */ ?>
+	<section class="xs-open" aria-labelledby="<?php echo esc_attr( $er_open_id ); ?>">
+		<div class="xs-open__inner container">
+			<div class="xs-open__head">
+				<?php if ( $er_s['full'] && $er_s['label'] ) : ?>
+					<p class="eyebrow"><?php echo esc_html( $er_s['label'] ); ?></p>
+				<?php endif; ?>
+				<h2 class="xs-open__title" id="<?php echo esc_attr( $er_open_id ); ?>"><?php echo $er_txt( $er_open_t ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
+			</div>
 			<?php if ( $er_open ) : ?>
-				<div class="story-open__lede"><?php echo $er_open['html']; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
+				<div class="xs-open__lede"><?php echo $er_open['html']; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
 			<?php endif; ?>
 			<?php if ( $er_total > 2 ) : ?>
-				<ol class="imm__route" aria-label="<?php echo esc_attr( $er_s['label'] ?: $er_open_t ); ?>">
+				<ol class="xs-route" aria-label="<?php echo esc_attr( $er_s['label'] ?: $er_open_t ); ?>">
 					<?php foreach ( $er_steps as $er_i => $er_st ) : ?>
-						<?php if ( $er_st['eyebrow'] || $er_st['title'] ) : ?>
-							<li><a href="#imm-<?php echo esc_attr( (string) ( $er_i + 1 ) ); ?>" data-imm-link><span class="imm__route-n" aria-hidden="true"><?php echo esc_html( $er_num( $er_i + 1 ) ); ?></span><?php echo esc_html( $er_st['eyebrow'] ?: $er_st['title'] ); ?></a></li>
-						<?php endif; ?>
+						<?php
+						if ( ! $er_st['eyebrow'] && ! $er_st['title'] ) {
+							continue; // A stage with no name of its own (a language without the story's labels) stays off the line.
+						}
+						?>
+						<li class="xs-route__item">
+							<a href="#imm-<?php echo esc_attr( (string) ( $er_i + 1 ) ); ?>" data-imm-link>
+								<span class="xs-route__dot" aria-hidden="true"></span>
+								<span class="xs-route__n" aria-hidden="true"><?php echo esc_html( $er_num( $er_i + 1 ) ); ?></span>
+								<span class="xs-route__name"><?php echo esc_html( $er_st['eyebrow'] ?: $er_st['title'] ); ?></span>
+								<?php if ( $er_st['eyebrow'] && $er_st['title'] ) : ?>
+									<span class="xs-route__sub"><?php echo esc_html( $er_st['title'] ); ?></span>
+								<?php endif; ?>
+							</a>
+						</li>
 					<?php endforeach; ?>
 				</ol>
 			<?php endif; ?>
 		</div>
 	</section>
 
-	<ol class="imm on-dark" aria-labelledby="<?php echo esc_attr( $er_open_id ); ?>">
+	<?php /* The journey. */ ?>
+	<ol class="imm on-dark" id="journey" aria-labelledby="<?php echo esc_attr( $er_open_id ); ?>">
 		<?php
-		$er_details = 0;
 		foreach ( $er_steps as $er_i => $er_st ) :
-			$er_layout = $er_st['photo'] ? ( in_array( $er_st['layout'], [ 'reveal', 'detail', 'split', 'peak' ], true ) ? $er_st['layout'] : 'split' ) : 'text';
-			$er_alt    = 'detail' === $er_layout && 1 === ( $er_details++ % 2 );
-			$er_cls    = 'imm-step imm-step--' . $er_layout . ( 'text' === $er_layout ? ' imm-step--' . ( $er_st['tone'] ?: 'plain' ) : '' ) . ( $er_alt ? ' imm-step--alt' : '' );
+			$er_layout = $er_st['photo'] ? ( in_array( $er_st['layout'], [ 'reveal', 'split', 'peak', 'band', 'detail' ], true ) ? $er_st['layout'] : 'band' ) : 'text';
+			$er_cls    = 'imm-step imm-step--' . $er_layout . ( 'text' === $er_layout ? ' imm-step--' . ( $er_st['tone'] ?: 'plain' ) : '' );
 			?>
 			<li class="<?php echo esc_attr( $er_cls ); ?>" id="imm-<?php echo esc_attr( (string) ( $er_i + 1 ) ); ?>" data-imm-step>
 				<?php if ( $er_st['photo'] ) : ?>
@@ -179,7 +179,7 @@ $er_chapter = static function ( ?array $part, string $id, string $extra_before =
 				<?php endif; ?>
 				<div class="imm-step__text">
 					<?php echo isset( $er_anchor[ $er_i ] ) ? '<span class="imm-step__anchor" id="' . esc_attr( $er_anchor[ $er_i ] ) . '"></span>' : ''; ?>
-					<p class="imm-step__eyebrow"><span class="imm-step__n"><?php echo esc_html( $er_num( $er_i + 1 ) ); ?><span class="imm-step__of"> / <?php echo esc_html( $er_num( $er_total ) ); ?></span></span><?php echo $er_st['eyebrow'] ? ' <span>' . esc_html( $er_st['eyebrow'] ) . '</span>' : ''; ?></p>
+					<p class="imm-step__eyebrow"><span class="imm-step__n"><?php echo esc_html( $er_num( $er_i + 1 ) ); ?></span><?php echo $er_st['eyebrow'] ? ' <span>' . esc_html( $er_st['eyebrow'] ) . '</span>' : ''; ?></p>
 					<?php if ( $er_st['title'] ) : ?>
 						<h3 class="imm-step__title"><?php echo esc_html( $er_st['title'] ); ?></h3>
 					<?php endif; ?>
@@ -194,58 +194,158 @@ $er_chapter = static function ( ?array $part, string $id, string $extra_before =
 		<?php endforeach; ?>
 	</ol>
 
-	<div class="story-chapters">
-		<?php
-		// Who it suits (+ the editor's "Best for / may prefer something else" lists, when filled).
-		$er_chapter( $er_part( 'fit' ), (string) ( $er_map['fit'] ?? 'fit' ), '', (string) ( $args['who'] ?? '' ) );
+	<?php /* What it feels like: image-led. */ ?>
+	<?php if ( $er_feel ) : ?>
+		<?php $er_feel_id = (string) $er_map['feel']; ?>
+		<section class="xs-feel<?php echo ! empty( $er_s['feel']['photo'] ) ? ' xs-feel--image' : ''; ?>" aria-labelledby="<?php echo esc_attr( $er_feel_id ); ?>">
+			<?php if ( ! empty( $er_s['feel']['photo'] ) ) : ?>
+				<figure class="xs-feel__media"><?php echo $er_pic( $er_s['feel']['photo'], $er_s['feel']['alt'], 'feel' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></figure>
+			<?php endif; ?>
+			<div class="xs-feel__text">
+				<?php echo $er_eyebrow( 'feel_eyebrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+				<h2 class="xs-h2" id="<?php echo esc_attr( $er_feel_id ); ?>"><?php echo $er_txt( $er_lbl['feel_title'] ?? $er_feel['title'] ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
+				<div class="xs-feel__body"><?php echo $er_feel['html']; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
+				<?php echo (string) ( $args['who'] ?? '' ); // phpcs:ignore WordPress.Security.EscapeOutput -- built by the caller ?>
+				<?php echo $er_credit( $er_s['feel'], 'xs-feel__credit' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+			</div>
+		</section>
+	<?php endif; ?>
 
-		// Getting there, with the facts in one line above it (+ the editor's "Good to know" list, when filled).
-		$er_facts = array_filter( (array) ( $args['facts'] ?? [] ) );
-		$er_dl    = '';
-		if ( $er_facts ) {
-			$er_dl = '<dl class="chap__facts">';
-			foreach ( $er_facts as $er_label => $er_value ) {
-				$er_dl .= '<div><dt>' . esc_html( (string) $er_label ) . '</dt><dd>' . esc_html( (string) $er_value ) . '</dd></div>';
-			}
-			$er_dl .= '</dl>';
-		}
-		$er_chapter( $er_part( 'plan' ), (string) ( $er_map['plan'] ?? 'plan' ), $er_dl, (string) ( $args['tips'] ?? '' ) );
+	<?php /* What to know: the plan. */ ?>
+	<?php if ( $er_know || ! empty( $args['facts'] ) ) : ?>
+		<?php $er_know_id = (string) ( $er_map['know'] ?? 'know' ); ?>
+		<section class="xs-know" aria-labelledby="<?php echo esc_attr( $er_know_id ); ?>">
+			<div class="xs-know__inner container">
+				<div class="xs-know__head">
+					<?php echo $er_eyebrow( 'know_eyebrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+					<h2 class="xs-h2" id="<?php echo esc_attr( $er_know_id ); ?>"><?php echo $er_txt( $er_lbl['know_title'] ?? ( $er_know['title'] ?? er_t( 'Good to know' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
+				</div>
+				<div class="xs-know__body">
+					<dl class="xs-facts">
+						<?php foreach ( array_filter( (array) ( $args['facts'] ?? [] ) ) as $er_label => $er_value ) : ?>
+							<div><dt><?php echo esc_html( (string) $er_label ); ?></dt><dd><?php echo esc_html( (string) $er_value ); ?></dd></div>
+						<?php endforeach; ?>
+						<?php foreach ( (array) ( $er_know['items'] ?? [] ) as $er_k => $er_item ) : ?>
+							<div><dt><?php echo esc_html( $er_know['terms'][ $er_k ] ?? '' ); ?></dt><dd><?php echo wp_kses_post( $er_item ); ?></dd></div>
+						<?php endforeach; ?>
+					</dl>
+					<?php foreach ( (array) ( $er_know['paras'] ?? [] ) as $er_para ) : ?>
+						<p class="xs-know__note"><?php echo wp_kses_post( $er_para ); ?></p>
+					<?php endforeach; ?>
+					<?php if ( ! empty( $er_know['callout']['items'] ) ) : ?>
+						<div class="xs-check">
+							<?php if ( $er_know['callout']['title'] ) : ?>
+								<h3 class="xs-check__title"><?php echo $er_txt( $er_know['callout']['title'] ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h3>
+							<?php endif; ?>
+							<ul class="xs-check__list">
+								<?php foreach ( $er_know['callout']['items'] as $er_item ) : ?>
+									<li><?php echo wp_kses_post( $er_item ); ?></li>
+								<?php endforeach; ?>
+							</ul>
+						</div>
+					<?php endif; ?>
+					<?php echo (string) ( $args['tips'] ?? '' ); // phpcs:ignore WordPress.Security.EscapeOutput -- built by the caller ?>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
 
-		// What to combine it with, and where: the related destination and guides as one set of cards.
-		$er_rel = array_slice( array_values( array_unique( array_map( 'intval', (array) ( $args['related'] ?? [] ) ) ) ), 0, 3 );
-		$er_cards = '';
-		if ( $er_rel ) {
-			ob_start();
-			echo '<div class="chap__cards chap__cards--' . count( $er_rel ) . '">';
-			er_card_grid( $er_rel, 'experience-story', 'h3' );
-			echo '</div>';
-			$er_cards = (string) ob_get_clean();
-		}
-		$er_chapter( $er_part( 'combine' ), (string) ( $er_map['combine'] ?? 'combine' ), '', '', '', $er_cards );
-
-		// Anything else the editor wrote, in body order.
-		foreach ( $er_rest as $er_id => $er_p ) {
-			$er_chapter( $er_p, (string) $er_id );
-		}
+	<?php /* Combine it with: the related destination and guides as picture links. */ ?>
+	<?php
+	$er_rel = array_slice( array_values( array_unique( array_map( 'intval', (array) ( $args['related'] ?? [] ) ) ) ), 0, 3 );
+	if ( $er_comb || $er_rel ) :
+		$er_comb_id = (string) ( $er_map['combine'] ?? 'combine' );
 		?>
-	</div>
-
-	<?php if ( ! empty( $args['offers'] ) || ! empty( $args['help'] ) ) : ?>
-		<section class="story-next on-dark" aria-labelledby="story-next-title">
-			<div class="story-next__inner container">
-				<?php if ( ! empty( $args['offers'] ) ) : ?>
-					<h2 class="story-next__title" id="story-next-title"><?php er_e( 'Book with our partners' ); ?></h2>
-					<div class="story-next__offers">
-						<?php er_offer_rows( (array) $args['offers'], 'experience-offers' ); ?>
-						<?php er_disclosure(); ?>
-					</div>
-				<?php else : ?>
-					<h2 class="story-next__title" id="story-next-title"><?php er_e( 'Need personal help?' ); ?></h2>
-					<?php echo $args['help']; // phpcs:ignore WordPress.Security.EscapeOutput -- built by the caller from escaped parts ?>
+		<section class="xs-combine" aria-labelledby="<?php echo esc_attr( $er_comb_id ); ?>">
+			<div class="xs-combine__inner container">
+				<div class="xs-combine__head">
+					<?php echo $er_eyebrow( 'combine_eyebrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+					<h2 class="xs-h2" id="<?php echo esc_attr( $er_comb_id ); ?>"><?php echo $er_txt( (string) ( $er_comb['title'] ?? '' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
+					<?php if ( $er_comb ) : ?>
+						<div class="xs-combine__text"><?php echo $er_comb['html']; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
+					<?php endif; ?>
+				</div>
+				<?php if ( $er_rel ) : ?>
+					<ul class="xs-links xs-links--<?php echo count( $er_rel ); ?>">
+						<?php
+						foreach ( $er_rel as $er_rid ) :
+							$er_type  = get_post_type( $er_rid );
+							$er_thumb = get_post_thumbnail_id( $er_rid );
+							$er_stock = function_exists( 'er_stock_id_for' ) ? er_stock_id_for( $er_rid ) : '';
+							$er_img   = $er_thumb
+								? er_img( (int) $er_thumb, 'er-card', [ 'alt' => '', 'sizes' => '(min-width: 1024px) 22vw, 90vw', 'loading' => 'lazy' ] )
+								: ( $er_stock ? er_stock_img( $er_stock, '', [ 'sizes' => '(min-width: 1024px) 22vw, 90vw', 'loading' => 'lazy' ], [ 480, 720, 960 ], 0.62 ) : '' );
+							$er_sub   = 'er_guide' === $er_type && function_exists( 'er_read_minutes' )
+								? er_t( '{n} min read', [ 'n' => er_read_minutes( $er_rid ) ] )
+								: (string) get_post_meta( $er_rid, 'er_destination' === $er_type ? '_er_region_label' : '_er_location', true );
+							?>
+							<li class="xs-link">
+								<a href="<?php echo esc_url( get_permalink( $er_rid ) ); ?>">
+									<span class="xs-link__media" aria-hidden="true"><?php echo $er_img; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped by the image helpers ?></span>
+									<span class="xs-link__text">
+										<?php if ( $er_sub ) : ?>
+											<span class="xs-link__sub"><?php echo esc_html( $er_sub ); ?></span>
+										<?php endif; ?>
+										<span class="xs-link__title"><?php echo esc_html( get_the_title( $er_rid ) ); ?></span>
+									</span>
+									<?php echo er_icon( 'i-arrow', 'xs-link__arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+								</a>
+							</li>
+						<?php endforeach; ?>
+					</ul>
 				<?php endif; ?>
 			</div>
 		</section>
 	<?php endif; ?>
 
-	<?php $er_chapter( $er_part( 'faq' ), (string) ( $er_map['faq'] ?? 'faq' ), '', '', 'faq' ); ?>
+	<?php /* Anything else the editor wrote, in body order. */ ?>
+	<?php foreach ( $er_rest as $er_id => $er_p ) : ?>
+		<section class="xs-more" aria-labelledby="<?php echo esc_attr( (string) $er_id ); ?>">
+			<div class="xs-more__inner container">
+				<h2 class="xs-h2" id="<?php echo esc_attr( (string) $er_id ); ?>"><?php echo $er_txt( $er_p['title'] ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
+				<div class="prose"><?php echo $er_p['html']; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
+			</div>
+		</section>
+	<?php endforeach; ?>
+
+	<?php /* Questions. */ ?>
+	<?php if ( $er_faq ) : ?>
+		<?php $er_faq_id = (string) $er_map['faq']; ?>
+		<section class="xs-faq on-dark" aria-labelledby="<?php echo esc_attr( $er_faq_id ); ?>">
+			<div class="xs-faq__inner container">
+				<div class="xs-faq__head">
+					<?php echo $er_eyebrow( 'faq_eyebrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+					<h2 class="xs-h2" id="<?php echo esc_attr( $er_faq_id ); ?>"><?php echo $er_txt( $er_faq['title'] ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
+				</div>
+				<div class="xs-faq__list"><?php echo $er_faq['html']; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
+			</div>
+		</section>
+	<?php endif; ?>
+
+	<?php /* The end: the next step, over the hero's photograph (the same files, already in the browser's cache). */ ?>
+	<?php if ( ! empty( $args['offers'] ) || ! empty( $args['help'] ) ) : ?>
+		<section class="xs-end on-dark" id="plan" aria-labelledby="xs-end-title">
+			<?php
+			$er_hero = (array) ( $args['hero'] ?? [] );
+			if ( ! empty( $er_hero['image'] ) ) {
+				echo '<div class="xs-end__media" aria-hidden="true">' . er_img( (int) $er_hero['image'], 'er-hero', [ 'loading' => 'lazy', 'sizes' => '100vw', 'alt' => '' ] ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput
+			} elseif ( ! empty( $er_hero['stock'] ) ) {
+				echo '<div class="xs-end__media" aria-hidden="true">' . er_stock_picture( (string) $er_hero['stock'], '', [ 'loading' => 'lazy' ], [ 640, 960, 1280, 1600, 2000, 2560 ], 'hero' ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput
+			}
+			?>
+			<div class="xs-end__inner container">
+				<?php echo $er_eyebrow( 'cta_eyebrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+				<?php if ( ! empty( $args['offers'] ) ) : ?>
+					<h2 class="xs-end__title" id="xs-end-title"><?php er_e( 'Book with our partners' ); ?></h2>
+					<div class="xs-end__offers">
+						<?php er_offer_rows( (array) $args['offers'], 'experience-offers' ); ?>
+						<?php er_disclosure(); ?>
+					</div>
+				<?php else : ?>
+					<h2 class="xs-end__title" id="xs-end-title"><?php echo $er_txt( $er_lbl['cta_title'] ?? er_t( 'Need personal help?' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
+					<?php echo $args['help']; // phpcs:ignore WordPress.Security.EscapeOutput -- built by the caller from escaped parts ?>
+				<?php endif; ?>
+			</div>
+		</section>
+	<?php endif; ?>
 </div>

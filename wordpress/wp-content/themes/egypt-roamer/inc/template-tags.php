@@ -441,7 +441,8 @@ function er_type_label( string $post_type ): string {
 /* -------------------------------------------------------------------------- */
 
 function er_page_hero( array $args ): void {
-	$args += [ 'eyebrow' => '', 'title' => '', 'intro' => '', 'image' => 0, 'stock' => '', 'meta' => '', 'measure' => false ];
+	// actions: buttons under the intro; modifier: an extra page-hero--{modifier} class (the experience story's hero).
+	$args += [ 'eyebrow' => '', 'title' => '', 'intro' => '', 'image' => 0, 'stock' => '', 'meta' => '', 'measure' => false, 'actions' => '', 'modifier' => '' ];
 	$media = '';
 	if ( $args['image'] ) {
 		$media = er_img( (int) $args['image'], 'er-hero', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw', 'alt' => '' ] );
@@ -450,7 +451,7 @@ function er_page_hero( array $args ): void {
 		$media = er_stock_picture( (string) $args['stock'], '', [ 'loading' => 'eager', 'fetchpriority' => 'high' ], [ 640, 960, 1280, 1600, 2000, 2560 ], 'hero' );
 	}
 	?>
-	<div class="page-hero on-dark<?php echo $media ? ' page-hero--image' : ''; ?>">
+	<div class="page-hero on-dark<?php echo $media ? ' page-hero--image' : ''; ?><?php echo $args['modifier'] ? ' page-hero--' . esc_attr( $args['modifier'] ) : ''; ?>">
 		<?php if ( $media ) : ?>
 			<div class="page-hero__media" aria-hidden="true">
 				<?php echo $media; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped by wp_get_attachment_image / er_stock_img ?>
@@ -464,6 +465,9 @@ function er_page_hero( array $args ): void {
 			<h1 class="page-hero__title"><?php echo esc_html( $args['title'] ); ?></h1>
 			<?php if ( $args['intro'] ) : ?>
 				<p class="page-hero__intro"><?php echo esc_html( $args['intro'] ); ?></p>
+			<?php endif; ?>
+			<?php if ( $args['actions'] ) : ?>
+				<div class="page-hero__actions"><?php echo $args['actions']; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts by callers ?></div>
 			<?php endif; ?>
 			<?php if ( $args['meta'] ) : ?>
 				<div class="page-hero__meta"><?php echo $args['meta']; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts by callers ?></div>

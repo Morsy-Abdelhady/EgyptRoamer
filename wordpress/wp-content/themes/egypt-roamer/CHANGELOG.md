@@ -2,6 +2,33 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.40 — 2026-10-04 (with Core 1.2.26): Abu Simbel visual redesign (cinematic editorial)
+- **A real redesign of the experience story**, following the owner's visual direction:
+  - a cinematic hero with its own CTAs;
+  - a light opening with the chapters as a line to follow;
+  - a dark journey built from different treatments;
+  - an image-led "What it feels like";
+  - a scannable "What to know";
+  - picture links;
+  - a dark editorial FAQ;
+  - a closing CTA over the hero's photograph.
+- **Hero.** Taller (up to 94% of the screen), with a larger title, the summary, then "Plan My Trip" (or "Book with our partners" when an offer is live) and "The journey". Location and duration sit under a hairline. Other pages' heroes are unchanged: `er_page_hero()` only gained optional `actions` / `modifier` arguments.
+- **The journey, with a narrative arc** (quiet → reveal → immersion → peak → reflection):
+  - "Before dawn": a quiet, minimal text chapter;
+  - the Great Temple: full-bleed, with its words over the photograph (the climax of the arrival);
+  - "Inside": the photo holds on the right while the text passes;
+  - the sanctuary: centred in the dark, lit from within;
+  - Nefertari's temple: edge to edge beside its words;
+  - "Afterwards": a slow, spacious serif conclusion.
+  Phones get the same arc as a vertical film, with the chapter line vertical.
+- **Every approved sentence still has one home:**
+  - "Who it suits" is now "What it feels like", beside the colossi photograph;
+  - road, air, the time at the temples and "Plan the day" are now "What to know": a two-column fact list, a note and a checklist (`er_body_parts()` exposes a section's paragraphs, list terms and callout);
+  - "Combine it with" shows Aswan and the two guides as picture links.
+  All 30 sentences appear exactly once. Other languages use their own approved text and headings; stages with no name of their own stay off the chapter line.
+- **Same performance budget.** The hero is still the only first-view image: phone 353 KB, desktop 512 KB, CLS 0. Throttled phone FCP 1.54 s, LCP 2.33 s. The closing CTA reuses the hero's cached photo files.
+- Only Abu Simbel has a story. The other seven experiences and every other page render as before.
+
 ## 1.2.39 — 2026-10-03 (with Core 1.2.25): Abu Simbel as one experience story
 - **One narrative instead of two pages.** 1.2.37 put the journey on top of the old experience layout, so the page told its story twice: the journey, "What it feels like" and "What to know", then the same body again with tabs, a sidebar and card sections. When an experience has a story, everything below the hero is now that one story (`template-parts/experience-story.php`):
   - the opening (why the journey matters, with the route at a glance);

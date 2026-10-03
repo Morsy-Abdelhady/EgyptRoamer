@@ -92,13 +92,14 @@ function er_preview_for( int $post_id ): array {
  *
  *     [ 'full' (bool), 'label', 'title',
  *       'sections' => [ 'opening' => body anchor, 'fit' => …, 'plan' => …, 'combine' => …, 'faq' => …, 'absorbed' => [ anchors ] ],
+ *       'labels'   => [ key => structural label in this language ], 'feel' => [ 'photo', 'alt', 'photographer', 'source', 'generated' ],
  *       'stages'   => [ [ 'layout', 'tone', 'from', 'eyebrow', 'title', 'text', 'photo', 'alt', 'photographer', 'source', 'generated' ], … ] ]
  *
  * - `sections` names, by heading anchor, where each section of the page's own (approved, translated) body goes. The body
  *   sections listed in `absorbed` are told by the journey instead, through each stage's `from` ("why#1": the first item of
  *   the "why" section; "sun-festival": that whole section), so every sentence has exactly one home in every language.
- * - `layout` sets each stage's weight in the sequence: text (a dark pause), reveal (the full-bleed moment), detail (a smaller
- *   beat), split (photo held beside the text), peak (the highlight).
+ * - `layout` sets each stage's weight in the sequence: text (a dark chapter break), reveal (the full-bleed moment), split
+ *   (photo held beside the text), peak (the highlight), band (photo edge to edge beside its text), detail (a smaller beat).
  * - The story's own words (label, title, eyebrows, stage titles) are never borrowed from another language. A language that
  *   has them ('full') gets them; one that does not gets the moments' approved titles and the body text, and text-only stages
  *   without body text are left out. A page never mixes two languages.
@@ -137,11 +138,21 @@ function er_preview_story( array $story, string $lang, array $moments ): array {
 		return [];
 	}
 	$sections = array_map( static fn ( $v ) => is_array( $v ) ? array_map( 'sanitize_title', $v ) : sanitize_title( (string) $v ), (array) ( $story['sections'] ?? [] ) );
+	// The image beside "what it feels like": one of the entry's moments (photos are the same in every language).
+	$fm   = isset( $story['feel']['moment'] ) ? ( $moments[ (int) $story['feel']['moment'] ] ?? null ) : null;
+	$feel = $fm ? [ 'photo' => $fm['photo'], 'alt' => $fm['alt'], 'photographer' => $fm['photographer'], 'source' => $fm['source'], 'generated' => $fm['generated'] ] : [];
+	// Structural labels (eyebrows and headings the page adds around the approved text), in the story's own languages only.
+	$labels = [];
+	foreach ( (array) ( $story['labels'] ?? [] ) as $key => $value ) {
+		$labels[ sanitize_key( (string) $key ) ] = $own( $value );
+	}
 	return [
 		'full'     => $full,
 		'label'    => $full ? $own( $story['label'] ?? '' ) : '',
 		'title'    => $full ? $own( $story['title'] ) : '',
+		'labels'   => array_filter( $labels ),
 		'sections' => $sections,
+		'feel'     => $feel,
 		'stages'   => $stages,
 	];
 }
