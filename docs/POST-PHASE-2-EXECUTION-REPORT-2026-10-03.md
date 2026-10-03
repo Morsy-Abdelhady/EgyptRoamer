@@ -18,7 +18,8 @@ Status vocabulary: PASS · PASS WITH NOTE · NEEDS REVIEW · BLOCKED · DEFERRED
   - The 3 empty guides are blocked on sourced data; requirements are documented.
 - **Infrastructure:**
   - HSTS is now sent (1 week, host only).
-  - `/src/` is confirmed safe to delete; this needs one SSH command from you.
+  - The stale public `/src/` copy (later renamed `src.removed/`) was deleted by the owner on 2026-10-03; both now
+    return 404.
   - The 31-day HTML cache is host-controlled and deferred, with evidence.
 - **SEO:** the architecture is unchanged. The intended growth is 176 → 181 indexable URLs (4 guides + the English
   guide archive); sitemap = indexable.
@@ -125,23 +126,31 @@ that the project does not have. **BLOCKED.** The exact inputs, sources and edito
 
 ## 10. /src/ decision
 
-**BLOCKED (owner action).** The folder is safe to delete:
-- `/wp-content/themes/egypt-roamer/src/` is a stale copy of the theme's JavaScript source; `src/js/assistant.js`
-  returns 404, so it predates the assistant.
-- No production page and no PHP file references it (0 references in the home/Cairo/ar HTML; theme PHP mentions it
-  only in a comment).
-- No secrets, keys or source maps (scanned).
-- The same code is already public, minified, in the bundles.
+**PASS (owner action done, 2026-10-03).**
 
-Why the deploy doesn't remove it: rsync's `--exclude=src/` also protects it from `--delete`, and a deletion via the
-workflow would exceed its 30-file cap. Exact command (SSH, from the WordPress root):
+Before: `/wp-content/themes/egypt-roamer/src/` on production was a stale copy of the theme's JavaScript source
+(`src/js/assistant.js` returned 404, so it predated the assistant). No page or PHP file referenced it; it held no
+secrets, keys or source maps; the same code is public, minified, in `assets/js`. The owner first renamed it to
+`src.removed/`, which was still public (27 of the 31 known files returned 200).
+
+Role of `src/` (checked in the workflow and build tool):
+- **Development/build only.** `tools/build.py` compiles `src/js` into `assets/js/home.js`, `site.js`, `assistant.js`
+  and `assets/js/locales/*.js`; the theme enqueues only `assets/js/…` (`inc/assets.php`).
+- **Git: keep it.** The CI test job rebuilds the bundles from `src/js` and fails if they differ from `assets/js`.
+- **Deploy: never on production.** Staging excludes `src/` and asserts it is absent; rsync's `--exclude=src/` neither
+  sends nor deletes it.
+- **Why `src.removed/` had to go before the next push:** it does not match `--exclude=src/`, so the theme rsync would
+  try to delete it: at least 27 files and 4 folders, above `--max-delete=30`. The theme dry run would exit 25 after
+  Core had already deployed, leaving a new Core with the old theme.
+
+Done by the owner over SSH:
 
 ```
-rm -r ~/html/wp-content/themes/egypt-roamer/src
+rm -r ~/html/wp-content/themes/egypt-roamer/src.removed
 ```
 
-Verify afterwards: `https://egyptroamer.com/wp-content/themes/egypt-roamer/src/js/main.js` returns 404, and the homepage
-still loads normally.
+Verified: `…/src.removed/js/main.js`, `…/src.removed/js/data.js` and `…/src/js/main.js` return 404; `/`,
+`style.css` and `assets/js/home.js` return 200.
 
 ## 11. HSTS decision
 
@@ -244,7 +253,6 @@ Visual review (by eye):
 
 - Translations of the new strings are self-reviewed (7 items need a native check).
 - Siwa destination photo unverified (NEEDS REVIEW).
-- `/src/` still public until you run the command.
 - HSTS at 1 week until raised.
 - The guides' language switcher leads to empty archives in other languages.
 - Guide CLS 0.052 (good, but the highest on the site).
@@ -259,11 +267,10 @@ Visual review (by eye):
 
 ## 20. Exact next recommended actions
 
-1. SSH: `rm -r ~/html/wp-content/themes/egypt-roamer/src`, then confirm `/src/js/main.js` returns 404.
-2. After 2026-10-10 with no HTTPS issues: raise HSTS to `max-age=15552000` (I can make that one-line Core change).
-3. Have a native speaker review the 7 items in `HOMEPAGE-COPY-NATIVE-QA-2026-10-03.md`.
-4. Approve the editorial link pass (experiences' "Combine it with", the guides' experience links and destination
+1. After 2026-10-10 with no HTTPS issues: raise HSTS to `max-age=15552000` (I can make that one-line Core change).
+2. Have a native speaker review the 7 items in `HOMEPAGE-COPY-NATIVE-QA-2026-10-03.md`.
+3. Approve the editorial link pass (experiences' "Combine it with", the guides' experience links and destination
    relations). It runs through `content/editorial` and then `wp egypt-roamer editorial`.
-5. Provide or approve dated sources for the safety guide first (requirements doc §1).
-6. Decide on the Siwa destination photo (keep, or replace with a Siwa-tagged photo).
-7. Ask GoDaddy support about the HTML browser TTL.
+4. Provide or approve dated sources for the safety guide first (requirements doc §1).
+5. Decide on the Siwa destination photo (keep, or replace with a Siwa-tagged photo).
+6. Ask GoDaddy support about the HTML browser TTL.
