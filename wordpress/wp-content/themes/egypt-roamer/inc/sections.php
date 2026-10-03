@@ -49,6 +49,34 @@ function er_body( array $opts = [] ): array {
 	return [ 'html' => trim( $html ), 'links' => $links, 'label' => $label ];
 }
 
+/**
+ * The sections of er_body()'s HTML by heading anchor, in body order, for templates that place each one
+ * themselves (the experience story). 'items' are the section's list items without their bold lead term
+ * ("Scale." / "Scale:"), for a story stage that tells one of them.
+ *
+ * @return array<string,array{title:string,html:string,items:string[]}>
+ */
+function er_body_parts( string $html ): array {
+	$parts = [];
+	foreach ( array_slice( explode( '<section class="er-sec">', $html ), 1 ) as $chunk ) {
+		$chunk = preg_replace( '#</section>\s*$#', '', trim( $chunk ) );
+		if ( ! preg_match( '#^<h2\b[^>]*\bid="([^"]+)"[^>]*>(.*?)</h2>#s', $chunk, $h ) ) {
+			continue;
+		}
+		$body  = trim( substr( $chunk, strlen( $h[0] ) ) );
+		$items = [];
+		if ( preg_match( '#<ul\b[^>]*>(.*?)</ul>#s', $body, $ul ) && preg_match_all( '#<li\b[^>]*>(.*?)</li>#s', $ul[1], $lis ) ) {
+			foreach ( $lis[1] as $li ) {
+				$items[] = preg_match( '#<span class="er-points__text">(.*)</span>\s*$#s', $li, $t )
+					? trim( $t[1] )
+					: trim( (string) preg_replace( '#^\s*<strong>.*?</strong>\s*[:：]?\s*#su', '', $li ) );
+			}
+		}
+		$parts[ $h[1] ] = [ 'title' => trim( wp_strip_all_tags( $h[2] ) ), 'html' => $body, 'items' => $items ];
+	}
+	return $parts;
+}
+
 /** Wrap each H2 and what follows it in a section; mark lists, H3 runs and FAQs. */
 function er_sections_wrap( string $html, array $opts = [ 'cards' => true ] ): string {
 	$parts = preg_split( '#(?=<h2\b[^>]*\bid=")#', $html );

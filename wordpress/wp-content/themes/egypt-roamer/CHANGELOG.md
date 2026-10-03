@@ -2,6 +2,33 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.39 — 2026-10-03 (with Core 1.2.25): Abu Simbel as one experience story
+- **One narrative instead of two pages.** 1.2.37 put the journey on top of the old experience layout, so the page told its story twice: the journey, "What it feels like" and "What to know", then the same body again with tabs, a sidebar and card sections. When an experience has a story, everything below the hero is now that one story (`template-parts/experience-story.php`):
+  - the opening (why the journey matters, with the route at a glance);
+  - the journey;
+  - chapters on the light ground: who it suits, getting there, what to combine it with (with the related destination and guides);
+  - the next step on the dark ground: the partner offer, or chat and the planner;
+  - the questions.
+  The duplicated "What it feels like" / "What to know" lists, the second intro, the tabs and the sidebar facts are gone.
+- **Every approved sentence has exactly one home, in every language.** The page is built from its own approved body, split by section anchor (`er_body_parts()`):
+  - "What it is" opens the page;
+  - the three "Why it's worth the effort" points become the arrival, the inside stage and the closing beat;
+  - "The sun festival" is the journey's peak;
+  - "Who it suits", "Getting there" (with its "Plan the day" box), "Combine it with" and the questions become chapters.
+  Checked on the English page: all 30 sentences of the approved text appear exactly once. German, Arabic and the other languages get the same structure from their own approved translations. Only the English stage titles are new structural labels, and other languages use their approved photo titles. Old links to `#why`, `#sun-festival`, `#who-it-suits` and the other anchors still land.
+- **A journey with rhythm, not a list.** Each stage has its own weight:
+  - a dark pause before dawn;
+  - the Great Temple reveal, edge to edge (the strongest photograph);
+  - a smaller inset detail of the colossi;
+  - the interior held beside its text;
+  - the sanctuary centred in the dark as the peak;
+  - Nefertari's temple as a mirrored detail;
+  - a closing beat on the 1960s rescue.
+  Phones get it as a vertical film.
+- **"Combine it with" no longer leaves empty space.** The related destination and guides are one row of cards sized to how many there are. The "Plan it with our guides" section with its half-empty grid is gone from this page.
+- **Same first view, lighter scroll.** The hero stays the only first-view image (phone 375 KB, desktop 534 KB, CLS 0). A full scroll costs 1.1 MB on a phone and 0.9 MB on desktop, down from 1.3 / 1.2 MB.
+- **Scope.** The other seven experiences have no story and keep their template exactly (HTML identical apart from the build id). The superseded `experience-immersion.php` is removed.
+
 ## 1.2.38 — 2026-10-03 (with Core 1.2.24): structured data for answer engines
 - **Destinations and experiences describe themselves as web pages with real dates.** Each indexable destination and experience now carries a `WebPage` node with:
   - its language;

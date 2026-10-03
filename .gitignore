@@ -1,1 +1,4 @@
 dist/
+
+# Superdesign working files (local design context and drafts)
+.superdesign/

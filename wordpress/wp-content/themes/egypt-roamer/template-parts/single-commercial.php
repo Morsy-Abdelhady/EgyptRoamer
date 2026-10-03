@@ -37,16 +37,59 @@ if ( ! empty( $er_facts[ er_t( 'Duration' ) ] ) ) {
 	$er_meta .= '<span>' . er_icon( 'i-clock', 'icon--sm' ) . esc_html( $er_facts[ er_t( 'Duration' ) ] ) . '</span>';
 }
 
-// Experience Immersion (template-parts/experience-immersion.php): when the experience has a story, it opens the
-// page as a journey and its "What to know" carries the facts, so the sidebar doesn't repeat them.
+// Experience story (template-parts/experience-story.php): when the experience has one, everything below the hero is
+// that one narrative, built from the same approved body. The layout below (tabs, sidebar, card sections) is not used.
 $er_preview = function_exists( 'er_preview_for' ) ? er_preview_for( $er_id ) : [];
 $er_story   = (array) ( $er_preview['story'] ?? [] );
-$er_know    = ! empty( $er_story['know'] );
+if ( $er_story ) {
+	$er_help_mode = function_exists( 'er_assistant_mode' ) ? er_assistant_mode() : 'off';
+	$er_help_chat = 'off' !== $er_help_mode && function_exists( 'er_chat_enabled' ) && er_chat_enabled();
+	$er_help      = '';
+	if ( $er_help_chat ) {
+		$er_help .= '<p class="story-next__lede">' . esc_html( er_t( 'Have a question? Talk to our team.' ) ) . '</p>';
+	}
+	$er_btns = '';
+	if ( $er_help_chat ) {
+		$er_btns .= '<button type="button" class="btn btn--ghost" data-open="assistant" data-assistant-chat aria-haspopup="dialog" aria-controls="assistant">' . esc_html( er_t( 'Chat with Egypt Roamer' ) ) . '</button>';
+	} elseif ( 'off' !== $er_help_mode ) {
+		$er_btns .= '<button type="button" class="btn btn--ghost" data-open="assistant" aria-haspopup="dialog" aria-controls="assistant">' . er_icon( 'i-sparkle', 'icon--sm' ) . ' ' . esc_html( er_t( 'Trip assistant' ) ) . '</button>';
+	}
+	if ( er_home( 'planner_enabled' ) ) {
+		$er_btns .= '<a class="btn btn--primary" href="' . esc_url( er_home_url() . '#planner' ) . '">' . esc_html( er_t( 'Plan My Trip' ) ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>';
+	}
+	$er_help .= $er_btns ? '<div class="story-next__actions">' . $er_btns . '</div>' : '';
+
+	$er_decide = '';
+	if ( $er_who || $er_not ) {
+		$er_decide = '<div class="decide__cols">'
+			. ( $er_who ? '<div><h3 class="t-label">' . esc_html( er_t( 'Best for' ) ) . '</h3>' . er_check_list( $er_who ) . '</div>' : '' )
+			. ( $er_not ? '<div><h3 class="t-label">' . esc_html( er_t( 'You may prefer something else if' ) ) . '</h3>' . er_check_list( $er_not ) . '</div>' : '' )
+			. '</div>';
+	}
+	er_page_hero( [
+		'eyebrow' => $er_eyebrows[ $er_type ] ?? '',
+		'title'   => get_the_title(),
+		'intro'   => has_excerpt() ? get_the_excerpt() : '',
+		'image'   => (int) get_post_thumbnail_id(),
+		'stock'   => er_stock_id_for( (int) get_the_ID() ),
+		'meta'    => $er_meta,
+	] );
+	get_template_part( 'template-parts/experience-story', null, [
+		'preview' => $er_preview,
+		'parts'   => er_body_parts( er_body()['html'] ),
+		// Location and duration are in the hero; the planning chapter adds only what the hero does not say.
+		'facts'   => array_intersect_key( $er_facts, array_flip( [ er_t( 'Best time' ), er_t( 'Starting point' ) ] ) ),
+		'offers'  => $er_offers,
+		'help'    => $er_help,
+		'related' => array_merge( wp_list_pluck( $er_dests, 'ID' ), wp_list_pluck( $er_guides, 'ID' ), wp_list_pluck( $er_alts, 'ID' ), wp_list_pluck( $er_acts, 'ID' ) ),
+		'who'     => $er_decide,
+		'tips'    => $er_tips ? er_check_list( $er_tips ) : '',
+	] );
+	return;
+}
 
 ob_start();
-if ( ! $er_know ) {
-	er_glance( $er_facts );
-}
+er_glance( $er_facts );
 if ( $er_offers ) :
 	?>
 	<div class="offer-box" role="region" aria-labelledby="offers-title">
@@ -93,19 +136,11 @@ er_page_hero( [
 	'measure' => '' === $er_aside,
 ] );
 $er_body = er_body();
-if ( $er_story ) {
-	get_template_part( 'template-parts/experience-immersion', null, [
-		'preview' => $er_preview,
-		'facts'   => $er_know ? $er_facts : [],
-		'offer'   => $er_offers ? (int) $er_offers[0] : 0,
-		'more'    => $er_body['links'][0][0] ?? '',
-	] );
-}
 er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
 
-// Experience preview without a story (photo strip / clip): after the first section, once the reader knows
-// what the experience is, and before the practical detail. Inside .prose, so the section numbers keep counting.
-if ( $er_preview && ! $er_story ) {
+// Experience preview (photo strip / clip): after the first section, once the reader knows what the experience
+// is, and before the practical detail. Inside .prose, so the section numbers keep counting.
+if ( $er_preview ) {
 	ob_start();
 	get_template_part( 'template-parts/experience-preview', null, [ 'preview' => $er_preview ] );
 	$er_preview_html = (string) ob_get_clean();

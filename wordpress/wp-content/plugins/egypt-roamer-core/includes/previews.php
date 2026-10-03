@@ -82,42 +82,50 @@ function er_preview_for( int $post_id ): array {
 		'lang'    => $lang,
 		'video'   => $video,
 		'moments' => $moments,
-		'story'   => er_preview_story( (array) ( $entry['story'] ?? [] ), $post_lang, $moments, $text( $entry['title'] ?? '' ), $text( $entry['intro'] ?? '' ) ),
+		'story'   => er_preview_story( (array) ( $entry['story'] ?? [] ), $post_lang, $moments ),
 	], $post_id );
 }
 
 /**
- * The "Experience Immersion" story of an entry: the experience as a journey (before → arrival → inside →
- * highlight → after), what it feels like, and what to know, built on the entry's moments.
+ * The "Experience story" of an entry: how the experience page is told as one narrative. The story only
+ * arranges approved material; it adds no facts of its own:
  *
- *     [ 'full' (bool), 'label', 'title', 'lede',
- *       'stages' => [ [ 'eyebrow', 'title', 'text', 'tone', 'photo', 'alt', 'photographer', 'source', 'generated' ], … ],
- *       'feel'   => [ 'title', 'note', 'items' => [ [ 'label', 'text' ], … ] ],
- *       'know'   => [ 'title', 'more', 'items' => [ [ 'label', 'text' ], … ] ] ]
+ *     [ 'full' (bool), 'label', 'title',
+ *       'sections' => [ 'opening' => body anchor, 'fit' => …, 'plan' => …, 'combine' => …, 'faq' => …, 'absorbed' => [ anchors ] ],
+ *       'stages'   => [ [ 'layout', 'tone', 'from', 'eyebrow', 'title', 'text', 'photo', 'alt', 'photographer', 'source', 'generated' ], … ] ]
  *
- * The story's own text is never borrowed from another language. A language that has it ('full') gets the
- * whole journey; one that does not gets the same sequence of photographs with their translated moment
- * titles and captions (no text-only stages, no feel/know), so a page never mixes two languages and no
- * translation is invented. [] when the entry has no story (the theme then keeps the photo strip).
+ * - `sections` names, by heading anchor, where each section of the page's own (approved, translated) body goes. The body
+ *   sections listed in `absorbed` are told by the journey instead, through each stage's `from` ("why#1": the first item of
+ *   the "why" section; "sun-festival": that whole section), so every sentence has exactly one home in every language.
+ * - `layout` sets each stage's weight in the sequence: text (a dark pause), reveal (the full-bleed moment), detail (a smaller
+ *   beat), split (photo held beside the text), peak (the highlight).
+ * - The story's own words (label, title, eyebrows, stage titles) are never borrowed from another language. A language that
+ *   has them ('full') gets them; one that does not gets the moments' approved titles and the body text, and text-only stages
+ *   without body text are left out. A page never mixes two languages.
+ *
+ * [] when the entry has no story (the theme then keeps the photo strip).
  */
-function er_preview_story( array $story, string $lang, array $moments, string $title, string $intro ): array {
+function er_preview_story( array $story, string $lang, array $moments ): array {
 	if ( ! $story || empty( $story['stages'] ) ) {
 		return [];
 	}
 	$own  = static fn ( $v ): string => is_array( $v ) ? trim( (string) ( $v[ $lang ] ?? '' ) ) : '';
-	$full = '' !== $own( $story['title'] ?? '' ) && '' !== $own( $story['lede'] ?? '' );
+	$full = '' !== $own( $story['title'] ?? '' );
 
 	$stages = [];
 	foreach ( (array) $story['stages'] as $s ) {
-		$m = isset( $s['moment'] ) ? ( $moments[ (int) $s['moment'] ] ?? null ) : null;
-		if ( ! $m && ! $full ) {
-			continue; // A text-only stage exists only in the story's own languages.
+		$m    = isset( $s['moment'] ) ? ( $moments[ (int) $s['moment'] ] ?? null ) : null;
+		$from = sanitize_text_field( (string) ( $s['from'] ?? '' ) );
+		if ( ! $m && ! $full && '' === $from ) {
+			continue; // A text-only stage needs words of its own or of the body.
 		}
 		$stages[] = [
+			'layout'       => sanitize_key( (string) ( $s['layout'] ?? ( $m ? 'split' : 'text' ) ) ),
+			'tone'         => sanitize_key( (string) ( $s['tone'] ?? '' ) ),
+			'from'         => $from,
 			'eyebrow'      => $full ? $own( $s['eyebrow'] ?? '' ) : '',
 			'title'        => $full && '' !== $own( $s['title'] ?? '' ) ? $own( $s['title'] ) : (string) ( $m['title'] ?? '' ),
-			'text'         => $full && '' !== $own( $s['text'] ?? '' ) ? $own( $s['text'] ) : (string) ( $m['caption'] ?? '' ),
-			'tone'         => $m ? '' : sanitize_key( (string) ( $s['tone'] ?? '' ) ),
+			'text'         => $full ? $own( $s['text'] ?? '' ) : '',
 			'photo'        => (string) ( $m['photo'] ?? '' ),
 			'alt'          => (string) ( $m['alt'] ?? '' ),
 			'photographer' => (string) ( $m['photographer'] ?? '' ),
@@ -128,22 +136,12 @@ function er_preview_story( array $story, string $lang, array $moments, string $t
 	if ( ! array_filter( array_column( $stages, 'photo' ) ) ) {
 		return [];
 	}
-	$list = static function ( $block ) use ( $own ): array {
-		$items = [];
-		foreach ( (array) ( $block['items'] ?? [] ) as $i ) {
-			if ( '' !== $own( $i['label'] ?? '' ) && '' !== $own( $i['text'] ?? '' ) ) {
-				$items[] = [ 'label' => $own( $i['label'] ), 'text' => $own( $i['text'] ) ];
-			}
-		}
-		return $items ? [ 'title' => $own( $block['title'] ?? '' ), 'note' => $own( $block['note'] ?? '' ), 'more' => $own( $block['more'] ?? '' ), 'items' => $items ] : [];
-	};
+	$sections = array_map( static fn ( $v ) => is_array( $v ) ? array_map( 'sanitize_title', $v ) : sanitize_title( (string) $v ), (array) ( $story['sections'] ?? [] ) );
 	return [
-		'full'   => $full,
-		'label'  => $full ? $own( $story['label'] ?? '' ) : '',
-		'title'  => $full ? $own( $story['title'] ) : $title,
-		'lede'   => $full ? $own( $story['lede'] ) : $intro,
-		'stages' => $stages,
-		'feel'   => $full ? $list( $story['feel'] ?? [] ) : [],
-		'know'   => $full ? $list( $story['know'] ?? [] ) : [],
+		'full'     => $full,
+		'label'    => $full ? $own( $story['label'] ?? '' ) : '',
+		'title'    => $full ? $own( $story['title'] ) : '',
+		'sections' => $sections,
+		'stages'   => $stages,
 	];
 }

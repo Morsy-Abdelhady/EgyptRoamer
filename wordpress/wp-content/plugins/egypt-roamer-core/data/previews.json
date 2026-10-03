@@ -166,30 +166,37 @@
    }
   ],
   "story": {
-   "_source": "content/editorial/en/exp-abu.md (approved). English only: other languages show the same photographs with their approved moment captions until the story text is translated and checked by a native speaker.",
+   "_source": "Arrangement only. Body text comes from each language's approved editorial (sections by heading anchor; stage 'from'). English titles/eyebrows are new structural labels; other languages use the moments' approved titles.",
    "label": {
     "en": "The journey"
    },
    "title": {
     "en": "From Aswan in the dark to the sanctuary of Ramesses II"
    },
-   "lede": {
-    "en": "Leave Aswan before dawn. Arrive in the morning, far to the south near the Sudanese border. Then walk from the foot of the colossi deep into the rock, to the sanctuary the rising sun reaches twice a year."
+   "sections": {
+    "opening": "what-it-is",
+    "fit": "who-it-suits",
+    "plan": "road-or-air",
+    "combine": "combine",
+    "faq": "faq",
+    "absorbed": [
+     "why",
+     "sun-festival"
+    ]
    },
    "stages": [
     {
+     "layout": "text",
      "tone": "dawn",
      "eyebrow": {
       "en": "Before dawn"
      },
      "title": {
       "en": "Leave Aswan in the dark"
-     },
-     "text": {
-      "en": "The classic way is by road: you set off before dawn and arrive in the morning. It's a very long day, most of it in the vehicle. Short flights from Aswan save hours, at a higher cost."
      }
     },
     {
+     "layout": "reveal",
      "moment": 0,
      "eyebrow": {
       "en": "Arrival"
@@ -197,23 +204,20 @@
      "title": {
       "en": "The Great Temple"
      },
-     "text": {
-      "en": "Built by Ramesses II and cut into the rock. Its façade is one of the most famous images of ancient Egypt."
-     }
+     "from": "why#1"
     },
     {
+     "layout": "detail",
      "moment": 1,
      "eyebrow": {
-      "en": "The first view"
+      "en": "Looking up"
      },
      "title": {
       "en": "Four colossi of the king"
-     },
-     "text": {
-      "en": "Four colossal seated statues of Ramesses II front the façade. It's even bigger in person."
      }
     },
     {
+     "layout": "split",
      "moment": 2,
      "eyebrow": {
       "en": "Inside"
@@ -221,11 +225,10 @@
      "title": {
       "en": "Into the rock"
      },
-     "text": {
-      "en": "Carved halls lead deep into the rock, with battle scenes and statues of the king as a god."
-     }
+     "from": "why#3"
     },
     {
+     "layout": "peak",
      "moment": 3,
      "eyebrow": {
       "en": "The highlight"
@@ -233,23 +236,20 @@
      "title": {
       "en": "The sanctuary"
      },
-     "text": {
-      "en": "On or around 22 February and 22 October, the rising sun shines along the temple's axis into this innermost sanctuary and lights the seated statues. Those days draw large crowds; on other days you get far more space."
-     }
+     "from": "sun-festival"
     },
     {
+     "layout": "detail",
      "moment": 4,
      "eyebrow": {
       "en": "The second temple"
      },
      "title": {
       "en": "Nefertari and Hathor"
-     },
-     "text": {
-      "en": "The smaller temple is dedicated to Queen Nefertari and the goddess Hathor. The time at the two temples is usually a few hours, enough to see both without rushing."
      }
     },
     {
+     "layout": "text",
      "tone": "dusk",
      "eyebrow": {
       "en": "Afterwards"
@@ -257,95 +257,9 @@
      "title": {
       "en": "What stays with you"
      },
-     "text": {
-      "en": "In the 1960s, as Lake Nasser rose behind the new High Dam, both temples were cut into blocks and reassembled on higher ground. Knowing that as you stand inside makes the visit remarkable."
-     }
+     "from": "why#2"
     }
-   ],
-   "feel": {
-    "title": {
-     "en": "What it feels like"
-    },
-    "note": {
-     "en": "General expectations from our guide, not promises. Every day at the temples is different."
-    },
-    "items": [
-     {
-      "label": {
-       "en": "Pace"
-      },
-      "text": {
-       "en": "An early start and a very long day, most of it on the road, unless you fly."
-      }
-     },
-     {
-      "label": {
-       "en": "At the temples"
-      },
-      "text": {
-       "en": "Usually a few hours, enough for both temples without rushing."
-      }
-     },
-     {
-      "label": {
-       "en": "Setting"
-      },
-      "text": {
-       "en": "A fully exposed forecourt in the sun, then carved halls deep in the rock."
-      }
-     },
-     {
-      "label": {
-       "en": "Crowds"
-      },
-      "text": {
-       "en": "Very busy on the sun festival days; far more space on other days."
-      }
-     }
-    ]
-   },
-   "know": {
-    "title": {
-     "en": "What to know"
-    },
-    "more": {
-     "en": "Read the full guide"
-    },
-    "items": [
-     {
-      "label": {
-       "en": "Getting there"
-      },
-      "text": {
-       "en": "By road, leaving Aswan before dawn, or by a short flight from Aswan."
-      }
-     },
-     {
-      "label": {
-       "en": "Sun festival"
-      },
-      "text": {
-       "en": "On or around 22 February and 22 October. Book far ahead if you want to see it."
-      }
-     },
-     {
-      "label": {
-       "en": "Bring"
-      },
-      "text": {
-       "en": "Breakfast or snacks, water, a layer for the early morning, and sun protection."
-      }
-     },
-     {
-      "label": {
-       "en": "Inside the temples"
-      },
-      "text": {
-       "en": "Photography rules can change. Follow the guards."
-      }
-     }
-    ]
-   }
+   ]
   }
  }
 }
