@@ -1,6 +1,7 @@
 ---
 type: er_experience
 excerpt: A 4×4 day in the Great Sand Sea from Siwa Oasis: dune driving, sand-boarding, desert springs and sunset over the dunes, what to bring, and how to choose a local operator.
+alternatives: exp-safari
 ---
 ## What it is {#what-it-is}
 

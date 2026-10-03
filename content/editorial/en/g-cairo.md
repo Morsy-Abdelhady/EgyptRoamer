@@ -2,10 +2,11 @@
 type: er_guide
 destination: cairo
 excerpt: Cairo beyond the pyramids: a neighbourhood-by-neighbourhood guide to Islamic Cairo, Coptic Cairo, Downtown, Zamalek and the Nile, with a walking route through the old city and tips for everyday Cairo.
+related: exp-giza, exp-dinner, exp-food
 ---
 [[toc]]
 
-Most visitors see Cairo through the pyramids and the new museum at Giza, then leave. This guide is about the rest of the city: the neighbourhoods where Cairenes live, pray, shop and eat. It's where Cairo stops being a transit stop and starts being one of the great cities of the world. For the essentials (the sights, where to stay, how many days), start with our [Cairo destination guide](/destinations/cairo/).
+Most visitors see Cairo through [the pyramids](/experiences/pyramids-of-giza-sphinx-private-tour/) and the new museum at Giza, then leave. This guide is about the rest of the city: the neighbourhoods where Cairenes live, pray, shop and eat. It's where Cairo stops being a transit stop and starts being one of the great cities of the world. For the essentials (the sights, where to stay, how many days), start with our [Cairo destination guide](/destinations/cairo/).
 
 ## A walk through the old city {#old-city-walk}
 

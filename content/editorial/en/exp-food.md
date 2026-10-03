@@ -1,6 +1,7 @@
 ---
 type: er_experience
 excerpt: A Cairo street food tour by night: the dishes you'll taste, from koshari and ful to feteer and sweets, the neighbourhoods you walk through, dietary needs, and why a local guide helps.
+alternatives: exp-dinner
 ---
 ## What it is {#what-it-is}
 

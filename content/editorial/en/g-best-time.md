@@ -1,6 +1,8 @@
 ---
 type: er_guide
 excerpt: When to visit Egypt, season by season and region by region: the Nile Valley's comfortable winter, the Red Sea's long beach season, the desert's cold nights, and how Ramadan and holidays change a trip.
+destination: cairo, luxor, aswan, hurghada, sharm, siwa, alexandria
+related: exp-abu, exp-safari
 ---
 [[toc]]
 
@@ -9,9 +11,9 @@ There is no single best month for Egypt, because the country covers very differe
 ## The short answer {#short-answer}
 
 - **For temples and sightseeing** (Cairo, Luxor, Aswan): **October to April**, when days are warm rather than scorching.
-- **For the Red Sea** (Hurghada, Sharm El Sheikh): **most of the year**. Spring and autumn give warm water without the summer heat.
-- **For the desert** (Siwa, the White Desert): **October to April**, but pack for cold nights.
-- **For Alexandria and the north coast:** **spring and autumn**. Summer is Egypt's own beach season.
+- **For the Red Sea** (Hurghada, [Sharm El Sheikh](/destinations/sharm/)): **most of the year**. Spring and autumn give warm water without the summer heat.
+- **For the desert** ([Siwa](/destinations/siwa/), [the White Desert](/experiences/white-desert-black-desert-safari/)): **October to April**, but pack for cold nights.
+- **For [Alexandria](/destinations/alexandria/) and the north coast:** **spring and autumn**. Summer is Egypt's own beach season.
 
 ## Region by region {#regions}
 
@@ -32,7 +34,7 @@ Hot by day for much of the year and very hot in summer. In winter, nights in the
 
 ## Through the year {#through-the-year}
 
-- **December to February.** Peak season in the Nile Valley: pleasant days, cool evenings and chilly early mornings. Busiest around Christmas and New Year. The **Abu Simbel sun festival** falls on or around 22 February.
+- **December to February.** Peak season in the Nile Valley: pleasant days, cool evenings and chilly early mornings. Busiest around Christmas and New Year. The **[Abu Simbel](/experiences/abu-simbel-day-trip-from-aswan/) sun festival** falls on or around 22 February.
 - **March and April.** Warming up, and still excellent for sightseeing. Spring winds can occasionally bring sand.
 - **May to September.** Hot to very hot in the south. It's the low season for Nile Valley sightseeing, so plan early starts and midday rests. The Red Sea is in full summer season.
 - **October and November.** Temperatures fall and the season restarts. It's an excellent time everywhere. The second **Abu Simbel sun festival** falls on or around 22 October.

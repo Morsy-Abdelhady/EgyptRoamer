@@ -1,6 +1,7 @@
 ---
 type: er_experience
 excerpt: A Nile dinner cruise in Cairo: what the evening is like, the music and tanoura show, who it suits, how to choose a boat, and how it compares with a simple felucca ride at sunset.
+alternatives: exp-food
 ---
 ## What it is {#what-it-is}
 

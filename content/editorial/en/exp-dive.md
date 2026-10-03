@@ -1,6 +1,7 @@
 ---
 type: er_experience
 excerpt: Two guided reef dives in the Red Sea: what a dive day looks like, requirements for beginners and certified divers, how to choose a responsible dive centre, and where the best reefs are.
+destination: hurghada, sharm
 ---
 ## What it is {#what-it-is}
 

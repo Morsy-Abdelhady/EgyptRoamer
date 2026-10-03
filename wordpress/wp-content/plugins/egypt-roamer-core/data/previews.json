@@ -1,0 +1,169 @@
+{
+ "_note": "Experience previews (prototype, 2026-10-03). One entry per experience seed id. Photos are free Unsplash photos hot-linked like the other stand-ins, each with an exact location tag recorded below (docs/SEO-GROWTH-IMMERSIVE-PROTOTYPE-REPORT-2026-10-03.md). Captions only repeat facts from the approved editorial body; translations reuse its approved wording and still need a native check. generated: true marks an illustration (shown with a label), never presented as footage of the place. video: null until a verified clip exists; shape: {\"mp4\": url, \"webm\": url, \"poster\": photo id, \"duration\": seconds, \"captions\": {lang: vtt url}, \"generated\": false, \"source\": url}.",
+ "exp-abu": {
+  "status": "prototype",
+  "title": {
+   "en": "Abu Simbel, moment by moment",
+   "de": "Abu Simbel, Moment für Moment",
+   "fr": "Abou Simbel, moment par moment",
+   "it": "Abu Simbel, momento per momento",
+   "es": "Abu Simbel, momento a momento",
+   "ru": "Абу-Симбел шаг за шагом",
+   "zh": "阿布辛贝，一步一景",
+   "ar": "أبو سمبل، لحظة بلحظة"
+  },
+  "intro": {
+   "en": "Five photographs taken at the temples: the Great Temple, outside and in, then the smaller temple of Nefertari.",
+   "de": "Fünf Fotos von den Tempeln: der Große Tempel von außen und innen, dann der kleinere Tempel der Nefertari.",
+   "fr": "Cinq photos prises sur place : le Grand Temple, dehors et dedans, puis le petit temple de Néfertari.",
+   "it": "Cinque foto scattate ai templi: il Tempio Maggiore, fuori e dentro, poi il tempio minore di Nefertari.",
+   "es": "Cinco fotos tomadas en los templos: el Gran Templo, por fuera y por dentro, y después el templo pequeño de Nefertari.",
+   "ru": "Пять фотографий, снятых в храмах: Большой храм снаружи и внутри, затем Малый храм Нефертари.",
+   "zh": "五张在神庙实地拍摄的照片：先看大神庙的外观与内部，再看奈菲尔塔利的小神庙。",
+   "ar": "خمس صور التُقطت في المعبدين: المعبد الكبير من الخارج والداخل، ثم المعبد الأصغر للملكة نفرتاري."
+  },
+  "video": null,
+  "moments": [
+   {
+    "photo": "1748292951608-e5c300778b1c",
+    "source": "https://unsplash.com/photos/sdOQl33RPLU",
+    "photographer": "c gom",
+    "location_tag": "Abu Simbel, Égypte (22.1123, 31.6739)",
+    "generated": false,
+    "title": { "en": "The Great Temple", "de": "Der Große Tempel", "fr": "Le Grand Temple", "it": "Il Tempio Maggiore", "es": "El Gran Templo", "ru": "Большой храм", "zh": "大神庙", "ar": "المعبد الكبير" },
+    "caption": {
+     "en": "Built by Ramesses II and cut into the rock. In the 1960s, as Lake Nasser rose, it was cut into blocks and reassembled on higher ground.",
+     "de": "Von Ramses II. in den Fels gebaut. In den 1960er-Jahren, als der Nassersee anstieg, wurde er in Blöcke zersägt und auf höherem Gelände wieder zusammengesetzt.",
+     "fr": "Creusé dans la roche par Ramsès II. Dans les années 1960, quand le lac Nasser montait, il a été découpé en blocs et remonté sur un terrain plus élevé.",
+     "it": "Scavato nella roccia da Ramses II. Negli anni Sessanta, mentre il Lago Nasser saliva, fu tagliato in blocchi e rimontato su un terreno più alto.",
+     "es": "Excavado en la roca por orden de Ramsés II. En la década de 1960, mientras el lago Nasser subía, se cortó en bloques y se volvió a montar en un terreno más alto.",
+     "ru": "Высечен в скале по приказу Рамсеса II. В 1960-х годах, когда поднималось озеро Насер, его разрезали на блоки и собрали заново выше.",
+     "zh": "由拉美西斯二世在岩石中开凿而成。1960年代纳赛尔湖水位上涨时，神庙被切割成块，在更高处重新拼装。",
+     "ar": "نحته رمسيس الثاني في الصخر. وفي ستينيات القرن العشرين، مع ارتفاع مياه بحيرة ناصر، قُطّع إلى كتل وأُعيد تركيبه على أرض أعلى."
+    },
+    "alt": {
+     "en": "The rock-cut façade of the Great Temple at Abu Simbel, with visitors at its foot",
+     "de": "Die in den Fels gehauene Fassade des Großen Tempels von Abu Simbel, mit Besuchern davor",
+     "fr": "La façade du Grand Temple d’Abou Simbel, taillée dans la roche, avec des visiteurs à ses pieds",
+     "it": "La facciata del Tempio Maggiore di Abu Simbel scavata nella roccia, con visitatori ai suoi piedi",
+     "es": "La fachada excavada en la roca del Gran Templo de Abu Simbel, con visitantes al pie",
+     "ru": "Высеченный в скале фасад Большого храма в Абу-Симбеле, у подножия — посетители",
+     "zh": "阿布辛贝大神庙在岩石中开凿的正面，下方有游客",
+     "ar": "واجهة المعبد الكبير في أبو سمبل المنحوتة في الصخر، وعند قاعدتها زوّار"
+    }
+   },
+   {
+    "photo": "1710803622349-0a17829918c5",
+    "source": "https://unsplash.com/photos/xLCogBnMjSg",
+    "photographer": "Sofia Cancela",
+    "location_tag": "Abu Simbel, Abu Simbel, Egypt (22.3614, 31.6099)",
+    "generated": false,
+    "title": { "en": "The colossi", "de": "Die Kolosse", "fr": "Les colosses", "it": "I colossi", "es": "Los colosos", "ru": "Колоссы", "zh": "巨像", "ar": "التماثيل العملاقة" },
+    "caption": {
+     "en": "Four colossal seated statues of the king front the façade. It's even bigger in person.",
+     "de": "Vier kolossale Sitzstatuen des Königs schmücken die Fassade. In Wirklichkeit wirkt sie noch größer.",
+     "fr": "Quatre statues assises colossales du roi gardent la façade. En vrai, elle paraît encore plus grande.",
+     "it": "Quattro colossali statue sedute del re dominano la facciata. Dal vivo è ancora più grande.",
+     "es": "Cuatro colosales estatuas sedentes del rey presiden la fachada. En persona es aún más grande.",
+     "ru": "Фасад украшают четыре колоссальные сидящие статуи царя. Вживую он ещё больше.",
+     "zh": "大神庙正面有四尊国王巨型坐像，亲眼看到会觉得更加宏伟。",
+     "ar": "تتصدّر الواجهةَ أربعةُ تماثيل جالسة عملاقة للملك، وهي أضخم بكثير حين تراها بعينك."
+    },
+    "alt": {
+     "en": "Looking up at the colossal seated statues of Ramesses II on the Great Temple's façade",
+     "de": "Blick hinauf zu den kolossalen Sitzstatuen Ramses’ II. an der Fassade des Großen Tempels",
+     "fr": "Contre-plongée sur les statues assises colossales de Ramsès II, sur la façade du Grand Temple",
+     "it": "Le colossali statue sedute di Ramses II sulla facciata del Tempio Maggiore, viste dal basso",
+     "es": "Vista desde abajo de las colosales estatuas sedentes de Ramsés II en la fachada del Gran Templo",
+     "ru": "Вид снизу на колоссальные сидящие статуи Рамсеса II на фасаде Большого храма",
+     "zh": "仰望大神庙正面拉美西斯二世的巨型坐像",
+     "ar": "نظرة من أسفل إلى تماثيل رمسيس الثاني الجالسة العملاقة على واجهة المعبد الكبير"
+    }
+   },
+   {
+    "photo": "1633163940265-e0e82292e290",
+    "source": "https://unsplash.com/photos/cOihXsrJFRc",
+    "photographer": "Dmitrii Zhodzishskii",
+    "location_tag": "Abu Simbel, Египет (22.2170, 31.5827); photographer's description: \"Abu Simbel temple - The Great Temple of Ramesses II\"",
+    "generated": false,
+    "title": { "en": "Into the rock", "de": "Tief im Fels", "fr": "Dans la roche", "it": "Dentro la roccia", "es": "Dentro de la roca", "ru": "В глубине скалы", "zh": "深入岩石", "ar": "في قلب الصخر" },
+    "caption": {
+     "en": "Carved halls lead deep into the rock, with battle scenes and statues of the king as a god.",
+     "de": "Reliefgeschmückte Säle führen tief in den Fels, mit Schlachtenszenen und Statuen des Königs als Gott.",
+     "fr": "Des salles sculptées s’enfoncent profondément dans la roche, avec des scènes de bataille et des statues du roi divinisé.",
+     "it": "Sale scolpite scendono in profondità nella roccia, con scene di battaglia e statue del re divinizzato.",
+     "es": "Salas talladas se adentran en la roca, con escenas de batalla y estatuas del rey divinizado.",
+     "ru": "Резные залы уходят глубоко в скалу, со сценами сражений и статуями обожествлённого царя.",
+     "zh": "雕刻精美的殿堂深入岩石，有战争场景和被神化的国王雕像。",
+     "ar": "قاعات منحوتة تمتدّ عميقًا في الصخر، فيها مشاهد المعارك وتماثيل الملك في هيئة إله."
+    },
+    "alt": {
+     "en": "Standing statues of the king as a god lining a pillared hall inside the Great Temple",
+     "de": "Stehende Statuen des Königs als Gott in einer Pfeilerhalle im Inneren des Großen Tempels",
+     "fr": "Statues debout du roi divinisé alignées dans une salle à piliers du Grand Temple",
+     "it": "Statue in piedi del re divinizzato lungo una sala a pilastri all’interno del Tempio Maggiore",
+     "es": "Estatuas de pie del rey divinizado a lo largo de una sala de pilares dentro del Gran Templo",
+     "ru": "Стоящие статуи обожествлённого царя вдоль колонного зала внутри Большого храма",
+     "zh": "大神庙内柱厅两侧被神化的国王立像",
+     "ar": "تماثيل واقفة للملك في هيئة إله تصطفّ في قاعة ذات أعمدة داخل المعبد الكبير"
+    }
+   },
+   {
+    "photo": "1633163973863-d44691f969b4",
+    "source": "https://unsplash.com/photos/BoOebId7nJM",
+    "photographer": "Dmitrii Zhodzishskii",
+    "location_tag": "Abu Simbel, Египет (22.2170, 31.5827); photographer's description: \"Abu Simbel temple - The Great Temple of Ramesses II\"",
+    "generated": false,
+    "title": { "en": "The sanctuary", "de": "Das Heiligtum", "fr": "Le sanctuaire", "it": "Il santuario", "es": "El santuario", "ru": "Святилище", "zh": "圣殿", "ar": "قدس الأقداس" },
+    "caption": {
+     "en": "On or around 22 February and 22 October, the rising sun shines along the temple's axis into this innermost sanctuary and lights the seated statues.",
+     "de": "Am oder um den 22. Februar und den 22. Oktober scheint die aufgehende Sonne entlang der Tempelachse bis in dieses innerste Heiligtum und beleuchtet die Sitzstatuen.",
+     "fr": "Le 22 février et le 22 octobre ou aux alentours, le soleil levant éclaire l’axe du temple jusqu’à ce sanctuaire et illumine les statues assises.",
+     "it": "Il 22 febbraio e il 22 ottobre o giù di lì, il sole nascente illumina l’asse del tempio fino a questo santuario e rischiara le statue sedute.",
+     "es": "El 22 de febrero y el 22 de octubre o en torno a esas fechas, el sol naciente recorre el eje del templo hasta este santuario e ilumina las estatuas sedentes.",
+     "ru": "22 февраля и 22 октября или около этих дат восходящее солнце светит вдоль оси храма до этого святилища и освещает сидящие статуи.",
+     "zh": "大约在2月22日和10月22日，初升的太阳沿着神庙中轴线照进这座最深处的圣殿，照亮里面的坐像。",
+     "ar": "في 22 فبراير و22 أكتوبر أو نحوهما، تسطع الشمس المشرقة على امتداد محور المعبد حتى قدس الأقداس هذا فتضيء التماثيل الجالسة فيه."
+    },
+    "alt": {
+     "en": "Seated statues carved into the rock in the Great Temple's innermost sanctuary",
+     "de": "In den Fels gehauene Sitzstatuen im innersten Heiligtum des Großen Tempels",
+     "fr": "Statues assises taillées dans la roche, au fond du sanctuaire du Grand Temple",
+     "it": "Statue sedute scolpite nella roccia nel santuario più interno del Tempio Maggiore",
+     "es": "Estatuas sedentes talladas en la roca en el santuario más interior del Gran Templo",
+     "ru": "Высеченные в скале сидящие статуи во внутреннем святилище Большого храма",
+     "zh": "大神庙最深处圣殿中在岩石上雕出的坐像",
+     "ar": "تماثيل جالسة منحوتة في الصخر داخل قدس أقداس المعبد الكبير"
+    }
+   },
+   {
+    "photo": "1633164006864-be2345665822",
+    "source": "https://unsplash.com/photos/Kc2LMhBBT78",
+    "photographer": "Dmitrii Zhodzishskii",
+    "location_tag": "Abu Simbel, Египет (22.2170, 31.5827); photographer's description: \"Abu Simbel temple - the Small Temple of Hathor and Nefertari\"",
+    "generated": false,
+    "title": { "en": "The temple of Nefertari", "de": "Der Tempel der Nefertari", "fr": "Le temple de Néfertari", "it": "Il tempio di Nefertari", "es": "El templo de Nefertari", "ru": "Храм Нефертари", "zh": "奈菲尔塔利神庙", "ar": "معبد نفرتاري" },
+    "caption": {
+     "en": "The smaller temple, dedicated to Queen Nefertari and the goddess Hathor.",
+     "de": "Der kleinere Tempel, der Königin Nefertari und der Göttin Hathor geweiht.",
+     "fr": "Le petit temple, dédié à la reine Néfertari et à la déesse Hathor.",
+     "it": "Il tempio minore, dedicato alla regina Nefertari e alla dea Hathor.",
+     "es": "El templo pequeño, dedicado a la reina Nefertari y a la diosa Hathor.",
+     "ru": "Малый храм, посвящённый царице Нефертари и богине Хатхор.",
+     "zh": "献给王后奈菲尔塔利和哈索尔女神的小神庙。",
+     "ar": "المعبد الأصغر المكرَّس للملكة نفرتاري والإلهة حتحور."
+    },
+    "alt": {
+     "en": "The façade of the smaller temple at Abu Simbel, with standing statues carved into the rock on both sides of the entrance",
+     "de": "Die Fassade des kleineren Tempels von Abu Simbel mit in den Fels gehauenen Standfiguren beiderseits des Eingangs",
+     "fr": "La façade du petit temple d’Abou Simbel, avec des statues debout taillées dans la roche de part et d’autre de l’entrée",
+     "it": "La facciata del tempio minore di Abu Simbel, con statue in piedi scolpite nella roccia ai lati dell’ingresso",
+     "es": "La fachada del templo pequeño de Abu Simbel, con estatuas de pie talladas en la roca a ambos lados de la entrada",
+     "ru": "Фасад Малого храма в Абу-Симбеле со стоящими статуями, высеченными в скале по обе стороны от входа",
+     "zh": "阿布辛贝小神庙的正面，入口两侧是在岩石上雕出的立像",
+     "ar": "واجهة المعبد الأصغر في أبو سمبل، وعلى جانبي المدخل تماثيل واقفة منحوتة في الصخر"
+    }
+   }
+  ]
+ }
+}

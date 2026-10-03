@@ -2,6 +2,18 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.35 — 2026-10-03 (with Core 1.2.21): internal links, guide language switcher, Siwa photo, experience preview prototype
+- **Internal links through the existing editorial pipeline.** Editorial front matter gains language-neutral relations (`destination`, `related`, `alternatives`) that `wp egypt-roamer editorial` adds when missing and never removes. They are left out of the translation fingerprint, so the 105 approved translations stay current.
+  - Guides now list their destinations (each destination page shows "Plan your trip to …" for the English guides) and related experiences.
+  - Red Sea Diving is also linked to Sharm El Sheikh, as its text already says.
+  - Two pairs of "Alternatives to compare": Nile dinner cruise ↔ Cairo street food tour, White & Black Desert safari ↔ Great Sand Sea 4×4.
+  - The four published English guides link words they already contain to the matching experience and destination pages. No wording changed.
+- **Language switcher on archives.** A language whose archive has nothing published (the guides, English-only for now) is linked to its homepage instead of an empty, noindex archive. Archives with content still link to the same archive in each language.
+- **Siwa photo with a verified location.** The Siwa destination photo (no location tag) is replaced by a free photo of Shali fortress tagged "Siwa, Egypt" by its photographer.
+- **Experience preview (prototype, Abu Simbel only).** A "moment by moment" strip of five photographs after the page's first section, all location-tagged "Abu Simbel" by their photographers. Captions repeat the approved text, and credits link each photo's source.
+  - Scroll-snap strip with previous/next buttons, a counter and progress bars. It works without JavaScript and in RTL, uses smooth scrolling only when motion is allowed, and lazy-loads every photo below the fold.
+  - Video support is built but unused: poster first, the clip created only on play, muted, with native controls and a failure message. Media marked as generated is labelled "Illustration, not footage of the place". The other seven experiences have no preview until the prototype is approved.
+
 ## 1.2.34 — 2026-10-03 (with Core 1.2.20): photo provenance, honest newsletter, guide byline
 - **Every photo now shows the place it claims.** A provenance check of all 52 stand-in photos against their Unsplash location tags found six public slots showing other countries or an unverifiable place. They are replaced (owner-approved 2026-10-03) by free photos whose photographer tagged the exact Egyptian place:
   - Red Sea Diving: NEOM, Saudi Arabia → a Hurghada reef with divers;

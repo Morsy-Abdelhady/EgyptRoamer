@@ -33,15 +33,18 @@
  },
  "exp-dinner": {
   "type": "er_experience",
-  "excerpt": "A Nile dinner cruise in Cairo: what the evening is like, the music and tanoura show, who it suits, how to choose a boat, and how it compares with a simple felucca ride at sunset."
+  "excerpt": "A Nile dinner cruise in Cairo: what the evening is like, the music and tanoura show, who it suits, how to choose a boat, and how it compares with a simple felucca ride at sunset.",
+  "alternatives": "exp-food"
  },
  "exp-dive": {
   "type": "er_experience",
-  "excerpt": "Two guided reef dives in the Red Sea: what a dive day looks like, requirements for beginners and certified divers, how to choose a responsible dive centre, and where the best reefs are."
+  "excerpt": "Two guided reef dives in the Red Sea: what a dive day looks like, requirements for beginners and certified divers, how to choose a responsible dive centre, and where the best reefs are.",
+  "destination": "hurghada, sharm"
  },
  "exp-food": {
   "type": "er_experience",
-  "excerpt": "A Cairo street food tour by night: the dishes you'll taste, from koshari and ful to feteer and sweets, the neighbourhoods you walk through, dietary needs, and why a local guide helps."
+  "excerpt": "A Cairo street food tour by night: the dishes you'll taste, from koshari and ful to feteer and sweets, the neighbourhoods you walk through, dietary needs, and why a local guide helps.",
+  "alternatives": "exp-dinner"
  },
  "exp-giza": {
   "type": "er_experience",
@@ -49,11 +52,13 @@
  },
  "exp-safari": {
   "type": "er_experience",
-  "excerpt": "A White Desert and Black Desert safari from Bahariya Oasis: chalk rock formations, volcanic hills, Crystal Mountain, a night camping under the stars, what to pack and who the trip suits."
+  "excerpt": "A White Desert and Black Desert safari from Bahariya Oasis: chalk rock formations, volcanic hills, Crystal Mountain, a night camping under the stars, what to pack and who the trip suits.",
+  "alternatives": "exp-siwa"
  },
  "exp-siwa": {
   "type": "er_experience",
-  "excerpt": "A 4×4 day in the Great Sand Sea from Siwa Oasis: dune driving, sand-boarding, desert springs and sunset over the dunes, what to bring, and how to choose a local operator."
+  "excerpt": "A 4×4 day in the Great Sand Sea from Siwa Oasis: dune driving, sand-boarding, desert springs and sunset over the dunes, what to bring, and how to choose a local operator.",
+  "alternatives": "exp-safari"
  },
  "exp-valley": {
   "type": "er_experience",
@@ -61,19 +66,26 @@
  },
  "g-7-days": {
   "type": "er_guide",
-  "excerpt": "A realistic first-time Egypt itinerary for seven days: Cairo and the pyramids, Luxor's temples and tombs, and Aswan, with options for a Nile cruise, the Red Sea or Abu Simbel, and what to leave out."
+  "excerpt": "A realistic first-time Egypt itinerary for seven days: Cairo and the pyramids, Luxor's temples and tombs, and Aswan, with options for a Nile cruise, the Red Sea or Abu Simbel, and what to leave out.",
+  "destination": "cairo, luxor, aswan",
+  "related": "exp-giza, exp-valley, exp-abu"
  },
  "g-best-time": {
   "type": "er_guide",
-  "excerpt": "When to visit Egypt, season by season and region by region: the Nile Valley's comfortable winter, the Red Sea's long beach season, the desert's cold nights, and how Ramadan and holidays change a trip."
+  "excerpt": "When to visit Egypt, season by season and region by region: the Nile Valley's comfortable winter, the Red Sea's long beach season, the desert's cold nights, and how Ramadan and holidays change a trip.",
+  "destination": "cairo, luxor, aswan, hurghada, sharm, siwa, alexandria",
+  "related": "exp-abu, exp-safari"
  },
  "g-cairo": {
   "type": "er_guide",
   "excerpt": "Cairo beyond the pyramids: a neighbourhood-by-neighbourhood guide to Islamic Cairo, Coptic Cairo, Downtown, Zamalek and the Nile, with a walking route through the old city and tips for everyday Cairo.",
-  "destination": "cairo"
+  "destination": "cairo",
+  "related": "exp-giza, exp-dinner, exp-food"
  },
  "g-gems": {
   "type": "er_guide",
-  "excerpt": "Ten remarkable places in Egypt that most visitors skip: from the Bent Pyramid and Medinet Habu to Abydos, Dendera, Wadi Al-Hitan and Rosetta, with what makes each special and how to fit it into a trip."
+  "excerpt": "Ten remarkable places in Egypt that most visitors skip: from the Bent Pyramid and Medinet Habu to Abydos, Dendera, Wadi Al-Hitan and Rosetta, with what makes each special and how to fit it into a trip.",
+  "destination": "cairo, luxor, aswan, alexandria, siwa",
+  "related": "exp-giza, exp-valley"
  }
 }

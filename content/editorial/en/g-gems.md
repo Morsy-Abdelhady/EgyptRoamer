@@ -1,6 +1,8 @@
 ---
 type: er_guide
 excerpt: Ten remarkable places in Egypt that most visitors skip: from the Bent Pyramid and Medinet Habu to Abydos, Dendera, Wadi Al-Hitan and Rosetta, with what makes each special and how to fit it into a trip.
+destination: cairo, luxor, aswan, alexandria, siwa
+related: exp-giza, exp-valley
 ---
 [[toc]]
 
@@ -9,7 +11,7 @@ Most first trips to Egypt follow the same route: Giza, Luxor, Aswan, maybe the R
 ## Near Cairo {#near-cairo}
 
 ### 1. Dahshur: the Bent and Red Pyramids
-South of Saqqara, two of the pharaoh Sneferu's pyramids stand in open desert. The Bent Pyramid changes angle halfway up, and you can go inside the Red Pyramid. They belong to the same UNESCO site as Giza, but they usually see a fraction of the visitors.
+South of Saqqara, two of the pharaoh Sneferu's pyramids stand in open desert. The Bent Pyramid changes angle halfway up, and you can go inside the Red Pyramid. They belong to the same UNESCO site as [Giza](/experiences/pyramids-of-giza-sphinx-private-tour/), but they usually see a fraction of the visitors.
 
 ### 2. Wadi Al-Hitan (Whale Valley)
 In the Fayoum desert, fossilised skeletons of early whales lie in the sand, with legs from the era when whales were evolving from land animals. It's Egypt's natural World Heritage site, and a surreal desert landscape. It needs a 4×4 and a long day from Cairo.
@@ -44,7 +46,7 @@ Remote, Amazigh, surrounded by salt lakes and dunes. See our full [Siwa guide](/
 
 > **Fitting them in**
 > - From Cairo: Dahshur (half-day, easy to add to Saqqara); Wadi Al-Hitan (a long full day).
-> - From Luxor: Abydos and Dendera (a full day together); Medinet Habu and Deir el-Medina (add to a West Bank day).
+> - From Luxor: Abydos and Dendera (a full day together); Medinet Habu and Deir el-Medina (add to [a West Bank day](/experiences/valley-of-the-kings-hatshepsut-temple/)).
 > - From Alexandria: Rosetta (a half or full day).
 
 ## Plan your trip {#plan}

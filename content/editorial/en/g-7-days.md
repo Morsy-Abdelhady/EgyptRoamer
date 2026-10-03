@@ -1,6 +1,8 @@
 ---
 type: er_guide
 excerpt: A realistic first-time Egypt itinerary for seven days: Cairo and the pyramids, Luxor's temples and tombs, and Aswan, with options for a Nile cruise, the Red Sea or Abu Simbel, and what to leave out.
+destination: cairo, luxor, aswan
+related: exp-giza, exp-valley, exp-abu
 ---
 [[toc]]
 
@@ -17,12 +19,12 @@ Fly from Cairo to Luxor (or take the overnight train), travel between Luxor and 
 ## Day by day {#day-by-day}
 
 + **Day 1 — Arrive in Cairo** Arrive, settle in and have an easy first evening. If you have the energy, walk Downtown or eat at a street-food spot.
-+ **Day 2 — Giza** An early start at the pyramids and the Sphinx, then the Grand Egyptian Museum in the afternoon.
++ **Day 2 — Giza** An early start at [the pyramids and the Sphinx](/experiences/pyramids-of-giza-sphinx-private-tour/), then the Grand Egyptian Museum in the afternoon.
 + **Day 3 — Old Cairo** Coptic Cairo and the National Museum of Egyptian Civilization in the morning. Late afternoon on Al-Muizz Street and in Khan el-Khalili. Overnight train, or a morning flight next day, to Luxor.
 + **Day 4 — Luxor, East Bank** Karnak in the morning, rest at midday, then Luxor Temple at dusk.
-+ **Day 5 — Luxor, West Bank** Valley of the Kings, Hatshepsut's temple and Medinet Habu. Optional balloon flight at dawn.
++ **Day 5 — Luxor, West Bank** [Valley of the Kings, Hatshepsut's temple](/experiences/valley-of-the-kings-hatshepsut-temple/) and Medinet Habu. Optional balloon flight at dawn.
 + **Day 6 — To Aswan** Travel south, stopping at Edfu and Kom Ombo if you go by road. Philae temple, and a felucca at sunset.
-+ **Day 7 — Abu Simbel, then home** A pre-dawn trip to Abu Simbel (or a morning on Elephantine Island if you'd rather rest), then fly to Cairo for your connection.
++ **Day 7 — Abu Simbel, then home** A [pre-dawn trip to Abu Simbel](/experiences/abu-simbel-day-trip-from-aswan/) (or a morning on Elephantine Island if you'd rather rest), then fly to Cairo for your connection.
 
 > **Where the time goes**
 > Transfers take longer than they look on a map. Leave a buffer on your departure day, and avoid booking a very early international flight on the day you return from Aswan.
@@ -33,14 +35,14 @@ Fly from Cairo to Luxor (or take the overnight train), travel between Luxor and 
 Replace days 4–7 with a 3- or 4-night Luxor–Aswan cruise. It visits Edfu and Kom Ombo on the way, and your hotel moves with you. Give Luxor an extra day before or after, because cruise stops are short.
 
 ### With the Red Sea
-Drop Aswan and go from Luxor to Hurghada by road for two or three days of reefs. You'll lose Abu Simbel and Philae.
+Drop Aswan and go from Luxor to [Hurghada](/destinations/hurghada/) by road for two or three days of reefs. You'll lose Abu Simbel and Philae.
 
 ### Slower
 If seven days feels rushed, drop Abu Simbel and give each city an extra half-day. Most people who return to Egypt say they wish they'd slowed down the first time.
 
 ## What to leave for next time {#next-time}
 
-Alexandria, Siwa and the Western Desert, Sinai and a longer Red Sea stay each deserve their own trip. Trying to squeeze them into one week means you see none of them properly.
+[Alexandria](/destinations/alexandria/), [Siwa and the Western Desert](/destinations/siwa/), Sinai and a longer Red Sea stay each deserve their own trip. Trying to squeeze them into one week means you see none of them properly.
 
 ## Plan the details {#plan}
 

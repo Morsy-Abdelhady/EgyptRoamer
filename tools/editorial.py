@@ -17,12 +17,18 @@ type, destination and section anchors. Extra front matter:
 
 Internal links keep the English paths (/destinations/luxor/); the import points them at the translation.
 
+Relations (destination, related, alternatives) are language-neutral: they are read from the English file only,
+left out of the translation fingerprint (adding one doesn't send the translations back to review), and a
+translation may only repeat them unchanged. `wp egypt-roamer editorial` adds missing ones; it never removes any.
+
 Source format (one file per item, named after its seed id):
 
     ---
     type: er_destination            # er_destination | er_experience | er_guide
     excerpt: One or two sentences for cards and the meta description.
-    destination: cairo              # optional: guide → destination link
+    destination: cairo, luxor       # optional relations, comma-separated seed ids (see RELATIONS below)
+    related: exp-giza, exp-valley
+    alternatives: exp-food
     ---
     [[toc]]                         # "On this page" box built from the ## headings
     ## Heading {#anchor}            # h2 with an anchor (anchor optional: derived from the text)
@@ -47,6 +53,11 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC_ROOT = ROOT / "content" / "editorial"
 OUT_ROOT = ROOT / "wordpress" / "wp-content" / "plugins" / "egypt-roamer-core" / "data" / "editorial"
 # The one fixed UI string the compiler writes. A language needs its label here before it can be compiled.
+# Front matter keys that link items to each other (seed ids; destinations without the "dest-" prefix):
+#   destination  -> _er_destination  (guides, experiences, tours)
+#   related      -> _er_related      (guides: "Related tours, experiences & activities")
+#   alternatives -> _er_alternatives (experiences, tours: "Alternatives to compare")
+RELATIONS = ("destination", "related", "alternatives")
 TOC_LABEL = {
     "en": "On this page",
     "de": "Auf dieser Seite",
@@ -176,8 +187,16 @@ def compile_file(path: pathlib.Path, lang: str = "en"):
 
 
 def source_hash(path: pathlib.Path) -> str:
-    """Short fingerprint of an English source file; a translation records the one it was made from."""
-    return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+    """Short fingerprint of an English source file; a translation records the one it was made from.
+
+    Relation lines are left out, so linking items to each other doesn't make the translations outdated.
+    """
+    raw = path.read_bytes()
+    m = re.match(rb"^(---\n.*?\n---\n)", raw, re.S)
+    if m:
+        head = re.sub(rb"^(?:" + b"|".join(k.encode() for k in RELATIONS) + rb"):.*\n", b"", m.group(1), flags=re.M)
+        raw = head + raw[m.end():]
+    return hashlib.sha256(raw).hexdigest()[:12]
 
 
 def anchors(body: str):
@@ -193,15 +212,19 @@ def build(lang="en", write=True) -> bool:
     for src in sorted(src_dir.glob("*.md")):
         meta, body = compile_file(src, lang)
         seed_id = src.stem
-        index[seed_id] = {k: meta[k] for k in ("type", "excerpt", "destination") if k in meta}
+        index[seed_id] = {k: meta[k] for k in ("type", "excerpt") + RELATIONS if k in meta}
         if lang != "en":
             en = SRC_ROOT / "en" / src.name
             if not en.exists():
                 raise SystemExit(f"{lang}/{src.name}: no English file with that name")
             en_meta, en_body = compile_file(en)
-            for key in ("type", "destination"):
-                if meta.get(key) != en_meta.get(key):
-                    raise SystemExit(f"{lang}/{src.name}: {key} must match the English file")
+            if meta.get("type") != en_meta.get("type"):
+                raise SystemExit(f"{lang}/{src.name}: type must match the English file")
+            for key in RELATIONS:
+                if key in meta and meta[key] != en_meta.get(key):
+                    raise SystemExit(f"{lang}/{src.name}: {key} must match the English file (or be left out)")
+                meta.pop(key, None)
+                index[seed_id].pop(key, None)
             if anchors(body) != anchors(en_body):
                 raise SystemExit(f"{lang}/{src.name}: section anchors differ from the English file")
             if not meta.get("excerpt"):

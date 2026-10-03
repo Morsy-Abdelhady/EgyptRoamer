@@ -641,8 +641,11 @@ class ER_CLI {
 	 *
 	 * A body or excerpt is written only while it is empty or still exactly the one-line text the seed
 	 * created (the prototype's `desc`, in that language). Anything an editor has changed is left alone, and so
-	 * are titles, slugs, statuses, meta, relations and the "Ready to index" flag. Guides stay drafts until an
-	 * editor publishes them.
+	 * are titles, slugs, statuses, meta and the "Ready to index" flag. Guides stay drafts until an editor
+	 * publishes them.
+	 *
+	 * Relations from the front matter (destination, related, alternatives) are added to the English original
+	 * when missing, and to any translation that keeps its own copy of that relation. None is ever removed.
 	 *
 	 * With --lang, only that language's translation of each item is written, never the English original.
 	 * Only files marked `review: approved` and translated from the current English are imported; a dry run
@@ -732,15 +735,10 @@ class ER_CLI {
 				$update['post_excerpt'] = (string) $item['excerpt'];
 				++$counts['excerpt'];
 			}
-			// Guides link to their destination so they appear under "Plan your trip to …" once published.
-			if ( ! $is_tr && ! empty( $item['destination'] ) && ! get_post_meta( $id, '_er_destination', true ) ) {
-				$dest = $this->find( 'er_destination', 'dest-' . $item['destination'] );
-				if ( $dest ) {
-					if ( ! $dry ) {
-						update_post_meta( $id, '_er_destination', $dest );
-					}
-					++$counts['link'];
-				}
+			// Relations: a guide's destinations put it under "Plan your trip to …"; experiences gain
+			// destinations and "Alternatives to compare". Language-neutral, so English runs only.
+			if ( ! $is_tr ) {
+				$this->editorial_relations( $id, $item, $default, $dry, $counts );
 			}
 			if ( $update && ! $dry ) {
 				wp_update_post( wp_slash( [ 'ID' => $id ] + $update ) );
@@ -750,8 +748,62 @@ class ER_CLI {
 		$summary = sprintf( '%s%s: bodies %d, excerpts %d, editor bodies kept %d, missing %d', $dry ? '(dry run) ' : '', $lang, $counts['body'], $counts['excerpt'], $counts['kept'], $counts['missing'] );
 		$summary .= $is_tr
 			? sprintf( ', not approved %d, guides skipped %d, links pointed at %s %d, links left as text %d.', $counts['unreviewed'], $counts['guide'], $lang, $counts['relinked'], $counts['unlinked'] )
-			: sprintf( ', destination links %d.', $counts['link'] );
+			: sprintf( ', relations added %d.', $counts['link'] );
 		WP_CLI::success( $summary );
+	}
+
+	/**
+	 * Add the front-matter relations of one English item ($id). Targets are seed ids ("cairo" for a
+	 * destination, "exp-food" for an experience or tour) stored as the English original's post id, the way the
+	 * editor screen stores them. Added when missing, never removed. Translations normally read the English
+	 * relation; one that keeps its own copy (experiences copy their destinations) gets the same additions.
+	 */
+	private function editorial_relations( int $id, array $item, string $default, bool $dry, array &$counts ): void {
+		$fields = [
+			'destination'  => '_er_destination',
+			'related'      => '_er_related',
+			'alternatives' => '_er_alternatives',
+		];
+		foreach ( $fields as $key => $meta ) {
+			$refs = array_filter( array_map( 'trim', explode( ',', (string) ( $item[ $key ] ?? '' ) ) ) );
+			if ( ! $refs ) {
+				continue;
+			}
+			$posts = [ $id ];
+			if ( function_exists( 'pll_get_post_translations' ) ) {
+				foreach ( (array) pll_get_post_translations( $id ) as $tid ) {
+					if ( (int) $tid !== $id && metadata_exists( 'post', (int) $tid, $meta ) ) {
+						$posts[] = (int) $tid;
+					}
+				}
+			}
+			foreach ( $refs as $ref ) {
+				$target = 0;
+				foreach ( 'destination' === $key ? [ 'er_destination' ] : er_commercial_types() as $type ) {
+					$target = $this->find( $type, 'destination' === $key ? 'dest-' . $ref : $ref );
+					if ( $target ) {
+						break;
+					}
+				}
+				if ( $target && function_exists( 'pll_get_post' ) ) {
+					$target = (int) pll_get_post( $target, $default ) ?: $target;
+				}
+				if ( ! $target || $target === $id ) {
+					WP_CLI::warning( "No {$key} target for seed id {$ref} (#{$id})" );
+					continue;
+				}
+				foreach ( $posts as $pid ) {
+					if ( in_array( $target, array_map( 'intval', get_post_meta( $pid, $meta, false ) ), true ) ) {
+						continue;
+					}
+					if ( ! $dry ) {
+						add_post_meta( $pid, $meta, $target );
+					}
+					++$counts['link'];
+					WP_CLI::log( sprintf( '  %s %s → %s on #%d', $dry ? 'Would add' : 'Added', $key, $ref, $pid ) );
+				}
+			}
+		}
 	}
 
 	/**

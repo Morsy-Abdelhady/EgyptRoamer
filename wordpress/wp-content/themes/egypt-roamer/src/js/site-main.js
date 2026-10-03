@@ -10,6 +10,7 @@ import { initSearch } from "./components/search.js";
 import { initSectionNav } from "./components/sections.js";
 import { initAssistantLoader } from "./components/assistant-loader.js";
 import { initWordFit } from "./components/fit.js";
+import { initMoments } from "./components/moments.js";
 import { initMagnetic, initReveals, initScrollProgress, initAffiliateLinks, initNewsletter, initImageFallback } from "./components/micro.js";
 
 function safe(name, fn) {
@@ -27,6 +28,7 @@ safe("nav", initNav);
 safe("assistant", initAssistantLoader);
 safe("search", initSearch);
 safe("sections", initSectionNav);
+safe("moments", initMoments);
 safe("magnetic", initMagnetic);
 safe("reveals", initReveals);
 safe("progress", initScrollProgress);

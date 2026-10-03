@@ -1108,6 +1108,78 @@
    "Готово. Мы напишем, когда будет что-то стоящее.",
    "订阅成功。有值得一读的内容时，我们会写信给你。",
    "تم تسجيلك. سنكتب إليك حين يكون لدينا ما يستحق القراءة."
+  ],
+  "Experience preview": [
+   "Vorschau auf das Erlebnis",
+   "Aperçu de l'expérience",
+   "Anteprima dell'esperienza",
+   "Avance de la experiencia",
+   "Как это выглядит",
+   "体验预览",
+   "معاينة التجربة"
+  ],
+  "Previous moment": [
+   "Vorheriger Moment",
+   "Moment précédent",
+   "Momento precedente",
+   "Momento anterior",
+   "Предыдущий кадр",
+   "上一张",
+   "اللحظة السابقة"
+  ],
+  "Next moment": [
+   "Nächster Moment",
+   "Moment suivant",
+   "Momento successivo",
+   "Momento siguiente",
+   "Следующий кадр",
+   "下一张",
+   "اللحظة التالية"
+  ],
+  "{n} of {total}": [
+   "{n} von {total}",
+   "{n} sur {total}",
+   "{n} di {total}",
+   "{n} de {total}",
+   "{n} из {total}",
+   "第 {n} 张，共 {total} 张",
+   "{n} من {total}"
+  ],
+  "Photo: {name} / Unsplash": [
+   "Foto: {name} / Unsplash",
+   "Photo : {name} / Unsplash",
+   "Foto: {name} / Unsplash",
+   "Foto: {name} / Unsplash",
+   "Фото: {name} / Unsplash",
+   "摄影：{name} / Unsplash",
+   "تصوير: {name} / Unsplash"
+  ],
+  "Play the video preview": [
+   "Videovorschau abspielen",
+   "Lire l'aperçu vidéo",
+   "Riproduci l'anteprima video",
+   "Reproducir el avance en vídeo",
+   "Смотреть видео",
+   "播放预览视频",
+   "تشغيل معاينة الفيديو"
+  ],
+  "The video could not be loaded.": [
+   "Das Video konnte nicht geladen werden.",
+   "La vidéo n'a pas pu être chargée.",
+   "Impossibile caricare il video.",
+   "No se ha podido cargar el vídeo.",
+   "Не удалось загрузить видео.",
+   "视频无法加载。",
+   "تعذّر تحميل الفيديو."
+  ],
+  "Illustration, not footage of the place": [
+   "Illustration, keine Aufnahme des Ortes",
+   "Illustration, pas une vue réelle du lieu",
+   "Illustrazione, non riprese reali del luogo",
+   "Ilustración, no imágenes reales del lugar",
+   "Иллюстрация, а не съёмка этого места",
+   "示意图，并非实地影像",
+   "صورة توضيحية وليست تصويرًا حقيقيًا للمكان"
   ]
  }
 }

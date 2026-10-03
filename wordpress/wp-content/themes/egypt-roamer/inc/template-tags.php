@@ -602,12 +602,17 @@ function er_languages(): array {
 	if ( ! is_array( $langs ) || count( $langs ) < 2 ) {
 		return [];
 	}
-	// An archive with nothing published yet: Polylang falls back to each language's homepage; link the
-	// same archive in each language instead (/de/tours/), like every other page.
+	// Polylang links each language's homepage when it has no published item of this archive's type. Link
+	// the same archive (/de/destinations/) only where it has something to show: an empty archive (the
+	// guides, English-only for now) is a dead end, so those languages keep their homepage.
 	$type = is_post_type_archive() ? get_post_type_object( (string) get_query_var( 'post_type' ) ) : null;
 	if ( $type && is_string( $type->has_archive ) && function_exists( 'pll_home_url' ) ) {
 		foreach ( $langs as $slug => $l ) {
-			if ( untrailingslashit( (string) $l['url'] ) === untrailingslashit( (string) pll_home_url( $slug ) ) ) {
+			if ( untrailingslashit( (string) $l['url'] ) !== untrailingslashit( (string) pll_home_url( $slug ) ) ) {
+				continue;
+			}
+			$has = get_posts( [ 'post_type' => $type->name, 'post_status' => 'publish', 'lang' => $slug, 'numberposts' => 1, 'fields' => 'ids', 'no_found_rows' => true ] );
+			if ( $has ) {
 				$langs[ $slug ]['url'] = trailingslashit( (string) pll_home_url( $slug ) ) . $type->has_archive . '/';
 			}
 		}

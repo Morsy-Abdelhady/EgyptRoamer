@@ -87,6 +87,18 @@ er_page_hero( [
 $er_body = er_body();
 er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
 
+// Experience preview (photo story / clip): after the first section, once the reader knows what the
+// experience is, and before the practical detail. Inside .prose, so the section numbers keep counting.
+$er_preview = function_exists( 'er_preview_for' ) ? er_preview_for( $er_id ) : [];
+if ( $er_preview ) {
+	ob_start();
+	get_template_part( 'template-parts/experience-preview', null, [ 'preview' => $er_preview ] );
+	$er_preview_html = (string) ob_get_clean();
+	$er_at           = strpos( $er_body['html'], '<section class="er-sec">', (int) strpos( $er_body['html'], '<section class="er-sec">' ) + 1 );
+	$er_at           = false !== $er_at ? $er_at : strpos( $er_body['html'], '<h2' );
+	$er_body['html'] = false !== $er_at ? substr_replace( $er_body['html'], $er_preview_html, $er_at, 0 ) : $er_body['html'] . $er_preview_html;
+}
+
 ob_start();
 ?>
 <div class="prose"><?php echo $er_body['html']; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>

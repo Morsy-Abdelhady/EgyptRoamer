@@ -1,6 +1,7 @@
 ---
 type: er_experience
 excerpt: A White Desert and Black Desert safari from Bahariya Oasis: chalk rock formations, volcanic hills, Crystal Mountain, a night camping under the stars, what to pack and who the trip suits.
+alternatives: exp-siwa
 ---
 ## What it is {#what-it-is}
 

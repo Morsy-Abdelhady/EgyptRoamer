@@ -9,7 +9,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ER_THEME_VERSION', '1.2.34' );
+define( 'ER_THEME_VERSION', '1.2.35' );
 define( 'ER_THEME_DIR', get_template_directory() );
 define( 'ER_THEME_URI', get_template_directory_uri() );
 /** A 1 px transparent GIF: the image source for a breakpoint where a picture is hidden, so it isn't downloaded. */
