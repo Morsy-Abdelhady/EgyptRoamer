@@ -37,8 +37,16 @@ if ( ! empty( $er_facts[ er_t( 'Duration' ) ] ) ) {
 	$er_meta .= '<span>' . er_icon( 'i-clock', 'icon--sm' ) . esc_html( $er_facts[ er_t( 'Duration' ) ] ) . '</span>';
 }
 
+// Experience Immersion (template-parts/experience-immersion.php): when the experience has a story, it opens the
+// page as a journey and its "What to know" carries the facts, so the sidebar doesn't repeat them.
+$er_preview = function_exists( 'er_preview_for' ) ? er_preview_for( $er_id ) : [];
+$er_story   = (array) ( $er_preview['story'] ?? [] );
+$er_know    = ! empty( $er_story['know'] );
+
 ob_start();
-er_glance( $er_facts );
+if ( ! $er_know ) {
+	er_glance( $er_facts );
+}
 if ( $er_offers ) :
 	?>
 	<div class="offer-box" role="region" aria-labelledby="offers-title">
@@ -85,12 +93,19 @@ er_page_hero( [
 	'measure' => '' === $er_aside,
 ] );
 $er_body = er_body();
+if ( $er_story ) {
+	get_template_part( 'template-parts/experience-immersion', null, [
+		'preview' => $er_preview,
+		'facts'   => $er_know ? $er_facts : [],
+		'offer'   => $er_offers ? (int) $er_offers[0] : 0,
+		'more'    => $er_body['links'][0][0] ?? '',
+	] );
+}
 er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
 
-// Experience preview (photo story / clip): after the first section, once the reader knows what the
-// experience is, and before the practical detail. Inside .prose, so the section numbers keep counting.
-$er_preview = function_exists( 'er_preview_for' ) ? er_preview_for( $er_id ) : [];
-if ( $er_preview ) {
+// Experience preview without a story (photo strip / clip): after the first section, once the reader knows
+// what the experience is, and before the practical detail. Inside .prose, so the section numbers keep counting.
+if ( $er_preview && ! $er_story ) {
 	ob_start();
 	get_template_part( 'template-parts/experience-preview', null, [ 'preview' => $er_preview ] );
 	$er_preview_html = (string) ob_get_clean();

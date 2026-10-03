@@ -11,6 +11,7 @@ import { initSectionNav } from "./components/sections.js";
 import { initAssistantLoader } from "./components/assistant-loader.js";
 import { initWordFit } from "./components/fit.js";
 import { initMoments } from "./components/moments.js";
+import { initImmersion } from "./components/immersion.js";
 import { initMagnetic, initReveals, initScrollProgress, initAffiliateLinks, initNewsletter, initImageFallback } from "./components/micro.js";
 
 function safe(name, fn) {
@@ -29,6 +30,7 @@ safe("assistant", initAssistantLoader);
 safe("search", initSearch);
 safe("sections", initSectionNav);
 safe("moments", initMoments);
+safe("immersion", initImmersion);
 safe("magnetic", initMagnetic);
 safe("reveals", initReveals);
 safe("progress", initScrollProgress);

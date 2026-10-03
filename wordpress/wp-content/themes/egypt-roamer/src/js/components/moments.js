@@ -26,7 +26,8 @@ function load(img) {
   img.src = img.dataset.src;
 }
 
-function deferPhotos(el) {
+// Also used by immersion.js, with a wider margin (its photos fill the screen).
+export function deferPhotos(el, margin = "200px 0px") {
   const imgs = [...el.querySelectorAll("img[data-defer]")];
   if (!("IntersectionObserver" in window)) {
     imgs.forEach(load);
@@ -39,7 +40,7 @@ function deferPhotos(el) {
         io.unobserve(e.target);
       }
     }),
-    { rootMargin: "200px 0px" }
+    { rootMargin: margin }
   );
   imgs.forEach((img) => io.observe(img));
 }

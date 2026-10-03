@@ -1103,7 +1103,8 @@
     img.src = img.dataset.src;
   }
 
-  function deferPhotos(el) {
+  // Also used by immersion.js, with a wider margin (its photos fill the screen).
+  function deferPhotos(el, margin = "200px 0px") {
     const imgs = [...el.querySelectorAll("img[data-defer]")];
     if (!("IntersectionObserver" in window)) {
       imgs.forEach(load);
@@ -1116,7 +1117,7 @@
           io.unobserve(e.target);
         }
       }),
-      { rootMargin: "200px 0px" }
+      { rootMargin: margin }
     );
     imgs.forEach((img) => io.observe(img));
   }
@@ -1214,7 +1215,44 @@
       if (p && p.catch) p.catch(() => {}); // autoplay refusal: the visitor still has the controls
     });
   }
-  return { initMoments };
+  return { initMoments, deferPhotos };
+  })();
+  /* ---- components/immersion.js ---- */
+  __m["components/immersion.js"] = (() => {
+  /* ==========================================================================
+     Experience Immersion (template-parts/experience-immersion.php): loads each
+     stage's photograph about a screen before it is reached (the section starts
+     right under the hero, where the browser's own lazy loading would fetch
+     them all with the page), and marks the stage in view on the route at the
+     top. The story reads in full without this; the motion is CSS.
+     ========================================================================== */
+
+  const { deferPhotos } = __m["components/moments.js"];
+
+  function initImmersion(root = document) {
+    root.querySelectorAll("[data-imm]").forEach((el) => {
+      deferPhotos(el, "100% 0px");
+      markCurrent(el);
+    });
+  }
+
+  function markCurrent(el) {
+    const steps = [...el.querySelectorAll("[data-imm-step]")];
+    const links = new Map([...el.querySelectorAll("[data-imm-link]")].map((a) => [a.hash.slice(1), a]));
+    if (!steps.length || !links.size || !("IntersectionObserver" in window)) return;
+    // The stage crossing the middle of the screen is the current one.
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((a) => a.removeAttribute("aria-current"));
+        const a = links.get(e.target.id);
+        if (a) a.setAttribute("aria-current", "step");
+      }),
+      { rootMargin: "-50% 0px -49% 0px" }
+    );
+    steps.forEach((s) => io.observe(s));
+  }
+  return { initImmersion };
   })();
   /* ---- components/micro.js ---- */
   __m["components/micro.js"] = (() => {
@@ -1388,6 +1426,7 @@
   const { initAssistantLoader } = __m["components/assistant-loader.js"];
   const { initWordFit } = __m["components/fit.js"];
   const { initMoments } = __m["components/moments.js"];
+  const { initImmersion } = __m["components/immersion.js"];
   const { initMagnetic, initReveals, initScrollProgress, initAffiliateLinks, initNewsletter, initImageFallback } = __m["components/micro.js"];
 
   function safe(name, fn) {
@@ -1406,6 +1445,7 @@
   safe("search", initSearch);
   safe("sections", initSectionNav);
   safe("moments", initMoments);
+  safe("immersion", initImmersion);
   safe("magnetic", initMagnetic);
   safe("reveals", initReveals);
   safe("progress", initScrollProgress);
