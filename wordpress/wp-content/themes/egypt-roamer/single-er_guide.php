@@ -17,7 +17,8 @@ while ( have_posts() ) :
 	$er_meta = sprintf(
 		'<span>%1$s %2$s</span><span>%3$s</span>%4$s',
 		esc_html( er_t( 'By' ) ),
-		esc_html( get_the_author() ),
+		// No named author: the publication itself, as in the Article structured data (Core seo.php).
+		esc_html( get_the_author() ?: 'Egypt Roamer' ),
 		'<time datetime="' . esc_attr( get_the_date( 'c' ) ) . '">' . esc_html( get_the_date() ) . '</time>',
 		get_the_modified_date( 'Y-m-d' ) !== get_the_date( 'Y-m-d' ) ? '<span>' . esc_html( er_t( 'Updated' ) ) . ' <time datetime="' . esc_attr( get_the_modified_date( 'c' ) ) . '">' . esc_html( get_the_modified_date() ) . '</time></span>' : ''
 	) . '<span>' . er_icon( 'i-clock', 'icon--sm' ) . esc_html( er_t( '{n} min read', [ 'n' => er_read_minutes( $er_id ) ] ) ) . '</span>';

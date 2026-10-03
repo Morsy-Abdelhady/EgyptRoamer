@@ -2,6 +2,19 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.34 — 2026-10-03 (with Core 1.2.20): photo provenance, honest newsletter, guide byline
+- **Every photo now shows the place it claims.** A provenance check of all 52 stand-in photos against their Unsplash location tags found six public slots showing other countries or an unverifiable place. They are replaced (owner-approved 2026-10-03) by free photos whose photographer tagged the exact Egyptian place:
+  - Red Sea Diving: NEOM, Saudi Arabia → a Hurghada reef with divers;
+  - homepage Red Sea scene: NEOM → a Hurghada reef; its caption now gives Hurghada's coordinates instead of Ras Mohammed's, and the alt text describes what the photo shows;
+  - film shot 5: NEOM → an emperor angelfish, Hurghada;
+  - "Luxury" travel style: an Abu Dhabi resort → a Nile boat deck at Aswan;
+  - Great Sand Sea 4×4 and "Adventure": Abu Dhabi → 4×4 tracks in the Siwa dunes;
+  - White & Black Desert Safari: an untagged white-dune photo (tagged "winter") → a chalk arch tagged "White Desert, Bawiti".
+
+  The car-rental samples (hidden drafts) no longer carry their Mojave and Dubai photos. Same crop pipeline as 1.2.33.
+- **Newsletter promise matches reality.** Subscriptions are stored, but no monthly letter is sent. "One beautiful email a month… the deals worth knowing about" and "first letter arrives next month" are now "Hear from us when it matters", "New routes and guides, sent only when we have something worth your time" and "We'll write when there's something worth reading". Applied in all 8 languages.
+- **Guides without a named author** read "By Egypt Roamer", the publication, as the Article structured data already says, instead of a bare "By".
+
 ## 1.2.33 — 2026-10-02: honest copy, sharp photos, lighter Arabic fonts
 - **Copy that matched what the site can do today.** No partner offers are live, so the homepage no longer says visitors can "book it all" or that experiences are "bookable with our partners". It now reads: "Discover and plan the best experiences in Egypt — all in one place." (hero and homepage description), "1 place to discover & plan it all", and "Handpicked by our editors, with the practical details to plan them." "Hover a place to step inside it" (meaningless on a phone) is now "Choose a place to step inside it." Applied in all 8 languages. Partner-only wording ("Book with our partners", the finder) still only shows when an offer is live.
 - **Sharp photos on phones, tablets and Retina screens, at the same weight.** Landscape photos sit in tall frames (`object-fit: cover`), so a phone was sent a 1200 px landscape file of which a third is visible, stretched about 3× (cards on a 2× laptop got 0.6× of the pixels they show). Unsplash now crops each photo to the frame's shape (`w` + `h` + `fit=crop`, centred like the CSS):

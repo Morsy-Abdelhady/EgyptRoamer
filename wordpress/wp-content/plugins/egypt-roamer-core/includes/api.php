@@ -200,7 +200,11 @@ add_filter( 'oembed_response_data', static function ( $data ) {
 
 // Only directives that restrict nothing the site uses. The CSP sets frame-ancestors alone: a full
 // script/style policy would have to list GSAP, Unsplash, GoDaddy and Google assets, so it is left out.
-// HSTS is an owner decision (docs/FINAL-RELEASE-BLOCKERS.md). wp-admin and wp-login send their own.
+// HSTS (owner-approved 2026-10-03): the host and its edge are GoDaddy's, so it is sent here. Checked first:
+// http:// redirects to https:// in one hop, and no subdomain other than www (a CNAME to the apex) resolves.
+// Conservative start: one week, this host only (no includeSubDomains, no preload); raise max-age to
+// 15552000 (6 months) once a week has passed without HTTPS problems. Browsers ignore it over plain HTTP.
+// wp-admin and wp-login send their own headers.
 add_action( 'send_headers', static function () {
 	if ( headers_sent() ) {
 		return;
@@ -210,4 +214,5 @@ add_action( 'send_headers', static function () {
 	header( 'X-Frame-Options: SAMEORIGIN' );
 	header( "Content-Security-Policy: frame-ancestors 'self'" );
 	header( 'Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()' );
+	header( 'Strict-Transport-Security: max-age=604800' );
 } );

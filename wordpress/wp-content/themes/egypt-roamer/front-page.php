@@ -42,7 +42,7 @@ $er_scene_link = static function ( int $n ) use ( $er_data ): array {
 $er_scene_img = static function ( int $n, string $class, array $extra = [] ) use ( $er_stock ): string {
 	$key  = 1 === $n ? 'hero_image' : "scene{$n}_image";
 	$id   = (int) er_home( $key );
-	$alts = [ 1 => 'The pyramids of Giza at sunset', 2 => 'A felucca sailing on the Nile at sunset', 3 => "Golden sand dunes rolling under a clear sky in Egypt's Western Desert", 4 => 'A scuba diver gliding over a vivid coral reef in the Red Sea' ];
+	$alts = [ 1 => 'The pyramids of Giza at sunset', 2 => 'A felucca sailing on the Nile at sunset', 3 => "Golden sand dunes rolling under a clear sky in Egypt's Western Desert", 4 => 'A shoal of small orange fish over a coral reef in the Red Sea' ];
 	$attrs = array_merge( [ 'class' => $class, 'sizes' => 3 === $n ? '120vw' : '100vw', 'loading' => 1 === $n ? 'eager' : 'lazy', 'fetchpriority' => 1 === $n ? 'high' : 'low' ], $extra );
 	if ( $id ) {
 		return er_img( $id, 'er-hero', $attrs );

@@ -92,6 +92,9 @@ class ER_CLI {
 
 	/** Download an Unsplash photo into the Media Library with a descriptive filename and alt text. */
 	private function sideload( string $photo_id, string $title, int $parent = 0 ): int {
+		if ( '' === $photo_id ) {
+			return 0; // a sample whose photo was withdrawn (unverified location)
+		}
 		$existing = get_posts( [ 'post_type' => 'attachment', 'numberposts' => 1, 'fields' => 'ids', 'meta_key' => '_er_unsplash_id', 'meta_value' => $photo_id ] );
 		if ( $existing ) {
 			return (int) $existing[0];

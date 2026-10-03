@@ -166,7 +166,7 @@
    "label": "Luxury",
    "icon": "i-diamond",
    "tint": "var(--gold)",
-   "image": "1764730358483-38395275edb5",
+   "image": "1767790768726-60892377d4a4",
    "desc": "Of palace hotels, private Egyptologists and first-class cabins gliding down the Nile.",
    "dest": "aswan"
   },
@@ -175,7 +175,7 @@
    "label": "Adventure",
    "icon": "i-mountain",
    "tint": "var(--clay)",
-   "image": "1637189315455-3e7e629a05b9",
+   "image": "1771839535027-865f757ae09c",
    "desc": "Of dune runs, desert camps, canyon hikes and nights beneath an unfiltered Milky Way.",
    "dest": "sharm"
   },
@@ -244,7 +244,7 @@
    "location": "Hurghada",
    "tag": "redsea",
    "duration": "1 day · 2 dives",
-   "image": "1682687981907-170c006e3744",
+   "image": "1778400283418-b419be4be7a5",
    "partner": "Viator",
    "cta": "View Deal"
   },
@@ -255,7 +255,7 @@
    "tag": "desert",
    "duration": "2 days",
    "badge": "Editor's pick",
-   "image": "1514975440715-7b6852af4ee7",
+   "image": "1691591403777-128b9a842b8b",
    "partner": "GetYourGuide",
    "cta": "Check Availability"
   },
@@ -285,7 +285,7 @@
    "location": "Siwa Oasis",
    "tag": "desert",
    "duration": "Full day",
-   "image": "1637189315455-3e7e629a05b9",
+   "image": "1771839535027-865f757ae09c",
    "partner": "Viator",
    "cta": "View Deal"
   }
@@ -447,7 +447,7 @@
      "meta": "Automatic · Unlimited km",
      "partner": "Rentalcars.com",
      "cta": "Compare Options",
-     "image": "1499357526729-b2f0842540ce"
+     "image": ""
     },
     {
      "name": "SUV · Toyota Fortuner or similar",
@@ -455,7 +455,7 @@
      "meta": "Automatic · 7 seats",
      "partner": "DiscoverCars",
      "cta": "Compare Options",
-     "image": "1624062999726-083e5268525d"
+     "image": ""
     },
     {
      "name": "4×4 with driver · Western Desert",

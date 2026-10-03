@@ -667,7 +667,7 @@ function er_form_notice( string $form ): void {
 	$messages = [
 		'newsletter' => [
 			'subscribed-pending' => [ 'ok', er_t( 'Thank you — please check your inbox to confirm your subscription.' ) ],
-			'subscribed'         => [ 'ok', er_t( "You're on the list — first letter arrives next month." ) ],
+			'subscribed'         => [ 'ok', er_t( "You're on the list. We'll write when there's something worth reading." ) ],
 			'subscribe-invalid' => [ 'error', er_t( 'Please enter a valid email address.' ) ],
 			'subscribe-error'   => [ 'error', er_t( 'Sorry, that did not work. Please try again in a moment.' ) ],
 		],

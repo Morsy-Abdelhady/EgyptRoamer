@@ -18,9 +18,9 @@ function er_home_stock(): array {
 		'hero_b'   => '1678038592492-d73c063bb9e2',
 		'scene2'   => '1684100096410-fd39cdff91a3',
 		'scene3'   => '1771839534998-d5892d756064',
-		'scene4'   => '1682687982049-b3d433368cd1',
+		'scene4'   => '1777551881568-50b1beab7d91',
 		'planner'  => '1761205930594-64096d9d2baa',
-		'film'     => [ '1771325676184-44d8035e3cd1', '1761205930594-64096d9d2baa', '1762530162773-c99f38d4d5d3', '1655815226495-68d7d78894c4', '1682686581295-7364cabf5511' ],
+		'film'     => [ '1771325676184-44d8035e3cd1', '1761205930594-64096d9d2baa', '1762530162773-c99f38d4d5d3', '1655815226495-68d7d78894c4', '1779548117227-2baf0f5f7fc1' ],
 		'partners' => [ 'hotels' => '1760261598144-dddd7e1a3ef9', 'tours' => '1559527012-3b0fca356de0', 'cruises' => '1774223146816-8472905a40b8', 'transfers' => '1774425329088-36801b6f09be', 'cars' => '1654676428515-94b5bf7a1ac4' ],
 	];
 }
@@ -55,7 +55,7 @@ function er_home_fields(): array {
 		1 => [ 'Timeless wonders', 'Pyramids', 'Where history still breathes', 'Explore Cairo', '29.9792° N · 31.1342° E — Giza Plateau' ],
 		2 => [ 'A river of life', 'Nile', 'More than a river. A story that connects a civilization.', 'Explore Nile Cruises', '24.0889° N · 32.8998° E — Aswan' ],
 		3 => [ 'Beyond the ordinary', 'Desert', 'Endless landscapes. Unforgettable adventures.', 'Explore Desert Experiences', '27.0957° N · 27.9880° E — Western Desert' ],
-		4 => [ 'A different world', 'Red Sea', 'Dive into crystal-clear waters', 'Explore Red Sea', '27.7333° N · 34.2500° E — Ras Mohammed' ],
+		4 => [ 'A different world', 'Red Sea', 'Dive into crystal-clear waters', 'Explore Red Sea', '27.2579° N · 33.8116° E — Hurghada' ],
 	];
 	foreach ( $scenes as $n => [ $kicker, $title, $line, $cta, $coords ] ) {
 		/* translators: %d: scene number */
@@ -124,8 +124,8 @@ function er_home_fields(): array {
 
 		'h_letter'         => [ 'type' => 'heading', 'label' => __( 'Newsletter (footer)', 'egypt-roamer' ) ],
 		'letter_eyebrow'   => [ 'type' => 'text', 'label' => __( 'Eyebrow', 'egypt-roamer' ), 'default' => er_t( 'Roamer letters' ) ],
-		'letter_title'     => [ 'type' => 'html', 'label' => __( 'Title', 'egypt-roamer' ), 'default' => $em( 'One beautiful email', 'a month.' ) ],
-		'letter_copy'      => [ 'type' => 'textarea', 'label' => __( 'Copy', 'egypt-roamer' ), 'default' => er_t( 'Seasonal routes, new openings and the deals worth knowing about. No spam, ever.' ) ],
+		'letter_title'     => [ 'type' => 'html', 'label' => __( 'Title', 'egypt-roamer' ), 'default' => $em( 'Hear from us', 'when it matters.' ) ],
+		'letter_copy'      => [ 'type' => 'textarea', 'label' => __( 'Copy', 'egypt-roamer' ), 'default' => er_t( 'New routes and guides, sent only when we have something worth your time. No spam, ever.' ) ],
 	];
 	return $f;
 }
