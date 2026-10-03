@@ -5934,3 +5934,16 @@ scroll-behavior: auto;
 transition: none;
 }
 }
+@media (min-width: 1024px) {
+.single-er_guide .page-hero__inner--measure > .page-hero__title {
+width: auto;
+max-width: 18ch;
+margin-inline-start: max(0px, calc((100% - var(--measure)) / 2));
+margin-inline-end: 0;
+}
+.single-er_guide .page-body > .related {
+width: 100%;
+max-width: var(--measure);
+margin-inline: auto;
+}
+}

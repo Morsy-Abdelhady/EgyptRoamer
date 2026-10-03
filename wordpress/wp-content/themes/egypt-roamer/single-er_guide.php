@@ -28,6 +28,9 @@ while ( have_posts() ) :
 		'title'   => get_the_title(),
 		'intro'   => has_excerpt() ? get_the_excerpt() : '',
 		'image'   => (int) get_post_thumbnail_id(),
+		// The guide's stand-in photo (its cards already show it) until a featured image is set, as on
+		// destinations and experiences. Copied from the article template, guides had a text-only hero.
+		'stock'   => 'er_guide' === $er_type && function_exists( 'er_stock_id_for' ) ? er_stock_id_for( (int) $er_id ) : '',
 		'meta'    => $er_meta,
 		'measure' => true,
 	] );

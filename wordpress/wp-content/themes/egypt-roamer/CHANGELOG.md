@@ -2,6 +2,13 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.36 — 2026-10-03 (with Core 1.2.22): guide hero and alignment, stable first render, lighter desktop heroes, Valley photo
+- **Guides get their photo hero.** The guide template was copied from the article template and never passed its stand-in photo to the shared hero, so guides had a text-only dark band. They now show the photo their cards already use, like destinations and experiences. Byline, date, reading time, long-form body and the centred reading column are unchanged.
+- **One alignment axis on guides from 1024px.** The "Experiences / Destinations in this guide" cards sat on the page gutter while the title and body used the centred reading column. They now share the column (two cards per row). The title starts on the column's edge but may run to the usual 18ch, so it no longer wraps to 3–4 lines: hero 815–927px → 703–784px at 1440, and the first paragraph is above the fold.
+- **Text no longer jumps when the web fonts arrive** (inner pages). The page title's face and the body face are now preloaded per script (Latin; Cyrillic + Latin digits; Arabic; Chinese none). Valley of the Kings, 8 languages × 10 widths, throttled: combinations with CLS > 0.01 24 → 5, worst 0.231 → 0.053, for ≈ 0.19 s later first paint on a slow phone. The metric-adjusted fallback fonts tried earlier made real shifts worse and are not used.
+- **Lighter desktop heroes, same framing.** Above 900px, page-hero photos asked for the full image height, so a portrait photo arrived several times taller than the band (Best Time guide 2.3 MB at 1280px on a 2× screen). The height is now capped at 0.8 × width (imgix `max-h`): portrait files are 40–55% smaller; landscape files are identical, and the visible framing is unchanged.
+- **Valley of the Kings photo shows the West Bank.** The experience's photo was tagged "Karnak, Luxor" (East Bank). It is now the terraced temple of Hatshepsut beneath the cliffs, tagged and described as such by its photographer.
+
 ## 1.2.35 — 2026-10-03 (with Core 1.2.21): internal links, guide language switcher, Siwa photo, experience preview prototype
 - **Internal links through the existing editorial pipeline.** Editorial front matter gains language-neutral relations (`destination`, `related`, `alternatives`) that `wp egypt-roamer editorial` adds when missing and never removes. They are left out of the translation fingerprint, so the 105 approved translations stay current.
   - Guides now list their destinations (each destination page shows "Plan your trip to …" for the English guides) and related experiences.

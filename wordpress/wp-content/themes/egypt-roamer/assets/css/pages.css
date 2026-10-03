@@ -2242,3 +2242,23 @@ html:lang(zh) {
     transition: none;
   }
 }
+
+/* ---------- Guides: one horizontal axis from 1024px ----------
+   Guides keep their centred reading column (title block, tabs, body). Their card sections ("Experiences /
+   Destinations in this guide") sat on the page gutter instead, a second left edge on the same page; and the
+   92px title, held to the 736px column, wrapped to 3–4 lines and made the hero ~200px taller than on other
+   pages. The cards now share the column (two per row), and the title starts on the column's edge but may run
+   to the usual 18ch, as titles do elsewhere. Phones and tablets are unchanged (the column is the full width). */
+@media (min-width: 1024px) {
+  .single-er_guide .page-hero__inner--measure > .page-hero__title {
+    width: auto;
+    max-width: 18ch;
+    margin-inline-start: max(0px, calc((100% - var(--measure)) / 2));
+    margin-inline-end: 0;
+  }
+  .single-er_guide .page-body > .related {
+    width: 100%;
+    max-width: var(--measure);
+    margin-inline: auto;
+  }
+}

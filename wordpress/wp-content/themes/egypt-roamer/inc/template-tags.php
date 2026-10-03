@@ -52,9 +52,9 @@ function er_img( int $attachment_id, string $size = 'large', array $attrs = [] )
  * The prototype's photography as a stand-in until an editor sets an image in
  * the Media Library. Returns a responsive <img> for an Unsplash photo id.
  */
-function er_stock_img( string $photo_id, string $alt, array $attrs = [], array $widths = [ 900, 1400, 2000 ], float $ratio = 0.0 ): string {
+function er_stock_img( string $photo_id, string $alt, array $attrs = [], array $widths = [ 900, 1400, 2000 ], float $ratio = 0.0, float $max_ratio = 0.0 ): string {
 	$attrs += [ 'sizes' => '100vw', 'loading' => 'lazy', 'decoding' => 'async' ];
-	$html   = sprintf( '<img src="%s" srcset="%s" alt="%s"', esc_url( er_stock_url( $photo_id, $widths[ min( 1, count( $widths ) - 1 ) ], $ratio ) ), esc_attr( er_stock_srcset( $photo_id, $widths, $ratio ) ), esc_attr( $alt ) );
+	$html   = sprintf( '<img src="%s" srcset="%s" alt="%s"', esc_url( er_stock_url( $photo_id, $widths[ min( 1, count( $widths ) - 1 ) ], $ratio, $max_ratio ) ), esc_attr( er_stock_srcset( $photo_id, $widths, $ratio, $max_ratio ) ), esc_attr( $alt ) );
 	foreach ( $attrs as $k => $v ) {
 		$html .= sprintf( ' %s="%s"', esc_attr( $k ), esc_attr( (string) $v ) );
 	}
@@ -66,12 +66,15 @@ function er_stock_img( string $photo_id, string $alt, array $attrs = [], array $
  * (object-fit: cover, centred). A landscape photo in a tall frame then arrives with the pixels the frame
  * shows, instead of a wide file of which a third is visible, stretched (a phone hero was upscaled 3×).
  */
-function er_stock_url( string $photo_id, int $w, float $ratio = 0.0 ): string {
-	return 'https://images.unsplash.com/photo-' . rawurlencode( $photo_id ) . '?auto=format&fit=crop&w=' . $w . ( $ratio > 0 ? '&h=' . (int) round( $w * $ratio ) : '' ) . '&q=76';
+function er_stock_url( string $photo_id, int $w, float $ratio = 0.0, float $max_ratio = 0.0 ): string {
+	// $max_ratio caps the height only (imgix max-h): a taller photo is cropped to it, centred; a wider one is
+	// left whole, so its sides are never cut.
+	$h = $ratio > 0 ? '&h=' . (int) round( $w * $ratio ) : ( $max_ratio > 0 ? '&max-h=' . (int) round( $w * $max_ratio ) : '' );
+	return 'https://images.unsplash.com/photo-' . rawurlencode( $photo_id ) . '?auto=format&fit=crop&w=' . $w . $h . '&q=76';
 }
 
-function er_stock_srcset( string $photo_id, array $widths, float $ratio = 0.0 ): string {
-	return implode( ', ', array_map( static fn ( $w ) => er_stock_url( $photo_id, (int) $w, $ratio ) . ' ' . $w . 'w', $widths ) );
+function er_stock_srcset( string $photo_id, array $widths, float $ratio = 0.0, float $max_ratio = 0.0 ): string {
+	return implode( ', ', array_map( static fn ( $w ) => er_stock_url( $photo_id, (int) $w, $ratio, $max_ratio ) . ' ' . $w . 'w', $widths ) );
 }
 
 /**
@@ -101,7 +104,12 @@ function er_stock_picture( string $photo_id, string $alt, array $attrs, array $w
 	foreach ( er_stock_crops( $kind ) as [ $media, $ratio, $crop_widths ] ) {
 		$sources .= sprintf( '<source media="%s" srcset="%s" sizes="%s" />', esc_attr( $media ), esc_attr( er_stock_srcset( $photo_id, $crop_widths, $ratio ) ), esc_attr( $sizes ) );
 	}
-	return '<picture class="er-pic">' . $sources . er_stock_img( $photo_id, $alt, $attrs, $widths ) . '</picture>';
+	// Wider screens (the <img> itself): a page hero is a band at most ≈ 0.78 as tall as it is wide, shown centred
+	// with object-fit: cover. Uncropped, a portrait photo arrived at its full height: 2560×3840 for a 2560×1250
+	// band (Best time guide 2.3 MB, Siwa 0.7 MB at 1280px on a 2× screen). The height is capped at 0.8 of the
+	// width: a portrait photo loses only rows the band never shows; a landscape one is unchanged (same file).
+	$max = 'hero' === $kind ? 0.8 : 0.0;
+	return '<picture class="er-pic">' . $sources . er_stock_img( $photo_id, $alt, $attrs, $widths, 0.0, $max ) . '</picture>';
 }
 
 /** Post image: featured image, else the approved stock stand-in its seed entry names, else nothing. */

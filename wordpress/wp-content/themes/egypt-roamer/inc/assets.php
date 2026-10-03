@@ -113,22 +113,31 @@ add_action( 'wp_head', static function () {
 }, 3 );
 
 /**
- * The homepage's display face (the hero word, the phone's Largest Contentful Paint) starts downloading with the
- * stylesheet instead of after it. The other faces load from the stylesheet and swap in.
+ * First-view font faces that start downloading with the stylesheet instead of after it.
  */
 add_action( 'wp_head', static function () {
-	if ( ! is_front_page() ) {
-		return;
+	if ( is_front_page() ) {
+		// Only the hero word's display face (the Largest Contentful Paint). Measured on a throttled phone connection
+		// (docs/PERFORMANCE-2026-10-02.md §9.4): preloading every first-view face made the first paint later
+		// (en 1.7 → 2.3 s, ar 2.0 → 2.8 s), because the fonts competed with the stylesheet; the other faces swap in.
+		// Arabic and Chinese: none (their display faces are larger and the paint was earliest without).
+		$faces = [
+			'ar' => [],
+			'zh' => [],
+			'ru' => [ 'playfair-display-cyrillic-400-normal' ],
+		][ er_lang() ] ?? [ 'playfair-display-latin-400-normal' ];
+	} else {
+		// Inner pages: the page title's face and the body face (intro, breadcrumb). Without them the hero was drawn in
+		// the fallback fonts and rewrapped when they arrived, moving the page: CLS up to 0.231, 24 of 80
+		// language × width combinations above 0.01 on Valley of the Kings. With them: worst 0.053, 5 of 80, for
+		// ≈ 0.19 s later first paint on a throttled phone (docs/GUIDE-AND-VALLEY-PRE-ROLLOUT-REPORT-2026-10-03.md §6).
+		// Russian also takes the Latin body face (digits, Latin letters such as "II"); Chinese none (Google Fonts).
+		$faces = [
+			'ar' => [ 'noto-naskh-arabic-arabic-400-normal', 'ibm-plex-sans-arabic-arabic-400-normal' ],
+			'zh' => [],
+			'ru' => [ 'playfair-display-cyrillic-400-normal', 'inter-cyrillic-400-normal', 'inter-latin-400-normal' ],
+		][ er_lang() ] ?? [ 'playfair-display-latin-400-normal', 'inter-latin-400-normal' ];
 	}
-	// Only the hero word's display face (the Largest Contentful Paint). Measured on a throttled phone connection
-	// (docs/PERFORMANCE-2026-10-02.md §9.4): preloading every first-view face made the first paint later
-	// (en 1.7 → 2.3 s, ar 2.0 → 2.8 s), because the fonts competed with the stylesheet; the other faces swap in.
-	// Arabic and Chinese: none (their display faces are larger and the paint was earliest without).
-	$faces = [
-		'ar' => [],
-		'zh' => [],
-		'ru' => [ 'playfair-display-cyrillic-400-normal' ],
-	][ er_lang() ] ?? [ 'playfair-display-latin-400-normal' ];
 	foreach ( $faces as $face ) {
 		printf( '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin />' . "\n", esc_url( ER_THEME_URI . '/assets/fonts/' . $face . '.woff2' ) );
 	}
