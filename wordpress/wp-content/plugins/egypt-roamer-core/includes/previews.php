@@ -146,11 +146,25 @@ function er_preview_story( array $story, string $lang, array $moments ): array {
 	foreach ( (array) ( $story['labels'] ?? [] ) as $key => $value ) {
 		$labels[ sanitize_key( (string) $key ) ] = $own( $value );
 	}
+	// Facts the hero adds to location and duration, condensed from the approved text (the story's languages only).
+	$hero_meta = [];
+	foreach ( (array) ( $story['hero_meta'] ?? [] ) as $hm ) {
+		if ( '' !== $own( $hm['label'] ?? '' ) && '' !== $own( $hm['text'] ?? '' ) ) {
+			$hero_meta[] = [ 'icon' => sanitize_key( (string) ( $hm['icon'] ?? '' ) ), 'label' => $own( $hm['label'] ), 'text' => $own( $hm['text'] ) ];
+		}
+	}
+	// Which sentences of the opening section open the page and which introduce the journey (1-based).
+	$split = [];
+	foreach ( (array) ( $story['split'] ?? [] ) as $key => $nums ) {
+		$split[ sanitize_key( (string) $key ) ] = array_map( 'intval', (array) $nums );
+	}
 	return [
-		'full'     => $full,
-		'label'    => $full ? $own( $story['label'] ?? '' ) : '',
-		'title'    => $full ? $own( $story['title'] ) : '',
-		'labels'   => array_filter( $labels ),
+		'full'      => $full,
+		'label'     => $full ? $own( $story['label'] ?? '' ) : '',
+		'title'     => $full ? $own( $story['title'] ) : '',
+		'labels'    => array_filter( $labels ),
+		'hero_meta' => $hero_meta,
+		'split'     => $split,
 		'sections' => $sections,
 		'feel'     => $feel,
 		'stages'   => $stages,

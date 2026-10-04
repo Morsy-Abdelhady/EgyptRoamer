@@ -166,7 +166,7 @@
    }
   ],
   "story": {
-   "_source": "Arrangement only. Body text comes from each language's approved editorial (sections by heading anchor; stage 'from'). English labels are structural; other languages use the moments' approved titles and their own section headings.",
+   "_source": "Arrangement only. Body text comes from each language's approved editorial (sections by heading anchor; stage 'from'; intro sentences). English labels are structural; other languages use the moments' approved titles and their own section headings.",
    "label": {
     "en": "The journey"
    },
@@ -176,6 +176,12 @@
    "labels": {
     "journey_cta": {
      "en": "The journey"
+    },
+    "journey_eyebrow": {
+     "en": "The journey"
+    },
+    "journey_title": {
+     "en": "From the desert to the temples"
     },
     "feel_eyebrow": {
      "en": "The experience"
@@ -189,6 +195,9 @@
     "know_title": {
      "en": "What to know"
     },
+    "know_note": {
+     "en": "At the temples"
+    },
     "combine_eyebrow": {
      "en": "Make it a bigger journey"
     },
@@ -199,9 +208,32 @@
      "en": "Go further"
     },
     "cta_title": {
-     "en": "Plan your Abu Simbel day"
+     "en": "Plan this experience with our guides"
+    },
+    "cta_guides": {
+     "en": "Explore our guides"
     }
    },
+   "hero_meta": [
+    {
+     "icon": "users",
+     "label": {
+      "en": "Best for"
+     },
+     "text": {
+      "en": "A real interest in ancient Egypt"
+     }
+    },
+    {
+     "icon": "temple",
+     "label": {
+      "en": "At the temples"
+     },
+     "text": {
+      "en": "Usually a few hours"
+     }
+    }
+   ],
    "sections": {
     "opening": "what-it-is",
     "feel": "who-it-suits",
@@ -211,6 +243,15 @@
     "absorbed": [
      "why",
      "sun-festival"
+    ]
+   },
+   "split": {
+    "intro": [
+     1,
+     3
+    ],
+    "journey": [
+     2
     ]
    },
    "feel": {
@@ -231,7 +272,7 @@
      "layout": "reveal",
      "moment": 0,
      "eyebrow": {
-      "en": "Arrival"
+      "en": "The first view"
      },
      "title": {
       "en": "The Great Temple"

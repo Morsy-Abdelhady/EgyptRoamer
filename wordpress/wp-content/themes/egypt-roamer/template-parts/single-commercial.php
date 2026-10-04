@@ -74,13 +74,28 @@ if ( $er_story ) {
 	if ( '' !== $er_jump ) {
 		$er_acts_html .= '<a class="btn btn--ghost" href="#journey">' . esc_html( $er_jump ) . '</a>';
 	}
+	// Hero facts, each with its label: duration and location (post fields), then what the story adds (its own
+	// languages only, condensed from the approved text).
+	$er_fact  = static fn ( string $icon, string $label, string $value ): string => '<span class="page-hero__fact">' . er_icon( 'i-' . $icon, 'icon--sm' ) . '<span><small>' . esc_html( $label ) . '</small>' . $value . '</span></span>';
+	$er_hmeta = '';
+	if ( ! empty( $er_facts[ er_t( 'Duration' ) ] ) ) {
+		$er_hmeta .= $er_fact( 'clock', er_t( 'Duration' ), esc_html( $er_facts[ er_t( 'Duration' ) ] ) );
+	}
+	if ( $er_dests ) {
+		$er_hmeta .= $er_fact( 'pin', er_t( 'Location' ), implode( ', ', array_map( static fn ( $d ) => '<a href="' . esc_url( get_permalink( $d ) ) . '">' . esc_html( get_the_title( $d ) ) . '</a>', $er_dests ) ) );
+	} elseif ( ! empty( $er_facts[ er_t( 'Location' ) ] ) ) {
+		$er_hmeta .= $er_fact( 'pin', er_t( 'Location' ), esc_html( $er_facts[ er_t( 'Location' ) ] ) );
+	}
+	foreach ( (array) ( $er_story['hero_meta'] ?? [] ) as $er_hm ) {
+		$er_hmeta .= $er_fact( $er_hm['icon'] ?: 'check', $er_hm['label'], esc_html( $er_hm['text'] ) );
+	}
 	er_page_hero( [
 		'eyebrow'  => $er_eyebrows[ $er_type ] ?? '',
 		'title'    => get_the_title(),
 		'intro'    => has_excerpt() ? get_the_excerpt() : '',
 		'image'    => (int) get_post_thumbnail_id(),
 		'stock'    => er_stock_id_for( (int) get_the_ID() ),
-		'meta'     => $er_meta,
+		'meta'     => $er_hmeta,
 		'actions'  => $er_acts_html,
 		'modifier' => 'story',
 	] );

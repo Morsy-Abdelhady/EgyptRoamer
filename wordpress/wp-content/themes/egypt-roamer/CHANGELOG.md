@@ -2,6 +2,29 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.41 — 2026-10-04 (with Core 1.2.27): Abu Simbel rebuilt to the reference design
+- **The owner's Abu Simbel mockup is the layout.** Same sequence, same bands, same compositions, built from the real content:
+  - full-screen hero: three-line title, summary, two CTAs, and a bottom row of four labelled facts with gold icons;
+  - a light, centred magazine intro;
+  - a dark "The journey" intro ("From the desert to the temples") with a thin gold chapter line (vertical on phones);
+  - the moments, each composed differently: a dawn-lit text panel, the full-bleed first view with its words on the dark side (the climax), text beside an edge-to-edge interior photograph, the sanctuary centred and lit, Nefertari's temple beside its words, a text-only ending;
+  - "What it feels like" over a full-width photograph;
+  - a light "What to know" with icons and the "Plan the day" checklist;
+  - "Combine it with" as picture links with caption bars;
+  - a dark FAQ with thin dividers;
+  - the closing CTA over the hero photograph ("Explore our guides", chat, Plan My Trip).
+- **Chapter typography as in the reference:** number in gold, serif name, gold uppercase line, then the body.
+- **One home per sentence, still:**
+  - the opening section is split by sentence between the light intro and the dark journey intro (story `split`);
+  - the hero's extra facts are condensed from the approved text, and only in the story's languages;
+  - all 30 approved sentences appear exactly once.
+- **Not drawn as in the mockup, because it would invent content:**
+  - an "Across the desert" chapter (no approved text or verified photo);
+  - "Activity level", "Best time" and "Physical effort" (no approved data);
+  - Nile Cruise / Abu Simbel guide cards (no such pages);
+  - golden-hour and traveller photos (not verified).
+- **Scope:** only Abu Simbel has a story. Every other page renders as before.
+
 ## 1.2.40 — 2026-10-04 (with Core 1.2.26): Abu Simbel visual redesign (cinematic editorial)
 - **A real redesign of the experience story**, following the owner's visual direction:
   - a cinematic hero with its own CTAs;
