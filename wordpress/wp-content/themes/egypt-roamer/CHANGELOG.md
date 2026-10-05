@@ -2,6 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.43 — 2026-10-05 (with Core 1.2.29): the walk moves on phones and tablets too
+- **The motion ran only where the browser has CSS scroll timelines** (Chrome, Edge), so tablets and phones on Safari before 26, and Firefox, saw the still version. Now `immersion.js` moves the same CSS animations with the scroll in every browser: each is declared paused, 1s long, and set to the point the scroll has reached, from one table of scroll ranges (cover / contain / entry, as in CSS view timelines). Subjects are measured on layout changes, and the animations are updated once per frame while scrolling.
+- Same rules as before: only with prefers-reduced-motion: no-preference; the walk holds the hero only on windows at least 36rem tall; without JavaScript the page is the still sequence.
+- Checked at 390 (phone), 820×1180 (tablet) and 1440. axe, no-JS and reduced-motion runs (EN/DE/AR × 320/390/768/1440) report 0 issues. Mobile LCP 1.5 s, TBT 0, CLS 0.
+
 ## 1.2.42 — 2026-10-05 (with Core 1.2.28): Abu Simbel as a walk into the temple (concept A)
 - **The owner chose concept A, "Walk into the rock".** The page now moves the way the visit does:
   - **the walk:** the hero photograph stays on screen while the opening and the first chapters pass over it. The light changes with them (night before dawn, then day), and at the end the camera walks through the temple door into the dark. `immersion.js` aims the zoom at the door's real position in the served crop (story `walk`: the door in the stock photo).

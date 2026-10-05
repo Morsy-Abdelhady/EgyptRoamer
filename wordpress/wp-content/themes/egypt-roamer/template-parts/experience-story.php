@@ -17,9 +17,9 @@
  * (its `from`) is not repeated. Sections the story does not name stay before the questions, so nothing an editor
  * writes is lost. Structural labels exist only in the story's own languages.
  *
- * Motion is driven by the scroll itself (CSS scroll timelines), only when the browser has them and motion is
- * welcome. Without them the page is the same sequence, still: the hero, then each chapter as its own dark
- * section. The hero is the only first-view image; chapter photos carry their addresses in data-* and
+ * Motion is driven by the scroll itself (immersion.js moves the CSS animations with it, in every browser), only
+ * when motion is welcome. Without it the page is the same sequence, still: the hero, then each chapter as its own
+ * dark section. The hero is the only first-view image; chapter photos carry their addresses in data-* and
  * immersion.js loads each about a screen ahead (<noscript> keeps them without JavaScript).
  *
  * @package EgyptRoamer

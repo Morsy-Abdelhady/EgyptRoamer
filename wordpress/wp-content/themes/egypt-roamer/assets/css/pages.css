@@ -3142,139 +3142,96 @@ html:lang(zh) {
   }
 }
 
-/* Motion: driven by the scroll itself, only when welcome and supported; the page is complete without it. */
+/* Motion: driven by the scroll itself, only when welcome. immersion.js adds .xs-motion and moves each animation
+   below with the scroll (its own table says over which stretch of scroll), so it runs in every browser: phones and
+   tablets included, with or without CSS scroll timelines. The page is complete without it. */
 @media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    /* The walk holds the hero on screen only where the hero fits it. */
-    @media (min-height: 36rem) {
-      .xw-walk {
-        view-timeline: --xw-walk block;
-        timeline-scope: --xw-dawn, --xw-door;
-      }
-      /* Held at the top; a hero taller than the screen (a short window) is held by its bottom edge instead,
-         so nothing in it is cut off (immersion.js measures it). */
-      .xw-walk__bg {
-        position: sticky;
-        top: min(0px, calc(100vh - var(--xw-h, 100vh)));
-        min-height: 100vh;
-      }
-      .xw-walk__bg > .page-hero {
-        min-height: 100vh;
-      }
-      .xw-cap--open {
-        padding-top: 30vh;
-      }
-      .xw-cap {
-        min-height: 100vh;
-        padding-block: 0;
-        background: none;
-        border: 0;
-      }
-      .xw-cap__panel {
-        padding: clamp(1.5rem, 4vw, 2.75rem);
-        background: color-mix(in srgb, var(--ink) 76%, transparent);
-        backdrop-filter: blur(8px);
-        border-top: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
-        animation: xs-rise linear both;
-        animation-timeline: view();
-        animation-range: entry 10% cover 40%;
-      }
-      .xw-cap--dawn {
-        view-timeline: --xw-dawn block;
-      }
-      .xw-cap--dawn .xw-cap__panel {
-        background: none;
-        backdrop-filter: none;
-        border: 0;
-        text-shadow: 0 2px 24px rgb(0 0 0 / 0.8);
-      }
-      .xw-door {
-        display: block;
-        height: 100vh;
-        view-timeline: --xw-door block;
-      }
-      .xw-walk .page-hero__inner {
-        animation: xw-leave linear both;
-        animation-timeline: --xw-walk;
-        animation-range: contain 0vh contain 45vh;
-      }
-      /* A slow step forward through the whole walk, then through the door. */
-      .xw-walk .page-hero__media img {
-        transform-origin: var(--xw-ox, 50%) var(--xw-oy, 58%);
-        animation: xw-dolly linear both, xw-enter linear both;
-        animation-timeline: --xw-walk, --xw-door;
-        animation-range: contain 0% contain 100%, entry 0% contain 100%;
-      }
-      .xw-walk__night {
-        animation: xw-night linear both;
-        animation-timeline: --xw-dawn;
-        animation-range: cover 0% cover 100%;
-      }
-      .xw-walk__dark {
-        animation: xw-dark linear both;
-        animation-timeline: --xw-door;
-        animation-range: entry 55% contain 100%;
-      }
+  /* The walk holds the hero on screen only where the hero fits it. */
+  @media (min-height: 36rem) {
+    /* Held at the top; a hero taller than the screen (a short window) is held by its bottom edge instead,
+       so nothing in it is cut off (immersion.js measures it). */
+    .xs-motion .xw-walk__bg {
+      position: sticky;
+      top: min(0px, calc(100vh - var(--xw-h, 100vh)));
+      min-height: 100vh;
     }
-
-    .xw-journey {
-      view-timeline: --xw-journey block;
+    .xs-motion .xw-walk__bg > .page-hero {
+      min-height: 100vh;
     }
-    .xw-rail__fill {
-      animation: xw-fill linear both;
-      animation-timeline: --xw-journey;
-      animation-range: contain 0% contain 100%;
+    .xs-motion .xw-cap--open {
+      padding-top: 30vh;
     }
-    /* Inside: the eyes adjust to the dark. The highlight: the ray crosses, the statues light up. */
-    .imm-step--adjust,
-    .imm-step--sun,
-    .imm-step--rebuild {
-      view-timeline: --xs-step block;
+    .xs-motion .xw-cap {
+      min-height: 100vh;
+      padding-block: 0;
+      background: none;
+      border: 0;
     }
-    .imm-step--adjust .imm-step__media img {
-      animation: xs-adjust linear both;
-      animation-timeline: --xs-step;
-      animation-range: entry 70% cover 50%;
+    .xs-motion .xw-cap__panel {
+      padding: clamp(1.5rem, 4vw, 2.75rem);
+      background: color-mix(in srgb, var(--ink) 76%, transparent);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+      animation: xs-rise 1s linear both paused;
     }
-    .imm-step--sun .imm-step__media img {
-      animation: xs-lit linear both;
-      animation-timeline: --xs-step;
-      animation-range: cover 22% cover 55%;
+    .xs-motion .xw-cap--dawn .xw-cap__panel {
+      background: none;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      border: 0;
+      text-shadow: 0 2px 24px rgb(0 0 0 / 0.8);
     }
-    .imm-step__ray {
-      animation: xs-ray linear both;
-      animation-timeline: --xs-step;
-      animation-range: entry 90% cover 45%;
+    .xs-motion .xw-door {
+      display: block;
+      height: 100vh;
     }
-    .imm-step--adjust .imm-step__text,
-    .imm-step--sun .imm-step__text {
-      animation: xs-rise linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 30%;
+    .xs-motion .xw-walk .page-hero__inner {
+      animation: xw-leave 1s linear both paused;
     }
-    /* Back into the light */
-    .imm-step--band .imm-step__media::before {
-      animation: xs-flash linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 40%;
+    /* A slow step forward through the whole walk, then through the door. */
+    .xs-motion .xw-walk .page-hero__media img {
+      transform-origin: var(--xw-ox, 50%) var(--xw-oy, 58%);
+      animation: xw-dolly 1s linear both paused, xw-enter 1s linear both paused;
     }
-    .imm-step--band .imm-step__media img,
-    .xs-feel__media img {
-      animation: xs-settle linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 45%;
+    .xs-motion .xw-walk__night {
+      animation: xw-night 1s linear both paused;
     }
-    /* Afterwards: cut into blocks, reassembled on higher ground */
-    .imm-step--rebuild .imm-step__media::after {
-      animation: xs-close linear both;
-      animation-timeline: --xs-step;
-      animation-range: entry 20% cover 50%;
+    .xs-motion .xw-walk__dark {
+      animation: xw-dark 1s linear both paused;
     }
-    .imm-step--rebuild .imm-step__media img {
-      animation: xs-tilt linear both;
-      animation-timeline: --xs-step;
-      animation-range: entry 0% cover 60%;
-    }
+  }
+  .xs-motion .xw-rail__fill {
+    animation: xw-fill 1s linear both paused;
+  }
+  /* Inside: the eyes adjust to the dark. The highlight: the ray crosses, the statues light up. */
+  .xs-motion .imm-step--adjust .imm-step__media img {
+    animation: xs-adjust 1s linear both paused;
+  }
+  .xs-motion .imm-step--sun .imm-step__media img {
+    animation: xs-lit 1s linear both paused;
+  }
+  .xs-motion .imm-step__ray {
+    animation: xs-ray 1s linear both paused;
+  }
+  .xs-motion .imm-step--adjust .imm-step__text,
+  .xs-motion .imm-step--sun .imm-step__text {
+    animation: xs-rise 1s linear both paused;
+  }
+  /* Back into the light */
+  .xs-motion .imm-step--band .imm-step__media::before {
+    animation: xs-flash 1s linear both paused;
+  }
+  .xs-motion .imm-step--band .imm-step__media img,
+  .xs-motion .xs-feel__media img {
+    animation: xs-settle 1s linear both paused;
+  }
+  /* Afterwards: cut into blocks, reassembled on higher ground */
+  .xs-motion .imm-step--rebuild .imm-step__media::after {
+    animation: xs-close 1s linear both paused;
+  }
+  .xs-motion .imm-step--rebuild .imm-step__media img {
+    animation: xs-tilt 1s linear both paused;
   }
 }
 @keyframes xw-leave {
