@@ -89,6 +89,8 @@ if ( $er_story ) {
 	foreach ( (array) ( $er_story['hero_meta'] ?? [] ) as $er_hm ) {
 		$er_hmeta .= $er_fact( $er_hm['icon'] ?: 'check', $er_hm['label'], esc_html( $er_hm['text'] ) );
 	}
+	// The hero is the walk's first scene: the template part holds it on screen while the story passes over it.
+	ob_start();
 	er_page_hero( [
 		'eyebrow'  => $er_eyebrows[ $er_type ] ?? '',
 		'title'    => get_the_title(),
@@ -99,7 +101,10 @@ if ( $er_story ) {
 		'actions'  => $er_acts_html,
 		'modifier' => 'story',
 	] );
+	$er_hero_html = (string) ob_get_clean();
 	get_template_part( 'template-parts/experience-story', null, [
+		'hero_html'  => $er_hero_html,
+		'walk_focus' => (array) ( $er_story['walk'] ?? [] ),
 		'preview' => $er_preview,
 		'parts'   => er_body_parts( er_body()['html'] ),
 		'facts'   => $er_facts,

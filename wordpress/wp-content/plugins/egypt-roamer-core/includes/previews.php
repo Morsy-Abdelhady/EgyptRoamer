@@ -98,8 +98,9 @@ function er_preview_for( int $post_id ): array {
  * - `sections` names, by heading anchor, where each section of the page's own (approved, translated) body goes. The body
  *   sections listed in `absorbed` are told by the journey instead, through each stage's `from` ("why#1": the first item of
  *   the "why" section; "sun-festival": that whole section), so every sentence has exactly one home in every language.
- * - `layout` sets each stage's weight in the sequence: text (a dark chapter break), reveal (the full-bleed moment), split
- *   (photo held beside the text), peak (the highlight), band (photo edge to edge beside its text), detail (a smaller beat).
+ * - `layout` sets each stage's scene: a stage without a photo is told over the hero photograph (the walk); with one,
+ *   adjust (the photo comes out of the dark), sun (a ray of light reaches it), band (photo beside its text), rebuild
+ *   (the gaps between the blocks close). `walk` places the door the walk goes through in the hero photograph.
  * - The story's own words (label, title, eyebrows, stage titles) are never borrowed from another language. A language that
  *   has them ('full') gets them; one that does not gets the moments' approved titles and the body text, and text-only stages
  *   without body text are left out. A page never mixes two languages.
@@ -165,6 +166,8 @@ function er_preview_story( array $story, string $lang, array $moments ): array {
 		'labels'    => array_filter( $labels ),
 		'hero_meta' => $hero_meta,
 		'split'     => $split,
+		// The walk's door: [ x %, y %, width ÷ height ] in the stock hero photograph (language-neutral).
+		'walk'      => array_map( 'floatval', array_slice( (array) ( $story['walk'] ?? [] ), 0, 3 ) ),
 		'sections' => $sections,
 		'feel'     => $feel,
 		'stages'   => $stages,

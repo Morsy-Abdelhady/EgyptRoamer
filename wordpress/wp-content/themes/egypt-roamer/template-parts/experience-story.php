@@ -1,30 +1,31 @@
 <?php
 /**
- * Experience story: everything below the hero of an experience that has a story, as one editorial sequence
- * (the owner's Abu Simbel reference design). Grounds alternate on purpose:
+ * Experience story: an experience told as one walk through the place (the owner's chosen concept A, "Walk into
+ * the rock"). The page moves the way the visit does:
  *
- *   intro (light)            the opening statement, centred, magazine-style
- *   journey intro (dark)     what the journey is, and its chapters as a line to follow
- *   moments (dark/cinema)    each chapter composed differently: a dark text panel, the full-bleed climax, text
- *                            beside an edge-to-edge photo, the peak centred in the dark, a photo beside its
- *                            text, a text-only ending
- *   what it feels like       a full-width photograph with its words over it
- *   what to know (light)     the plan, as an editorial information layout
- *   combine it with (light)  picture links
- *   questions (dark)         an editorial accordion
- *   the end (image)          the next step over the hero's own photograph
+ *   the walk (hero)          the hero photograph stays on screen while the opening and the first chapters pass
+ *                            over it; the light changes with them (night before dawn, then day), and at the end
+ *                            the camera walks through the door into the dark
+ *   inside (adjust)          the photograph starts black and the eyes adjust while the words pass over it
+ *   the highlight (sun)      a ray of sunlight crosses the screen and lights the statues
+ *   daylight (band)          out into the light again, photograph beside its words
+ *   afterwards (rebuild)     the gaps between the blocks close as the photograph rises into place
+ *   what it feels like, what to know, combine it with, questions, the end
  *
  * Every sentence is the page's own approved body, in its own language: er_body_parts() splits the body by
- * heading anchor and the story (Core er_preview_story()) says where each section — or sentence of the opening —
- * goes. A section a chapter tells (its `from`) is not repeated. Sections the story does not name stay before the
- * questions, so nothing an editor writes is lost. Structural labels exist only in the story's own languages.
+ * heading anchor and the story (Core er_preview_story()) says where each section goes. A section a chapter tells
+ * (its `from`) is not repeated. Sections the story does not name stay before the questions, so nothing an editor
+ * writes is lost. Structural labels exist only in the story's own languages.
  *
- * The hero is the only first-view image. Chapter photos carry their addresses in data-* and immersion.js loads
- * each about a screen ahead (<noscript> keeps them without JavaScript); the other photos are lazy.
+ * Motion is driven by the scroll itself (CSS scroll timelines), only when the browser has them and motion is
+ * welcome. Without them the page is the same sequence, still: the hero, then each chapter as its own dark
+ * section. The hero is the only first-view image; chapter photos carry their addresses in data-* and
+ * immersion.js loads each about a screen ahead (<noscript> keeps them without JavaScript).
  *
  * @package EgyptRoamer
  * @var array $args { preview, parts, facts: label => value, offers: offer ids, help: next-step buttons HTML,
- *                    related: post ids, who/tips: HTML lists, hero: [ image id, stock photo id ] }
+ *                    related: post ids, who/tips: HTML lists, hero: [ image id, stock photo id ],
+ *                    hero_html: the page hero, walk_focus: [ x %, y %, width ÷ height ] of the door in the stock photo }
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -54,12 +55,16 @@ $er_from = static function ( string $from ) use ( $er_parts, &$er_used ): string
 	}
 	return $html;
 };
+// Each chapter's place: told over the hero photograph (walk: no photo of its own), or a scene of its own.
 $er_steps = [];
 foreach ( $er_s['stages'] as $er_st ) {
 	$er_st['html'] = $er_from( $er_st['from'] );
 	if ( ! $er_st['photo'] && '' === $er_st['html'] && '' === $er_st['title'] ) {
 		continue;
 	}
+	$er_st['layout'] = $er_st['photo']
+		? ( in_array( $er_st['layout'], [ 'adjust', 'sun', 'band', 'rebuild' ], true ) ? $er_st['layout'] : 'band' )
+		: 'walk';
 	$er_steps[] = $er_st;
 }
 // A section counts as told by the journey only when every one of its items (or the whole of it) was used.
@@ -82,32 +87,19 @@ foreach ( $er_told as $er_id ) {
 	}
 }
 
-// The opening section, split by sentence between the intro and the journey intro (story `split`), when its
-// paragraph has those sentences; otherwise the whole of it opens the page.
-$er_open   = $er_part( 'opening' );
-$er_intro  = (string) ( $er_open['html'] ?? '' );
-$er_jtext  = '';
-$er_split  = (array) ( $er_s['split'] ?? [] );
-if ( $er_open && 1 === count( $er_open['paras'] ) && ! empty( $er_split['intro'] ) && ! empty( $er_split['journey'] ) ) {
-	$er_sent = preg_split( '/(?<=[.!?؟])\s+(?=\S)|(?<=。)/u', trim( $er_open['paras'][0] ), -1, PREG_SPLIT_NO_EMPTY );
-	$er_need = max( array_merge( $er_split['intro'], $er_split['journey'] ) );
-	if ( count( $er_sent ) >= $er_need ) {
-		$er_pick  = static fn ( array $nums ): string => implode( ' ', array_map( static fn ( $n ) => trim( $er_sent[ $n - 1 ] ), $nums ) );
-		$er_intro = '<p>' . $er_pick( $er_split['intro'] ) . '</p>';
-		$er_jtext = '<p>' . $er_pick( $er_split['journey'] ) . '</p>';
-	}
-}
+// The opening section opens the walk, whole.
+$er_open    = $er_part( 'opening' );
 $er_open_t  = $er_s['title'] ?: (string) ( $er_open['title'] ?? '' );
 $er_open_id = (string) ( $er_map['opening'] ?? 'story-title' );
 
 // Deferred photo: [ phone ratio, phone widths, wide ratio, wide widths, wide sizes, phone sizes ].
+// Full-screen scenes are cropped to the screen's shape; "rebuild" keeps a tall crop, so the photograph can tilt up.
 $er_frames = [
-	'reveal' => [ 1.3, [ 480, 640, 828, 1080 ], 0.6, [ 960, 1280, 1600, 1920 ], '100vw', '100vw' ],
-	'split'  => [ 1.0, [ 480, 640, 828, 1080 ], 0.95, [ 720, 960, 1280, 1600 ], '(min-width: 1024px) 58vw, 100vw', '100vw' ],
-	'band'   => [ 1.0, [ 480, 640, 828, 1080 ], 0.95, [ 720, 960, 1280, 1600 ], '(min-width: 1024px) 58vw, 100vw', '100vw' ],
-	'peak'   => [ 1.25, [ 400, 600, 800 ], 1.25, [ 480, 720, 960 ], '(min-width: 1024px) 30rem, 86vw', '86vw' ],
-	'detail' => [ 1.25, [ 400, 600, 800 ], 1.25, [ 480, 720, 960 ], '(min-width: 1024px) 34vw, 78vw', '78vw' ],
-	'feel'   => [ 1.3, [ 480, 640, 828, 1080 ], 0.5, [ 960, 1280, 1600, 1920 ], '100vw', '100vw' ],
+	'adjust'  => [ 1.9, [ 480, 640, 828, 1080 ], 0.62, [ 960, 1280, 1600, 1920 ], '100vw', '100vw' ],
+	'sun'     => [ 1.9, [ 480, 640, 828, 1080 ], 0.62, [ 960, 1280, 1600, 1920 ], '100vw', '100vw' ],
+	'band'    => [ 1.0, [ 480, 640, 828, 1080 ], 0.95, [ 720, 960, 1280, 1600 ], '(min-width: 1024px) 58vw, 100vw', '100vw' ],
+	'rebuild' => [ 1.6, [ 480, 640, 828, 1080 ], 1.6, [ 600, 800, 1000, 1200 ], '(min-width: 1024px) 46vw, 100vw', '100vw' ],
+	'feel'    => [ 1.3, [ 480, 640, 828, 1080 ], 0.5, [ 960, 1280, 1600, 1920 ], '100vw', '100vw' ],
 ];
 $er_pic = static function ( string $photo, string $alt, string $layout ) use ( $er_frames ): string {
 	[ $pr, $pw, $wr, $ww, $wsizes, $psizes ] = $er_frames[ $layout ] ?? $er_frames['band'];
@@ -129,6 +121,21 @@ $er_credit = static function ( array $st, string $class = 'xs-credit' ): string 
 	$text = str_replace( [ '{name} / Unsplash', '{name}' ], [ '<bdi>' . esc_html( $st['photographer'] ) . ' / Unsplash</bdi>', '<bdi>' . esc_html( $st['photographer'] ) . '</bdi>' ], esc_html( er_t( 'Photo: {name} / Unsplash' ) ) );
 	return '<p class="' . esc_attr( $class ) . '">' . ( ! empty( $st['source'] ) ? '<a href="' . esc_url( $st['source'] ) . '" rel="nofollow noopener">' . $text . '</a>' : $text ) . '</p>';
 };
+// A chapter's words: its number, name (serif), its line in gold, the body, the photo credit.
+$er_words = static function ( array $st, int $i ) use ( $er_anchor, $er_num, $er_credit ): string {
+	$name = $st['eyebrow'] ?: $st['title'];
+	$line = $st['eyebrow'] ? $st['title'] : '';
+	$out  = isset( $er_anchor[ $i ] ) ? '<span class="imm-step__anchor" id="' . esc_attr( $er_anchor[ $i ] ) . '"></span>' : '';
+	$out .= '<p class="imm-step__n">' . esc_html( $er_num( $i + 1 ) ) . '</p>';
+	$out .= '' !== $name ? '<h3 class="imm-step__title">' . esc_html( $name ) . '</h3>' : '';
+	$out .= '' !== $line ? '<p class="imm-step__line">' . esc_html( $line ) . '</p>' : '';
+	if ( '' !== $st['html'] ) {
+		$out .= '<div class="imm-step__body">' . wp_kses_post( wpautop( $st['html'] ) ) . '</div>';
+	} elseif ( $st['text'] ) {
+		$out .= '<div class="imm-step__body"><p>' . esc_html( $st['text'] ) . '</p></div>';
+	}
+	return $out . $er_credit( $st );
+};
 
 $er_feel   = $er_part( 'feel' );
 $er_know   = $er_part( 'know' );
@@ -136,90 +143,79 @@ $er_comb   = $er_part( 'combine' );
 $er_faq    = $er_part( 'faq' );
 $er_placed = array_merge( array_values( array_filter( array_map( static fn ( $k ) => is_string( $er_map[ $k ] ?? null ) ? $er_map[ $k ] : '', [ 'opening', 'feel', 'know', 'combine', 'faq' ] ) ) ), $er_told );
 $er_rest   = array_diff_key( $er_parts, array_flip( $er_placed ) );
+
+$er_walk  = array_filter( $er_steps, static fn ( $st ) => 'walk' === $st['layout'] );
+$er_scene = array_filter( $er_steps, static fn ( $st ) => 'walk' !== $st['layout'] );
+// The door the walk goes through: where it is in the stock photograph (only that photograph; a featured image
+// replacing it has its own composition, and the camera then walks into the centre).
+$er_focus = (array) ( $args['walk_focus'] ?? [] );
+$er_focus = 3 === count( $er_focus ) && empty( $args['hero']['image'] ) ? implode( ' ', array_map( 'floatval', $er_focus ) ) : '';
 ?>
 <div class="exp-story" data-imm>
 
-	<?php /* 02 Intro: the opening statement, centred. */ ?>
-	<section class="xs-intro" aria-labelledby="<?php echo esc_attr( $er_open_id ); ?>">
-		<div class="xs-intro__inner container">
-			<h2 class="xs-intro__title" id="<?php echo esc_attr( $er_open_id ); ?>"><?php echo $er_txt( $er_open_t ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
-			<?php if ( '' !== $er_intro ) : ?>
-				<div class="xs-intro__text"><?php echo $er_intro; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
-			<?php endif; ?>
-		</div>
-	</section>
-
-	<?php /* 03–04 The journey: what it is, and its chapters. */ ?>
-	<section class="xs-journey on-dark" id="journey" aria-labelledby="xs-journey-title">
-		<div class="xs-journey__inner container">
-			<div class="xs-journey__head">
-				<?php echo $er_eye( 'journey_eyebrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-				<h2 class="xs-journey__title" id="xs-journey-title"><?php echo $er_txt( $er_lbl['journey_title'] ?? (string) ( $args['preview']['title'] ?? '' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
+	<div class="xw-journey on-dark">
+		<?php /* Where you are: the chapters as a line beside the walk (wide screens). */ ?>
+		<nav class="xw-rail" aria-labelledby="xw-rail-title">
+			<div class="xw-rail__inner">
+				<p class="xw-rail__title" id="xw-rail-title"><?php echo $er_txt( $er_lbl['journey_title'] ?? (string) ( $args['preview']['title'] ?? '' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></p>
+				<span class="xw-rail__line" aria-hidden="true"><span class="xw-rail__fill"></span></span>
+				<ol class="xw-rail__list">
+					<?php foreach ( $er_steps as $er_i => $er_st ) : ?>
+						<?php
+						$er_name = $er_st['eyebrow'] ?: $er_st['title'];
+						if ( '' === $er_name ) {
+							continue; // A chapter with no name of its own (a language without the story's labels) stays off the line.
+						}
+						?>
+						<li><a href="#imm-<?php echo esc_attr( (string) ( $er_i + 1 ) ); ?>" data-imm-link><?php echo esc_html( $er_name ); ?></a></li>
+					<?php endforeach; ?>
+				</ol>
 			</div>
-			<?php if ( '' !== $er_jtext ) : ?>
-				<div class="xs-journey__text"><?php echo $er_jtext; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
-			<?php endif; ?>
-			<ol class="xs-route">
-				<?php foreach ( $er_steps as $er_i => $er_st ) : ?>
-					<?php
-					$er_name = $er_st['eyebrow'] ?: $er_st['title'];
-					if ( '' === $er_name ) {
-						continue; // A chapter with no name of its own (a language without the story's labels) stays off the line.
-					}
-					?>
-					<li class="xs-route__item">
-						<a href="#imm-<?php echo esc_attr( (string) ( $er_i + 1 ) ); ?>" data-imm-link>
-							<span class="xs-route__dot" aria-hidden="true"></span>
-							<span class="xs-route__n" aria-hidden="true"><?php echo esc_html( $er_num( $er_i + 1 ) ); ?></span>
-							<span class="xs-route__name"><?php echo esc_html( $er_name ); ?></span>
-							<?php if ( $er_st['eyebrow'] && $er_st['title'] ) : ?>
-								<span class="xs-route__sub"><?php echo esc_html( $er_st['title'] ); ?></span>
+		</nav>
+
+		<?php /* The walk: the hero photograph holds while the opening and the first chapters pass over it. */ ?>
+		<section class="xw-walk<?php echo $er_walk ? '' : ' xw-walk--short'; ?>" data-walk<?php echo '' !== $er_focus ? ' data-focus="' . esc_attr( $er_focus ) . '"' : ''; ?> aria-label="<?php echo esc_attr( get_the_title() ); ?>">
+			<div class="xw-walk__bg">
+				<?php echo (string) ( $args['hero_html'] ?? '' ); // phpcs:ignore WordPress.Security.EscapeOutput -- er_page_hero() output ?>
+				<span class="xw-walk__night" aria-hidden="true"></span>
+				<span class="xw-walk__dark" aria-hidden="true"></span>
+			</div>
+			<div class="xw-cap xw-cap--open" id="journey">
+				<div class="xw-cap__panel">
+					<h2 class="xw-cap__title" id="<?php echo esc_attr( $er_open_id ); ?>"><?php echo $er_txt( $er_open_t ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
+					<?php if ( ! empty( $er_open['html'] ) ) : ?>
+						<div class="xw-cap__text"><?php echo $er_open['html']; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
+					<?php endif; ?>
+				</div>
+			</div>
+			<?php foreach ( $er_walk as $er_i => $er_st ) : ?>
+				<div class="xw-cap xw-cap--<?php echo esc_attr( $er_st['tone'] ?: 'day' ); ?>" id="imm-<?php echo esc_attr( (string) ( $er_i + 1 ) ); ?>" data-imm-step>
+					<div class="xw-cap__panel"><?php echo $er_words( $er_st, $er_i ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above ?></div>
+				</div>
+			<?php endforeach; ?>
+			<div class="xw-door" aria-hidden="true"></div>
+		</section>
+
+		<?php /* The scenes inside and after. */ ?>
+		<?php if ( $er_scene ) : ?>
+			<ol class="imm">
+				<?php foreach ( $er_scene as $er_i => $er_st ) : ?>
+					<li class="imm-step imm-step--<?php echo esc_attr( $er_st['layout'] ); ?>" id="imm-<?php echo esc_attr( (string) ( $er_i + 1 ) ); ?>" data-imm-step>
+						<figure class="imm-step__media">
+							<?php echo $er_pic( $er_st['photo'], $er_st['alt'], $er_st['layout'] ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+							<?php if ( 'sun' === $er_st['layout'] ) : ?>
+								<span class="imm-step__ray" aria-hidden="true"></span>
 							<?php endif; ?>
-						</a>
+							<?php if ( $er_st['generated'] ) : ?>
+								<span class="moments__flag"><?php er_e( 'Illustration, not footage of the place' ); ?></span>
+							<?php endif; ?>
+						</figure>
+						<div class="imm-step__text"><?php echo $er_words( $er_st, $er_i ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above ?></div>
 					</li>
 				<?php endforeach; ?>
 			</ol>
-		</div>
-	</section>
-
-	<?php /* 05–06 The moments. */ ?>
-	<ol class="imm on-dark" aria-labelledby="xs-journey-title">
-		<?php
-		foreach ( $er_steps as $er_i => $er_st ) :
-			$er_layout = $er_st['photo'] ? ( in_array( $er_st['layout'], [ 'reveal', 'split', 'peak', 'band', 'detail' ], true ) ? $er_st['layout'] : 'band' ) : 'text';
-			$er_cls    = 'imm-step imm-step--' . $er_layout . ( 'text' === $er_layout ? ' imm-step--' . ( $er_st['tone'] ?: 'plain' ) : '' );
-			// Name (serif) and, under it, the chapter's line in gold — or, without the story's labels, the photo's own title.
-			$er_name = $er_st['eyebrow'] ?: $er_st['title'];
-			$er_line = $er_st['eyebrow'] ? $er_st['title'] : '';
-			?>
-			<li class="<?php echo esc_attr( $er_cls ); ?>" id="imm-<?php echo esc_attr( (string) ( $er_i + 1 ) ); ?>" data-imm-step>
-				<?php if ( $er_st['photo'] ) : ?>
-					<figure class="imm-step__media">
-						<?php echo $er_pic( $er_st['photo'], $er_st['alt'], $er_layout ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-						<?php if ( $er_st['generated'] ) : ?>
-							<span class="moments__flag"><?php er_e( 'Illustration, not footage of the place' ); ?></span>
-						<?php endif; ?>
-					</figure>
-				<?php endif; ?>
-				<div class="imm-step__text">
-					<?php echo isset( $er_anchor[ $er_i ] ) ? '<span class="imm-step__anchor" id="' . esc_attr( $er_anchor[ $er_i ] ) . '"></span>' : ''; ?>
-					<p class="imm-step__n"><?php echo esc_html( $er_num( $er_i + 1 ) ); ?></p>
-					<?php if ( '' !== $er_name ) : ?>
-						<h3 class="imm-step__title"><?php echo esc_html( $er_name ); ?></h3>
-					<?php endif; ?>
-					<?php if ( '' !== $er_line ) : ?>
-						<p class="imm-step__line"><?php echo esc_html( $er_line ); ?></p>
-					<?php endif; ?>
-					<?php if ( '' !== $er_st['html'] ) : ?>
-						<div class="imm-step__body"><?php echo wp_kses_post( wpautop( $er_st['html'] ) ); ?></div>
-					<?php elseif ( $er_st['text'] ) : ?>
-						<div class="imm-step__body"><p><?php echo esc_html( $er_st['text'] ); ?></p></div>
-					<?php endif; ?>
-					<?php echo $er_credit( $er_st ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above ?>
-				</div>
-			</li>
-		<?php endforeach; ?>
-	</ol>
+		<?php endif; ?>
+	</div>
 
 	<?php /* 07 What it feels like: a full-width photograph with its words over it. */ ?>
 	<?php if ( $er_feel ) : ?>

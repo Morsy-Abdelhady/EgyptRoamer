@@ -2,6 +2,22 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.42 — 2026-10-05 (with Core 1.2.28): Abu Simbel as a walk into the temple (concept A)
+- **The owner chose concept A, "Walk into the rock".** The page now moves the way the visit does:
+  - **the walk:** the hero photograph stays on screen while the opening and the first chapters pass over it. The light changes with them (night before dawn, then day), and at the end the camera walks through the temple door into the dark. `immersion.js` aims the zoom at the door's real position in the served crop (story `walk`: the door in the stock photo).
+  - **inside:** the hall photograph starts black and the eyes adjust while the words pass over it;
+  - **the highlight:** a ray of sunlight crosses the screen and the sanctuary statues light up;
+  - **back into daylight:** a light flash, then Nefertari's temple beside its words;
+  - **afterwards:** the rescue (cut into blocks, reassembled on higher ground) shown literally: the gaps between the blocks close while the colossi photograph tilts up and rises into place;
+  - then "What it feels like" (now the façade with visitors, for scale), "What to know", "Combine it with", the FAQ and the closing CTA, as before.
+- **Where you are:** a thin chapter rail at mid-height on wide screens, filling in gold as you go, with the current chapter marked. It replaces the separate "The journey" band and its chapter line.
+- **Motion only where it's welcome and supported** (CSS scroll timelines and prefers-reduced-motion: no-preference). Elsewhere it's the same sequence, still: the hero, then each chapter as a dark section. The hall and sanctuary photographs still hold the screen while their words pass. A hero taller than the window is held by its bottom edge, so nothing is cut off.
+- **Unchanged:**
+  - the approved text, each sentence still in one place;
+  - the hero is still the only first-view image (355 KB local, LCP 1.4 s, CLS 0);
+  - the other experiences and pages are byte-identical apart from the build markers;
+  - axe, no-JS and reduced-motion runs (EN/DE/AR × 320/390/768/1440) report 0 issues.
+
 ## 1.2.41 — 2026-10-04 (with Core 1.2.27): Abu Simbel rebuilt to the reference design
 - **The owner's Abu Simbel mockup is the layout.** Same sequence, same bands, same compositions, built from the real content:
   - full-screen hero: three-line title, summary, two CTAs, and a bottom row of four labelled facts with gold icons;

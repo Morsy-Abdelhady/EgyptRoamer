@@ -255,11 +255,12 @@
     ]
    },
    "feel": {
-    "moment": 1
+    "moment": 0
    },
+   "walk": [51.6, 57.5, 1.5],
    "stages": [
     {
-     "layout": "text",
+     "layout": "walk",
      "tone": "dawn",
      "eyebrow": {
       "en": "Before dawn"
@@ -269,8 +270,7 @@
      }
     },
     {
-     "layout": "reveal",
-     "moment": 0,
+     "layout": "walk",
      "eyebrow": {
       "en": "The first view"
      },
@@ -280,7 +280,7 @@
      "from": "why#1"
     },
     {
-     "layout": "split",
+     "layout": "adjust",
      "moment": 2,
      "eyebrow": {
       "en": "Inside"
@@ -291,7 +291,7 @@
      "from": "why#3"
     },
     {
-     "layout": "peak",
+     "layout": "sun",
      "moment": 3,
      "eyebrow": {
       "en": "The highlight"
@@ -312,8 +312,8 @@
      }
     },
     {
-     "layout": "text",
-     "tone": "dusk",
+     "layout": "rebuild",
+     "moment": 1,
      "eyebrow": {
       "en": "Afterwards"
      },

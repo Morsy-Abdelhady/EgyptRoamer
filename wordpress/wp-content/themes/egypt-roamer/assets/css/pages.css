@@ -2264,14 +2264,13 @@ html:lang(zh) {
 }
 
 /* ---------- Experience story (template-parts/experience-story.php) ----------
-   The owner's Abu Simbel reference design, built from the real content. Grounds alternate on purpose:
-     hero (dark) → intro (light, centred) → the journey (dark) → the moments (dark / cinema)
-     → what it feels like (a photograph) → what to know (light) → combine it with (light) → questions (dark)
-     → the end (the hero's photograph).
-   Each moment has its own composition: a dark text panel lit by dawn, the full-bleed climax with its words on
-   the dark side, text beside an edge-to-edge photograph (both ways), the peak centred and lit from within, a
-   text-only ending. Phones get the same sequence recomposed: image first, words over or under it, no columns.
-   Nothing depends on JavaScript or on motion. */
+   Concept A, "Walk into the rock" (chosen by the owner, 2026-10-05): the page moves the way the visit does.
+     the walk (the hero photograph holds while the opening and the first chapters pass over it; night before
+     dawn, then day; then through the door into the dark) → inside (the eyes adjust) → the highlight (a ray of
+     sunlight lights the statues) → back into daylight → afterwards (the blocks close up) → what it feels like
+     → what to know (light) → combine it with (light) → questions (dark) → the end (the hero's photograph).
+   All motion is scroll-driven CSS, only when supported and welcome; without it the same sequence reads as
+   still, dark sections. Nothing depends on JavaScript. */
 
 /* 01 Hero */
 .page-hero--story.page-hero--image {
@@ -2284,7 +2283,7 @@ html:lang(zh) {
   color: var(--gold);
 }
 .page-hero--story .page-hero__title {
-  max-width: 9ch;
+  max-width: 12ch;
   font-size: clamp(3rem, 6.6vw, 6.2rem);
   line-height: 0.98;
 }
@@ -2365,146 +2364,124 @@ html:lang(zh) {
   display: none;
 }
 
-/* 02 Intro: centred, magazine opening */
-.xs-intro {
-  background: var(--stone);
-  padding-block: clamp(5rem, 13vw, 9.5rem);
-  text-align: center;
+/* 02 The walk: the hero photograph, the opening and the first chapters. Without scroll-driven motion (or with
+   less of it wanted) these are dark sections under the hero; with it, the photograph holds the screen, the
+   words pass over it, the light changes with them, and the camera walks through the door. */
+.xw-journey {
+  position: relative;
+  background: var(--ink);
+  color: var(--on-dark);
 }
-.xs-intro__inner {
+.xw-walk {
+  position: relative;
+  background: var(--ink);
+}
+.xw-walk__bg {
+  position: relative;
+  overflow: hidden;
+}
+.xw-walk__night,
+.xw-walk__dark {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+.xw-walk__night {
+  background: linear-gradient(180deg, #050817 0%, #0c1530 55%, #1c1a2c 100%);
+  mix-blend-mode: multiply;
+}
+.xw-walk__dark {
+  background: var(--ink);
+}
+.xw-door {
+  display: none;
+}
+.xw-cap {
+  position: relative;
+  z-index: 2;
   display: grid;
-  justify-items: center;
-  gap: var(--s-5);
+  align-content: center;
+  padding: clamp(3.5rem, 9vw, 6rem) var(--gutter);
+  scroll-margin-top: var(--nav-h);
 }
-.xs-intro__title {
-  margin: 0;
+.xw-cap__panel {
+  width: 100%;
+  max-width: 36rem;
+  margin-inline: auto;
+}
+.xw-cap--open {
+  text-align: center;
+  border-top: 1px solid color-mix(in srgb, var(--white) 6%, transparent);
+}
+.xw-cap--open .xw-cap__panel {
+  max-width: 46rem;
+}
+.xw-cap__title {
+  margin: 0 auto;
   max-width: 19ch;
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(2.4rem, 5.4vw, 4.9rem);
+  font-size: clamp(2.2rem, 4.6vw, 4.2rem);
   line-height: 1.06;
   text-wrap: balance;
   scroll-margin-top: calc(var(--nav-h) + 1.5rem);
 }
-.xs-intro__text {
-  max-width: 40rem;
-  color: var(--text-muted);
-  font-size: var(--fs-lead);
-  line-height: 1.7;
-}
-.xs-intro__text > * {
-  margin: 0;
-}
-
-/* 03–04 The journey: what it is, and its chapters */
-.xs-journey {
-  background: var(--ink);
-  color: var(--on-dark);
-  padding-block: clamp(4rem, 10vw, 7rem) clamp(3rem, 7vw, 5rem);
-  scroll-margin-top: var(--nav-h);
-}
-.xs-journey__inner {
-  display: grid;
-  gap: var(--s-5);
-}
-.xs-journey__title {
-  margin: 0;
-  max-width: 14ch;
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: clamp(2.4rem, 5vw, 4.6rem);
-  line-height: 1.04;
-  text-wrap: balance;
-}
-.xs-journey__text {
-  max-width: 34rem;
+.xw-cap__text {
+  margin-top: var(--s-5);
   color: var(--on-dark-muted);
   font-size: var(--fs-lead);
   line-height: 1.7;
 }
-.xs-journey__text > * {
+.xw-cap__text > * {
   margin: 0;
 }
-/* The chapter line: vertical on phones, a thin horizontal line with markers from 1024px. */
-.xs-route {
-  list-style: none;
-  margin: var(--s-5) 0 0;
-  padding: 0;
-  display: grid;
-}
-.xs-route__item {
-  position: relative;
-}
-.xs-route__item::before {
-  content: "";
-  position: absolute;
-  inset-inline-start: 6px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: color-mix(in srgb, var(--gold) 45%, transparent);
-}
-.xs-route__item:first-child::before {
-  top: 1.25rem;
-}
-.xs-route__item:last-child::before {
-  bottom: calc(100% - 1.25rem);
-}
-.xs-route a {
-  position: relative;
-  display: grid;
-  grid-template-columns: 13px auto 1fr;
-  grid-template-areas: "dot n name" ". . sub";
-  column-gap: var(--s-3);
-  align-items: baseline;
-  padding: 0.75rem 0;
+.xw-cap__text a {
   color: var(--on-dark);
-  text-decoration: none;
+  text-decoration: underline;
 }
-.xs-route__dot {
-  grid-area: dot;
-  align-self: center;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 0 4px var(--ink);
-  transition: box-shadow var(--t-base) var(--ease-out);
+.xw-cap--dawn {
+  text-align: center;
+  min-height: min(56svh, 34rem);
+  background:
+    radial-gradient(70% 55% at 85% 100%, color-mix(in srgb, var(--clay) 55%, transparent) 0%, transparent 70%),
+    linear-gradient(180deg, color-mix(in srgb, var(--charcoal) 80%, black) 0%, var(--ink) 100%);
 }
-.xs-route a:hover .xs-route__dot,
-.xs-route a[aria-current="step"] .xs-route__dot {
-  box-shadow: 0 0 0 4px var(--ink), 0 0 0 6px color-mix(in srgb, var(--gold) 60%, transparent);
+.xw-cap--dawn .imm-step__title {
+  font-size: clamp(2.6rem, 6vw, 5.2rem);
 }
-.xs-route__n {
-  grid-area: n;
-  font-variant-numeric: tabular-nums;
-  color: var(--gold);
-  font-size: var(--fs-label);
-  font-weight: 600;
-  letter-spacing: 0.16em;
-}
-.xs-route__name {
-  grid-area: name;
-  font-weight: 500;
-}
-.xs-route__sub {
-  grid-area: sub;
-  color: var(--on-dark-faint);
-  font-size: var(--fs-meta);
+.xw-cap--dawn .imm-step__line {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
-/* 05–06 The moments */
+/* Where you are: the chapters beside the walk (wide screens) */
+.xw-rail {
+  display: none;
+}
+.xw-rail__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Chapter words */
 .imm {
   list-style: none;
   margin: 0;
   padding: 0;
-  background: var(--ink);
-  color: var(--on-dark);
 }
 .imm-step {
   position: relative;
   scroll-margin-top: var(--nav-h);
-  border-top: 1px solid color-mix(in srgb, var(--white) 6%, transparent);
 }
 .imm-step__anchor {
   position: absolute;
@@ -2516,6 +2493,7 @@ html:lang(zh) {
   overflow: hidden;
   background: color-mix(in srgb, var(--sand) 18%, var(--ink));
 }
+.imm-step__media .er-pic,
 .imm-step__media img {
   display: block;
   width: 100%;
@@ -2524,6 +2502,7 @@ html:lang(zh) {
 }
 .imm-step__text {
   position: relative;
+  z-index: 2;
   padding: clamp(2.5rem, 8vw, 3.5rem) var(--gutter) clamp(3rem, 9vw, 4rem);
 }
 .imm-step__text > * {
@@ -2574,97 +2553,106 @@ html:lang(zh) {
   color: var(--on-dark);
   text-decoration: underline;
 }
-.imm-step .xs-credit {
+.xw-cap .imm-step__title,
+.xw-cap .imm-step__n {
+  margin-inline: auto;
+}
+.xw-cap--dawn .xw-cap__panel > *,
+.xw-cap--open .xw-cap__panel > * {
+  margin-inline: auto;
+}
+
+/* Inside and the highlight: the photograph holds the screen; the words pass over it */
+.imm-step--adjust,
+.imm-step--sun {
+  display: flow-root; /* keeps the words' bottom margin inside, so the photograph holds until it */
+}
+.imm-step--adjust .imm-step__media,
+.imm-step--sun .imm-step__media {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+}
+.imm-step--adjust .imm-step__text,
+.imm-step--sun .imm-step__text {
+  width: min(34rem, calc(100% - 2 * var(--gutter)));
+  margin: -42vh var(--gutter) 34vh;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: color-mix(in srgb, var(--ink) 80%, transparent);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+}
+.imm-step--adjust .imm-step__text > *,
+.imm-step--sun .imm-step__text > * {
   max-width: none;
 }
-
-/* A dark text panel: before dawn (lit by the horizon) and the ending (slow, centred) */
-.imm-step--text {
-  display: grid;
-  align-content: center;
-  min-height: min(56svh, 34rem);
-}
-.imm-step--dawn {
-  background:
-    radial-gradient(70% 55% at 85% 100%, color-mix(in srgb, var(--clay) 55%, transparent) 0%, transparent 70%),
-    linear-gradient(180deg, color-mix(in srgb, var(--charcoal) 80%, black) 0%, var(--ink) 100%);
-}
-.imm-step--dusk {
-  text-align: center;
-  background: linear-gradient(180deg, var(--ink) 0%, color-mix(in srgb, var(--nile) 62%, var(--ink)) 100%);
-}
-.imm-step--dusk .imm-step__text {
-  width: 100%;
-  max-width: var(--max);
-  margin-inline: auto;
-}
-.imm-step--dusk .imm-step__text > * {
-  margin-inline: auto;
-}
-.imm-step--dusk .imm-step__title {
-  font-size: clamp(2.5rem, 6vw, 5.2rem);
-}
-.imm-step--dusk .imm-step__body {
-  max-width: 40rem;
+.imm-step--sun .imm-step__body strong {
+  color: var(--gold);
   font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 2vw, 1.65rem);
-  line-height: 1.55;
-  color: var(--on-dark);
+  font-weight: 400;
+  font-size: 1.2em;
 }
-
-/* The climax: full bleed, its words over the photograph */
-.imm-step--reveal .imm-step__media {
-  width: 100%;
-  aspect-ratio: 10 / 13;
-  max-height: 100svh;
-}
-.imm-step--reveal .imm-step__media::after {
-  content: "";
+/* The ray of sunlight along the axis (still, unless the scroll draws it) */
+.imm-step__ray {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--ink) 75%, transparent) 65%, var(--ink) 100%);
+  z-index: 1;
+  inset-inline: -5%;
+  top: 40%;
+  height: 22%;
+  background: linear-gradient(90deg, rgb(255 196 96 / 0), rgb(255 204 110 / 0.4) 35%, rgb(255 232 170 / 0.7));
+  filter: blur(22px);
+  mix-blend-mode: screen;
+  transform-origin: left center;
+  opacity: 0.55;
   pointer-events: none;
 }
-.imm-step--reveal .imm-step__text {
-  position: absolute;
-  inset: auto 0 0;
-}
-.imm-step--reveal .imm-step__title {
-  font-size: clamp(2.8rem, 6.6vw, 6rem);
+[dir="rtl"] .imm-step__ray {
+  transform-origin: right center;
+  background: linear-gradient(270deg, rgb(255 196 96 / 0), rgb(255 204 110 / 0.4) 35%, rgb(255 232 170 / 0.7));
 }
 
-/* Split and band: photo first on phones */
-.imm-step--split .imm-step__media,
+/* Back in daylight: photograph beside its words */
 .imm-step--band .imm-step__media {
   width: 100%;
   aspect-ratio: 1 / 1;
   max-height: 86svh;
 }
+.imm-step--band .imm-step__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #fff8ec;
+  opacity: 0;
+  pointer-events: none;
+}
 
-/* The peak: centred, lit from within */
-.imm-step--peak {
-  padding-block: clamp(4rem, 12vw, 7rem) 0;
-  background: radial-gradient(60% 50% at 50% 34%, color-mix(in srgb, var(--gold) 15%, var(--ink)) 0%, var(--ink) 72%);
+/* Afterwards: the gaps between the blocks close as the photograph rises into place */
+@property --xs-gap {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
 }
-.imm-step--peak .imm-step__media {
-  width: min(84%, 30rem);
+.imm-step--rebuild {
+  border-top: 1px solid color-mix(in srgb, var(--white) 6%, transparent);
+}
+.imm-step--rebuild .imm-step__media {
+  width: 100%;
   aspect-ratio: 4 / 5;
-  margin-inline: auto;
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 30%, transparent), 0 0 120px 16px color-mix(in srgb, var(--gold) 18%, transparent);
+  max-height: 88svh;
 }
-.imm-step--peak .imm-step__text {
-  text-align: center;
+.imm-step--rebuild .imm-step__media img {
+  object-position: 50% 30%;
 }
-.imm-step--peak .imm-step__text > * {
-  margin-inline: auto;
-}
-.imm-step--peak .imm-step__title {
-  font-size: clamp(2.6rem, 5.6vw, 4.8rem);
-}
-.imm-step--detail .imm-step__media {
-  width: 78%;
-  aspect-ratio: 4 / 5;
-  margin-inline-start: var(--gutter);
+.imm-step--rebuild .imm-step__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, var(--ink) 0 var(--xs-gap), transparent var(--xs-gap) 25%),
+    repeating-linear-gradient(180deg, var(--ink) 0 var(--xs-gap), transparent var(--xs-gap) 20%);
 }
 
 /* 07 What it feels like: a full-width photograph, its words over it */
@@ -2816,7 +2804,6 @@ html:lang(zh) {
   margin: 0;
 }
 .xs-combine__text a,
-.xs-intro__text a,
 .xs-know a {
   color: var(--nile);
   text-decoration: underline;
@@ -3029,116 +3016,103 @@ html:lang(zh) {
     justify-content: start;
     column-gap: clamp(2rem, 4vw, 3.5rem);
   }
-  .imm-step--reveal .imm-step__media {
-    aspect-ratio: 16 / 10;
-  }
   .xs-links--3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 @media (min-width: 1024px) {
-  .xs-journey__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    column-gap: var(--s-8);
-    align-items: end;
+  /* The rail: a thin line with the chapters, held at mid-height on the end side for the whole journey */
+  .xw-rail {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    height: 0;
   }
-  .xs-route {
-    grid-column: 1 / -1;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(0, 1fr);
-    margin-top: var(--s-7);
-  }
-  .xs-route__item::before {
-    inset-inline: 0;
-    top: 6px;
-    bottom: auto;
-    width: auto;
-    height: 1px;
-  }
-  .xs-route__item:first-child::before {
-    top: 6px;
-    inset-inline-start: 50%;
-  }
-  .xs-route__item:last-child::before {
-    bottom: auto;
-    inset-inline-end: 50%;
-  }
-  .xs-route a {
-    grid-template-columns: 1fr;
-    grid-template-areas: "dot" "n" "name" "sub";
-    justify-items: center;
-    text-align: center;
-    row-gap: 0.35rem;
-    padding: 0 var(--s-2);
-  }
-  .xs-route__dot {
-    margin-bottom: var(--s-3);
-  }
-  /* Text panels: words on the start side */
-  .imm-step--dawn {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
-  .imm-step--dawn .imm-step__text {
-    padding-inline-start: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
-  }
-  /* The climax: the photograph fills the screen; its words sit on the dark end side */
-  .imm-step--reveal .imm-step__media {
-    aspect-ratio: auto;
-    height: 100vh;
-    min-height: 40rem;
-    max-height: 62rem;
-  }
-  .imm-step--reveal .imm-step__media::after {
-    background: linear-gradient(90deg, transparent 38%, color-mix(in srgb, var(--ink) 70%, transparent) 62%, var(--ink) 100%);
-  }
-  [dir="rtl"] .imm-step--reveal .imm-step__media::after {
-    transform: scaleX(-1);
-  }
-  .imm-step--reveal .imm-step__text {
-    inset: 0 0 0 auto;
-    width: 38%;
+  .xw-rail__inner {
+    position: absolute;
+    inset-inline-end: clamp(1rem, 2.4vw, 2.5rem);
+    top: 50vh;
+    transform: translateY(-50%);
     display: grid;
-    align-content: center;
-    padding-inline: clamp(2rem, 4vw, 4rem) max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+    grid-template-columns: 2px auto;
+    column-gap: var(--s-4);
   }
-  [dir="rtl"] .imm-step--reveal .imm-step__text {
-    inset: 0 auto 0 0;
+  .xw-rail__line {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    background: color-mix(in srgb, var(--white) 20%, transparent);
   }
-  /* Split: words on the start side, the photograph to the edge on the end side */
-  .imm-step--split,
-  .imm-step--band {
+  .xw-rail__fill {
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+  .xw-rail__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
+  }
+  .xw-rail__list a {
+    display: block;
+    padding: 0.25rem 0;
+    color: color-mix(in srgb, var(--white) 72%, transparent);
+    font-size: var(--fs-label);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-shadow: 0 1px 10px rgb(0 0 0 / 0.7);
+  }
+  .xw-rail__list a:hover,
+  .xw-rail__list a[aria-current="step"] {
+    color: var(--gold);
+  }
+  .xw-cap--day .xw-cap__panel {
+    margin-inline: max(0px, calc((100vw - var(--max)) / 2)) auto;
+  }
+  .imm-step--adjust .imm-step__text {
+    margin-inline-start: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  }
+  .imm-step--sun .imm-step__text {
+    margin-inline: auto max(calc(var(--gutter) + 9rem), calc((100vw - var(--max)) / 2 + var(--gutter) + 9rem));
+  }
+  /* Daylight and afterwards: photograph and words side by side, the photograph to the edge */
+  .imm-step--band,
+  .imm-step--rebuild {
     display: grid;
     align-items: center;
-    min-height: min(74vh, 46rem);
-  }
-  .imm-step--split {
-    grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+    min-height: min(80vh, 50rem);
   }
   .imm-step--band {
     grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
   }
-  .imm-step--split .imm-step__media,
-  .imm-step--band .imm-step__media {
+  .imm-step--rebuild {
+    grid-template-columns: minmax(0, 54fr) minmax(0, 46fr);
+  }
+  .imm-step--band .imm-step__media,
+  .imm-step--rebuild .imm-step__media {
     height: 100%;
-    min-height: min(74vh, 46rem);
+    min-height: min(80vh, 50rem);
     max-height: none;
     aspect-ratio: auto;
   }
-  .imm-step--split .imm-step__media {
+  .imm-step--rebuild .imm-step__media {
     grid-column: 2;
     grid-row: 1;
   }
-  .imm-step--split .imm-step__text {
+  .imm-step--rebuild .imm-step__text {
     grid-column: 1;
     grid-row: 1;
     padding-inline: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter))) clamp(2.5rem, 5vw, 5rem);
   }
   .imm-step--band .imm-step__text {
-    padding-inline: clamp(2.5rem, 5vw, 5rem) max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
-  }
-  .imm-step--peak .imm-step__media {
-    width: min(30rem, 32vw);
-    max-height: 74vh;
+    padding-inline: clamp(2.5rem, 5vw, 5rem) max(calc(var(--gutter) + 9rem), calc((100vw - var(--max)) / 2 + var(--gutter) + 9rem));
   }
   .xs-feel--image {
     align-items: center;
@@ -3161,44 +3135,203 @@ html:lang(zh) {
   .xs-combine__inner {
     grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
     column-gap: var(--s-7);
+    align-items: center;
   }
   .xs-info {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .xs-combine__inner {
-    align-items: center;
-  }
 }
 
-/* Motion: driven by the scroll itself, only when welcome; the page is complete without it. */
+/* Motion: driven by the scroll itself, only when welcome and supported; the page is complete without it. */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    .imm-step__media img,
+    /* The walk holds the hero on screen only where the hero fits it. */
+    @media (min-height: 36rem) {
+      .xw-walk {
+        view-timeline: --xw-walk block;
+        timeline-scope: --xw-dawn, --xw-door;
+      }
+      /* Held at the top; a hero taller than the screen (a short window) is held by its bottom edge instead,
+         so nothing in it is cut off (immersion.js measures it). */
+      .xw-walk__bg {
+        position: sticky;
+        top: min(0px, calc(100vh - var(--xw-h, 100vh)));
+        min-height: 100vh;
+      }
+      .xw-walk__bg > .page-hero {
+        min-height: 100vh;
+      }
+      .xw-cap--open {
+        padding-top: 30vh;
+      }
+      .xw-cap {
+        min-height: 100vh;
+        padding-block: 0;
+        background: none;
+        border: 0;
+      }
+      .xw-cap__panel {
+        padding: clamp(1.5rem, 4vw, 2.75rem);
+        background: color-mix(in srgb, var(--ink) 76%, transparent);
+        backdrop-filter: blur(8px);
+        border-top: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+        animation: xs-rise linear both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 40%;
+      }
+      .xw-cap--dawn {
+        view-timeline: --xw-dawn block;
+      }
+      .xw-cap--dawn .xw-cap__panel {
+        background: none;
+        backdrop-filter: none;
+        border: 0;
+        text-shadow: 0 2px 24px rgb(0 0 0 / 0.8);
+      }
+      .xw-door {
+        display: block;
+        height: 100vh;
+        view-timeline: --xw-door block;
+      }
+      .xw-walk .page-hero__inner {
+        animation: xw-leave linear both;
+        animation-timeline: --xw-walk;
+        animation-range: contain 0vh contain 45vh;
+      }
+      /* A slow step forward through the whole walk, then through the door. */
+      .xw-walk .page-hero__media img {
+        transform-origin: var(--xw-ox, 50%) var(--xw-oy, 58%);
+        animation: xw-dolly linear both, xw-enter linear both;
+        animation-timeline: --xw-walk, --xw-door;
+        animation-range: contain 0% contain 100%, entry 0% contain 100%;
+      }
+      .xw-walk__night {
+        animation: xw-night linear both;
+        animation-timeline: --xw-dawn;
+        animation-range: cover 0% cover 100%;
+      }
+      .xw-walk__dark {
+        animation: xw-dark linear both;
+        animation-timeline: --xw-door;
+        animation-range: entry 55% contain 100%;
+      }
+    }
+
+    .xw-journey {
+      view-timeline: --xw-journey block;
+    }
+    .xw-rail__fill {
+      animation: xw-fill linear both;
+      animation-timeline: --xw-journey;
+      animation-range: contain 0% contain 100%;
+    }
+    /* Inside: the eyes adjust to the dark. The highlight: the ray crosses, the statues light up. */
+    .imm-step--adjust,
+    .imm-step--sun,
+    .imm-step--rebuild {
+      view-timeline: --xs-step block;
+    }
+    .imm-step--adjust .imm-step__media img {
+      animation: xs-adjust linear both;
+      animation-timeline: --xs-step;
+      animation-range: entry 70% cover 50%;
+    }
+    .imm-step--sun .imm-step__media img {
+      animation: xs-lit linear both;
+      animation-timeline: --xs-step;
+      animation-range: cover 22% cover 55%;
+    }
+    .imm-step__ray {
+      animation: xs-ray linear both;
+      animation-timeline: --xs-step;
+      animation-range: entry 90% cover 45%;
+    }
+    .imm-step--adjust .imm-step__text,
+    .imm-step--sun .imm-step__text {
+      animation: xs-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+    /* Back into the light */
+    .imm-step--band .imm-step__media::before {
+      animation: xs-flash linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+    .imm-step--band .imm-step__media img,
     .xs-feel__media img {
       animation: xs-settle linear both;
       animation-timeline: view();
       animation-range: entry 0% cover 45%;
     }
-    .imm-step--reveal .imm-step__media img {
-      animation-name: xs-reveal;
+    /* Afterwards: cut into blocks, reassembled on higher ground */
+    .imm-step--rebuild .imm-step__media::after {
+      animation: xs-close linear both;
+      animation-timeline: --xs-step;
+      animation-range: entry 20% cover 50%;
+    }
+    .imm-step--rebuild .imm-step__media img {
+      animation: xs-tilt linear both;
+      animation-timeline: --xs-step;
       animation-range: entry 0% cover 60%;
     }
-    .imm-step--text .imm-step__text {
-      animation: xs-rise linear both;
-      animation-timeline: view();
-      animation-range: entry 10% cover 35%;
-    }
   }
+}
+@keyframes xw-leave {
+  to { opacity: 0; transform: translateY(-2.5rem); }
+}
+@keyframes xw-dolly {
+  from { scale: 1; }
+  to { scale: 1.3; }
+}
+@keyframes xw-enter {
+  0% { transform: none; }
+  55% { transform: scale(2.4); }
+  100% { transform: scale(14); }
+}
+@keyframes xw-night {
+  0% { opacity: 0; }
+  35%, 62% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+@keyframes xw-fill {
+  from { transform: scaleY(0.03); }
+  to { transform: scaleY(1); }
+}
+@keyframes xw-dark {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes xs-adjust {
+  0% { filter: brightness(0.04) saturate(0.4); transform: scale(1.16); }
+  60% { filter: brightness(0.7) saturate(0.9); }
+  100% { filter: brightness(0.92) saturate(1); transform: scale(1.03); }
+}
+@keyframes xs-lit {
+  from { filter: brightness(0.07) sepia(0.4); }
+  to { filter: brightness(1) sepia(0.12) saturate(1.12); }
+}
+@keyframes xs-ray {
+  from { transform: scaleX(0); opacity: 0.2; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+@keyframes xs-flash {
+  from { opacity: 0.9; }
+  to { opacity: 0; }
+}
+@keyframes xs-close {
+  from { --xs-gap: 16px; }
+  to { --xs-gap: 0px; }
+}
+@keyframes xs-tilt {
+  from { object-position: 50% 100%; translate: 0 6%; }
+  to { object-position: 50% 22%; translate: 0 0; }
 }
 @keyframes xs-settle {
   from { transform: scale(1.08); opacity: 0.4; }
   to { transform: none; opacity: 1; }
 }
-@keyframes xs-reveal {
-  from { transform: scale(1.16); opacity: 0.25; }
-  to { transform: none; opacity: 1; }
-}
 @keyframes xs-rise {
-  from { transform: translateY(1.5rem); opacity: 0.35; }
-  to { transform: none; opacity: 1; }
+  from { transform: translateY(2rem); }
+  to { transform: none; }
 }
