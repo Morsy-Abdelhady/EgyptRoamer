@@ -119,6 +119,13 @@ function er_health_checks(): array {
 		$issues[] = [ 'info', sprintf( /* translators: %s: title */ __( '“%s” is published but not marked “Ready to index” (noindex, not in sitemap).', 'egypt-roamer-core' ), $p->post_title ), get_edit_post_link( $p->ID, 'raw' ) ];
 	}
 
+	// IndexNow (Bing and the other IndexNow engines): the last submission and its answer.
+	$er_in = (array) get_option( 'er_indexnow_last', [] );
+	if ( ! empty( $er_in['time'] ) ) {
+		$ok       = in_array( (int) $er_in['code'], [ 200, 202 ], true );
+		$issues[] = [ $ok ? 'info' : 'error', sprintf( /* translators: 1: number of URLs, 2: date, 3: HTTP status */ __( 'IndexNow: %1$d URLs sent on %2$s, answer %3$s.', 'egypt-roamer-core' ), (int) $er_in['count'], wp_date( 'Y-m-d H:i', (int) $er_in['time'] ), $er_in['code'] ? (string) $er_in['code'] : (string) $er_in['error'] ), '' ];
+	}
+
 	// Providers without allowed domains can never redirect.
 	foreach ( get_posts( [ 'post_type' => 'er_provider', 'post_status' => 'publish', 'numberposts' => 200 ] ) as $p ) {
 		if ( ! er_provider_domains( $p->ID ) ) {
@@ -177,7 +184,7 @@ function er_render_dashboard_page(): void {
 	} else {
 		echo '<ul class="er-issues">';
 		foreach ( $issues as [ $sev, $msg, $link ] ) {
-			printf( '<li class="er-issue er-issue--%s"><span>%s</span> <a href="%s">%s</a></li>', esc_attr( $sev ), esc_html( $msg ), esc_url( $link ), esc_html__( 'Fix', 'egypt-roamer-core' ) );
+			printf( '<li class="er-issue er-issue--%s"><span>%s</span>%s</li>', esc_attr( $sev ), esc_html( $msg ), $link ? ' <a href="' . esc_url( $link ) . '">' . esc_html__( 'Fix', 'egypt-roamer-core' ) . '</a>' : '' );
 		}
 		echo '</ul>';
 	}

@@ -19,7 +19,8 @@ $er_col          = static function ( string $title, string $location ) use ( &$e
 $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#planner' : er_home_url() . '#planner' ) : '';
 ?>
 <footer class="footer on-dark" id="footer">
-	<div class="container">
+	<?php // data-nosnippet: site-wide furniture (footer, menus, overlays, assistant) never becomes a search snippet; Google allows it on div, span and section. ?>
+	<div class="container" data-nosnippet>
 		<div class="footer__top">
 			<div class="footer__letter" id="newsletter">
 				<p class="eyebrow"><?php echo esc_html( er_home( 'letter_eyebrow' ) ); ?></p>
@@ -72,16 +73,16 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 </footer>
 
 <nav class="dock" aria-label="<?php echo esc_attr( er_t( 'Quick actions' ) ); ?>">
-	<a href="<?php echo esc_url( get_post_type_archive_link( 'er_destination' ) ?: er_home_url() ); ?>" class="dock__item"><?php echo er_icon( 'i-compass' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span><?php er_e( 'Explore' ); ?></span></a>
-	<button type="button" class="dock__item" data-open="saved"><?php echo er_icon( 'i-heart' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span><?php er_e( 'Saved' ); ?></span><i class="dock__badge" data-fav-count></i></button>
-	<button type="button" class="dock__item" data-open="search"><?php echo er_icon( 'i-search' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span><?php er_e( 'Search' ); ?></span></button>
+	<a href="<?php echo esc_url( get_post_type_archive_link( 'er_destination' ) ?: er_home_url() ); ?>" class="dock__item"><?php echo er_icon( 'i-compass' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php er_e( 'Explore' ); ?></span></a>
+	<button type="button" class="dock__item" data-open="saved"><?php echo er_icon( 'i-heart' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php er_e( 'Saved' ); ?></span><i class="dock__badge" data-fav-count></i></button>
+	<button type="button" class="dock__item" data-open="search"><?php echo er_icon( 'i-search' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php er_e( 'Search' ); ?></span></button>
 	<?php if ( $er_planner_url ) : ?>
-		<a href="<?php echo esc_url( $er_planner_url ); ?>" class="dock__plan"><?php echo er_icon( 'i-route' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span><?php er_e( 'Plan My Trip' ); ?></span></a>
+		<a href="<?php echo esc_url( $er_planner_url ); ?>" class="dock__plan"><?php echo er_icon( 'i-route' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php er_e( 'Plan My Trip' ); ?></span></a>
 	<?php endif; ?>
 </nav>
 
 <nav class="menu" id="menu" aria-label="<?php echo esc_attr( er_t( 'Primary' ) ); ?>" hidden>
-	<div class="menu__inner">
+	<div class="menu__inner" data-nosnippet>
 		<?php echo er_menu( 'primary', '<ul class="menu__links">%3$s</ul>' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		<?php if ( $er_planner_url ) : ?>
 			<a href="<?php echo esc_url( $er_planner_url ); ?>" class="btn btn--primary btn--lg btn--block" data-close><?php er_e( 'Plan My Trip' ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
@@ -90,7 +91,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 	</div>
 </nav>
 
-<div class="overlay search" id="search" role="dialog" aria-modal="true" aria-label="<?php echo esc_attr( er_t( 'Search' ) ); ?>" hidden>
+<div class="overlay search" id="search" data-nosnippet role="dialog" aria-modal="true" aria-label="<?php echo esc_attr( er_t( 'Search' ) ); ?>" hidden>
 	<div class="search__box">
 		<form class="search__field" role="search" method="get" action="<?php echo esc_url( er_home_url() ); ?>">
 			<?php echo er_icon( 'i-search' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
@@ -101,7 +102,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 	</div>
 </div>
 
-<div class="overlay drawer" id="saved" role="dialog" aria-modal="true" aria-label="<?php echo esc_attr( er_t( 'Saved' ) ); ?>" hidden>
+<div class="overlay drawer" id="saved" data-nosnippet role="dialog" aria-modal="true" aria-label="<?php echo esc_attr( er_t( 'Saved' ) ); ?>" hidden>
 	<div class="drawer__panel">
 		<div class="drawer__head">
 			<h2 class="t-h3"><?php er_e( 'Saved for later' ); ?></h2>
@@ -165,9 +166,9 @@ if ( 'off' !== $er_assistant ) :
 	?>
 	<button type="button" class="assistant-launch" data-open="assistant" aria-haspopup="dialog" aria-controls="assistant">
 		<?php echo er_icon( 'i-sparkle' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-		<span><?php er_e( 'Trip assistant' ); ?></span>
+		<span data-nosnippet><?php er_e( 'Trip assistant' ); ?></span>
 	</button>
-	<div class="overlay drawer assistant" id="assistant" role="dialog" aria-modal="true" aria-labelledby="assistant-title" data-assistant="<?php echo esc_attr( wp_json_encode( $er_assistant_data ) ); ?>" hidden>
+	<div class="overlay drawer assistant" id="assistant" data-nosnippet role="dialog" aria-modal="true" aria-labelledby="assistant-title" data-assistant="<?php echo esc_attr( wp_json_encode( $er_assistant_data ) ); ?>" hidden>
 		<div class="drawer__panel">
 			<div class="drawer__head">
 				<h2 class="t-h3" id="assistant-title"><?php er_e( 'Trip assistant' ); ?></h2>
@@ -220,7 +221,7 @@ if ( 'off' !== $er_assistant ) :
 <?php endif; ?>
 
 <?php if ( is_front_page() && er_home( 'film_enabled' ) ) : ?>
-	<div class="overlay film" id="film" role="dialog" aria-modal="true" aria-label="<?php echo esc_attr( er_t( 'Egypt Roamer film' ) ); ?>" hidden>
+	<div class="overlay film" id="film" data-nosnippet role="dialog" aria-modal="true" aria-label="<?php echo esc_attr( er_t( 'Egypt Roamer film' ) ); ?>" hidden>
 		<div class="film__stage" data-film-stage></div>
 		<p class="film__caption" data-film-caption></p>
 		<span class="film__bar"><i data-film-bar></i></span>
@@ -228,7 +229,7 @@ if ( 'off' !== $er_assistant ) :
 	</div>
 <?php endif; ?>
 
-<div class="toast" role="status" aria-live="polite" data-toast></div>
+<div class="toast" data-nosnippet role="status" aria-live="polite" data-toast></div>
 
 <?php wp_footer(); ?>
 </body>

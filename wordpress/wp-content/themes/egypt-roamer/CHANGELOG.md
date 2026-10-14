@@ -2,6 +2,15 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.44 — 2026-10-15 (with Core 1.2.30): search recovery, first fixes
+- **Snippets:** Google was showing site furniture as the snippet for brand searches ("Trip assistant. Hello! I can point you…", "© 2026 Egypt Roamer…"). The footer, menus, overlays, the assistant and the dock labels now carry `data-nosnippet`, which Google honours on div, span and section. The visible page is unchanged.
+- **Core: IndexNow** (`includes/indexnow.php`). Bing had no page of the site in its index (`site:egyptroamer.com`: 0 results, 15 Oct), and there was no Bing Webmaster Tools access. The site now tells the IndexNow engines (Bing, Yandex, Seznam, Naver) about changed URLs:
+  - once in full (every indexable URL in all languages: items, homepages, section archives);
+  - then every time an indexable item is published, changed, unpublished or ticked "Ready to index".
+  - The key file is served at `/{key}.txt`. Nothing is sent while "Discourage search engines" is ticked.
+  - The last submission and its HTTP answer appear in the dashboard health checks.
+- Evidence and the full audit: `docs/ZERO-TRAFFIC-RECOVERY-AUDIT-2026-10-15.md`.
+
 ## 1.2.43 — 2026-10-05 (with Core 1.2.29): the walk moves on phones and tablets too
 - **The motion ran only where the browser has CSS scroll timelines** (Chrome, Edge), so tablets and phones on Safari before 26, and Firefox, saw the still version. Now `immersion.js` moves the same CSS animations with the scroll in every browser: each is declared paused, 1s long, and set to the point the scroll has reached, from one table of scroll ranges (cover / contain / entry, as in CSS view timelines). Subjects are measured on layout changes, and the animations are updated once per frame while scrolling.
 - Same rules as before: only with prefers-reduced-motion: no-preference; the walk holds the hero only on windows at least 36rem tall; without JavaScript the page is the still sequence.
