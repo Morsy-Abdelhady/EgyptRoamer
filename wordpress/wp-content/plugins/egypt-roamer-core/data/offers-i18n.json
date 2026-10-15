@@ -26,7 +26,7 @@
    "location": "Асуан"
   },
   "zh": {
-   "title": "从阿斯旺出发的阿布辛拜勒私人一日游",
+   "title": "从阿斯旺出发的阿布辛贝私人一日游",
    "location": "阿斯旺"
   }
  },
@@ -298,6 +298,216 @@
   "zh": {
    "title": "从沙姆沙伊赫出发的穆罕默德角浮潜之旅",
    "location": "沙姆沙伊赫"
+  }
+ },
+ "giza-pyramids-sphinx-and-grand-egyptian-museum-full-day": {
+  "ar": {
+   "title": "أهرامات الجيزة وأبو الهول والمتحف المصري الكبير في يوم كامل",
+   "location": "الجيزة"
+  },
+  "de": {
+   "title": "Pyramiden von Gizeh, Sphinx und Grand Egyptian Museum an einem Tag",
+   "location": "Gizeh"
+  },
+  "fr": {
+   "title": "Pyramides de Gizeh, Sphinx et Grand Musée égyptien en une journée",
+   "location": "Gizeh"
+  },
+  "it": {
+   "title": "Piramidi di Giza, Sfinge e Grande Museo Egizio in una giornata",
+   "location": "Giza"
+  },
+  "es": {
+   "title": "Pirámides de Guiza, Esfinge y Gran Museo Egipcio en un día",
+   "location": "Guiza"
+  },
+  "ru": {
+   "title": "Пирамиды Гизы, Сфинкс и Большой Египетский музей за один день",
+   "location": "Гиза"
+  },
+  "zh": {
+   "title": "吉萨金字塔、狮身人面像与大埃及博物馆一日游",
+   "location": "吉萨"
+  }
+ },
+ "shared-abu-simbel-day-trip-from-aswan": {
+  "ar": {
+   "title": "رحلة يوم مشتركة إلى أبو سمبل من أسوان",
+   "location": "أسوان"
+  },
+  "de": {
+   "title": "Geteilter Tagesausflug nach Abu Simbel ab Assuan",
+   "location": "Assuan"
+  },
+  "fr": {
+   "title": "Excursion partagée d’une journée à Abou Simbel depuis Assouan",
+   "location": "Assouan"
+  },
+  "it": {
+   "title": "Gita condivisa di un giorno ad Abu Simbel da Assuan",
+   "location": "Assuan"
+  },
+  "es": {
+   "title": "Excursión compartida de un día a Abu Simbel desde Asuán",
+   "location": "Asuán"
+  },
+  "ru": {
+   "title": "Групповая поездка в Абу-Симбел из Асуана на день",
+   "location": "Асуан"
+  },
+  "zh": {
+   "title": "从阿斯旺出发的阿布辛贝拼团一日游",
+   "location": "阿斯旺"
+  }
+ },
+ "two-dives-from-hurghada-for-beginners-and-certified-divers": {
+  "ar": {
+   "title": "غطستان من الغردقة للمبتدئين والغواصين الحاصلين على رخصة",
+   "location": "الغردقة"
+  },
+  "de": {
+   "title": "Zwei Tauchgänge ab Hurghada für Anfänger und zertifizierte Taucher",
+   "location": "Hurghada"
+  },
+  "fr": {
+   "title": "Deux plongées depuis Hurghada, débutants et plongeurs certifiés",
+   "location": "Hurghada"
+  },
+  "it": {
+   "title": "Due immersioni da Hurghada per principianti e subacquei brevettati",
+   "location": "Hurghada"
+  },
+  "es": {
+   "title": "Dos inmersiones desde Hurghada para principiantes y buceadores certificados",
+   "location": "Hurghada"
+  },
+  "ru": {
+   "title": "Два погружения в Хургаде для новичков и дайверов с сертификатом",
+   "location": "Хургада"
+  },
+  "zh": {
+   "title": "赫尔格达两次潜水（初学者与持证潜水员均可）",
+   "location": "赫尔格达"
+  }
+ },
+ "luxor-west-bank-full-day-with-medinet-habu-and-deir-el-medina": {
+  "ar": {
+   "title": "يوم كامل في البر الغربي بالأقصر مع مدينة هابو ودير المدينة",
+   "location": "الأقصر"
+  },
+  "de": {
+   "title": "Westufer von Luxor an einem Tag mit Medinet Habu und Deir el-Medina",
+   "location": "Luxor"
+  },
+  "fr": {
+   "title": "Journée sur la rive ouest de Louxor avec Medinet Habou et Deir el-Medineh",
+   "location": "Louxor"
+  },
+  "it": {
+   "title": "Giornata sulla riva occidentale di Luxor con Medinet Habu e Deir el-Medina",
+   "location": "Luxor"
+  },
+  "es": {
+   "title": "Día completo en la orilla oeste de Luxor con Medinet Habu y Deir el-Medina",
+   "location": "Luxor"
+  },
+  "ru": {
+   "title": "Западный берег Луксора за день: Мединет-Абу и Дейр-эль-Медина",
+   "location": "Луксор"
+  },
+  "zh": {
+   "title": "卢克索西岸一日游：哈布城与德尔麦地那",
+   "location": "卢克索"
+  }
+ },
+ "private-nile-dinner-cruise-with-belly-dance-and-tanoura-show": {
+  "ar": {
+   "title": "رحلة عشاء نيلية خاصة مع رقص شرقي وعرض التنورة",
+   "location": "القاهرة"
+  },
+  "de": {
+   "title": "Private Dinner-Kreuzfahrt auf dem Nil mit Bauchtanz und Tanoura-Show",
+   "location": "Kairo"
+  },
+  "fr": {
+   "title": "Dîner-croisière privé sur le Nil avec danse orientale et spectacle de tanoura",
+   "location": "Le Caire"
+  },
+  "it": {
+   "title": "Crociera privata con cena sul Nilo, danza del ventre e spettacolo di tanoura",
+   "location": "Il Cairo"
+  },
+  "es": {
+   "title": "Crucero privado con cena por el Nilo, danza del vientre y espectáculo de tanura",
+   "location": "El Cairo"
+  },
+  "ru": {
+   "title": "Индивидуальный круиз с ужином по Нилу, танец живота и шоу танура",
+   "location": "Каир"
+  },
+  "zh": {
+   "title": "尼罗河私人晚餐游船：肚皮舞与坦努拉表演",
+   "location": "开罗"
+  }
+ },
+ "cairo-evening-food-tour-with-40-tastings": {
+  "ar": {
+   "title": "جولة طعام مسائية في القاهرة مع أكثر من 40 تذوقًا",
+   "location": "القاهرة"
+  },
+  "de": {
+   "title": "Abendliche Food-Tour durch Kairo mit über 40 Kostproben",
+   "location": "Kairo"
+  },
+  "fr": {
+   "title": "Visite gourmande du soir au Caire avec plus de 40 dégustations",
+   "location": "Le Caire"
+  },
+  "it": {
+   "title": "Food tour serale al Cairo con oltre 40 assaggi",
+   "location": "Il Cairo"
+  },
+  "es": {
+   "title": "Tour gastronómico nocturno por El Cairo con más de 40 degustaciones",
+   "location": "El Cairo"
+  },
+  "ru": {
+   "title": "Вечерний гастрономический тур по Каиру: более 40 дегустаций",
+   "location": "Каир"
+  },
+  "zh": {
+   "title": "开罗夜间美食之旅：40多种品尝",
+   "location": "开罗"
+  }
+ },
+ "overnight-white-desert-camping-from-cairo": {
+  "ar": {
+   "title": "تخييم ليلة في الصحراء البيضاء من القاهرة",
+   "location": "الواحات البحرية والصحراء البيضاء"
+  },
+  "de": {
+   "title": "Übernachtung mit Camping in der Weißen Wüste ab Kairo",
+   "location": "Bahariya und Weiße Wüste"
+  },
+  "fr": {
+   "title": "Nuit en bivouac dans le Désert blanc depuis Le Caire",
+   "location": "Bahariya et Désert blanc"
+  },
+  "it": {
+   "title": "Campeggio di una notte nel Deserto Bianco dal Cairo",
+   "location": "Bahariya e Deserto Bianco"
+  },
+  "es": {
+   "title": "Noche de acampada en el Desierto Blanco desde El Cairo",
+   "location": "Bahariya y Desierto Blanco"
+  },
+  "ru": {
+   "title": "Ночёвка в лагере в Белой пустыне: поездка из Каира",
+   "location": "Бахария и Белая пустыня"
+  },
+  "zh": {
+   "title": "从开罗出发的白沙漠露营过夜之旅",
+   "location": "巴哈里亚与白沙漠"
   }
  }
 }

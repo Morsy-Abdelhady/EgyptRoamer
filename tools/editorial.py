@@ -212,7 +212,7 @@ def build(lang="en", write=True) -> bool:
     for src in sorted(src_dir.glob("*.md")):
         meta, body = compile_file(src, lang)
         seed_id = src.stem
-        index[seed_id] = {k: meta[k] for k in ("type", "title", "excerpt") + RELATIONS if k in meta}
+        index[seed_id] = {k: meta[k] for k in ("type", "title", "excerpt", "slug", "topic") + RELATIONS if k in meta}
         if lang != "en":
             en = SRC_ROOT / "en" / src.name
             if not en.exists():

@@ -2,6 +2,28 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## Core 1.2.37 — 2026-10-15: first new guide, 7 more Viator offers
+- **Owner authority, 2026-10-15:** publish and edit guides, and add all 7 offer candidates.
+- **New guide "Abu Simbel from Aswan: How to Plan the Day"** (`g-abu-simbel`), published in 8 languages.
+  - Facts from Britannica and UNESCO, listed in `docs/CONTENT-SOURCES.md`.
+  - Related to the Abu Simbel experience and Aswan, with the experience's approved photo (seed entry).
+- **Guide sync creates new English guides.** The guide-translations sync now also creates a new English guide from its editorial file when the file has `slug` and `title` and no guide has the seed id yet. It then creates the translations in the same run.
+  - `tools/editorial.py` carries `slug` and `topic`.
+  - Existing guides are never touched by this step.
+- **7 second offers, verified on their Viator product pages,** with translations in `offers-i18n.json`:
+
+  | Offer | Product | Format |
+  |---|---|---|
+  | #579 | 41437P6 | Giza, Sphinx and the Grand Egyptian Museum, full day |
+  | #581 | 128688P15 | Abu Simbel, shared |
+  | #583 | 66938P5 | Hurghada dives, beginners welcome |
+  | #585 | 224493P76 | Luxor West Bank with Medinet Habu and Deir el-Medina |
+  | #587 | 110498P6 | Private Nile dinner cruise with tanoura |
+  | #589 | 476624P1 | Cairo food tour, 6 pm start |
+  | #591 | 10124P65 | White Desert overnight |
+
+- **Chinese:** the Abu Simbel offer title now uses 阿布辛贝, as on the approved experience page.
+
 ## 1.2.51 / Core 1.2.36 — 2026-10-15: owner's second UX review
 - **Alexandria had no booking action.**
   - A verified Viator offer was added in wp-admin (#574): "Alexandria Day Trip From Cairo" (59626P4), supplied by Ramasside Tours, 4.7 from 1,489 reviews. It visits the Library, the amphitheatre, Qaitbay and Montazah.

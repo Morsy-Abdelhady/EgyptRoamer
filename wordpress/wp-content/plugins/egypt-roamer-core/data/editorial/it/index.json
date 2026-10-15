@@ -96,6 +96,13 @@
   "review": "approved",
   "current": true
  },
+ "g-abu-simbel": {
+  "type": "er_guide",
+  "title": "Abu Simbel da Assuan: come organizzare la giornata",
+  "excerpt": "Come organizzare la visita ad Abu Simbel da Assuan: cosa vedrai nei due templi di Ramses II, come furono salvati dal Lago Nasser, strada, aereo o crociera sul Lago Nasser, tour privati o condivisi e il fenomeno del sole di febbraio e ottobre.",
+  "review": "approved",
+  "current": true
+ },
  "g-best-time": {
   "type": "er_guide",
   "title": "Il periodo migliore per visitare l’Egitto, mese per mese",

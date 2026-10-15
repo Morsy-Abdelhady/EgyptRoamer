@@ -96,6 +96,13 @@
   "review": "approved",
   "current": true
  },
+ "g-abu-simbel": {
+  "type": "er_guide",
+  "title": "Abou Simbel depuis Assouan : comment organiser la journée",
+  "excerpt": "Comment organiser la visite d’Abou Simbel depuis Assouan : ce que vous verrez dans les deux temples de Ramsès II, comment ils ont été sauvés du lac Nasser, route, avion ou croisière sur le lac Nasser, circuits privés ou partagés, et le phénomène solaire de février et d’octobre.",
+  "review": "approved",
+  "current": true
+ },
  "g-best-time": {
   "type": "er_guide",
   "title": "La meilleure période pour visiter l’Égypte, mois par mois",

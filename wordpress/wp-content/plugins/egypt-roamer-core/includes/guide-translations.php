@@ -79,6 +79,71 @@ function er_guide_tr_links( string $body, string $lang ): string {
 /**
  * @return array{lines: string[], counts: array<string,int>}
  */
+/**
+ * New guides written after the seed (owner authority to publish guides, 2026-10-15): an English editorial file with
+ * `slug` and `title` and no guide carrying its seed id yet is created and published here, with its topic, its
+ * relations (`destination`, `related`: seed ids), the indexing flag of the other guides, and the body from
+ * data/editorial/en. An existing guide is never touched by this step; its translations follow in the same run.
+ */
+function er_guide_create_english( string $default, bool $dry, array &$lines, array &$counts ): void {
+	$dir   = ER_CORE_DIR . 'data/editorial/en/';
+	$index = is_readable( $dir . 'index.json' ) ? ( json_decode( (string) file_get_contents( $dir . 'index.json' ), true ) ?: [] ) : []; // phpcs:ignore WordPress.WP.AlternativeFunctions
+	$by_seed = static function ( string $seed ) use ( $default ): int {
+		foreach ( get_posts( [ 'post_type' => 'any', 'post_status' => 'any', 'numberposts' => -1, 'fields' => 'ids', 'meta_key' => '_er_seed_id', 'meta_value' => $seed, 'lang' => '' ] ) as $id ) {
+			if ( pll_get_post_language( (int) $id ) === $default ) {
+				return (int) $id;
+			}
+		}
+		return 0;
+	};
+	foreach ( $index as $seed_id => $item ) {
+		if ( 'er_guide' !== ( $item['type'] ?? '' ) || empty( $item['slug'] ) || empty( $item['title'] ) || ! is_readable( $dir . $seed_id . '.html' ) ) {
+			continue;
+		}
+		if ( get_posts( [ 'post_type' => 'er_guide', 'post_status' => 'any', 'numberposts' => 1, 'fields' => 'ids', 'meta_key' => '_er_seed_id', 'meta_value' => (string) $seed_id, 'lang' => '' ] ) ) {
+			continue;
+		}
+		if ( $dry ) {
+			++$counts['created'];
+			$lines[] = "Would create {$seed_id} ({$default}): \"{$item['title']}\"";
+			continue;
+		}
+		$id = wp_insert_post( wp_slash( [
+			'post_type'    => 'er_guide',
+			'post_status'  => 'publish',
+			'post_title'   => (string) $item['title'],
+			'post_name'    => sanitize_title( (string) $item['slug'] ),
+			'post_content' => trim( (string) file_get_contents( $dir . $seed_id . '.html' ) ), // phpcs:ignore WordPress.WP.AlternativeFunctions
+			'post_excerpt' => (string) ( $item['excerpt'] ?? '' ),
+			'post_author'  => get_current_user_id(),
+		] ), true );
+		if ( is_wp_error( $id ) ) {
+			$lines[] = "Could not create {$seed_id} ({$default}): " . $id->get_error_message();
+			continue;
+		}
+		$id = (int) $id;
+		pll_set_post_language( $id, $default );
+		update_post_meta( $id, '_er_seed_id', (string) $seed_id );
+		update_post_meta( $id, '_er_indexable', '1' );
+		foreach ( [ '_er_destination' => 'destination', '_er_related' => 'related' ] as $key => $field ) {
+			foreach ( array_filter( array_map( 'trim', explode( ',', (string) ( $item[ $field ] ?? '' ) ) ) ) as $seed ) {
+				$rel = $by_seed( 'destination' === $field ? 'dest-' . $seed : $seed );
+				if ( $rel ) {
+					add_post_meta( $id, $key, $rel );
+				}
+			}
+		}
+		if ( ! empty( $item['topic'] ) ) {
+			$term = get_term_by( 'name', (string) $item['topic'], 'er_guide_topic' );
+			if ( $term && ( ! function_exists( 'pll_get_term_language' ) || pll_get_term_language( $term->term_id ) === $default ) ) {
+				wp_set_object_terms( $id, (int) $term->term_id, 'er_guide_topic' );
+			}
+		}
+		++$counts['created'];
+		$lines[] = "Created {$seed_id} ({$default}, #{$id}): " . get_permalink( $id );
+	}
+}
+
 function er_guide_translations_sync( bool $dry = true ): array {
 	$lines  = [];
 	$counts = [ 'created' => 0, 'updated' => 0, 'current' => 0, 'kept' => 0, 'skipped' => 0 ];
@@ -86,6 +151,7 @@ function er_guide_translations_sync( bool $dry = true ): array {
 		return [ 'lines' => [ 'Polylang is not active.' ], 'counts' => $counts ];
 	}
 	$default = (string) pll_default_language();
+	er_guide_create_english( $default, $dry, $lines, $counts );
 	foreach ( (array) pll_languages_list() as $lang ) {
 		if ( $lang === $default ) {
 			continue;

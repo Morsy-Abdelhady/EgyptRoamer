@@ -70,6 +70,15 @@
   "destination": "cairo, luxor, aswan",
   "related": "exp-giza, exp-valley, exp-abu"
  },
+ "g-abu-simbel": {
+  "type": "er_guide",
+  "title": "Abu Simbel from Aswan: How to Plan the Day",
+  "excerpt": "How to plan a visit to Abu Simbel from Aswan: what you will see in the two temples of Ramesses II, how they were saved from Lake Nasser, road, air or a Lake Nasser cruise, private or shared tours, and the February and October sun days.",
+  "slug": "abu-simbel-from-aswan",
+  "topic": "Planning",
+  "destination": "aswan",
+  "related": "exp-abu"
+ },
  "g-best-time": {
   "type": "er_guide",
   "excerpt": "When to visit Egypt, season by season and region by region: the Nile Valley's comfortable winter, the Red Sea's long beach season, the desert's cold nights, and how Ramadan and holidays change a trip.",
