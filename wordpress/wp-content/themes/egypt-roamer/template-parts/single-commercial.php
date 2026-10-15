@@ -118,8 +118,9 @@ if ( $er_story ) {
 	return;
 }
 
+// Sidebar: the booking box first, so it stays whole in view while the sidebar is pinned (with the facts above it,
+// a page's second offer fell below the screen), then the key facts. Below 1200px it follows the article.
 ob_start();
-er_glance( $er_facts );
 if ( $er_offers ) :
 	?>
 	<div class="offer-box" id="book" role="region" aria-labelledby="offers-title">
@@ -128,7 +129,9 @@ if ( $er_offers ) :
 		<?php er_disclosure(); ?>
 	</div>
 	<?php
+	er_glance( $er_facts );
 else :
+	er_glance( $er_facts );
 	// No live offer: the page used to end at the facts, with no next step. Offer the team chat (or the
 	// assistant) and the trip planner, in strings every language already has.
 	$er_help_mode = function_exists( 'er_assistant_mode' ) ? er_assistant_mode() : 'off';
@@ -179,6 +182,26 @@ if ( $er_preview ) {
 	$er_at           = strpos( $er_body['html'], '<section class="er-sec">', (int) strpos( $er_body['html'], '<section class="er-sec">' ) + 1 );
 	$er_at           = false !== $er_at ? $er_at : strpos( $er_body['html'], '<h2' );
 	$er_body['html'] = false !== $er_at ? substr_replace( $er_body['html'], $er_preview_html, $er_at, 0 ) : $er_body['html'] . $er_preview_html;
+}
+
+// Below 1200px (no sidebar): the booking box also inside the article, after its second section, so a reader
+// who has decided need not reach the end of the article (owner, 15 Oct). The full box still follows the article.
+if ( $er_offers ) {
+	ob_start();
+	?>
+	<aside class="offer-box offer-box--inline is-narrow-only" aria-labelledby="inline-book-title">
+		<p class="t-label" id="inline-book-title"><?php er_e( 'Book with our partners' ); ?></p>
+		<?php er_offer_rows( $er_offers, str_replace( 'er_', '', $er_type ) . '-inline' ); ?>
+		<?php er_disclosure(); ?>
+	</aside>
+	<?php
+	$er_box   = (string) ob_get_clean();
+	$er_first = strpos( $er_body['html'], '<section class="er-sec">' );
+	$er_pos   = false !== $er_first ? strpos( $er_body['html'], '<section class="er-sec">', $er_first + 1 ) : false;
+	$er_pos   = false !== $er_pos ? strpos( $er_body['html'], '<section class="er-sec">', $er_pos + 1 ) : false;
+	if ( false !== $er_pos ) {
+		$er_body['html'] = substr_replace( $er_body['html'], $er_box, $er_pos, 0 );
+	}
 }
 
 ob_start();

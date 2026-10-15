@@ -4924,10 +4924,10 @@ top: calc(var(--nav-h) + 5rem);
 .page-layout--aside > .page-aside {
 display: contents;
 }
-.page-layout--aside > .page-aside > .glance:first-child {
+.page-layout--aside > .page-aside > .glance:not(.glance--things) {
 order: -1;
 }
-.page-layout--aside > .page-aside > :not(.glance:first-child) {
+.page-layout--aside > .page-aside > :not(.glance:not(.glance--things)) {
 order: 1;
 }
 }

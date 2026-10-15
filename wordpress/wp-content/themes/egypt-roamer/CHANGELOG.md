@@ -2,6 +2,16 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.57 — 2026-10-15: the same booking path on every experience page
+- **Owner request:** give the other experience pages the booking experience of the Abu Simbel page.
+- **Wide screens:** the sidebar opens with the booking box, then the key facts. Before, the facts came first and the pinned sidebar (about 920 px) pushed the second offer below the screen.
+- **Phones:** a booking box inside the article after its second section (the Giza tour: first partner link at about 23% of the page instead of 53%). The full box still follows the article, and the dock and menu stay.
+- **Fix, also for destinations (1.2.55):**
+  - On phones the key facts open the page only when they were the sidebar's first child.
+  - With the booking box first, they had dropped below the article.
+  - They now move up wherever they sit in the sidebar.
+- **QA:** regular experience pages now get the sidebar-box and phone halfway checks (the long Abu Simbel story keeps its bar, menu and dock). Every page also fails if the key facts come after the article on phones.
+
 ## 1.2.56 — 2026-10-15: Abu Simbel story books from anywhere; phone menu books too
 - **Owner request:** the easiest possible path to booking, and a smooth, clear Abu Simbel page.
 - **Before:** the Abu Simbel story is about 12,600 px long, and its partner offers appeared only at about 10,900 px. Between the hero button and the end, nothing on a wide screen led to booking.

@@ -157,10 +157,12 @@
   .page-layout--aside > .page-aside {
     display: contents;
   }
-  .page-layout--aside > .page-aside > .glance:first-child {
+  /* The key facts (not the "things to do" list) open the page, wherever they sit in the sidebar: the booking box
+     now comes first there. */
+  .page-layout--aside > .page-aside > .glance:not(.glance--things) {
     order: -1;
   }
-  .page-layout--aside > .page-aside > :not(.glance:first-child) {
+  .page-layout--aside > .page-aside > :not(.glance:not(.glance--things)) {
     order: 1;
   }
 }

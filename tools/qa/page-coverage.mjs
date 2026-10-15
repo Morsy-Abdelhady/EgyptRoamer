@@ -98,7 +98,7 @@ async function check(pg) {
     if (pg.kind !== "guides" && !/^#(book|plan)$/.test(d.hero)) fail(pg, "no booking button in the hero");
     if (!d.story && !/page-layout--aside/.test(d.layout)) fail(pg, `layout is "${d.layout}", expected the sidebar layout`);
     // A reader must be able to book while reading, not only after the article (Hurghada, 15 Oct).
-    if (pg.kind !== "experiences" && !d.asideBox) fail(pg, "no booking box in the sidebar on wide screens");
+    if (!d.story && !d.asideBox) fail(pg, "no booking box in the sidebar on wide screens");
     if (!/^#(book|plan)$/.test(d.cta)) fail(pg, `header button goes to "${d.cta}", not the booking box`);
     if (!/^#(book|plan)$/.test(d.menuCta)) fail(pg, `phone menu button goes to "${d.menuCta}", not the booking box`);
     if (d.story && !d.bookbar) fail(pg, "story page without its booking bar");
@@ -122,13 +122,17 @@ async function check(pg) {
       // The first partner link a reader scrolls past, as a share of the page height.
       const go = [...document.querySelectorAll('main a[href*="/go/"]')].find((a) => a.getClientRects().length);
       const at = go ? (go.getBoundingClientRect().top + window.scrollY) / document.documentElement.scrollHeight : 1;
-      return { href, at, shown: !!t && getComputedStyle(t).display !== "none" && t.getClientRects().length > 0 };
+      const facts = [...document.querySelectorAll(".page-aside > .glance:not(.glance--things)")].find((g) => g.getClientRects().length);
+      const prose = document.querySelector(".prose");
+      const factsLate = !!facts && !!prose && facts.getBoundingClientRect().top > prose.getBoundingClientRect().top;
+      return { href, at, factsLate, story: !!document.querySelector(".page-hero--story"), shown: !!t && getComputedStyle(t).display !== "none" && t.getClientRects().length > 0 };
     });
     await p.close();
     if (!/^#(book|plan)$/.test(m.href)) fail(pg, `phone dock goes to "${m.href}", not the booking box`);
     else if (!m.shown) fail(pg, `phone dock target ${m.href} is not displayed`);
-    // Experiences: their booking box follows their short article directly (and the dock is always there).
-    if (pg.kind !== "experiences" && m.at > 0.5) fail(pg, `phone: the first partner link is ${Math.round(m.at * 100)}% down the page`);
+    if (m.factsLate) fail(pg, "phone: key facts come after the article");
+    // The story (Abu Simbel) is long by design: its dock, menu and booking bar stay one tap from booking.
+    if (!m.story && m.at > 0.5) fail(pg, `phone: the first partner link is ${Math.round(m.at * 100)}% down the page`);
   }
   for (const e of [...new Set(errs)]) fail(pg, `JS error: ${e}`);
 }
