@@ -550,6 +550,15 @@ function er_card_grid( array $post_ids, string $placement = 'card', string $head
 /* Affiliate offers block (conversion layer under editorial content)           */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * Offers are language-neutral records written in the default language (a partner's product name), so on a
+ * translated page their title is marked with that language for screen readers and hyphenation.
+ */
+function er_offer_title_lang(): string {
+	$default = function_exists( 'pll_default_language' ) ? (string) pll_default_language() : 'en';
+	return '' !== $default && er_lang() !== $default ? ' lang="' . esc_attr( $default ) . '"' : '';
+}
+
 function er_offer_rows( array $offer_ids, string $placement ): void {
 	if ( ! $offer_ids || ! function_exists( 'er_offer_data' ) ) {
 		return;
@@ -570,7 +579,7 @@ function er_offer_rows( array $offer_ids, string $placement ): void {
 				<?php if ( $o['location'] ) : ?>
 					<span class="offer__loc"><?php echo er_icon( 'i-pin' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><?php echo esc_html( $o['location'] ); ?></span>
 				<?php endif; ?>
-				<h3 class="offer__name"><?php echo esc_html( $o['title'] ); ?></h3>
+				<h3 class="offer__name"<?php echo er_offer_title_lang(); // phpcs:ignore WordPress.Security.EscapeOutput -- fixed attribute ?>><?php echo esc_html( $o['title'] ); ?></h3>
 				<div class="offer__meta">
 					<?php if ( $o['meta'] ) : ?>
 						<span><?php echo esc_html( $o['meta'] ); ?></span>

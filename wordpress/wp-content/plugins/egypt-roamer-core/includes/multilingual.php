@@ -135,6 +135,19 @@ add_filter( 'pll_rel_hreflang_attributes', static function ( $hreflangs ) {
 	return $hreflangs;
 } );
 
+/* Archive translations are built from the current URL, so a visit with ?utm_source=… or any other query
+   string put that query into every hreflang alternate (while the canonical stayed clean). Alternates are
+   the canonical addresses: drop the query string and fragment. Runs after the x-default filter above. */
+add_filter( 'pll_rel_hreflang_attributes', static function ( $hreflangs ) {
+	if ( ! is_array( $hreflangs ) ) {
+		return $hreflangs;
+	}
+	foreach ( $hreflangs as $code => $url ) {
+		$hreflangs[ $code ] = (string) preg_replace( '/[?#].*$/', '', (string) $url );
+	}
+	return $hreflangs;
+}, 20 );
+
 add_action( 'admin_init', static function () {
 	if ( ! function_exists( 'pll_register_string' ) ) {
 		return;

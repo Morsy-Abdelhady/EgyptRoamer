@@ -618,6 +618,11 @@
   color: var(--clay);
   font-weight: 500;
 }
+/* The Arabic item carries dir="rtl" so its name renders correctly; it must still line up with the list
+   (left on LTR pages, right on Arabic pages), not jump to the opposite edge. */
+html:not([dir="rtl"]) .lang__menu li[dir="rtl"] {
+  text-align: left;
+}
 
 /* ---------- Logged-in editors: keep the fixed navigation below the WordPress
    toolbar (32px, 46px on small screens; below 600px the toolbar scrolls away

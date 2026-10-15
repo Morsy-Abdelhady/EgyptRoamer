@@ -5359,6 +5359,9 @@ text-decoration: none;
 color: var(--clay);
 font-weight: 500;
 }
+html:not([dir="rtl"]) .lang__menu li[dir="rtl"] {
+text-align: left;
+}
 .admin-bar .nav {
 top: 32px;
 }
