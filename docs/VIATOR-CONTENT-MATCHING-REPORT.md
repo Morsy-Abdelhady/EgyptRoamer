@@ -99,3 +99,13 @@ Checked: introduction, journey and imagery against the product, CTA wording, no 
 1. Tap one CTA on your phone to confirm the Viator page opens. It is unreachable from my network.
 2. Viator → Finance: payout details.
 3. Optional: a beginner "discover scuba" product for the diving page, and a Siwa-based day safari when one has a real review record.
+
+## Landing page on Viator (checked 15 Oct)
+
+- **What happens:** with `pid`/`mcid` on the link, Viator sends every product link to its "Explore {city}" page (`/{City}/d…-ttd/p-{code}`).
+  - The chosen trip is pinned first as "You selected", and related trips follow.
+  - Without the affiliate parameters, the same URL opens the normal product page.
+- **Viator's explanation:** its Partner Resource Center FAQ (create-links) says this landing page came out of A/B testing, and that "there is no way to redirect to a standard product display page".
+- **What this means for us:**
+  - Our `/go/` redirects send the exact product URL; all 8 were re-checked.
+  - There is nothing to change on our side.
