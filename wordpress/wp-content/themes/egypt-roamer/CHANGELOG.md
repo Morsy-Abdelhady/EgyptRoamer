@@ -2,12 +2,25 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.47 — 2026-10-15: the same navigation and homepage in all 8 languages
+- **The owner's complaint was right:** the English menu had 3 items (Destinations, Experiences, Travel Guide) and the other 7 languages had 2. 1.2.46 wrongly classed this as intentional.
+- **Root cause:** every language's Polylang menu already has the translated "Travel Guide" item (Reiseführer, دليل السفر, 旅行指南 …). The "only working links" filter dropped it because guides exist only in English, so the archive is empty in the other languages. The same rule removed the footer guide links and the homepage "Journal" section.
+- **Fix:** an item, link or section whose content exists only in the default language is kept, with its translated label, and links to the English content, marked with `hreflang="en"` and a small visible "EN" tag (`.lang-tag`). English titles inside RTL pages carry `lang="en" dir="ltr"` so they don't reorder. Applies to:
+  - the menu (desktop and drawer);
+  - the footer ("Travel Guide", "Best time to visit");
+  - the homepage Journal section;
+  - "Explore the Journal".
+
+  The navigation and homepage sections are now identical in all 8 languages.
+- **Guide topic names** (Cities, Itineraries, Planning, Hidden Gems) stay English, marked `lang="en"`: they describe English articles and have no approved translation.
+- **QA:** `tools/qa/footer-parity.mjs` now accepts a link to another language's content only when it carries hreflang and the visible tag; unmarked fallbacks still fail.
+
 ## 1.2.46 — 2026-10-15 (with Core 1.2.32): multilingual consistency fixes, product-level Viator offers
 - **Audit (production, 8 languages × 8 widths):** navigation, drawers, language switcher, homepage sections, destination / experience / guide / legal / archive pages. Report: `docs/MULTILINGUAL-NAVIGATION-CONSISTENCY-REPORT.md`.
 - **Language menu:** on LTR pages "العربية" sat on the right edge of the list (its `dir="rtl"` set the alignment). It now lines up with the other languages; Arabic pages are unchanged.
 - **Core: hreflang alternates never carry a query string.** Archive translations were built from the current URL, so `?utm_source=…` (or any query) was copied into every hreflang link while the canonical stayed clean.
 - **Offer titles** (a partner's product name, written in the default language) carry `lang="en"` on translated pages, for screen readers.
-- Intentional, unchanged: "Travel Guide" in the menu and the guide links in the footer show only where a guide exists in that language (English today); the Arabic opening scene keeps its text on the open sky (documented in pages.css).
+- ~~Intentional, unchanged: "Travel Guide" only where a guide exists in that language~~ (wrong; fixed in 1.2.47). The Arabic opening scene keeps its text on the open sky (documented in pages.css).
 - **Viator (wp-admin, no code):** the 7 offers now point to verified products, and Great Sand Sea has its first offer. Report: `docs/VIATOR-CONTENT-MATCHING-REPORT.md`.
 
 ## 1.2.45 — 2026-10-15 (with Core 1.2.31): first partner offers, disclosure everywhere they appear

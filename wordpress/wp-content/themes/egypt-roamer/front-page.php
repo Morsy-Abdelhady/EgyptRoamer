@@ -442,7 +442,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 					<div class="guide__feature" data-guide-feature></div>
 					<ol class="guide__list" data-guide-list>
 						<?php foreach ( $er_data['guides'] as $er_i => $er_g ) : ?>
-							<li class="story"><a href="<?php echo esc_url( $er_g['href'] ); ?>"><span class="story__num"><?php echo esc_html( sprintf( '%02d', $er_i + 1 ) ); ?></span><span class="story__body"><span class="story__meta"><?php echo esc_html( $er_g['cat'] ); ?></span><span class="story__title"><?php echo esc_html( $er_g['title'] ); ?></span></span></a></li>
+							<li class="story"><a href="<?php echo esc_url( $er_g['href'] ); ?>"<?php echo $er_g['lang'] ? ' hreflang="' . esc_attr( $er_g['lang'] ) . '"' : ''; ?>><span class="story__num"><?php echo esc_html( sprintf( '%02d', $er_i + 1 ) ); ?></span><span class="story__body"><span class="story__meta"><?php echo esc_html( $er_g['cat'] ); ?><?php echo $er_g['lang'] ? ' <span class="lang-tag" lang="' . esc_attr( $er_g['lang'] ) . '">' . esc_html( strtoupper( $er_g['lang'] ) ) . '</span>' : ''; ?></span><span class="story__title"<?php echo $er_g['lang'] ? ' lang="' . esc_attr( $er_g['lang'] ) . '" dir="ltr"' : ''; ?>><?php echo esc_html( $er_g['title'] ); ?></span></span></a></li>
 						<?php endforeach; ?>
 					</ol>
 				</div>

@@ -48,7 +48,7 @@ async function footer(url) {
     const f = document.querySelector("footer.footer");
     if (!f) return null;
     const txt = (e) => (e ? e.textContent.replace(/\s+/g, " ").trim() : "");
-    const links = (root) => [...root.querySelectorAll("a[href]")].map((a) => ({ t: txt(a), h: a.getAttribute("href").replace(location.origin, ""), hl: a.getAttribute("hreflang") || "" }));
+    const links = (root) => [...root.querySelectorAll("a[href]")].map((a) => ({ t: txt(a), h: a.getAttribute("href").replace(location.origin, ""), hl: a.getAttribute("hreflang") || "", tag: !!a.querySelector(".lang-tag") }));
     return {
       lang: document.documentElement.lang, dir: document.documentElement.dir || "ltr",
       colsDir: getComputedStyle(f.querySelector(".footer__cols") || f).direction,
@@ -102,8 +102,11 @@ for (let page of PAGES) {
       const ka = a.map((x) => key(x.h)).join(" "), kb = b.map((x) => key(x.h)).join(" ");
       if (ka !== kb) problem(page, l, `${g}: links [${kb}] ≠ English [${ka}]`);
       b.forEach((x, i) => {
-        if (x.h.startsWith("/") && !x.h.startsWith(`/${l}/`)) problem(page, l, `${g}: "${x.t}" → ${x.h} is not in /${l}/`);
-        if (x.hl && x.hl !== l) problem(page, l, `${g}: "${x.t}" links a ${x.hl} page (English fallback)`);
+        // A link to content that exists only in another language is allowed when it says so: hreflang plus the
+        // visible language tag (theme 1.2.47: same navigation in every language). Unmarked fallbacks still fail.
+        const marked = x.hl && x.hl !== l && x.tag;
+        if (x.h.startsWith("/") && !x.h.startsWith(`/${l}/`) && !marked) problem(page, l, `${g}: "${x.t}" → ${x.h} is not in /${l}/`);
+        if (x.hl && x.hl !== l && !x.tag) problem(page, l, `${g}: "${x.t}" links a ${x.hl} page without a language tag`);
         const e = a[i];
         if (e && x.t === e.t && dict[l][e.t] !== x.t) problem(page, l, `${g}: "${x.t}" is still English`);
       });

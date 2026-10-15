@@ -623,6 +623,25 @@
 html:not([dir="rtl"]) .lang__menu li[dir="rtl"] {
   text-align: left;
 }
+/* A menu or footer link to content that exists only in another language (guides, English-only for now)
+   carries that language's code, e.g. "Reiseführer EN". */
+.lang-tag {
+  display: inline-block;
+  margin-inline-start: 0.35em;
+  padding: 0.05em 0.35em;
+  border: 1px solid currentColor;
+  border-radius: 0.25em;
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  vertical-align: 0.2em;
+}
+.menu__links .lang-tag {
+  font-size: 0.75rem;
+  vertical-align: 0.6em;
+}
 
 /* ---------- Logged-in editors: keep the fixed navigation below the WordPress
    toolbar (32px, 46px on small screens; below 600px the toolbar scrolls away

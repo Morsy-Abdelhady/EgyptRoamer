@@ -177,6 +177,11 @@ function er_home_guide_ids(): array {
 	if ( ! $ids ) {
 		$ids = get_posts( [ 'post_type' => [ 'er_guide', 'post' ], 'post_status' => 'publish', 'numberposts' => 7, 'fields' => 'ids', 'suppress_filters' => false ] );
 	}
+	// No guide in this language yet (guides are English-only for now): show the default-language guides,
+	// marked with their language, so the homepage has the same sections in every language.
+	if ( ! $ids && function_exists( 'er_default_lang' ) && '' !== er_default_lang() && er_lang() !== er_default_lang() ) {
+		$ids = get_posts( [ 'post_type' => [ 'er_guide', 'post' ], 'post_status' => 'publish', 'numberposts' => 7, 'fields' => 'ids', 'lang' => er_default_lang() ] );
+	}
 	return array_map( 'intval', $ids );
 }
 
@@ -190,6 +195,8 @@ function er_payload_guide( int $id ): array {
 		'read'    => er_read_minutes( $id ),
 		'excerpt' => has_excerpt( $id ) ? wp_strip_all_tags( get_the_excerpt( $id ) ) : '',
 		'image'   => er_post_image_payload( $id ),
+		// The guide's own language when it differs from the page's (shown as a small tag, and lang/hreflang).
+		'lang'    => function_exists( 'pll_get_post_language' ) && (string) pll_get_post_language( $id ) !== er_lang() ? (string) pll_get_post_language( $id ) : '',
 	];
 }
 
@@ -341,7 +348,7 @@ function er_build_payload( string $context ): array {
 	$data     = [
 		'lang'         => er_lang(),
 		'homeUrl'      => er_home_url(),
-		'guidesUrl'    => (string) get_post_type_archive_link( 'er_guide' ),
+		'guidesUrl'    => er_has_published( 'er_guide' ) || '' === er_default_lang_archive( 'er_guide' ) ? (string) get_post_type_archive_link( 'er_guide' ) : er_default_lang_archive( 'er_guide' ),
 		'destinations' => array_values( array_map( 'er_payload_destination', $dest_ids ) ),
 		'experiences'  => array_map( 'er_payload_experience', er_home_experience_ids(), array_keys( er_home_experience_ids() ) ),
 		'guides'       => array_map( 'er_payload_guide', er_home_guide_ids() ),

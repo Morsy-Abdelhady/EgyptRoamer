@@ -216,6 +216,15 @@ function er_localize_menu_item( WP_Post $item ): ?WP_Post {
 	}
 	$tr = $target ? (int) pll_get_post( $target, $lang ) : 0;
 	if ( ! $tr ) {
+		// No version in this language (guides are English-only for now): link the original, marked as English,
+		// so the footer offers the same links in every language.
+		if ( $target && 'publish' === get_post_status( $target ) ) {
+			$item->type         = 'post_type';
+			$item->object       = (string) get_post_type( $target );
+			$item->object_id    = (string) $target;
+			$item->er_link_lang = (string) pll_get_post_language( $target );
+			return er_menu_item_to( $item, (string) get_permalink( $target ), $label ?? get_the_title( $target ) );
+		}
 		return null;
 	}
 	$item->type      = 'post_type';
@@ -289,6 +298,46 @@ function er_has_published( string $post_type ): bool {
 	return $cache[ $post_type ];
 }
 
+/** The site's default language slug ('en'), or '' without Polylang. */
+function er_default_lang(): string {
+	return function_exists( 'pll_default_language' ) ? (string) pll_default_language() : '';
+}
+
+/**
+ * The default-language archive of a post type, when the current language has no entries of it but the
+ * default language does; else ''. Used so navigation stays the same in every language.
+ */
+function er_default_lang_archive( string $post_type ): string {
+	$default = er_default_lang();
+	if ( '' === $default || er_lang() === $default ) {
+		return '';
+	}
+	static $cache = [];
+	if ( ! isset( $cache[ $post_type ] ) ) {
+		$has = (bool) get_posts( [ 'post_type' => $post_type, 'post_status' => 'publish', 'numberposts' => 1, 'fields' => 'ids', 'no_found_rows' => true, 'lang' => $default ] );
+		$url = $has ? (string) get_post_type_archive_link( $post_type ) : '';
+		if ( $url && function_exists( 'PLL' ) && isset( PLL()->links_model ) && function_exists( 'PLL' ) && PLL()->model->get_language( $default ) ) {
+			$url = (string) PLL()->links_model->switch_language_in_link( $url, PLL()->model->get_language( $default ) );
+		}
+		$cache[ $post_type ] = $url;
+	}
+	return $cache[ $post_type ];
+}
+
+/* A menu link that leads to content in another language says so: hreflang, and a small language tag. */
+add_filter( 'nav_menu_link_attributes', static function ( $atts, $item ) {
+	if ( ! empty( $item->er_link_lang ) ) {
+		$atts['hreflang'] = $item->er_link_lang;
+	}
+	return $atts;
+}, 10, 2 );
+add_filter( 'nav_menu_item_title', static function ( $title, $item ) {
+	if ( ! empty( $item->er_link_lang ) ) {
+		$title .= ' <span class="lang-tag" lang="' . esc_attr( $item->er_link_lang ) . '">' . esc_html( strtoupper( $item->er_link_lang ) ) . '</span>';
+	}
+	return $title;
+}, 10, 2 );
+
 /** Only working links: drop menu items whose target is unpublished, does not exist or is an empty archive. */
 add_filter( 'wp_nav_menu_objects', static function ( $items ) {
 	// Page links (/about/, /contact/ …): look up every page slug in this menu with one query.
@@ -335,7 +384,20 @@ add_filter( 'wp_nav_menu_objects', static function ( $items ) {
 		}
 		foreach ( get_post_types( [ 'public' => true ], 'objects' ) as $type ) {
 			if ( $type->has_archive && $path === $type->has_archive ) {
-				return er_has_published( $type->name ); // no link to an archive that would only say "nothing yet"
+				if ( er_has_published( $type->name ) ) {
+					return true;
+				}
+				// Nothing in this language yet, but the default language has entries (guides are English-only
+				// for now): keep the item, with its translated label, and link the default-language archive,
+				// marked as such, so every language has the same navigation. No link to an archive that would
+				// only say "nothing yet".
+				$fallback = er_default_lang_archive( $type->name );
+				if ( '' !== $fallback ) {
+					$item->url          = $fallback;
+					$item->er_link_lang = er_default_lang();
+					return true;
+				}
+				return false;
 			}
 		}
 		$posts_page = (int) get_option( 'page_for_posts' );
