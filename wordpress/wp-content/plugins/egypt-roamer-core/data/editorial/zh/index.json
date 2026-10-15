@@ -161,6 +161,13 @@
   "review": "approved",
   "current": true
  },
+ "g-coptic-cairo": {
+  "type": "er_guide",
+  "title": "科普特开罗：教堂、犹太会堂和科普特博物馆",
+  "excerpt": "科普特开罗（老开罗）指南：建在罗马巴比伦要塞之上的悬空教堂、阿布塞尔加教堂与圣家族的传说、本·以斯拉犹太会堂和开罗藏经库，以及科普特博物馆和参观方式。",
+  "review": "approved",
+  "current": true
+ },
  "g-day-trips-cairo": {
   "type": "er_guide",
   "title": "从开罗出发的最佳一日游",
@@ -217,6 +224,27 @@
   "review": "approved",
   "current": true
  },
+ "g-red-sea-dives": {
+  "type": "er_guide",
+  "title": "红海著名潜点：蓟花号沉船、穆罕默德角和蓝洞",
+  "excerpt": "埃及红海最著名的潜点：蓟花号沉船，穆罕默德角的鲨鱼礁和约兰达礁，达哈布的蓝洞及其“拱门”为何只适合技术潜水员，以及预订潜水前需要知道的事。",
+  "review": "approved",
+  "current": true
+ },
+ "g-saqqara-dahshur": {
+  "type": "er_guide",
+  "title": "萨卡拉和代赫舒尔：吉萨之前的金字塔",
+  "excerpt": "吉萨以南的金字塔群萨卡拉和代赫舒尔：左塞尔阶梯金字塔、金字塔铭文、塞拉比尤姆，斯尼夫鲁的弯曲金字塔和红色金字塔，以及如何把它们加进参观金字塔的一天。",
+  "review": "approved",
+  "current": true
+ },
+ "g-sinai": {
+  "type": "er_guide",
+  "title": "西奈山与圣凯瑟琳修道院",
+  "excerpt": "南西奈的西奈山与圣凯瑟琳修道院：为什么这里是三大宗教的圣地，这座6世纪修道院及其圣像和手抄本，通往山顶的摩西之路，以及如何从沙姆沙伊赫安排参观。",
+  "review": "approved",
+  "current": true
+ },
  "g-snorkelling": {
   "type": "er_guide",
   "title": "埃及浮潜：赫尔格达还是沙姆沙伊赫？",
@@ -228,6 +256,13 @@
   "type": "er_guide",
   "title": "帝王谷：陵墓、门票与参观建议",
   "excerpt": "如何参观卢克索的帝王谷：王室陵墓是什么样的，门票怎么用，图坦卡蒙和塞提一世，西岸还有什么可看，以及应对这片炎热、拥挤山谷的实用建议。",
+  "review": "approved",
+  "current": true
+ },
+ "g-west-bank": {
+  "type": "er_guide",
+  "title": "帝王谷之外的卢克索西岸",
+  "excerpt": "王陵之外的卢克索西岸：代尔巴哈里的哈特谢普苏特阶梯神庙、门农巨像、拉美西姆、哈布城神庙、王后谷和代尔麦地那的造墓工匠村，以及如何安排这一天。",
   "review": "approved",
   "current": true
  },

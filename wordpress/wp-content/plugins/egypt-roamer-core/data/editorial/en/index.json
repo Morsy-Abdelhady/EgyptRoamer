@@ -143,6 +143,15 @@
   "destination": "cairo",
   "related": "exp-giza, exp-dinner, exp-food"
  },
+ "g-coptic-cairo": {
+  "type": "er_guide",
+  "title": "Coptic Cairo: Churches, a Synagogue and the Coptic Museum",
+  "excerpt": "A guide to Coptic Cairo (Old Cairo): the Hanging Church over the Roman fortress of Babylon, the church of Abu Serga and the Holy Family tradition, the Ben Ezra Synagogue and the Cairo Geniza, the Coptic Museum, and how to visit.",
+  "slug": "coptic-cairo-guide",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-food, exp-giza"
+ },
  "g-day-trips-cairo": {
   "type": "er_guide",
   "title": "The Best Day Trips from Cairo",
@@ -212,6 +221,33 @@
   "destination": "luxor, aswan",
   "related": "exp-valley, exp-abu"
  },
+ "g-red-sea-dives": {
+  "type": "er_guide",
+  "title": "The Red Sea's Famous Dive Sites: Thistlegorm, Ras Mohammed and the Blue Hole",
+  "excerpt": "Egypt's best-known Red Sea dive sites: the SS Thistlegorm wreck, Shark and Yolanda reefs at Ras Mohammed, the Blue Hole at Dahab and why its Arch is only for technical divers, plus what to know before you book a dive.",
+  "slug": "red-sea-famous-dive-sites",
+  "topic": "Planning",
+  "destination": "hurghada, sharm",
+  "related": "exp-dive, exp-ras-mohammed"
+ },
+ "g-saqqara-dahshur": {
+  "type": "er_guide",
+  "title": "Saqqara and Dahshur: The Pyramids Before Giza",
+  "excerpt": "Saqqara and Dahshur, the pyramid fields south of Giza: Djoser's Step Pyramid, the Pyramid Texts, the Serapeum, Sneferu's Bent and Red Pyramids, and how to add them to a day at the pyramids.",
+  "slug": "saqqara-and-dahshur-pyramids",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-giza"
+ },
+ "g-sinai": {
+  "type": "er_guide",
+  "title": "Mount Sinai and Saint Catherine's Monastery",
+  "excerpt": "Mount Sinai and Saint Catherine's Monastery in South Sinai: why the area is sacred to three religions, the 6th-century monastery and its icons and manuscripts, the Path of Moses to the summit, and how to plan a visit from Sharm El Sheikh.",
+  "slug": "mount-sinai-saint-catherine",
+  "topic": "Planning",
+  "destination": "sharm",
+  "related": "exp-ras-mohammed"
+ },
  "g-snorkelling": {
   "type": "er_guide",
   "title": "Snorkelling in Egypt: Hurghada or Sharm El Sheikh?",
@@ -226,6 +262,15 @@
   "title": "The Valley of the Kings: Tombs, Tickets and Tips",
   "excerpt": "How to visit the Valley of the Kings in Luxor: what the royal tombs are, how tickets work, Tutankhamun and Seti I, what else to see on the West Bank, and practical tips for a hot, busy valley.",
   "slug": "valley-of-the-kings-tombs-and-tickets",
+  "topic": "Planning",
+  "destination": "luxor",
+  "related": "exp-valley"
+ },
+ "g-west-bank": {
+  "type": "er_guide",
+  "title": "Luxor's West Bank Beyond the Valley of the Kings",
+  "excerpt": "Luxor's West Bank beyond the royal tombs: Hatshepsut's terraced temple at Deir el-Bahari, the Colossi of Memnon, the Ramesseum, Medinet Habu, the Valley of the Queens and the tomb builders' village at Deir el-Medina, and how to plan the day.",
+  "slug": "luxor-west-bank-temples-and-tombs",
   "topic": "Planning",
   "destination": "luxor",
   "related": "exp-valley"

@@ -161,6 +161,13 @@
   "review": "approved",
   "current": true
  },
+ "g-coptic-cairo": {
+  "type": "er_guide",
+  "title": "Das koptische Kairo: Kirchen, eine Synagoge und das Koptische Museum",
+  "excerpt": "Ein Ratgeber zum koptischen Kairo (Alt-Kairo): die Hängende Kirche über der römischen Festung Babylon, die Kirche Abu Serga und die Überlieferung der Heiligen Familie, die Ben-Esra-Synagoge und die Kairoer Geniza, das Koptische Museum und wie Sie es besuchen.",
+  "review": "approved",
+  "current": true
+ },
  "g-day-trips-cairo": {
   "type": "er_guide",
   "title": "Die besten Tagesausflüge ab Kairo",
@@ -217,6 +224,27 @@
   "review": "approved",
   "current": true
  },
+ "g-red-sea-dives": {
+  "type": "er_guide",
+  "title": "Die berühmten Tauchplätze am Roten Meer: Thistlegorm, Ras Mohammed und das Blue Hole",
+  "excerpt": "Ägyptens bekannteste Tauchplätze am Roten Meer: das Wrack der SS Thistlegorm, Shark und Yolanda Reef in Ras Mohammed, das Blue Hole bei Dahab und warum sein Arch nur für technische Taucher ist, dazu was Sie vor der Buchung wissen sollten.",
+  "review": "approved",
+  "current": true
+ },
+ "g-saqqara-dahshur": {
+  "type": "er_guide",
+  "title": "Sakkara und Dahschur: die Pyramiden vor Gizeh",
+  "excerpt": "Sakkara und Dahschur, die Pyramidenfelder südlich von Gizeh: Djosers Stufenpyramide, die Pyramidentexte, das Serapeum, Snofrus Knick- und Rote Pyramide, und wie Sie sie mit einem Tag bei den Pyramiden verbinden.",
+  "review": "approved",
+  "current": true
+ },
+ "g-sinai": {
+  "type": "er_guide",
+  "title": "Der Berg Sinai und das Katharinenkloster",
+  "excerpt": "Der Berg Sinai und das Katharinenkloster im Süden des Sinai: warum das Gebiet drei Religionen heilig ist, das Kloster aus dem 6. Jahrhundert mit seinen Ikonen und Handschriften, der Pfad des Mose zum Gipfel, und wie Sie einen Besuch ab Sharm El-Sheikh planen.",
+  "review": "approved",
+  "current": true
+ },
  "g-snorkelling": {
   "type": "er_guide",
   "title": "Schnorcheln in Ägypten: Hurghada oder Sharm El-Sheikh?",
@@ -228,6 +256,13 @@
   "type": "er_guide",
   "title": "Das Tal der Könige: Gräber, Tickets und Tipps",
   "excerpt": "So besuchen Sie das Tal der Könige in Luxor: was die Königsgräber sind, wie die Tickets funktionieren, Tutanchamun und Sethos I., was es am Westufer noch zu sehen gibt, und praktische Tipps für ein heißes, volles Tal.",
+  "review": "approved",
+  "current": true
+ },
+ "g-west-bank": {
+  "type": "er_guide",
+  "title": "Das Westufer von Luxor jenseits des Tals der Könige",
+  "excerpt": "Das Westufer von Luxor jenseits der Königsgräber: Hatschepsuts Terrassentempel in Deir el-Bahari, die Memnonkolosse, das Ramesseum, Medinet Habu, das Tal der Königinnen und das Dorf der Grabbauer in Deir el-Medina, und wie Sie den Tag planen.",
   "review": "approved",
   "current": true
  },

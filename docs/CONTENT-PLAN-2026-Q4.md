@@ -22,6 +22,7 @@
 - ✅ **Experience pages for Alexandria and Sharm,** published 15 Oct in 8 languages (`exp-alexandria` #601, `exp-ras-mohammed` #602). They are linked to offers #574 and #577.
 - ✅ **Second batch, published 15 Oct** (8 languages): `g-aswan-temples`, `g-desert-choice`, `g-valley-kings`, `g-10-days`, `g-cairo-night`.
 - ✅ **Third batch, published 15 Oct** (8 languages, Core 1.2.40): `g-gem` (Grand Egyptian Museum), `g-inside-pyramids`, `g-east-bank` (Karnak and Luxor Temple), `g-great-sand-sea`, `g-14-days`.
+- ✅ **Fourth batch, published 15 Oct** (8 languages, Core 1.2.41): `g-west-bank` (Luxor's West Bank beyond the Valley of the Kings), `g-saqqara-dahshur`, `g-red-sea-dives` (Thistlegorm, Ras Mohammed, Blue Hole), `g-sinai` (Mount Sinai and Saint Catherine), `g-coptic-cairo`. Historic Cairo and Egyptian food were considered and dropped: `dest-cairo` and `g-cairo` already cover them, and separate guides would compete with those pages.
 - **Next:** pick the next 5 guides from the GSC queries after the 22 Oct check (scheduled task).
 - **Arabic first for guide 1.** The site already gets impressions for "اسوان" and "معابد اسوان".
 

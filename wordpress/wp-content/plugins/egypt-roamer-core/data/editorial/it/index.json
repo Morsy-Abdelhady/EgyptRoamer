@@ -161,6 +161,13 @@
   "review": "approved",
   "current": true
  },
+ "g-coptic-cairo": {
+  "type": "er_guide",
+  "title": "Il Cairo copto: chiese, una sinagoga e il Museo copto",
+  "excerpt": "Una guida al Cairo copto (Cairo Vecchio): la Chiesa sospesa sopra la fortezza romana di Babilonia, la chiesa di Abu Serga e la tradizione della Sacra Famiglia, la sinagoga di Ben Ezra e la Genizah del Cairo, il Museo copto, e come visitarlo.",
+  "review": "approved",
+  "current": true
+ },
  "g-day-trips-cairo": {
   "type": "er_guide",
   "title": "Le migliori gite di un giorno dal Cairo",
@@ -217,6 +224,27 @@
   "review": "approved",
   "current": true
  },
+ "g-red-sea-dives": {
+  "type": "er_guide",
+  "title": "I siti d’immersione famosi del Mar Rosso: Thistlegorm, Ras Mohammed e il Blue Hole",
+  "excerpt": "I siti d’immersione più noti del Mar Rosso egiziano: il relitto della SS Thistlegorm, Shark Reef e Yolanda Reef a Ras Mohammed, il Blue Hole di Dahab e perché il suo Arco è solo per subacquei tecnici, e cosa sapere prima di prenotare.",
+  "review": "approved",
+  "current": true
+ },
+ "g-saqqara-dahshur": {
+  "type": "er_guide",
+  "title": "Saqqara e Dahshur: le piramidi prima di Giza",
+  "excerpt": "Saqqara e Dahshur, i campi di piramidi a sud di Giza: la piramide a gradoni di Djoser, i Testi delle piramidi, il Serapeo, la piramide romboidale e la piramide rossa di Snefru, e come aggiungerle a una giornata alle piramidi.",
+  "review": "approved",
+  "current": true
+ },
+ "g-sinai": {
+  "type": "er_guide",
+  "title": "Il monte Sinai e il monastero di Santa Caterina",
+  "excerpt": "Il monte Sinai e il monastero di Santa Caterina, nel Sinai meridionale: perché l’area è sacra a tre religioni, il monastero del VI secolo con le sue icone e i suoi manoscritti, il sentiero di Mosè verso la vetta, e come organizzare la visita da Sharm el-Sheikh.",
+  "review": "approved",
+  "current": true
+ },
  "g-snorkelling": {
   "type": "er_guide",
   "title": "Snorkeling in Egitto: Hurghada o Sharm el-Sheikh?",
@@ -228,6 +256,13 @@
   "type": "er_guide",
   "title": "La Valle dei Re: tombe, biglietti e consigli",
   "excerpt": "Come visitare la Valle dei Re a Luxor: cosa sono le tombe reali, come funzionano i biglietti, Tutankhamon e Seti I, cos’altro vedere sulla riva ovest, e consigli pratici per una valle calda e affollata.",
+  "review": "approved",
+  "current": true
+ },
+ "g-west-bank": {
+  "type": "er_guide",
+  "title": "La riva ovest di Luxor oltre la Valle dei Re",
+  "excerpt": "La riva ovest di Luxor oltre le tombe dei re: il tempio a terrazze di Hatshepsut a Deir el-Bahari, i Colossi di Memnone, il Ramesseum, Medinet Habu, la Valle delle Regine e il villaggio dei costruttori di tombe a Deir el-Medina, e come organizzare la giornata.",
   "review": "approved",
   "current": true
  },

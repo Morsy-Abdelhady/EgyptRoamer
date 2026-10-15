@@ -161,6 +161,13 @@
   "review": "approved",
   "current": true
  },
+ "g-coptic-cairo": {
+  "type": "er_guide",
+  "title": "El Cairo copto: iglesias, una sinagoga y el Museo Copto",
+  "excerpt": "Una guía de El Cairo copto (El Cairo Viejo): la Iglesia Colgante sobre la fortaleza romana de Babilonia, la iglesia de Abu Serga y la tradición de la Sagrada Familia, la sinagoga de Ben Ezra y la Guenizá de El Cairo, el Museo Copto, y cómo visitarlo.",
+  "review": "approved",
+  "current": true
+ },
  "g-day-trips-cairo": {
   "type": "er_guide",
   "title": "Las mejores excursiones de un día desde El Cairo",
@@ -217,6 +224,27 @@
   "review": "approved",
   "current": true
  },
+ "g-red-sea-dives": {
+  "type": "er_guide",
+  "title": "Los famosos puntos de buceo del mar Rojo: Thistlegorm, Ras Mohammed y el Blue Hole",
+  "excerpt": "Los puntos de buceo más conocidos del mar Rojo egipcio: el pecio del SS Thistlegorm, Shark Reef y Yolanda Reef en Ras Mohammed, el Blue Hole de Dahab y por qué su Arco es solo para buceadores técnicos, y qué saber antes de reservar.",
+  "review": "approved",
+  "current": true
+ },
+ "g-saqqara-dahshur": {
+  "type": "er_guide",
+  "title": "Saqqara y Dahshur: las pirámides antes de Guiza",
+  "excerpt": "Saqqara y Dahshur, los campos de pirámides al sur de Guiza: la pirámide escalonada de Djoser, los Textos de las Pirámides, el Serapeum, la pirámide acodada y la pirámide roja de Snefru, y cómo añadirlas a un día en las pirámides.",
+  "review": "approved",
+  "current": true
+ },
+ "g-sinai": {
+  "type": "er_guide",
+  "title": "El monte Sinaí y el monasterio de Santa Catalina",
+  "excerpt": "El monte Sinaí y el monasterio de Santa Catalina, en el sur del Sinaí: por qué la zona es sagrada para tres religiones, el monasterio del siglo VI con sus iconos y manuscritos, el camino de Moisés hasta la cumbre, y cómo organizar la visita desde Sharm el-Sheij.",
+  "review": "approved",
+  "current": true
+ },
  "g-snorkelling": {
   "type": "er_guide",
   "title": "Esnórquel en Egipto: ¿Hurghada o Sharm el-Sheij?",
@@ -228,6 +256,13 @@
   "type": "er_guide",
   "title": "El Valle de los Reyes: tumbas, entradas y consejos",
   "excerpt": "Cómo visitar el Valle de los Reyes en Luxor: qué son las tumbas reales, cómo funcionan las entradas, Tutankamón y Seti I, qué más ver en la orilla oeste, y consejos prácticos para un valle caluroso y concurrido.",
+  "review": "approved",
+  "current": true
+ },
+ "g-west-bank": {
+  "type": "er_guide",
+  "title": "La orilla oeste de Luxor más allá del Valle de los Reyes",
+  "excerpt": "La orilla oeste de Luxor más allá de las tumbas reales: el templo en terrazas de Hatshepsut en Deir el-Bahari, los Colosos de Memnón, el Rameseum, Medinet Habu, el Valle de las Reinas y la aldea de los constructores de tumbas en Deir el-Medina, y cómo organizar el día.",
   "review": "approved",
   "current": true
  },

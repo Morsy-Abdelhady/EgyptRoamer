@@ -161,6 +161,13 @@
   "review": "approved",
   "current": true
  },
+ "g-coptic-cairo": {
+  "type": "er_guide",
+  "title": "Le Caire copte : églises, synagogue et Musée copte",
+  "excerpt": "Un guide du Caire copte (Vieux-Caire) : l’Église suspendue au-dessus de la forteresse romaine de Babylone, l’église Abou Serga et la tradition de la Sainte Famille, la synagogue Ben Ezra et la Geniza du Caire, le Musée copte, et comment visiter.",
+  "review": "approved",
+  "current": true
+ },
  "g-day-trips-cairo": {
   "type": "er_guide",
   "title": "Les meilleures excursions d’une journée depuis Le Caire",
@@ -217,6 +224,27 @@
   "review": "approved",
   "current": true
  },
+ "g-red-sea-dives": {
+  "type": "er_guide",
+  "title": "Les sites de plongée célèbres de la mer Rouge : Thistlegorm, Ras Mohammed et le Blue Hole",
+  "excerpt": "Les sites de plongée les plus connus de la mer Rouge égyptienne : l’épave du SS Thistlegorm, Shark Reef et Yolanda Reef à Ras Mohammed, le Blue Hole de Dahab et pourquoi son Arche est réservée aux plongeurs techniques, et ce qu’il faut savoir avant de réserver.",
+  "review": "approved",
+  "current": true
+ },
+ "g-saqqara-dahshur": {
+  "type": "er_guide",
+  "title": "Saqqarah et Dahchour : les pyramides avant Gizeh",
+  "excerpt": "Saqqarah et Dahchour, les champs de pyramides au sud de Gizeh : la pyramide à degrés de Djéser, les Textes des pyramides, le Sérapéum, les pyramides rhomboïdale et rouge de Snéfrou, et comment les ajouter à une journée aux pyramides.",
+  "review": "approved",
+  "current": true
+ },
+ "g-sinai": {
+  "type": "er_guide",
+  "title": "Le mont Sinaï et le monastère Sainte-Catherine",
+  "excerpt": "Le mont Sinaï et le monastère Sainte-Catherine, dans le Sud-Sinaï : pourquoi la région est sacrée pour trois religions, le monastère du VIe siècle, ses icônes et ses manuscrits, le chemin de Moïse vers le sommet, et comment organiser une visite depuis Charm el-Cheikh.",
+  "review": "approved",
+  "current": true
+ },
  "g-snorkelling": {
   "type": "er_guide",
   "title": "Le snorkeling en Égypte : Hurghada ou Charm el-Cheikh ?",
@@ -228,6 +256,13 @@
   "type": "er_guide",
   "title": "La Vallée des Rois : tombes, billets et conseils",
   "excerpt": "Comment visiter la Vallée des Rois à Louxor : ce que sont les tombes royales, comment fonctionnent les billets, Toutânkhamon et Séthi Iᵉʳ, que voir d’autre sur la rive ouest, et des conseils pratiques pour une vallée chaude et fréquentée.",
+  "review": "approved",
+  "current": true
+ },
+ "g-west-bank": {
+  "type": "er_guide",
+  "title": "La rive ouest de Louxor au-delà de la Vallée des Rois",
+  "excerpt": "La rive ouest de Louxor au-delà des tombes royales : le temple en terrasses d’Hatchepsout à Deir el-Bahari, les colosses de Memnon, le Ramesseum, Médinet Habou, la Vallée des Reines et le village des bâtisseurs de tombes à Deir el-Médineh, et comment organiser la journée.",
   "review": "approved",
   "current": true
  },
