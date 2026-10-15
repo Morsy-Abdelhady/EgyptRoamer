@@ -30,6 +30,8 @@ const key = (href) => {
   if (!href.startsWith("/")) return href;
   const [p, frag] = href.split("#");
   let s = p.replace(/^\/(ar|de|fr|it|es|ru|zh)(\/|$)/, "/").replace(/-(ar|de|fr|it|es|ru|zh)\/$/, "/");
+  // A single guide, destination or experience has its own translated slug: compare the kind of link, not the slug.
+  s = s.replace(/^\/(guides|destinations|experiences)\/[^/]+\/$/, "/$1/@item/");
   return s + (frag !== undefined ? "#" + frag : "");
 };
 

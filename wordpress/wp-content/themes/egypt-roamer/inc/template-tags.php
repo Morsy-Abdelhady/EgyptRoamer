@@ -298,6 +298,25 @@ function er_has_published( string $post_type ): bool {
 	return $cache[ $post_type ];
 }
 
+/**
+ * A post's date in the page's language ("١٥ أكتوبر ٢٠٢٦", "15. Oktober 2026"). WordPress takes month names
+ * from installed language packs, which this site does not have, so translated pages showed "October 15, 2026".
+ * Uses PHP intl when available, else WordPress's own format.
+ */
+function er_local_date( bool $modified = false, $post = null ): string {
+	$ts = $modified ? get_post_modified_time( 'U', true, $post ) : get_post_time( 'U', true, $post );
+	if ( class_exists( 'IntlDateFormatter' ) && function_exists( 'er_lang' ) ) {
+		$locale = function_exists( 'pll_current_language' ) ? (string) pll_current_language( 'locale' ) : get_locale();
+		// Western digits, as everywhere else on the site ("15 أكتوبر 2026", not "١٥").
+		$fmt    = new IntlDateFormatter( ( $locale ?: 'en_US' ) . '@numbers=latn', IntlDateFormatter::LONG, IntlDateFormatter::NONE, wp_timezone_string() );
+		$out    = $fmt->format( (int) $ts );
+		if ( is_string( $out ) && '' !== $out ) {
+			return $out;
+		}
+	}
+	return $modified ? (string) get_the_modified_date( '', $post ) : (string) get_the_date( '', $post );
+}
+
 /** The site's default language slug ('en'), or '' without Polylang. */
 function er_default_lang(): string {
 	return function_exists( 'pll_default_language' ) ? (string) pll_default_language() : '';

@@ -51,8 +51,10 @@ function er_offers_for_post( int $post_id, int $limit = 6 ): array {
 /** Estimated reading time in minutes (≈ 220 words per minute, CJK-aware). */
 function er_read_minutes( $post ): int {
 	$text  = wp_strip_all_tags( strip_shortcodes( (string) get_post_field( 'post_content', $post ) ) );
-	$words = str_word_count( $text );
+	// Words in any script (str_word_count() only counts Latin letters, so Arabic and Russian guides read as
+	// "1 min"); Chinese has no spaces, so its characters are counted separately, two per word.
 	$cjk   = preg_match_all( '/[\x{4E00}-\x{9FFF}]/u', $text );
+	$words = preg_match_all( '/[^\s\x{4E00}-\x{9FFF}\p{P}]+/u', $text );
 	return max( 1, (int) round( ( $words + $cjk / 2 ) / 220 ) );
 }
 

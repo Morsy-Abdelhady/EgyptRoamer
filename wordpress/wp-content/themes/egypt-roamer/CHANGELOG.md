@@ -2,6 +2,21 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.48 — 2026-10-15 (with Core 1.2.33): the 4 travel guides in all 8 languages
+- **Owner decision (15 Oct):** translate the guides and publish them right away, with a review note, instead of linking the English.
+- **28 translations** (4 guides × ar, de, fr, it, es, ru, zh) in `content/editorial/<lang>/g-*.md`. Each is a faithful translation of the English text: same sections, facts and links, no added claims. They carry `review: pending`; `tools/editorial.py` now also carries the title.
+- **Core: Egypt Roamer → Guide translations** (`includes/guide-translations.php`), the same model as the legal sync:
+  - creates each missing translation, publishes it and links it in Polylang;
+  - each one opens with "translated from the English original, not yet reviewed by a native speaker; the English version is the reference", linking the English guide;
+  - internal links point at the translated pages;
+  - it copies the photo, seed id and "Ready to index" from the English;
+  - it never overwrites a translation edited in WordPress (content hash).
+
+  When a file is marked `review: approved`, the note becomes a plain "translated from the English original".
+- **Effect:** the menu, footer and homepage Journal now link the guides in each language, so the "EN" fallback tags from 1.2.47 disappear automatically.
+- **Core:** reading time counts words in every script (`str_word_count()` counted only Latin letters, so Arabic and Russian guides said "1 min").
+- **Guide dates** are written in the page's language ("15 أكتوبر 2026", "15. Oktober 2026", "2026年10月15日") through PHP intl; WordPress had printed "October 15, 2026" on every language.
+
 ## 1.2.47 — 2026-10-15: the same navigation and homepage in all 8 languages
 - **The owner's complaint was right:** the English menu had 3 items (Destinations, Experiences, Travel Guide) and the other 7 languages had 2. 1.2.46 wrongly classed this as intentional.
 - **Root cause:** every language's Polylang menu already has the translated "Travel Guide" item (Reiseführer, دليل السفر, 旅行指南 …). The "only working links" filter dropped it because guides exist only in English, so the archive is empty in the other languages. The same rule removed the footer guide links and the homepage "Journal" section.
