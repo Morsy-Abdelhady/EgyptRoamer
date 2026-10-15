@@ -5,7 +5,7 @@
 **Rules (CLAUDE.md):**
 - Bodies in `content/editorial/en/*.md`, verifiable facts only, sources in `docs/CONTENT-SOURCES.md`.
 - No prices, opening hours, travel times or ratings.
-- Guides stay drafts until the owner publishes them.
+- Publishing: the owner gave full authority to publish and edit guides (2026-10-15). Each guide goes live in all 8 languages, then `tools/qa/page-coverage.mjs` runs.
 
 **Choosing a guide:** each one answers a question someone asks before booking, and it links to a verified offer (or a destination page with one).
 
