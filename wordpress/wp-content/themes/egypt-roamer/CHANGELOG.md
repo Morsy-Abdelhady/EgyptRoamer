@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.63 — 2026-10-16: stand-in photos can keep an edge when cropped
+- A stand-in photo id may now end in `:top`, `:bottom`, `:left`, `:right`, `:faces` or `:entropy`. The Unsplash URL then crops toward that edge or subject instead of the centre: `er_stock_url()` in PHP, `img()` in `src/js/data.js`. Anything else is ignored.
+- **First use:** the Mount Sinai guide's new photo, a portrait of Saint Catherine's bell tower (Unsplash, location "Saint Catherine, Egypt", free licence; see `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5).
+  - A centred landscape crop cut off the tower; `:top` keeps the tower, the cross and the mountain.
+- `src/js/data.js` was the one source file with CRLF line endings; it is now LF, per the project rule.
+
 ## 1.2.62 — 2026-10-15: the phone booking bar from the first screen
 - **Owner report (Ras Mohammed on a phone):** "the bar is not on mobile". It only appeared after scrolling past the first screen, so a reader at the top never saw it.
 - **Fix:** on phones (900 px and below) the bar is shown from the first screen. It still steps aside while the booking box it leads to is on screen. Wide screens keep showing it once past the first screen.

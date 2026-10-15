@@ -70,7 +70,14 @@ function er_stock_url( string $photo_id, int $w, float $ratio = 0.0, float $max_
 	// $max_ratio caps the height only (imgix max-h): a taller photo is cropped to it, centred; a wider one is
 	// left whole, so its sides are never cut.
 	$h = $ratio > 0 ? '&h=' . (int) round( $w * $ratio ) : ( $max_ratio > 0 ? '&max-h=' . (int) round( $w * $max_ratio ) : '' );
-	return 'https://images.unsplash.com/photo-' . rawurlencode( $photo_id ) . '?auto=format&fit=crop&w=' . $w . $h . '&q=76';
+	// "id:top" (seed extraStock) keeps that edge when cropping, for a photo whose subject is not centred, such as a
+	// portrait of the Saint Catherine bell tower. Only Unsplash's own crop positions are passed on.
+	$crop = '';
+	if ( false !== strpos( $photo_id, ':' ) ) {
+		[ $photo_id, $pos ] = explode( ':', $photo_id, 2 );
+		$crop = in_array( $pos, [ 'top', 'bottom', 'left', 'right', 'faces', 'entropy' ], true ) ? '&crop=' . $pos : '';
+	}
+	return 'https://images.unsplash.com/photo-' . rawurlencode( $photo_id ) . '?auto=format&fit=crop' . $crop . '&w=' . $w . $h . '&q=76';
 }
 
 function er_stock_srcset( string $photo_id, array $widths, float $ratio = 0.0, float $max_ratio = 0.0 ): string {

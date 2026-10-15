@@ -24,7 +24,10 @@ export const img = (id, w = 1200, q = 75, ratio = 0) => {
     return fit ? id.sizes[fit] : id.src;
   }
   if (isUrl(id)) return id;
-  return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}${ratio ? `&h=${Math.round(w * ratio)}` : ""}&q=${q}`;
+  // "id:top" keeps that edge when cropping (as er_stock_url() in PHP); only Unsplash's own crop positions.
+  const [pid, pos] = String(id).split(":");
+  const crop = ["top", "bottom", "left", "right", "faces", "entropy"].includes(pos) ? `&crop=${pos}` : "";
+  return `https://images.unsplash.com/photo-${pid}?auto=format&fit=crop${crop}&w=${w}${ratio ? `&h=${Math.round(w * ratio)}` : ""}&q=${q}`;
 };
 
 /** srcset helper for responsive images. */

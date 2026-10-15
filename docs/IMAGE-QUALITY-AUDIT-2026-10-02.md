@@ -105,3 +105,15 @@ asset is verifiably better for the same subject, so nothing was swapped (no land
 3. **Car rental sample photo**: replace before the car-rental offers go live.
 4. When featured images move to the Media Library, `er_img()` already serves WordPress sizes; register a
    portrait size (e.g. `er-portrait`, 828×1242) so phones keep the sharp crop.
+
+## 5. New photos added later (photo policy of 2026-10-03: free Unsplash, location tag names the exact place)
+
+| Date | Page | Photo id | Unsplash page | Location tag | Licence | Note |
+|---|---|---|---|---|---|---|
+| 2026-10-16 | `g-sinai` (Mount Sinai and Saint Catherine) | 1603889947015-f3305fc399ea | https://unsplash.com/photos/people-walking-near-beige-concrete-building-during-daytime-MnmRtMkjK-c (Shady Hassan) | "Saint Catherine, Saint Catherine, Egypt" | Unsplash License (free) | The monastery bell tower and the mountain. A portrait photo: used as `1603889947015-f3305fc399ea:top` so the crop keeps the tower and cross (theme 1.2.63 adds crop positions). Hot-linked, nothing downloaded |
+
+Searched and **not** used on 2026-10-16:
+- **Mount Sinai:** the free results were tagged only "Egypt".
+- **Coptic Cairo and the Hanging Church:** the free results were tagged only "Egypt" or "Cairo, Egypt", which does not support the place.
+
+`g-coptic-cairo` keeps the Cairo stand-in until a photo tagged with the exact place is found.
