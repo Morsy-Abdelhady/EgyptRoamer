@@ -79,6 +79,10 @@ async function check(pg) {
       story: !!document.querySelector(".page-hero--story"),
       hero: document.querySelector(".page-hero__actions a")?.getAttribute("href") || "",
       box: ["#book", "#plan"].some((s) => vis(document.querySelector(s))) || vis(document.querySelector(".page-aside .offer-box")),
+      asideBox: vis(document.querySelector(".page-aside .offer-box")),
+      cta: document.querySelector(".nav__cta")?.getAttribute("href") || "",
+      // Gold buttons that leave the page for the homepage planner (15 Oct: the reader looking to book was sent home).
+      goldHome: [...document.querySelectorAll("main a.btn--primary")].filter((a) => vis(a) && /#planner$/.test(a.getAttribute("href") || "")).length,
       offers,
       tours: document.querySelectorAll(".itin__tour").length,
     };
@@ -91,6 +95,10 @@ async function check(pg) {
     if (!d.box) fail(pg, "no booking box on the page");
     if (pg.kind !== "guides" && !/^#(book|plan)$/.test(d.hero)) fail(pg, "no booking button in the hero");
     if (!d.story && !/page-layout--aside/.test(d.layout)) fail(pg, `layout is "${d.layout}", expected the sidebar layout`);
+    // A reader must be able to book while reading, not only after the article (Hurghada, 15 Oct).
+    if (pg.kind !== "experiences" && !d.asideBox) fail(pg, "no booking box in the sidebar on wide screens");
+    if (!/^#(book|plan)$/.test(d.cta)) fail(pg, `header button goes to "${d.cta}", not the booking box`);
+    if (d.goldHome) fail(pg, `${d.goldHome} gold button(s) leave for the homepage planner`);
   }
   for (const o of d.offers) {
     if (!o.img) fail(pg, `offer image missing: ${o.name}`);
@@ -107,11 +115,16 @@ async function check(pg) {
     const m = await p.evaluate(() => {
       const href = document.querySelector(".dock__plan")?.getAttribute("href") || "";
       const t = href.startsWith("#") ? document.querySelector(href) : null;
-      return { href, shown: !!t && getComputedStyle(t).display !== "none" && t.getClientRects().length > 0 };
+      // The first partner link a reader scrolls past, as a share of the page height.
+      const go = [...document.querySelectorAll('main a[href*="/go/"]')].find((a) => a.getClientRects().length);
+      const at = go ? (go.getBoundingClientRect().top + window.scrollY) / document.documentElement.scrollHeight : 1;
+      return { href, at, shown: !!t && getComputedStyle(t).display !== "none" && t.getClientRects().length > 0 };
     });
     await p.close();
     if (!/^#(book|plan)$/.test(m.href)) fail(pg, `phone dock goes to "${m.href}", not the booking box`);
     else if (!m.shown) fail(pg, `phone dock target ${m.href} is not displayed`);
+    // Experiences: their booking box follows their short article directly (and the dock is always there).
+    if (pg.kind !== "experiences" && m.at > 0.5) fail(pg, `phone: the first partner link is ${Math.round(m.at * 100)}% down the page`);
   }
   for (const e of [...new Set(errs)]) fail(pg, `JS error: ${e}`);
 }

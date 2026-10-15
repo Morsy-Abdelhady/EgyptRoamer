@@ -83,7 +83,11 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 				<span class="icon-btn__badge" data-fav-count></span>
 			</button>
 			<?php er_lang_switcher(); ?>
-			<?php if ( $er_planner_url ) : ?>
+			<?php if ( ! is_front_page() && er_book_anchor() ) : // A page with partner offers: the header's gold button books here instead of leaving for the homepage planner (owner, 15 Oct). ?>
+				<a href="<?php echo esc_attr( er_book_anchor() ); ?>" class="btn btn--primary btn--sm nav__cta" data-magnetic>
+					<?php echo esc_html( function_exists( 'er_cta_options' ) ? er_cta_options()['check_availability'] : er_t( 'Book with our partners' ) ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+				</a>
+			<?php elseif ( $er_planner_url ) : ?>
 				<a href="<?php echo esc_url( $er_planner_url ); ?>" class="btn btn--primary btn--sm nav__cta" data-magnetic>
 					<?php er_e( 'Plan My Trip' ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 				</a>

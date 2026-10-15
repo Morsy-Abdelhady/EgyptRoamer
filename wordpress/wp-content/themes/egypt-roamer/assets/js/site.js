@@ -1576,6 +1576,27 @@
   safe("progress", initScrollProgress);
   safe("affiliate", initAffiliateLinks);
   safe("newsletter", initNewsletter);
+  // "#book" links (header, hero, dock): on a guide at 1200px and wider the in-article box is hidden and its copy is
+  // in the sidebar, so the jump goes there instead of nowhere.
+  safe("book-jump", () => {
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest && e.target.closest('a[href="#book"]');
+      const t = a && document.getElementById("book");
+      if (!a || (t && t.getClientRects().length)) return;
+      const box = document.querySelector(".page-aside .offer-box");
+      if (!box) return;
+      e.preventDefault();
+      // The box is in a sticky sidebar: while the reader is inside the layout it is already in view; from
+      // outside (past the article), go back to where the layout starts.
+      const r = box.getBoundingClientRect();
+      if (r.top < 0 || r.bottom > window.innerHeight) {
+        const top = (box.closest(".page-layout") || box).getBoundingClientRect().top + window.scrollY - 96;
+        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      }
+      box.setAttribute("tabindex", "-1");
+      box.focus({ preventScroll: true });
+    });
+  });
   return {  };
   })();
 })();

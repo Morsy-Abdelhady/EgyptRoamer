@@ -26,11 +26,19 @@ while ( have_posts() ) :
 	] );
 	$er_hl     = er_lines( $er_id, '_er_highlights' );
 
-	$er_plan = (bool) er_home( 'planner_enabled' ) ? er_home_url() . '#planner' : '';
-
-	// Sidebar (desktop): key facts, the first things to do, the planner. On phones the facts
-	// open the page and the rest is left to the full sections below.
+	// Sidebar (wide screens): the booking box first (it stays in view while reading), key facts, the first things to do.
+	// It used to end in "Plan My Trip", which left the page for the homepage planner: the only booking buttons
+	// were then the cards after the whole article (owner, 15 Oct). Below 1200px the box sits in the article.
 	ob_start();
+	if ( $er_offers ) :
+		?>
+		<div class="offer-box is-wide-only" role="region" aria-labelledby="aside-book-title">
+			<p class="t-label" id="aside-book-title"><?php echo esc_html( er_t( 'Book {name} with our partners', [ 'name' => get_the_title() ] ) ); ?></p>
+			<?php er_offer_rows( array_slice( $er_offers, 0, 2 ), 'destination-aside' ); ?>
+			<?php er_disclosure(); ?>
+		</div>
+		<?php
+	endif;
 	er_glance( $er_facts, $er_hl );
 	if ( $er_things ) :
 		?>
@@ -42,11 +50,6 @@ while ( have_posts() ) :
 				<?php endforeach; ?>
 			</ul>
 		</nav>
-		<?php
-	endif;
-	if ( $er_plan ) :
-		?>
-		<a href="<?php echo esc_url( $er_plan ); ?>" class="btn btn--primary btn--block glance__cta"><?php er_e( 'Plan My Trip' ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
 		<?php
 	endif;
 	$er_aside = trim( (string) ob_get_clean() );
@@ -62,6 +65,22 @@ while ( have_posts() ) :
 	] );
 	$er_body = er_body();
 	er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
+	// Below 1200px (no sidebar): the booking box inside the article, after its second section, as on guides.
+	if ( $er_offers ) {
+		ob_start();
+		?>
+		<aside class="offer-box offer-box--inline is-narrow-only" aria-labelledby="inline-book-title">
+			<p class="t-label" id="inline-book-title"><?php echo esc_html( er_t( 'Book {name} with our partners', [ 'name' => get_the_title() ] ) ); ?></p>
+			<?php er_offer_rows( array_slice( $er_offers, 0, 2 ), 'destination-inline' ); ?>
+			<?php er_disclosure(); ?>
+		</aside>
+		<?php
+		$er_box   = (string) ob_get_clean();
+		$er_first = strpos( $er_body['html'], '<section class="er-sec">' );
+		$er_at    = false !== $er_first ? strpos( $er_body['html'], '<section class="er-sec">', $er_first + 1 ) : false;
+		$er_at    = false !== $er_at ? strpos( $er_body['html'], '<section class="er-sec">', $er_at + 1 ) : false;
+		$er_body['html'] = false !== $er_at ? substr_replace( $er_body['html'], $er_box, $er_at, 0 ) : $er_body['html'] . $er_box;
+	}
 	?>
 	<div class="page-body container">
 		<?php er_layout( '<div class="prose">' . $er_body['html'] . '</div>', $er_aside ); ?>

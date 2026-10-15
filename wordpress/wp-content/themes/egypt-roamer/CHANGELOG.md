@@ -2,6 +2,23 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.55 — 2026-10-15: booking reachable while reading; gold buttons no longer send readers home
+- **Owner report (Hurghada):** no way to book until the end of the page, and the gold buttons led to the homepage.
+- **Cause:**
+  - The header's "Plan My Trip" and the destination sidebar's "Plan My Trip" both went to the homepage planner.
+  - The destination's only partner cards came after the whole article (about 4,500 px down on desktop, two-thirds down on phones).
+  - The QA gate only checked that a booking box existed somewhere on the page.
+- **Fix:**
+  - **Header:** on any page with partner offers, the gold button reads "Check Availability" and goes to the page's booking box. Pages without offers keep "Plan My Trip".
+  - **Destinations, wide screens:** the sidebar opens with a booking box (two offers and the disclosure), sticky while reading, then key facts and things to do. The sidebar's "Plan My Trip" is removed.
+  - **Destinations, below 1200px:** the same box sits in the article after its second section, as on guides.
+  - **`#book` on guides at 1200px+:** the in-article box is hidden there, so the jump goes to the sidebar box (`site-main.js`).
+  - **QA (`tools/qa/page-coverage.mjs`):** it now fails a page if any of these is true:
+    - the header button doesn't go to the booking box;
+    - a gold button in the page leads to the homepage planner;
+    - a destination or guide has no sidebar booking box;
+    - on phones, a destination's or guide's first partner link is more than halfway down.
+
 ## 1.2.54 — 2026-10-16: no duplicate "On this page" for signed-in editors
 - **Owner report:** two navigations doing the same job on Alexandria: the sticky section tab bar and the "On this page" box.
 - **Cause:**
