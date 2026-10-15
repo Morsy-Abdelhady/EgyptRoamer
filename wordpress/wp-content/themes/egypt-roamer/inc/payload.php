@@ -37,6 +37,11 @@ function er_stock_id_for( int $post_id ): string {
 				$map[ $x['id'] ] = $x['image'];
 			}
 		}
+		foreach ( (array) ( $seed['extraStock'] ?? [] ) as $k => $img ) {
+			if ( '_note' !== $k ) {
+				$map[ $k ] = $img; // pages written after the seed
+			}
+		}
 		foreach ( (array) ( $seed['partnerCategories'] ?? [] ) as $cat ) {
 			foreach ( $cat['items'] as $k => $o ) {
 				$map[ $cat['id'] . '-' . $k ] = $o['image'];

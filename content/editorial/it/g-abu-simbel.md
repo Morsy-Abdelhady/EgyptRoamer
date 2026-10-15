@@ -2,14 +2,14 @@
 type: er_guide
 title: Abu Simbel da Assuan: come organizzare la giornata
 excerpt: Come organizzare la visita ad Abu Simbel da Assuan: cosa vedrai nei due templi di Ramses II, come furono salvati dal Lago Nasser, strada, aereo o crociera sul Lago Nasser, tour privati o condivisi e il fenomeno del sole di febbraio e ottobre.
-source: e5ff8a47b25e
+source: 6013dc0fcbf5
 review: approved
 reviewer: AI review (Claude), publication approved by the owner
 reviewed: 2026-10-15
 ---
 [[toc]]
 
-Abu Simbel è la giornata attorno a cui la maggior parte dei viaggiatori costruisce il proprio viaggio in Egitto. I due templi rupestri di Ramses II si trovano 280 km a sud di Assuan, vicino al confine con il Sudan, quindi la visita occupa una giornata intera fuori città. Questa guida spiega cosa vedrai, come furono salvati i templi, come arrivarci e come scegliere tra i tour disponibili.
+Abu Simbel è la giornata attorno a cui la maggior parte dei viaggiatori costruisce il proprio viaggio in Egitto. I due templi rupestri di Ramses II si trovano molto più a sud di Assuan, vicino al confine con il Sudan, quindi la visita occupa una giornata intera fuori città. Questa guida spiega cosa vedrai, come furono salvati i templi, come arrivarci e come scegliere tra i tour disponibili.
 
 ## Cosa vedrai {#what-you-will-see}
 
@@ -61,7 +61,7 @@ Due giorni all’anno, intorno al **22 febbraio** e al **22 ottobre**, i primi r
 ## Domande frequenti {#faq}
 
 ?? Quanto dista Abu Simbel da Assuan?
-Circa 280 km a sud, vicino al confine con il Sudan. La maggior parte dei visitatori ci va con una gita di un giorno in auto o con un breve volo.
+Molto più a sud, vicino al confine con il Sudan. La maggior parte dei visitatori ci va con una gita di un giorno in auto o con un breve volo.
 
 ?? Vale la pena un tour privato?
 Sì, se vuoi una guida nei templi e un ritmo flessibile. Un tour condiviso mostra gli stessi templi spendendo meno, con orari fissi.

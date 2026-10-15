@@ -31,6 +31,14 @@
   "type": "er_experience",
   "excerpt": "The Abu Simbel day trip from Aswan: why the temples of Ramesses II and Nefertari are worth the early start, road or flight, the February and October sun festival, and how to plan the day."
  },
+ "exp-alexandria": {
+  "type": "er_experience",
+  "title": "Alexandria Day Trip from Cairo",
+  "excerpt": "A day trip from Cairo to Alexandria: the Citadel of Qaitbay on the site of the Pharos, the Bibliotheca Alexandrina, Roman catacombs and Pompey's Pillar, the Corniche and lunch by the sea, and how to make one day count.",
+  "slug": "alexandria-day-trip-from-cairo",
+  "location": "Alexandria",
+  "destination": "alexandria"
+ },
  "exp-dinner": {
   "type": "er_experience",
   "excerpt": "A Nile dinner cruise in Cairo: what the evening is like, the music and tanoura show, who it suits, how to choose a boat, and how it compares with a simple felucca ride at sunset.",
@@ -49,6 +57,14 @@
  "exp-giza": {
   "type": "er_experience",
   "excerpt": "What a private guided visit to the Giza pyramids and the Sphinx is like, who it suits, how to time it, what to watch out for on the plateau, and how to combine it with the Grand Egyptian Museum and Saqqara."
+ },
+ "exp-ras-mohammed": {
+  "type": "er_experience",
+  "title": "Ras Mohammed Snorkelling from Sharm El Sheikh",
+  "excerpt": "Snorkelling in Ras Mohammed National Park from Sharm El Sheikh: Egypt's first national park, by road or by boat, coral walls and reef fish, the park rules, what to bring and who the trip suits.",
+  "slug": "ras-mohammed-snorkelling-from-sharm",
+  "location": "Sharm El Sheikh",
+  "destination": "sharm"
  },
  "exp-safari": {
   "type": "er_experience",
@@ -91,10 +107,45 @@
   "destination": "cairo",
   "related": "exp-giza, exp-dinner, exp-food"
  },
+ "g-day-trips-cairo": {
+  "type": "er_guide",
+  "title": "The Best Day Trips from Cairo",
+  "excerpt": "The best day trips from Cairo: Giza and the Grand Egyptian Museum, Saqqara and Dahshur, Alexandria on the Mediterranean, and Wadi Al-Hitan in the Fayoum desert, with what each is like and how to plan it.",
+  "slug": "day-trips-from-cairo",
+  "topic": "Planning",
+  "destination": "cairo, alexandria",
+  "related": "exp-giza, exp-alexandria, exp-safari"
+ },
  "g-gems": {
   "type": "er_guide",
   "excerpt": "Ten remarkable places in Egypt that most visitors skip: from the Bent Pyramid and Medinet Habu to Abydos, Dendera, Wadi Al-Hitan and Rosetta, with what makes each special and how to fit it into a trip.",
   "destination": "cairo, luxor, aswan, alexandria, siwa",
   "related": "exp-giza, exp-valley"
+ },
+ "g-nile-cruise": {
+  "type": "er_guide",
+  "title": "Nile Cruise or Hotels? Luxor to Aswan Explained",
+  "excerpt": "Should you see Luxor and Aswan by Nile cruise or by staying in hotels? What a cruise is like, the temples of Edfu and Kom Ombo on the way, the trade-offs in time and freedom, smaller sailing boats, and how to choose.",
+  "slug": "nile-cruise-or-hotels-luxor-aswan",
+  "topic": "Planning",
+  "destination": "luxor, aswan",
+  "related": "exp-valley, exp-abu"
+ },
+ "g-snorkelling": {
+  "type": "er_guide",
+  "title": "Snorkelling in Egypt: Hurghada or Sharm El Sheikh?",
+  "excerpt": "Snorkelling in the Red Sea: Hurghada or Sharm El Sheikh? The Giftun Islands and Ras Mohammed National Park compared, boat or shore, trips for beginners, reef etiquette and how to choose a responsible operator.",
+  "slug": "snorkelling-hurghada-or-sharm",
+  "topic": "Planning",
+  "destination": "hurghada, sharm",
+  "related": "exp-ras-mohammed, exp-dive"
+ },
+ "g-white-desert": {
+  "type": "er_guide",
+  "title": "A Night in the White Desert: What to Expect",
+  "excerpt": "What a night in Egypt's White Desert is really like: the route through Bahariya, the Black Desert and Crystal Mountain, the chalk formations at sunset, camp life and cold nights, what to pack and how to choose an operator.",
+  "slug": "white-desert-night",
+  "topic": "Planning",
+  "related": "exp-safari"
  }
 }

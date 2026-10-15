@@ -2,14 +2,14 @@
 type: er_guide
 title: Abu Simbel ab Assuan: So planen Sie den Tag
 excerpt: So planen Sie Abu Simbel ab Assuan: was Sie in den beiden Tempeln Ramses’ II. sehen, wie sie vor dem Nassersee gerettet wurden, Straße, Flug oder Kreuzfahrt auf dem Nassersee, private oder geteilte Touren und das Sonnenwunder im Februar und Oktober.
-source: e5ff8a47b25e
+source: 6013dc0fcbf5
 review: approved
 reviewer: AI review (Claude), publication approved by the owner
 reviewed: 2026-10-15
 ---
 [[toc]]
 
-Abu Simbel ist der Tag einer Ägyptenreise, um den die meisten ihre Planung bauen. Die beiden Felstempel Ramses’ II. liegen 280 km südlich von Assuan, nahe der sudanesischen Grenze. Der Besuch ist deshalb ein ganzer Tag außerhalb der Stadt. Dieser Ratgeber zeigt, was Sie sehen, wie die Tempel gerettet wurden, wie Sie hinkommen und wie Sie zwischen den angebotenen Touren wählen.
+Abu Simbel ist der Tag einer Ägyptenreise, um den die meisten ihre Planung bauen. Die beiden Felstempel Ramses’ II. liegen weit südlich von Assuan, nahe der sudanesischen Grenze. Der Besuch ist deshalb ein ganzer Tag außerhalb der Stadt. Dieser Ratgeber zeigt, was Sie sehen, wie die Tempel gerettet wurden, wie Sie hinkommen und wie Sie zwischen den angebotenen Touren wählen.
 
 ## Was Sie sehen {#what-you-will-see}
 
@@ -61,7 +61,7 @@ An zwei Tagen im Jahr, um den **22. Februar** und den **22. Oktober**, fallen di
 ## Häufige Fragen {#faq}
 
 ?? Wie weit ist Abu Simbel von Assuan entfernt?
-Etwa 280 km südlich, nahe der Grenze zum Sudan. Die meisten Besucher kommen auf einem Tagesausflug über die Straße oder mit einem kurzen Flug.
+Weit im Süden, nahe der Grenze zum Sudan. Die meisten Besucher kommen auf einem Tagesausflug über die Straße oder mit einem kurzen Flug.
 
 ?? Lohnt sich eine private Tour?
 Ja, wenn Sie einen Guide in den Tempeln und ein flexibles Tempo möchten. Eine geteilte Tour zeigt dieselben Tempel günstiger, mit festen Zeiten.

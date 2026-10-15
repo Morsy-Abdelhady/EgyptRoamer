@@ -47,6 +47,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-alexandria": {
+  "type": "er_experience",
+  "title": "Gita di un giorno ad Alessandria dal Cairo",
+  "excerpt": "Una gita di un giorno dal Cairo ad Alessandria: la Cittadella di Qaitbay sul sito del Faro, la Bibliotheca Alexandrina, le catacombe romane e la Colonna di Pompeo, la Corniche e un pranzo sul mare, e come sfruttare al meglio la giornata.",
+  "location": "Alessandria",
+  "review": "approved",
+  "current": true
+ },
  "exp-dinner": {
   "type": "er_experience",
   "excerpt": "Una crociera con cena sul Nilo al Cairo: com’è la serata, la musica e lo spettacolo di tanoura, a chi è adatta, come scegliere la barca e che differenza c’è con un semplice giro in feluca al tramonto.",
@@ -68,6 +76,14 @@
  "exp-giza": {
   "type": "er_experience",
   "excerpt": "Com’è una visita guidata privata alle piramidi di Giza e alla Sfinge, a chi è adatta, quando farla, a cosa fare attenzione sull’altopiano e come abbinarla al Grand Egyptian Museum e a Saqqara.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-ras-mohammed": {
+  "type": "er_experience",
+  "title": "Snorkeling a Ras Mohammed da Sharm el-Sheikh",
+  "excerpt": "Snorkeling nel Parco Nazionale di Ras Mohammed da Sharm el-Sheikh: il primo parco nazionale d’Egitto, via terra o in barca, pareti di corallo e pesci di barriera, le regole del parco, cosa portare e a chi è adatta l’escursione.",
+  "location": "Sharm el-Sheikh",
   "review": "approved",
   "current": true
  },
@@ -117,10 +133,38 @@
   "review": "approved",
   "current": true
  },
+ "g-day-trips-cairo": {
+  "type": "er_guide",
+  "title": "Le migliori gite di un giorno dal Cairo",
+  "excerpt": "Le migliori gite di un giorno dal Cairo: Giza e il Grande Museo Egizio, Saqqara e Dahshur, Alessandria sul Mediterraneo e Wadi Al-Hitan nel deserto del Fayyum, con cosa rende speciale ciascuna e come organizzarla.",
+  "review": "approved",
+  "current": true
+ },
  "g-gems": {
   "type": "er_guide",
   "title": "10 tesori nascosti che la maggior parte dei visitatori non vede mai",
   "excerpt": "Dieci luoghi straordinari in Egitto che la maggior parte dei visitatori salta: dalla Piramide Romboidale e Medinet Habu ad Abido, Dendera, Wadi Al-Hitan e Rosetta, con ciò che rende speciale ciascuno e come inserirlo in un viaggio.",
+  "review": "approved",
+  "current": true
+ },
+ "g-nile-cruise": {
+  "type": "er_guide",
+  "title": "Crociera sul Nilo o hotel? Da Luxor ad Assuan",
+  "excerpt": "Luxor e Assuan in crociera sul Nilo o soggiornando in hotel? Com’è una crociera, i templi di Edfu e Kom Ombo lungo il percorso, il compromesso tra tempo e libertà, le barche più piccole e come scegliere.",
+  "review": "approved",
+  "current": true
+ },
+ "g-snorkelling": {
+  "type": "er_guide",
+  "title": "Snorkeling in Egitto: Hurghada o Sharm el-Sheikh?",
+  "excerpt": "Snorkeling nel Mar Rosso: Hurghada o Sharm el-Sheikh? Le isole Giftun e il Parco Nazionale di Ras Mohammed a confronto, barca o riva, escursioni per principianti, regole di comportamento sulla barriera e come scegliere un operatore responsabile.",
+  "review": "approved",
+  "current": true
+ },
+ "g-white-desert": {
+  "type": "er_guide",
+  "title": "Una notte nel Deserto Bianco: cosa aspettarsi",
+  "excerpt": "Com’è davvero una notte nel Deserto Bianco in Egitto: il percorso attraverso l’oasi di Bahariya, il Deserto Nero e la Montagna di Cristallo, le formazioni di gesso al tramonto, la vita al campo e le notti fredde, cosa portare e come scegliere un operatore.",
   "review": "approved",
   "current": true
  }

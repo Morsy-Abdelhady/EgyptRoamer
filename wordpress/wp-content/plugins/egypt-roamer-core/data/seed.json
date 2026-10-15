@@ -2433,5 +2433,14 @@
     "alexandria>luxor": "طيران عبر القاهرة"
    }
   }
+ },
+ "extraStock": {
+  "_note": "Stand-in photos (approved prototype set) for pages written after the seed; theme er_stock_id_for() reads this map.",
+  "exp-alexandria": "1633624646814-3a61ed3e2847",
+  "exp-ras-mohammed": "1778400283418-b419be4be7a5",
+  "g-nile-cruise": "1644517270263-4112379d97ca",
+  "g-day-trips-cairo": "1678038592327-c5730737f867",
+  "g-snorkelling": "1722264222007-3e4f1808db3e",
+  "g-white-desert": "1691591403777-128b9a842b8b"
  }
 }

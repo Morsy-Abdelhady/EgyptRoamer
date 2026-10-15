@@ -2,14 +2,14 @@
 type: er_guide
 title: Abou Simbel depuis Assouan : comment organiser la journée
 excerpt: Comment organiser la visite d’Abou Simbel depuis Assouan : ce que vous verrez dans les deux temples de Ramsès II, comment ils ont été sauvés du lac Nasser, route, avion ou croisière sur le lac Nasser, circuits privés ou partagés, et le phénomène solaire de février et d’octobre.
-source: e5ff8a47b25e
+source: 6013dc0fcbf5
 review: approved
 reviewer: AI review (Claude), publication approved by the owner
 reviewed: 2026-10-15
 ---
 [[toc]]
 
-Abou Simbel est la journée autour de laquelle la plupart des voyageurs construisent leur séjour en Égypte. Les deux temples rupestres de Ramsès II se dressent à 280 km au sud d’Assouan, près de la frontière soudanaise : la visite prend donc une journée entière hors de la ville. Ce guide présente ce que vous verrez, comment les temples ont été sauvés, les façons d’y aller et comment choisir parmi les circuits proposés.
+Abou Simbel est la journée autour de laquelle la plupart des voyageurs construisent leur séjour en Égypte. Les deux temples rupestres de Ramsès II se dressent loin au sud d’Assouan, près de la frontière soudanaise : la visite prend donc une journée entière hors de la ville. Ce guide présente ce que vous verrez, comment les temples ont été sauvés, les façons d’y aller et comment choisir parmi les circuits proposés.
 
 ## Ce que vous verrez {#what-you-will-see}
 
@@ -61,7 +61,7 @@ Deux jours par an, vers le **22 février** et le **22 octobre**, les premiers ra
 ## Questions fréquentes {#faq}
 
 ?? À quelle distance d’Assouan se trouve Abou Simbel ?
-À environ 280 km au sud, près de la frontière avec le Soudan. La plupart des visiteurs y vont en excursion d’une journée par la route ou prennent un vol court.
+Loin au sud, près de la frontière avec le Soudan. La plupart des visiteurs y vont en excursion d’une journée par la route ou prennent un vol court.
 
 ?? Un circuit privé en vaut-il la peine ?
 Oui, si vous voulez un guide dans les temples et un rythme souple. Un circuit partagé montre les mêmes temples pour moins cher, avec des horaires fixes.

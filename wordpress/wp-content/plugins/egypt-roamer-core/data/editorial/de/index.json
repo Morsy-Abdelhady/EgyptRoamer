@@ -47,6 +47,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-alexandria": {
+  "type": "er_experience",
+  "title": "Tagesausflug nach Alexandria ab Kairo",
+  "excerpt": "Ein Tagesausflug von Kairo nach Alexandria: die Zitadelle von Qaitbay an der Stelle des Pharos, die Bibliotheca Alexandrina, römische Katakomben und die Pompeiussäule, die Corniche und ein Mittagessen am Meer, und wie Sie den Tag gut nutzen.",
+  "location": "Alexandria",
+  "review": "approved",
+  "current": true
+ },
  "exp-dinner": {
   "type": "er_experience",
   "excerpt": "Eine Dinner-Kreuzfahrt auf dem Nil in Kairo: wie der Abend abläuft, Musik und Tanoura-Show, für wen sie sich eignet, wie Sie ein Schiff wählen und wie sie sich von einer einfachen Feluken-Fahrt bei Sonnenuntergang unterscheidet.",
@@ -68,6 +76,14 @@
  "exp-giza": {
   "type": "er_experience",
   "excerpt": "Wie eine private, geführte Tour zu den Pyramiden von Gizeh und der Sphinx abläuft, für wen sie sich eignet, wann Sie starten sollten, worauf Sie auf dem Plateau achten müssen und wie Sie sie mit dem Grand Egyptian Museum und Sakkara verbinden.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-ras-mohammed": {
+  "type": "er_experience",
+  "title": "Schnorcheln in Ras Mohammed ab Sharm El-Sheikh",
+  "excerpt": "Schnorcheln im Nationalpark Ras Mohammed ab Sharm El-Sheikh: Ägyptens erster Nationalpark, über Land oder mit dem Boot, Korallenwände und Rifffische, die Parkregeln, was Sie mitnehmen sollten und für wen der Ausflug passt.",
+  "location": "Sharm El-Sheikh",
   "review": "approved",
   "current": true
  },
@@ -117,10 +133,38 @@
   "review": "approved",
   "current": true
  },
+ "g-day-trips-cairo": {
+  "type": "er_guide",
+  "title": "Die besten Tagesausflüge ab Kairo",
+  "excerpt": "Die besten Tagesausflüge ab Kairo: Gizeh und das Grand Egyptian Museum, Sakkara und Dahschur, Alexandria am Mittelmeer und Wadi al-Hitan in der Wüste von Fayum, mit dem, was jeden Ausflug ausmacht, und wie Sie ihn planen.",
+  "review": "approved",
+  "current": true
+ },
  "g-gems": {
   "type": "er_guide",
   "title": "10 verborgene Schätze, die die meisten Besucher nie sehen",
   "excerpt": "Zehn bemerkenswerte Orte in Ägypten, die die meisten Besucher auslassen: von der Knickpyramide und Medinet Habu bis Abydos, Dendera, Wadi al-Hitan und Rosetta, mit dem, was jeden besonders macht, und wie er in eine Reise passt.",
+  "review": "approved",
+  "current": true
+ },
+ "g-nile-cruise": {
+  "type": "er_guide",
+  "title": "Nilkreuzfahrt oder Hotels? Von Luxor nach Assuan",
+  "excerpt": "Luxor und Assuan per Nilkreuzfahrt oder mit Hotelaufenthalten? Wie eine Kreuzfahrt ist, die Tempel von Edfu und Kom Ombo unterwegs, das Abwägen zwischen Zeit und Freiheit, kleinere Segelschiffe und wie Sie sich entscheiden.",
+  "review": "approved",
+  "current": true
+ },
+ "g-snorkelling": {
+  "type": "er_guide",
+  "title": "Schnorcheln in Ägypten: Hurghada oder Sharm El-Sheikh?",
+  "excerpt": "Schnorcheln im Roten Meer: Hurghada oder Sharm El-Sheikh? Die Giftun-Inseln und der Nationalpark Ras Mohammed im Vergleich, Boot oder Ufer, Ausflüge für Anfänger, Riff-Etikette und wie Sie einen verantwortungsvollen Veranstalter wählen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-white-desert": {
+  "type": "er_guide",
+  "title": "Eine Nacht in der Weißen Wüste: was Sie erwartet",
+  "excerpt": "Wie eine Nacht in Ägyptens Weißer Wüste wirklich ist: die Route über die Oase Bahariya, die Schwarze Wüste und den Kristallberg, die Kreideformationen bei Sonnenuntergang, das Leben im Camp und kalte Nächte, was Sie einpacken und wie Sie einen Veranstalter wählen.",
   "review": "approved",
   "current": true
  }

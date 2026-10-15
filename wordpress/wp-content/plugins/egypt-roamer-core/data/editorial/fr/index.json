@@ -47,6 +47,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-alexandria": {
+  "type": "er_experience",
+  "title": "Excursion d’une journée à Alexandrie depuis Le Caire",
+  "excerpt": "Une excursion d’une journée du Caire à Alexandrie : la citadelle de Qaitbay sur le site du Phare, la Bibliotheca Alexandrina, les catacombes romaines et la colonne de Pompée, la Corniche et un déjeuner au bord de la mer, et comment tirer le meilleur de la journée.",
+  "location": "Alexandrie",
+  "review": "approved",
+  "current": true
+ },
  "exp-dinner": {
   "type": "er_experience",
   "excerpt": "Un dîner-croisière sur le Nil au Caire : le déroulé de la soirée, la musique et le spectacle de tanoura, à qui il s’adresse, comment choisir un bateau et en quoi il diffère d’une simple balade en felouque au coucher du soleil.",
@@ -68,6 +76,14 @@
  "exp-giza": {
   "type": "er_experience",
   "excerpt": "À quoi ressemble une visite guidée privée des pyramides de Gizeh et du Sphinx, à qui elle s’adresse, quand la faire, à quoi faire attention sur le plateau et comment la combiner avec le Grand Musée égyptien et Saqqarah.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-ras-mohammed": {
+  "type": "er_experience",
+  "title": "Snorkeling à Ras Mohammed depuis Charm el-Cheikh",
+  "excerpt": "Le snorkeling dans le parc national de Ras Mohammed depuis Charm el-Cheikh : le premier parc national d’Égypte, par la route ou en bateau, tombants coralliens et poissons de récif, les règles du parc, quoi emporter et à qui l’excursion s’adresse.",
+  "location": "Charm el-Cheikh",
   "review": "approved",
   "current": true
  },
@@ -117,10 +133,38 @@
   "review": "approved",
   "current": true
  },
+ "g-day-trips-cairo": {
+  "type": "er_guide",
+  "title": "Les meilleures excursions d’une journée depuis Le Caire",
+  "excerpt": "Les meilleures excursions d’une journée depuis Le Caire : Gizeh et le Grand Musée égyptien, Saqqarah et Dahchour, Alexandrie sur la Méditerranée et Wadi Al-Hitan dans le désert du Fayoum, avec ce qui fait l’intérêt de chacune et comment l’organiser.",
+  "review": "approved",
+  "current": true
+ },
  "g-gems": {
   "type": "er_guide",
   "title": "10 trésors cachés que la plupart des visiteurs ne voient jamais",
   "excerpt": "Dix lieux remarquables d’Égypte que la plupart des visiteurs manquent : de la pyramide rhomboïdale et Medinet Habou à Abydos, Dendérah, Wadi Al-Hitan et Rosette, avec ce qui rend chacun unique et comment l’intégrer à un voyage.",
+  "review": "approved",
+  "current": true
+ },
+ "g-nile-cruise": {
+  "type": "er_guide",
+  "title": "Croisière sur le Nil ou hôtels ? De Louxor à Assouan",
+  "excerpt": "Louxor et Assouan en croisière sur le Nil ou en séjournant à l’hôtel ? À quoi ressemble une croisière, les temples d’Edfou et de Kom Ombo sur le trajet, le compromis entre temps et liberté, les bateaux plus petits, et comment choisir.",
+  "review": "approved",
+  "current": true
+ },
+ "g-snorkelling": {
+  "type": "er_guide",
+  "title": "Le snorkeling en Égypte : Hurghada ou Charm el-Cheikh ?",
+  "excerpt": "Le snorkeling en mer Rouge : Hurghada ou Charm el-Cheikh ? Les îles Giftun et le parc national de Ras Mohammed comparés, bateau ou rivage, sorties pour débutants, bonnes pratiques sur le récif et comment choisir un opérateur responsable.",
+  "review": "approved",
+  "current": true
+ },
+ "g-white-desert": {
+  "type": "er_guide",
+  "title": "Une nuit dans le Désert blanc : à quoi s’attendre",
+  "excerpt": "À quoi ressemble vraiment une nuit dans le Désert blanc en Égypte : la route par l’oasis de Bahariya, le Désert noir et la montagne de Cristal, les formations de craie au coucher du soleil, la vie au bivouac et les nuits froides, quoi emporter et comment choisir un opérateur.",
   "review": "approved",
   "current": true
  }

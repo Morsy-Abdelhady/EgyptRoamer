@@ -2,6 +2,23 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.53 / Core 1.2.38 — 2026-10-15: content plan delivered (4 guides, 2 experiences)
+- **New experience pages,** in 8 languages:
+  - "Alexandria Day Trip from Cairo" (`exp-alexandria`, linked to offer #574);
+  - "Ras Mohammed Snorkelling from Sharm El Sheikh" (`exp-ras-mohammed`, linked to offer #577).
+- **New guides,** in 8 languages:
+  - "Nile Cruise or Hotels? Luxor to Aswan Explained";
+  - "The Best Day Trips from Cairo";
+  - "Snorkelling in Egypt: Hurghada or Sharm El Sheikh?";
+  - "A Night in the White Desert: What to Expect".
+- **Sources:** Britannica (Edfu, Kom Ombo, Saqqara) and UNESCO (Wadi Al-Hitan). The other facts were already sourced on the site. See `docs/CONTENT-SOURCES.md`.
+- **Abu Simbel guide:** the distance "280 km" was removed in all 8 languages. The fact policy leaves distances out.
+- **Core sync:**
+  - It now also creates new experiences (with a translated `location`), not just guides.
+  - It updates a page it created from its file only while that page is untouched in WordPress (content hash, or never modified since creation).
+- **Theme:** `er_stock_id_for()` reads `extraStock` from the seed for the stand-in photos of pages written after the seed.
+- **Chinese:** offer cards use 拜哈里耶, as on the approved pages.
+
 ## 1.2.52 — 2026-10-15: guide booking box shows the choices
 - **Guide booking boxes now show up to 4 offers in all:** every offer of the experiences the guide covers when it covers few, and the first offer of each when it covers several.
 - **Why:** the Abu Simbel guide compares private and shared tours, but its box showed only the private one.

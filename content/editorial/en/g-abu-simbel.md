@@ -9,7 +9,7 @@ related: exp-abu
 ---
 [[toc]]
 
-Abu Simbel is the one day of an Egypt trip that most people plan around. The two rock temples of Ramesses II stand 280 km south of Aswan, near the Sudanese border, so the visit is a full day away from the city. This guide covers what you will see, how the temples were saved, the ways to get there, and how to choose between the tours on offer.
+Abu Simbel is the one day of an Egypt trip that most people plan around. The two rock temples of Ramesses II stand far to the south of Aswan, near the Sudanese border, so the visit takes a full day away from the city. This guide covers what you will see, how the temples were saved, the ways to get there, and how to choose between the tours on offer.
 
 ## What you will see {#what-you-will-see}
 
@@ -61,7 +61,7 @@ On two days of the year, about **22 February** and **22 October**, the first ray
 ## Frequently asked questions {#faq}
 
 ?? How far is Abu Simbel from Aswan?
-About 280 km to the south, near the border with Sudan. Most visitors go on a day trip by road or take a short flight.
+Far to the south, near the border with Sudan. Most visitors go on a day trip by road or take a short flight.
 
 ?? Is a private tour worth it?
 If you want a guide inside the temples and a flexible pace, yes. A shared tour sees the same temples for less, with fixed timings.

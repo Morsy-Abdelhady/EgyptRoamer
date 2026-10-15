@@ -2,14 +2,14 @@
 type: er_guide
 title: Abu Simbel desde Asuán: cómo organizar el día
 excerpt: Cómo organizar la visita a Abu Simbel desde Asuán: qué verás en los dos templos de Ramsés II, cómo se salvaron del lago Nasser, carretera, avión o crucero por el lago Nasser, tours privados o compartidos y el fenómeno solar de febrero y octubre.
-source: e5ff8a47b25e
+source: 6013dc0fcbf5
 review: approved
 reviewer: AI review (Claude), publication approved by the owner
 reviewed: 2026-10-15
 ---
 [[toc]]
 
-Abu Simbel es el día en torno al cual la mayoría organiza su viaje a Egipto. Los dos templos excavados en la roca de Ramsés II están a 280 km al sur de Asuán, cerca de la frontera con Sudán, así que la visita ocupa un día entero fuera de la ciudad. Esta guía explica qué verás, cómo se salvaron los templos, las formas de llegar y cómo elegir entre los tours disponibles.
+Abu Simbel es el día en torno al cual la mayoría organiza su viaje a Egipto. Los dos templos excavados en la roca de Ramsés II están muy al sur de Asuán, cerca de la frontera con Sudán, así que la visita ocupa un día entero fuera de la ciudad. Esta guía explica qué verás, cómo se salvaron los templos, las formas de llegar y cómo elegir entre los tours disponibles.
 
 ## Qué verás {#what-you-will-see}
 
@@ -61,7 +61,7 @@ Dos días al año, hacia el **22 de febrero** y el **22 de octubre**, los primer
 ## Preguntas frecuentes {#faq}
 
 ?? ¿A qué distancia está Abu Simbel de Asuán?
-A unos 280 km al sur, cerca de la frontera con Sudán. La mayoría de los visitantes van en una excursión de un día por carretera o en un vuelo corto.
+Muy al sur, cerca de la frontera con Sudán. La mayoría de los visitantes van en una excursión de un día por carretera o en un vuelo corto.
 
 ?? ¿Merece la pena un tour privado?
 Sí, si quieres un guía dentro de los templos y un ritmo flexible. Un tour compartido ve los mismos templos por menos, con horarios fijos.

@@ -47,6 +47,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-alexandria": {
+  "type": "er_experience",
+  "title": "从开罗出发的亚历山大一日游",
+  "excerpt": "从开罗出发的亚历山大一日游：建在法罗斯灯塔旧址上的盖贝依城堡、亚历山大图书馆、罗马时期的地下墓穴和庞贝柱、滨海大道与海边午餐，以及如何把一天安排得最充实。",
+  "location": "亚历山大",
+  "review": "approved",
+  "current": true
+ },
  "exp-dinner": {
   "type": "er_experience",
   "excerpt": "开罗尼罗河晚餐游船：夜晚是怎样度过的、音乐与坦努拉旋转舞表演、适合谁、如何选船，以及它与日落时简单乘一趟三角帆船有何不同。",
@@ -68,6 +76,14 @@
  "exp-giza": {
   "type": "er_experience",
   "excerpt": "吉萨金字塔与狮身人面像私人导览是什么样的体验、适合谁、何时出发、在高原上要注意什么，以及如何与大埃及博物馆和萨卡拉搭配。",
+  "review": "approved",
+  "current": true
+ },
+ "exp-ras-mohammed": {
+  "type": "er_experience",
+  "title": "从沙姆沙伊赫出发的穆罕默德角浮潜",
+  "excerpt": "从沙姆沙伊赫出发，到穆罕默德角国家公园浮潜：埃及第一座国家公园，走陆路还是乘船，珊瑚墙与礁鱼，公园规定，需要带什么，以及适合哪些人。",
+  "location": "沙姆沙伊赫",
   "review": "approved",
   "current": true
  },
@@ -117,10 +133,38 @@
   "review": "approved",
   "current": true
  },
+ "g-day-trips-cairo": {
+  "type": "er_guide",
+  "title": "从开罗出发的最佳一日游",
+  "excerpt": "从开罗出发的最佳一日游：吉萨与大埃及博物馆、萨卡拉和代赫舒尔、地中海边的亚历山大，以及法尤姆沙漠中的鲸鱼谷，介绍每一处的特点和行程安排。",
+  "review": "approved",
+  "current": true
+ },
  "g-gems": {
   "type": "er_guide",
   "title": "大多数游客从未见过的 10 处隐藏瑰宝",
   "excerpt": "埃及十处大多数游客会错过的非凡之地：从弯曲金字塔和哈布城到阿拜多斯、丹德拉、鲸鱼谷和罗塞塔，介绍每处的独特之处，以及如何把它们纳入行程。",
+  "review": "approved",
+  "current": true
+ },
+ "g-nile-cruise": {
+  "type": "er_guide",
+  "title": "尼罗河游船还是酒店？从卢克索到阿斯旺",
+  "excerpt": "游览卢克索和阿斯旺，是坐尼罗河游船还是住酒店？游船是什么样的，沿途的埃德富神庙和康翁波神庙，时间与自由的取舍，更小的帆船，以及如何选择。",
+  "review": "approved",
+  "current": true
+ },
+ "g-snorkelling": {
+  "type": "er_guide",
+  "title": "埃及浮潜：赫尔格达还是沙姆沙伊赫？",
+  "excerpt": "红海浮潜：赫尔格达还是沙姆沙伊赫？比较吉夫顿岛和穆罕默德角国家公园，乘船还是从岸边下水，适合初学者的行程，珊瑚礁礼仪，以及如何选择负责任的运营商。",
+  "review": "approved",
+  "current": true
+ },
+ "g-white-desert": {
+  "type": "er_guide",
+  "title": "白沙漠之夜：你会经历什么",
+  "excerpt": "在埃及白沙漠过夜到底是什么样：经由拜哈里耶绿洲、黑沙漠和水晶山的路线，日落时的白垩岩，营地生活与寒冷的夜晚，需要带什么，以及如何选择运营商。",
   "review": "approved",
   "current": true
  }
