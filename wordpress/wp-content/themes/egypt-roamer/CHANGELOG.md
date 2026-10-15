@@ -2,6 +2,14 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.60 — 2026-10-15: the booking bar on destinations and guides
+- **Owner request:** the same bar on destination and guide pages.
+- `er_book_bar()` is now called after the section tabs on destinations and guides, as on experiences. It is wide screens only, and sits over the article column when the sidebar is shown.
+  - **Destinations:** it hides when the full list of offers after the article is in view.
+  - **Guides:** at 1200 px and wider their in-article box is hidden, so the bar stays.
+- **Clicks on "#book" while the sidebar shows a booking box:** that box is used, called out with a gold ring if it is on screen, otherwise reached by scrolling to the start of the layout. Before, a destination's "#book" jumped past the article to the full list.
+- **QA:** every page except the homes must have the bar, and on no page may it cover the sidebar.
+
 ## 1.2.59 — 2026-10-15: the booking bar keeps off the sidebar
 - **Owner request:** narrow the bar so it does not cover the sidebar.
 - **Before:** the bar was centred on the screen and up to 760 px wide. At 1440 px it covered the sidebar's edge (the key facts) on 53 of the 80 experience pages.

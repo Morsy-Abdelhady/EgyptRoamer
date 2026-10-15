@@ -1624,18 +1624,18 @@
       new IntersectionObserver(([e]) => { endIn = e.isIntersecting; update(); }, { threshold: 0.15 }).observe(box);
     }
   });
-  // "#book" links (header, hero, dock, booking bar) when the box is in the sidebar (wide screens): on a guide the
-  // in-article box is hidden there, and a jump to a pinned box would scroll the reader back to where the sidebar
-  // starts. So: a box already in view is just called out; otherwise the page goes to where the sidebar starts.
+  // "#book" links (header, hero, dock, booking bar) while the sidebar shows a booking box (wide screens): that box is
+  // the one to use. On a guide the in-article box is hidden there; on a destination "#book" is the full list after
+  // the article, and a jump would take the reader away from where they are reading. So: a sidebar box already in view
+  // is just called out; otherwise the page goes to where the sidebar starts.
   safe("book-jump", () => {
     // Capture phase, ahead of the general in-page anchor scroll (nav.js), which would jump to the pinned box.
     document.addEventListener("click", (e) => {
       const a = e.target.closest && e.target.closest('a[href="#book"]');
       if (!a || a.closest(".menu")) return;
-      const t = document.getElementById("book");
-      if (t && t.getClientRects().length && !t.closest(".page-aside")) return;
-      const box = t && t.getClientRects().length ? t : document.querySelector(".page-aside .offer-box");
-      if (!box || getComputedStyle(box.closest(".page-aside") || box).display === "contents") return;
+      const aside = document.querySelector(".page-layout--aside > .page-aside");
+      const box = aside && getComputedStyle(aside).display !== "contents" ? [...aside.querySelectorAll(".offer-box")].find((b) => b.getClientRects().length) : null;
+      if (!box) return;
       e.preventDefault();
       e.stopPropagation();
       box.classList.remove("is-called");

@@ -66,6 +66,7 @@ while ( have_posts() ) :
 	] );
 	$er_body = er_body();
 	er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
+	er_book_bar(); // As on experience pages (owner, 15 Oct).
 	// Booking box inside the article, after its second section (below 1200px, where there is no sidebar): a reader
 	// who has decided should not have to reach the cards at the very end.
 	if ( $er_book ) {

@@ -65,6 +65,7 @@ while ( have_posts() ) :
 	] );
 	$er_body = er_body();
 	er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
+	er_book_bar(); // As on experience pages (owner, 15 Oct).
 	// Below 1200px (no sidebar): the booking box inside the article, after its second section, as on guides.
 	if ( $er_offers ) {
 		ob_start();

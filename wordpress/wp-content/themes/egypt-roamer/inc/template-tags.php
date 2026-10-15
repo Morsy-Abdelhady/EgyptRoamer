@@ -675,10 +675,10 @@ function er_book_anchor(): string {
 }
 
 /**
- * The booking bar of an experience page (wide screens; phones have the dock): the page's name and "Check
- * Availability" to its booking box, fixed at the bottom of the screen while the reader scrolls (site-main.js shows
- * it past the first screen and hides it at the booking box). First built for the Abu Simbel story, then given to
- * every experience page at the owner's request (15 Oct).
+ * The booking bar (wide screens; phones have the dock): the page's name and "Check Availability" to its booking
+ * box, fixed at the bottom of the screen while the reader scrolls (site-main.js shows it past the first screen and
+ * hides it at the booking box). First built for the Abu Simbel story, then given to every experience page, and to
+ * destinations and guides, at the owner's request (15 Oct).
  */
 function er_book_bar(): void {
 	$anchor = er_book_anchor();

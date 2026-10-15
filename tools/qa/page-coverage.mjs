@@ -89,8 +89,8 @@ async function check(pg) {
       tours: document.querySelectorAll(".itin__tour").length,
     };
   });
-  // The experience booking bar, once shown, must not cover the sidebar.
-  const barHit = pg.kind === "experiences" ? await p.evaluate(async () => {
+  // The booking bar, once shown, must not cover the sidebar.
+  const barHit = pg.kind !== "home" ? await p.evaluate(async () => {
     window.scrollTo(0, Math.round(window.innerHeight * 1.5));
     window.dispatchEvent(new Event("scroll"));
     await new Promise((r) => setTimeout(r, 300));
@@ -113,7 +113,7 @@ async function check(pg) {
     if (!d.story && !d.asideBox) fail(pg, "no booking box in the sidebar on wide screens");
     if (!/^#(book|plan)$/.test(d.cta)) fail(pg, `header button goes to "${d.cta}", not the booking box`);
     if (!/^#(book|plan)$/.test(d.menuCta)) fail(pg, `phone menu button goes to "${d.menuCta}", not the booking box`);
-    if (pg.kind === "experiences" && !d.bookbar) fail(pg, "experience page without its booking bar");
+    if (!d.bookbar) fail(pg, "no booking bar");
     if (d.goldHome) fail(pg, `${d.goldHome} gold button(s) leave for the homepage planner`);
   }
   for (const o of d.offers) {
