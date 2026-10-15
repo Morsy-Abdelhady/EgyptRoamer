@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.62 — 2026-10-15: the phone booking bar from the first screen
+- **Owner report (Ras Mohammed on a phone):** "the bar is not on mobile". It only appeared after scrolling past the first screen, so a reader at the top never saw it.
+- **Fix:** on phones (900 px and below) the bar is shown from the first screen. It still steps aside while the booking box it leads to is on screen. Wide screens keep showing it once past the first screen.
+
 ## 1.2.61 — 2026-10-15: the booking bar centred again, and on phones
 - **Owner decision:** keep the bar centred on the screen as before (reverts 1.2.59's fit to the article column); the Trip assistant stays as it is.
 - **Phones:** the bar is shown on phones too (it was wide screens only). It sits just above the dock, full width except the corner of the Trip assistant button, which it leaves clear in both directions (`inset-inline`).

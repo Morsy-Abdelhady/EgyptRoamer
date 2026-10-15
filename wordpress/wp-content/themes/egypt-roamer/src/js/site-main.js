@@ -48,8 +48,12 @@ safe("bookbar", () => {
   let past = false;
   let endIn = false;
   const update = () => { bar.hidden = !past || endIn; };
-  const onScroll = () => { const p = window.scrollY > window.innerHeight * 0.8; if (p !== past) { past = p; update(); } };
+  // Phones show it from the first screen (owner, 15 Oct: opened at the top, the bar was not there); wide screens
+  // once the reader is past the first screen.
+  const phone = window.matchMedia("(max-width: 900px)");
+  const onScroll = () => { const p = phone.matches || window.scrollY > window.innerHeight * 0.8; if (p !== past) { past = p; update(); } };
   window.addEventListener("scroll", onScroll, { passive: true });
+  phone.addEventListener?.("change", onScroll);
   onScroll();
   if (!box.closest(".page-aside") && "IntersectionObserver" in window) {
     new IntersectionObserver(([e]) => { endIn = e.isIntersecting; update(); }, { threshold: 0.15 }).observe(box);
