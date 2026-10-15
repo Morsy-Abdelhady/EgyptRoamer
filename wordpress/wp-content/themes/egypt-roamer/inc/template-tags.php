@@ -635,7 +635,7 @@ function er_card_grid( array $post_ids, string $placement = 'card', string $head
 
 /**
  * Live offers of the page being viewed: its own (experiences, tours, activities, destinations), or for a guide
- * the first offer of each experience it covers. Feeds the hero/dock "book" shortcuts and the guide's booking box.
+ * the offers of the experiences it covers (up to 4 in all). Feeds the hero/dock "book" shortcuts and the guide's booking box.
  */
 function er_page_offers(): array {
 	static $cache = null;
@@ -648,8 +648,12 @@ function er_page_offers(): array {
 	}
 	$id = (int) get_queried_object_id();
 	if ( 'er_guide' === get_post_type( $id ) ) {
-		foreach ( er_get_related( $id, '_er_related' ) as $rel ) {
-			$cache = array_merge( $cache, er_offers_for_post( (int) $rel->ID, 1 ) );
+		// Up to 4 offers in all: a guide about one experience shows its choices (e.g. private and shared),
+		// a guide covering several shows the first offer of each.
+		$related = er_get_related( $id, '_er_related' );
+		$each    = max( 1, intdiv( 4, max( 1, count( $related ) ) ) );
+		foreach ( $related as $rel ) {
+			$cache = array_merge( $cache, er_offers_for_post( (int) $rel->ID, $each ) );
 		}
 		$cache = array_values( array_unique( array_map( 'intval', $cache ) ) );
 	} else {

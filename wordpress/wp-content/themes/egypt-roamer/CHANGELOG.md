@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.52 — 2026-10-15: guide booking box shows the choices
+- **Guide booking boxes now show up to 4 offers in all:** every offer of the experiences the guide covers when it covers few, and the first offer of each when it covers several.
+- **Why:** the Abu Simbel guide compares private and shared tours, but its box showed only the private one.
+
 ## Core 1.2.37 — 2026-10-15: first new guide, 7 more Viator offers
 - **Owner authority, 2026-10-15:** publish and edit guides, and add all 7 offer candidates.
 - **New guide "Abu Simbel from Aswan: How to Plan the Day"** (`g-abu-simbel`), published in 8 languages.
