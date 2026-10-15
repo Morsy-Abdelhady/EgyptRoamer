@@ -162,3 +162,27 @@ Taken during the audit and kept with the QA run (scratchpad `pwt/nav/`, not comm
 - `keyboard.mjs`, `overlays.mjs` and `hygiene.mjs` all pass. The first axe run flagged contrast on the EN tag at 75 % opacity; the opacity was removed.
 
 **Remaining [Gap]:** native-language guides. When a guide is published in a language, the menu, footer and homepage switch to it automatically and the EN tag disappears.
+
+## 9. Guides translated and published (theme 1.2.48 / Core 1.2.33, commit `e1c200d`)
+
+**Owner decision (15 Oct):** translate the guides and publish them right away with a review note, instead of linking the English.
+
+- **The translations:** 28 guide translations (4 guides × 7 languages), faithful to the English, in `content/editorial/<lang>/g-*.md` (`review: pending`).
+- **Publishing:** done on production through **Egypt Roamer → Guide translations**: `{"created":28,…}`, re-run `{"current":28}`.
+- **The review note:** each opens with "translated from the English original, not yet reviewed by a native speaker; the English version is the reference", linked to the English guide.
+- **Indexing:** IndexNow sent the 28 URLs (answer 200). Each language's sitemap now has a guides sitemap.
+
+**Production after the release:**
+- **Menu:** Destinations · Experiences · Travel Guide in all 8 languages, each linking its own `/xx/guides/`, with **no "EN" tag** any more.
+- **Homepage:** the Journal shows guides in the page's language, in all 8.
+- **Guide pages:** indexable, 9 hreflang links, internal links pointing to the same language, no overflow at 390 or 1440.
+- **Fixes found while checking:**
+  - reading time was "1 min" in Arabic and Russian (Latin-only word count), now 3 min in every language;
+  - dates were "October 15, 2026" on every language, now in the page's language ("15 أكتوبر 2026", "15. Oktober 2026", "2026年10月15日").
+
+**Regression (local):**
+- footer parity: pass on 9 pages × 7 languages;
+- keyboard, axe and hygiene: pass;
+- 64 responsive renders: 0 problems.
+
+**Remaining [Gap]:** native review of the 28 translations. When a reviewer approves one, set `review: approved` (+ reviewer and date) and re-run the sync; the note then changes to a plain "translated from the English original".
