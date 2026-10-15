@@ -1,6 +1,6 @@
-/* Egypt Roamer — dataLayer events. No dependencies, no personal data.
-   Events: affiliate_click, booking_click, search, filter_use,
-           newsletter_signup, contact_submit, guide_download */
+/* Egypt Roamer — first-party page-view totals and dataLayer events. No dependencies, no personal data.
+   dataLayer events (only used if a GTM container is configured): affiliate_click, booking_click, search,
+   filter_use, newsletter_signup, contact_submit, guide_download */
 (function () {
   "use strict";
   var dl = (window.dataLayer = window.dataLayer || []);
@@ -11,11 +11,71 @@
     dl.push(o);
   };
 
+  // First-party page-view totals (Core includes/visits.php). No cookie, no identifier, nothing kept in
+  // the browser except the "this is an editor's browser" flag. Only the referrer's host is sent.
+  var hit = (function () {
+    var off = false;
+    try {
+      if (String(cfg.self) === "1") localStorage.setItem("er-nocount", "1"); // localized values arrive as strings
+      off = localStorage.getItem("er-nocount") === "1";
+    } catch (err) {
+      /* storage blocked: count normally */
+    }
+    if (
+      off ||
+      !cfg.hit ||
+      navigator.webdriver ||
+      navigator.doNotTrack === "1" ||
+      window.doNotTrack === "1" ||
+      navigator.globalPrivacyControl === true ||
+      !window.fetch
+    )
+      return function () {};
+    var w = Math.min(window.screen ? screen.width : 0, window.innerWidth || 9999) || window.innerWidth || 0;
+    var device = w && w < 768 ? "mobile" : w && w < 1100 ? "tablet" : "desktop";
+    var ref = "";
+    try {
+      ref = document.referrer ? new URL(document.referrer).hostname : "";
+    } catch (err) {
+      ref = "";
+    }
+    var utm = "";
+    try {
+      utm = new URL(location.href).searchParams.get("utm_source") || "";
+    } catch (err) {
+      utm = "";
+    }
+    return function (event, extra) {
+      var body = { e: event, p: location.pathname, l: cfg.lang || "", t: cfg.pageType || "", d: device, r: ref, u: utm };
+      for (var k in extra) body[k] = extra[k];
+      try {
+        fetch(cfg.hit, { method: "POST", body: JSON.stringify(body), keepalive: true, credentials: "same-origin", headers: { "Content-Type": "text/plain" } }).catch(function () {});
+      } catch (err) {
+        /* never break the page */
+      }
+    };
+  })();
+  var sendView = function () {
+    hit("view", {});
+  };
+  if (document.prerendering) document.addEventListener("prerenderingchange", sendView, { once: true });
+  else if (document.visibilityState === "hidden") {
+    // Opened in a background tab: count it when it is first shown.
+    var onShow = function () {
+      if (document.visibilityState === "visible") {
+        document.removeEventListener("visibilitychange", onShow);
+        sendView();
+      }
+    };
+    document.addEventListener("visibilitychange", onShow);
+  } else sendView();
+
   document.addEventListener(
     "click",
     function (e) {
       var a = e.target.closest && e.target.closest("[data-er-offer]");
       if (a) {
+        hit("cta", { c: (a.getAttribute("data-er-placement") || "offer").toLowerCase().slice(0, 32) });
         var params = {
           offer: a.getAttribute("data-er-offer"),
           provider: a.getAttribute("data-er-provider"),

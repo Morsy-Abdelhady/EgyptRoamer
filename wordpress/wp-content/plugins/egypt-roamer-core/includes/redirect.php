@@ -157,6 +157,7 @@ function er_handle_go( string $slug, bool $themed_404 ): void {
 
 	if ( $offer && 'publish' === $offer->post_status ) {
 		if ( ! er_offer_is_live( $offer->ID ) ) {
+			do_action( 'er_go_failed', $slug, 'not_live' );
 			wp_safe_redirect( er_offer_fallback_url( $offer->ID ), 302 );
 			exit;
 		}
@@ -165,6 +166,7 @@ function er_handle_go( string $slug, bool $themed_404 ): void {
 		$place  = '' === $place ? 'direct' : $place;
 		$url    = er_offer_destination_url( $offer->ID, [ 'placement' => $place, 'page' => $source['page'], 'lang' => $source['lang'], 'search' => er_finder_search() ] );
 		if ( is_wp_error( $url ) ) {
+			do_action( 'er_go_failed', $slug, $url->get_error_code() );
 			wp_safe_redirect( er_offer_fallback_url( $offer->ID ), 302 );
 			exit;
 		}
@@ -207,6 +209,7 @@ function er_handle_go( string $slug, bool $themed_404 ): void {
 		}
 	}
 
+	do_action( 'er_go_failed', $slug, 'unknown' );
 	if ( $themed_404 ) {
 		// Unknown or unusable slug on /go/ itself: a real 404 (noindex) so broken links show up in logs.
 		global $wp_query;

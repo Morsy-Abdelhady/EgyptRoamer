@@ -126,6 +126,10 @@
   "contact": {
    "file": "en/contact.html",
    "replaces_sha1": "f3a53c653c371213f9cb2ea16f6ff0d4c0698009"
+  },
+  "privacy-policy": {
+   "file": "en/privacy-policy.html",
+   "replaces_sha1": "2f80a433b2fe959867b1ad3c02b1f458147f6297"
   }
  }
 }

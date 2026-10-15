@@ -92,9 +92,9 @@ def privacy(t, note):
     return "\n\n".join([
         p(f"<em>{t('updated')}</em>"), p(t("intro")), note,
         h2(t("h_who"), "who-we-are"), p(t("who_1")), p(t("who_2")),
-        h2(t("h_what"), "what-we-handle"), ul([t(k) for k in ("li_contact", "li_newsletter", "li_clicks", "li_spam", "li_storage")]), p(t("what_after")),
+        h2(t("h_what"), "what-we-handle"), ul([t(k) for k in ("li_contact", "li_newsletter", "li_clicks", "li_visits", "li_spam", "li_storage")]), p(t("what_after")),
         h2(t("h_services"), "who-else"), ul([t(k) for k in ("li_godaddy", "li_cloudflare", "li_unsplash", "li_partners")]), p(t("services_after")),
-        h2(t("h_long"), "how-long"), ul([t(k) for k in ("li_long_contact", "li_long_news", "li_long_clicks", "li_long_spam")]),
+        h2(t("h_long"), "how-long"), ul([t(k) for k in ("li_long_contact", "li_long_news", "li_long_clicks", "li_long_visits", "li_long_spam")]),
         h2(t("h_choices"), "your-choices"), p(t("choices")),
         h2(t("h_children"), "children"), p(t("children")),
         h2(t("h_changes"), "changes"), p(t("changes")),
@@ -154,6 +154,10 @@ def build() -> dict:
     files["en/contact.html"] = en_new + "\n"
     # sha1 of the English Contact content published on 2026-09-30 (git cf01c79:content/legal/en/contact.html, trimmed).
     index["en_updates"]["contact"] = {"file": "en/contact.html", "replaces_sha1": "f3a53c653c371213f9cb2ea16f6ff0d4c0698009"}
+    # English Privacy Policy (2026-10-15: first-party page-view totals), replacing exactly the version
+    # published on 2026-09-30 (git a8079a1:content/legal/en/privacy-policy.html, trimmed).
+    files["en/privacy-policy.html"] = (SRC / "en" / "privacy-policy.html").read_text(encoding="utf-8")
+    index["en_updates"]["privacy-policy"] = {"file": "en/privacy-policy.html", "replaces_sha1": "2f80a433b2fe959867b1ad3c02b1f458147f6297"}
     files["index.json"] = json.dumps(index, ensure_ascii=False, indent=1) + "\n"
     return files
 

@@ -36,11 +36,11 @@ add_action( 'wp_body_open', static function () {
 
 add_action( 'wp_enqueue_scripts', static function () {
 	wp_enqueue_script( 'er-track', ER_CORE_URL . 'assets/track.js', [], ER_CORE_VERSION, [ 'in_footer' => true, 'strategy' => 'defer' ] );
-	wp_localize_script( 'er-track', 'erTrack', [
+	wp_localize_script( 'er-track', 'erTrack', apply_filters( 'er_track_config', [
 		'pageType' => er_page_type(),
 		'search'   => is_search() ? er_redact( get_search_query( false ) ) : '',
 		'results'  => is_search() ? (int) $GLOBALS['wp_query']->found_posts : 0,
-	] );
+	] ) );
 } );
 
 /** A coarse page type for reporting (no IDs, no personal data). */
