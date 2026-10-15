@@ -80,6 +80,15 @@
   "type": "er_experience",
   "excerpt": "A guided West Bank day in Luxor: the Valley of the Kings and Hatshepsut's temple at Deir el-Bahari, how tomb tickets work, the best time to go, and what to add if you have more time."
  },
+ "g-10-days": {
+  "type": "er_guide",
+  "title": "10 Days in Egypt: The Nile Valley and the Red Sea",
+  "excerpt": "A 10-day Egypt itinerary: Cairo and the pyramids, Luxor and Aswan with Abu Simbel, then three days on the Red Sea at Hurghada, with how to travel between them and what to change if you prefer a Nile cruise.",
+  "slug": "10-days-in-egypt-itinerary",
+  "topic": "Planning",
+  "destination": "cairo, luxor, aswan, hurghada",
+  "related": "exp-giza, exp-valley, exp-abu, exp-dive"
+ },
  "g-7-days": {
   "type": "er_guide",
   "excerpt": "A realistic first-time Egypt itinerary for seven days: Cairo and the pyramids, Luxor's temples and tombs, and Aswan, with options for a Nile cruise, the Red Sea or Abu Simbel, and what to leave out.",
@@ -95,11 +104,29 @@
   "destination": "aswan",
   "related": "exp-abu"
  },
+ "g-aswan-temples": {
+  "type": "er_guide",
+  "title": "The Temples of Aswan and Lake Nasser: Which to See",
+  "excerpt": "The temples of Aswan and Lake Nasser, and which to see: Philae and its rescue, Kom Ombo and Edfu to the north, Kalabsha by the High Dam, the rescued temples on the lake, and Abu Simbel, with how to fit them into your days.",
+  "slug": "temples-of-aswan-and-lake-nasser",
+  "topic": "Planning",
+  "destination": "aswan",
+  "related": "exp-abu"
+ },
  "g-best-time": {
   "type": "er_guide",
   "excerpt": "When to visit Egypt, season by season and region by region: the Nile Valley's comfortable winter, the Red Sea's long beach season, the desert's cold nights, and how Ramadan and holidays change a trip.",
   "destination": "cairo, luxor, aswan, hurghada, sharm, siwa, alexandria",
   "related": "exp-abu, exp-safari"
+ },
+ "g-cairo-night": {
+  "type": "er_guide",
+  "title": "Cairo at Night: Nile Cruises, Street Food and the Old City",
+  "excerpt": "What to do in Cairo at night: a Nile dinner cruise with music and a tanoura show, a street-food tour, Al-Muizz Street and Khan el-Khalili after dark, sunset in Al-Azhar Park, and tips for evenings in the city.",
+  "slug": "cairo-at-night",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-dinner, exp-food"
  },
  "g-cairo": {
   "type": "er_guide",
@@ -115,6 +142,15 @@
   "topic": "Planning",
   "destination": "cairo, alexandria",
   "related": "exp-giza, exp-alexandria, exp-safari"
+ },
+ "g-desert-choice": {
+  "type": "er_guide",
+  "title": "Siwa or the White Desert? Choosing Your Desert Trip",
+  "excerpt": "Siwa Oasis or the White Desert: which Western Desert trip is right for you? Landscapes, culture, time needed, camping or oasis stays, and who each trip suits, with the tours we recommend for both.",
+  "slug": "siwa-or-white-desert",
+  "topic": "Planning",
+  "destination": "siwa",
+  "related": "exp-siwa, exp-safari"
  },
  "g-gems": {
   "type": "er_guide",
@@ -139,6 +175,15 @@
   "topic": "Planning",
   "destination": "hurghada, sharm",
   "related": "exp-ras-mohammed, exp-dive"
+ },
+ "g-valley-kings": {
+  "type": "er_guide",
+  "title": "The Valley of the Kings: Tombs, Tickets and Tips",
+  "excerpt": "How to visit the Valley of the Kings in Luxor: what the royal tombs are, how tickets work, Tutankhamun and Seti I, what else to see on the West Bank, and practical tips for a hot, busy valley.",
+  "slug": "valley-of-the-kings-tombs-and-tickets",
+  "topic": "Planning",
+  "destination": "luxor",
+  "related": "exp-valley"
  },
  "g-white-desert": {
   "type": "er_guide",

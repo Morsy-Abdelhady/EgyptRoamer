@@ -20,7 +20,8 @@
 ## Also on the list
 
 - ✅ **Experience pages for Alexandria and Sharm,** published 15 Oct in 8 languages (`exp-alexandria` #601, `exp-ras-mohammed` #602). They are linked to offers #574 and #577.
-- **Next:** pick the next 5 guides from GSC queries after the 22 Oct check.
+- ✅ **Second batch, published 16 Oct** (8 languages): `g-aswan-temples`, `g-desert-choice`, `g-valley-kings`, `g-10-days`, `g-cairo-night`.
+- **Next:** pick the next 5 guides from the GSC queries after the 22 Oct check (scheduled task).
 - **Arabic first for guide 1.** The site already gets impressions for "اسوان" and "معابد اسوان".
 
 ## Measure

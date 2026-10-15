@@ -105,6 +105,13 @@
   "review": "approved",
   "current": true
  },
+ "g-10-days": {
+  "type": "er_guide",
+  "title": "10 jours en Égypte : la vallée du Nil et la mer Rouge",
+  "excerpt": "Un itinéraire de 10 jours en Égypte : Le Caire et les pyramides, Louxor et Assouan avec Abou Simbel, puis trois jours sur la mer Rouge à Hurghada, avec les trajets entre les étapes et ce qui change si vous préférez une croisière sur le Nil.",
+  "review": "approved",
+  "current": true
+ },
  "g-7-days": {
   "type": "er_guide",
   "title": "7 jours en Égypte : l’itinéraire idéal pour une première visite",
@@ -119,10 +126,24 @@
   "review": "approved",
   "current": true
  },
+ "g-aswan-temples": {
+  "type": "er_guide",
+  "title": "Les temples d’Assouan et du lac Nasser : lesquels voir",
+  "excerpt": "Les temples d’Assouan et du lac Nasser, et lesquels voir : Philae et son sauvetage, Kom Ombo et Edfou au nord, Kalabsha près du haut barrage, les temples déplacés au bord du lac et Abou Simbel, avec comment les caser dans vos journées.",
+  "review": "approved",
+  "current": true
+ },
  "g-best-time": {
   "type": "er_guide",
   "title": "La meilleure période pour visiter l’Égypte, mois par mois",
   "excerpt": "Quand partir en Égypte, saison par saison et région par région : l’hiver agréable de la vallée du Nil, la longue saison balnéaire de la mer Rouge, les nuits froides du désert, et comment le ramadan et les fêtes changent un voyage.",
+  "review": "approved",
+  "current": true
+ },
+ "g-cairo-night": {
+  "type": "er_guide",
+  "title": "Le Caire la nuit : croisières sur le Nil, cuisine de rue et vieille ville",
+  "excerpt": "Que faire au Caire le soir : un dîner-croisière sur le Nil avec musique et spectacle de tanoura, une visite gourmande de la cuisine de rue, la rue Al-Muizz et Khan el-Khalili à la nuit tombée, le coucher du soleil au parc Al-Azhar, et des conseils pour les soirées.",
   "review": "approved",
   "current": true
  },
@@ -137,6 +158,13 @@
   "type": "er_guide",
   "title": "Les meilleures excursions d’une journée depuis Le Caire",
   "excerpt": "Les meilleures excursions d’une journée depuis Le Caire : Gizeh et le Grand Musée égyptien, Saqqarah et Dahchour, Alexandrie sur la Méditerranée et Wadi Al-Hitan dans le désert du Fayoum, avec ce qui fait l’intérêt de chacune et comment l’organiser.",
+  "review": "approved",
+  "current": true
+ },
+ "g-desert-choice": {
+  "type": "er_guide",
+  "title": "Siwa ou le Désert blanc ? Choisir son excursion dans le désert",
+  "excerpt": "L’oasis de Siwa ou le Désert blanc : quelle excursion dans le désert Occidental vous convient ? Paysages, culture, temps nécessaire, bivouac ou séjour dans l’oasis, et à qui s’adresse chacune, avec nos excursions recommandées pour les deux.",
   "review": "approved",
   "current": true
  },
@@ -158,6 +186,13 @@
   "type": "er_guide",
   "title": "Le snorkeling en Égypte : Hurghada ou Charm el-Cheikh ?",
   "excerpt": "Le snorkeling en mer Rouge : Hurghada ou Charm el-Cheikh ? Les îles Giftun et le parc national de Ras Mohammed comparés, bateau ou rivage, sorties pour débutants, bonnes pratiques sur le récif et comment choisir un opérateur responsable.",
+  "review": "approved",
+  "current": true
+ },
+ "g-valley-kings": {
+  "type": "er_guide",
+  "title": "La Vallée des Rois : tombes, billets et conseils",
+  "excerpt": "Comment visiter la Vallée des Rois à Louxor : ce que sont les tombes royales, comment fonctionnent les billets, Toutânkhamon et Séthi Iᵉʳ, que voir d’autre sur la rive ouest, et des conseils pratiques pour une vallée chaude et fréquentée.",
   "review": "approved",
   "current": true
  },

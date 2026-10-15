@@ -2,6 +2,17 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## Core 1.2.39 — 2026-10-16: five more guides
+- **New guides, in 8 languages:**
+  - "The Temples of Aswan and Lake Nasser" (Abu Simbel offers);
+  - "Siwa or the White Desert?" (Siwa and White Desert offers);
+  - "The Valley of the Kings: Tombs, Tickets and Tips" (West Bank offers);
+  - "10 Days in Egypt" (Giza, West Bank, Abu Simbel and Hurghada offers);
+  - "Cairo at Night" (Nile dinner cruise and food tour offers).
+- **Topics chosen** from the first queries with impressions (e.g. "معابد اسوان") and from bookable intent. Each guide answers a search intent that no existing page covers.
+- **Sources:** Britannica (Siwa, Valley of the Kings) and UNESCO (Nubian Monuments and the rescue campaign), in `docs/CONTENT-SOURCES.md`.
+- **Photos:** `extraStock` stand-ins.
+
 ## 1.2.53 / Core 1.2.38 — 2026-10-15: content plan delivered (4 guides, 2 experiences)
 - **New experience pages,** in 8 languages:
   - "Alexandria Day Trip from Cairo" (`exp-alexandria`, linked to offer #574);

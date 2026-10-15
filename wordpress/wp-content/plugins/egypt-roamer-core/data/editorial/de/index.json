@@ -105,6 +105,13 @@
   "review": "approved",
   "current": true
  },
+ "g-10-days": {
+  "type": "er_guide",
+  "title": "10 Tage in Ägypten: Niltal und Rotes Meer",
+  "excerpt": "Eine 10-Tage-Reiseroute für Ägypten: Kairo und die Pyramiden, Luxor und Assuan mit Abu Simbel, dann drei Tage am Roten Meer in Hurghada, mit der Reise zwischen den Orten und was Sie ändern, wenn Sie lieber eine Nilkreuzfahrt machen.",
+  "review": "approved",
+  "current": true
+ },
  "g-7-days": {
   "type": "er_guide",
   "title": "7 Tage in Ägypten: die perfekte erste Reiseroute",
@@ -119,10 +126,24 @@
   "review": "approved",
   "current": true
  },
+ "g-aswan-temples": {
+  "type": "er_guide",
+  "title": "Die Tempel von Assuan und am Nassersee: welche Sie sehen sollten",
+  "excerpt": "Die Tempel von Assuan und am Nassersee, und welche Sie besuchen sollten: Philae und seine Rettung, Kom Ombo und Edfu im Norden, Kalabscha am Hochdamm, die versetzten Tempel am See und Abu Simbel, und wie sie in Ihre Tage passen.",
+  "review": "approved",
+  "current": true
+ },
  "g-best-time": {
   "type": "er_guide",
   "title": "Die beste Reisezeit für Ägypten, Monat für Monat",
   "excerpt": "Wann Sie Ägypten besuchen sollten, nach Jahreszeit und Region: der angenehme Winter im Niltal, die lange Badesaison am Roten Meer, die kalten Wüstennächte und wie Ramadan und Feiertage eine Reise verändern.",
+  "review": "approved",
+  "current": true
+ },
+ "g-cairo-night": {
+  "type": "er_guide",
+  "title": "Kairo bei Nacht: Nilfahrten, Streetfood und die Altstadt",
+  "excerpt": "Was Sie in Kairo abends unternehmen können: eine Dinner-Kreuzfahrt auf dem Nil mit Musik und Tanoura-Show, eine Streetfood-Tour, die Al-Muizz-Straße und Khan el-Khalili nach Einbruch der Dunkelheit, Sonnenuntergang im Al-Azhar-Park und Tipps für die Abende.",
   "review": "approved",
   "current": true
  },
@@ -137,6 +158,13 @@
   "type": "er_guide",
   "title": "Die besten Tagesausflüge ab Kairo",
   "excerpt": "Die besten Tagesausflüge ab Kairo: Gizeh und das Grand Egyptian Museum, Sakkara und Dahschur, Alexandria am Mittelmeer und Wadi al-Hitan in der Wüste von Fayum, mit dem, was jeden Ausflug ausmacht, und wie Sie ihn planen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-desert-choice": {
+  "type": "er_guide",
+  "title": "Siwa oder die Weiße Wüste? Die passende Wüstentour wählen",
+  "excerpt": "Oase Siwa oder Weiße Wüste: Welche Tour in die Westliche Wüste passt zu Ihnen? Landschaft, Kultur, Zeitbedarf, Camping oder Oase, und für wen sich welche Tour eignet, mit unseren Empfehlungen für beide.",
   "review": "approved",
   "current": true
  },
@@ -158,6 +186,13 @@
   "type": "er_guide",
   "title": "Schnorcheln in Ägypten: Hurghada oder Sharm El-Sheikh?",
   "excerpt": "Schnorcheln im Roten Meer: Hurghada oder Sharm El-Sheikh? Die Giftun-Inseln und der Nationalpark Ras Mohammed im Vergleich, Boot oder Ufer, Ausflüge für Anfänger, Riff-Etikette und wie Sie einen verantwortungsvollen Veranstalter wählen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-valley-kings": {
+  "type": "er_guide",
+  "title": "Das Tal der Könige: Gräber, Tickets und Tipps",
+  "excerpt": "So besuchen Sie das Tal der Könige in Luxor: was die Königsgräber sind, wie die Tickets funktionieren, Tutanchamun und Sethos I., was es am Westufer noch zu sehen gibt, und praktische Tipps für ein heißes, volles Tal.",
   "review": "approved",
   "current": true
  },

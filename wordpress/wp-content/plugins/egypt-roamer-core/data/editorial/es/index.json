@@ -105,6 +105,13 @@
   "review": "approved",
   "current": true
  },
+ "g-10-days": {
+  "type": "er_guide",
+  "title": "10 días en Egipto: el valle del Nilo y el mar Rojo",
+  "excerpt": "Un itinerario de 10 días por Egipto: El Cairo y las pirámides, Luxor y Asuán con Abu Simbel, y después tres días en el mar Rojo en Hurghada, con cómo moverse entre ellos y qué cambiar si prefieres un crucero por el Nilo.",
+  "review": "approved",
+  "current": true
+ },
  "g-7-days": {
   "type": "er_guide",
   "title": "7 días en Egipto: el itinerario perfecto para tu primera visita",
@@ -119,10 +126,24 @@
   "review": "approved",
   "current": true
  },
+ "g-aswan-temples": {
+  "type": "er_guide",
+  "title": "Los templos de Asuán y del lago Nasser: cuáles ver",
+  "excerpt": "Los templos de Asuán y del lago Nasser, y cuáles ver: Filé y su rescate, Kom Ombo y Edfu al norte, Kalabsha junto a la Presa Alta, los templos trasladados del lago y Abu Simbel, con cómo encajarlos en tus días.",
+  "review": "approved",
+  "current": true
+ },
  "g-best-time": {
   "type": "er_guide",
   "title": "La mejor época para visitar Egipto, mes a mes",
   "excerpt": "Cuándo visitar Egipto, estación por estación y región por región: el agradable invierno del valle del Nilo, la larga temporada de playa del mar Rojo, las noches frías del desierto y cómo el Ramadán y las fiestas cambian un viaje.",
+  "review": "approved",
+  "current": true
+ },
+ "g-cairo-night": {
+  "type": "er_guide",
+  "title": "El Cairo de noche: cruceros por el Nilo, comida callejera y ciudad antigua",
+  "excerpt": "Qué hacer en El Cairo de noche: un crucero con cena por el Nilo con música y espectáculo de tanura, un tour de comida callejera, la calle Al-Muizz y Khan el-Khalili al anochecer, el atardecer en el parque Al-Azhar y consejos para las noches en la ciudad.",
   "review": "approved",
   "current": true
  },
@@ -137,6 +158,13 @@
   "type": "er_guide",
   "title": "Las mejores excursiones de un día desde El Cairo",
   "excerpt": "Las mejores excursiones de un día desde El Cairo: Guiza y el Gran Museo Egipcio, Saqqara y Dahshur, Alejandría en el Mediterráneo y Wadi Al-Hitan en el desierto de El Fayum, con lo que hace especial a cada una y cómo organizarla.",
+  "review": "approved",
+  "current": true
+ },
+ "g-desert-choice": {
+  "type": "er_guide",
+  "title": "¿Siwa o el Desierto Blanco? Cómo elegir tu viaje al desierto",
+  "excerpt": "El oasis de Siwa o el Desierto Blanco: ¿qué viaje por el Desierto Occidental te conviene? Paisajes, cultura, tiempo necesario, acampada o estancia en el oasis, y para quién es cada uno, con los tours que recomendamos para ambos.",
   "review": "approved",
   "current": true
  },
@@ -158,6 +186,13 @@
   "type": "er_guide",
   "title": "Esnórquel en Egipto: ¿Hurghada o Sharm el-Sheij?",
   "excerpt": "Esnórquel en el mar Rojo: ¿Hurghada o Sharm el-Sheij? Las islas Giftun y el Parque Nacional de Ras Mohammed comparados, barco u orilla, excursiones para principiantes, buenas prácticas en el arrecife y cómo elegir un operador responsable.",
+  "review": "approved",
+  "current": true
+ },
+ "g-valley-kings": {
+  "type": "er_guide",
+  "title": "El Valle de los Reyes: tumbas, entradas y consejos",
+  "excerpt": "Cómo visitar el Valle de los Reyes en Luxor: qué son las tumbas reales, cómo funcionan las entradas, Tutankamón y Seti I, qué más ver en la orilla oeste, y consejos prácticos para un valle caluroso y concurrido.",
   "review": "approved",
   "current": true
  },

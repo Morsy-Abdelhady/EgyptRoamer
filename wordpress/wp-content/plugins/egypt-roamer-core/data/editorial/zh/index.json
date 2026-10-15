@@ -105,6 +105,13 @@
   "review": "approved",
   "current": true
  },
+ "g-10-days": {
+  "type": "er_guide",
+  "title": "埃及10日游：尼罗河谷与红海",
+  "excerpt": "埃及10日行程：开罗和金字塔，卢克索、阿斯旺和阿布辛贝，然后在赫尔格达的红海边度过三天，介绍各地之间的交通方式，以及如果更想坐尼罗河游船该如何调整。",
+  "review": "approved",
+  "current": true
+ },
  "g-7-days": {
   "type": "er_guide",
   "title": "埃及 7 日游：首次到访的完美行程",
@@ -119,10 +126,24 @@
   "review": "approved",
   "current": true
  },
+ "g-aswan-temples": {
+  "type": "er_guide",
+  "title": "阿斯旺与纳赛尔湖的神庙：该看哪些",
+  "excerpt": "阿斯旺与纳赛尔湖的神庙该看哪些：菲莱神庙及其抢救、北面的康翁波和埃德富、高坝旁的卡拉布沙、迁移到湖畔的神庙，以及阿布辛贝，并介绍如何安排进你的行程。",
+  "review": "approved",
+  "current": true
+ },
  "g-best-time": {
   "type": "er_guide",
   "title": "埃及最佳旅行时间：逐月指南",
   "excerpt": "何时去埃及，按季节、按地区细说：尼罗河谷舒适的冬季、红海漫长的海滩季、沙漠寒冷的夜晚，以及斋月和节假日会如何影响行程。",
+  "review": "approved",
+  "current": true
+ },
+ "g-cairo-night": {
+  "type": "er_guide",
+  "title": "开罗之夜：尼罗河游船、街头美食和老城",
+  "excerpt": "开罗晚上可以做什么：带音乐和坦努拉表演的尼罗河晚餐游船、街头美食之旅、夜色中的穆伊兹街和哈利利市场、爱资哈尔公园的日落，以及开罗夜晚的实用建议。",
   "review": "approved",
   "current": true
  },
@@ -137,6 +158,13 @@
   "type": "er_guide",
   "title": "从开罗出发的最佳一日游",
   "excerpt": "从开罗出发的最佳一日游：吉萨与大埃及博物馆、萨卡拉和代赫舒尔、地中海边的亚历山大，以及法尤姆沙漠中的鲸鱼谷，介绍每一处的特点和行程安排。",
+  "review": "approved",
+  "current": true
+ },
+ "g-desert-choice": {
+  "type": "er_guide",
+  "title": "锡瓦还是白沙漠？如何选择你的沙漠之旅",
+  "excerpt": "锡瓦绿洲还是白沙漠：哪条西部沙漠路线更适合你？风光、文化、所需时间、露营还是住绿洲，以及各自适合哪些人，并附上我们为两条路线推荐的行程。",
   "review": "approved",
   "current": true
  },
@@ -158,6 +186,13 @@
   "type": "er_guide",
   "title": "埃及浮潜：赫尔格达还是沙姆沙伊赫？",
   "excerpt": "红海浮潜：赫尔格达还是沙姆沙伊赫？比较吉夫顿岛和穆罕默德角国家公园，乘船还是从岸边下水，适合初学者的行程，珊瑚礁礼仪，以及如何选择负责任的运营商。",
+  "review": "approved",
+  "current": true
+ },
+ "g-valley-kings": {
+  "type": "er_guide",
+  "title": "帝王谷：陵墓、门票与参观建议",
+  "excerpt": "如何参观卢克索的帝王谷：王室陵墓是什么样的，门票怎么用，图坦卡蒙和塞提一世，西岸还有什么可看，以及应对这片炎热、拥挤山谷的实用建议。",
   "review": "approved",
   "current": true
  },
