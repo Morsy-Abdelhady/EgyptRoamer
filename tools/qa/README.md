@@ -7,6 +7,7 @@ Run against a local install (`http://127.0.0.1:8080`, admin/admin) or the static
 ```
 npm i playwright axe-core
 node prototype-audit.mjs   # prototype: 8 languages × viewports, errors, overflow, i18n gaps
+BASE=https://egyptroamer.com node page-coverage.mjs   # RELEASE GATE: every destination/experience/guide × 8 languages + homes: booking box, hero + phone-dock shortcut, translated offer cards, images, sidebar layout, planner tours, JS errors
 node wp-matrix.mjs         # WordPress: 12 page types × 390/430/768/1024/1440/1920, overflow, errors, axe
 node acceptance.mjs        # business acceptance: provider → offer → CTA → click → report → edit URL/CTA → homepage
 node leads.mjs             # newsletter, bot-speed rejection, contact form, analytics events
