@@ -22,4 +22,19 @@
 | White Desert & Black Desert Safari | 2 days, 1 night (139021P1) | Overnight White Desert Safari Camping from Cairo (d782-10124P65) | 4.7 (93) | A second operator for the same overnight trip |
 | Great Sand Sea 4×4 & Hot Springs | 3 days from Cairo (387546P1) | — | — | No candidate. Siwa day safaris on Viator have very few reviews (see the main report) |
 
-**To approve:** reply with the rows to publish (e.g. "all" or "Giza, Diving, Nile").
+## Status (15 Oct)
+
+The owner approved all of them. Each was checked on its product page, then published:
+
+| Offer | Product | Product-page check |
+|---|---|---|
+| #579 | 41437P6 | The itinerary includes the GEM, 3 h, ticket included |
+| #581 | 128688P15 | Shared shuttle, max 15, entrance fees included |
+| #583 | 66938P5 | Beginners to advanced, 2 dives, instructors |
+| #585 | 224493P76 | Private; Medinet Habu, Deir el-Medina, Valley of the Kings |
+| #587 | 110498P6 | Belly dance and tanoura with live music confirmed |
+| #589 | 476624P1 | 6:00 pm start; chosen over 147895P4, whose start time is not shown |
+| #591 | 10124P65 | Bahariya, Black Desert, Crystal Mountain, White Desert, overnight camp |
+
+- **Display:** each new offer shows second on its experience page (priority 5), translated in 8 languages.
+- **Release gate:** 168 pages, all ok.
