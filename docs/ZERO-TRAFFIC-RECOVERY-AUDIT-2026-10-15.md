@@ -16,6 +16,29 @@ Each statement is labelled with what kind of claim it is:
 
 ---
 
+## 0. Update, 15 Oct afternoon: what changed after this audit
+
+Production now: **theme 1.2.45 / Core 1.2.31** (commits `8f4446c`, `6e32619`), deployed, cache flushed, verified.
+
+| Earlier finding | Now | Label |
+|---|---|---|
+| No analytics (§6) | **First-party cookieless page-view totals live.** Measuring since **2026-10-15**; Privacy Policy updated in 8 languages. See `ANALYTICS-IMPLEMENTATION-REPORT-2026-10-15.md` | [Done] |
+| Bing: 0 pages, no Webmaster Tools (§5) | **Bing Webmaster Tools set up**, by import from GSC (verified owner). Sitemap `https://egyptroamer.com/wp-sitemap.xml`: Success, 33 URLs discovered so far. **URL Inspection of `/`: "Not indexed due to NOINDEX directive", last crawl 27 Sep 2026** (before launch), the same stale-crawl pattern as Google. The live test says "URL can be indexed". Requested indexing for `/`, plus 99 priority URLs through URL Submission (quota 100/day). The other 49 are queued for 16 Oct (`SEO-RECOVERY-CHANGELOG.md`) | [Fact] [Done] |
+| No live offers, 0 `/go/` links (§1) | **Viator provider + 7 offers live**; `/go/` → Viator with tracking, clicks logged. Great Sand Sea: no offer (gap). See `VIATOR-AFFILIATE-INTEGRATION-REPORT-2026-10-15.md` | [Done] |
+| Partner links without disclosure | Found when the offers went live: cards in grids had no disclosure. Fixed in 1.2.45 | [Done] |
+| GSC (§4) | Unchanged at 15:00: 30 indexed, 142 noindex (validation "Started"), 20 discovered; performance still 2 clicks / 37 impressions (the data lags 2–3 days) | [Data] |
+| Bing homepage "Alt attribute missing, 15" | All 60 rendered images have `alt`; the flagged ones are decorative `alt=""`. Not a defect | [Fact] |
+
+**Owner actions still open:**
+1. Native review of the new privacy sentences in 7 languages.
+2. Viator payout details (Finance).
+3. Click one Viator CTA from your own phone or network (viator.com is unreachable from my network).
+4. Optional: choose one Viator product per experience.
+
+Items 1–3 of §26 (Bing, analytics, Viator) are done.
+
+---
+
 ## 1. Executive summary
 
 **"Zero traffic" is not a measured fact.**
