@@ -30,8 +30,8 @@ Fill in one row every Monday (UTC), for the 7 days that end on Sunday. One quest
 | Partner-link taps | 0 | — |
 | `/go/` redirects | 41 | All QA or redirect tests |
 | Viator clicks / bookings | to read 17 Oct | — |
-| Content | 19 pages per language × 8; 10 live Viator offers | — |
-| Release gate | all ok (160 pages) | — |
+| Content | 19 pages per language × 8 at baseline. End of 15 Oct: 26 pages per language (7 destinations, 10 experiences, 9 guides) and 17 live Viator offers | — |
+| Release gate | all ok: 160 pages at baseline, 216 at end of day | — |
 
 The first queries with impressions were "اسوان", "أسوان", "great sand sea", "best 7 days in egypt" and "سيوة فين في مصر".
 
