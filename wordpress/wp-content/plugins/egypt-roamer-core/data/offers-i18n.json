@@ -509,5 +509,275 @@
    "title": "从开罗出发的白沙漠露营过夜之旅",
    "location": "拜哈里耶与白沙漠"
   }
+ },
+ "gyg-abu-simbel-day-tour-private-guide-and-car": {
+  "ar": {
+   "title": "من أسوان: رحلة يوم إلى أبو سمبل مع مرشد خاص وسيارة",
+   "location": "أسوان"
+  },
+  "de": {
+   "title": "Ab Assuan: Tagestour nach Abu Simbel mit privatem Guide und Auto",
+   "location": "Assuan"
+  },
+  "fr": {
+   "title": "Depuis Assouan : journée à Abou Simbel avec guide privé et voiture",
+   "location": "Assouan"
+  },
+  "it": {
+   "title": "Da Assuan: tour di un giorno ad Abu Simbel con guida privata e auto",
+   "location": "Assuan"
+  },
+  "es": {
+   "title": "Desde Asuán: excursión de un día a Abu Simbel con guía privado y coche",
+   "location": "Asuán"
+  },
+  "ru": {
+   "title": "Из Асуана: поездка в Абу-Симбел на день с личным гидом и машиной",
+   "location": "Асуан"
+  },
+  "zh": {
+   "title": "从阿斯旺出发：阿布辛贝一日游（私人导游和专车）",
+   "location": "阿斯旺"
+  }
+ },
+ "gyg-pyramids-great-sphinx-private-tour-camel-ride": {
+  "ar": {
+   "title": "القاهرة: جولة خاصة إلى الأهرامات وأبو الهول مع ركوب الجمل",
+   "location": "الجيزة"
+  },
+  "de": {
+   "title": "Kairo: Private Tour zu den Pyramiden und der Großen Sphinx mit Kamelritt",
+   "location": "Gizeh"
+  },
+  "fr": {
+   "title": "Le Caire : visite privée des pyramides et du Grand Sphinx avec balade à dos de chameau",
+   "location": "Gizeh"
+  },
+  "it": {
+   "title": "Il Cairo: tour privato delle piramidi e della Grande Sfinge con giro in cammello",
+   "location": "Giza"
+  },
+  "es": {
+   "title": "El Cairo: tour privado por las pirámides y la Gran Esfinge con paseo en camello",
+   "location": "Guiza"
+  },
+  "ru": {
+   "title": "Каир: индивидуальная экскурсия к пирамидам и Большому сфинксу с прогулкой на верблюде",
+   "location": "Гиза"
+  },
+  "zh": {
+   "title": "开罗：金字塔与狮身人面像私人游（含骑骆驼）",
+   "location": "吉萨"
+  }
+ },
+ "gyg-west-bank-guided-tour-valley-of-the-kings": {
+  "ar": {
+   "title": "جولة بمرشد في البر الغربي: وادي الملوك",
+   "location": "الأقصر"
+  },
+  "de": {
+   "title": "Geführte Tour am Westufer: Tal der Könige",
+   "location": "Luxor"
+  },
+  "fr": {
+   "title": "Visite guidée de la rive ouest : Vallée des Rois",
+   "location": "Louxor"
+  },
+  "it": {
+   "title": "Tour guidato della riva ovest: Valle dei Re",
+   "location": "Luxor"
+  },
+  "es": {
+   "title": "Visita guiada por la orilla oeste: Valle de los Reyes",
+   "location": "Luxor"
+  },
+  "ru": {
+   "title": "Экскурсия с гидом по западному берегу: Долина царей",
+   "location": "Луксор"
+  },
+  "zh": {
+   "title": "西岸导览游：帝王谷",
+   "location": "卢克索"
+  }
+ },
+ "gyg-historical-alexandria-shared-day-tour-from-cairo": {
+  "ar": {
+   "title": "من القاهرة: جولة جماعية ليوم في الإسكندرية التاريخية مع الغداء",
+   "location": "الإسكندرية"
+  },
+  "de": {
+   "title": "Ab Kairo: Gruppen-Tagestour durch das historische Alexandria mit Mittagessen",
+   "location": "Alexandria"
+  },
+  "fr": {
+   "title": "Depuis Le Caire : journée en groupe dans l’Alexandrie historique avec déjeuner",
+   "location": "Alexandrie"
+  },
+  "it": {
+   "title": "Dal Cairo: tour di gruppo di un giorno nell’Alessandria storica con pranzo",
+   "location": "Alessandria"
+  },
+  "es": {
+   "title": "Desde El Cairo: excursión en grupo de un día por la Alejandría histórica con almuerzo",
+   "location": "Alejandría"
+  },
+  "ru": {
+   "title": "Из Каира: групповая поездка на день по исторической Александрии с обедом",
+   "location": "Александрия"
+  },
+  "zh": {
+   "title": "从开罗出发：历史名城亚历山大拼团一日游（含午餐）",
+   "location": "亚历山大"
+  }
+ },
+ "gyg-white-island-and-ras-mohamed-snorkeling-trip": {
+  "ar": {
+   "title": "من شرم: رحلة سنوركلينج إلى الجزيرة البيضاء ورأس محمد",
+   "location": "شرم الشيخ"
+  },
+  "de": {
+   "title": "Ab Sharm: Schnorcheltour zur White Island und nach Ras Mohammed",
+   "location": "Sharm El-Sheikh"
+  },
+  "fr": {
+   "title": "Depuis Charm : sortie snorkeling à White Island et Ras Mohammed",
+   "location": "Charm el-Cheikh"
+  },
+  "it": {
+   "title": "Da Sharm: escursione di snorkeling a White Island e Ras Mohammed",
+   "location": "Sharm el-Sheikh"
+  },
+  "es": {
+   "title": "Desde Sharm: excursión de esnórquel a White Island y Ras Mohammed",
+   "location": "Sharm el-Sheij"
+  },
+  "ru": {
+   "title": "Из Шарма: снорклинг у Белого острова и в Рас-Мохаммеде",
+   "location": "Шарм-эш-Шейх"
+  },
+  "zh": {
+   "title": "从沙姆出发：白岛与穆罕默德角浮潜之旅",
+   "location": "沙姆沙伊赫"
+  }
+ },
+ "gyg-hurghada-scuba-diving-certified-or-beginners": {
+  "ar": {
+   "title": "الغردقة: غوص للغواصين الحاصلين على شهادة أو للمبتدئين",
+   "location": "الغردقة"
+  },
+  "de": {
+   "title": "Hurghada: Tauchen für brevetierte Taucher oder Anfänger",
+   "location": "Hurghada"
+  },
+  "fr": {
+   "title": "Hurghada : plongée pour plongeurs certifiés ou débutants",
+   "location": "Hurghada"
+  },
+  "it": {
+   "title": "Hurghada: immersioni per subacquei brevettati o principianti",
+   "location": "Hurghada"
+  },
+  "es": {
+   "title": "Hurghada: buceo para buceadores titulados o principiantes",
+   "location": "Hurghada"
+  },
+  "ru": {
+   "title": "Хургада: дайвинг для сертифицированных дайверов и новичков",
+   "location": "Хургада"
+  },
+  "zh": {
+   "title": "赫尔格达：持证潜水员或新手潜水",
+   "location": "赫尔格达"
+  }
+ },
+ "gyg-2-day-bahariya-and-white-desert-private-camp": {
+  "ar": {
+   "title": "القاهرة: مغامرة خاصة ليومين في الواحات البحرية والصحراء البيضاء مع التخييم",
+   "location": "الواحات البحرية والصحراء البيضاء"
+  },
+  "de": {
+   "title": "Kairo: Private 2-Tage-Campingtour in Bahariya und der Weißen Wüste",
+   "location": "Bahariya und Weiße Wüste"
+  },
+  "fr": {
+   "title": "Le Caire : aventure privée de 2 jours avec camp à Bahariya et dans le Désert blanc",
+   "location": "Bahariya et Désert blanc"
+  },
+  "it": {
+   "title": "Il Cairo: avventura privata di 2 giorni con campo a Bahariya e nel Deserto Bianco",
+   "location": "Bahariya e Deserto Bianco"
+  },
+  "es": {
+   "title": "El Cairo: aventura privada de 2 días con campamento en Bahariya y el Desierto Blanco",
+   "location": "Bahariya y Desierto Blanco"
+  },
+  "ru": {
+   "title": "Каир: индивидуальный 2-дневный тур с лагерем в Бахарии и Белой пустыне",
+   "location": "Бахария и Белая пустыня"
+  },
+  "zh": {
+   "title": "开罗：拜哈里耶与白沙漠两日私人露营探险",
+   "location": "拜哈里耶与白沙漠"
+  }
+ },
+ "gyg-siwa-oasis-camp-2-nights-from-cairo": {
+  "ar": {
+   "title": "ليلتان وثلاثة أيام في مخيم بواحة سيوة من القاهرة",
+   "location": "واحة سيوة"
+  },
+  "de": {
+   "title": "2 Nächte, 3 Tage im Camp in der Oase Siwa ab Kairo",
+   "location": "Oase Siwa"
+  },
+  "fr": {
+   "title": "2 nuits et 3 jours en camp dans l’oasis de Siwa depuis Le Caire",
+   "location": "Oasis de Siwa"
+  },
+  "it": {
+   "title": "2 notti e 3 giorni in campo nell’oasi di Siwa dal Cairo",
+   "location": "Oasi di Siwa"
+  },
+  "es": {
+   "title": "2 noches y 3 días en un campamento en el oasis de Siwa desde El Cairo",
+   "location": "Oasis de Siwa"
+  },
+  "ru": {
+   "title": "2 ночи и 3 дня в лагере в оазисе Сива из Каира",
+   "location": "Оазис Сива"
+  },
+  "zh": {
+   "title": "从开罗出发：锡瓦绿洲营地三天两晚",
+   "location": "锡瓦绿洲"
+  }
+ },
+ "gyg-opal-nile-dinner-cruise-live-entertainment": {
+  "ar": {
+   "title": "القاهرة: عشاء رومانسي على مركب «أوبال» في النيل مع عروض حية",
+   "location": "القاهرة"
+  },
+  "de": {
+   "title": "Kairo: Romantische Dinner-Kreuzfahrt mit der Opal auf dem Nil mit Live-Unterhaltung",
+   "location": "Kairo"
+  },
+  "fr": {
+   "title": "Le Caire : dîner-croisière romantique à bord de l’Opal sur le Nil avec spectacle",
+   "location": "Le Caire"
+  },
+  "it": {
+   "title": "Il Cairo: crociera con cena romantica sull’Opal sul Nilo con spettacolo dal vivo",
+   "location": "Il Cairo"
+  },
+  "es": {
+   "title": "El Cairo: crucero con cena romántica en el Opal por el Nilo con espectáculo en vivo",
+   "location": "El Cairo"
+  },
+  "ru": {
+   "title": "Каир: романтический ужин-круиз на «Опал» по Нилу с живой программой",
+   "location": "Каир"
+  },
+  "zh": {
+   "title": "开罗：Opal号尼罗河浪漫晚餐游船（含现场表演）",
+   "location": "开罗"
+  }
  }
 }
