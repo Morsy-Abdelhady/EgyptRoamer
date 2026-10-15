@@ -2,7 +2,15 @@
 
 **Owner decision (2026-10-16):** start the second partner with GetYourGuide. See `docs/PARTNER-OPTIONS-2026-10-16.md`.
 
-**Status:** the candidates below are ready, waiting for the owner's partner account. Nothing is live.
+**Status: LIVE on 2026-10-16.**
+- **Partner account:** approved. The partner ID is in every link (public, not a secret).
+- **Core:** provider **GetYourGuide #803**, allowed domain `getyourguide.com`.
+- **Offers:** nine offers, #805–#821, priority 3, so the Viator offers keep showing first.
+- **Card text** in 7 languages: `data/offers-i18n.json` (Core 1.2.43).
+- **Link format,** confirmed in the partner portal's link builder (Tools → Links): `<product URL>?partner_id=H7JDNTJ&utm_medium=online_publisher&cmp=<campaign>`.
+  - Each offer's tracking parameters are `partner_id=H7JDNTJ`, `utm_medium=online_publisher` and `cmp=er-{lang}-{placement}`.
+  - All nine redirect targets were checked with a non-counting request.
+- **QA:** `page-coverage.mjs` passes on all 336 pages after the release.
 
 **How each product was checked (2026-10-16):** the page opens on getyourguide.com with its own title and description.
 - A URL that shows GetYourGuide's generic homepage (no product title) is treated as unavailable and is not used.

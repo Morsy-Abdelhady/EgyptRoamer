@@ -40,6 +40,8 @@ Fill in one row every Monday (UTC), for the 7 days that end on Sunday. One quest
 >
 > Partner taps before and after this date are not comparable.
 
+> **Second partner, 16 Oct:** 9 GetYourGuide offers are live, alongside Viator on the same experiences (no food tour). Their campaigns are `er-{lang}-{placement}`, reported in the GetYourGuide partner portal under "cmp". Compare GetYourGuide and Viator clicks per experience from this date.
+
 > **QA note (15 Oct):** a link check followed a few partner links in the new guides by mistake. Discount them:
 > - **Where:** the booking boxes of the Aswan temples, desert choice and Valley of the Kings guides, EN and AR.
 > - **Campaigns affected:** `er-en-guide-inline` and `er-ar-guide-inline`.
