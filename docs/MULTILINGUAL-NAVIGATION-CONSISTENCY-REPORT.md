@@ -186,3 +186,20 @@ Taken during the audit and kept with the QA run (scratchpad `pwt/nav/`, not comm
 - 64 responsive renders: 0 problems.
 
 **Remaining [Gap]:** native review of the 28 translations. When a reviewer approves one, set `review: approved` (+ reviewer and date) and re-run the sync; the note then changes to a plain "translated from the English original".
+
+## 10. Translations reviewed, note removed (Core 1.2.34, commit `8d7b1b5`)
+
+**Owner request (15 Oct):** remove the review note and check the translations professionally.
+
+**Review pass on the 28 translations:**
+- **Terminology** aligned with the translations the owner approved on 29 Sep. The Abu Simbel sun event uses each language's approved term (ظاهرة تعامد الشمس, Sonnenwunder, phénomène solaire, fenomeno del sole, fenómeno solar, солнечный феномен, 太阳奇观), not "festival".
+- **Proper names** are spelled as on the approved pages.
+- **Wording:** awkward phrasings rewritten (5 Arabic, 1 Russian, 1 Italian).
+
+**Status:**
+- All files are `review: approved` (AI review; publication approved by the owner). An approved translation has no note.
+- Synced on production: `updated 28`.
+
+**Deploy:** the first run failed at the SSH preflight (nothing transferred). A re-run of the failed job succeeded.
+
+**Production check of all 28 guides:** 200, correct `lang`, indexable, **no note**, no overflow at 390, approved terms present.
