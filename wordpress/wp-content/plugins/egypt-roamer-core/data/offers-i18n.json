@@ -1,0 +1,243 @@
+{
+ "_note": "Offer card text per language, keyed by offer slug (offers are language-neutral records written in English). Place names follow the approved destination translations. Edit here, not in wp-admin, for translated languages.",
+ "abu-simbel-temples-tours-on-viator": {
+  "ar": {
+   "title": "رحلة خاصة ليوم كامل إلى أبو سمبل من أسوان",
+   "location": "أسوان"
+  },
+  "de": {
+   "title": "Private Tagestour nach Abu Simbel ab Assuan",
+   "location": "Assuan"
+  },
+  "fr": {
+   "title": "Excursion privée d’une journée à Abou Simbel depuis Assouan",
+   "location": "Assouan"
+  },
+  "it": {
+   "title": "Tour privato di un giorno ad Abu Simbel da Assuan",
+   "location": "Assuan"
+  },
+  "es": {
+   "title": "Excursión privada de un día a Abu Simbel desde Asuán",
+   "location": "Asuán"
+  },
+  "ru": {
+   "title": "Индивидуальная поездка в Абу-Симбел из Асуана на день",
+   "location": "Асуан"
+  },
+  "zh": {
+   "title": "从阿斯旺出发的阿布辛拜勒私人一日游",
+   "location": "阿斯旺"
+  }
+ },
+ "valley-of-the-kings-tours-on-viator": {
+  "ar": {
+   "title": "يوم كامل خاص في البر الغربي بالأقصر",
+   "location": "الأقصر"
+  },
+  "de": {
+   "title": "Privater Tagesausflug zum Westufer von Luxor",
+   "location": "Luxor"
+  },
+  "fr": {
+   "title": "Journée privée sur la rive ouest de Louxor",
+   "location": "Louxor"
+  },
+  "it": {
+   "title": "Giornata privata sulla riva occidentale di Luxor",
+   "location": "Luxor"
+  },
+  "es": {
+   "title": "Día completo privado en la orilla oeste de Luxor",
+   "location": "Luxor"
+  },
+  "ru": {
+   "title": "Индивидуальный день на западном берегу Луксора",
+   "location": "Луксор"
+  },
+  "zh": {
+   "title": "卢克索西岸私人一日游",
+   "location": "卢克索"
+  }
+ },
+ "giza-pyramids-tours-on-viator": {
+  "ar": {
+   "title": "جولة خاصة لنصف يوم في أهرامات الجيزة",
+   "location": "الجيزة"
+  },
+  "de": {
+   "title": "Private Halbtagestour zu den Pyramiden von Gizeh",
+   "location": "Gizeh"
+  },
+  "fr": {
+   "title": "Visite privée d’une demi-journée aux pyramides de Gizeh",
+   "location": "Gizeh"
+  },
+  "it": {
+   "title": "Tour privato di mezza giornata alle piramidi di Giza",
+   "location": "Giza"
+  },
+  "es": {
+   "title": "Tour privado de medio día a las pirámides de Guiza",
+   "location": "Guiza"
+  },
+  "ru": {
+   "title": "Индивидуальная экскурсия к пирамидам Гизы на полдня",
+   "location": "Гиза"
+  },
+  "zh": {
+   "title": "吉萨金字塔私人半日游",
+   "location": "吉萨"
+  }
+ },
+ "cairo-nile-dinner-cruises-on-viator": {
+  "ar": {
+   "title": "رحلة عشاء نيلية مع عرض التنورة",
+   "location": "القاهرة"
+  },
+  "de": {
+   "title": "Dinner-Kreuzfahrt auf dem Nil mit Tanoura-Show",
+   "location": "Kairo"
+  },
+  "fr": {
+   "title": "Dîner-croisière sur le Nil avec spectacle de tanoura",
+   "location": "Le Caire"
+  },
+  "it": {
+   "title": "Crociera con cena sul Nilo e spettacolo di tanoura",
+   "location": "Il Cairo"
+  },
+  "es": {
+   "title": "Crucero con cena por el Nilo y espectáculo de tanura",
+   "location": "El Cairo"
+  },
+  "ru": {
+   "title": "Круиз с ужином по Нилу и шоу танура",
+   "location": "Каир"
+  },
+  "zh": {
+   "title": "尼罗河晚餐游船与坦努拉表演",
+   "location": "开罗"
+  }
+ },
+ "hurghada-scuba-diving-trips-on-viator": {
+  "ar": {
+   "title": "غطستان من مركب في الغردقة (للغواصين الحاصلين على رخصة)",
+   "location": "الغردقة"
+  },
+  "de": {
+   "title": "Zwei Bootstauchgänge ab Hurghada (für zertifizierte Taucher)",
+   "location": "Hurghada"
+  },
+  "fr": {
+   "title": "Deux plongées en bateau depuis Hurghada (plongeurs certifiés)",
+   "location": "Hurghada"
+  },
+  "it": {
+   "title": "Due immersioni in barca da Hurghada (subacquei brevettati)",
+   "location": "Hurghada"
+  },
+  "es": {
+   "title": "Dos inmersiones en barco desde Hurghada (buceadores certificados)",
+   "location": "Hurghada"
+  },
+  "ru": {
+   "title": "Два погружения с лодки в Хургаде (для дайверов с сертификатом)",
+   "location": "Хургада"
+  },
+  "zh": {
+   "title": "赫尔格达乘船两次潜水（持证潜水员）",
+   "location": "赫尔格达"
+  }
+ },
+ "cairo-food-tours-on-viator": {
+  "ar": {
+   "title": "جولة ليلية لأكل الشارع في القاهرة",
+   "location": "القاهرة"
+  },
+  "de": {
+   "title": "Nächtliche Streetfood-Tour durch Kairo",
+   "location": "Kairo"
+  },
+  "fr": {
+   "title": "Visite gourmande nocturne de la cuisine de rue du Caire",
+   "location": "Le Caire"
+  },
+  "it": {
+   "title": "Tour serale dello street food del Cairo",
+   "location": "Il Cairo"
+  },
+  "es": {
+   "title": "Tour nocturno de comida callejera en El Cairo",
+   "location": "El Cairo"
+  },
+  "ru": {
+   "title": "Вечерний тур по уличной еде Каира",
+   "location": "Каир"
+  },
+  "zh": {
+   "title": "开罗夜间街头美食之旅",
+   "location": "开罗"
+  }
+ },
+ "bahariya-oasis-tours-on-viator": {
+  "ar": {
+   "title": "الصحراء البيضاء والسوداء: يومان من القاهرة مع التخييم",
+   "location": "الواحات البحرية والصحراء البيضاء"
+  },
+  "de": {
+   "title": "Weiße und Schwarze Wüste: 2 Tage ab Kairo mit Camping",
+   "location": "Bahariya und Weiße Wüste"
+  },
+  "fr": {
+   "title": "Désert blanc et Désert noir : 2 jours depuis Le Caire avec bivouac",
+   "location": "Bahariya et Désert blanc"
+  },
+  "it": {
+   "title": "Deserto Bianco e Deserto Nero: 2 giorni dal Cairo con campeggio",
+   "location": "Bahariya e Deserto Bianco"
+  },
+  "es": {
+   "title": "Desierto Blanco y Negro: 2 días desde El Cairo con acampada",
+   "location": "Bahariya y Desierto Blanco"
+  },
+  "ru": {
+   "title": "Белая и Чёрная пустыни: 2 дня из Каира с ночёвкой в лагере",
+   "location": "Бахария и Белая пустыня"
+  },
+  "zh": {
+   "title": "白沙漠与黑沙漠：从开罗出发两天一夜露营",
+   "location": "巴哈里亚与白沙漠"
+  }
+ },
+ "siwa-oasis-3-day-trip-from-cairo-with-a-great-sand-sea-safari": {
+  "ar": {
+   "title": "واحة سيوة: رحلة 3 أيام من القاهرة مع سفاري بحر الرمال العظيم",
+   "location": "واحة سيوة"
+  },
+  "de": {
+   "title": "Oase Siwa: 3 Tage ab Kairo mit Safari ins Große Sandmeer",
+   "location": "Oase Siwa"
+  },
+  "fr": {
+   "title": "Oasis de Siwa : 3 jours depuis Le Caire avec safari dans la Grande mer de sable",
+   "location": "Oasis de Siwa"
+  },
+  "it": {
+   "title": "Oasi di Siwa: 3 giorni dal Cairo con safari nel Grande Mare di Sabbia",
+   "location": "Oasi di Siwa"
+  },
+  "es": {
+   "title": "Oasis de Siwa: 3 días desde El Cairo con safari por el Gran Mar de Arena",
+   "location": "Oasis de Siwa"
+  },
+  "ru": {
+   "title": "Оазис Сива: 3 дня из Каира с сафари по Великому песчаному морю",
+   "location": "Оазис Сива"
+  },
+  "zh": {
+   "title": "锡瓦绿洲：从开罗出发 3 日游，含大沙海越野",
+   "location": "锡瓦绿洲"
+  }
+ }
+}

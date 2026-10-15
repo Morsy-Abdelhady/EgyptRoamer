@@ -631,15 +631,6 @@ function er_card_grid( array $post_ids, string $placement = 'card', string $head
 /* Affiliate offers block (conversion layer under editorial content)           */
 /* -------------------------------------------------------------------------- */
 
-/**
- * Offers are language-neutral records written in the default language (a partner's product name), so on a
- * translated page their title is marked with that language for screen readers and hyphenation.
- */
-function er_offer_title_lang(): string {
-	$default = function_exists( 'pll_default_language' ) ? (string) pll_default_language() : 'en';
-	return '' !== $default && er_lang() !== $default ? ' lang="' . esc_attr( $default ) . '"' : '';
-}
-
 function er_offer_rows( array $offer_ids, string $placement ): void {
 	if ( ! $offer_ids || ! function_exists( 'er_offer_data' ) ) {
 		return;
@@ -651,7 +642,12 @@ function er_offer_rows( array $offer_ids, string $placement ): void {
 		?>
 		<article class="offer">
 			<div class="offer__img">
-				<?php echo $o['image_id'] ? er_img( $o['image_id'], 'medium', [ 'alt' => '' ] ) : '<span class="media__empty"></span>'; // phpcs:ignore WordPress.Security.EscapeOutput ?>
+				<?php
+				// The offer's own photo, else the photo of the experience or destination it belongs to (an empty
+				// frame showed on every offer that had no image of its own).
+				$er_offer_img = $o['image_id'] ? er_img( $o['image_id'], 'medium', [ 'alt' => '' ] ) : ( ! empty( $o['related_id'] ) ? er_post_img( (int) $o['related_id'], 'medium', [ 'alt' => '' ] ) : '' );
+				echo $er_offer_img ?: '<span class="media__empty"></span>'; // phpcs:ignore WordPress.Security.EscapeOutput
+				?>
 				<?php if ( $o['badge'] ) : ?>
 					<span class="chip chip--gold"><?php echo esc_html( $o['badge'] ); ?></span>
 				<?php endif; ?>
@@ -660,7 +656,7 @@ function er_offer_rows( array $offer_ids, string $placement ): void {
 				<?php if ( $o['location'] ) : ?>
 					<span class="offer__loc"><?php echo er_icon( 'i-pin' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><?php echo esc_html( $o['location'] ); ?></span>
 				<?php endif; ?>
-				<h3 class="offer__name"<?php echo er_offer_title_lang(); // phpcs:ignore WordPress.Security.EscapeOutput -- fixed attribute ?>><?php echo esc_html( $o['title'] ); ?></h3>
+				<h3 class="offer__name"<?php echo ! empty( $o['title_lang'] ) ? ' lang="' . esc_attr( $o['title_lang'] ) . '" dir="ltr"' : ''; ?>><?php echo esc_html( $o['title'] ); ?></h3>
 				<div class="offer__meta">
 					<?php if ( $o['meta'] ) : ?>
 						<span><?php echo esc_html( $o['meta'] ); ?></span>

@@ -231,27 +231,59 @@ function er_price_unit_label( string $unit ): string {
 	return $units[ $unit ] ?? $units['person'];
 }
 
+/**
+ * The offer's card text in the current language, from data/offers-i18n.json (keyed by offer slug).
+ * Offers are language-neutral records written in the default language; [] when there is no translation.
+ */
+function er_offer_i18n( int $offer_id ): array {
+	static $data = null;
+	if ( null === $data ) {
+		$file = ER_CORE_DIR . 'data/offers-i18n.json';
+		$data = is_readable( $file ) ? ( json_decode( (string) file_get_contents( $file ), true ) ?: [] ) : []; // phpcs:ignore WordPress.WP.AlternativeFunctions
+	}
+	$lang = function_exists( 'er_current_lang' ) ? er_current_lang() : '';
+	$slug = (string) get_post_field( 'post_name', $offer_id );
+	return (array) ( $data[ $slug ][ $lang ] ?? [] );
+}
+
+/** The page an offer belongs to (experience, tour, activity, else destination): its photo stands in for the offer's. */
+function er_offer_related_id( int $offer_id ): int {
+	foreach ( [ '_er_experience', '_er_tour', '_er_activity', '_er_destination' ] as $key ) {
+		$id = (int) get_post_meta( $offer_id, $key, true );
+		if ( $id ) {
+			return $id;
+		}
+	}
+	return 0;
+}
+
 /** Everything a template needs to show an offer. */
 function er_offer_data( int $offer_id, string $placement = '', int $source_post_id = 0 ): array {
 	$provider_id = (int) get_post_meta( $offer_id, '_er_provider', true );
 	$price       = er_offer_price( $offer_id );
 	$thumb       = get_post_thumbnail_id( $offer_id );
+	$i18n        = er_offer_i18n( $offer_id );
+	$default     = function_exists( 'pll_default_language' ) ? (string) pll_default_language() : '';
+	$lang        = function_exists( 'er_current_lang' ) ? er_current_lang() : $default;
 	return [
 		'id'          => $offer_id,
 		'slug'        => get_post_field( 'post_name', $offer_id ),
-		'title'       => get_the_title( $offer_id ),
+		'title'       => ! empty( $i18n['title'] ) ? (string) $i18n['title'] : get_the_title( $offer_id ),
+		// Language of the title when it is not the page's (untranslated offer): templates mark it with lang="…".
+		'title_lang'  => empty( $i18n['title'] ) && '' !== $default && $lang !== $default ? $default : '',
 		'summary'     => get_the_excerpt( $offer_id ),
 		'provider'    => $provider_id ? get_the_title( $provider_id ) : '',
 		'provider_id' => $provider_id,
 		'go'          => er_offer_go_url( $offer_id, $placement, $source_post_id ),
 		'cta'         => er_offer_cta_label( $offer_id ),
-		'location'    => (string) get_post_meta( $offer_id, '_er_location', true ),
+		'location'    => ! empty( $i18n['location'] ) ? (string) $i18n['location'] : (string) get_post_meta( $offer_id, '_er_location', true ),
 		'meta'        => (string) get_post_meta( $offer_id, '_er_meta_line', true ),
 		'badge'       => (string) get_post_meta( $offer_id, '_er_badge', true ),
 		'price'       => $price,
 		'price_text'  => $price ? er_format_money( (float) $price['amount'], $price['currency'] ) : '',
 		'unit_text'   => $price ? er_price_unit_label( $price['unit'] ) : '',
 		'image_id'    => $thumb ? (int) $thumb : 0,
+		'related_id'  => er_offer_related_id( $offer_id ),
 		'placement'   => $placement,
 	];
 }

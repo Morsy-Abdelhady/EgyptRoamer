@@ -61,7 +61,7 @@ $er_pick = static function ( int $n ) {
 	?>
 	<section class="scene__pick" aria-label="<?php echo esc_attr( er_t( 'Roamer pick' ) . ': ' . $o['title'] ); ?>">
 		<span class="t-label"><?php er_e( 'Roamer pick' ); ?></span>
-		<p class="scene__pick-title"<?php echo er_offer_title_lang(); // phpcs:ignore WordPress.Security.EscapeOutput -- fixed attribute ?>><?php echo esc_html( $o['title'] ); ?></p>
+		<p class="scene__pick-title"<?php echo ! empty( $o['title_lang'] ) ? ' lang="' . esc_attr( $o['title_lang'] ) . '" dir="ltr"' : ''; ?>><?php echo esc_html( $o['title'] ); ?></p>
 		<?php if ( $o['price_text'] || $o['provider'] ) : ?>
 			<p class="scene__pick-meta">
 				<?php echo esc_html( implode( ' · ', array_filter( [ $o['price_text'] ? er_t( 'from' ) . ' ' . $o['price_text'] : '', $o['provider'] ? er_t( 'via {partner}', [ 'partner' => $o['provider'] ] ) : '' ] ) ) ); ?>
