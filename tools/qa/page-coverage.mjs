@@ -132,7 +132,10 @@ async function check(pg) {
       const bar = document.querySelector("[data-bookbar]");
       const hit = (a, b) => !!a && !!b && a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
       const br = bar && !bar.hidden && bar.getClientRects().length ? bar.getBoundingClientRect() : null;
-      const barMob = !br ? "not shown" : hit(br, document.querySelector(".dock")?.getBoundingClientRect()) ? "over the dock" : hit(br, document.querySelector(".assistant-launch")?.getBoundingClientRect()) ? "over the assistant button" : "";
+      // The bar steps aside while the box it leads to is on screen (by design), so that is not a miss.
+      const tb = t && t.getClientRects().length ? t.getBoundingClientRect() : null;
+      const boxIn = !!tb && tb.bottom > 0 && tb.top < window.innerHeight;
+      const barMob = !bar ? "missing" : !br ? (boxIn ? "" : "not shown") : hit(br, document.querySelector(".dock")?.getBoundingClientRect()) ? "over the dock" : hit(br, document.querySelector(".assistant-launch")?.getBoundingClientRect()) ? "over the assistant button" : "";
       return { href, at, factsLate, barMob, story: !!document.querySelector(".page-hero--story"), shown: !!t && getComputedStyle(t).display !== "none" && t.getClientRects().length > 0 };
     });
     await p.close();
