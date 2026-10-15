@@ -3552,3 +3552,22 @@ html:lang(zh) {
     flex: none;
   }
 }
+/* A booking box already on screen, called by a "Check Availability" link: a short gold ring instead of a jump. */
+.offer-box.is-called {
+  animation: er-called 1.6s ease-out;
+}
+@keyframes er-called {
+  0%,
+  40% {
+    box-shadow: 0 0 0 3px var(--gold), var(--shadow-1);
+  }
+  100% {
+    box-shadow: var(--shadow-1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .offer-box.is-called {
+    animation: none;
+    outline: 3px solid var(--gold);
+  }
+}

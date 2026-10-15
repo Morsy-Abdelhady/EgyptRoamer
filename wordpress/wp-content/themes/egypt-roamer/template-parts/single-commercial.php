@@ -172,6 +172,9 @@ er_page_hero( [
 ] );
 $er_body = er_body();
 er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
+if ( 'er_experience' === $er_type ) {
+	er_book_bar();
+}
 
 // Experience preview (photo strip / clip): after the first section, once the reader knows what the experience
 // is, and before the practical detail. Inside .prose, so the section numbers keep counting.

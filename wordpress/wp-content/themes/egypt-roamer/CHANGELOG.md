@@ -2,6 +2,15 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.58 — 2026-10-15: the booking bar on every experience page
+- **Owner report:** only Abu Simbel had the booking bar. 1.2.57 moved the booking boxes on the other experience pages but did not give them the bar, and the report wrongly said the Abu Simbel experience was applied to them.
+- **`er_book_bar()`** (`inc/template-tags.php`) now renders the bar on every experience page with offers (story and regular), leading to the page's booking box.
+  - Wide screens only; phones have the dock.
+  - It shows once the reader is past the first screen.
+  - On the story it hides at the closing booking section. On regular pages, whose box is pinned in the sidebar, it stays, including after the article where the sidebar ends.
+- **"#book" to a box already on screen (the pinned sidebar):** the general anchor scroll jumped the reader back to where the sidebar starts. The box now gets a short gold ring and focus instead, and the page stays put. A box out of view still scrolls to the start of the layout.
+- **QA:** every experience page must have the bar.
+
 ## 1.2.57 — 2026-10-15: the same booking path on every experience page
 - **Owner request:** give the other experience pages the booking experience of the Abu Simbel page.
 - **Wide screens:** the sidebar opens with the booking box, then the key facts. Before, the facts came first and the pinned sidebar (about 920 px) pushed the second offer below the screen.

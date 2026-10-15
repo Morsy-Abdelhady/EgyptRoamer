@@ -36,11 +36,14 @@ safe("reveals", initReveals);
 safe("progress", initScrollProgress);
 safe("affiliate", initAffiliateLinks);
 safe("newsletter", initNewsletter);
-// Story booking bar: shown once the hero's button has scrolled away, hidden again at the booking section.
+// Experience booking bar: shown past the first screen, hidden again at the booking box it leads to (the story's
+// closing section). A box pinned in the sidebar is not a reason to hide it: the bar stays, as the owner asked
+// for every experience page (15 Oct), and remains after the article, where the sidebar ends.
 safe("bookbar", () => {
   const bar = document.querySelector("[data-bookbar]");
-  const end = document.getElementById("plan");
-  if (!bar || !end || !("IntersectionObserver" in window)) return;
+  const href = bar?.querySelector("a")?.getAttribute("href") || "";
+  const box = href.startsWith("#") ? document.getElementById(href.slice(1)) : null;
+  if (!bar || !box) return;
   // The story pins its hero while the first chapters pass over it, so "past the hero" is read from the scroll.
   let past = false;
   let endIn = false;
@@ -48,26 +51,36 @@ safe("bookbar", () => {
   const onScroll = () => { const p = window.scrollY > window.innerHeight * 0.8; if (p !== past) { past = p; update(); } };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
-  new IntersectionObserver(([e]) => { endIn = e.isIntersecting; update(); }, { threshold: 0.15 }).observe(end);
+  if (!box.closest(".page-aside") && "IntersectionObserver" in window) {
+    new IntersectionObserver(([e]) => { endIn = e.isIntersecting; update(); }, { threshold: 0.15 }).observe(box);
+  }
 });
-// "#book" links (header, hero, dock): on a guide at 1200px and wider the in-article box is hidden and its copy is
-// in the sidebar, so the jump goes there instead of nowhere.
+// "#book" links (header, hero, dock, booking bar) when the box is in the sidebar (wide screens): on a guide the
+// in-article box is hidden there, and a jump to a pinned box would scroll the reader back to where the sidebar
+// starts. So: a box already in view is just called out; otherwise the page goes to where the sidebar starts.
 safe("book-jump", () => {
+  // Capture phase, ahead of the general in-page anchor scroll (nav.js), which would jump to the pinned box.
   document.addEventListener("click", (e) => {
     const a = e.target.closest && e.target.closest('a[href="#book"]');
-    const t = a && document.getElementById("book");
-    if (!a || (t && t.getClientRects().length)) return;
-    const box = document.querySelector(".page-aside .offer-box");
-    if (!box) return;
+    if (!a || a.closest(".menu")) return;
+    const t = document.getElementById("book");
+    if (t && t.getClientRects().length && !t.closest(".page-aside")) return;
+    const box = t && t.getClientRects().length ? t : document.querySelector(".page-aside .offer-box");
+    if (!box || getComputedStyle(box.closest(".page-aside") || box).display === "contents") return;
     e.preventDefault();
+    e.stopPropagation();
+    box.classList.remove("is-called");
+    void box.offsetWidth;
+    box.classList.add("is-called");
+    setTimeout(() => box.classList.remove("is-called"), 1700);
     // The box is in a sticky sidebar: while the reader is inside the layout it is already in view; from
     // outside (past the article), go back to where the layout starts.
     const r = box.getBoundingClientRect();
-    if (r.top < 0 || r.bottom > window.innerHeight) {
+    if (r.top < 0 || r.top > window.innerHeight * 0.5) {
       const top = (box.closest(".page-layout") || box).getBoundingClientRect().top + window.scrollY - 96;
       window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
     }
     box.setAttribute("tabindex", "-1");
     box.focus({ preventScroll: true });
-  });
+  }, true);
 });

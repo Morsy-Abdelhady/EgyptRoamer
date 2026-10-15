@@ -101,7 +101,7 @@ async function check(pg) {
     if (!d.story && !d.asideBox) fail(pg, "no booking box in the sidebar on wide screens");
     if (!/^#(book|plan)$/.test(d.cta)) fail(pg, `header button goes to "${d.cta}", not the booking box`);
     if (!/^#(book|plan)$/.test(d.menuCta)) fail(pg, `phone menu button goes to "${d.menuCta}", not the booking box`);
-    if (d.story && !d.bookbar) fail(pg, "story page without its booking bar");
+    if (pg.kind === "experiences" && !d.bookbar) fail(pg, "experience page without its booking bar");
     if (d.goldHome) fail(pg, `${d.goldHome} gold button(s) leave for the homepage planner`);
   }
   for (const o of d.offers) {

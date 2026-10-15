@@ -674,6 +674,26 @@ function er_book_anchor(): string {
 	return '#book';
 }
 
+/**
+ * The booking bar of an experience page (wide screens; phones have the dock): the page's name and "Check
+ * Availability" to its booking box, fixed at the bottom of the screen while the reader scrolls (site-main.js shows
+ * it past the first screen and hides it at the booking box). First built for the Abu Simbel story, then given to
+ * every experience page at the owner's request (15 Oct).
+ */
+function er_book_bar(): void {
+	$anchor = er_book_anchor();
+	if ( '' === $anchor ) {
+		return;
+	}
+	?>
+	<div class="xs-bookbar" data-bookbar hidden>
+		<span class="xs-bookbar__title"><?php echo esc_html( get_the_title() ); ?></span>
+		<span class="xs-bookbar__label"><?php er_e( 'Book with our partners' ); ?></span>
+		<a class="btn btn--primary btn--sm" href="<?php echo esc_attr( $anchor ); ?>"><?php echo esc_html( function_exists( 'er_cta_options' ) ? er_cta_options()['check_availability'] : er_t( 'Book with our partners' ) ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
+	</div>
+	<?php
+}
+
 function er_offer_rows( array $offer_ids, string $placement ): void {
 	if ( ! $offer_ids || ! function_exists( 'er_offer_data' ) ) {
 		return;

@@ -173,13 +173,7 @@ $er_focus = 3 === count( $er_focus ) && empty( $args['hero']['image'] ) ? implod
 			</div>
 		</nav>
 
-		<?php if ( ! empty( $args['offers'] ) ) : // Wide screens (phones have the dock): booking one click away all along the story. ?>
-			<div class="xs-bookbar" data-bookbar hidden>
-				<span class="xs-bookbar__title"><?php echo esc_html( get_the_title() ); ?></span>
-				<span class="xs-bookbar__label"><?php er_e( 'Book with our partners' ); ?></span>
-				<a class="btn btn--primary btn--sm" href="#plan"><?php echo esc_html( function_exists( 'er_cta_options' ) ? er_cta_options()['check_availability'] : er_t( 'Book with our partners' ) ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
-			</div>
-		<?php endif; ?>
+		<?php er_book_bar(); // Wide screens (phones have the dock): booking one click away all along the story. ?>
 
 		<?php /* The walk: the hero photograph holds while the opening and the first chapters pass over it. */ ?>
 		<section class="xw-walk<?php echo $er_walk ? '' : ' xw-walk--short'; ?>" data-walk<?php echo '' !== $er_focus ? ' data-focus="' . esc_attr( $er_focus ) . '"' : ''; ?> aria-label="<?php echo esc_attr( get_the_title() ); ?>">
