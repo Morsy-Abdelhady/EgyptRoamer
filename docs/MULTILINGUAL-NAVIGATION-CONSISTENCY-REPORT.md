@@ -16,7 +16,22 @@
 - **[Tested]**
 - **[Not tested]**
 
-## 1. Navigation matrix (homepage, production)
+> **Correction (theme 1.2.47, same day).** Finding #1 below was wrongly classed as intentional. The brief required equivalent navigation in every language, and the owner rightly pointed out that the English menu still had 3 items while the other 7 had 2.
+>
+> **Classification:** it is a **[Bug]**, not a gap. Every language's menu already contains the translated "Travel Guide" item, and the theme dropped it.
+>
+> **Fixed in 1.2.47:** items, footer links and the homepage Journal section whose content exists only in English are now kept in every language. They keep their translated label, link the English content, and are marked `hreflang="en"` with a visible "EN" tag.
+>
+> **Verified:**
+> - navigation (desktop and drawer) is 3 items in all 8 languages;
+> - homepage sections are identical in all 8 languages;
+> - footer parity passes on 9 pages × 7 languages;
+> - 64 responsive renders are clean;
+> - keyboard, axe and hygiene suites all pass.
+>
+> Production results: §8.
+
+## 1. Navigation matrix (homepage, production, before 1.2.47)
 
 | Language | Desktop menu (1440) | Mobile drawer (390) | Items, order | Localized URLs | Direction | Language menu | Overflow 320–1440 | Status |
 |---|---|---|---|---|---|---|---|---|
@@ -38,8 +53,8 @@ In every language:
 
 | # | Finding | Class | Root cause | Action |
 |---|---|---|---|---|
-| 1 | "Travel Guide" is in the English menu only; the guide links in the footer are English only | **[Intentional] / [Gap]** | Guides exist only in English. The theme drops menu items whose target is an empty archive or has no translation (`er_localize_menu_item`, the "only working links" filter in `inc/template-tags.php`) rather than show English links on translated pages | None in code. **[Gap]** Translated guides need native-reviewed content (see `ARABIC-EDITORIAL-PLAN.md`); the item appears automatically once a guide is published in a language |
-| 2 | English homepage has a "Guide" section; the other 7 do not | **[Intentional] / [Gap]** | Same as #1: the section renders only when the language has guides | None |
+| 1 | "Travel Guide" is in the English menu only; the guide links in the footer are English only | ~~[Intentional]~~ **[Bug]**, fixed in 1.2.47 | Guides exist only in English. The theme drops menu items whose target is an empty archive or has no translation (`er_localize_menu_item`, the "only working links" filter in `inc/template-tags.php`) rather than show English links on translated pages | None in code. **[Gap]** Translated guides need native-reviewed content (see `ARABIC-EDITORIAL-PLAN.md`); the item appears automatically once a guide is published in a language |
+| 2 | English homepage has a "Guide" section; the other 7 do not | ~~[Intentional]~~ **[Bug]**, fixed in 1.2.47 | Same as #1: the section renders only when the language has guides | None |
 | 3 | Desktop language menu on LTR pages: "العربية" sat on the right edge while the other 7 names were left-aligned | **[Bug]** CSS | The Arabic `<li>` carries `dir="rtl"` (needed so the name renders correctly), and that also set its alignment | **[Fix]** `pages.css`: `html:not([dir="rtl"]) .lang__menu li[dir="rtl"] { text-align: left }`. Arabic pages are unchanged. Tested: local, all items at the same x position |
 | 4 | Arabic opening scene (≥ 901 px): the text block sits on the left of the photo, while the note stays top right | **[Intentional]** | Documented design decision in `pages.css`: the Great Pyramid is on the photo's right, so the Arabic text (right-aligned, read right to left) sits on the open sky. Phones stack it at the bottom. The note and the progress rail do not overlap (verified at 1024 and 1440) | None |
 | 5 | Archives (`/xx/destinations/`, `/xx/experiences/`): any query string (e.g. `?utm_source=…`) was copied into every hreflang alternate | **[Bug]** SEO | Polylang builds archive translations from the current URL | **[Fix]** Core `multilingual.php`: hreflang alternates drop query and fragment. The language menu keeps the query, so a search term survives a language switch. Tested locally |
@@ -124,3 +139,26 @@ Taken during the audit and kept with the QA run (scratchpad `pwt/nav/`, not comm
 
 - **[Gap]** Translated guides: none of the 7 languages has a guide, so "Travel Guide" and the footer guide links stay hidden there. Each guide needs native-reviewed text before publishing (owner rule).
 - **[Gap]** Legal translations are still "drafted, pending native review", including the 15 Oct privacy sentences.
+
+## 8. Production after theme 1.2.47 (commit `0fcea37`, cache flushed)
+
+| Language | Desktop menu | Drawer | Homepage sections | Footer parity |
+|---|---|---|---|---|
+| EN | Destinations · Experiences · Travel Guide | same | top, interlude, moods, destinations, map, experiences, guide, planner | reference |
+| AR | الوجهات · التجارب · دليل السفر `EN` | same | identical | ✓ |
+| DE | Reiseziele · Erlebnisse · Reiseführer `EN` | same | identical | ✓ |
+| FR | Destinations · Expériences · Guide de voyage `EN` | same | identical | ✓ |
+| IT | Destinazioni · Esperienze · Guida di viaggio `EN` | same | identical | ✓ |
+| ES | Destinos · Experiencias · Guía de viaje `EN` | same | identical | ✓ |
+| RU | Направления · Впечатления · Путеводитель `EN` | same | identical | ✓ |
+| ZH | 目的地 · 体验 · 旅行指南 `EN` | same | identical | ✓ |
+
+**Production checks:**
+- Footer parity on `/`, `/destinations/cairo/`, `/experiences/` and `/privacy-policy/`: pass for all 7 languages.
+- The first run on `/de/` showed the pre-release copy from the edge cache; after the flush it passed.
+
+**Local, same code:**
+- 64 responsive renders: 0 problems.
+- `keyboard.mjs`, `overlays.mjs` and `hygiene.mjs` all pass. The first axe run flagged contrast on the EN tag at 75 % opacity; the opacity was removed.
+
+**Remaining [Gap]:** native-language guides. When a guide is published in a language, the menu, footer and homepage switch to it automatically and the EN tag disappears.

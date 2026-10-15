@@ -16,7 +16,7 @@
 | Check | en | ar | de | fr | it | es | ru | zh |
 |---|---|---|---|---|---|---|---|---|
 | Homepage 200, translated h1, same sections (en adds Guide) | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| Desktop menu (localized URLs) | 3 items | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+| Desktop menu (localized URLs), after theme 1.2.47 | 3 items | 3 (`EN` guide) | 3 | 3 | 3 | 3 | 3 | 3 |
 | Mobile drawer opens, same items, CTA, 8 languages | ✔ | ✔ RTL | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Language menu: current language marked, links = hreflang | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Arabic item aligned with the list (fix) | ✔ (`left`) | ✔ (start, RTL) | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
@@ -25,7 +25,7 @@
 | Offer title `lang="en"` on translated pages (fix) | n/a | ✔ | (same template) | | | | | |
 | hreflang without query string on archives (fix) | ✔ (0 of 9 with `?`, on `/ar/destinations/?utm_source=…`) | | | | | | | |
 
-The language difference in the menu and the Guide section is intentional (guides exist only in English). See `MULTILINGUAL-NAVIGATION-CONSISTENCY-REPORT.md`.
+**Correction:** the menu and Guide-section difference was a bug, fixed in theme 1.2.47; all 8 languages are now identical. See `MULTILINGUAL-NAVIGATION-CONSISTENCY-REPORT.md`.
 
 ## 2. Responsive (homepage, production, after deploy)
 
