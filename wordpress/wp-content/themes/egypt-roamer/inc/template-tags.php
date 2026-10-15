@@ -535,11 +535,15 @@ function er_card_grid( array $post_ids, string $placement = 'card', string $head
 	if ( ! $post_ids ) {
 		return;
 	}
-	echo '<ul class="grid-cards">';
+	$cards = '';
 	foreach ( $post_ids as $id ) {
-		echo er_card( (int) $id, $placement, $heading ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside
+		$cards .= er_card( (int) $id, $placement, $heading );
 	}
-	echo '</ul>';
+	echo '<ul class="grid-cards">' . $cards . '</ul>'; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside er_card
+	// A card that links to a partner needs the affiliate disclosure next to it, whatever else the page shows.
+	if ( str_contains( $cards, 'data-er-offer=' ) ) {
+		er_disclosure();
+	}
 }
 
 /* -------------------------------------------------------------------------- */

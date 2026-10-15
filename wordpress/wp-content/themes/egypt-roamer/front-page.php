@@ -408,9 +408,11 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 			<div class="rail-scroller" data-rail-scroller>
 				<ul class="exp__track" data-exp-track>
 					<?php
+					$er_exp_cards = '';
 					foreach ( er_home_experience_ids() as $er_id ) {
-						echo er_card( $er_id, 'home-experiences' ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside
+						$er_exp_cards .= er_card( $er_id, 'home-experiences' );
 					}
+					echo $er_exp_cards; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside er_card
 					?>
 				</ul>
 			</div>
@@ -422,6 +424,9 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 				</div>
 				<a href="<?php echo esc_url( get_post_type_archive_link( 'er_experience' ) ); ?>" class="link"><?php er_e( 'View all experiences' ); ?> <?php echo er_icon( 'i-arrow', 'icon--sm' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
 			</div>
+			<?php if ( str_contains( $er_exp_cards, 'data-er-offer=' ) ) : // partner links in the rail: disclose next to them ?>
+				<div class="container"><?php er_disclosure(); ?></div>
+			<?php endif; ?>
 		</section>
 	<?php endif; ?>
 

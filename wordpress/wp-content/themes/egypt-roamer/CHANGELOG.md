@@ -2,6 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.45 — 2026-10-15 (with Core 1.2.31): first partner offers, disclosure everywhere they appear
+- **Core 1.2.31: first-party page-view totals** (`includes/visits.php`, Egypt Roamer → Visits). The site had no measurement of visits at all. Each page view adds 1 to a daily total per page, language, page type, source category (search, AI assistant, social, other site, direct), referring domain and device class. No cookie, no identifier, no IP address or user agent is stored; editors, Do Not Track / Global Privacy Control, automation and bot user agents are not counted. Partner-link taps and failed `/go/` links are counted too. Privacy Policy updated in 8 languages. Measuring since 2026-10-15.
+- **Disclosure next to every partner link.** The first live offers (Viator, 15 Oct) also show on cards: the homepage experiences rail, archives, search and "Alternatives to compare". Those grids had no disclosure line, so a page such as Great Sand Sea (no offer of its own, but an alternative with one) showed a partner link with no disclosure. `er_card_grid()` and the homepage rail now print the disclosure when one of their cards links to a partner.
+- Report: `docs/VIATOR-AFFILIATE-INTEGRATION-REPORT-2026-10-15.md`, `docs/ANALYTICS-IMPLEMENTATION-REPORT-2026-10-15.md`.
+
 ## 1.2.44 — 2026-10-15 (with Core 1.2.30): search recovery, first fixes
 - **Snippets:** Google was showing site furniture as the snippet for brand searches ("Trip assistant. Hello! I can point you…", "© 2026 Egypt Roamer…"). The footer, menus, overlays, the assistant and the dock labels now carry `data-nosnippet`, which Google honours on div, span and section. The visible page is unchanged.
 - **Core: IndexNow** (`includes/indexnow.php`). Bing had no page of the site in its index (`site:egyptroamer.com`: 0 results, 15 Oct), and there was no Bing Webmaster Tools access. The site now tells the IndexNow engines (Bing, Yandex, Seznam, Naver) about changed URLs:
