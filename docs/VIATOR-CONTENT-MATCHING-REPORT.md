@@ -109,3 +109,10 @@ Checked: introduction, journey and imagery against the product, CTA wording, no 
 - **What this means for us:**
   - Our `/go/` redirects send the exact product URL; all 8 were re-checked.
   - There is nothing to change on our side.
+
+## Added 15 Oct (theme 1.2.51 / Core 1.2.36)
+
+| Destination | Viator product (code), supplier | Target URL | Evidence | Status |
+|---|---|---|---|---|
+| Alexandria | "Alexandria Day Trip From Cairo" (59626P4), Ramasside Tours | `/tours/Cairo/Alexandria-Day-Trip-From-Cairo/d782-59626P4` | Viewed on viator.com in Edge: 4.7 from 1,489 reviews. Covers the Library, the Roman amphitheatre, the Corniche, Qaitbay and Montazah. Includes Egyptologist guide (option), hotel pickup and A/C car | Published, offer #574. The redirect test reaches the product with pid/mcid/campaign |
+| Sharm El Sheikh | "Sharm El Sheikh: Ras Mohammed Snorkeling, Allah Gate & Magic Lake" (5616599P11), NASS TOURS | `/tours/Sharm-el-Sheikh/Sharm-el-Sheikh-Ras-Mohammed-Park-Magic-Lake-and-Snorkeling-Tour/d827-5616599P11` | Viewed on viator.com: 4.9 from 771 reviews. Bus from Sharm, snorkelling in Ras Mohammed National Park, the park's first highlight on our Sharm page | **Not created yet:** it waits for the owner's go-ahead. The translations are already in `offers-i18n.json` under `ras-mohammed-snorkeling-trip-from-sharm-el-sheikh` |
