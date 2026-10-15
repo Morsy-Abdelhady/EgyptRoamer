@@ -15,7 +15,15 @@ Only what the official pages say is recorded below. Third-party directories disa
 - **Sign-up route:** "Register" on that page, select your region, then complete the registration with **CJ**. The page says registration is free.
 - **Products:** accommodations, plus transportation options and attractions.
 - **Pays:** "a commission on qualified bookings made through your integrations".
-- **Not on the official page:** the commission rate and the tracking window. Read them in the CJ programme terms after joining.
+- **CJ programme page:** https://www.cj.com/en-gb/publisher/partners/booking.com (FAQ read 2026-10-16).
+  - **Applying:** "select your primary traffic region and complete the application form". One region per application.
+  - **Eligibility:** an active website, blog or social profile; social-only publishers are not accepted. Cashback and coupon restrictions apply in some regions.
+  - **Commission:** starts at 4% for completed accommodation stays, 6% for car rentals, 4% for attractions, £2/€2 per flight and 4% for taxis. It may vary with performance and volume.
+  - **Tracking is session based:** commission counts only if the user completes the booking in the same browser session as the click. There is no multi-day cookie, so a traveller who books a hotel days later is not credited. This weighs against Booking.com for a planning-stage site like ours.
+  - **Vouchers:** Booking.com gives none. Publishers listing discount vouchers are removed.
+  - **App bookings:** tracked.
+- **Russia:** Booking Holdings suspended travel services in Russia and Belarus in March 2022, and no resumption was found (Phocuswire, Meduza). Russian-speaking visitors in Russia likely cannot book through these links, so the RU pages need another hotel partner.
+- **Region chosen for our audience (owner: Europe, Russia, China):** United Kingdom, since the English pages are the base of every language and are read across Europe.
 - **On our site:** a booking box in each destination's "Where to stay" section, and later on the itinerary guides. It complements Viator: a hotel is a separate spend from a tour.
 
 ## 2. GetYourGuide (tours and activities)
