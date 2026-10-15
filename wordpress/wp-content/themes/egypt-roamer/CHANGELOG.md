@@ -2,6 +2,14 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.59 — 2026-10-15: the booking bar keeps off the sidebar
+- **Owner request:** narrow the bar so it does not cover the sidebar.
+- **Before:** the bar was centred on the screen and up to 760 px wide. At 1440 px it covered the sidebar's edge (the key facts) on 53 of the 80 experience pages.
+- **Fix:**
+  - When the sidebar is shown, `site-main.js` measures the article column. The bar is then centred on that column and no wider (`data-in-column`, `--bar-x`/`--bar-w`, also in RTL).
+  - Without a sidebar (the Abu Simbel story, or screens below 1200 px) it stays centred on the screen.
+- **QA:** fails an experience page whose bar, once shown, overlaps the sidebar.
+
 ## 1.2.58 — 2026-10-15: the booking bar on every experience page
 - **Owner report:** only Abu Simbel had the booking bar. 1.2.57 moved the booking boxes on the other experience pages but did not give them the bar, and the report wrongly said the Abu Simbel experience was applied to them.
 - **`er_book_bar()`** (`inc/template-tags.php`) now renders the bar on every experience page with offers (story and regular), leading to the page's booking box.

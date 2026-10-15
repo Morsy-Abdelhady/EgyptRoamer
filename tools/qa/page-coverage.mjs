@@ -89,7 +89,19 @@ async function check(pg) {
       tours: document.querySelectorAll(".itin__tour").length,
     };
   });
+  // The experience booking bar, once shown, must not cover the sidebar.
+  const barHit = pg.kind === "experiences" ? await p.evaluate(async () => {
+    window.scrollTo(0, Math.round(window.innerHeight * 1.5));
+    window.dispatchEvent(new Event("scroll"));
+    await new Promise((r) => setTimeout(r, 300));
+    const bar = document.querySelector("[data-bookbar]");
+    const aside = document.querySelector(".page-layout--aside > .page-aside");
+    if (!bar || bar.hidden || !aside || getComputedStyle(aside).display === "contents") return false;
+    const b = bar.getBoundingClientRect(), a = aside.getBoundingClientRect();
+    return b.right > a.left + 1 && b.left < a.right - 1;
+  }) : false;
   await p.close();
+  if (barHit) fail(pg, "the booking bar covers the sidebar");
 
   if (pg.kind === "home") {
     if (!d.tours) fail(pg, "planner shows no partner tours");

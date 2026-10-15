@@ -7147,6 +7147,13 @@ right: 50%;
 .xs-bookbar[hidden] {
 display: none;
 }
+.xs-bookbar[data-in-column],
+[dir="rtl"] .xs-bookbar[data-in-column] {
+left: var(--bar-x);
+right: auto;
+max-width: var(--bar-w);
+transform: translateX(-50%);
+}
 .xs-bookbar__title {
 font-family: var(--font-serif);
 font-size: 1.05rem;
