@@ -49,3 +49,47 @@ Only what the official pages say is recorded below. Third-party directories disa
   - add each offer only after checking its product page;
   - tag campaigns per language and placement, as for Viator;
   - run `tools/qa/page-coverage.mjs`.
+
+## 3. Hotels for Russian and Chinese travellers (researched 2026-10-16)
+
+The owner's target is tourists from Europe, Russia and China. Booking.com does not serve Russia (suspended since March 2022), so these were checked on official pages.
+
+### Trip.com (recommended: one hotel partner for every language, Russian included)
+- **Official programme page:** https://www.trip.com/partners/index
+  - Free to join.
+  - "7% max. basic commission".
+  - 30-day website cookie (7 days for the app).
+  - 1.7M+ accommodation options.
+- **Official help page:** https://www.trip.com/ask/questions/trip.com-affliate-program.html
+  - **Hotel commission tiers:** 5% for 0–199 completed bookings a month, 6% for 200–999, 7% for 1,000+.
+  - **Payment:** paid on completed trips, by bank transfer in USD or HKD, minimum payout USD 200.
+- **Language versions** (hreflang on trip.com): ru, de, fr, it, es, ar-SA, and Traditional Chinese (hk.trip.com, tw.trip.com).
+  - There is no Simplified Chinese version. Mainland China is served by Ctrip.
+- **Russian payments:** blogs report that some Russian cards (Mir, except Sberbank's) and SBP work. This is not official, so check before promising anything on the site.
+- **Versus Booking.com for our site:** 30-day tracking instead of session-only, 5% instead of 4% on hotels, and Russian-language coverage.
+
+### Ctrip (携程开放平台, u.ctrip.com): not feasible
+- The official beginner's guide requires:
+  - an identity check with a Chinese ID card (身份证) for individuals, or a Chinese business licence for companies;
+  - a bank account in the same name;
+  - invoices (发票) from company accounts.
+- Order tracking lasts one week.
+- An Egypt-based owner cannot meet these requirements.
+
+### Yandex Travel (Яндекс Путешествия): possible, not verified for Egypt
+- **Official page:** https://yandex.ru/support/travel-distr/ru/
+  - Sites, blogs and channels can join.
+  - Non-residents of Russia may join, but pay their own taxes (page "Налоги").
+- **Not checked:**
+  - whether it sells hotels in Egypt: travel.yandex.ru showed a robot check, which we do not bypass;
+  - how non-residents are paid.
+
+### Ostrovok.ru: only through Travelpayouts
+- Travelpayouts lists 6%. This is not confirmed on Ostrovok's own pages.
+
+### Plan
+1. **Trip.com** as the hotel partner for all languages. The owner signs up, then sends the affiliate ID.
+2. **ZH pages:**
+   - Point to Trip.com (English or Traditional Chinese) and say so honestly.
+   - Mainland China has no workable programme for us today.
+3. **Yandex Travel:** revisit for the RU pages after Trip.com, if Egypt hotels and non-resident payouts are confirmed with Yandex support.
