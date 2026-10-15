@@ -7117,10 +7117,6 @@ justify-items: start;
 text-align: start;
 }
 .xs-bookbar {
-display: none;
-}
-@media (min-width: 901px) {
-.xs-bookbar {
 position: fixed;
 left: 50%;
 bottom: 1.25rem;
@@ -7147,13 +7143,6 @@ right: 50%;
 .xs-bookbar[hidden] {
 display: none;
 }
-.xs-bookbar[data-in-column],
-[dir="rtl"] .xs-bookbar[data-in-column] {
-left: var(--bar-x);
-right: auto;
-max-width: var(--bar-w);
-transform: translateX(-50%);
-}
 .xs-bookbar__title {
 font-family: var(--font-serif);
 font-size: 1.05rem;
@@ -7171,6 +7160,31 @@ white-space: nowrap;
 }
 .xs-bookbar .btn {
 flex: none;
+}
+@media (max-width: 900px) {
+.xs-bookbar,
+[dir="rtl"] .xs-bookbar {
+left: auto;
+right: auto;
+inset-inline-start: 0.75rem;
+inset-inline-end: 4.75rem;
+bottom: calc(0.75rem + env(safe-area-inset-bottom) + 4.6rem);
+width: auto;
+max-width: none;
+gap: var(--s-3);
+padding-block: 0.4rem;
+padding-inline: 1rem 0.4rem;
+transform: none;
+}
+.xs-bookbar__label {
+display: none;
+}
+.xs-bookbar__title {
+flex: 1;
+font-size: 0.95rem;
+}
+body:has(.menu.is-open) .xs-bookbar {
+display: none;
 }
 }
 .offer-box.is-called {

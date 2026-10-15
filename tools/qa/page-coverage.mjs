@@ -89,19 +89,7 @@ async function check(pg) {
       tours: document.querySelectorAll(".itin__tour").length,
     };
   });
-  // The booking bar, once shown, must not cover the sidebar.
-  const barHit = pg.kind !== "home" ? await p.evaluate(async () => {
-    window.scrollTo(0, Math.round(window.innerHeight * 1.5));
-    window.dispatchEvent(new Event("scroll"));
-    await new Promise((r) => setTimeout(r, 300));
-    const bar = document.querySelector("[data-bookbar]");
-    const aside = document.querySelector(".page-layout--aside > .page-aside");
-    if (!bar || bar.hidden || !aside || getComputedStyle(aside).display === "contents") return false;
-    const b = bar.getBoundingClientRect(), a = aside.getBoundingClientRect();
-    return b.right > a.left + 1 && b.left < a.right - 1;
-  }) : false;
   await p.close();
-  if (barHit) fail(pg, "the booking bar covers the sidebar");
 
   if (pg.kind === "home") {
     if (!d.tours) fail(pg, "planner shows no partner tours");
@@ -128,7 +116,7 @@ async function check(pg) {
     p = await mob.newPage();
     p.on("pageerror", (e) => errs.push(String(e).slice(0, 120)));
     await p.goto(pg.url, { waitUntil: "networkidle", timeout: 120000 }).catch(() => {});
-    const m = await p.evaluate(() => {
+    const m = await p.evaluate(async () => {
       const href = document.querySelector(".dock__plan")?.getAttribute("href") || "";
       const t = href.startsWith("#") ? document.querySelector(href) : null;
       // The first partner link a reader scrolls past, as a share of the page height.
@@ -137,12 +125,21 @@ async function check(pg) {
       const facts = [...document.querySelectorAll(".page-aside > .glance:not(.glance--things)")].find((g) => g.getClientRects().length);
       const prose = document.querySelector(".prose");
       const factsLate = !!facts && !!prose && facts.getBoundingClientRect().top > prose.getBoundingClientRect().top;
-      return { href, at, factsLate, story: !!document.querySelector(".page-hero--story"), shown: !!t && getComputedStyle(t).display !== "none" && t.getClientRects().length > 0 };
+      // The booking bar on phones (owner, 15 Oct): shown once scrolled, clear of the dock and the assistant button.
+      window.scrollTo(0, Math.round(window.innerHeight * 1.5));
+      window.dispatchEvent(new Event("scroll"));
+      await new Promise((r) => setTimeout(r, 300));
+      const bar = document.querySelector("[data-bookbar]");
+      const hit = (a, b) => !!a && !!b && a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
+      const br = bar && !bar.hidden && bar.getClientRects().length ? bar.getBoundingClientRect() : null;
+      const barMob = !br ? "not shown" : hit(br, document.querySelector(".dock")?.getBoundingClientRect()) ? "over the dock" : hit(br, document.querySelector(".assistant-launch")?.getBoundingClientRect()) ? "over the assistant button" : "";
+      return { href, at, factsLate, barMob, story: !!document.querySelector(".page-hero--story"), shown: !!t && getComputedStyle(t).display !== "none" && t.getClientRects().length > 0 };
     });
     await p.close();
     if (!/^#(book|plan)$/.test(m.href)) fail(pg, `phone dock goes to "${m.href}", not the booking box`);
     else if (!m.shown) fail(pg, `phone dock target ${m.href} is not displayed`);
     if (m.factsLate) fail(pg, "phone: key facts come after the article");
+    if (m.barMob) fail(pg, `phone: booking bar ${m.barMob}`);
     // The story (Abu Simbel) is long by design: its dock, menu and booking bar stay one tap from booking.
     if (!m.story && m.at > 0.5) fail(pg, `phone: the first partner link is ${Math.round(m.at * 100)}% down the page`);
   }

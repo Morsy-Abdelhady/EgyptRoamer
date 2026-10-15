@@ -3501,63 +3501,79 @@ html:lang(zh) {
   justify-items: start;
   text-align: start;
 }
-/* Wide screens: a slim bar while the story plays (phones have the dock). */
+/* The booking bar: centred at the bottom of the screen on wide screens; on phones just above the dock (below). */
 .xs-bookbar {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  z-index: var(--z-dock);
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  width: max-content;
+  max-width: min(760px, calc(100vw - 22rem));
+  padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ink) 90%, transparent);
+  backdrop-filter: blur(18px) saturate(1.3);
+  color: #fff;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.28);
+  transform: translateX(-50%);
+}
+[dir="rtl"] .xs-bookbar {
+  padding: 0.5rem 1.25rem 0.5rem 0.5rem;
+  transform: translateX(50%);
+  left: auto;
+  right: 50%;
+}
+.xs-bookbar[hidden] {
   display: none;
 }
-@media (min-width: 901px) {
-  .xs-bookbar {
-    position: fixed;
-    left: 50%;
-    bottom: 1.25rem;
-    z-index: var(--z-dock);
-    display: flex;
-    align-items: center;
-    gap: var(--s-4);
-    width: max-content;
-    max-width: min(760px, calc(100vw - 22rem));
-    padding: 0.5rem 0.5rem 0.5rem 1.25rem;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--ink) 90%, transparent);
-    backdrop-filter: blur(18px) saturate(1.3);
-    color: #fff;
-    box-shadow: 0 12px 32px rgb(0 0 0 / 0.28);
-    transform: translateX(-50%);
-  }
+.xs-bookbar__title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.xs-bookbar__label {
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.xs-bookbar .btn {
+  flex: none;
+}
+/* Phones (owner, 15 Oct: the bar on mobile too): above the dock, full width except the corner of the Trip
+   assistant button, which sits on the inline-end side in both directions. The label gives way to the name. */
+@media (max-width: 900px) {
+  .xs-bookbar,
   [dir="rtl"] .xs-bookbar {
-    padding: 0.5rem 1.25rem 0.5rem 0.5rem;
-    transform: translateX(50%);
     left: auto;
-    right: 50%;
-  }
-  .xs-bookbar[hidden] {
-    display: none;
-  }
-  /* Pages with a sidebar: centred on the article column and no wider (site-main.js measures it). */
-  .xs-bookbar[data-in-column],
-  [dir="rtl"] .xs-bookbar[data-in-column] {
-    left: var(--bar-x);
     right: auto;
-    max-width: var(--bar-w);
-    transform: translateX(-50%);
-  }
-  .xs-bookbar__title {
-    font-family: var(--font-serif);
-    font-size: 1.05rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: 0;
+    inset-inline-start: 0.75rem;
+    inset-inline-end: 4.75rem;
+    bottom: calc(0.75rem + env(safe-area-inset-bottom) + 4.6rem);
+    width: auto;
+    max-width: none;
+    gap: var(--s-3);
+    padding-block: 0.4rem;
+    padding-inline: 1rem 0.4rem;
+    transform: none;
   }
   .xs-bookbar__label {
-    font-size: var(--fs-label);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    white-space: nowrap;
+    display: none;
   }
-  .xs-bookbar .btn {
-    flex: none;
+  .xs-bookbar__title {
+    flex: 1;
+    font-size: 0.95rem;
+  }
+  /* The dock steps aside while the menu is open; so does the bar. */
+  body:has(.menu.is-open) .xs-bookbar {
+    display: none;
   }
 }
 /* A booking box already on screen, called by a "Check Availability" link: a short gold ring instead of a jump. */

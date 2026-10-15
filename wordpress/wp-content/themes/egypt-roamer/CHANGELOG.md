@@ -2,6 +2,13 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.61 — 2026-10-15: the booking bar centred again, and on phones
+- **Owner decision:** keep the bar centred on the screen as before (reverts 1.2.59's fit to the article column); the Trip assistant stays as it is.
+- **Phones:** the bar is shown on phones too (it was wide screens only). It sits just above the dock, full width except the corner of the Trip assistant button, which it leaves clear in both directions (`inset-inline`).
+  - The "Book with our partners" label gives way to the page's name and "Check Availability".
+  - It is hidden while the menu is open.
+- **QA:** the sidebar-overlap check is dropped. On phones every page must show the bar once scrolled, clear of the dock and the assistant button.
+
 ## 1.2.60 — 2026-10-15: the booking bar on destinations and guides
 - **Owner request:** the same bar on destination and guide pages.
 - `er_book_bar()` is now called after the section tabs on destinations and guides, as on experiences. It is wide screens only, and sits over the article column when the sidebar is shown.

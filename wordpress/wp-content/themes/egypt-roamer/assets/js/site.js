@@ -1598,25 +1598,7 @@
     // The story pins its hero while the first chapters pass over it, so "past the hero" is read from the scroll.
     let past = false;
     let endIn = false;
-    // With the sidebar shown (wide screens), the bar sits over the article column only, never over the sidebar.
-    const layout = document.querySelector(".page-layout--aside");
-    const aside = layout?.querySelector(".page-aside");
-    const fit = () => {
-      const col = aside && getComputedStyle(aside).display !== "contents" ? layout.firstElementChild : null;
-      if (!col || col === aside) {
-        bar.removeAttribute("data-in-column");
-        return;
-      }
-      const r = col.getBoundingClientRect();
-      bar.style.setProperty("--bar-x", `${r.left + r.width / 2}px`);
-      bar.style.setProperty("--bar-w", `${r.width}px`);
-      bar.setAttribute("data-in-column", "");
-    };
-    const update = () => {
-      bar.hidden = !past || endIn;
-      if (!bar.hidden) fit();
-    };
-    window.addEventListener("resize", () => { if (!bar.hidden) fit(); }, { passive: true });
+    const update = () => { bar.hidden = !past || endIn; };
     const onScroll = () => { const p = window.scrollY > window.innerHeight * 0.8; if (p !== past) { past = p; update(); } };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
