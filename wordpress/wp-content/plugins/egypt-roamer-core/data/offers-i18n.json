@@ -239,5 +239,65 @@
    "title": "锡瓦绿洲：从开罗出发 3 日游，含大沙海越野",
    "location": "锡瓦绿洲"
   }
+ },
+ "alexandria-day-trip-from-cairo": {
+  "ar": {
+   "title": "رحلة يوم إلى الإسكندرية من القاهرة",
+   "location": "الإسكندرية"
+  },
+  "de": {
+   "title": "Tagesausflug nach Alexandria ab Kairo",
+   "location": "Alexandria"
+  },
+  "fr": {
+   "title": "Excursion d’une journée à Alexandrie depuis Le Caire",
+   "location": "Alexandrie"
+  },
+  "it": {
+   "title": "Gita di un giorno ad Alessandria dal Cairo",
+   "location": "Alessandria"
+  },
+  "es": {
+   "title": "Excursión de un día a Alejandría desde El Cairo",
+   "location": "Alejandría"
+  },
+  "ru": {
+   "title": "Однодневная поездка в Александрию из Каира",
+   "location": "Александрия"
+  },
+  "zh": {
+   "title": "从开罗出发的亚历山大一日游",
+   "location": "亚历山大"
+  }
+ },
+ "ras-mohammed-snorkeling-trip-from-sharm-el-sheikh": {
+  "ar": {
+   "title": "رحلة سنوركلينج في رأس محمد من شرم الشيخ",
+   "location": "شرم الشيخ"
+  },
+  "de": {
+   "title": "Schnorchelausflug nach Ras Mohammed ab Sharm El-Sheikh",
+   "location": "Sharm El-Sheikh"
+  },
+  "fr": {
+   "title": "Excursion snorkeling à Ras Mohammed depuis Charm el-Cheikh",
+   "location": "Charm el-Cheikh"
+  },
+  "it": {
+   "title": "Escursione di snorkeling a Ras Mohammed da Sharm el-Sheikh",
+   "location": "Sharm el-Sheikh"
+  },
+  "es": {
+   "title": "Excursión de esnórquel en Ras Mohammed desde Sharm el-Sheij",
+   "location": "Sharm el-Sheij"
+  },
+  "ru": {
+   "title": "Снорклинг в Рас-Мохаммеде: поездка из Шарм-эш-Шейха",
+   "location": "Шарм-эш-Шейх"
+  },
+  "zh": {
+   "title": "从沙姆沙伊赫出发的穆罕默德角浮潜之旅",
+   "location": "沙姆沙伊赫"
+  }
  }
 }

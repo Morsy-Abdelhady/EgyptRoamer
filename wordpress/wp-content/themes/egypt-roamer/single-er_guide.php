@@ -23,6 +23,36 @@ while ( have_posts() ) :
 		get_the_modified_date( 'Y-m-d' ) !== get_the_date( 'Y-m-d' ) ? '<span>' . esc_html( er_t( 'Updated' ) ) . ' <time datetime="' . esc_attr( get_the_modified_date( 'c' ) ) . '">' . esc_html( er_local_date( true ) ) . '</time></span>' : ''
 	) . '<span>' . er_icon( 'i-clock', 'icon--sm' ) . esc_html( er_t( '{n} min read', [ 'n' => er_read_minutes( $er_id ) ] ) ) . '</span>';
 
+	$er_dests   = 'er_guide' === $er_type ? er_get_related( $er_id, '_er_destination' ) : [];
+	$er_related = 'er_guide' === $er_type ? er_get_related( $er_id, '_er_related' ) : [];
+	$er_book    = 'er_guide' === $er_type ? er_page_offers() : [];
+
+	// Sidebar (wide screens), as on destinations and experiences: the booking box, pinned while reading, and the
+	// destinations the guide covers. Below 1200px both give way to the in-article box and the sections at the end.
+	ob_start();
+	if ( $er_book ) :
+		?>
+		<div class="offer-box is-wide-only" role="region" aria-labelledby="aside-book-title">
+			<p class="t-label" id="aside-book-title"><?php er_e( 'Book with our partners' ); ?></p>
+			<?php er_offer_rows( $er_book, 'guide-aside' ); ?>
+			<?php er_disclosure(); ?>
+		</div>
+		<?php
+	endif;
+	if ( $er_dests ) :
+		?>
+		<nav class="glance glance--things is-wide-only" aria-labelledby="glance-dests">
+			<p class="glance__label" id="glance-dests"><?php er_e( 'Destinations in this guide' ); ?></p>
+			<ul class="glance__list">
+				<?php foreach ( $er_dests as $er_dest ) : ?>
+					<li><a href="<?php echo esc_url( get_permalink( $er_dest ) ); ?>"><?php echo esc_html( get_the_title( $er_dest ) ); ?></a><?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></li>
+				<?php endforeach; ?>
+			</ul>
+		</nav>
+		<?php
+	endif;
+	$er_aside = trim( (string) ob_get_clean() );
+
 	er_page_hero( [
 		'eyebrow' => $er_tax && ! is_wp_error( $er_tax ) ? $er_tax[0]->name : er_type_label( $er_type ),
 		'title'   => get_the_title(),
@@ -32,19 +62,16 @@ while ( have_posts() ) :
 		// destinations and experiences. Copied from the article template, guides had a text-only hero.
 		'stock'   => 'er_guide' === $er_type && function_exists( 'er_stock_id_for' ) ? er_stock_id_for( (int) $er_id ) : '',
 		'meta'    => $er_meta,
-		'measure' => true,
+		'measure' => '' === $er_aside,
 	] );
-	$er_dests   = 'er_guide' === $er_type ? er_get_related( $er_id, '_er_destination' ) : [];
-	$er_related = 'er_guide' === $er_type ? er_get_related( $er_id, '_er_related' ) : [];
-	$er_body    = er_body();
-	er_section_nav( $er_body['links'], $er_body['label'], true );
-	// Booking box inside the article, after its second section: a reader who has decided should not have to
-	// reach the cards at the very end. The offers are those of the experiences this guide covers.
-	$er_book = 'er_guide' === $er_type ? er_page_offers() : [];
+	$er_body = er_body();
+	er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
+	// Booking box inside the article, after its second section (below 1200px, where there is no sidebar): a reader
+	// who has decided should not have to reach the cards at the very end.
 	if ( $er_book ) {
 		ob_start();
 		?>
-		<aside class="offer-box offer-box--inline" id="book" aria-labelledby="book-title">
+		<aside class="offer-box offer-box--inline is-narrow-only" id="book" aria-labelledby="book-title">
 			<p class="t-label" id="book-title"><?php er_e( 'Book with our partners' ); ?></p>
 			<?php er_offer_rows( $er_book, 'guide-inline' ); ?>
 			<?php er_disclosure(); ?>
@@ -56,26 +83,27 @@ while ( have_posts() ) :
 		$er_at        = false !== $er_at ? strpos( $er_body['html'], '<section class="er-sec">', $er_at + 1 ) : false;
 		$er_body['html'] = false !== $er_at ? substr_replace( $er_body['html'], $er_book_html, $er_at, 0 ) : $er_body['html'] . $er_book_html;
 	}
+	ob_start();
+	?>
+	<div class="prose"><?php echo $er_body['html']; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
+	<?php
+	$er_bio = get_the_author_meta( 'description' );
+	if ( $er_bio ) :
+		?>
+		<aside class="author-box" aria-label="<?php echo esc_attr( er_t( 'About the author' ) ); ?>">
+			<?php echo get_avatar( get_the_author_meta( 'ID' ), 72, '', '' ); ?>
+			<div>
+				<p class="t-label"><?php er_e( 'About the author' ); ?></p>
+				<p class="author-box__name"><?php the_author(); ?></p>
+				<p><?php echo esc_html( $er_bio ); ?></p>
+			</div>
+		</aside>
+		<?php
+	endif;
+	$er_main = (string) ob_get_clean();
 	?>
 	<div class="page-body container">
-		<div class="page-layout page-layout--single">
-			<article class="page-main">
-				<div class="prose"><?php echo $er_body['html']; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?></div>
-				<?php
-				$er_bio = get_the_author_meta( 'description' );
-				if ( $er_bio ) :
-					?>
-					<aside class="author-box" aria-label="<?php echo esc_attr( er_t( 'About the author' ) ); ?>">
-						<?php echo get_avatar( get_the_author_meta( 'ID' ), 72, '', '' ); ?>
-						<div>
-							<p class="t-label"><?php er_e( 'About the author' ); ?></p>
-							<p class="author-box__name"><?php the_author(); ?></p>
-							<p><?php echo esc_html( $er_bio ); ?></p>
-						</div>
-					</aside>
-				<?php endif; ?>
-			</article>
-		</div>
+		<?php er_layout( $er_main, $er_aside ); ?>
 
 		<?php if ( $er_related ) : ?>
 			<section class="related" aria-labelledby="rel-title">

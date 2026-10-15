@@ -2,6 +2,19 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.51 / Core 1.2.36 — 2026-10-15: owner's second UX review
+- **Alexandria had no booking action.**
+  - A verified Viator offer was added in wp-admin (#574): "Alexandria Day Trip From Cairo" (59626P4), supplied by Ramasside Tours, 4.7 from 1,489 reviews. It visits the Library, the amphitheatre, Qaitbay and Montazah.
+  - Core `offers-i18n.json` has its 7 translations, plus those for the planned Sharm offer (Ras Mohammed, 5616599P11).
+- **Trip assistant:** each partner link shows the trip's name. Two bare "Check Availability · Viator" buttons could not be told apart. A result with offers is one card: the page link, then one row per trip.
+- **Guides use the two-column layout of the other templates.**
+  - A sticky sidebar holds the booking box and the guide's destinations. The text no longer sits in a narrow centred column.
+  - Below 1200px the in-article box replaces the sidebar, so the box never shows twice.
+- **Cards in inner-page grids:**
+  - The photo is landscape (it was a tall portrait).
+  - A partner card says "via {partner}", and its CTA is a button (it was a text link).
+  - A card that is alone in its grid lies on its side instead of leaving the row empty.
+
 ## 1.2.50 — 2026-10-15: booking within one tap, planner connected to Viator
 - **Owner review:** the owner asked why a reader finishes an article without finding a booking button, and what the trip planner is connected to.
 - **Experience, tour, activity and destination pages:**

@@ -596,10 +596,12 @@ function er_card( int $post_id, string $placement = 'card', string $heading = 'h
 				<p class="card__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt( $post_id ), 22, '…' ) ); ?></p>
 			<?php endif; ?>
 			<div class="card__foot">
-				<span></span>
 				<?php
+				// A partner card says whose page the button opens, and the button looks like one (it was a text link).
+				$er_card_partner = $offers && function_exists( 'er_offer_data' ) ? (string) er_offer_data( (int) $offers[0], $placement, (int) get_queried_object_id() )['provider'] : '';
+				echo $er_card_partner ? '<span class="via">' . esc_html( er_t( 'via {partner}', [ 'partner' => $er_card_partner ] ) ) . '</span>' : '<span></span>';
 				if ( $offers ) {
-					echo er_offer_cta_html( $offers[0], [ 'placement' => $placement, 'class' => 'link', 'icon' => ' ' . er_icon( 'i-arrow-ur', 'icon--sm' ) ] ); // phpcs:ignore WordPress.Security.EscapeOutput -- built with esc_* in the plugin
+					echo er_offer_cta_html( $offers[0], [ 'placement' => $placement, 'class' => 'btn btn--outline btn--sm', 'icon' => ' ' . er_icon( 'i-arrow-ur', 'icon--sm' ) ] ); // phpcs:ignore WordPress.Security.EscapeOutput -- built with esc_* in the plugin
 				} else {
 					printf( '<a class="link" href="%s">%s %s</a>', esc_url( $url ), esc_html( er_t( 'Discover' ) ), er_icon( 'i-arrow', 'icon--sm' ) ); // phpcs:ignore WordPress.Security.EscapeOutput
 				}

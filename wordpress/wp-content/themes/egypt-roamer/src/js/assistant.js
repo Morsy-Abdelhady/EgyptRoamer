@@ -76,7 +76,10 @@ function init() {
         for (const offer of item.offers || []) {
           const url = own(offer.url);
           if (!url || !new URL(url).pathname.startsWith("/go/")) continue;
-          li.append(el("a", { class: "assistant__offer link", href: url, rel: "sponsored nofollow noopener", target: "_blank" }, [offer.cta, offer.provider].filter(Boolean).join(" · ")));
+          // The trip's own name on each partner link: two bare "Check Availability" buttons were indistinguishable.
+          const o = el("a", { class: "assistant__offer", href: url, rel: "sponsored nofollow noopener", target: "_blank" });
+          o.append(el("span", { class: "assistant__offer-name" }, offer.title || ""), el("span", { class: "assistant__offer-cta" }, [offer.cta, offer.provider].filter(Boolean).join(" · ") + " ↗"));
+          li.append(o);
         }
         ul.append(li);
       }
