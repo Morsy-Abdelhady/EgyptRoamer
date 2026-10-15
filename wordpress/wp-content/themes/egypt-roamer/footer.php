@@ -86,7 +86,9 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 <nav class="menu" id="menu" aria-label="<?php echo esc_attr( er_t( 'Primary' ) ); ?>" hidden>
 	<div class="menu__inner" data-nosnippet>
 		<?php echo er_menu( 'primary', '<ul class="menu__links">%3$s</ul>' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-		<?php if ( $er_planner_url ) : ?>
+		<?php if ( ! is_front_page() && er_book_anchor() ) : // As in the header: on a page with offers, the menu's gold button books here. ?>
+			<a href="<?php echo esc_attr( er_book_anchor() ); ?>" class="btn btn--primary btn--lg btn--block" data-close><?php echo esc_html( function_exists( 'er_cta_options' ) ? er_cta_options()['check_availability'] : er_t( 'Book with our partners' ) ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
+		<?php elseif ( $er_planner_url ) : ?>
 			<a href="<?php echo esc_url( $er_planner_url ); ?>" class="btn btn--primary btn--lg btn--block" data-close><?php er_e( 'Plan My Trip' ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
 		<?php endif; ?>
 		<?php er_lang_switcher( 'mobile' ); ?>

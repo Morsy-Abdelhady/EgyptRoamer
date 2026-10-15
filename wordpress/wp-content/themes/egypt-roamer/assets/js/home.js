@@ -661,7 +661,18 @@
       }
       const closer = e.target.closest("[data-close]");
       if (closer) {
+        // A link to this page's own section (the menu's "Check Availability"): close first, then go there, since
+        // closing hands focus back to the menu button and the jump was lost.
+        const href = closer.getAttribute("href") || "";
+        const target = href.length > 1 && href.startsWith("#") ? document.getElementById(href.slice(1)) : null;
+        if (target && target.getClientRects().length) e.preventDefault();
         closeOverlay(closer.closest(".overlay, .menu"));
+        if (target && target.getClientRects().length) {
+          requestAnimationFrame(() => {
+            target.scrollIntoView({ block: "start" });
+            history.replaceState(null, "", href);
+          });
+        }
         return;
       }
       // click on backdrop

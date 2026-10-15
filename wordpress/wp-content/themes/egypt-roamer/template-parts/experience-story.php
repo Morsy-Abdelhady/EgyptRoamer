@@ -173,6 +173,14 @@ $er_focus = 3 === count( $er_focus ) && empty( $args['hero']['image'] ) ? implod
 			</div>
 		</nav>
 
+		<?php if ( ! empty( $args['offers'] ) ) : // Wide screens (phones have the dock): booking one click away all along the story. ?>
+			<div class="xs-bookbar" data-bookbar hidden>
+				<span class="xs-bookbar__title"><?php echo esc_html( get_the_title() ); ?></span>
+				<span class="xs-bookbar__label"><?php er_e( 'Book with our partners' ); ?></span>
+				<a class="btn btn--primary btn--sm" href="#plan"><?php echo esc_html( function_exists( 'er_cta_options' ) ? er_cta_options()['check_availability'] : er_t( 'Book with our partners' ) ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
+			</div>
+		<?php endif; ?>
+
 		<?php /* The walk: the hero photograph holds while the opening and the first chapters pass over it. */ ?>
 		<section class="xw-walk<?php echo $er_walk ? '' : ' xw-walk--short'; ?>" data-walk<?php echo '' !== $er_focus ? ' data-focus="' . esc_attr( $er_focus ) . '"' : ''; ?> aria-label="<?php echo esc_attr( get_the_title() ); ?>">
 			<div class="xw-walk__bg">
@@ -257,6 +265,13 @@ $er_focus = 3 === count( $er_focus ) && empty( $args['hero']['image'] ) ? implod
 				<div class="xs-know__head">
 					<?php echo $er_eye( 'know_eyebrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 					<h2 class="xs-h2" id="<?php echo esc_attr( $er_know_id ); ?>"><?php echo $er_txt( $er_lbl['know_title'] ?? ( $er_know['title'] ?? er_t( 'Good to know' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
+					<?php if ( ! empty( $args['offers'] ) ) : // Booking beside the practical detail, not only at the very end (owner, 15 Oct). ?>
+						<div class="offer-box xs-know__book" role="region" aria-labelledby="know-book-title">
+							<p class="t-label" id="know-book-title"><?php er_e( 'Book with our partners' ); ?></p>
+							<?php er_offer_rows( (array) $args['offers'], 'experience-know' ); ?>
+							<?php er_disclosure(); ?>
+						</div>
+					<?php endif; ?>
 				</div>
 				<div class="xs-know__body">
 					<?php if ( $er_info ) : ?>

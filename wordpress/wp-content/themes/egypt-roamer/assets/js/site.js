@@ -661,7 +661,18 @@
       }
       const closer = e.target.closest("[data-close]");
       if (closer) {
+        // A link to this page's own section (the menu's "Check Availability"): close first, then go there, since
+        // closing hands focus back to the menu button and the jump was lost.
+        const href = closer.getAttribute("href") || "";
+        const target = href.length > 1 && href.startsWith("#") ? document.getElementById(href.slice(1)) : null;
+        if (target && target.getClientRects().length) e.preventDefault();
         closeOverlay(closer.closest(".overlay, .menu"));
+        if (target && target.getClientRects().length) {
+          requestAnimationFrame(() => {
+            target.scrollIntoView({ block: "start" });
+            history.replaceState(null, "", href);
+          });
+        }
         return;
       }
       // click on backdrop
@@ -1576,6 +1587,20 @@
   safe("progress", initScrollProgress);
   safe("affiliate", initAffiliateLinks);
   safe("newsletter", initNewsletter);
+  // Story booking bar: shown once the hero's button has scrolled away, hidden again at the booking section.
+  safe("bookbar", () => {
+    const bar = document.querySelector("[data-bookbar]");
+    const end = document.getElementById("plan");
+    if (!bar || !end || !("IntersectionObserver" in window)) return;
+    // The story pins its hero while the first chapters pass over it, so "past the hero" is read from the scroll.
+    let past = false;
+    let endIn = false;
+    const update = () => { bar.hidden = !past || endIn; };
+    const onScroll = () => { const p = window.scrollY > window.innerHeight * 0.8; if (p !== past) { past = p; update(); } };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    new IntersectionObserver(([e]) => { endIn = e.isIntersecting; update(); }, { threshold: 0.15 }).observe(end);
+  });
   // "#book" links (header, hero, dock): on a guide at 1200px and wider the in-article box is hidden and its copy is
   // in the sidebar, so the jump goes there instead of nowhere.
   safe("book-jump", () => {

@@ -81,6 +81,8 @@ async function check(pg) {
       box: ["#book", "#plan"].some((s) => vis(document.querySelector(s))) || vis(document.querySelector(".page-aside .offer-box")),
       asideBox: vis(document.querySelector(".page-aside .offer-box")),
       cta: document.querySelector(".nav__cta")?.getAttribute("href") || "",
+      menuCta: document.querySelector(".menu a.btn--primary")?.getAttribute("href") || "",
+      bookbar: !!document.querySelector("[data-bookbar]"),
       // Gold buttons that leave the page for the homepage planner (15 Oct: the reader looking to book was sent home).
       goldHome: [...document.querySelectorAll("main a.btn--primary")].filter((a) => vis(a) && /#planner$/.test(a.getAttribute("href") || "")).length,
       offers,
@@ -98,6 +100,8 @@ async function check(pg) {
     // A reader must be able to book while reading, not only after the article (Hurghada, 15 Oct).
     if (pg.kind !== "experiences" && !d.asideBox) fail(pg, "no booking box in the sidebar on wide screens");
     if (!/^#(book|plan)$/.test(d.cta)) fail(pg, `header button goes to "${d.cta}", not the booking box`);
+    if (!/^#(book|plan)$/.test(d.menuCta)) fail(pg, `phone menu button goes to "${d.menuCta}", not the booking box`);
+    if (d.story && !d.bookbar) fail(pg, "story page without its booking bar");
     if (d.goldHome) fail(pg, `${d.goldHome} gold button(s) leave for the homepage planner`);
   }
   for (const o of d.offers) {

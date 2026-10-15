@@ -2,6 +2,17 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.56 — 2026-10-15: Abu Simbel story books from anywhere; phone menu books too
+- **Owner request:** the easiest possible path to booking, and a smooth, clear Abu Simbel page.
+- **Before:** the Abu Simbel story is about 12,600 px long, and its partner offers appeared only at about 10,900 px. Between the hero button and the end, nothing on a wide screen led to booking.
+- **Story booking bar (wide screens):** a slim bar at the bottom of the screen with the experience's name, "Book with our partners" and "Check Availability" (→ `#plan`).
+  - It appears once the reader has scrolled past the first screen, and hides at the booking section.
+  - Phones keep the dock.
+- **"What to know":** the partner offers now also sit under the heading, beside the practical detail (road or air, timing). On phones that brings the first partner link from 88% to about 65% of the page.
+- **Phone menu:** its gold button went to the homepage planner on every page. On a page with offers it is now "Check Availability" to the booking box, as in the header.
+  - Closing the menu returned focus to its button, which lost the jump. In-page links in the menu now close it first, then scroll.
+- **QA:** fails a page whose phone-menu button doesn't go to the booking box, and a story page without its booking bar.
+
 ## 1.2.55 — 2026-10-15: booking reachable while reading; gold buttons no longer send readers home
 - **Owner report (Hurghada):** no way to book until the end of the page, and the gold buttons led to the homepage.
 - **Cause:**
