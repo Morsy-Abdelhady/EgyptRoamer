@@ -30,8 +30,8 @@ Fill in one row every Monday (UTC), for the 7 days that end on Sunday. One quest
 | Partner-link taps | 0 | — |
 | `/go/` redirects | 41 | All QA or redirect tests |
 | Viator clicks / bookings | to read 17 Oct | — |
-| Content | 19 pages per language × 8 at baseline. End of 15 Oct: 26 pages per language (7 destinations, 10 experiences, 9 guides) and 17 live Viator offers. Later on 15 Oct: 31 pages per language (14 guides), then 36 (19 guides) | — |
-| Release gate | all ok: 160 pages at baseline, 216, then 240, then 296 (all on 15 Oct). From the third batch on, the gate follows archive pagination: before that it missed the guides past page 1 of `/guides/`, so 240 was an undercount (those pages were not checked) | — |
+| Content | 19 pages per language × 8 at baseline. End of 15 Oct: 26 pages per language (7 destinations, 10 experiences, 9 guides) and 17 live Viator offers. Later on 15 Oct: 31 pages per language (14 guides), then 36 (19 guides), then 41 (24 guides, night of 15–16 Oct) | — |
+| Release gate | all ok: 160 pages at baseline, 216, then 240, then 296 (all on 15 Oct), then 336 (16 Oct). From the third batch on, the gate follows archive pagination: before that it missed the guides past page 1 of `/guides/`, so 240 was an undercount (those pages were not checked) | — |
 
 > **Booking path, 15 Oct evening (theme 1.2.55 → 1.2.62):** after the owner's Hurghada report, every destination, experience and guide gets a way to book while reading:
 > - a sidebar booking box first on wide screens, and an in-article box on phones;
