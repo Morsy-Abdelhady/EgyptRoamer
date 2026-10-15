@@ -112,6 +112,13 @@
   "review": "approved",
   "current": true
  },
+ "g-14-days": {
+  "type": "er_guide",
+  "title": "14 giorni in Egitto: l’itinerario completo",
+  "excerpt": "Un itinerario di due settimane in Egitto: Il Cairo e Alessandria, crociera sul Nilo o hotel tra Luxor e Assuan con Abu Simbel, e per finire il Mar Rosso o il Deserto Occidentale, con gli spostamenti tra le tappe.",
+  "review": "approved",
+  "current": true
+ },
  "g-7-days": {
   "type": "er_guide",
   "title": "7 giorni in Egitto: l’itinerario perfetto per la prima volta",
@@ -168,10 +175,38 @@
   "review": "approved",
   "current": true
  },
+ "g-east-bank": {
+  "type": "er_guide",
+  "title": "Karnak e il Tempio di Luxor: guida alla riva est",
+  "excerpt": "Una guida ai templi della riva est di Luxor: il grande tempio di Amon-Ra a Karnak e la sua sala ipostila di 134 colonne, il Tempio di Luxor e il suo colonnato, il Viale delle Sfingi che li unisce e come organizzare la giornata.",
+  "review": "approved",
+  "current": true
+ },
+ "g-gem": {
+  "type": "er_guide",
+  "title": "Il Grande Museo Egizio: come organizzare la visita",
+  "excerpt": "Come organizzare la visita al Grande Museo Egizio di Giza: cos’è, il colosso di Ramses II e la grande scalinata, la collezione di Tutankhamon, come abbinarlo alle piramidi e consigli pratici.",
+  "review": "approved",
+  "current": true
+ },
  "g-gems": {
   "type": "er_guide",
   "title": "10 tesori nascosti che la maggior parte dei visitatori non vede mai",
   "excerpt": "Dieci luoghi straordinari in Egitto che la maggior parte dei visitatori salta: dalla Piramide Romboidale e Medinet Habu ad Abido, Dendera, Wadi Al-Hitan e Rosetta, con ciò che rende speciale ciascuno e come inserirlo in un viaggio.",
+  "review": "approved",
+  "current": true
+ },
+ "g-great-sand-sea": {
+  "type": "er_guide",
+  "title": "Il Grande Mare di Sabbia: l’oceano di dune dell’Egitto",
+  "excerpt": "Il Grande Mare di Sabbia del Deserto Occidentale egiziano: dove si trova, come visitarlo in fuoristrada dall’oasi di Siwa, cosa comporta un safari tra le dune, sorgenti e tramonti nel deserto, sicurezza e stagione migliore.",
+  "review": "approved",
+  "current": true
+ },
+ "g-inside-pyramids": {
+  "type": "er_guide",
+  "title": "Dentro le piramidi di Giza: vale la pena entrare?",
+  "excerpt": "Com’è l’interno delle piramidi di Giza: i corridoi della Grande Piramide, la Grande Galleria e la Camera del Re, cosa vedrai e cosa no, chi farebbe meglio a rinunciare e come organizzare la visita all’altopiano.",
   "review": "approved",
   "current": true
  },

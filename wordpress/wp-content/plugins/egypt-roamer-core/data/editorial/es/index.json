@@ -112,6 +112,13 @@
   "review": "approved",
   "current": true
  },
+ "g-14-days": {
+  "type": "er_guide",
+  "title": "14 días en Egipto: el itinerario completo",
+  "excerpt": "Un itinerario de dos semanas por Egipto: El Cairo y Alejandría, un crucero por el Nilo u hoteles entre Luxor y Asuán con Abu Simbel, y para terminar el mar Rojo o el Desierto Occidental, con cómo moverse entre ellos.",
+  "review": "approved",
+  "current": true
+ },
  "g-7-days": {
   "type": "er_guide",
   "title": "7 días en Egipto: el itinerario perfecto para tu primera visita",
@@ -168,10 +175,38 @@
   "review": "approved",
   "current": true
  },
+ "g-east-bank": {
+  "type": "er_guide",
+  "title": "Karnak y el templo de Luxor: guía de la orilla este",
+  "excerpt": "Una guía de los templos de la orilla este de Luxor: el gran templo de Amón-Ra en Karnak y su sala hipóstila de 134 columnas, el templo de Luxor y su columnata, la avenida de las Esfinges que los une y cómo organizar el día.",
+  "review": "approved",
+  "current": true
+ },
+ "g-gem": {
+  "type": "er_guide",
+  "title": "El Gran Museo Egipcio: cómo organizar tu visita",
+  "excerpt": "Cómo organizar la visita al Gran Museo Egipcio en Guiza: qué es, el coloso de Ramsés II y la gran escalinata, la colección de Tutankamón, cómo combinarlo con las pirámides y consejos prácticos.",
+  "review": "approved",
+  "current": true
+ },
  "g-gems": {
   "type": "er_guide",
   "title": "10 joyas ocultas que la mayoría de los visitantes nunca ve",
   "excerpt": "Diez lugares extraordinarios de Egipto que la mayoría de los visitantes se salta: de la Pirámide Acodada y Medinet Habu a Abidos, Dendera, Wadi Al-Hitan y Rosetta, con lo que hace especial a cada uno y cómo incluirlo en un viaje.",
+  "review": "approved",
+  "current": true
+ },
+ "g-great-sand-sea": {
+  "type": "er_guide",
+  "title": "El Gran Mar de Arena: el océano de dunas de Egipto",
+  "excerpt": "El Gran Mar de Arena del Desierto Occidental de Egipto: dónde está, cómo visitarlo en todoterreno desde el oasis de Siwa, qué supone un safari por las dunas, manantiales y atardeceres en el desierto, seguridad y mejor temporada.",
+  "review": "approved",
+  "current": true
+ },
+ "g-inside-pyramids": {
+  "type": "er_guide",
+  "title": "Dentro de las pirámides de Guiza: ¿merece la pena entrar?",
+  "excerpt": "Cómo es el interior de las pirámides de Guiza: los corredores de la Gran Pirámide, la Gran Galería y la Cámara del Rey, qué verás y qué no, quién debería evitarlo y cómo organizar la visita a la meseta.",
   "review": "approved",
   "current": true
  },

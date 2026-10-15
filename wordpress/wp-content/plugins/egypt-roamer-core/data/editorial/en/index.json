@@ -89,6 +89,15 @@
   "destination": "cairo, luxor, aswan, hurghada",
   "related": "exp-giza, exp-valley, exp-abu, exp-dive"
  },
+ "g-14-days": {
+  "type": "er_guide",
+  "title": "14 Days in Egypt: The Complete Itinerary",
+  "excerpt": "A two-week Egypt itinerary: Cairo and Alexandria, a Nile cruise or hotels between Luxor and Aswan with Abu Simbel, and a choice of the Red Sea or the Western Desert to finish, with how to travel between them.",
+  "slug": "14-days-in-egypt-itinerary",
+  "topic": "Planning",
+  "destination": "cairo, alexandria, luxor, aswan, hurghada",
+  "related": "exp-giza, exp-alexandria, exp-valley, exp-abu, exp-dive"
+ },
  "g-7-days": {
   "type": "er_guide",
   "excerpt": "A realistic first-time Egypt itinerary for seven days: Cairo and the pyramids, Luxor's temples and tombs, and Aswan, with options for a Nile cruise, the Red Sea or Abu Simbel, and what to leave out.",
@@ -152,11 +161,47 @@
   "destination": "siwa",
   "related": "exp-siwa, exp-safari"
  },
+ "g-east-bank": {
+  "type": "er_guide",
+  "title": "Karnak and Luxor Temple: A Guide to Luxor's East Bank",
+  "excerpt": "A guide to Luxor's East Bank temples: Karnak's great temple of Amun-Ra and its hypostyle hall of 134 columns, Luxor Temple and its colonnade, the avenue of sphinxes between them, and how to plan the day.",
+  "slug": "karnak-and-luxor-temple",
+  "topic": "Planning",
+  "destination": "luxor",
+  "related": "exp-valley"
+ },
+ "g-gem": {
+  "type": "er_guide",
+  "title": "The Grand Egyptian Museum: How to Plan Your Visit",
+  "excerpt": "How to plan a visit to the Grand Egyptian Museum in Giza: what it is, the colossal Ramesses II and the grand staircase, the Tutankhamun collection, how to combine it with the pyramids, and practical tips.",
+  "slug": "grand-egyptian-museum-visit",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-giza"
+ },
  "g-gems": {
   "type": "er_guide",
   "excerpt": "Ten remarkable places in Egypt that most visitors skip: from the Bent Pyramid and Medinet Habu to Abydos, Dendera, Wadi Al-Hitan and Rosetta, with what makes each special and how to fit it into a trip.",
   "destination": "cairo, luxor, aswan, alexandria, siwa",
   "related": "exp-giza, exp-valley"
+ },
+ "g-great-sand-sea": {
+  "type": "er_guide",
+  "title": "The Great Sand Sea: Egypt's Ocean of Dunes",
+  "excerpt": "The Great Sand Sea of Egypt's Western Desert: where it is, how to visit it from Siwa Oasis by 4×4, what a dune safari involves, desert springs and sunsets, safety, and the best season.",
+  "slug": "great-sand-sea",
+  "topic": "Planning",
+  "destination": "siwa",
+  "related": "exp-siwa"
+ },
+ "g-inside-pyramids": {
+  "type": "er_guide",
+  "title": "Inside the Pyramids of Giza: Is It Worth Going In?",
+  "excerpt": "What it is like inside the Pyramids of Giza: the Great Pyramid's corridors, Grand Gallery and King's Chamber, what you will and won't see, who should skip it, and how to plan a visit to the plateau.",
+  "slug": "inside-the-pyramids-of-giza",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-giza"
  },
  "g-nile-cruise": {
   "type": "er_guide",

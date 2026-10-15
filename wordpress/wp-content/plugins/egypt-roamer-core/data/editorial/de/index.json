@@ -112,6 +112,13 @@
   "review": "approved",
   "current": true
  },
+ "g-14-days": {
+  "type": "er_guide",
+  "title": "14 Tage in Ägypten: die komplette Reiseroute",
+  "excerpt": "Eine Zwei-Wochen-Route für Ägypten: Kairo und Alexandria, Nilkreuzfahrt oder Hotels zwischen Luxor und Assuan mit Abu Simbel, und zum Abschluss das Rote Meer oder die Westliche Wüste, mit der Reise zwischen den Orten.",
+  "review": "approved",
+  "current": true
+ },
  "g-7-days": {
   "type": "er_guide",
   "title": "7 Tage in Ägypten: die perfekte erste Reiseroute",
@@ -168,10 +175,38 @@
   "review": "approved",
   "current": true
  },
+ "g-east-bank": {
+  "type": "er_guide",
+  "title": "Karnak und der Luxor-Tempel: das Ostufer von Luxor",
+  "excerpt": "Ein Ratgeber zu den Tempeln am Ostufer von Luxor: der große Amun-Re-Tempel von Karnak mit seinem Säulensaal aus 134 Säulen, der Luxor-Tempel und seine Kolonnade, die Sphingenallee dazwischen und wie Sie den Tag planen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-gem": {
+  "type": "er_guide",
+  "title": "Das Grand Egyptian Museum: So planen Sie Ihren Besuch",
+  "excerpt": "So planen Sie den Besuch im Grand Egyptian Museum in Gizeh: was das Museum ist, der Koloss Ramses’ II. und die große Treppe, die Tutanchamun-Sammlung, die Verbindung mit den Pyramiden und praktische Tipps.",
+  "review": "approved",
+  "current": true
+ },
  "g-gems": {
   "type": "er_guide",
   "title": "10 verborgene Schätze, die die meisten Besucher nie sehen",
   "excerpt": "Zehn bemerkenswerte Orte in Ägypten, die die meisten Besucher auslassen: von der Knickpyramide und Medinet Habu bis Abydos, Dendera, Wadi al-Hitan und Rosetta, mit dem, was jeden besonders macht, und wie er in eine Reise passt.",
+  "review": "approved",
+  "current": true
+ },
+ "g-great-sand-sea": {
+  "type": "er_guide",
+  "title": "Das Große Sandmeer: Ägyptens Ozean aus Dünen",
+  "excerpt": "Das Große Sandmeer in Ägyptens Westlicher Wüste: wo es liegt, wie Sie es von der Oase Siwa im Geländewagen besuchen, was eine Dünensafari bedeutet, Quellen und Sonnenuntergänge in der Wüste, Sicherheit und die beste Reisezeit.",
+  "review": "approved",
+  "current": true
+ },
+ "g-inside-pyramids": {
+  "type": "er_guide",
+  "title": "Im Inneren der Pyramiden von Gizeh: Lohnt sich der Einstieg?",
+  "excerpt": "Wie es im Inneren der Pyramiden von Gizeh ist: die Gänge der Cheops-Pyramide, die Große Galerie und die Königskammer, was Sie sehen und was nicht, wer besser draußen bleibt und wie Sie den Besuch des Plateaus planen.",
   "review": "approved",
   "current": true
  },

@@ -112,6 +112,13 @@
   "review": "approved",
   "current": true
  },
+ "g-14-days": {
+  "type": "er_guide",
+  "title": "14 jours en Égypte : l’itinéraire complet",
+  "excerpt": "Un itinéraire de deux semaines en Égypte : Le Caire et Alexandrie, une croisière sur le Nil ou des hôtels entre Louxor et Assouan avec Abou Simbel, puis la mer Rouge ou le désert Occidental pour finir, avec les trajets entre les étapes.",
+  "review": "approved",
+  "current": true
+ },
  "g-7-days": {
   "type": "er_guide",
   "title": "7 jours en Égypte : l’itinéraire idéal pour une première visite",
@@ -168,10 +175,38 @@
   "review": "approved",
   "current": true
  },
+ "g-east-bank": {
+  "type": "er_guide",
+  "title": "Karnak et le temple de Louxor : guide de la rive est",
+  "excerpt": "Un guide des temples de la rive est de Louxor : le grand temple d’Amon-Rê à Karnak et sa salle hypostyle de 134 colonnes, le temple de Louxor et sa colonnade, l’allée des Sphinx qui les relie, et comment organiser la journée.",
+  "review": "approved",
+  "current": true
+ },
+ "g-gem": {
+  "type": "er_guide",
+  "title": "Le Grand Musée égyptien : comment organiser votre visite",
+  "excerpt": "Comment organiser la visite du Grand Musée égyptien à Gizeh : ce qu’est le musée, le colosse de Ramsès II et le grand escalier, la collection de Toutânkhamon, comment l’associer aux pyramides, et des conseils pratiques.",
+  "review": "approved",
+  "current": true
+ },
  "g-gems": {
   "type": "er_guide",
   "title": "10 trésors cachés que la plupart des visiteurs ne voient jamais",
   "excerpt": "Dix lieux remarquables d’Égypte que la plupart des visiteurs manquent : de la pyramide rhomboïdale et Medinet Habou à Abydos, Dendérah, Wadi Al-Hitan et Rosette, avec ce qui rend chacun unique et comment l’intégrer à un voyage.",
+  "review": "approved",
+  "current": true
+ },
+ "g-great-sand-sea": {
+  "type": "er_guide",
+  "title": "La Grande mer de sable : l’océan de dunes de l’Égypte",
+  "excerpt": "La Grande mer de sable du désert Occidental égyptien : où elle se trouve, comment la découvrir en 4×4 depuis l’oasis de Siwa, ce qu’implique un safari dans les dunes, sources et couchers de soleil dans le désert, sécurité et meilleure saison.",
+  "review": "approved",
+  "current": true
+ },
+ "g-inside-pyramids": {
+  "type": "er_guide",
+  "title": "À l’intérieur des pyramides de Gizeh : faut-il y entrer ?",
+  "excerpt": "À quoi ressemble l’intérieur des pyramides de Gizeh : les couloirs de la Grande Pyramide, la Grande Galerie et la chambre du Roi, ce que vous verrez et ne verrez pas, qui ferait mieux de s’abstenir, et comment organiser la visite du plateau.",
   "review": "approved",
   "current": true
  },

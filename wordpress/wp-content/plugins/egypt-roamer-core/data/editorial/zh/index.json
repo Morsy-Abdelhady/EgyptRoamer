@@ -112,6 +112,13 @@
   "review": "approved",
   "current": true
  },
+ "g-14-days": {
+  "type": "er_guide",
+  "title": "埃及14日游：完整行程",
+  "excerpt": "埃及两周行程：开罗和亚历山大，卢克索与阿斯旺之间坐尼罗河游船或住酒店并游览阿布辛贝，最后以红海或西部沙漠收尾，并介绍各地之间的交通方式。",
+  "review": "approved",
+  "current": true
+ },
  "g-7-days": {
   "type": "er_guide",
   "title": "埃及 7 日游：首次到访的完美行程",
@@ -168,10 +175,38 @@
   "review": "approved",
   "current": true
  },
+ "g-east-bank": {
+  "type": "er_guide",
+  "title": "卡纳克与卢克索神庙：卢克索东岸指南",
+  "excerpt": "卢克索东岸神庙指南：卡纳克的阿蒙-拉大神庙及其拥有134根柱子的多柱厅、卢克索神庙及其柱廊、连接两者的狮身人面像大道，以及如何安排这一天。",
+  "review": "approved",
+  "current": true
+ },
+ "g-gem": {
+  "type": "er_guide",
+  "title": "大埃及博物馆：如何安排参观",
+  "excerpt": "如何安排参观吉萨的大埃及博物馆：博物馆概况、拉美西斯二世巨像和大阶梯、图坦卡蒙藏品、如何与金字塔一起安排，以及实用建议。",
+  "review": "approved",
+  "current": true
+ },
  "g-gems": {
   "type": "er_guide",
   "title": "大多数游客从未见过的 10 处隐藏瑰宝",
   "excerpt": "埃及十处大多数游客会错过的非凡之地：从弯曲金字塔和哈布城到阿拜多斯、丹德拉、鲸鱼谷和罗塞塔，介绍每处的独特之处，以及如何把它们纳入行程。",
+  "review": "approved",
+  "current": true
+ },
+ "g-great-sand-sea": {
+  "type": "er_guide",
+  "title": "大沙海：埃及的沙丘海洋",
+  "excerpt": "埃及西部沙漠的大沙海：位于哪里，如何从锡瓦绿洲乘四驱车前往，沙丘越野包括什么，沙漠泉水与日落，安全事项，以及最佳季节。",
+  "review": "approved",
+  "current": true
+ },
+ "g-inside-pyramids": {
+  "type": "er_guide",
+  "title": "走进吉萨金字塔：值得进去吗？",
+  "excerpt": "吉萨金字塔内部是什么样的：大金字塔的通道、大走廊和国王墓室，你能看到和看不到什么，哪些人最好别进去，以及如何安排金字塔高原的参观。",
   "review": "approved",
   "current": true
  },

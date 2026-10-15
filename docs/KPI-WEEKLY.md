@@ -30,10 +30,10 @@ Fill in one row every Monday (UTC), for the 7 days that end on Sunday. One quest
 | Partner-link taps | 0 | — |
 | `/go/` redirects | 41 | All QA or redirect tests |
 | Viator clicks / bookings | to read 17 Oct | — |
-| Content | 19 pages per language × 8 at baseline. End of 15 Oct: 26 pages per language (7 destinations, 10 experiences, 9 guides) and 17 live Viator offers. 16 Oct: 31 pages per language (14 guides) | — |
-| Release gate | all ok: 160 pages at baseline, 216 at end of 15 Oct, 240 on 16 Oct | — |
+| Content | 19 pages per language × 8 at baseline. End of 15 Oct: 26 pages per language (7 destinations, 10 experiences, 9 guides) and 17 live Viator offers. Later on 15 Oct: 31 pages per language (14 guides), then 36 (19 guides) | — |
+| Release gate | all ok: 160 pages at baseline, 216, then 240, then 280 (all on 15 Oct) | — |
 
-> **QA note (16 Oct):** a link check followed a few partner links in the new guides by mistake. Discount them:
+> **QA note (15 Oct):** a link check followed a few partner links in the new guides by mistake. Discount them:
 > - **Where:** the booking boxes of the Aswan temples, desert choice and Valley of the Kings guides, EN and AR.
 > - **Campaigns affected:** `er-en-guide-inline` and `er-ar-guide-inline`.
 > - **Where they show up:** `/go/` redirects in Visits, and clicks in Viator for those two campaigns.
