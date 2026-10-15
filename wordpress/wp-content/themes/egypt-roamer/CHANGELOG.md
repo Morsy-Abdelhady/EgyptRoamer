@@ -2,6 +2,22 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.50 — 2026-10-15: booking within one tap, planner connected to Viator
+- **Owner review:** the owner asked why a reader finishes an article without finding a booking button, and what the trip planner is connected to.
+- **Experience, tour, activity and destination pages:**
+  - The hero has a "Book with our partners" button. It jumps to the page's booking box (`#book`, or `#plan` on the Abu Simbel story).
+  - Below 1200px the booking box used to come only after the whole article.
+- **Guides:** a booking box sits inside the article, after its second section. It holds the offers of the experiences the guide covers, with the disclosure. The cards at the end stay.
+- **Mobile dock:** on any page with partner offers, the main button is "Check Availability" (Core's translated CTA). It goes to the booking box. Pages without offers keep "Plan My Trip".
+- **Trip planner:**
+  - The drafted route lists the partner tours for its stops under "Book with our partners": up to 2 per destination, with direct `/go/` links (placement `home-planner`) and the disclosure.
+  - Before this, the card ended in "Explore Egypt" only.
+  - On screens shorter than 1000px the card no longer stays pinned once it holds tours.
+
+## 1.2.49 / Core 1.2.35 — 2026-10-15: offer cards translated
+- The offer titles and locations in all 8 languages come from Core `data/offers-i18n.json`.
+- A card without its own image uses the photo of its experience or destination.
+
 ## Core 1.2.34 — 2026-10-15: guide translations reviewed, review note removed
 - **Owner request:** remove the "not yet reviewed" note and check the translations professionally in every language.
 - **Review pass on the 28 guide translations.** Wording and terminology aligned with the translations the owner approved on 29 Sep:

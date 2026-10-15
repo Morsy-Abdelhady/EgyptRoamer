@@ -38,6 +38,24 @@ while ( have_posts() ) :
 	$er_related = 'er_guide' === $er_type ? er_get_related( $er_id, '_er_related' ) : [];
 	$er_body    = er_body();
 	er_section_nav( $er_body['links'], $er_body['label'], true );
+	// Booking box inside the article, after its second section: a reader who has decided should not have to
+	// reach the cards at the very end. The offers are those of the experiences this guide covers.
+	$er_book = 'er_guide' === $er_type ? er_page_offers() : [];
+	if ( $er_book ) {
+		ob_start();
+		?>
+		<aside class="offer-box offer-box--inline" id="book" aria-labelledby="book-title">
+			<p class="t-label" id="book-title"><?php er_e( 'Book with our partners' ); ?></p>
+			<?php er_offer_rows( $er_book, 'guide-inline' ); ?>
+			<?php er_disclosure(); ?>
+		</aside>
+		<?php
+		$er_book_html = (string) ob_get_clean();
+		$er_first     = strpos( $er_body['html'], '<section class="er-sec">' );
+		$er_at        = false !== $er_first ? strpos( $er_body['html'], '<section class="er-sec">', $er_first + 1 ) : false;
+		$er_at        = false !== $er_at ? strpos( $er_body['html'], '<section class="er-sec">', $er_at + 1 ) : false;
+		$er_body['html'] = false !== $er_at ? substr_replace( $er_body['html'], $er_book_html, $er_at, 0 ) : $er_body['html'] . $er_book_html;
+	}
 	?>
 	<div class="page-body container">
 		<div class="page-layout page-layout--single">

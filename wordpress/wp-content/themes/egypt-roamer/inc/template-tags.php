@@ -631,6 +631,43 @@ function er_card_grid( array $post_ids, string $placement = 'card', string $head
 /* Affiliate offers block (conversion layer under editorial content)           */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * Live offers of the page being viewed: its own (experiences, tours, activities, destinations), or for a guide
+ * the first offer of each experience it covers. Feeds the hero/dock "book" shortcuts and the guide's booking box.
+ */
+function er_page_offers(): array {
+	static $cache = null;
+	if ( null !== $cache ) {
+		return $cache;
+	}
+	$cache = [];
+	if ( ! is_singular() || ! function_exists( 'er_offers_for_post' ) ) {
+		return $cache;
+	}
+	$id = (int) get_queried_object_id();
+	if ( 'er_guide' === get_post_type( $id ) ) {
+		foreach ( er_get_related( $id, '_er_related' ) as $rel ) {
+			$cache = array_merge( $cache, er_offers_for_post( (int) $rel->ID, 1 ) );
+		}
+		$cache = array_values( array_unique( array_map( 'intval', $cache ) ) );
+	} else {
+		$cache = er_offers_for_post( $id, 6 );
+	}
+	return $cache;
+}
+
+/** Where the page's booking box is: "#plan" on an experience story, "#book" elsewhere, '' without offers. */
+function er_book_anchor(): string {
+	if ( ! er_page_offers() ) {
+		return '';
+	}
+	$id = (int) get_queried_object_id();
+	if ( 'er_experience' === get_post_type( $id ) && function_exists( 'er_preview_for' ) && ! empty( er_preview_for( $id )['story'] ) ) {
+		return '#plan';
+	}
+	return '#book';
+}
+
 function er_offer_rows( array $offer_ids, string $placement ): void {
 	if ( ! $offer_ids || ! function_exists( 'er_offer_data' ) ) {
 		return;

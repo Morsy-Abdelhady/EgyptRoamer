@@ -58,6 +58,7 @@ while ( have_posts() ) :
 		'image'   => (int) get_post_thumbnail_id(),
 		'stock'   => er_stock_id_for( (int) get_the_ID() ),
 		'measure' => '' === $er_aside,
+		'actions' => $er_offers ? '<a class="btn btn--primary" href="#book">' . esc_html( er_t( 'Book {name} with our partners', [ 'name' => get_the_title() ] ) ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>' : '',
 	] );
 	$er_body = er_body();
 	er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
@@ -80,7 +81,7 @@ while ( have_posts() ) :
 		<?php endif; ?>
 
 		<?php if ( $er_offers ) : ?>
-			<section class="related offer-box offer-box--wide" aria-labelledby="offers-title">
+			<section class="related offer-box offer-box--wide" id="book" aria-labelledby="offers-title">
 				<h2 id="offers-title" class="t-h2"><?php echo esc_html( er_t( 'Book {name} with our partners', [ 'name' => get_the_title() ] ) ); ?></h2>
 				<?php er_offer_rows( $er_offers, 'destination-offers' ); ?>
 				<?php er_disclosure(); ?>

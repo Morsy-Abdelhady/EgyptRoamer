@@ -96,6 +96,8 @@ function er_payload_destination( int $id ): array {
 		'image'      => er_post_image_payload( $id ),
 		'coords'     => is_numeric( $lat ) && is_numeric( $lng ) ? [ (float) $lng, (float) $lat ] : null,
 		'url'        => get_permalink( $id ),
+		// The planner's route lists these under "Book with our partners" (live offers only).
+		'tours'      => function_exists( 'er_offers_for_post' ) ? array_map( static fn ( $o ) => er_payload_offer( (int) $o, 'home-planner' ), er_offers_for_post( $id, 2 ) ) : [],
 	];
 }
 

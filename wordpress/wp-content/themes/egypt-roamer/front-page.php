@@ -503,6 +503,11 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 							<div<?php echo $er_data['styleRates'] ? '' : ' hidden'; ?>><dt><?php er_e( 'Est. per person' ); ?></dt><dd data-itin-budget>—</dd></div>
 							<div><dt><?php er_e( 'Best months' ); ?></dt><dd data-itin-season>—</dd></div>
 						</dl>
+						<div class="itin__tours" data-itin-tours hidden>
+							<p class="t-label"><?php er_e( 'Book with our partners' ); ?></p>
+							<ul data-itin-tours-list></ul>
+							<?php er_disclosure(); ?>
+						</div>
 						<div class="itin__ctas">
 							<?php if ( $er_plan_href ) : ?>
 								<button type="submit" class="btn btn--primary btn--lg btn--block" data-magnetic><?php er_e( 'Build My Trip' ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></button>

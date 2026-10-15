@@ -1,7 +1,7 @@
 /* Trip builder — a visual entry point: four choices produce a live,
    plausible route with paced nights and a budget band. */
 import { t, tp, listJoin, isRTL } from "../i18n.js";
-import { $, $$, icon, escapeHtml, money, toast, on, scrollToTarget } from "../utils.js";
+import { $, $$, icon, escapeHtml, money, toast, on, scrollToTarget, affAttrs } from "../utils.js";
 import { moods, destinations, routeOrder, nightWeights, legs, styleRates } from "../data.js";
 
 const DEFAULT_DESTS = ["cairo", "luxor", "aswan"];
@@ -45,6 +45,26 @@ export function initPlanner() {
   const route = $("[data-itin-route]");
   const budget = $("[data-itin-budget]");
   const season = $("[data-itin-season]");
+  const tours = $("[data-itin-tours]");
+  const toursList = $("[data-itin-tours-list]");
+
+  // Partner tours for the stops on the route, in route order (WordPress: live offers per destination).
+  function renderTours(plan) {
+    if (!tours || !toursList) return;
+    const items = plan.flatMap((p) => {
+      const d = destinations.find((x) => x.id === p.id);
+      return ((d && d.tours) || []).map((o) => ({ o, place: d.name }));
+    });
+    const seen = new Set();
+    const unique = items.filter(({ o }) => !seen.has(o.id) && seen.add(o.id));
+    tours.hidden = !unique.length;
+    toursList.innerHTML = unique
+      .map(
+        ({ o, place }) =>
+          `<li><a class="itin__tour" href="${escapeHtml(o.href)}" ${affAttrs(o)}><span class="itin__tour-place">${escapeHtml(place)}</span><span class="itin__tour-name">${escapeHtml(o.title)}</span><span class="itin__tour-cta">${escapeHtml(o.cta)}${icon("i-arrow-ur")}</span></a></li>`
+      )
+      .join("");
+  }
 
   interests.innerHTML = moods
     .map(
@@ -80,6 +100,7 @@ export function initPlanner() {
       route.innerHTML = `<li class="itin__empty">${t("Pick at least one place and we'll pace the route for you.")}</li>`;
       budget.textContent = "—";
       season.textContent = "—";
+      renderTours([]);
       return;
     }
     const names = plan.map((p) => destinations.find((d) => d.id === p.id).name);
@@ -103,6 +124,7 @@ export function initPlanner() {
     }
     const coastOnly = plan.every((p) => ["hurghada", "sharm", "alexandria"].includes(p.id));
     season.textContent = t(coastOnly ? "Mar – Nov" : "Oct – Apr");
+    renderTours(plan);
   }
 
   form.addEventListener("input", update);

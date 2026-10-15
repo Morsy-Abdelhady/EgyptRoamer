@@ -122,7 +122,7 @@ ob_start();
 er_glance( $er_facts );
 if ( $er_offers ) :
 	?>
-	<div class="offer-box" role="region" aria-labelledby="offers-title">
+	<div class="offer-box" id="book" role="region" aria-labelledby="offers-title">
 		<h2 id="offers-title" class="t-label"><?php er_e( 'Book with our partners' ); ?></h2>
 		<?php er_offer_rows( $er_offers, str_replace( 'er_', '', $er_type ) . '-offers' ); ?>
 		<?php er_disclosure(); ?>
@@ -164,6 +164,8 @@ er_page_hero( [
 	'stock'   => er_stock_id_for( (int) get_the_ID() ),
 	'meta'    => $er_meta,
 	'measure' => '' === $er_aside,
+	// The booking box sits in the sidebar on wide screens but after the whole article below 1200px: one tap to it.
+	'actions' => $er_offers ? '<a class="btn btn--primary" href="#book">' . esc_html( er_t( 'Book with our partners' ) ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>' : '',
 ] );
 $er_body = er_body();
 er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );

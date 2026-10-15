@@ -76,7 +76,9 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 	<a href="<?php echo esc_url( get_post_type_archive_link( 'er_destination' ) ?: er_home_url() ); ?>" class="dock__item"><?php echo er_icon( 'i-compass' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php er_e( 'Explore' ); ?></span></a>
 	<button type="button" class="dock__item" data-open="saved"><?php echo er_icon( 'i-heart' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php er_e( 'Saved' ); ?></span><i class="dock__badge" data-fav-count></i></button>
 	<button type="button" class="dock__item" data-open="search"><?php echo er_icon( 'i-search' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php er_e( 'Search' ); ?></span></button>
-	<?php if ( $er_planner_url ) : ?>
+	<?php if ( er_book_anchor() ) : // A page with partner offers: the dock's main action is booking, via the page's booking box (and its disclosure). ?>
+		<a href="<?php echo esc_attr( er_book_anchor() ); ?>" class="dock__plan"><?php echo er_icon( 'i-calendar' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php echo esc_html( function_exists( 'er_cta_options' ) ? er_cta_options()['check_availability'] : er_t( 'Book with our partners' ) ); ?></span></a>
+	<?php elseif ( $er_planner_url ) : ?>
 		<a href="<?php echo esc_url( $er_planner_url ); ?>" class="dock__plan"><?php echo er_icon( 'i-route' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php er_e( 'Plan My Trip' ); ?></span></a>
 	<?php endif; ?>
 </nav>
