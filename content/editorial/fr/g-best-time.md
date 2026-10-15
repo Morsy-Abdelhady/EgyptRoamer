@@ -3,7 +3,9 @@ type: er_guide
 title: La meilleure période pour visiter l’Égypte, mois par mois
 excerpt: Quand partir en Égypte, saison par saison et région par région : l’hiver agréable de la vallée du Nil, la longue saison balnéaire de la mer Rouge, les nuits froides du désert, et comment le ramadan et les fêtes changent un voyage.
 source: b2a1409a6ab8
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 
@@ -35,10 +37,10 @@ Chaud le jour une grande partie de l’année, et très chaud en été. En hiver
 
 ## Au fil de l’année {#through-the-year}
 
-- **De décembre à février.** Haute saison dans la vallée du Nil : journées agréables, soirées fraîches et petits matins froids. Affluence maximale autour de Noël et du Nouvel An. La **[fête du soleil d’Abou Simbel](/experiences/abu-simbel-day-trip-from-aswan/)** a lieu le 22 février ou aux alentours.
+- **De décembre à février.** Haute saison dans la vallée du Nil : journées agréables, soirées fraîches et petits matins froids. Affluence maximale autour de Noël et du Nouvel An. Le **[phénomène solaire d’Abou Simbel](/experiences/abu-simbel-day-trip-from-aswan/)** se produit le 22 février ou aux alentours.
 - **Mars et avril.** Les températures montent, et la période reste excellente pour les visites. Les vents de printemps peuvent parfois apporter du sable.
 - **De mai à septembre.** Chaud à très chaud dans le sud. C’est la basse saison pour les visites dans la vallée du Nil : prévoyez des départs matinaux et des pauses à midi. La mer Rouge est en pleine saison estivale.
-- **Octobre et novembre.** Les températures baissent et la saison redémarre. C’est une excellente période partout. La seconde **fête du soleil d’Abou Simbel** a lieu le 22 octobre ou aux alentours.
+- **Octobre et novembre.** Les températures baissent et la saison redémarre. C’est une excellente période partout. Le second **phénomène solaire d’Abou Simbel** se produit le 22 octobre ou aux alentours.
 
 ## Ramadan et fêtes {#ramadan}
 

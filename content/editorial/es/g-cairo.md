@@ -3,7 +3,9 @@ type: er_guide
 title: Guía de El Cairo: más allá de las pirámides
 excerpt: El Cairo más allá de las pirámides: una guía barrio por barrio de El Cairo islámico y copto, el centro, Zamalek y el Nilo, con una ruta a pie por la ciudad antigua y consejos para el día a día en El Cairo.
 source: ad0da9b43958
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 

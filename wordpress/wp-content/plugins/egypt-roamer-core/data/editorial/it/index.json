@@ -93,28 +93,28 @@
   "type": "er_guide",
   "title": "7 giorni in Egitto: l’itinerario perfetto per la prima volta",
   "excerpt": "Un itinerario realistico di sette giorni per chi visita l’Egitto per la prima volta: Il Cairo e le piramidi, i templi e le tombe di Luxor e Assuan, con opzioni per una crociera sul Nilo, il Mar Rosso o Abu Simbel, e cosa lasciare fuori.",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "g-best-time": {
   "type": "er_guide",
   "title": "Il periodo migliore per visitare l’Egitto, mese per mese",
   "excerpt": "Quando visitare l’Egitto, stagione per stagione e regione per regione: il piacevole inverno della Valle del Nilo, la lunga stagione balneare del Mar Rosso, le notti fredde del deserto e come il Ramadan e le festività cambiano un viaggio.",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "g-cairo": {
   "type": "er_guide",
   "title": "Guida del Cairo: oltre le piramidi",
   "excerpt": "Il Cairo oltre le piramidi: una guida quartiere per quartiere al Cairo islamico e copto, a Downtown, Zamalek e al Nilo, con un percorso a piedi nella città vecchia e consigli per la vita quotidiana al Cairo.",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "g-gems": {
   "type": "er_guide",
   "title": "10 tesori nascosti che la maggior parte dei visitatori non vede mai",
   "excerpt": "Dieci luoghi straordinari in Egitto che la maggior parte dei visitatori salta: dalla Piramide Romboidale e Medinet Habu ad Abido, Dendera, Wadi Al-Hitan e Rosetta, con ciò che rende speciale ciascuno e come inserirlo in un viaggio.",
-  "review": "pending",
+  "review": "approved",
   "current": true
  }
 }

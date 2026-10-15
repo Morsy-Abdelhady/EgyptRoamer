@@ -3,7 +3,9 @@ type: er_guide
 title: Die beste Reisezeit für Ägypten, Monat für Monat
 excerpt: Wann Sie Ägypten besuchen sollten, nach Jahreszeit und Region: der angenehme Winter im Niltal, die lange Badesaison am Roten Meer, die kalten Wüstennächte und wie Ramadan und Feiertage eine Reise verändern.
 source: b2a1409a6ab8
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 
@@ -35,10 +37,10 @@ Tagsüber den größten Teil des Jahres heiß, im Sommer sehr heiß. Im Winter s
 
 ## Durch das Jahr {#through-the-year}
 
-- **Dezember bis Februar.** Hochsaison im Niltal: angenehme Tage, kühle Abende und frische frühe Morgen. Am vollsten rund um Weihnachten und Neujahr. Das **[Sonnenfest von Abu Simbel](/experiences/abu-simbel-day-trip-from-aswan/)** fällt auf den 22. Februar oder um diesen Tag.
+- **Dezember bis Februar.** Hochsaison im Niltal: angenehme Tage, kühle Abende und frische frühe Morgen. Am vollsten rund um Weihnachten und Neujahr. Das **[Sonnenwunder von Abu Simbel](/experiences/abu-simbel-day-trip-from-aswan/)** ereignet sich am oder um den 22. Februar.
 - **März und April.** Es wird wärmer, und die Zeit ist weiterhin hervorragend für Besichtigungen. Frühlingswinde können gelegentlich Sand mitbringen.
 - **Mai bis September.** Im Süden heiß bis sehr heiß. Es ist die Nebensaison für Besichtigungen im Niltal, also planen Sie frühe Starts und Mittagspausen. Am Roten Meer ist volle Sommersaison.
-- **Oktober und November.** Die Temperaturen sinken und die Saison beginnt von neuem. Eine hervorragende Zeit überall. Das zweite **Sonnenfest von Abu Simbel** fällt auf den 22. Oktober oder um diesen Tag.
+- **Oktober und November.** Die Temperaturen sinken und die Saison beginnt von neuem. Eine hervorragende Zeit überall. Das zweite **Sonnenwunder von Abu Simbel** ereignet sich am oder um den 22. Oktober.
 
 ## Ramadan und Feiertage {#ramadan}
 

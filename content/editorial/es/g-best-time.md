@@ -3,7 +3,9 @@ type: er_guide
 title: La mejor época para visitar Egipto, mes a mes
 excerpt: Cuándo visitar Egipto, estación por estación y región por región: el agradable invierno del valle del Nilo, la larga temporada de playa del mar Rojo, las noches frías del desierto y cómo el Ramadán y las fiestas cambian un viaje.
 source: b2a1409a6ab8
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 
@@ -35,10 +37,10 @@ Caluroso de día gran parte del año y muy caluroso en verano. En invierno, las 
 
 ## A lo largo del año {#through-the-year}
 
-- **De diciembre a febrero.** Temporada alta en el valle del Nilo: días agradables, tardes frescas y madrugadas frías. Hay más gente en torno a Navidad y Año Nuevo. El **[festival del sol de Abu Simbel](/experiences/abu-simbel-day-trip-from-aswan/)** cae el 22 de febrero o en torno a esa fecha.
+- **De diciembre a febrero.** Temporada alta en el valle del Nilo: días agradables, tardes frescas y madrugadas frías. Hay más gente en torno a Navidad y Año Nuevo. El **[fenómeno solar de Abu Simbel](/experiences/abu-simbel-day-trip-from-aswan/)** se produce el 22 de febrero o en torno a esa fecha.
 - **Marzo y abril.** Empieza el calor, y sigue siendo un periodo excelente para las visitas. Los vientos de primavera pueden traer arena de vez en cuando.
 - **De mayo a septiembre.** De caluroso a muy caluroso en el sur. Es la temporada baja para las visitas en el valle del Nilo, así que planea salidas tempranas y descansos al mediodía. El mar Rojo está en plena temporada de verano.
-- **Octubre y noviembre.** Bajan las temperaturas y la temporada vuelve a empezar. Es un momento excelente en todas partes. El segundo **festival del sol de Abu Simbel** cae el 22 de octubre o en torno a esa fecha.
+- **Octubre y noviembre.** Bajan las temperaturas y la temporada vuelve a empezar. Es un momento excelente en todas partes. El segundo **fenómeno solar de Abu Simbel** se produce el 22 de octubre o en torno a esa fecha.
 
 ## Ramadán y fiestas {#ramadan}
 

@@ -3,7 +3,9 @@ type: er_guide
 title: 7 jours en Égypte : l’itinéraire idéal pour une première visite
 excerpt: Un itinéraire réaliste de sept jours pour une première visite en Égypte : Le Caire et les pyramides, les temples et tombeaux de Louxor, et Assouan, avec des options pour une croisière sur le Nil, la mer Rouge ou Abou Simbel, et ce qu’il vaut mieux laisser de côté.
 source: 7235e4a9199d
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 
@@ -23,7 +25,7 @@ Prenez l’avion du Caire à Louxor (ou le train de nuit), voyagez entre Louxor 
 + **Jour 2 — Gizeh** Départ matinal pour [les pyramides et le Sphinx](/experiences/pyramids-of-giza-sphinx-private-tour/), puis le Grand Musée égyptien l’après-midi.
 + **Jour 3 — Le vieux Caire** Le Caire copte et le Musée national de la civilisation égyptienne le matin. En fin d’après-midi, la rue Al-Muizz et Khan el-Khalili. Train de nuit, ou vol le lendemain matin, pour Louxor.
 + **Jour 4 — Louxor, rive est** Karnak le matin, repos à midi, puis le temple de Louxor au crépuscule.
-+ **Jour 5 — Louxor, rive ouest** [La Vallée des Rois, le temple d’Hatchepsout](/experiences/valley-of-the-kings-hatshepsut-temple/) et Médinet Habou. Vol en montgolfière facultatif à l’aube.
++ **Jour 5 — Louxor, rive ouest** [La Vallée des Rois, le temple d’Hatchepsout](/experiences/valley-of-the-kings-hatshepsut-temple/) et Medinet Habou. Vol en montgolfière facultatif à l’aube.
 + **Jour 6 — Vers Assouan** Route vers le sud, avec des arrêts à Edfou et Kom Ombo si vous voyagez par la route. Le temple de Philae, et une felouque au coucher du soleil.
 + **Jour 7 — Abou Simbel, puis le retour** Une [excursion à Abou Simbel avant l’aube](/experiences/abu-simbel-day-trip-from-aswan/) (ou une matinée sur l’île Éléphantine si vous préférez vous reposer), puis vol vers Le Caire pour votre correspondance.
 

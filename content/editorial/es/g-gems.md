@@ -3,7 +3,9 @@ type: er_guide
 title: 10 joyas ocultas que la mayoría de los visitantes nunca ve
 excerpt: Diez lugares extraordinarios de Egipto que la mayoría de los visitantes se salta: de la Pirámide Acodada y Medinet Habu a Abidos, Dendera, Wadi Al-Hitan y Rosetta, con lo que hace especial a cada uno y cómo incluirlo en un viaje.
 source: c3394f3b6130
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 

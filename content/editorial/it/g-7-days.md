@@ -3,7 +3,9 @@ type: er_guide
 title: 7 giorni in Egitto: l’itinerario perfetto per la prima volta
 excerpt: Un itinerario realistico di sette giorni per chi visita l’Egitto per la prima volta: Il Cairo e le piramidi, i templi e le tombe di Luxor e Assuan, con opzioni per una crociera sul Nilo, il Mar Rosso o Abu Simbel, e cosa lasciare fuori.
 source: 7235e4a9199d
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 

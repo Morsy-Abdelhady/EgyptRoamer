@@ -3,7 +3,9 @@ type: er_guide
 title: 7 días en Egipto: el itinerario perfecto para tu primera visita
 excerpt: Un itinerario realista de siete días para una primera visita a Egipto: El Cairo y las pirámides, los templos y tumbas de Luxor, y Asuán, con opciones para un crucero por el Nilo, el mar Rojo o Abu Simbel, y lo que conviene dejar fuera.
 source: 7235e4a9199d
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 

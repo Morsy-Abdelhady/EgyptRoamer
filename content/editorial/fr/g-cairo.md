@@ -3,7 +3,9 @@ type: er_guide
 title: Guide du Caire : au-delà des pyramides
 excerpt: Le Caire au-delà des pyramides : un guide quartier par quartier du Caire islamique, du Caire copte, du centre-ville, de Zamalek et du Nil, avec un itinéraire à pied dans la vieille ville et des conseils pour le quotidien cairote.
 source: ad0da9b43958
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 

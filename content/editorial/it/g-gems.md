@@ -3,7 +3,9 @@ type: er_guide
 title: 10 tesori nascosti che la maggior parte dei visitatori non vede mai
 excerpt: Dieci luoghi straordinari in Egitto che la maggior parte dei visitatori salta: dalla Piramide Romboidale e Medinet Habu ad Abido, Dendera, Wadi Al-Hitan e Rosetta, con ciò che rende speciale ciascuno e come inserirlo in un viaggio.
 source: c3394f3b6130
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 

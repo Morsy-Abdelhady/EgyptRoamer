@@ -3,7 +3,9 @@ type: er_guide
 title: 开罗旅行指南：金字塔之外
 excerpt: 金字塔之外的开罗：逐个街区介绍伊斯兰开罗、科普特开罗、市中心、扎马雷克和尼罗河，附老城步行路线和开罗日常生活小贴士。
 source: ad0da9b43958
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 

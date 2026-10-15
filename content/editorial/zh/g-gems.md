@@ -3,7 +3,9 @@ type: er_guide
 title: 大多数游客从未见过的 10 处隐藏瑰宝
 excerpt: 埃及十处大多数游客会错过的非凡之地：从弯曲金字塔和哈布城到阿拜多斯、丹德拉、鲸鱼谷和罗塞塔，介绍每处的独特之处，以及如何把它们纳入行程。
 source: c3394f3b6130
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 

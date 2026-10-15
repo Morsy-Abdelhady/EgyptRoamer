@@ -3,7 +3,9 @@ type: er_guide
 title: 7 Tage in Ägypten: die perfekte erste Reiseroute
 excerpt: Eine realistische Route für sieben Tage beim ersten Ägypten-Besuch: Kairo und die Pyramiden, Luxors Tempel und Gräber und Assuan, mit Optionen für eine Nilkreuzfahrt, das Rote Meer oder Abu Simbel, und was Sie weglassen sollten.
 source: 7235e4a9199d
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 

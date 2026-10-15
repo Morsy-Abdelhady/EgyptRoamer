@@ -1,9 +1,11 @@
 ---
 type: er_guide
 title: 10 trésors cachés que la plupart des visiteurs ne voient jamais
-excerpt: Dix lieux remarquables d’Égypte que la plupart des visiteurs manquent : de la pyramide rhomboïdale et Médinet Habou à Abydos, Dendérah, Wadi Al-Hitan et Rosette, avec ce qui rend chacun unique et comment l’intégrer à un voyage.
+excerpt: Dix lieux remarquables d’Égypte que la plupart des visiteurs manquent : de la pyramide rhomboïdale et Medinet Habou à Abydos, Dendérah, Wadi Al-Hitan et Rosette, avec ce qui rend chacun unique et comment l’intégrer à un voyage.
 source: c3394f3b6130
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 
@@ -28,7 +30,7 @@ L’un des sites religieux les plus importants de l’Égypte ancienne, avec cer
 ### 5. Dendérah : le temple d’Hathor
 Un temple tardif superbement conservé, aux plafonds peints et aux chapelles sur le toit. Il est souvent combiné avec Abydos le même jour.
 
-### 6. Médinet Habou
+### 6. Medinet Habou
 Sur la rive ouest de Louxor, le temple funéraire de Ramsès III présente des reliefs profondément gravés, encore colorés. Il est généralement plus calme que la Vallée des Rois.
 
 ### 7. Deir el-Médineh
@@ -47,7 +49,7 @@ Isolée, amazighe, entourée de lacs salés et de dunes. Consultez notre [guide 
 
 > **Les intégrer à votre voyage**
 > - Depuis Le Caire : Dahchour (une demi-journée, facile à ajouter à Saqqarah) ; Wadi Al-Hitan (une longue journée complète).
-> - Depuis Louxor : Abydos et Dendérah (une journée complète ensemble) ; Médinet Habou et Deir el-Médineh (à ajouter à [une journée sur la rive ouest](/experiences/valley-of-the-kings-hatshepsut-temple/)).
+> - Depuis Louxor : Abydos et Dendérah (une journée complète ensemble) ; Medinet Habou et Deir el-Médineh (à ajouter à [une journée sur la rive ouest](/experiences/valley-of-the-kings-hatshepsut-temple/)).
 > - Depuis Alexandrie : Rosette (une demi-journée ou une journée complète).
 
 ## Préparer votre voyage {#plan}

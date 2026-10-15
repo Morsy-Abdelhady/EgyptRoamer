@@ -3,7 +3,9 @@ type: er_guide
 title: Guida del Cairo: oltre le piramidi
 excerpt: Il Cairo oltre le piramidi: una guida quartiere per quartiere al Cairo islamico e copto, a Downtown, Zamalek e al Nilo, con un percorso a piedi nella città vecchia e consigli per la vita quotidiana al Cairo.
 source: ad0da9b43958
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 

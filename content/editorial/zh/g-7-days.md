@@ -3,7 +3,9 @@ type: er_guide
 title: 埃及 7 日游：首次到访的完美行程
 excerpt: 一份切实可行的埃及首次七日行程：开罗与金字塔、卢克索的神庙与陵墓，以及阿斯旺，并提供尼罗河游船、红海或阿布辛拜勒的选择，以及哪些可以留到下次。
 source: 7235e4a9199d
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 

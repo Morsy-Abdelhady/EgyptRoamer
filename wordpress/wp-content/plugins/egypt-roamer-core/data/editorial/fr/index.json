@@ -93,28 +93,28 @@
   "type": "er_guide",
   "title": "7 jours en Égypte : l’itinéraire idéal pour une première visite",
   "excerpt": "Un itinéraire réaliste de sept jours pour une première visite en Égypte : Le Caire et les pyramides, les temples et tombeaux de Louxor, et Assouan, avec des options pour une croisière sur le Nil, la mer Rouge ou Abou Simbel, et ce qu’il vaut mieux laisser de côté.",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "g-best-time": {
   "type": "er_guide",
   "title": "La meilleure période pour visiter l’Égypte, mois par mois",
   "excerpt": "Quand partir en Égypte, saison par saison et région par région : l’hiver agréable de la vallée du Nil, la longue saison balnéaire de la mer Rouge, les nuits froides du désert, et comment le ramadan et les fêtes changent un voyage.",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "g-cairo": {
   "type": "er_guide",
   "title": "Guide du Caire : au-delà des pyramides",
   "excerpt": "Le Caire au-delà des pyramides : un guide quartier par quartier du Caire islamique, du Caire copte, du centre-ville, de Zamalek et du Nil, avec un itinéraire à pied dans la vieille ville et des conseils pour le quotidien cairote.",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "g-gems": {
   "type": "er_guide",
   "title": "10 trésors cachés que la plupart des visiteurs ne voient jamais",
-  "excerpt": "Dix lieux remarquables d’Égypte que la plupart des visiteurs manquent : de la pyramide rhomboïdale et Médinet Habou à Abydos, Dendérah, Wadi Al-Hitan et Rosette, avec ce qui rend chacun unique et comment l’intégrer à un voyage.",
-  "review": "pending",
+  "excerpt": "Dix lieux remarquables d’Égypte que la plupart des visiteurs manquent : de la pyramide rhomboïdale et Medinet Habou à Abydos, Dendérah, Wadi Al-Hitan et Rosette, avec ce qui rend chacun unique et comment l’intégrer à un voyage.",
+  "review": "approved",
   "current": true
  }
 }

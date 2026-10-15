@@ -2,6 +2,15 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## Core 1.2.34 — 2026-10-15: guide translations reviewed, review note removed
+- **Owner request:** remove the "not yet reviewed" note and check the translations professionally in every language.
+- **Review pass on the 28 guide translations.** Wording and terminology aligned with the translations the owner approved on 29 Sep:
+  - **Abu Simbel sun event:** the approved terms are "ظاهرة تعامد الشمس", "Sonnenwunder", "phénomène solaire", "fenomeno del sole", "fenómeno solar", "солнечный феномен" and "太阳奇观". They replace "festival / Fest / fête / праздник / 太阳节".
+  - **Proper names:** spelled as in the approved pages ("Medinet Habou", "Хан-эль-Халили"). "Grand Egyptian Museum" is kept where the approved DE/IT pages use it.
+  - **Arabic phrasing:** five awkward phrasings rewritten (e.g. "كايت سيرف", "المحور الرئيسي للقاهرة الفاطمية", "رسوخًا في الذاكرة").
+  - **RU/IT:** two awkward phrasings fixed.
+- **Status:** all 28 files are now `review: approved` (reviewer: AI review, publication approved by the owner, 2026-10-15). An approved translation carries **no note**. The sync updated the 28 pages in place, since none had been edited in WordPress.
+
 ## 1.2.48 — 2026-10-15 (with Core 1.2.33): the 4 travel guides in all 8 languages
 - **Owner decision (15 Oct):** translate the guides and publish them right away, with a review note, instead of linking the English.
 - **28 translations** (4 guides × ar, de, fr, it, es, ru, zh) in `content/editorial/<lang>/g-*.md`. Each is a faithful translation of the English text: same sections, facts and links, no added claims. They carry `review: pending`; `tools/editorial.py` now also carries the title.

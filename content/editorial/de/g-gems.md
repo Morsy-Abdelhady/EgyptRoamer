@@ -3,7 +3,9 @@ type: er_guide
 title: 10 verborgene Schätze, die die meisten Besucher nie sehen
 excerpt: Zehn bemerkenswerte Orte in Ägypten, die die meisten Besucher auslassen: von der Knickpyramide und Medinet Habu bis Abydos, Dendera, Wadi al-Hitan und Rosetta, mit dem, was jeden besonders macht, und wie er in eine Reise passt.
 source: c3394f3b6130
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 

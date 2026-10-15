@@ -6,8 +6,8 @@
  * from content/editorial/<lang>/g-*.md, front matter `review: pending|approved`). This sync, run from
  * Egypt Roamer → Guide translations:
  *   - creates a missing translation of each published English guide, publishes it and links it in Polylang;
- *   - opens the body with a note: translated from English, not yet reviewed by a native speaker (pending
- *     files only), with a link to the English original;
+ *   - opens the body with a note (translated from English, not yet reviewed, link to the original) while the
+ *     file is `review: pending`; an approved translation carries no note;
  *   - updates a translation it created only while nobody has edited it (content hash), so an editor's
  *     corrections are never overwritten;
  *   - skips translations whose English source changed since they were translated (`current` false).
@@ -45,7 +45,11 @@ function er_guide_tr_note( string $lang, string $en_url, bool $reviewed ): strin
 		'ru' => 'английская версия',
 		'zh' => '英文版',
 	];
-	$text = ( $reviewed ? $done : $pending )[ $lang ] ?? '';
+	// Owner decision (2026-10-15): once a translation is approved, the page carries no note at all.
+	if ( $reviewed ) {
+		return '';
+	}
+	$text = $pending[ $lang ] ?? '';
 	if ( '' === $text ) {
 		return '';
 	}
@@ -110,7 +114,8 @@ function er_guide_translations_sync( bool $dry = true ): array {
 				continue;
 			}
 			$reviewed = 'approved' === ( $item['review'] ?? '' );
-			$body     = er_guide_tr_note( $lang, (string) get_permalink( $en ), $reviewed ) . "\n\n" . er_guide_tr_links( trim( (string) file_get_contents( $dir . $seed_id . '.html' ) ), $lang ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+			$note     = er_guide_tr_note( $lang, (string) get_permalink( $en ), $reviewed );
+			$body     = ( '' !== $note ? $note . "\n\n" : '' ) . er_guide_tr_links( trim( (string) file_get_contents( $dir . $seed_id . '.html' ) ), $lang ); // phpcs:ignore WordPress.WP.AlternativeFunctions
 			$title    = (string) $item['title'];
 			$excerpt  = (string) ( $item['excerpt'] ?? '' );
 			$tr       = (int) pll_get_post( $en, $lang );

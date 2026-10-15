@@ -3,7 +3,9 @@ type: er_guide
 title: Kairo-Reiseführer: mehr als die Pyramiden
 excerpt: Kairo jenseits der Pyramiden: ein Ratgeber Viertel für Viertel durch das islamische und das koptische Kairo, Downtown, Zamalek und den Nil, mit einem Rundgang durch die Altstadt und Tipps für den Alltag in Kairo.
 source: ad0da9b43958
-review: pending
+review: approved
+reviewer: AI review (Claude), publication approved by the owner
+reviewed: 2026-10-15
 ---
 [[toc]]
 
