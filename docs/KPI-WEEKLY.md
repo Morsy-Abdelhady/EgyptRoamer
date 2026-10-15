@@ -31,7 +31,7 @@ Fill in one row every Monday (UTC), for the 7 days that end on Sunday. One quest
 | `/go/` redirects | 41 | All QA or redirect tests |
 | Viator clicks / bookings | to read 17 Oct | — |
 | Content | 19 pages per language × 8 at baseline. End of 15 Oct: 26 pages per language (7 destinations, 10 experiences, 9 guides) and 17 live Viator offers. Later on 15 Oct: 31 pages per language (14 guides), then 36 (19 guides) | — |
-| Release gate | all ok: 160 pages at baseline, 216, then 240, then 280 (all on 15 Oct) | — |
+| Release gate | all ok: 160 pages at baseline, 216, then 240, then 296 (all on 15 Oct). From the third batch on, the gate follows archive pagination: before that it missed the guides past page 1 of `/guides/`, so 240 was an undercount (those pages were not checked) | — |
 
 > **QA note (15 Oct):** a link check followed a few partner links in the new guides by mistake. Discount them:
 > - **Where:** the booking boxes of the Aswan temples, desert choice and Valley of the Kings guides, EN and AR.

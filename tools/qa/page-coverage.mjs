@@ -28,11 +28,17 @@ const mob = await mk(true);
 // Discover: English archives → English pages → their translations (hreflang), plus every language's home.
 const disc = await desk.newPage();
 const en = new Set();
+// Archives are paginated: follow /page/N/ until a page adds nothing new.
 for (const a of ["/destinations/", "/experiences/", "/guides/"]) {
-  await disc.goto(B + a, { waitUntil: "domcontentloaded", timeout: 120000 });
-  for (const h of await disc.$$eval("a[href]", (xs) => xs.map((x) => x.href))) {
-    const u = new URL(h);
-    if (u.origin === new URL(B).origin && /^\/(destinations|experiences|guides)\/[^/]+\/$/.test(u.pathname)) en.add(u.pathname);
+  for (let n = 1; n < 20; n++) {
+    const r = await disc.goto(B + a + (n > 1 ? `page/${n}/` : ""), { waitUntil: "domcontentloaded", timeout: 120000 });
+    if (!r || r.status() >= 400) break;
+    const before = en.size;
+    for (const h of await disc.$$eval("a[href]", (xs) => xs.map((x) => x.href))) {
+      const u = new URL(h);
+      if (u.origin === new URL(B).origin && /^\/(destinations|experiences|guides)\/[^/]+\/$/.test(u.pathname) && u.pathname.startsWith(a)) en.add(u.pathname);
+    }
+    if (en.size === before) break;
   }
 }
 const pages = [];
