@@ -80,3 +80,14 @@ Before the release, the same 64 renders were taken plus the open drawers at 390,
 - **[External]** viator.com unreachable from this network (product pages, booking flow).
 - **[Not tested]** Physical iOS/Android devices: widths were emulated in desktop Chrome.
 - **[External]** Bing URL Submission: quota 1 left today. The remaining 49 URLs go on 16 Oct.
+
+## 8. Offer cards translated (theme 1.2.49 / Core 1.2.35, 15 Oct)
+
+- **Bug (owner report):** on non-English pages the offer card showed the English title, an English location and an empty photo box.
+- **Fix:**
+  - Titles and locations now come from Core `data/offers-i18n.json`, keyed by offer slug and language. Place names match the approved destination translations.
+  - A card without its own image now uses the photo of the related experience or destination.
+- **Production check (deploy #68, cache flushed):**
+  - 121 pages: the homepage, plus every experience and destination page in all 8 languages.
+  - 120 offer cards (15 per language) covering all 8 offers.
+  - 0 failures: every title is translated with no English fallback marker, every location is localised, and every image loads.
