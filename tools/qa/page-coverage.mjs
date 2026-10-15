@@ -31,7 +31,7 @@ const en = new Set();
 // Archives are paginated: follow /page/N/ until a page adds nothing new.
 for (const a of ["/destinations/", "/experiences/", "/guides/"]) {
   for (let n = 1; n < 20; n++) {
-    const r = await disc.goto(B + a + (n > 1 ? `page/${n}/` : ""), { waitUntil: "domcontentloaded", timeout: 120000 });
+    const r = await disc.goto(B + a + (n > 1 ? `page/${n}/` : ""), { waitUntil: "domcontentloaded", timeout: 120000 }).catch(() => null);
     if (!r || r.status() >= 400) break;
     const before = en.size;
     for (const h of await disc.$$eval("a[href]", (xs) => xs.map((x) => x.href))) {
