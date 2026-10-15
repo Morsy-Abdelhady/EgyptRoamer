@@ -18,7 +18,24 @@ Every search-recovery action, with what it is expected to do and how to check it
 | Viator provider + 7 offers published; `/go/` → Viator with `pid/mcid/medium/campaign` | wp-admin | 10 pages × redirect chain checked; 11 QA clicks logged | First affiliate path from organic pages | 17 Oct (Viator dashboard) |
 | Disclosure next to partner links in card grids and the homepage rail (theme 1.2.45, `6e32619`) | theme | Production: home, /ar/, /zh/experiences/, search, Great Sand Sea show the disclosure | Compliance | — |
 
-**Test data on production (15 Oct):** 1 page view (`utm_source=er-qa`) and 11 `/go/` clicks. Exclude them from 15 Oct numbers.
+**Test data on production (15 Oct):** all of 15 Oct is QA (final count 26 `/go/` clicks, 27 page views; see the afternoon entry).
+
+## 2026-10-15 (afternoon): multilingual consistency + product-level Viator offers
+
+| Change | Where | Verified | Check on |
+|---|---|---|---|
+| Viator offers switched from listing pages to verified products (7), plus a new Great Sand Sea offer (#516, 3-day Siwa trip from Cairo). Slugs unchanged | wp-admin (data) | 8/8 redirects → product URL with `pid/mcid/medium/campaign` | 17 Oct (Viator dashboard) |
+| Language menu: Arabic item aligned on LTR pages | theme 1.2.46 `pages.css` | Production: all items at the same x | — |
+| hreflang alternates never carry a query string (archives copied `?utm_…`) | Core 1.2.32 `multilingual.php` | Production: 0 of 9 alternates with `?` | GSC hreflang report, 22 Oct |
+| Offer titles `lang="en"` on translated pages | theme 1.2.46 | Production (AR) | — |
+
+- **Commit:** `9886fd2`, theme **1.2.46** / Core **1.2.32**, deployed and cache flushed.
+- **Reports:**
+  - `MULTILINGUAL-NAVIGATION-CONSISTENCY-REPORT.md`
+  - `VIATOR-CONTENT-MATCHING-REPORT.md`
+  - `MULTILINGUAL-VIATOR-REGRESSION-REPORT.md`
+- **Test data, 15 Oct:** 26 `/go/` clicks and 27 page views. Treat all of 15 Oct as QA; real measurement effectively starts 16 Oct.
+- **Bing email (welcome, 15 Oct):** it recommends sitemap and URL submission. Both are done. The remaining 49 URLs wait for quota on 16 Oct.
 
 **Baseline at the start** (Search Console, 29 Sep–12 Oct):
 - 2 clicks, 37 impressions, average position 38.7, CTR 5.4%;

@@ -1,0 +1,126 @@
+# Multilingual navigation consistency report (2026-10-15)
+
+**Scope:** the live site (egyptroamer.com) in all 8 languages, before theme 1.2.46 / Core 1.2.32.
+
+**Method:**
+- Playwright drove real Chrome, logged out and excluded from Visits.
+- Viewports: 320, 360, 390, 412, 768, 1024, 1280 and 1440 px.
+- At each one: the desktop menu, the mobile drawer opened by tapping, and the language menu opened. Screenshots were checked by eye.
+- Then the existing QA suites, run on the local copy.
+
+**Labels:**
+- **[Bug]** confirmed bug
+- **[Intentional]** intentional difference
+- **[Gap]** editorial gap
+- **[Fix]** technical fix
+- **[Tested]**
+- **[Not tested]**
+
+## 1. Navigation matrix (homepage, production)
+
+| Language | Desktop menu (1440) | Mobile drawer (390) | Items, order | Localized URLs | Direction | Language menu | Overflow 320–1440 | Status |
+|---|---|---|---|---|---|---|---|---|
+| EN | Destinations · Experiences · Travel Guide | same 3 + Plan My Trip + 8 languages | 3 | `/destinations/` `/experiences/` `/guides/` | LTR | 8 links, English marked current | 0 | OK |
+| AR | الوجهات · التجارب | same 2 + خطّط رحلتي + 8 languages | 2 | `/ar/destinations/` `/ar/experiences/` | RTL (mirrored header, drawer, menu) | Arabic current | 0 | OK |
+| DE | Reiseziele · Erlebnisse | same | 2 | `/de/…` | LTR | DE current | 0 | OK |
+| FR | Destinations · Expériences | same | 2 | `/fr/…` | LTR | FR current | 0 | OK |
+| IT | Destinazioni · Esperienze | same | 2 | `/it/…` | LTR | IT current | 0 | OK |
+| ES | Destinos · Experiencias | same | 2 | `/es/…` | LTR | ES current | 0 | OK |
+| RU | Направления · Впечатления | same | 2 | `/ru/…` | LTR | RU current | 0 | OK |
+| ZH | 目的地 · 体验 | same | 2 | `/zh/…` | LTR | ZH current | 0 | OK |
+
+In every language:
+- **Header CTA:** translated, pointing to `#planner`.
+- **Drawer:** opens, with no overflow.
+- **Language menu:** each language's link points to that language's version of the page (matching the page's hreflang).
+
+## 2. Findings
+
+| # | Finding | Class | Root cause | Action |
+|---|---|---|---|---|
+| 1 | "Travel Guide" is in the English menu only; the guide links in the footer are English only | **[Intentional] / [Gap]** | Guides exist only in English. The theme drops menu items whose target is an empty archive or has no translation (`er_localize_menu_item`, the "only working links" filter in `inc/template-tags.php`) rather than show English links on translated pages | None in code. **[Gap]** Translated guides need native-reviewed content (see `ARABIC-EDITORIAL-PLAN.md`); the item appears automatically once a guide is published in a language |
+| 2 | English homepage has a "Guide" section; the other 7 do not | **[Intentional] / [Gap]** | Same as #1: the section renders only when the language has guides | None |
+| 3 | Desktop language menu on LTR pages: "العربية" sat on the right edge while the other 7 names were left-aligned | **[Bug]** CSS | The Arabic `<li>` carries `dir="rtl"` (needed so the name renders correctly), and that also set its alignment | **[Fix]** `pages.css`: `html:not([dir="rtl"]) .lang__menu li[dir="rtl"] { text-align: left }`. Arabic pages are unchanged. Tested: local, all items at the same x position |
+| 4 | Arabic opening scene (≥ 901 px): the text block sits on the left of the photo, while the note stays top right | **[Intentional]** | Documented design decision in `pages.css`: the Great Pyramid is on the photo's right, so the Arabic text (right-aligned, read right to left) sits on the open sky. Phones stack it at the bottom. The note and the progress rail do not overlap (verified at 1024 and 1440) | None |
+| 5 | Archives (`/xx/destinations/`, `/xx/experiences/`): any query string (e.g. `?utm_source=…`) was copied into every hreflang alternate | **[Bug]** SEO | Polylang builds archive translations from the current URL | **[Fix]** Core `multilingual.php`: hreflang alternates drop query and fragment. The language menu keeps the query, so a search term survives a language switch. Tested locally |
+| 6 | Offer titles are English (partner product names) on all 8 languages | **[Intentional]** | Offers are language-neutral records; product names are not translated, so they don't imply provider content in that language | **[Fix]** (accessibility) `lang="en"` on the title on translated pages |
+
+**Not found** (checked, no issue):
+- duplicated menus;
+- a menu visible at the wrong breakpoint;
+- clipped or overlapping header items;
+- missing language links;
+- wrong current-language marking;
+- wrong localized URLs;
+- broken RTL in the header or drawer;
+- horizontal overflow at any of the 8 widths;
+- JavaScript errors.
+
+## 3. Homepage sections (production, 390 and 1440)
+
+**All 8 languages, in this order:**
+- hero (4 scenes)
+- interlude
+- moods
+- destinations (15 items)
+- map
+- experiences (8)
+- planner
+- footer
+
+**English only:** a "guide" section (finding #2).
+- No empty or duplicated sections.
+- Same item counts in every language.
+- The hero h1 is translated in every language.
+
+**Horizontally scrolling rails** (moods, destinations, experiences): they extend past the viewport by design and are not page overflow (`scrollWidth − innerWidth = 0` at every width).
+
+## 4. Core page types (production, every hreflang alternate)
+
+**Pages:**
+- 2 destinations (Luxor, Siwa);
+- 3 experiences (Abu Simbel, Great Sand Sea, Red Sea diving);
+- 1 guide;
+- 2 legal pages (Privacy, Affiliate Disclosure);
+- 2 archives.
+
+**Coverage:** 8 languages each, except the guide (English only).
+
+**Results:**
+- 200 everywhere.
+- Canonical = self.
+- 9 hreflang links (8 languages + x-default).
+- `lang` and `dir` are correct (Arabic `rtl`).
+- No `noindex` on these pages.
+- Valid JSON-LD (TouristDestination / TouristTrip / Article / BreadcrumbList).
+- No overflow at 390 or 1440.
+- Every page with a partner link shows the disclosure.
+- Translated CTA labels: Verfügbarkeit prüfen, Voir les disponibilités, Verifica disponibilità, Ver disponibilidad, Проверить наличие, 查看空位, تحقّق من التوفّر.
+
+## 5. Regression and accessibility (local, after the fixes)
+
+| Suite | Result |
+|---|---|
+| `keyboard.mjs`: 8 languages × 1440 / 390, skip link, focus rings, language menu, overlays, menu focus trap | **all ok** |
+| `overlays.mjs`: axe with saved / search / menu / assistant open (en 1440, ar 390, zh 1440) | **0 violations** |
+| `hygiene.mjs`: duplicate ids, orphan labels, unsafe `_blank`, inline handlers, unnamed links (12 pages, en + ar) | **all ok** |
+| `footer-parity.mjs` | 14 differences per page, all finding #1 (Guides links absent where no guide exists in that language). **[Intentional]**, unchanged by this release |
+| `acceptance.mjs`, `leads.mjs` (earlier today, Core 1.2.31) | PASS |
+
+**[Not tested]:**
+- real iOS/Android devices (only emulated widths);
+- no-JavaScript mode for the drawer (the drawer requires JS; the desktop links are plain HTML).
+
+## 6. Screenshots
+
+Taken during the audit and kept with the QA run (scratchpad `pwt/nav/`, not committed):
+- `menu-{lang}-390.png`: open drawers, 8 languages;
+- `header-{en,ar,zh}-{1024,1440}.png`: language menu open;
+- `hero-{en,ar}-1440.png`;
+- `home-{lang}-{390,1440}.png`: full pages;
+- `langdd-en-after.png`: the fix for #3.
+
+## 7. Remaining editorial work
+
+- **[Gap]** Translated guides: none of the 7 languages has a guide, so "Travel Guide" and the footer guide links stay hidden there. Each guide needs native-reviewed text before publishing (owner rule).
+- **[Gap]** Legal translations are still "drafted, pending native review", including the 15 Oct privacy sentences.

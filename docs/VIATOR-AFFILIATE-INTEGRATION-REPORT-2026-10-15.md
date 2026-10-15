@@ -1,5 +1,7 @@
 # Viator affiliate integration report (2026-10-15)
 
+> **Update, 15 Oct afternoon:** the offers now point to verified **products**, not listing pages, and Great Sand Sea has an offer. The current mapping is in `VIATOR-CONTENT-MATCHING-REPORT.md`, which supersedes §2–§4 below.
+
 **Outcome:** the site's first live affiliate path.
 - **[Done]** Provider **Viator** (#493) and **7 offers** are published on production, one for each of 7 of the 8 experiences.
 - **[Done]** Each CTA goes through Core's `/go/{slug}/` two-step redirect to a Viator page carrying the account's tracking parameters.

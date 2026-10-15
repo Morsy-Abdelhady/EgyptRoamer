@@ -2,7 +2,7 @@
 
 **What changed:** Core **1.2.31** (commit `8f4446c`) adds first-party, cookieless page-view totals.
 
-**Reliable measurement starts:** **2026-10-15 (UTC)**, the `er_visits_since` option on production.
+**Reliable measurement starts:** **2026-10-15 (UTC)**, the `er_visits_since` option on production. All recorded 15 Oct traffic is QA (27 views, 26 `/go/` clicks), so the first day of real data is **2026-10-16**.
 
 **There is no visit data for any earlier date.** Nothing before this date may be quoted as a visit count. Search Console clicks and impressions remain the only earlier evidence of search traffic.
 
