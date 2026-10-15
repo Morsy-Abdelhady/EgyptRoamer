@@ -851,7 +851,7 @@ add_filter( 'the_content', static function ( string $content ): string {
 		return $content;
 	}
 	// The contents group holds only a paragraph and a list, so the first closing </div> ends it.
-	if ( ! preg_match( '#<div class="wp-block-group er-toc[^"]*">.*?</div>#s', $content, $toc, PREG_OFFSET_CAPTURE ) ) {
+	if ( ! preg_match( '#<div\b[^>]*\sclass="wp-block-group er-toc[^"]*"[^>]*>.*?</div>#s', $content, $toc, PREG_OFFSET_CAPTURE ) ) {
 		return $content;
 	}
 	$first_h2 = strpos( $content, '<h2' );

@@ -2,6 +2,17 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.54 — 2026-10-16: no duplicate "On this page" for signed-in editors
+- **Owner report:** two navigations doing the same job on Alexandria: the sticky section tab bar and the "On this page" box.
+- **Cause:**
+  - The tab bar replaces the box, which the theme removes by matching its markup.
+  - For signed-in editors, a plugin adds `data-sd-*` attributes before `class`.
+  - The patterns expected `<div class="…` straight away, so the box stayed for editors.
+  - Visitors were not affected.
+- **Fix:**
+  - The block patterns for the box, callouts and h3 groups accept other attributes before `class`: `<div[^>]*\sclass="…"`.
+  - Files: `inc/sections.php` and `inc/template-tags.php`.
+
 ## Core 1.2.39 — 2026-10-16: five more guides
 - **New guides, in 8 languages:**
   - "The Temples of Aswan and Lake Nasser" (Abu Simbel offers);

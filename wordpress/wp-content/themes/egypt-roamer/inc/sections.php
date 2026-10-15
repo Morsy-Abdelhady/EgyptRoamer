@@ -40,7 +40,7 @@ function er_body( array $opts = [] ): array {
 
 	if ( count( $links ) >= 3 ) {
 		// The tab bar replaces the body's own contents box; keep that box's (translated) label.
-		if ( preg_match( '#<div class="wp-block-group er-toc[^"]*">\s*<p[^>]*>(.*?)</p>.*?</ul>\s*</div>#s', $html, $m ) ) {
+		if ( preg_match( '#<div\b[^>]*\sclass="wp-block-group er-toc[^"]*"[^>]*>\s*<p[^>]*>(.*?)</p>.*?</ul>\s*</div>#s', $html, $m ) ) {
 			$label = trim( wp_strip_all_tags( $m[1] ) ) ?: $label;
 			$html  = str_replace( $m[0], '', $html );
 		}
@@ -68,7 +68,7 @@ function er_body_parts( string $html ): array {
 		$body    = trim( substr( $chunk, strlen( $h[0] ) ) );
 		$callout = [];
 		$rest    = $body;
-		if ( preg_match( '#<div class="wp-block-group er-callout[^"]*">(.*?)</div>#s', $body, $c ) ) {
+		if ( preg_match( '#<div\b[^>]*\sclass="wp-block-group er-callout[^"]*"[^>]*>(.*?)</div>#s', $body, $c ) ) {
 			$rest    = str_replace( $c[0], '', $body );
 			$callout = [
 				'title' => preg_match( '#<h[34]\b[^>]*>(.*?)</h[34]>#s', $c[1], $ct ) ? trim( wp_strip_all_tags( $ct[1] ) ) : '',
@@ -115,7 +115,7 @@ function er_sections_mark( string $chunk, array $opts = [ 'cards' => true ] ): s
 	// Callouts keep their plain lists: set them aside while the lists are marked.
 	$kept  = [];
 	$chunk = preg_replace_callback(
-		'#<div class="wp-block-group er-callout[^"]*">.*?</div>#s',
+		'#<div\b[^>]*\sclass="wp-block-group er-callout[^"]*"[^>]*>.*?</div>#s',
 		static function ( $m ) use ( &$kept ) {
 			$kept[] = $m[0];
 			return '<!--er-callout-' . ( count( $kept ) - 1 ) . '-->';
@@ -149,9 +149,9 @@ function er_sections_mark( string $chunk, array $opts = [ 'cards' => true ] ): s
 
 	// Two or more H3 + one or two paragraphs, ending the section or followed by a callout/list-free block.
 	$chunk = preg_replace_callback(
-		'#((?:<h3 class="wp-block-heading"[^>]*>(?:(?!</h3>).)*</h3>\s*(?:<p\b[^>]*>(?:(?!</p>).)*</p>\s*){1,2}){2,})(?=<div class="wp-block-group er-callout|<h2|\s*$)#s',
+		'#((?:<h3\b[^>]*\sclass="wp-block-heading"[^>]*>(?:(?!</h3>).)*</h3>\s*(?:<p\b[^>]*>(?:(?!</p>).)*</p>\s*){1,2}){2,})(?=<div\b[^>]*\sclass="wp-block-group er-callout|<h2|\s*$)#s',
 		static function ( $m ) {
-			$units = preg_split( '#(?=<h3 class="wp-block-heading")#', trim( $m[1] ), -1, PREG_SPLIT_NO_EMPTY );
+			$units = preg_split( '#(?=<h3[^>]*\sclass="wp-block-heading")#', trim( $m[1] ), -1, PREG_SPLIT_NO_EMPTY );
 			return '<div class="er-subgrid">' . implode( '', array_map( static fn ( $u ) => '<div class="er-sub">' . trim( $u ) . '</div>', $units ) ) . '</div>';
 		},
 		$chunk
