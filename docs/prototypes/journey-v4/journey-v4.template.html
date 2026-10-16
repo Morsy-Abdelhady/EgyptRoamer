@@ -417,7 +417,7 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
 
 .gbanner{position:relative;height:190px;border-radius:16px;overflow:hidden;margin-bottom:18px;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:18px 22px;color:#fff}
 .gbanner > img,.gbanner > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.gbanner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,24,32,.78),rgba(16,24,32,.15) 70%)}
+.gbanner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,24,32,.62),rgba(16,24,32,0) 65%)}
 .gbanner__t,.gbanner > a{position:relative;z-index:1}
 .gbanner h2{font-size:34px;color:#fff}
 .gbanner p{margin:2px 0 0;font:italic 500 16px var(--serif);color:#f3ead6}
@@ -673,7 +673,7 @@ const TRIPS = [
 const T = Object.fromEntries(TRIPS.map(t=>[t.id,t]));
 // The homepage's four scenes, word for word, each now ending in its trips.
 const CHAPTERS = [
-  {n:"01",video:"video/giza-sunset.mp4",vcredit:"Video: Peggy Anke, Pexels · Giza",eye:"Timeless wonders",name:"Pyramids",line:"Where history still breathes",geo:"29.9792° N · 31.1342° E — Giza Plateau",img:"sc_pyr",trips:["giza","nile","food"],more:"Explore Cairo",place:"Cairo & Giza"},
+  {n:"01",video:"video/giza-camels-clear.mp4",vcredit:"Giza · Video: JORGE MONCADA, Pexels",eye:"Timeless wonders",name:"Pyramids",line:"Where history still breathes",geo:"29.9792° N · 31.1342° E — Giza Plateau",img:"sc_pyr",trips:["giza","nile","food"],more:"Explore Cairo",place:"Cairo & Giza"},
   {n:"02",eye:"A river of life",name:"Nile",line:"More than a river. A story that connects a civilization.",geo:"24.0889° N · 32.8998° E — Aswan",img:"sc_nile",trips:["valley","abu"],more:"Explore Nile Cruises",place:"Luxor",route:true},
   {n:"03",eye:"Beyond the ordinary",name:"Desert",line:"Endless landscapes. Unforgettable adventures.",geo:"27.0957° N · 27.9880° E — Western Desert",img:"sc_desert",trips:["white","siwa"],more:"Explore Desert Experiences",place:"Western Desert"},
   {n:"04",video:"video/redsea-reef.mp4",vcredit:"Red Sea, Egypt · Video: Adrien JACTA, Pexels",eye:"A different world",name:"Red Sea",line:"Dive into crystal-clear waters",geo:"27.2579° N · 33.8116° E — Hurghada",img:"sc_sea",trips:["redsea","ras"],more:"Explore Red Sea",place:"Red Sea"},
@@ -698,7 +698,7 @@ const MOODS = [
 ];
 // Browsing groups: one line of story each, taken from the site (destination taglines; the desert scene's line).
 const GROUPS = [
-  ["Cairo & Giza","d_cairo","video/giza-camels.mp4|Near the pyramids of Giza · Video: K, Pexels","The city of a thousand minarets","Best time Oct – Apr","Cairo guide"],
+  ["Cairo & Giza","d_cairo","video/giza-aerial.mp4|Giza and Cairo · Video: Blanka OG, Pexels","The city of a thousand minarets","Best time Oct – Apr","Cairo guide"],
   ["Luxor","d_luxor","video/karnak-columns.mp4|Karnak Temple, Luxor · Video: BOB DK, Pexels","The world's greatest open-air museum","Best time Oct – Mar","Luxor guide"],
   ["Aswan","d_aswan","","Egypt at its most serene","Best time Oct – Mar","Aswan guide"],
   ["Alexandria","d_alexandria","video/alexandria-qaitbay.mp4|Qaitbay Citadel, Alexandria · Video: The Instagrapher, Pexels","The pearl of the Mediterranean","Best time Apr – Oct","Alexandria guide"],
@@ -1009,9 +1009,9 @@ Object.assign(WORLDS, {
     quote:"Giza is simple to reach but surprisingly hard to do well.", chips:["Half day","3 options from 2 partners","Private","Pickup offered"], go:"Walk the plateau",
     jEyebrow:"What you actually do", jTitle:"Across the plateau",
     steps:[
-      {t:"The Great Pyramid",p:"Walk around the Great Pyramid, the only surviving Wonder of the Ancient World.",video:"video/giza-sunset.mp4",credit:"Giza · Video: Peggy Anke, Pexels"},
-      {img:"sc_pyr",t:"Khafre and Menkaure",p:"Visit the pyramids of Khafre and Menkaure and the smaller queens’ pyramids."},
-      {t:"The panoramic viewpoint",p:"Stop at the panoramic viewpoint for the classic photo of all the pyramids in a row.",video:"video/giza-camels.mp4",credit:"Near the pyramids of Giza · Video: K, Pexels"},
+      {t:"The Great Pyramid",p:"Walk around the Great Pyramid, the only surviving Wonder of the Ancient World.",video:"video/giza-day.mp4",credit:"Giza · Video: K, Pexels"},
+      {video:"video/giza-aerial.mp4",credit:"Giza and Cairo · Video: Blanka OG, Pexels",t:"Khafre and Menkaure",p:"Visit the pyramids of Khafre and Menkaure and the smaller queens’ pyramids."},
+      {t:"The panoramic viewpoint",p:"Stop at the panoramic viewpoint for the classic photo of all the pyramids in a row.",video:"video/giza-camels-clear.mp4",credit:"Giza · Video: JORGE MONCADA, Pexels"},
       {t:"The Sphinx",p:"Descend to the Sphinx and walk through the valley temple beside it.",why:"Optionally, go inside one of the pyramids. This needs an extra ticket; the passages are narrow, steep and hot."}],
     sec:{eyebrow:"Before you go",title:"A good guide makes it simple",ps:["The site is large and exposed, the approaches are crowded with touts, and the story behind the monuments doesn’t explain itself. A good guide handles tickets and the route across the plateau, keeps unwanted sellers at a distance, and turns the stones into the history of the Old Kingdom."],
       tabs:[["𓇳","Timing","Book the earliest start you can. The light is softer and it’s cooler and quieter."],["𓈗","What to bring","Water, a hat, sun protection and comfortable shoes. There’s very little shade."],["𓉐","Inside the pyramids","Not recommended if you’re claustrophobic or have mobility or heart problems."],["𓃗","Camel and horse rides","If you want one, agree the price, the duration and the route in full before you get on. A good guide will help."]]},

@@ -27,8 +27,8 @@ def more(m):
         ('giza: {cls:"w-tomb", fx:"tomb", photo:"giza_camel", video:"video/giza-sunset.mp4", vcredit:"Giza · Video: Peggy Anke, Pexels",',
          'giza: {cls:"w-tomb", fx:"tomb", photo:"giza_camel",'),
         ('{t:"The Great Pyramid",p:"Walk around the Great Pyramid, the only surviving Wonder of the Ancient World."}',
-         '{t:"The Great Pyramid",p:"Walk around the Great Pyramid, the only surviving Wonder of the Ancient World.",video:"video/giza-sunset.mp4",credit:"Giza · Video: Peggy Anke, Pexels"}'),
-        ('{t:"Khafre and Menkaure",p:', '{img:"sc_pyr",t:"Khafre and Menkaure",p:'),
+         '{t:"The Great Pyramid",p:"Walk around the Great Pyramid, the only surviving Wonder of the Ancient World.",video:"video/giza-day.mp4",credit:"Giza · Video: K, Pexels"}'),
+        ('{t:"Khafre and Menkaure",p:', '{video:"video/giza-aerial.mp4",credit:"Giza and Cairo · Video: Blanka OG, Pexels",t:"Khafre and Menkaure",p:'),
     ]
     for a, b in reps:
         assert m.count(a) == 1, a[:90]

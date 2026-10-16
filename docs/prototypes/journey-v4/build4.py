@@ -27,7 +27,7 @@ reps = [
     ('{id:"valley",k:"valley",', '{id:"valley",k:"valley",world:true,'),
     ('class="card${t.open?" card--hl":""}"', 'class="card${t.world?" card--hl":""}"'),
     ('class="mini${t.open?" mini--hl":""}"', 'class="mini${t.world?" mini--hl":""}"'),
-    ('{n:"01",eye:"Timeless wonders",name:"Pyramids",', '{n:"01",video:"video/giza-sunset.mp4",vcredit:"Video: Peggy Anke, Pexels · Giza",eye:"Timeless wonders",name:"Pyramids",'),
+    ('{n:"01",eye:"Timeless wonders",name:"Pyramids",', '{n:"01",video:"video/giza-camels-clear.mp4",vcredit:"Giza · Video: JORGE MONCADA, Pexels",eye:"Timeless wonders",name:"Pyramids",'),
     ('<section class="ch on-dark" id="ch-${i+1}"><img class="ch__img" src="${IMG[c.img]}" alt="">',
      '<section class="ch on-dark" id="ch-${i+1}">${c.video?`<video class="ch__img" autoplay muted loop playsinline poster="${IMG[c.img]}" src="${c.video}"></video><span class="vbadge">${esc(c.vcredit)}</span>`:`<img class="ch__img" src="${IMG[c.img]}" alt="">`}'),
 ]

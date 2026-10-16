@@ -143,3 +143,25 @@ All photos are free Unsplash photos whose location tag names the exact place, re
 6. **Contrast:** stronger shading behind the destination cards' region names and the hero's top line.
 7. **Moods:** the label sits on its own line, followed by "An Egypt of torch-lit tombs…", the site's own words.
 8. **After "Book":** the chosen option is marked and its button reads "Opened ✓".
+
+## Video review (owner, 16 Oct: "are the videos attractive? replace them with better ones")
+Each video was judged on three frames (start, middle, end).
+- **Replaced:**
+  - giza-sunset: sun glare, a tiny pyramid, mostly trees.
+  - giza-camels: cluttered, with tourists in the foreground.
+- **Re-cut:** alexandria-qaitbay now starts at 18 s. The first half was a close-up of a stone wall.
+- **Kept:** the Red Sea reefs (reef, coral, moray), the tanoura, the Cairo Nile boats and the Karnak columns.
+
+**New, downloaded with the owner's OK and compressed with ffmpeg (≤14 s, ≤960 px, no audio):**
+
+| File | Pexels video | Creator | Place as stated | Used for | Size |
+|---|---|---|---|---|---|
+| giza-camels-clear.mp4 | https://www.pexels.com/video/camels-and-pyramids-under-clear-sky-35695240/ | JORGE MONCADA | "Camels resting in front of the iconic Pyramids of Giza" | home Pyramids chapter; Giza step "panoramic viewpoint" | 0.6 MB |
+| giza-day.mp4 | https://www.pexels.com/video/breathtaking-view-of-giza-pyramids-in-egypt-32537727/ | K (@kelly) | "the Giza Pyramids under a bright sky in Egypt" | Giza step "The Great Pyramid" | 0.4 MB |
+| giza-aerial.mp4 (from 62 s) | https://www.pexels.com/video/aerial-view-on-cairo-and-pyramids-10719817/ | Blanka OG | "aerial view of Giza Pyramids with Cairo city skyline" | Cairo & Giza banner; Giza step "Khafre and Menkaure" | 0.5 MB |
+
+**Rejected:**
+- 20284256 (sunset timelapse): mostly city foreground.
+- 32537704: a tourist walking in the foreground.
+- 34610789: a camel close-up with carriages.
+- 19502910: portrait 9:16.

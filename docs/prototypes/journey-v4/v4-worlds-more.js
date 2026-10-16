@@ -30,7 +30,7 @@ Object.assign(WORLDS, {
     steps:[
       {t:"The Great Pyramid",p:"Walk around the Great Pyramid, the only surviving Wonder of the Ancient World."},
       {t:"Khafre and Menkaure",p:"Visit the pyramids of Khafre and Menkaure and the smaller queens’ pyramids."},
-      {t:"The panoramic viewpoint",p:"Stop at the panoramic viewpoint for the classic photo of all the pyramids in a row.",video:"video/giza-camels.mp4",credit:"Near the pyramids of Giza · Video: K, Pexels"},
+      {t:"The panoramic viewpoint",p:"Stop at the panoramic viewpoint for the classic photo of all the pyramids in a row.",video:"video/giza-camels-clear.mp4",credit:"Giza · Video: JORGE MONCADA, Pexels"},
       {t:"The Sphinx",p:"Descend to the Sphinx and walk through the valley temple beside it.",why:"Optionally, go inside one of the pyramids. This needs an extra ticket; the passages are narrow, steep and hot."}],
     sec:{eyebrow:"Before you go",title:"A good guide makes it simple",ps:["The site is large and exposed, the approaches are crowded with touts, and the story behind the monuments doesn’t explain itself. A good guide handles tickets and the route across the plateau, keeps unwanted sellers at a distance, and turns the stones into the history of the Old Kingdom."],
       tabs:[["𓇳","Timing","Book the earliest start you can. The light is softer and it’s cooler and quieter."],["𓈗","What to bring","Water, a hat, sun protection and comfortable shoes. There’s very little shade."],["𓉐","Inside the pyramids","Not recommended if you’re claustrophobic or have mobility or heart problems."],["𓃗","Camel and horse rides","If you want one, agree the price, the duration and the route in full before you get on. A good guide will help."]]},

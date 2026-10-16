@@ -1,6 +1,8 @@
 # Video placements for proposal 4 (owner, 16 Oct: more videos, chosen to fit the content). Applied by build4.py.
 VIDEOS = {
-    "giza-sunset":        ("Giza", "Peggy Anke"),
+    "giza-camels-clear":  ("Giza", "JORGE MONCADA"),
+    "giza-day":           ("Giza", "K"),
+    "giza-aerial":        ("Giza and Cairo", "Blanka OG"),
     "cairo-nile-sunset":  ("Cairo, the Nile", "Nada Ashraf"),
     "karnak-columns":     ("Karnak Temple, Luxor", "BOB DK"),
     "redsea-reef":        ("Red Sea, Egypt", "Adrien JACTA"),
@@ -8,7 +10,6 @@ VIDEOS = {
     "redsea-moray":       ("Egypt's Red Sea", "Adrien JACTA"),
     "alexandria-qaitbay": ("Qaitbay Citadel, Alexandria", "The Instagrapher"),
     "tanoura":            ("Egyptian tanoura dance, city not stated", "Magda Ehlers"),
-    "giza-camels":        ("Near the pyramids of Giza", "K"),
 }
 
 def credit(k):
@@ -28,7 +29,7 @@ def patch_home(js, body):
          'function mood(i){\n  const [id,label,desc,dest]=MOODS[i], d=DESTS[dest], trips=TRIPS.filter(t=>t.dest===dest);\n'
          '  const mv=MOOD_VIDEO[id], v=$("#mood-vid"); if(mv){ v.dataset.src=mv[0]; v.hidden=false; if(v.getAttribute("src")){ if(v.getAttribute("src")!==mv[0]) v.src=mv[0]; v.play().catch(()=>{}); } $("#mood-credit").textContent=mv[1]; $("#mood-credit").hidden=false; } else { v.pause(); v.hidden=true; $("#mood-credit").hidden=true; }'),
         # browsing: each place opens with a moving banner where a located video exists
-        ('["Cairo & Giza","d_cairo",', '["Cairo & Giza","d_cairo","video/giza-camels.mp4|' + credit("giza-camels") + '",'),
+        ('["Cairo & Giza","d_cairo",', '["Cairo & Giza","d_cairo","video/giza-aerial.mp4|' + credit("giza-aerial") + '",'),
         ('["Luxor","d_luxor",', '["Luxor","d_luxor","video/karnak-columns.mp4|' + credit("karnak-columns") + '",'),
         ('["Aswan","d_aswan",', '["Aswan","d_aswan","",'),
         ('["Alexandria","d_alexandria",', '["Alexandria","d_alexandria","video/alexandria-qaitbay.mp4|' + credit("alexandria-qaitbay") + '",'),
@@ -93,7 +94,7 @@ function lazyVideos(scope){
 EXTRA_CSS = '''
 .gbanner{position:relative;height:190px;border-radius:16px;overflow:hidden;margin-bottom:18px;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:18px 22px;color:#fff}
 .gbanner > img,.gbanner > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.gbanner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,24,32,.78),rgba(16,24,32,.15) 70%)}
+.gbanner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,24,32,.62),rgba(16,24,32,0) 65%)}
 .gbanner__t,.gbanner > a{position:relative;z-index:1}
 .gbanner h2{font-size:34px;color:#fff}
 .gbanner p{margin:2px 0 0;font:italic 500 16px var(--serif);color:#f3ead6}
