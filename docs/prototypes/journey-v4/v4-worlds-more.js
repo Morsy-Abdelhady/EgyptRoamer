@@ -1,6 +1,6 @@
 // ---------- Six more trips in the four world templates, plus FAQ, cancellation and hotels for all ----------
 // Every word is from the trip's page on egyptroamer.com (16 Oct). Cancellation: as each partner's own page states it
-// (GetYourGuide read 16 Oct; Viator pages not read yet, so shown as "see Viator's page").
+// (GetYourGuide and Viator pages read on 16 Oct).
 const GYG_CANCEL = "Free cancellation up to 24 hours in advance";
 const CAIRO_STAY = {title:"Staying in Cairo?",rows:[["Hotels in Giza, near the pyramids","Giza"],["Hotels in Downtown Cairo (Qasr El Nil)","Downtown Cairo"],["Hotels in Zamalek","Zamalek"],["Hotels in Cairo","Cairo"]]};
 
@@ -155,5 +155,7 @@ Object.assign(WORLDS, {
          ["Is it suitable for vegetarians?","Yes. Koshari, ful, ta’meya and feteer are traditionally vegetarian. Tell your guide in advance."],
          ["How late does it run?","Evening tours usually start after sunset and last a few hours. Check the start time with the operator."]]},
 });
-// Cancellation as each partner states it.
-Object.values(WORLDS).forEach(W=>W.opts.forEach(o=>{ if(o.p==="GetYourGuide") o.cancel=GYG_CANCEL; }));
+// Cancellation as each partner states it (all 9 GetYourGuide and all 17 Viator pages read on 16 Oct).
+const VIATOR_CANCEL = "Free cancellation up to 24 hours before the experience starts";
+Object.values(WORLDS).forEach(W=>{ W.opts.forEach(o=>{ o.cancel = o.p==="GetYourGuide" ? GYG_CANCEL : o.p==="Viator" ? VIATOR_CANCEL : o.cancel; });
+  if(W.opts.every(o=>o.cancel) && !W.sum.includes("Free cancellation on every option")) W.sum.push("Free cancellation on every option"); });

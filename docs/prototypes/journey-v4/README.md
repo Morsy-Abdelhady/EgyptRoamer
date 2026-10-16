@@ -74,7 +74,18 @@
     - t922070 (Alexandria)
     - t556707 (Ras Mohammed)
     - t661189 (Siwa camp)
-  - Viator pages are not read yet: they open only in the owner's Edge, which was disconnected. The comparison says "See Viator's page" for them.
+  - All 17 Viator offers, read in the owner's Edge on 16 Oct, state "Free cancellation up to 24 hours before the experience starts (local time)". The pages read:
+    - 224493P18, 224493P76 (Luxor West Bank)
+    - 13172P2, 66938P5 (Hurghada diving)
+    - 139021P1, 10124P65 (White Desert)
+    - 37291P188, 110498P6 (Nile dinner)
+    - 308879P1, 41437P6 (Giza)
+    - 221454P2, 128688P15 (Abu Simbel)
+    - 59626P4 (Alexandria)
+    - 5616599P11 (Ras Mohammed)
+    - 387546P1 (Siwa)
+    - 69673P17, 476624P1 (Cairo food)
+  - So all 26 offers in the prototype are free to cancel up to 24 hours ahead. The trip summary says "Free cancellation on every option".
   - **For the live site:** add a `cancel` fact to Core `data/offer-facts.json` per offer (partner-stated only).
 - **The journey within a trip:** the path marks are buttons that jump to their step, and there is "Skip to booking".
 - **More trips in {place}:** shown after the booking section.
