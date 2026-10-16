@@ -71,12 +71,14 @@ TRIPS = {
 
 ARTICLES = {
     'valley': dict(file='g-valley-kings.md', crumb='Luxor', hero=('img', 'kv62', 'KV62, the tomb of Tutankhamun, Valley of the Kings · Photo: Unsplash'),
-                   figs={'west-bank': ('hat_l', 'The Mortuary Temple of Hatshepsut, Deir el-Bahari · Photo: Unsplash')},
+                   figs={},
+                   strips={'west-bank': ('See the places', [('hat_l', 'Hatshepsut’s temple, Deir el-Bahari', 'Mahmoud Refaat'), ('habu1', 'Medinet Habu, the painted gateway', 'Fatih Beki'), ('habu2', 'Medinet Habu, the carved columns', 'Fatih Beki')])}, videos={},
                    stay=('Staying in Luxor?', 'Hotels in Luxor and on the West Bank', 'Trip.com'),
                    more=[('g-west-bank.md', None), ('g-east-bank.md', 'd_luxor'), ('g-nile-cruise.md', 'sc_nile')]),
     'snorkel': dict(file='g-snorkelling.md', crumb='Red Sea', hero=('video', 'ras_turq', 'Red Sea, Egypt · Video: Adrien JACTA, Pexels', 'video/redsea-reef.mp4'),
-                    figs={'hurghada': ('d_hurghada', 'The coast at Hurghada · Photo: Unsplash'),
-                          'sharm': ('d_sharm', 'A bay at Sharm El Sheikh · Photo: Unsplash')},
+                    figs={'sharm': ('d_sharm', 'A bay at Sharm El Sheikh · Photo: Unsplash')},
+                    strips={'hurghada': ('On Hurghada’s reefs', [('reef_school', 'Small orange fish over a coral reef, Hurghada', 'Oliver Schwaneberg'), ('reef_clown2', 'Two clownfish in a sea anemone, Hurghada', 'Oliver Schwaneberg'), ('reef_yellow', 'Yellow fish on a coral reef, Hurghada', 'Oliver Schwaneberg'), ('reef_puffer', 'A small pufferfish by the reef, Hurghada', 'Oliver Schwaneberg')])},
+                    videos={'boat-or-shore': ('video/redsea-coral.mp4', 'reef_coral', 'Red Sea · Video: Adrien JACTA, Pexels')},
                     stay=('Staying in Sharm El Sheikh?', 'Hotels in Sharm El Sheikh', 'Trip.com'),
                     more=[('g-red-sea-dives.md', 'hurg_diver'), ('g-sinai.md', None), ('g-10-days.md', 'sc_nile')]),
 }
@@ -90,13 +92,14 @@ for key, a in ARTICLES.items():
         more.append(dict(title=m2[0]['title'], excerpt=m2[0]['excerpt'], img=img, mins=max(1, round(m2[4] / 220))))
     related = [r.strip() for r in meta['related'].split(',')]
     data[key] = dict(title=meta['title'], excerpt=meta['excerpt'], topic=meta['topic'], crumb=a['crumb'], hero=a['hero'],
-                     mins=max(1, round(words / 220)), blocks=blocks, toc=toc, faq=faq, figs=a['figs'], stay=a['stay'],
+                     mins=max(1, round(words / 220)), blocks=blocks, toc=toc, faq=faq, figs=a['figs'], strips=a['strips'], videos=a['videos'], stay=a['stay'],
                      trips=[r.replace('exp-', '').replace('dive', 'redsea').replace('ras-mohammed', 'ras') for r in related],
                      more=more)
 
 imgs = json.load(open(f'{PROTO}/imgs6.json'))
 imgs.update({k: v for k, v in json.load(open(f'{PROTO}/imgs3.json')).items() if k in ('sea_l', 'nile_l')})
-used = {'kv62', 'hat_l', 'd_luxor', 'sc_nile', 'trip', 'ras_turq', 'sea_l', 'd_hurghada', 'd_sharm', 'hurg_diver'}
+imgs.update(json.load(open(f'{PROTO}/article/imgs-art.json')))
+used = {'kv62', 'hat_l', 'd_luxor', 'sc_nile', 'trip', 'ras_turq', 'sea_l', 'd_sharm', 'hurg_diver', 'habu1', 'habu2', 'reef_school', 'reef_clown2', 'reef_yellow', 'reef_puffer', 'reef_coral'}
 imgs = {k: v for k, v in imgs.items() if k in used}
 assert used <= set(imgs), used - set(imgs)
 

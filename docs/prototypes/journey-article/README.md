@@ -41,3 +41,31 @@ Artifact: https://claude.ai/artifact/NKhjbc25Dk3RruhqcgwugM
 | Snorkelling figures | site destination photos for Hurghada and Sharm El Sheikh | see IMAGE-QUALITY-AUDIT |
 
 No prices, ratings or reviews. The trip facts are the same as in proposal 4.
+
+## Places strip and inline video (owner, 16 Oct: "تمام" to strips and videos inside the text, rather than a separate gallery)
+- **Places strip:**
+  - three or four photos of the places a section names, shown after the section's first paragraph;
+  - a click opens a lightbox (arrows, Esc, focus returns to the photo);
+  - shown only where exactly tagged photos exist.
+- **Inline video:**
+  - loads and plays only while it is on screen;
+  - the header switch pauses every video on the page.
+  - The Valley guide has none, because no free video of the valley itself was found.
+
+**New free Unsplash photos (location tags read on each photo page, 16 Oct):**
+
+| Key | Photo | By | Location tag |
+|---|---|---|---|
+| habu1 | https://unsplash.com/photos/ancient-egyptian-columns-with-hieroglyphs-under-a-clear-blue-sky-i3A6Zm7zbaI (1762858279425-ed77c08d7a1c) | Fatih Beki | "Temple d'Amon (Médinet Habou), Al Bairat, Luxor, Egypt" |
+| habu2 | https://unsplash.com/photos/ancient-egyptian-hieroglyphs-carved-on-stone-columns-JaUD8-ocFR8 (1761143551108-d4cb55afd1da) | Fatih Beki | same |
+| reef_school | https://unsplash.com/photos/school-of-small-orange-fish-swim-near-coral-reef-GGYYH-Hh03Y | Oliver Schwaneberg | "Hurghada, Ägypten" |
+| reef_clown2 | https://unsplash.com/photos/two-clownfish-nestled-in-a-sea-anemone-nQTw3qMvLpw | Oliver Schwaneberg | "Hurghada, Ägypten" |
+| reef_yellow | https://unsplash.com/photos/several-bright-yellow-fish-swim-near-a-coral-reef-6efiBO_PQqs | Oliver Schwaneberg | "Hurghada, Ägypten" |
+| reef_puffer | https://unsplash.com/photos/a-small-pufferfish-swims-near-coral-reef-JfNX7lorx0o | Oliver Schwaneberg | "Hurghada, Ägypten" |
+| reef_coral (video poster) | https://unsplash.com/photos/a-large-green-coral-formation-on-the-ocean-floor-Z-rxB4rOVf0 | Oliver Schwaneberg | "Hurghada, Ägypten" |
+
+`imgs-art.mjs` fetches them. The captions follow each photo's own Unsplash title.
+
+**Not found with an exact tag:** the Valley of the Queens and Nefertari, Deir el-Medina, the Ramesseum, the Colossi of Memnon (tagged only "Egypt"), the Giftun Islands and the Straits of Tiran.
+
+**Video:** redsea-coral.mp4 (Pexels, Adrien JACTA, "Red Sea"), the same file as in proposal 4.

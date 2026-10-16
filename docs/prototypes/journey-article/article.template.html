@@ -190,6 +190,28 @@ figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
 .gcard p{margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .ftr{background:var(--charcoal);color:#cfc8b8;font-size:13px;padding:30px 0}
 .ftr .wrap{display:flex;justify-content:space-between;gap:20px}
+
+/* places strip: a few photos of the places the section names, opened large on click */
+.strip{margin:6px 0 30px}
+.strip__t{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin:0 0 10px}
+.strip__g{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:8px}
+.strip button{position:relative;padding:0;border:0;border-radius:12px;overflow:hidden;background:#ddd;aspect-ratio:4/3;cursor:zoom-in}
+.strip button img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.strip button:hover img{transform:scale(1.05)}
+.strip button span{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;font-size:12px;line-height:1.3;color:#fff;text-align:left;background:linear-gradient(transparent,rgba(16,24,32,.8))}
+.strip__c{font-size:12px;color:var(--faint);margin-top:6px}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,12,14,.92);display:grid;grid-template-rows:1fr auto;place-items:center;padding:30px 80px 20px}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:calc(100vh - 120px);border-radius:10px;object-fit:contain}
+.lb p{color:#e9e1cf;font-size:14px;margin:12px 0 0;text-align:center}
+.lb p small{display:block;color:#a9a294;font-size:12px;margin-top:2px}
+.lb button{position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:999px;width:46px;height:46px;font-size:20px}
+.lb .lb__x{top:20px;right:24px}.lb .lb__p{left:20px;top:50%}.lb .lb__n{right:20px;top:50%}
+/* a short video inside the text */
+.ivid{margin:26px 0 30px}
+.ivid video{width:100%;height:380px;object-fit:cover;border-radius:14px;display:block;background:#0b3b52}
+.ivid figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
+@media (prefers-reduced-motion:reduce){.strip button img{transition:none}}
 @media (prefers-reduced-motion:reduce){.viewport{scroll-behavior:auto}.tcard,.gcard{transition:none}}
 </style>
 
@@ -214,6 +236,7 @@ figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
         <button type="button" class="vswitch" id="vswitch" aria-pressed="true" hidden>❚❚ Pause video</button>
       </div><div class="prog" id="prog"></div></header>
       <div id="art"></div>
+      <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo"><img id="lb-img" alt=""><p id="lb-cap"></p><button type="button" class="lb__x" aria-label="Close" onclick="lbClose()">✕</button><button type="button" class="lb__p" aria-label="Previous photo" onclick="lbShow(lbi-1)">←</button><button type="button" class="lb__n" aria-label="Next photo" onclick="lbShow(lbi+1)">→</button></div>
       <footer class="ftr"><div class="wrap"><span>© Egypt Roamer · Independent travel guide</span><span>How we work with partners · Privacy</span></div></footer>
     </div>
   </div>
@@ -232,6 +255,9 @@ figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
       <li>الفهرس على الشمال بيعلّم القسم اللي إنت فيه، وخط ذهبي فوق بيبيّن إنت قريت قد إيه.</li>
       <li>النصايح في كارت بلون البردي.</li>
       <li>الصور بتظهر بين الأقسام، ومكتوب تحت كل صورة مكانها ومصدرها.</li>
+      <li><b>شريط "شوف الأماكن":</b> 3 أو 4 صور للأماكن اللي القسم بيتكلم عنها. لو ضغطت على صورة بتكبر، وتقدر تقلّب بالأسهم.</li>
+      <li><b>فيديو قصير جوه المقالة:</b> بيشتغل لما يبان على الشاشة بس، وزرار واحد فوق بيوقف كل الفيديوهات.</li>
+      <li>الشريط والفيديو بيظهروا بس لما نلاقي صور أو فيديو للمكان بالظبط. وادي الملوك مفيهوش فيديو جوه المقالة، عشان ملقيتش فيديو مجاني للوادي نفسه.</li>
     </ul>
     <h3>الحجز وإنت بتقرا</h3>
     <ul>
@@ -281,15 +307,21 @@ function render(key){
   const hero = h[0]==="video"
     ? `<video muted loop playsinline ${REDUCE?"":"autoplay"} poster="${IMG[h[1]]}" src="${h[3]}"></video>`
     : `<img src="${IMG[h[1]]}" alt="">`;
-  let n = 0, shown = new Set();
+  let n = 0, shown = new Set(), pendingStrip = null, pendingVid = null; LB = [];
   const body = A.blocks.filter(b=>!(b[0]==="h2"&&b[1]==="faq")).map(b=>{
     if(b[0]==="h2"){ n++; const fig = A.figs[b[1]];
+      pendingStrip = A.strips[b[1]]; pendingVid = A.videos[b[1]];
       return `<h2 id="${b[1]}"><small>${String(n).padStart(2,"0")}</small>${esc(b[2])}</h2>` + (fig?`<figure><img src="${IMG[fig[0]]}" alt="" loading="lazy"><figcaption>${esc(fig[1])}</figcaption></figure>`:""); }
     if(b[0]==="tip") return `<div class="tip" data-g="${main.world==="tomb"?"𓁹":"𓈗"}"><b>${esc(b[1])}</b>${b[2]}</div>`;
     let html = b[0]==="ul" ? `<ul>${b[1].map(i=>`<li>${i}</li>`).join("")}</ul>` : `<p>${b[1]}</p>`;
     // the guide names a trip: its card follows the paragraph, once
     const m = [...html.matchAll(/data-trip="(\w+)"/g)].map(x=>x[1]).filter(k=>!shown.has(k));
     m.forEach(k=>{ shown.add(k); html += tcard(k, k===A.trips[0]); });
+    // the section's places strip and video follow its first paragraph or list
+    if(pendingStrip){ const [t, ph] = pendingStrip; pendingStrip = null; LB = LB.concat(ph);
+      html += `<div class="strip"><p class="strip__t">${esc(t)}</p><div class="strip__g" style="--n:${ph.length}">${ph.map(p=>`<button type="button" data-lb="${LB.indexOf(p)}" aria-label="Open photo: ${esc(p[1])}"><img src="${IMG[p[0]]}" alt="${esc(p[1])}" loading="lazy"><span>${esc(p[1])}</span></button>`).join("")}</div><p class="strip__c">Photos: ${esc([...new Set(ph.map(p=>p[2]))].join(", "))}, Unsplash · Click a photo to open it</p></div>`; }
+    if(pendingVid){ const [src, poster, cap] = pendingVid; pendingVid = null;
+      html += `<figure class="ivid"><video muted loop playsinline preload="none" poster="${IMG[poster]}" data-src="${src}"></video><figcaption>${esc(cap)}</figcaption></figure>`; }
     return html;
   }).join("");
   const toc = A.toc.filter(t=>t[0]!=="faq").map(([id,t])=>`<li><a href="#${id}" data-toc="${id}">${esc(t)}</a></li>`).join("") + `<li><a href="#faq" data-toc="faq">Questions</a></li>`;
@@ -304,13 +336,26 @@ function render(key){
     `<section class="ahero">${hero}<div class="wrap"><p class="crumb"><a href="#">Travel Guide</a><span>›</span><a href="#">${esc(A.crumb)}</a></p><p class="eyebrow">${esc(A.topic)} guide</p><h1>${esc(A.title)}</h1><p class="lead">${esc(A.excerpt)}</p><div class="ameta"><span>${A.mins} min read</span><span>${A.toc.length} sections</span><span>Sources listed</span></div></div><span class="credit">${esc(h[2])}</span></section>`
     + `<div class="abody"><nav class="atoc" aria-label="In this guide"><p>In this guide</p><ol>${toc}</ol></nav><article class="prose">${body}${faq}<p class="asrc">Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.</p></article><aside class="abox">${box}</aside></div>`
     + end + more;
-  const v = $("#art video"); $("#vswitch").hidden = !v; setSwitch(!!v && !REDUCE);
+  const v = $("#art video"); $("#vswitch").hidden = !v; setSwitch(!!v && !REDUCE); lazyVids();
   vp.scrollTop = 0;
 }
+let VON = true, vio;
 function setSwitch(on){
-  const b = $("#vswitch"), v = $("#art video"); b.setAttribute("aria-pressed", on); b.textContent = on ? "❚❚ Pause video" : "▶ Play video";
-  if(v){ on ? v.play().catch(()=>{}) : v.pause(); }
+  VON = on; const b = $("#vswitch"); b.setAttribute("aria-pressed", on); b.textContent = on ? "❚❚ Pause videos" : "▶ Play videos";
+  document.querySelectorAll("#art video").forEach(v=>{ if(!on) v.pause(); else if(v.getAttribute("src") && v.dataset.vis!=="0") v.play().catch(()=>{}); });
 }
+// videos inside the text load when they come on screen and pause when they leave it
+function lazyVids(){
+  vio && vio.disconnect();
+  vio = new IntersectionObserver(es=>es.forEach(e=>{ const v = e.target; v.dataset.vis = e.isIntersecting ? "1" : "0"; if(e.isIntersecting){ if(!v.getAttribute("src")) v.src = v.dataset.src; if(VON) v.play().catch(()=>{}); } else v.pause(); }), {root:vp, rootMargin:"150px 0px", threshold:.2});
+  document.querySelectorAll("#art video[data-src]").forEach(v=>vio.observe(v));
+}
+// lightbox for the places strips
+let LB = [], lbi = 0, lbFrom = null;
+function lbShow(i){ lbi = (i + LB.length) % LB.length; const p = LB[lbi]; $("#lb-img").src = IMG[p[0]]; $("#lb-img").alt = p[1]; $("#lb-cap").innerHTML = `${esc(p[1])}<small>Photo: ${esc(p[2])}, Unsplash · ${lbi+1} of ${LB.length}</small>`; }
+function lbOpen(i, from){ lbFrom = from; lbShow(i); $("#lb").hidden = false; $("#lb .lb__x").focus(); }
+function lbClose(){ $("#lb").hidden = true; lbFrom && lbFrom.focus(); }
+document.addEventListener("keydown", e=>{ if($("#lb").hidden) return; if(e.key==="Escape") lbClose(); if(e.key==="ArrowRight") lbShow(lbi+1); if(e.key==="ArrowLeft") lbShow(lbi-1); });
 $("#vswitch").onclick = () => setSwitch($("#vswitch").getAttribute("aria-pressed")!=="true");
 vp.addEventListener("scroll", ()=>{
   const lim = vp.getBoundingClientRect().top + vp.clientHeight*.35; let cur = null;
@@ -322,6 +367,8 @@ vp.addEventListener("scroll", ()=>{
   $("#prog").style.width = Math.max(0, Math.min(1, vp.scrollTop / Math.max(1,end))) * 100 + "%";
 }, {passive:true});
 document.addEventListener("click", e=>{
+  const lbb = e.target.closest("[data-lb]"); if(lbb){ lbOpen(+lbb.dataset.lb, lbb); return; }
+  if(e.target.id==="lb") { lbClose(); return; }
   const a = e.target.closest("a[href]"); if(!a) return;
   const href = a.getAttribute("href");
   if(href.startsWith("#") && href.length>1){ e.preventDefault(); const t = vp.querySelector(href); t && t.scrollIntoView({behavior: REDUCE?"auto":"smooth"}); }
