@@ -212,6 +212,112 @@ figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
 .ivid video{width:100%;height:380px;object-fit:cover;border-radius:14px;display:block;background:#0b3b52}
 .ivid figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
 @media (prefers-reduced-motion:reduce){.strip button img{transition:none}}
+
+/* ---------- phone frame (prototype chrome) ---------- */
+.devsw{display:flex;gap:4px;background:rgba(255,255,255,.08);border-radius:999px;padding:3px}
+.devsw button{border:0;background:transparent;color:#f3eee2;border-radius:999px;padding:5px 14px;font-family:var(--ar);font-size:13px}
+.devsw button[aria-pressed="true"]{background:#f3eee2;color:var(--charcoal)}
+.stage.is-phone .browser{width:410px;justify-self:center;border-radius:44px;padding:10px;background:#16130f;box-shadow:0 30px 70px rgba(16,24,32,.35)}
+.stage.is-phone .browser__bar{border-radius:34px 34px 0 0;padding:12px 18px 8px;background:#f3efe6}
+.stage.is-phone .browser__dots{display:none}
+.stage.is-phone .viewport{height:780px;min-height:0;border-radius:0 0 34px 34px}
+.browser{position:relative}
+#vp{container-type:inline-size;container-name:site}
+.lb{position:absolute!important}
+.mtoc,.mbar,.hdr__menu{display:none}
+
+/* ---------- the site at phone width ---------- */
+@container site (max-width:600px){
+  .wrap{padding-left:18px;padding-right:18px}
+  .hdr{margin-bottom:-56px}
+  .hdr .wrap{height:56px;gap:10px}
+  .logo b{font-size:14px}.logo small{font-size:7px}
+  .hdr nav{display:none}
+  .hdr__menu{display:grid;place-items:center;margin-left:auto;width:38px;height:38px;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;font-size:16px;opacity:.9}
+  .hdr.is-open nav{display:flex;flex-direction:column;gap:0;position:absolute;top:56px;left:0;right:0;background:var(--stone);color:var(--charcoal);box-shadow:0 12px 24px rgba(16,24,32,.12);padding:6px 18px 12px}
+  .hdr.is-open nav a{padding:12px 0;border-bottom:1px solid var(--line);font-size:16px}
+  .vswitch{order:3;padding:5px 9px;font-size:0}
+  .vswitch::before{content:attr(data-icon);font-size:13px}
+
+  .ahero{min-height:470px}
+  .ahero .wrap{padding-top:92px;padding-bottom:28px}
+  .ahero h1{font-size:31px;line-height:1.12}
+  .ahero .lead{font-size:15px;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .crumb{margin-bottom:10px}
+  .credit{right:12px;bottom:8px;font-size:10px}
+  .ameta{font-size:12.5px}
+
+  /* contents: one sticky line under the header that opens the list */
+  .abody{display:block;padding:0 0 10px}
+  .atoc{display:none}
+  .mtoc{display:block;position:sticky;top:56px;z-index:15;background:rgba(248,245,237,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+  .mtoc > button{width:100%;display:flex;align-items:center;gap:10px;padding:11px 18px;border:0;background:transparent;text-align:left;font-size:14px;color:var(--charcoal)}
+  .mtoc > button small{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;white-space:nowrap}
+  .mtoc > button b{flex:1;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mtoc > button i{font-style:normal;transition:transform .2s}
+  .mtoc.is-open > button i{transform:rotate(180deg)}
+  .mtoc ol{display:none;list-style:none;margin:0;padding:0 18px 10px}
+  .mtoc.is-open ol{display:block}
+  .mtoc ol a{display:block;padding:10px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--muted);font-size:15px}
+  .mtoc ol a.on{color:var(--charcoal);font-weight:600}
+
+  .prose{padding:26px 18px 0;font-size:17px;line-height:1.7}
+  .prose > p:first-child{font-size:19px}
+  .prose > p:first-child::first-letter{font-size:54px}
+  .prose h2{font-size:25px;margin:40px 0 12px;scroll-margin-top:110px;gap:10px}
+  figure{margin:24px -18px 26px}
+  figure img{height:250px;border-radius:0}
+  figcaption{padding:0 18px}
+  .ivid{margin:24px -18px 26px}
+  .ivid video{height:240px;border-radius:0}
+  .tip{padding:18px 18px 16px 58px;font-size:15.5px}
+  .tip::before{left:16px;font-size:28px}
+
+  /* places strip: a row you swipe */
+  .strip{margin:4px -18px 26px}
+  .strip__t,.strip__c{padding:0 18px}
+  .strip__g{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 18px;scrollbar-width:none}
+  .strip__g::-webkit-scrollbar{display:none}
+  .strip button{flex:0 0 76%;scroll-snap-align:center}
+
+  .tcard{grid-template-columns:1fr}
+  .tcard img{height:170px;min-height:0}
+  .tcard--slim{grid-template-columns:1fr;gap:10px;padding:14px 16px}
+  .tcard--slim .btn{margin:0;justify-content:center}
+
+  .afaq summary{font-size:17px}
+  /* the booking box follows the article, unstuck */
+  .abox{position:static;padding:30px 18px 0}
+  .bk__img{height:170px}
+
+  .aend .wrap{grid-template-columns:1fr;gap:26px;padding-top:44px;padding-bottom:44px}
+  .aend h2{font-size:29px}
+  .aend .acts .btn{flex:1 1 100%;justify-content:center}
+  .aopts li{flex-direction:column;align-items:stretch}
+  .aopts .btn{justify-content:center}
+
+  .amore{padding:40px 0 44px}
+  .amore h2{font-size:25px}
+  .amore__g{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -18px;padding:0 18px 4px;gap:12px;scrollbar-width:none}
+  .amore__g::-webkit-scrollbar{display:none}
+  .gcard{flex:0 0 80%;scroll-snap-align:start}
+  .ftr .wrap{flex-direction:column;gap:6px}
+
+  /* one booking bar at the bottom while reading; hidden over the hero and the "Ready to go?" section */
+  .mbar{display:flex;align-items:center;gap:12px;position:sticky;bottom:0;z-index:16;margin-top:-72px;height:72px;padding:10px 14px 10px 18px;background:rgba(255,255,255,.97);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(16,24,32,.08);transform:translateY(110%);transition:transform .25s}
+  .mbar.is-on{transform:none}
+  .mbar div{flex:1;min-width:0;line-height:1.3}
+  .mbar small{display:block;font-size:11.5px;color:#145c4c;font-weight:600}
+  .mbar b{display:block;font:600 15px var(--serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mbar .btn{flex:none;padding:11px 16px}
+
+  .lb{padding:20px 12px 70px}
+  .lb img{width:100%;max-height:70%}
+  .lb .lb__p,.lb .lb__n{top:auto;bottom:16px;width:42px;height:42px}
+  .lb .lb__p{left:calc(50% - 54px)}.lb .lb__n{right:calc(50% - 54px)}
+  .lb .lb__x{top:12px;right:12px}
+}
+@media (prefers-reduced-motion:reduce){.mbar{transition:none}}
 @media (prefers-reduced-motion:reduce){.viewport{scroll-behavior:auto}.tcard,.gcard{transition:none}}
 </style>
 
@@ -222,6 +328,7 @@ figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
       <li><button type="button" data-art="valley" aria-current="true">وادي الملوك (آثار)</button></li>
       <li><button type="button" data-art="snorkel">السنوركلينج (بحر)</button></li>
     </ol>
+    <div class="devsw" role="group" aria-label="الجهاز"><button type="button" data-dev="desk" aria-pressed="true">كمبيوتر</button><button type="button" data-dev="phone" aria-pressed="false">موبايل</button></div>
     <label class="pbar__notes"><input type="checkbox" id="show-notes" checked> الملاحظات</label>
   </div>
 </header>
@@ -234,11 +341,13 @@ figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
         <a class="logo" href="#"><b>EGYPT ROAMER</b><small>MORE THAN A DESTINATION</small></a>
         <nav><a href="#">Destinations</a><a href="#">Experiences</a><a href="#" aria-current="page">Travel Guide</a></nav>
         <button type="button" class="vswitch" id="vswitch" aria-pressed="true" hidden>❚❚ Pause video</button>
+        <button type="button" class="hdr__menu" id="menu" aria-expanded="false" aria-label="Menu">☰</button>
       </div><div class="prog" id="prog"></div></header>
       <div id="art"></div>
-      <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo"><img id="lb-img" alt=""><p id="lb-cap"></p><button type="button" class="lb__x" aria-label="Close" onclick="lbClose()">✕</button><button type="button" class="lb__p" aria-label="Previous photo" onclick="lbShow(lbi-1)">←</button><button type="button" class="lb__n" aria-label="Next photo" onclick="lbShow(lbi+1)">→</button></div>
+      <div class="mbar" id="mbar" aria-label="Book this trip"></div>
       <footer class="ftr"><div class="wrap"><span>© Egypt Roamer · Independent travel guide</span><span>How we work with partners · Privacy</span></div></footer>
     </div>
+    <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo"><img id="lb-img" alt=""><p id="lb-cap"></p><button type="button" class="lb__x" aria-label="Close" onclick="lbClose()">✕</button><button type="button" class="lb__p" aria-label="Previous photo" onclick="lbShow(lbi-1)">←</button><button type="button" class="lb__n" aria-label="Next photo" onclick="lbShow(lbi+1)">→</button></div>
   </div>
 
   <aside class="notes" id="notes">
@@ -271,6 +380,14 @@ figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
       <li>الأسئلة الشائعة بتتفتح وتتقفل.</li>
       <li>بعدها قسم "جاهز تروح؟" بألوان عالم الرحلة: نقوش فرعونية للآثار، وأزرق للبحر.</li>
       <li>وفي الآخر "اقرأ كمان": 3 مقالات من نفس المكان.</li>
+    </ul>
+    <h3>الموبايل (زرار "موبايل" فوق)</h3>
+    <ul>
+      <li>الفهرس بقى سطر واحد ثابت تحت الهيدر، مكتوب فيه القسم اللي إنت فيه، ولو ضغطت عليه بيفتح القايمة كلها.</li>
+      <li>بيظهر شريط حجز ثابت تحت بعد الصورة الأولى: اسم الرحلة، "الإلغاء مجاني"، وزرار الاختيارات. وبيختفي لما يوصل لقسم "جاهز تروح؟" عشان ميتكررش.</li>
+      <li>صندوق الحجز والفنادق بينزلوا بعد المقالة.</li>
+      <li>شريط الأماكن و"اقرأ كمان" بيتسحبوا بالصباع يمين وشمال، والصورة المكبّرة بتقلّب بالسحب.</li>
+      <li>الصور والفيديو بعرض الشاشة كله، والقايمة في زرار ☰.</li>
     </ul>
     <h3>ملاحظات</h3>
     <ul>
@@ -319,7 +436,7 @@ function render(key){
     m.forEach(k=>{ shown.add(k); html += tcard(k, k===A.trips[0]); });
     // the section's places strip and video follow its first paragraph or list
     if(pendingStrip){ const [t, ph] = pendingStrip; pendingStrip = null; LB = LB.concat(ph);
-      html += `<div class="strip"><p class="strip__t">${esc(t)}</p><div class="strip__g" style="--n:${ph.length}">${ph.map(p=>`<button type="button" data-lb="${LB.indexOf(p)}" aria-label="Open photo: ${esc(p[1])}"><img src="${IMG[p[0]]}" alt="${esc(p[1])}" loading="lazy"><span>${esc(p[1])}</span></button>`).join("")}</div><p class="strip__c">Photos: ${esc([...new Set(ph.map(p=>p[2]))].join(", "))}, Unsplash · Click a photo to open it</p></div>`; }
+      html += `<div class="strip"><p class="strip__t">${esc(t)}</p><div class="strip__g" style="--n:${ph.length}">${ph.map(p=>`<button type="button" data-lb="${LB.indexOf(p)}" aria-label="Open photo: ${esc(p[1])}"><img src="${IMG[p[0]]}" alt="${esc(p[1])}" loading="lazy"><span>${esc(p[1])}</span></button>`).join("")}</div><p class="strip__c">Photos: ${esc([...new Set(ph.map(p=>p[2]))].join(", "))}, Unsplash · Open a photo to see it large</p></div>`; }
     if(pendingVid){ const [src, poster, cap] = pendingVid; pendingVid = null;
       html += `<figure class="ivid"><video muted loop playsinline preload="none" poster="${IMG[poster]}" data-src="${src}"></video><figcaption>${esc(cap)}</figcaption></figure>`; }
     return html;
@@ -334,14 +451,15 @@ function render(key){
   const more = `<section class="amore"><div class="wrap"><p class="eyebrow" style="color:var(--gold-deep)">Keep reading</p><h2>More on ${esc(A.crumb)}</h2><div class="amore__g">${A.more.map(g=>`<a class="gcard" href="#">${g.img?`<img src="${IMG[g.img]}" alt="" loading="lazy">`:`<span class="gtone" aria-hidden="true">𓊽</span>`}<div><small>Guide · ${g.mins} min read</small><h3>${esc(g.title)}</h3><p>${esc(g.excerpt)}</p></div></a>`).join("")}</div></div></section>`;
   $("#art").innerHTML =
     `<section class="ahero">${hero}<div class="wrap"><p class="crumb"><a href="#">Travel Guide</a><span>›</span><a href="#">${esc(A.crumb)}</a></p><p class="eyebrow">${esc(A.topic)} guide</p><h1>${esc(A.title)}</h1><p class="lead">${esc(A.excerpt)}</p><div class="ameta"><span>${A.mins} min read</span><span>${A.toc.length} sections</span><span>Sources listed</span></div></div><span class="credit">${esc(h[2])}</span></section>`
-    + `<div class="abody"><nav class="atoc" aria-label="In this guide"><p>In this guide</p><ol>${toc}</ol></nav><article class="prose">${body}${faq}<p class="asrc">Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.</p></article><aside class="abox">${box}</aside></div>`
+    + `<div class="abody"><nav class="mtoc" id="mtoc" aria-label="In this guide"><button type="button" aria-expanded="false"><small>In this guide</small><b id="mtoc-cur">${esc(A.toc[0][1])}</b><i>▾</i></button><ol>${toc.replace(/data-toc=/g,"data-mtoc data-toc=")}</ol></nav><nav class="atoc" aria-label="In this guide"><p>In this guide</p><ol>${toc}</ol></nav><article class="prose">${body}${faq}<p class="asrc">Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.</p></article><aside class="abox">${box}</aside></div>`
     + end + more;
+  $("#mbar").innerHTML = `<div><small>✓ Free cancellation</small><b>${esc(main.title)}</b></div><a class="btn btn--gold btn--sm" href="#">See ${main.n} options</a>`;
   const v = $("#art video"); $("#vswitch").hidden = !v; setSwitch(!!v && !REDUCE); lazyVids();
   vp.scrollTop = 0;
 }
 let VON = true, vio;
 function setSwitch(on){
-  VON = on; const b = $("#vswitch"); b.setAttribute("aria-pressed", on); b.textContent = on ? "❚❚ Pause videos" : "▶ Play videos";
+  VON = on; const b = $("#vswitch"); b.setAttribute("aria-pressed", on); b.textContent = on ? "❚❚ Pause videos" : "▶ Play videos"; b.dataset.icon = on ? "❚❚" : "▶"; b.setAttribute("aria-label", on ? "Pause videos" : "Play videos");
   document.querySelectorAll("#art video").forEach(v=>{ if(!on) v.pause(); else if(v.getAttribute("src") && v.dataset.vis!=="0") v.play().catch(()=>{}); });
 }
 // videos inside the text load when they come on screen and pause when they leave it
@@ -361,12 +479,19 @@ vp.addEventListener("scroll", ()=>{
   const lim = vp.getBoundingClientRect().top + vp.clientHeight*.35; let cur = null;
   document.querySelectorAll(".prose h2[id]").forEach(h=>{ if(h.getBoundingClientRect().top < lim) cur = h.id; });
   document.querySelectorAll("[data-toc]").forEach(a=>a.classList.toggle("on", a.dataset.toc===cur));
+  const ca = document.querySelector(`.atoc [data-toc="${cur}"]`); if($("#mtoc-cur")) $("#mtoc-cur").textContent = ca ? ca.textContent : $(".atoc a").textContent;
+  // the bar steps aside whenever another booking element is on screen, so the same button never shows twice
+  const vr = vp.getBoundingClientRect(), seen = [...document.querySelectorAll("#art .aend, #art .bk, #art .tcard--slim")].some(x=>{ const r = x.getBoundingClientRect(); return r.top < vr.bottom - 72 && r.bottom > vr.top + 56; });
+  $("#mbar").classList.toggle("is-on", vp.scrollTop > 420 && !seen);
   $("#hdr").classList.toggle("is-solid", vp.scrollTop > 380);
   const art = $(".prose"); if(!art) return;
   const end = art.offsetTop + art.offsetHeight - vp.clientHeight;
   $("#prog").style.width = Math.max(0, Math.min(1, vp.scrollTop / Math.max(1,end))) * 100 + "%";
 }, {passive:true});
 document.addEventListener("click", e=>{
+  const mt = e.target.closest(".mtoc > button"); if(mt){ const n = $("#mtoc"); n.classList.toggle("is-open"); mt.setAttribute("aria-expanded", n.classList.contains("is-open")); return; }
+  if(e.target.closest("[data-mtoc]")){ $("#mtoc").classList.remove("is-open"); }
+  if(e.target.closest("#menu")){ const h = $("#hdr"); h.classList.toggle("is-open"); $("#menu").setAttribute("aria-expanded", h.classList.contains("is-open")); return; }
   const lbb = e.target.closest("[data-lb]"); if(lbb){ lbOpen(+lbb.dataset.lb, lbb); return; }
   if(e.target.id==="lb") { lbClose(); return; }
   const a = e.target.closest("a[href]"); if(!a) return;
@@ -376,5 +501,8 @@ document.addEventListener("click", e=>{
 });
 document.querySelectorAll("[data-art]").forEach(b=>b.onclick=()=>{ document.querySelectorAll("[data-art]").forEach(x=>x.setAttribute("aria-current", x===b)); render(b.dataset.art); });
 $("#show-notes").onchange = e => $("#stage").classList.toggle("no-notes", !e.target.checked);
+document.querySelectorAll("[data-dev]").forEach(b=>b.onclick=()=>{ document.querySelectorAll("[data-dev]").forEach(x=>x.setAttribute("aria-pressed", x===b)); $("#stage").classList.toggle("is-phone", b.dataset.dev==="phone"); vp.dispatchEvent(new Event("scroll")); });
+// swipe between photos in the lightbox
+let tx = null; $("#lb").addEventListener("touchstart", e=>{ tx = e.touches[0].clientX; }, {passive:true}); $("#lb").addEventListener("touchend", e=>{ if(tx===null) return; const d = e.changedTouches[0].clientX - tx; if(Math.abs(d) > 40) lbShow(lbi + (d < 0 ? 1 : -1)); tx = null; });
 render("valley");
 </script>

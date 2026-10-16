@@ -10,6 +10,9 @@ def load(name, path):
 VP = load('vp', 'v4-video-patches.py')   # video placements
 IM = load('im', 'v4-improve.py')         # first round of improvements
 F2 = load('f2', 'v4-fix2.py')            # second review fixes
+MB = load('mb', 'v4-mobile.py')          # phone version
+LV = load('lv', 'v4-live.py')            # live site's Find your Egypt + map
+CAP = json.load(open('live/live-sections.json', encoding='utf-8'))
 
 body = open('v2-body.html', encoding='utf-8').read()
 body = body.replace('الاقتراح التاني: القصة + الحجز الواضح<small>نسخة الكمبيوتر · نموذج للاعتماد · المحتوى حقيقي من الموقع</small>',
@@ -37,7 +40,9 @@ for x, y in reps:
 js, body = VP.patch_home(js, body)
 js, body = IM.home(js, body)
 js, body = F2.home(js, body)
+body = LV.body(body)
 js = js[:js.index('let step=1;')] + F2.nav(open('v4-nav.js', encoding='utf-8').read())
+js, _ = LV.js(js, CAP)
 
 v2 = open('journey-story.template.html', encoding='utf-8').read()
 head = v2[:v2.index('<style>')].replace('<title>Egypt Roamer Story Journey</title>', '<title>Egypt Roamer Story Worlds</title>')
@@ -49,14 +54,16 @@ worlds = F2.worlds(IM.worlds(VP.patch_worlds(open('v4-worlds.js', encoding='utf-
 more = F2.more(open('v4-worlds-more.js', encoding='utf-8').read())
 tpl = (head + '<style>' + css + '</style>\n' + body + '\n<script>\n' + js + '\n' + worlds + '\n' + more
        + '\nrenderHome(); lazyVideos(document); creditsAsInfo(document); videoSwitch(); go(1);\n</script>\n')
+tpl = MB.apply(tpl)
+tpl = LV.apply(tpl, CAP)
 open('v4.template.html', 'w', encoding='utf-8', newline='\n').write(tpl)
 
 imgs = json.load(open('imgs6.json'))
 imgs.update({k: v for k, v in json.load(open('imgs3.json')).items() if k in ('sea_l', 'desert_l', 'nile_l')})
 # keep every image the page names: "key", IMG.key, IMG["key"], and "img:key|caption"
-used = {k for k in imgs if re.search(r'(["\'.\[ ]|img:)' + re.escape(k) + r'(["\'\]|])', tpl) or k.startswith(('m_', 'd_'))}
+used = {k for k in imgs if re.search(r'(["\'.\[ ]|img:)' + re.escape(k) + r'(["\'\]|])', tpl) or k.startswith('d_')}
 imgs = {k: v for k, v in imgs.items() if k in used}
-out = tpl.replace('{{imgmap}}', json.dumps(imgs))
+out = tpl.replace('{{imgmap}}', json.dumps(imgs)).replace('{{liveimgs}}', open('live/live-imgs.json').read())
 assert '{{' not in out, out[out.index('{{') - 60:out.index('{{') + 40]
 open('journey-v4.html', 'w', encoding='utf-8', newline='\n').write(out)
 print(round(len(out) / 1024), 'KB', len(imgs), 'images')

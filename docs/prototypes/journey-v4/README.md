@@ -165,3 +165,33 @@ Each video was judged on three frames (start, middle, end).
 - 32537704: a tourist walking in the foreground.
 - 34610789: a camel close-up with carriages.
 - 19502910: portrait 9:16.
+
+## Phone version (owner, 16 Oct: desktop approved, "start the mobile version")
+- **Switch:** the prototype bar has Desktop / Phone. Phone shows the site in a 390 px frame.
+- **How it adapts:** the site's small-screen rules answer to the frame's width (container queries on `#vp`, built by `v4-mobile.py`), so the frame shows what a phone gets.
+- **Header:** logo, an icon-only video switch and a ☰ menu.
+- **Home:**
+  - the hero buttons stack;
+  - "Where in Egypt?", the chapter trips and the mood tabs become rows you swipe;
+  - the chapter index is hidden.
+- **Browse:** the filters are one row you swipe; the place banners stack their text.
+- **Trip world:**
+  - the opener's buttons stack and the torch hint is hidden (the torch drifts on its own);
+  - step cards sit at the bottom of the scene, and the step list is hidden;
+  - the booking photo no longer sticks over the options;
+  - each option's button is full width;
+  - the booking capsule is one bar across the bottom.
+- **Checked** at 390 px with Playwright: no sideways scroll on home, browse or the Valley world, and no script errors.
+
+## Live "Find your Egypt" and "The map" (owner, 16 Oct)
+These replace the prototype's own moods and destination cards. `live-capture.mjs` reads them from https://egyptroamer.com:
+- every mood and every map place, as rendered;
+- the CSS rules they use (scoped under `.live`; the site's small-screen rules follow the frame; `vw` becomes `cqw`);
+- their icons;
+- the site's own photos, embedded once each.
+
+`v4-live.py` puts them in place:
+- the moods switch like the live page;
+- the map keeps the whole country in view and updates its card;
+- "Discover" and "Explore Destination" open that place's trips;
+- "Build My Trip" opens browsing.

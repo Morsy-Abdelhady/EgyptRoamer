@@ -69,3 +69,14 @@ No prices, ratings or reviews. The trip facts are the same as in proposal 4.
 **Not found with an exact tag:** the Valley of the Queens and Nefertari, Deir el-Medina, the Ramesseum, the Colossi of Memnon (tagged only "Egypt"), the Giftun Islands and the Straits of Tiran.
 
 **Video:** redsea-coral.mp4 (Pexels, Adrien JACTA, "Red Sea"), the same file as in proposal 4.
+
+## Phone version (owner, 16 Oct)
+- **Switch:** Desktop / Phone in the prototype bar. The layout answers to the frame through container queries.
+- **Contents:** one sticky line under the header names the current section; tap it to open the list.
+- **Booking:**
+  - a bottom bar (trip, "Free cancellation", the options button) appears after the hero;
+  - it steps aside whenever the slim trip card, the booking box or "Ready to go?" is on screen;
+  - the booking box, hotels and disclosure follow the article.
+- **Swiping:** the places strip and "Keep reading" are rows you swipe, and the lightbox swipes between photos.
+- **Width:** photos and video run full width.
+- **Checked** at 390 px: no sideways scroll and no script errors.
