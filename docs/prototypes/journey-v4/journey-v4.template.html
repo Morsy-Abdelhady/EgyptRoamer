@@ -414,6 +414,19 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
 .wfoot{clear:both}
 @media (prefers-reduced-motion:reduce){.wopen > *,.lit img{animation:none!important}.jstage > *{transition:none!important}}
 @media (max-width:900px){.wtxt{inset-inline-start:18px;inset-inline-end:18px}.wtxt h1{font-size:42px}.jstep{padding-inline:18px;justify-content:center}.jstep article{width:100%}.path,.jhead{inset-inline-start:18px}.wsec,.papy,.choose2{padding-inline:18px}.wsec__in,.choose2__grid{grid-template-columns:1fr}.choose2__photo{position:static}}
+
+.gbanner{position:relative;height:190px;border-radius:16px;overflow:hidden;margin-bottom:18px;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:18px 22px;color:#fff}
+.gbanner > img,.gbanner > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gbanner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,24,32,.78),rgba(16,24,32,.15) 70%)}
+.gbanner__t,.gbanner > a{position:relative;z-index:1}
+.gbanner h2{font-size:34px;color:#fff}
+.gbanner p{margin:2px 0 0;font:italic 500 16px var(--serif);color:#f3ead6}
+.gbanner small{font-style:normal;font-family:var(--sans);font-size:12.5px;opacity:.8}
+.gbanner > a{font-size:13.5px;font-weight:600;color:#fff;white-space:nowrap}
+.gbanner .vbadge{top:12px;z-index:2}
+.moods2 .vbadge{top:20px;z-index:2}
+.ch .vbadge{top:86px;z-index:2}
+.vcred{margin:10px 0 0!important;font-size:11.5px!important;color:#b8b2a6!important;letter-spacing:.02em}
 </style>
 <header class="pbar">
   <div class="pbar__in">
@@ -469,6 +482,7 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
 
         <section class="moods2 on-dark" id="moods">
           <img class="moods2__bg" id="mood-bg" alt="">
+          <video class="moods2__bg" id="mood-vid" muted loop playsinline preload="none" hidden></video><span class="vbadge" id="mood-credit" hidden></span>
           <div class="wrap moods2__in">
             <div class="moods2__head"><p class="eyebrow">Find your Egypt</p><h2>What kind of Egypt <br>are you looking for?</h2></div>
             <div class="moods2__tabs" role="tablist" aria-label="Travel moods" id="mood-tabs"></div>
@@ -544,8 +558,15 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
     </div>
     <div class="note">
       <h2>الفيديو</h2>
-      <p>3 فيديوهات مجانية من Pexels، والمكان مكتوب بالظبط في كل واحد: أهرامات الجيزة، والنيل في القاهرة، والكرنك.</p>
-      <p>الغوص والصحراء البيضاء ووادي الملوك مالقيتلهمش فيديو مكانه مكتوب بالظبط، فاتعملوا بالصور والحركة.</p>
+      <p>9 فيديوهات مجانية من Pexels، كل واحد منهم بيتحمّل لما يظهر على الشاشة بس، وبيقف لما يخرج منها:</p>
+      <ul>
+        <li>الرئيسية: فصل الأهرامات (الجيزة)، وفصل البحر الأحمر، ومزاج الآثار (الكرنك)، ومزاج الشاطئ (البحر الأحمر)، ومزاج الأكل (قايتباي في الإسكندرية)</li>
+        <li>التصفّح: بانرات متحركة للقاهرة والجيزة، والأقصر، والإسكندرية، والبحر الأحمر</li>
+        <li>الغوص: الافتتاحية، والغطسة الأولى، والغطسة التانية</li>
+        <li>النيل: الافتتاحية، والعشاء، والتنورة (مكتوب "مصري" بس، من غير اسم مدينة)</li>
+        <li>وادي الملوك: الكرنك في "اجمعها مع"</li>
+      </ul>
+      <p>أسوان، ووادي الملوك نفسه، والصحراء البيضاء: مالقيتش فيديو مكانه مكتوب بالظبط وحجمه مناسب.</p>
     </div>
     <div class="note note--ask">
       <h2>محتاج قرارك</h2>
@@ -576,7 +597,7 @@ const CHAPTERS = [
   {n:"01",video:"video/giza-sunset.mp4",vcredit:"Video: Peggy Anke, Pexels · Giza",eye:"Timeless wonders",name:"Pyramids",line:"Where history still breathes",geo:"29.9792° N · 31.1342° E — Giza Plateau",img:"sc_pyr",trips:["giza","nile","food"],more:"Explore Cairo",place:"Cairo & Giza"},
   {n:"02",eye:"A river of life",name:"Nile",line:"More than a river. A story that connects a civilization.",geo:"24.0889° N · 32.8998° E — Aswan",img:"sc_nile",trips:["valley","abu"],more:"Explore Nile Cruises",place:"Luxor",route:true},
   {n:"03",eye:"Beyond the ordinary",name:"Desert",line:"Endless landscapes. Unforgettable adventures.",geo:"27.0957° N · 27.9880° E — Western Desert",img:"sc_desert",trips:["white","siwa"],more:"Explore Desert Experiences",place:"Western Desert"},
-  {n:"04",eye:"A different world",name:"Red Sea",line:"Dive into crystal-clear waters",geo:"27.2579° N · 33.8116° E — Hurghada",img:"sc_sea",trips:["redsea","ras"],more:"Explore Red Sea",place:"Red Sea"},
+  {n:"04",video:"video/redsea-reef.mp4",vcredit:"Red Sea, Egypt · Video: Adrien JACTA, Pexels",eye:"A different world",name:"Red Sea",line:"Dive into crystal-clear waters",geo:"27.2579° N · 33.8116° E — Hurghada",img:"sc_sea",trips:["redsea","ras"],more:"Explore Red Sea",place:"Red Sea"},
 ];
 const DESTS = {
   cairo:{name:"Cairo",region:"Capital · Nile Valley",tag:"The city of a thousand minarets",best:"Oct – Apr",place:"Cairo & Giza"},
@@ -598,12 +619,12 @@ const MOODS = [
 ];
 // Browsing groups: one line of story each, taken from the site (destination taglines; the desert scene's line).
 const GROUPS = [
-  ["Cairo & Giza","d_cairo","The city of a thousand minarets","Best time Oct – Apr","Cairo guide"],
-  ["Luxor","d_luxor","The world's greatest open-air museum","Best time Oct – Mar","Luxor guide"],
-  ["Aswan","d_aswan","Egypt at its most serene","Best time Oct – Mar","Aswan guide"],
-  ["Alexandria","d_alexandria","The pearl of the Mediterranean","Best time Apr – Oct","Alexandria guide"],
-  ["Red Sea","d_hurghada","Reefs, islands and endless sun","Hurghada & Sharm El Sheikh · Year-round","Red Sea guides"],
-  ["Western Desert","sc_desert","Endless landscapes. Unforgettable adventures.","Siwa and the White Desert","Desert guides"],
+  ["Cairo & Giza","d_cairo","video/giza-camels.mp4|Near the pyramids of Giza · Video: K, Pexels","The city of a thousand minarets","Best time Oct – Apr","Cairo guide"],
+  ["Luxor","d_luxor","video/karnak-columns.mp4|Karnak Temple, Luxor · Video: BOB DK, Pexels","The world's greatest open-air museum","Best time Oct – Mar","Luxor guide"],
+  ["Aswan","d_aswan","","Egypt at its most serene","Best time Oct – Mar","Aswan guide"],
+  ["Alexandria","d_alexandria","video/alexandria-qaitbay.mp4|Qaitbay Citadel, Alexandria · Video: The Instagrapher, Pexels","The pearl of the Mediterranean","Best time Apr – Oct","Alexandria guide"],
+  ["Red Sea","d_hurghada","video/redsea-coral.mp4|Red Sea · Video: Adrien JACTA, Pexels","Reefs, islands and endless sun","Hurghada & Sharm El Sheikh · Year-round","Red Sea guides"],
+  ["Western Desert","sc_desert","","Endless landscapes. Unforgettable adventures.","Siwa and the White Desert","Desert guides"],
 ];
 const PLACES = GROUPS.map(g=>g[0]);
 const LENS=[["all","Any"],["short","Up to 5 hours"],["full","Full day"],["multi","2+ days"]];
@@ -621,7 +642,7 @@ const mini=t=>`<button type="button" class="mini${t.world?" mini--hl":""}" data-
 
 function renderHome(){
   $("#ch-index").innerHTML=CHAPTERS.map((c,i)=>`<li><a href="#ch-${i+1}"><b>${c.n}</b><span>${c.name}</span><small>${c.trips.length} trips</small></a></li>`).join("");
-  $("#chapters").innerHTML=CHAPTERS.map((c,i)=>`<section class="ch on-dark" id="ch-${i+1}">${c.video?`<video class="ch__img" autoplay muted loop playsinline poster="${IMG[c.img]}" src="${c.video}"></video><span class="vbadge">${esc(c.vcredit)}</span>`:`<img class="ch__img" src="${IMG[c.img]}" alt="">`}<div class="wrap">
+  $("#chapters").innerHTML=CHAPTERS.map((c,i)=>`<section class="ch on-dark" id="ch-${i+1}">${c.video?`<video class="ch__img" muted loop playsinline preload="none" poster="${IMG[c.img]}" data-src="${c.video}"></video><span class="vbadge">${esc(c.vcredit)}</span>`:`<img class="ch__img" src="${IMG[c.img]}" alt="">`}<div class="wrap">
     <div><p class="ch__n">${c.n} · ${esc(c.eye)}</p><h2>${esc(c.name)}</h2><p class="ch__line">${esc(c.line)}</p>
     ${c.route?`<div class="route"><span>The classic route</span><b>Aswan</b><i></i><b>Kom Ombo</b><i></i><b>Edfu</b><i></i><b>Luxor</b></div>`:""}
     <p class="ch__geo">${esc(c.geo)}</p></div>
@@ -632,8 +653,10 @@ function renderHome(){
   const count=d=>TRIPS.filter(t=>t.dest===d).length;
   $("#dest-row").innerHTML=Object.entries(DESTS).map(([id,d])=>`<button type="button" class="dcard" data-place="${esc(d.place)}"><img src="${IMG["d_"+id]}" alt=""><div><small>${esc(d.region)}</small><b>${esc(d.name)}</b><span>${esc(d.tag)}</span><em>${count(id)} ${count(id)===1?"trip":"trips"} →</em></div></button>`).join("");
 }
+const MOOD_VIDEO={ancient:["video/karnak-columns.mp4","Karnak Temple, Luxor · Video: BOB DK, Pexels"],beach:["video/redsea-reef.mp4","Red Sea, Egypt · Video: Adrien JACTA, Pexels"],food:["video/alexandria-qaitbay.mp4","Qaitbay Citadel, Alexandria · Video: The Instagrapher, Pexels"]};
 function mood(i){
   const [id,label,desc,dest]=MOODS[i], d=DESTS[dest], trips=TRIPS.filter(t=>t.dest===dest);
+  const mv=MOOD_VIDEO[id], v=$("#mood-vid"); if(mv){ v.dataset.src=mv[0]; v.hidden=false; if(v.getAttribute("src")){ if(v.getAttribute("src")!==mv[0]) v.src=mv[0]; v.play().catch(()=>{}); } $("#mood-credit").textContent=mv[1]; $("#mood-credit").hidden=false; } else { v.pause(); v.hidden=true; $("#mood-credit").hidden=true; }
   $$("#mood-tabs button").forEach((b,j)=>b.setAttribute("aria-selected",String(i===j)));
   $("#mood-bg").src=IMG["m_"+id]; $("#mood-word").textContent=label; $("#mood-desc").textContent=desc;
   $("#mood-where").innerHTML=`<small style="letter-spacing:.18em;text-transform:uppercase;font-size:11px;opacity:.75">Where to go</small><b>${esc(d.name)} — ${esc(d.tag)}</b>${esc(d.region)} · Best ${esc(d.best)}`;
@@ -644,9 +667,9 @@ function renderTrips(){
   $("#f-len").innerHTML=LENS.map(([v,l])=>`<button type="button" class="chip" data-flen="${v}" aria-pressed="${state.len===v}">${l}</button>`).join("");
   const ok=t=>(state.place==="all"||t.place===state.place)&&(state.len==="all"||t.len===state.len)&&(!state.priv||t.priv)&&(!state.pickup||t.pick);
   let total=0;
-  $("#groups").innerHTML=GROUPS.map(([p,img,line,sub,guide])=>{const list=TRIPS.filter(t=>t.place===p&&ok(t));total+=list.length;if(!list.length)return "";
-    return `<section class="group"><div class="group__head"><img src="${IMG[img]}" alt=""><div><h2>${esc(p)}</h2><p>${esc(line)} <small>· ${esc(sub)}</small></p></div><a href="#">Read the ${esc(guide)} →</a></div><div class="grid">${list.map(card).join("")}</div></section>`;}).join("")||`<p class="empty">No trips match these filters. Clear one to see more.</p>`;
-  $("#f-count").textContent=`${total} ${total===1?"trip":"trips"}`;
+  $("#groups").innerHTML=GROUPS.map(([p,img,vid,line,sub,guide])=>{const list=TRIPS.filter(t=>t.place===p&&ok(t));total+=list.length;if(!list.length)return "";
+    return `<section class="group"><div class="gbanner">${vid?`<video muted loop playsinline preload="none" poster="${IMG[img]}" data-src="${vid.split("|")[0]}"></video><span class="vbadge">${esc(vid.split("|")[1])}</span>`:`<img src="${IMG[img]}" alt="">`}<div class="gbanner__t"><h2>${esc(p)}</h2><p>${esc(line)} <small>· ${esc(sub)}</small></p></div><a href="#">Read the ${esc(guide)} →</a></div><div class="grid">${list.map(card).join("")}</div></section>`;}).join("")||`<p class="empty">No trips match these filters. Clear one to see more.</p>`;
+  $("#f-count").textContent=`${total} ${total===1?"trip":"trips"}`; lazyVideos($("#groups"));
 }
 let step=1, current="valley";
 function go(n,opts={}){
@@ -715,7 +738,7 @@ const WORLDS = {
     cmp:[["Private","Yes","Not stated","Yes"],["Length","About 7–10 h","About 6–8 h","4 h"],["Pickup","Yes","Yes","Yes"]],
     stay:{title:"Staying in Luxor?",rows:[["Hotels in Luxor","Luxor"],["Hotels on the West Bank (Al Bairat)","West Bank, Luxor"]]}},
 
-  redsea: {cls:"w-sea", fx:"sea", photo:"sea_l", url:"red-sea-diving-two-reef-dives",
+  redsea: {cls:"w-sea", fx:"sea", photo:"sea_l", video:"video/redsea-reef.mp4", vcredit:"Red Sea, Egypt · Video: Adrien JACTA, Pexels", url:"red-sea-diving-two-reef-dives",
     eyebrow:"Hurghada · Sharm El Sheikh · 1 day · 2 dives", title:"Red Sea Diving: Two Reef Dives",
     lead:"A day on a dive boat with two guided reef dives in the Red Sea, from Hurghada or Sharm El Sheikh. The Red Sea is known for clear water, colourful coral and abundant reef fish, often just a short boat ride from the coast.",
     quote:"Snorkellers can often join the same boat.", chips:["Pickup offered","3 options from 2 partners"], go:"Live the dive day",
@@ -723,8 +746,8 @@ const WORLDS = {
     steps:[
       {t:"Check-in",p:"Check-in at the dive centre or on the boat: paperwork, equipment fitting and a briefing."},
       {t:"Sail to the first site",p:"The boat sails to the first site. The guide explains the dive plan, the depth and what you might see."},
-      {t:"First dive",p:"First dive, then a surface interval on board with lunch or snacks."},
-      {t:"Second dive",p:"Second dive at a different reef, then back to port in the afternoon."}],
+      {t:"First dive",p:"First dive, then a surface interval on board with lunch or snacks.",video:"video/redsea-coral.mp4",credit:"Red Sea · Video: Adrien JACTA, Pexels"},
+      {t:"Second dive",p:"Second dive at a different reef, then back to port in the afternoon.",video:"video/redsea-moray.mp4",credit:"Egypt's Red Sea · Video: Adrien JACTA, Pexels"}],
     sec:{eyebrow:"Beginners and certified divers",title:"Dive at your level",ps:["Look for recognised training-agency affiliation and well-maintained equipment. Ask about group sizes per guide. Choose centres that use fixed moorings rather than anchoring on reefs, and that give a proper briefing."],
       tabs:[["𓈗","No certification","You can do a try-dive (introductory dive) with an instructor at shallow depth after a briefing. It’s a good way to find out whether diving is for you."],["𓆛","Certified divers","Guided dives at depths within your certification level. Bring your certification card and logbook."],["𓋹","Health","You’ll be asked to complete a medical questionnaire. Some conditions require a doctor’s sign-off. Don’t fly within the recommended interval after diving."]]},
     papy:[["Where to dive","From Hurghada","The Giftun Islands and nearby reefs."],["Where to dive","From Sharm El Sheikh","Ras Mohammed National Park and the Straits of Tiran; the Thistlegorm wreck for experienced divers."]],
@@ -760,9 +783,9 @@ const WORLDS = {
     quote:"The mood is festive rather than intimate.", chips:["About 2–4 hours","Private option available","Pickup on some options"], go:"Spend the evening",
     jEyebrow:"What the evening is like", jTitle:"From the Corniche, after dark",
     steps:[
-      {t:"Dinner",p:"Dinner, often a buffet of Egyptian and international dishes.",why:"Boats leave from docks along the Corniche and cruise the central stretch of the river."},
+      {t:"Dinner",p:"Dinner, often a buffet of Egyptian and international dishes.",video:"video/cairo-nile-sunset.mp4",credit:"Cairo, the Nile · Video: Nada Ashraf, Pexels",why:"Boats leave from docks along the Corniche and cruise the central stretch of the river."},
       {t:"Live music",p:"Live music, usually Egyptian and Arabic popular songs."},
-      {t:"Tanoura",p:"A tanoura performance: the spinning dance with multi-coloured skirts, related to Sufi whirling."},
+      {t:"Tanoura",p:"A tanoura performance: the spinning dance with multi-coloured skirts, related to Sufi whirling.",video:"video/tanoura.mp4",credit:"Egyptian tanoura dance, city not stated · Video: Magda Ehlers, Pexels"},
       {t:"Belly dance",p:"On many boats, a belly dance show.",why:"Expect other groups, families and celebrations on board."}],
     sec:{eyebrow:"Choosing a boat",title:"Four things to check",ps:["Travellers who want an easy, entertaining evening with a view, families, and groups. If you prefer quiet, a felucca ride at sunset, just the sail, the water and the city, may suit you better. Many visitors do both."],
       tabs:[["𓏊","Food and drink","Buffet or set menu, and whether drinks are included (alcohol is not served on every boat)."],["𓊛","The show programme","Tanoura, belly dance, or both."],["𓉐","Departure","Where the boat departs, and whether transfers from your hotel are included."],["𓇯","Seating","Tables by the windows or on an open deck."]]},
@@ -780,7 +803,7 @@ const words=t=>esc(t).split(" ").map((w,i)=>`<span class="w" style="animation-de
 
 function renderWorld(id){
   const W=WORLDS[id]; const isTomb=W.fx==="tomb";
-  const bg = W.video ? `<video autoplay muted loop playsinline poster="${IMG[W.photo]}" src="${W.video}"></video>` : `<img class="${isTomb?"dim":""}" src="${IMG[W.photo]}" alt="">`;
+  const bg = W.video ? `<video muted loop playsinline preload="none" poster="${IMG[W.photo]}" data-src="${W.video}"></video>` : `<img class="${isTomb?"dim":""}" src="${IMG[W.photo]}" alt="">`;
   const open = `<section class="wopen" id="wopen">${bg}
     ${isTomb?`<div class="wall--dim">${wallHTML(26)}</div><div class="lit" id="lit"><img src="${IMG[W.photo]}" alt="">${wallHTML(26)}</div>`:`<canvas data-fx="${W.fx}"></canvas>`}
     <div class="wshade"></div>${W.video?`<span class="vbadge">${esc(W.vcredit)}</span>`:""}
@@ -788,18 +811,18 @@ function renderWorld(id){
     <div class="wtxt"><p class="eyebrow">${esc(W.eyebrow)}</p><h1>${words(W.title)}</h1><p class="lead">${esc(W.lead)}</p>${W.quote?`<p class="wq">${esc(W.quote)}</p>`:""}
       <div class="wchips">${W.chips.map(c=>`<span>${esc(c)}</span>`).join("")}</div>
       <div class="wacts"><a class="btn btn--gold" href="#wchoose" data-wjump="wchoose">Book this trip</a><a class="btn btn--ghost-light" href="#wjourney" data-wjump="wjourney">${esc(W.go)} ↓</a></div></div></section>`;
-  const layers = W.steps.map((s,i)=> s.img ? `<img class="${i?"":"on"}" data-j="${i}" src="${IMG[s.img]}" alt="">`
+  const layers = W.steps.map((s,i)=> s.video ? `<video class="jv ${i?"":"on"}" data-j="${i}" muted loop playsinline preload="none" poster="${IMG[W.photo]}" data-jsrc="${s.video}"></video>` : s.img ? `<img class="${i?"":"on"}" data-j="${i}" src="${IMG[s.img]}" alt="">`
       : s.wall ? `<div class="jlayer ${i?"":"on"}" data-j="${i}" style="background:#0c0a07">${wallHTML(30).replace('class="wall"','class="wall" style="opacity:.25"')}</div>`
       : `<div class="jlayer ${i?"":"on"}" data-j="${i}"><img src="${IMG[W.photo]}" alt="" style="width:100%;height:100%;object-fit:cover;filter:${s.tone==="night"?"brightness(.45) saturate(.6) hue-rotate(-15deg)":s.tone==="dark"?"brightness(.5) contrast(1.1) saturate(.6)":"brightness(.75) saturate(1.1)"};transform:scale(${1+i*.12}) translate(${i*-2}%,${i*1.5}%)"></div>`).join("");
   const journey = `<section class="journey2" id="wjourney"><div class="jstage">${layers}${W.fx!=="tomb"?`<canvas data-fx="${W.fx}-j"></canvas>`:""}
       <div class="jhead"><p class="eyebrow">${esc(W.jEyebrow)}</p><h2>${esc(W.jTitle)}</h2></div>
       <div class="path">${W.steps.map((s,i)=>`<span class="${i?"":"on"}">${esc(s.t)}</span>`).join("")}</div></div>
-    <div class="jsteps">${W.steps.map((s,i)=>`<div class="jstep" data-js="${i}"><article><span class="n">${String(i+1).padStart(2,"0")}</span><h3>${esc(s.t)}</h3><p>${esc(s.p)}</p>${s.why?`<p class="why">${esc(s.why)}</p>`:""}</article></div>`).join("")}</div></section>`;
+    <div class="jsteps">${W.steps.map((s,i)=>`<div class="jstep" data-js="${i}"><article><span class="n">${String(i+1).padStart(2,"0")}</span><h3>${esc(s.t)}</h3><p>${esc(s.p)}</p>${s.why?`<p class="why">${esc(s.why)}</p>`:""}${s.credit?`<p class="vcred">${esc(s.credit)}</p>`:""}</article></div>`).join("")}</div></section>`;
   const S=W.sec;
   const sec = `<section class="wsec ${S.night?"wsec--night":""}">${S.night?`<canvas data-fx="stars"></canvas>`:""}${S.wall||isTomb?wallHTML(34):""}<div class="wsec__in">
       <div><p class="eyebrow">${esc(S.eyebrow)}</p><h2>${esc(S.title)}</h2>${S.ps.map(p=>`<p>${esc(p)}</p>`).join("")}</div>
       <div class="tablets">${S.tabs.map(([g,b,t])=>`<div class="tablet"><i>${g}</i><span>${b?`<b>${esc(b)}</b>`:""}${esc(t)}</span></div>`).join("")}</div></div></section>`;
-  const papy = `<section class="papy"><div class="papy__in">${W.papy.map(([e,h,p,v])=>`<div><p class="eyebrow">${esc(e)}</p><h2>${esc(h)}</h2><p>${esc(p)}</p>${v?`<div class="wvid"><video autoplay muted loop playsinline src="video/karnak-columns.mp4" poster="${IMG.valley}"></video><small>Karnak Temple, Luxor · Video: BOB DK, Pexels</small></div>`:""}</div>`).join("")}</div></section>`;
+  const papy = `<section class="papy"><div class="papy__in">${W.papy.map(([e,h,p,v])=>`<div><p class="eyebrow">${esc(e)}</p><h2>${esc(h)}</h2><p>${esc(p)}</p>${v?`<div class="wvid"><video muted loop playsinline preload="none" data-src="video/karnak-columns.mp4" poster="${IMG.valley}"></video><small>Karnak Temple, Luxor · Video: BOB DK, Pexels</small></div>`:""}</div>`).join("")}</div></section>`;
   const opts = W.opts.map(o=>`<div class="wopt ${o.pick?"wopt--pick":""}"><div>${o.pick?`<span class="pk">✓ Our pick${o.why?`<span class="why">${esc(o.why)}</span>`:""}</span>`:""}<h3>${esc(o.n)}</h3><div class="facts"><span class="pchip ${PCHIP[o.p]}">${esc(o.p)}</span>${o.f.map(f=>`<span>${esc(f)}</span>`).join("")}</div></div>
       <button type="button" class="btn ${o.pick||!W.opts.some(x=>x.pick)&&o===W.opts[0]?"btn--gold":"btn--line"} btn--sm" data-wbook="${esc(o.p)}|${esc(o.n)}">Book ↗</button></div>`).join("");
   const cmp = `<button type="button" class="wcmp" id="wcmp" aria-expanded="false">Compare side by side</button><table class="wtbl" id="wtbl" hidden><thead><tr><th></th>${W.opts.map(o=>`<th>${esc(o.p)}</th>`).join("")}</tr></thead><tbody>${W.cmp.map(([k,...v])=>`<tr><td>${k}</td>${v.map(x=>`<td class="${x==="Yes"?"yes":x==="Not stated"?"no":""}">${esc(x)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
@@ -818,10 +841,11 @@ function wireWorld(W){
   stopFx.forEach(f=>f()); stopFx=[];
   const host=document.getElementById("world");
   // the descent / journey: the step in view lights its mark and its picture
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=e.target.dataset.js;host.querySelectorAll("[data-j]").forEach(x=>x.classList.toggle("on",x.dataset.j===i));host.querySelectorAll(".path span").forEach((x,k)=>x.classList.toggle("on",String(k)===i));}}),{root:vp,threshold:.55});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=e.target.dataset.js;host.querySelectorAll("[data-j]").forEach(x=>{const on=x.dataset.j===i;x.classList.toggle("on",on);if(x.tagName==="VIDEO"){if(on){if(!x.getAttribute("src"))x.src=x.dataset.jsrc;x.play().catch(()=>{});}else x.pause();}});host.querySelectorAll(".path span").forEach((x,k)=>x.classList.toggle("on",String(k)===i));}}),{root:vp,threshold:.55});
   host.querySelectorAll(".jstep").forEach(s=>io.observe(s)); stopFx.push(()=>io.disconnect());
   const cap=host.querySelector("#wcap"); const io2=new IntersectionObserver(([e])=>cap.style.visibility=e.isIntersecting?"hidden":"visible",{root:vp,threshold:.2}); io2.observe(host.querySelector("#wchoose")); stopFx.push(()=>io2.disconnect());
   host.querySelector("#wcmp").addEventListener("click",e=>{const t=host.querySelector("#wtbl");t.hidden=!t.hidden;e.target.setAttribute("aria-expanded",String(!t.hidden));e.target.textContent=t.hidden?"Compare side by side":"Hide comparison";});
+  lazyVideos(host); stopFx.push(()=>host.querySelectorAll("video").forEach(v=>v.pause()));
   if(W.fx==="tomb") torch();
   host.querySelectorAll("canvas[data-fx]").forEach(c=>stopFx.push(fx(c,c.dataset.fx)));
 }
@@ -850,5 +874,12 @@ function fx(c,kind){
   return ()=>run=false;
 }
 
-renderHome(); go(1);
+// Videos load only when they come on screen, and pause when they leave it.
+let lazyIO=null;
+function lazyVideos(scope){
+  if(!lazyIO) lazyIO=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target; if(e.isIntersecting){ if(!v.getAttribute("src")) v.src=v.dataset.src; if(!REDUCE) v.play().catch(()=>{}); } else v.pause(); }),{root:vp,rootMargin:"200px 0px",threshold:.1});
+  (scope||document).querySelectorAll("video[data-src]").forEach(v=>lazyIO.observe(v));
+}
+
+renderHome(); lazyVideos(document); go(1);
 </script>

@@ -1,4 +1,6 @@
 import re, json
+import importlib.util
+_sp = importlib.util.spec_from_file_location('vp', 'v4-video-patches.py'); VP = importlib.util.module_from_spec(_sp); _sp.loader.exec_module(VP)
 
 body = open('v2-body.html', encoding='utf-8').read()
 body = body.replace('الاقتراح التاني: القصة + الحجز الواضح<small>نسخة الكمبيوتر · نموذج للاعتماد · المحتوى حقيقي من الموقع</small>',
@@ -23,15 +25,16 @@ reps = [
 for x, y in reps:
     assert js.count(x) == 1, x
     js = js.replace(x, y)
+js, body = VP.patch_home(js, body)
 js = js[:js.index('let step=1;')] + open('v4-nav.js', encoding='utf-8').read()
 
 v2 = open('journey-story.template.html', encoding='utf-8').read()
 head = v2[:v2.index('<style>')].replace('<title>Egypt Roamer Story Journey</title>', '<title>Egypt Roamer Story Worlds</title>')
 head = head.replace('family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap', 'family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Sans+Egyptian+Hieroglyphs&display=swap')
-css = v2[v2.index('<style>') + 7:v2.index('</style>')] + open('v4-worlds.css', encoding='utf-8').read()
+css = v2[v2.index('<style>') + 7:v2.index('</style>')] + open('v4-worlds.css', encoding='utf-8').read() + VP.EXTRA_CSS
 clock = re.search(r'const CLOCK = `([\s\S]*?)`;', v2).group(1)
 js = js.replace('{{clock}}', clock)
-tpl = head + '<style>' + css + '</style>\n' + body + '\n<script>\n' + js + '\n' + open('v4-worlds.js', encoding='utf-8').read() + '\nrenderHome(); go(1);\n</script>\n'
+tpl = head + '<style>' + css + '</style>\n' + body + '\n<script>\n' + js + '\n' + VP.patch_worlds(open('v4-worlds.js', encoding='utf-8').read()) + '\nrenderHome(); lazyVideos(document); go(1);\n</script>\n'
 open('v4.template.html', 'w', encoding='utf-8', newline='\n').write(tpl)
 
 imgs = json.load(open('imgs2.json'))

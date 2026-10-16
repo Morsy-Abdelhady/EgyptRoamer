@@ -36,6 +36,26 @@
 - *Person legs underwater* (7318866): a resort pool, not the Red Sea.
 - *Ancient Egyptian hieroglyphs on temple wall* (32537450): no named temple.
 
+
+### Added later on 16 Oct (owner: "the videos made the site interactive; add more, chosen with great care"). Downloaded with the owner's OK.
+| File | Pexels video | Creator | Place as stated on Pexels | Used for | Size |
+|---|---|---|---|---|---|
+| redsea-reef.mp4 (960×540) | https://www.pexels.com/video/vibrant-coral-reef-in-red-sea-egypt-31991096/ | Adrien JACTA | "Red Sea, Egypt" | home Red Sea chapter; Beach mood; dive opener | 11.0 MB |
+| redsea-coral.mp4 (960×540) | https://www.pexels.com/video/colorful-coral-reefs-in-the-red-sea-31991101/ | Adrien JACTA | "Red Sea" | dive step "First dive"; Red Sea group banner | 10.5 MB |
+| redsea-moray.mp4 (640×360) | https://www.pexels.com/video/vibrant-coral-reef-with-moray-eel-in-the-red-sea-31991100/ | Adrien JACTA | "Egypt's Red Sea" | dive step "Second dive" | 8.4 MB |
+| alexandria-qaitbay.mp4 (960×540) | https://www.pexels.com/video/tracking-shot-of-the-citadel-of-qaitbay-7579787/ | The Instagrapher | "Qaitbay Citadel in Alexandria, Egypt" | Food mood (Alexandria); Alexandria group banner | 7.0 MB |
+| tanoura.mp4 (960×540) | https://www.pexels.com/video/traditional-egyptian-tanoura-dance-performance-35112875/ | Magda Ehlers | "Egyptian"; **no city stated** (it shows the dance, not a place) | Nile dinner, step "Tanoura" | 11.1 MB |
+| giza-camels.mp4 (1280×720) | https://www.pexels.com/video/camel-ride-near-the-great-pyramids-of-giza-29622798/ | K (@kelly) | "Giza, Egypt" | Cairo & Giza group banner | 6.6 MB |
+
+**Also reused:** karnak-columns for the Ancient mood and the Luxor group banner; cairo-nile-sunset for the Nile step "Dinner".
+
+**Rejected:**
+- Nile felucca 35879466, Cairo bazaar 37846449 and Sinai camel ride 28617951: portrait 9:16.
+- Divers 37981480, Hatshepsut-like temple 30843329 and obelisk 32537391: no stated place.
+- Aswan aerials 29233187 and 29233301: 17 MB or more even at 640×360.
+
+**Loading:** videos load only when on screen (IntersectionObserver), and pause when they leave it. Step videos play only while their step is active.
+
 **No exactly located video was found** for the Valley of the Kings, Hatshepsut's temple, Red Sea diving or the White Desert.
 
 **Before any video goes on the live site:** the owner decides whether free videos join the photo policy, and under what rule (the location named exactly).
