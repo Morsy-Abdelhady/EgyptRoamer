@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.71 — 2026-10-16: photos back on the booking panel (preview `?ux=2`)
+- **Owner:** the old design was better as UI because it showed the place, so the reader knew what to expect. Put the trip's photo back, the same photo on each partner's offer.
+- **Trip rows:** the experience's photo on every offer, beside the partner chip and the partner-stated facts (`er_offer_thumb()`).
+- **Hotel rows:** each area's own photo (Core 1.2.47 `offer-facts.json` "stock"): Giza (the pyramids), Luxor West Bank (Hatshepsut's temple), and three new free Unsplash photos tagged with the exact place (Zamalek, Downtown Cairo, El Gouna; `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5). Other areas use their destination's photo.
+- **Type:** larger panel title, offer names and facts line.
+
 ## 1.2.70 — 2026-10-16: panel durations translated; no page duration in the panel
 - Found while reviewing the Arabic preview on a phone: durations read "حوالي 7–10 hours". The duration strings were passed to `er_t()` through a variable, so `tools/i18n-strings.py` never collected them; they are now literal calls and translated in all 8 languages.
 - The panel's first line keeps the place only. The page's own duration ("6 hours") sat above offers stating "About 7–10 hours" and read as a contradiction.

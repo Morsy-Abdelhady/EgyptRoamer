@@ -111,8 +111,14 @@ asset is verifiably better for the same subject, so nothing was swapped (no land
 | Date | Page | Photo id | Unsplash page | Location tag | Licence | Note |
 |---|---|---|---|---|---|---|
 | 2026-10-16 | `g-sinai` (Mount Sinai and Saint Catherine) | 1603889947015-f3305fc399ea | https://unsplash.com/photos/people-walking-near-beige-concrete-building-during-daytime-MnmRtMkjK-c (Shady Hassan) | "Saint Catherine, Saint Catherine, Egypt" | Unsplash License (free) | The monastery bell tower and the mountain. A portrait photo: used as `1603889947015-f3305fc399ea:top` so the crop keeps the tower and cross (theme 1.2.63 adds crop positions). Hot-linked, nothing downloaded |
+| 2026-10-16 | Hotel offer `tripcom-hotels-zamalek` (booking panel) | 1561778498-2d8ef2ade19e | https://unsplash.com/photos/ferries-along-the-city-river-banks-near-bridge-with-crossing-cars-7Xmf7zix9K8 (Ahmed Ezzat) | "Cairo Tower, Zamalek, Egypt" | Unsplash License (free) | The Nile and Zamalek from Cairo Tower. Hot-linked |
+| 2026-10-16 | Hotel offer `tripcom-hotels-downtown-cairo` | 1699781895588-d5822c2dd3d6 | https://unsplash.com/photos/a-group-of-cars-driving-down-a-street-next-to-tall-buildings-Dxzmkphj3W8 (Faqih Abdul) | "Downtown Cairo, Bab Al Louq, Abdeen, Egypt" | Unsplash License (free) | A Downtown square. Hot-linked |
+| 2026-10-16 | Hotel offer `tripcom-hotels-el-gouna` | 1511371241697-fbcaef9dd576 | https://unsplash.com/photos/reflection-of-buildings-in-water-3VsSOtf26j0 (Levi Morsy) | "El Gouna, Egypt" | Unsplash License (free) | Lagoon-front buildings. Hot-linked |
+
+Reused approved photos on hotel offers (2026-10-16): Giza hotels use the `exp-giza` pyramids photo; Luxor West Bank hotels use the `exp-valley` photo of Hatshepsut's temple, which stands on the West Bank.
 
 Searched and **not** used on 2026-10-16:
+- **Zamalek (other results):** tagged only with the keyword "Zamalek", with no location, or "Cairo, Egypt".
 - **Mount Sinai:** the free results were tagged only "Egypt".
 - **Coptic Cairo and the Hanging Church:** the free results were tagged only "Egypt" or "Cairo, Egypt", which does not support the place.
 

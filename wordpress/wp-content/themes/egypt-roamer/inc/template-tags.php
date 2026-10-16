@@ -696,6 +696,25 @@ function er_partner_chip( string $provider_slug, string $provider_name ): string
 	return '' === $provider_name ? '' : '<span class="bp-chip" data-partner="' . esc_attr( $provider_slug ) . '">' . esc_html( $provider_name ) . '</span>';
 }
 
+/**
+ * A row's photo: the trip's own photo on each of its offers (owner, 16 Oct: the photo tells the reader what they
+ * will see), an area's photo on a hotel offer (offer-facts "stock"), else the photo of the page it belongs to.
+ */
+function er_offer_thumb( array $o, string $stock = '' ): string {
+	$attrs = [ 'alt' => '', 'sizes' => '80px' ];
+	if ( '' === $stock && ! empty( $o['image_id'] ) ) {
+		return '<span class="bp__img">' . er_img( (int) $o['image_id'], 'thumbnail', [ 'alt' => '' ] ) . '</span>';
+	}
+	if ( '' === $stock && ! empty( $o['related_id'] ) ) {
+		$thumb = (int) get_post_thumbnail_id( (int) $o['related_id'] );
+		if ( $thumb ) {
+			return '<span class="bp__img">' . er_img( $thumb, 'thumbnail', [ 'alt' => '' ] ) . '</span>';
+		}
+		$stock = function_exists( 'er_stock_id_for' ) ? er_stock_id_for( (int) $o['related_id'] ) : '';
+	}
+	return '' === $stock ? '' : '<span class="bp__img">' . er_stock_img( $stock, '', array_diff_key( $attrs, [ 'alt' => 1 ] ), [ 160, 240 ], 1.0 ) . '</span>';
+}
+
 /** "Private · About 4–5 hours · Pickup offered": the partner-stated facts of an offer (er_offer_facts()). */
 function er_offer_facts_line( array $f ): array {
 	$out = [];
@@ -753,7 +772,7 @@ function er_booking_panel( array $offers, array $hotels, string $stay_name, stri
 			$slug = $o['provider_id'] ? (string) get_post_field( 'post_name', (int) $o['provider_id'] ) : '';
 			$is   = $tours && $id === $pick;
 			$bits = $tours ? er_offer_facts_line( $facts( $id ) ) : ( $o['location'] ? [ $o['location'] ] : [] );
-			echo '<li class="bp__row' . ( $is ? ' bp__row--pick' : '' ) . '"><div class="bp__main">';
+			echo '<li class="bp__row' . ( $is ? ' bp__row--pick' : '' ) . '">' . er_offer_thumb( $o, (string) ( $facts( $id )['stock'] ?? '' ) ) . '<div class="bp__main">';
 			if ( $is ) {
 				echo '<span class="bp__pick">' . er_icon( 'i-check', 'icon--sm' ) . esc_html( er_t( 'Our pick' ) ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput
 			}

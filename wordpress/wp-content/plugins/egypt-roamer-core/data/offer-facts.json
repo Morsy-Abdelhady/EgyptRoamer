@@ -1,5 +1,5 @@
 {
- "_note": "Facts per offer slug, read on each partner's product page on 2026-10-16. Shown on the booking panel. Never add a fact the partner page does not state. 'pick' marks the editors' choice for that experience; its reason is shown as these facts.",
+ "_note": "Facts per offer slug, read on each partner's product page on 2026-10-16. Shown on the booking panel. Never add a fact the partner page does not state. 'pick' marks the editors' choice for that experience; its reason is shown as these facts. 'stock' (hotel areas): an approved Unsplash photo of that area (docs/IMAGE-QUALITY-AUDIT-2026-10-02.md §5); without it the destination's photo is used.",
  "_checked": "2026-10-16",
  "ras-mohammed-snorkeling-trip-from-sharm-el-sheikh": {
   "duration": {
@@ -213,5 +213,20 @@
    "unit": "days"
   },
   "pickup": true
+ },
+ "tripcom-hotels-giza": {
+  "stock": "1678038592327-c5730737f867"
+ },
+ "tripcom-hotels-luxor-west-bank": {
+  "stock": "1623417765161-c71d6c83cfee"
+ },
+ "tripcom-hotels-zamalek": {
+  "stock": "1561778498-2d8ef2ade19e"
+ },
+ "tripcom-hotels-downtown-cairo": {
+  "stock": "1699781895588-d5822c2dd3d6"
+ },
+ "tripcom-hotels-el-gouna": {
+  "stock": "1511371241697-fbcaef9dd576"
  }
 }
