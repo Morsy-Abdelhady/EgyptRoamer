@@ -1,0 +1,854 @@
+<title>Egypt Roamer Story Worlds</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Sans+Egyptian+Hieroglyphs&display=swap">
+<style>
+/* Layout: a prototype bar (steps + notes) over one framed desktop "browser" that shows the site, screen by screen.
+   Palette and type are Egypt Roamer's own tokens (theme tokens.css), committed to the site's light look. */
+:root{
+  --charcoal:#101820; --stone:#f8f5ed; --white:#ffffff; --sand:#d8b483; --gold:#c9a227; --gold-deep:#a8871f;
+  --nile:#0e3a5b; --teal:#0f6b7a; --clay:#a45e38; --ink:#121c26; --muted:#4e555c; --faint:#6b7177;
+  --line:rgba(16,24,32,.11); --line-strong:rgba(16,24,32,.22); --proto:#e9e4d8; --note:#fffdf6;
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ar:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--proto);color:var(--charcoal);font:15px/1.6 var(--sans)}
+button{font:inherit;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* prototype chrome */
+.pbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--charcoal);color:#f3eee2;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.pbar__in{max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;direction:rtl;font-family:var(--ar)}
+.pbar__name{font-weight:600;font-size:14px;white-space:nowrap}
+.pbar__name small{display:block;font-weight:400;opacity:.7;font-size:12px}
+.steps{display:flex;gap:6px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.steps button{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.18);background:transparent;color:#f3eee2;border-radius:999px;padding:6px 14px 6px 10px;font-family:var(--ar);font-size:14px}
+.steps button b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.12);font:600 12px var(--sans)}
+.steps button[aria-current="step"]{background:var(--gold);color:var(--charcoal);border-color:var(--gold)}
+.steps button[aria-current="step"] b{background:var(--charcoal);color:var(--gold)}
+.pbar__notes{margin-inline-start:auto;display:flex;align-items:center;gap:8px;font-size:13px}
+.pbar__notes input{accent-color:var(--gold);width:16px;height:16px}
+
+.stage{max-width:1400px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;align-items:start}
+.stage.no-notes{grid-template-columns:minmax(0,1fr)}
+.stage.no-notes .notes{display:none}
+@media (max-width:1100px){.stage{grid-template-columns:minmax(0,1fr)}}
+
+.browser{background:var(--white);border-radius:12px;box-shadow:0 18px 50px rgba(16,24,32,.18);overflow:hidden;min-width:0}
+.browser__bar{display:flex;align-items:center;gap:10px;padding:9px 14px;background:#ece8de;border-bottom:1px solid var(--line)}
+.browser__dots{display:flex;gap:6px}.browser__dots i{width:10px;height:10px;border-radius:50%;background:#cfc8b8}
+.browser__url{flex:1;min-width:0;background:var(--white);border-radius:6px;padding:4px 12px;font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.viewport{height:min(78vh,860px);overflow:auto;background:var(--stone);position:relative;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){.viewport{scroll-behavior:auto}}
+
+/* notes */
+.notes{position:sticky;top:76px;display:flex;flex-direction:column;gap:12px;direction:rtl;font-family:var(--ar)}
+.note{background:var(--note);border:1px solid var(--line);border-radius:10px;padding:16px}
+.note h2{margin:0 0 6px;font:600 17px/1.4 var(--ar)}
+.note p{margin:0 0 8px;font-size:14px;color:var(--muted);line-height:1.75}
+.note ul{margin:0;padding-inline-start:18px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.7}
+.tag{display:inline-block;font:600 11px var(--ar);padding:1px 8px;border-radius:999px;background:var(--gold);color:var(--charcoal);margin-inline-start:4px;vertical-align:1px}
+.tag--same{background:#e2ddd0;color:var(--muted)}
+.note--ask{border-color:var(--gold)}
+.next{display:flex;gap:8px}
+.next button{flex:1;border:0;border-radius:8px;padding:9px 12px;font:600 14px var(--ar);background:var(--charcoal);color:var(--white)}
+.next button.ghost{background:transparent;border:1px solid var(--line-strong);color:var(--charcoal)}
+
+/* ---------- the site ---------- */
+.site{font-family:var(--sans);color:var(--charcoal)}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:40px}
+.hdr{position:sticky;top:0;z-index:5;background:rgba(16,24,32,.94);backdrop-filter:blur(10px);color:var(--white)}
+.hdr .wrap{display:flex;align-items:center;gap:28px;height:68px}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none}
+.logo b{font:600 21px var(--serif);letter-spacing:.02em}
+.logo small{font-size:8.5px;letter-spacing:.32em;color:var(--gold);margin-top:3px}
+.hdr nav{display:flex;gap:26px;margin-inline:auto;font-size:14px;font-weight:500}
+.hdr nav a{text-decoration:none;opacity:.88}
+.hdr nav a[aria-current]{opacity:1;border-bottom:2px solid var(--gold);padding-bottom:2px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:11px 20px;font:600 14px var(--sans);text-decoration:none;white-space:nowrap}
+.btn--gold{background:var(--gold);color:var(--charcoal)}
+.btn--gold:hover{background:#d4ae35}
+.btn--line{background:transparent;border:1.5px solid var(--gold);color:var(--charcoal)}
+.btn--dark{background:var(--charcoal);color:var(--white)}
+.btn--sm{padding:8px 15px;font-size:13px}
+.arr{font-size:1.05em;line-height:1}
+.eyebrow{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--clay);font-weight:600}
+.on-dark .eyebrow{color:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;text-wrap:balance;letter-spacing:-.01em}
+
+/* screen 1: home */
+.hero{position:relative;min-height:600px;color:var(--white);display:flex;align-items:flex-end}
+.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,24,32,.35) 0%,rgba(16,24,32,.15) 35%,rgba(16,24,32,.82) 100%)}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-block:0 44px}
+.hero h1{font-size:118px;line-height:.9;font-weight:500;margin-top:12px}
+.hero h1 em{display:block;font-size:56px;font-style:normal;margin-top:6px}
+.hero h1 em i{color:var(--sand);font-style:italic}
+.hero__lead{max-width:470px;margin:16px 0 26px;font-size:16px;opacity:.92}
+.finder{background:rgba(255,255,255,.97);color:var(--charcoal);border-radius:16px;padding:16px 18px;display:grid;gap:10px;max-width:880px;box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.finder__q{font:600 13px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line-strong);background:var(--white);color:var(--charcoal);border-radius:999px;padding:8px 15px;font-size:14px;font-weight:500}
+.chip:hover{border-color:var(--charcoal)}
+.chip[aria-pressed="true"]{background:var(--charcoal);color:var(--white);border-color:var(--charcoal)}
+.chip--all{background:var(--gold);border-color:var(--gold)}
+.sec{padding-block:64px}
+.sec__head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
+.sec__head h2{font-size:44px;line-height:1.05}
+.sec__head h2 i{font-style:italic}
+.sec__head p{max-width:380px;color:var(--muted);margin:0}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.grid--4{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.card{background:var(--white);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line);text-align:start;padding:0;color:inherit;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(16,24,32,.12)}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.card__b{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card__loc{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);font-weight:600}
+.card h3{font-size:21px;line-height:1.2}
+.facts{display:flex;flex-wrap:wrap;gap:6px}
+.fact{font-size:12.5px;background:#f1ece0;color:var(--ink);border-radius:999px;padding:3px 10px}
+.fact--time{background:transparent;padding-inline:0;color:var(--muted)}
+.card__foot{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:13.5px}
+.card__foot b{font-weight:600;color:var(--charcoal)}
+.card__go{color:var(--gold-deep);font-weight:600}
+.card--hl{outline:2px solid var(--gold);outline-offset:2px}
+.peek{position:relative}
+.peek::after{content:"";position:absolute;inset-inline:0;bottom:0;height:90px;background:linear-gradient(transparent,var(--stone));pointer-events:none}
+
+/* screen 2: trips */
+.phero{background:var(--ink);color:var(--white);padding-block:44px 40px}
+.crumbs{font-size:13px;opacity:.75;margin-bottom:12px}
+.phero h1{font-size:56px;line-height:1}
+.phero p{max-width:640px;margin:14px 0 0;opacity:.85;font-size:16px}
+.filters{position:sticky;top:68px;z-index:4;background:rgba(248,245,237,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.filters .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;padding-block:14px}
+.fgroup{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fgroup > span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-inline-end:2px}
+.toggle{display:flex;align-items:center;gap:8px;font-size:14px;border:1px solid var(--line-strong);border-radius:999px;padding:7px 14px;background:var(--white)}
+.toggle input{accent-color:var(--charcoal)}
+.count{margin-inline-start:auto;font-size:14px;color:var(--muted)}
+.empty{grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)}
+
+/* screen 3: trip */
+.thero{position:relative;color:var(--white);min-height:420px;display:flex;align-items:flex-end}
+.thero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,24,32,.25),rgba(16,24,32,.85))}
+.thero .wrap{position:relative;z-index:1;width:100%;padding-block:0 36px}
+.thero h1{font-size:58px;line-height:1.02;max-width:760px}
+.thero p{max-width:640px;margin:14px 0 18px;opacity:.9;font-size:16px}
+.keyline{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14.5px;align-items:center}
+.keyline span{display:flex;gap:7px;align-items:center}
+.tabs{position:sticky;top:68px;z-index:3;background:var(--white);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:26px;font-size:14px;overflow:auto}
+.tabs a{padding-block:15px;text-decoration:none;color:var(--muted);white-space:nowrap}
+.tabs a:first-child{color:var(--charcoal);border-bottom:2px solid var(--gold)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,370px);gap:36px;padding-block:40px 70px;align-items:start}
+.article{display:flex;flex-direction:column;gap:38px;min-width:0}
+.article h2{font-size:32px;margin-bottom:12px}
+.article p{margin:0;font-size:16.5px;line-height:1.75;max-width:66ch;color:#1f262d}
+.points{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.point{background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.point img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.point div{padding:14px 16px}
+.point h3{font-size:18px;margin-bottom:6px}
+.point p{font-size:14px;line-height:1.6}
+.ticks{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.ticks li{position:relative;padding-inline-start:24px;font-size:15.5px}
+.ticks li::before{content:"✓";position:absolute;inset-inline-start:0;color:var(--gold-deep);font-weight:700}
+
+.panel{position:sticky;top:122px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(16,24,32,.08);display:flex;flex-direction:column;gap:14px}
+.panel h2{font-size:26px}
+.sum{display:flex;flex-wrap:wrap;gap:6px}
+.sum span{font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--ink)}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.ph .n{display:inline-grid;place-items:center;min-width:22px;height:20px;border-radius:999px;background:#efe6cf;color:var(--charcoal);margin-inline-start:6px;letter-spacing:0}
+.cmp-btn{border:0;background:none;color:var(--teal);font:600 12.5px var(--sans);letter-spacing:0;text-transform:none;text-decoration:underline;text-underline-offset:3px;padding:0}
+.rows{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:center;padding-block:12px;border-top:1px solid var(--line)}
+.row img{width:64px;height:64px;border-radius:10px;object-fit:cover}
+.row--pick{background:rgba(201,162,39,.09);border-top-color:transparent;border-radius:12px;margin-inline:-10px;padding-inline:10px}
+.row__name{font:500 16px/1.25 var(--serif)}
+.pick{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);font-weight:700}
+.meta{display:flex;flex-wrap:wrap;gap:4px 9px;align-items:center;font-size:12.5px;color:var(--muted);margin-top:5px}
+.pchip{color:var(--white);border-radius:999px;padding:1px 8px;font-size:11px;font-weight:600}
+.pchip--viator{background:var(--teal)}.pchip--gyg{background:var(--clay)}.pchip--trip{background:var(--nile)}
+.stay{background:rgba(216,180,131,.2);border-radius:12px;padding:6px 12px 2px}
+.stay .row:first-of-type{border-top-color:transparent}
+.out{font-size:12.5px;color:var(--muted);margin:0}
+.disc{font-size:12px;color:var(--faint);margin:0;border-top:1px solid var(--line);padding-top:10px}
+.disc a{color:var(--teal)}
+table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
+.cmp th,.cmp td{padding:7px 6px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
+.cmp th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.cmp td:first-child{font-weight:500}
+.ico{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.fact--time{display:inline-flex;align-items:center;gap:5px}
+.yes{color:var(--teal);font-weight:600}.no{color:var(--faint)}
+
+/* screen 4: after "Book" */
+.done{border:1px solid var(--teal);background:#eef6f6;border-radius:12px;padding:14px;display:grid;gap:8px}
+.done b{font-size:14.5px}
+.done p{margin:0;font-size:13.5px;color:var(--ink)}
+.done .acts{display:flex;gap:8px;flex-wrap:wrap}
+.row.is-chosen{box-shadow:inset 3px 0 0 var(--teal)}
+.toast{position:absolute;inset-inline:0;top:80px;margin:auto;width:max-content;max-width:90%;background:var(--charcoal);color:var(--white);padding:10px 16px;border-radius:999px;font-size:13.5px;z-index:9;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.ftr{background:var(--ink);color:rgba(255,255,255,.7);font-size:13px;padding-block:28px}
+
+[hidden]{display:none!important}
+@media (max-width:900px){
+  .wrap{padding-inline:18px}.hdr nav{display:none}.hero h1{font-size:72px}.hero h1 em{font-size:36px}
+  .grid,.grid--4,.points{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.panel{position:static}
+  .thero h1,.phero h1{font-size:38px}.sec__head{flex-direction:column;align-items:start}
+}
+
+/* ---------- v2: story + booking ---------- */
+.hdr{transition:background .3s}
+.btn--ghost-light{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.55);color:var(--white)}
+.btn--ghost-light:hover{background:rgba(255,255,255,.16)}
+.hero--story{min-height:640px}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:end}
+.hero__acts{display:flex;gap:12px;flex-wrap:wrap}
+.chapters{background:rgba(16,24,32,.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px 18px}
+.chapters__t{margin:0 0 8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.chapters ol{list-style:none;margin:0;padding:0;display:grid}
+.chapters a{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:baseline;padding:9px 0;border-top:1px solid rgba(255,255,255,.12);text-decoration:none}
+.chapters li:first-child a{border-top:0}
+.chapters a b{font:600 12px var(--sans);color:var(--gold)}
+.chapters a span{font:500 18px var(--serif)}
+.chapters a small{font-size:12px;opacity:.7}
+.chapters a:hover span{color:var(--sand)}
+
+.ch{position:relative;min-height:720px;color:var(--white);display:flex;align-items:stretch}
+.ch__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ch::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,24,32,.78) 0%,rgba(16,24,32,.35) 55%,rgba(16,24,32,.15) 100%),linear-gradient(180deg,transparent 45%,rgba(16,24,32,.85) 100%)}
+.ch .wrap{position:relative;z-index:1;width:100%;display:flex;flex-direction:column;justify-content:space-between;padding-block:70px 34px;gap:40px}
+.ch__n{font:600 13px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.ch h2{font-size:96px;line-height:.95;margin:10px 0 12px}
+.ch__line{font:italic 500 24px/1.35 var(--serif);max-width:520px;margin:0;color:#f4ecdb}
+.ch__geo{margin-top:16px;font-size:11.5px;letter-spacing:.2em;opacity:.7}
+.route{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;font-size:13.5px}
+.route b{font-weight:600}.route i{width:26px;height:1px;background:rgba(255,255,255,.5)}
+.route small{opacity:.75;width:100%}
+.ch__trips{background:rgba(248,245,237,.96);color:var(--charcoal);border-radius:16px;padding:16px;display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));gap:14px;align-items:stretch;box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.ch__trips-h{display:flex;flex-direction:column;justify-content:space-between;gap:10px;padding:4px 10px 4px 4px;min-width:170px}
+.ch__trips-h p{margin:0;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--clay)}
+.ch__trips-h strong{font:500 22px/1.15 var(--serif)}
+.ch__trips-h a{font-size:13.5px;font-weight:600;color:var(--gold-deep);text-decoration:none}
+.mini{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;align-items:center;text-align:start;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:8px;color:inherit}
+.mini:hover{border-color:var(--gold)}
+.mini img{width:76px;height:76px;border-radius:9px;object-fit:cover}
+.mini b{display:block;font:500 15.5px/1.25 var(--serif)}
+.mini span{display:block;font-size:12.5px;color:var(--muted);margin-top:4px}
+.mini em{font-style:normal;color:var(--gold-deep);font-weight:600}
+.mini--hl{outline:2px solid var(--gold);outline-offset:1px}
+
+.interlude2{background:var(--ink);color:var(--white);padding-block:90px;text-align:center}
+.interlude2__q{font:500 46px/1.15 var(--serif);max-width:820px;margin:14px auto 40px;text-wrap:balance}
+.interlude2__facts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:0;max-width:980px;margin-inline:auto}
+.interlude2__facts dt{font:500 44px var(--serif);color:var(--sand)}
+.interlude2__facts dd{margin:4px 0 0;font-size:14px;opacity:.75}
+
+.moods2{position:relative;color:var(--white);min-height:700px;overflow:hidden}
+.moods2__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s}
+.moods2::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,24,32,.75),rgba(16,24,32,.55) 40%,rgba(16,24,32,.88))}
+.moods2__in{position:relative;z-index:1;padding-block:70px;display:flex;flex-direction:column;gap:26px}
+.moods2__head h2{font-size:48px;line-height:1.05;margin-top:10px}
+.moods2__tabs{display:flex;flex-wrap:wrap;gap:8px}
+.moods2__tabs button{border:1px solid rgba(255,255,255,.35);background:rgba(16,24,32,.3);color:var(--white);border-radius:999px;padding:8px 16px;font:500 14px var(--sans)}
+.moods2__tabs button[aria-selected="true"]{background:var(--white);color:var(--charcoal);border-color:var(--white)}
+.moods2__body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:end}
+.moods2__word{font:500 64px/1 var(--serif);margin:0}
+.moods2__word span{font-style:italic;color:var(--sand)}
+.moods2__desc{font-size:18px;max-width:460px;margin:14px 0 18px;opacity:.9}
+.moods2__where{margin:0;font-size:14.5px;border-top:1px solid rgba(255,255,255,.25);padding-top:14px;max-width:460px}
+.moods2__where b{font:500 20px var(--serif);display:block}
+.moods2__trips{display:grid;gap:10px}
+.moods2__trips .mini{background:rgba(255,255,255,.96)}
+.moods2__more{font-size:14px;font-weight:600;color:var(--sand);text-decoration:none;justify-self:end}
+
+.dest2__row{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}
+.dcard{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4.4;color:var(--white);text-align:start;padding:0;border:0;display:flex;align-items:flex-end}
+.dcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.dcard:hover img{transform:scale(1.05)}
+.dcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(16,24,32,.88))}
+.dcard div{position:relative;z-index:1;padding:14px}
+.dcard small{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sand)}
+.dcard b{display:block;font:500 21px/1.1 var(--serif);margin:4px 0}
+.dcard span{display:block;font-size:12px;opacity:.85;line-height:1.35}
+.dcard em{display:inline-block;margin-top:8px;font-style:normal;font-size:12px;font-weight:600;background:var(--gold);color:var(--charcoal);border-radius:999px;padding:2px 9px}
+.later{margin:26px 0 0;font-size:13px;color:var(--faint);text-align:center}
+
+.phero--img{position:relative;overflow:hidden}
+.phero--img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.phero--img .wrap{position:relative}
+.group{padding-top:36px}
+.group__head{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:18px;align-items:center;margin-bottom:18px}
+.group__head img{width:120px;height:80px;object-fit:cover;border-radius:10px}
+.group__head h2{font-size:30px}
+.group__head p{margin:2px 0 0;color:var(--muted);font:italic 500 16px var(--serif)}
+.group__head small{font-style:normal;font-family:var(--sans);font-size:12.5px;color:var(--faint)}
+.group__head a{font-size:13.5px;font-weight:600;color:var(--teal);white-space:nowrap}
+
+.lede{font:500 23px/1.5 var(--serif)!important;color:var(--charcoal)!important}
+.day{display:flex;flex-direction:column;gap:26px}
+.stop{margin:0;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px;align-items:center}
+.stop--flip{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+.stop--flip img{order:2}
+.stop img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;display:block}
+.stop__n{font:600 12px var(--sans);letter-spacing:.2em;color:var(--gold-deep)}
+.stop h3{font-size:28px;margin:4px 0 8px}
+.stop p{font-size:15.5px!important}
+.stop--text{display:block;background:#efe6d3;border-radius:14px;padding:22px 24px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pair > div{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px}
+.pair h2{font-size:24px!important}
+.pair p{font-size:15px!important}
+@media (max-width:1100px){.dest2__row{grid-template-columns:repeat(4,minmax(0,1fr))}.ch__trips{grid-template-columns:1fr 1fr}.ch__trips-h{grid-column:1/-1}}
+@media (max-width:900px){.hero__grid,.moods2__body,.stop,.stop--flip,.pair{grid-template-columns:1fr}.stop--flip img{order:0}.ch h2{font-size:56px}.interlude2__facts{grid-template-columns:1fr 1fr}.dest2__row{grid-template-columns:1fr 1fr}.ch__trips{grid-template-columns:1fr}.group__head{grid-template-columns:1fr}}
+
+/* ---------- v4: trip worlds inside the story site ---------- */
+:root{--tomb:#0c0a07;--papyrus:#efe2c4;--gold-hi:#e6c35a;--glyph:"Noto Sans Egyptian Hieroglyphs",serif}
+.vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vbadge{position:absolute;z-index:3;inset-inline-end:16px;top:84px;font:600 10.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;background:rgba(0,0,0,.45);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px 10px}
+.world{background:var(--tomb);color:#f3eee2}
+.world h1,.world h2,.world h3{color:#fff}
+.w-sea{--wc:#8fe3f0;--wbg:#03202e}.w-desert{--wc:#e9c58e;--wbg:#0d0f19}.w-nile{--wc:#ffbf7a;--wbg:#120d18}.w-tomb{--wc:var(--gold);--wbg:var(--tomb)}
+.world{background:var(--wbg)}
+.world .eyebrow{color:var(--wc)}
+.wopen{position:relative;height:min(78vh,860px);min-height:620px;overflow:hidden}
+.wopen > img,.wopen > video{position:absolute;inset:-3%;width:106%;height:106%;object-fit:cover;animation:kb 26s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.09) translate(-1.5%,-1%)}}
+.wopen canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.wshade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.35) 55%,rgba(0,0,0,.1)),linear-gradient(0deg,var(--wbg),transparent 45%)}
+.w-tomb .wopen{cursor:crosshair}
+.w-tomb .wopen > img.dim{filter:brightness(.42) sepia(.25) saturate(.9)}
+.wall{position:absolute;inset:0;display:flex;justify-content:center;font-family:var(--glyph);color:var(--gold);pointer-events:none;overflow:hidden}
+.wall .col{writing-mode:vertical-rl;text-orientation:upright;font-size:30px;line-height:1.35;letter-spacing:.12em;padding-inline:9px;border-inline:1px solid rgba(201,162,39,.16);white-space:nowrap}
+.wall--dim{opacity:.13}
+.lit{position:absolute;inset:0;--x:62%;--y:40%;-webkit-mask-image:radial-gradient(circle 240px at var(--x) var(--y),#000,rgba(0,0,0,.85) 35%,transparent 75%);mask-image:radial-gradient(circle 240px at var(--x) var(--y),#000,rgba(0,0,0,.85) 35%,transparent 75%);pointer-events:none}
+.lit img{position:absolute;inset:-3%;width:106%;height:106%;object-fit:cover;animation:kb 26s ease-in-out infinite alternate}
+.lit .wall{opacity:.55;color:var(--gold-hi);text-shadow:0 0 12px rgba(230,195,90,.55)}
+.wtxt{position:absolute;z-index:2;inset-inline-start:56px;bottom:40px;max-width:640px}
+.wtxt h1{font-size:60px;line-height:1;margin:10px 0 14px;letter-spacing:-.015em}
+.wtxt h1 .w{display:inline-block;opacity:0;transform:translateY(22px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.wtxt .lead{font-size:17px;line-height:1.65;color:#ece3d0;margin:0 0 16px}
+.wq{font:italic 500 19px/1.5 var(--serif);border-inline-start:2px solid var(--wc);padding-inline-start:16px;margin:0 0 16px;color:#fff}
+.wchips{display:flex;flex-wrap:wrap;gap:8px}
+.wchips span{font-size:13px;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:5px 12px;background:rgba(0,0,0,.25)}
+.wacts{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.hint{position:absolute;z-index:2;inset-inline-end:40px;top:92px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(230,195,90,.85)}
+.journey2{position:relative}
+.jstage{position:sticky;top:0;height:min(78vh,860px);min-height:620px;overflow:hidden}
+.jstage > img,.jstage > video,.jlayer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.1s ease,transform 8s ease}
+.jstage > .on,.jlayer.on{opacity:1;transform:scale(1)}
+.jstage::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.25) 20%,rgba(0,0,0,.8) 75%);pointer-events:none}
+.jstage canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.jhead{position:absolute;z-index:3;top:34px;inset-inline-start:56px}
+.jhead h2{font-size:30px;margin-top:6px}
+.path{position:absolute;z-index:3;inset-inline-start:56px;top:52%;transform:translateY(-50%);display:flex;flex-direction:column;gap:40px}
+.path::before{content:"";position:absolute;inset-inline-start:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--wc),transparent)}
+.path span{position:relative;display:flex;align-items:center;gap:14px;font:600 12px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);transition:color .4s}
+.path span::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--wbg);border:2px solid color-mix(in srgb,var(--wc) 50%,transparent);transition:all .4s}
+.path span.on{color:#fff}.path span.on::before{background:var(--wc);border-color:var(--wc);box-shadow:0 0 18px var(--wc)}
+.jsteps{position:relative;z-index:4;margin-top:calc(-1 * max(620px,min(78vh,860px)));pointer-events:none}
+.jstep{min-height:max(620px,min(78vh,860px));display:flex;align-items:center;justify-content:flex-end;padding-inline:56px}
+.jstep article{pointer-events:auto;width:440px;background:rgba(10,10,12,.74);backdrop-filter:blur(10px);border:1px solid color-mix(in srgb,var(--wc) 35%,transparent);border-radius:18px;padding:26px 28px}
+.jstep .n{font:600 12px var(--sans);letter-spacing:.22em;color:var(--wc)}
+.jstep h3{font-size:32px;margin:6px 0 10px}
+.jstep p{margin:0;color:#ece3d0;font-size:15.5px;line-height:1.7}
+.jstep .why{margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.15);font-size:13px;color:var(--wc)}
+.wsec{position:relative;padding:96px 56px;overflow:hidden}
+.wsec .wall{opacity:.07}
+.wsec__in{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:52px;align-items:start;max-width:1120px}
+.wsec h2{font-size:42px;line-height:1.1;margin:10px 0 16px}
+.wsec p{color:#e3d8c2;font-size:16.5px;line-height:1.75;margin:0 0 12px}
+.tablets{display:grid;gap:12px}
+.tablet{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;background:rgba(255,255,255,.04);border:1px solid color-mix(in srgb,var(--wc) 30%,transparent);border-radius:12px;padding:14px 16px;font-size:15px;color:#f0e6d0;line-height:1.55}
+.tablet i{font-style:normal;font-family:var(--glyph);font-size:24px;color:var(--wc);text-align:center;line-height:1.2}
+.tablet b{display:block;color:#fff;margin-bottom:2px}
+.wsec--night{background:radial-gradient(ellipse at 50% 0%,#18213f,#0a0c16 70%)}
+.wsec--night canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.papy{background:var(--papyrus);color:#2a2014;padding:76px 56px}
+.papy__in{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;max-width:1120px}
+.papy h2{font-size:30px;margin:8px 0 10px;color:#2a2014!important}
+.papy .eyebrow{color:var(--clay)!important}
+.papy p{margin:0;font-size:16px;line-height:1.75}
+.wvid{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/9;margin-top:14px}
+.wvid video{width:100%;height:100%;object-fit:cover;display:block}
+.wvid small{position:absolute;inset-inline-start:10px;bottom:8px;font-size:11px;color:#fff;background:rgba(0,0,0,.5);border-radius:999px;padding:2px 8px}
+.choose2{padding:90px 56px 110px;position:relative}
+.choose2__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:34px;max-width:1180px;align-items:start}
+.choose2__photo{position:sticky;top:90px;border-radius:18px;overflow:hidden;aspect-ratio:4/5}
+.choose2__photo img{width:100%;height:100%;object-fit:cover;display:block}
+.choose2 h2{font-size:48px;line-height:1.02;margin:8px 0 12px}
+.wsum{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.wsum span{font-size:13px;border:1px solid color-mix(in srgb,var(--wc) 40%,transparent);border-radius:999px;padding:4px 12px}
+.wopt{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 18px;border:1px solid rgba(255,255,255,.12);border-radius:14px;margin-bottom:10px;background:rgba(255,255,255,.03)}
+.wopt--pick{border-color:var(--wc);background:color-mix(in srgb,var(--wc) 9%,transparent)}
+.wopt .pk{font:700 10.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--wc)}
+.wopt .why{font-size:13px;color:#fff;margin-inline-start:8px;font-weight:400;letter-spacing:0;text-transform:none}
+.wopt h3{font-size:19px;line-height:1.3;margin:4px 0 8px}
+.wopt .facts{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.wopt .facts span{font-size:12.5px;color:#e5d9bf;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:2px 9px}
+.wopt .btn--line{background:transparent;border:1.5px solid var(--wc);color:#fff}
+.wtbl{width:100%;border-collapse:collapse;font-size:13.5px;margin:4px 0 18px}
+.wtbl th,.wtbl td{padding:9px 6px;border-bottom:1px solid rgba(255,255,255,.12);text-align:start}
+.wtbl th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--wc)}
+.wtbl .yes{color:#7fd1c7;font-weight:600}.wtbl .no{color:#8d8577}
+.wcmp{background:none;border:0;color:var(--wc);text-decoration:underline;text-underline-offset:4px;font-weight:600;padding:0;margin-bottom:12px}
+.wstay{margin-top:18px;border-top:1px solid rgba(255,255,255,.12);padding-top:16px}
+.wstay h3{font-size:18px;margin-bottom:8px}
+.wout{font-size:12.5px;color:#a9a08f;margin:16px 0 0}
+.wout a{color:var(--wc)}
+.wdone{border:1px solid #7fd1c7;background:rgba(15,107,122,.22);border-radius:14px;padding:14px 16px;margin-bottom:16px}
+.wdone b{color:#fff}.wdone p{margin:4px 0 0;color:#d8eeea;font-size:14px}
+.capsule{text-decoration:none;position:sticky;z-index:15;bottom:20px;float:right;margin-inline-end:24px;margin-top:-78px;display:flex;align-items:center;gap:12px;background:rgba(14,12,9,.88);backdrop-filter:blur(10px);border:1px solid color-mix(in srgb,var(--wc) 55%,transparent);border-radius:999px;padding:7px 7px 7px 18px;color:#fff;font-size:13px;box-shadow:0 14px 40px rgba(0,0,0,.5)}
+.capsule b{font:500 15px var(--serif)}
+.wfoot{clear:both}
+@media (prefers-reduced-motion:reduce){.wopen > *,.lit img{animation:none!important}.jstage > *{transition:none!important}}
+@media (max-width:900px){.wtxt{inset-inline-start:18px;inset-inline-end:18px}.wtxt h1{font-size:42px}.jstep{padding-inline:18px;justify-content:center}.jstep article{width:100%}.path,.jhead{inset-inline-start:18px}.wsec,.papy,.choose2{padding-inline:18px}.wsec__in,.choose2__grid{grid-template-columns:1fr}.choose2__photo{position:static}}
+</style>
+<header class="pbar">
+  <div class="pbar__in">
+    <div class="pbar__name">الاقتراح الرابع: القصة + عوالم الرحلات<small>نسخة الكمبيوتر · نموذج للاعتماد · المحتوى حقيقي من الموقع · فيديوهات مجانية من Pexels</small></div>
+    <ol class="steps" aria-label="خطوات الرحلة">
+      <li><button type="button" data-go="1" aria-current="step"><b>1</b>الدخول</button></li>
+      <li><button type="button" data-go="2"><b>2</b>تصفّح الرحلات</button></li>
+      <li><button type="button" data-go="3"><b>3</b>اختيار رحلة</button></li>
+      <li><button type="button" data-go="4"><b>4</b>الحجز</button></li>
+    </ol>
+    <label class="pbar__notes"><input type="checkbox" id="show-notes" checked> الملاحظات</label>
+  </div>
+</header>
+
+<main class="stage" id="stage">
+  <div class="browser">
+    <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url" id="url">egyptroamer.com</span></div>
+    <div class="viewport site" id="vp">
+
+      <header class="hdr" id="hdr"><div class="wrap">
+        <a class="logo" href="#" data-go="1"><b>EGYPT ROAMER</b><small>MORE THAN A DESTINATION</small></a>
+        <nav><a href="#" data-go="2">Destinations</a><a href="#" data-go="2" id="nav-exp">Experiences</a><a href="#">Travel Guide</a></nav>
+        <a class="btn btn--gold btn--sm" href="#" id="hdr-cta" data-go="2">Choose a trip <span class="arr">→</span></a>
+      </div></header>
+
+      <!-- 1 · Arrive: the story, and each chapter ends in its trips -->
+      <section data-screen="1">
+        <div class="hero hero--story on-dark">
+          <img class="hero__img" data-img="sc_pyr" alt="The pyramids of Giza at sunset">
+          <div class="wrap hero__grid">
+            <div>
+              <p class="eyebrow">A country you don't just visit</p>
+              <h1>EGYPT<em>You <i>Feel</i> It</em></h1>
+              <p class="hero__lead">Ancient wonders. Endless adventures. Unforgettable moments. Discover and plan the best experiences in Egypt — all in one place.</p>
+              <div class="hero__acts"><a class="btn btn--gold" href="#" data-go="2">Choose a trip <span class="arr">→</span></a><a class="btn btn--ghost-light" href="#ch-1">Start the story <span class="arr">↓</span></a></div>
+            </div>
+            <nav class="chapters" aria-label="The story"><p class="chapters__t">The story · 4 chapters</p><ol id="ch-index"></ol></nav>
+          </div>
+        </div>
+
+        <div id="chapters"></div>
+
+        <section class="interlude2 on-dark"><div class="wrap">
+          <p class="eyebrow">More than a destination</p>
+          <p class="interlude2__q">Egypt isn't a checklist. It's a story you step into.</p>
+          <dl class="interlude2__facts">
+            <div><dt>5,000</dt><dd>years of stories, still being told</dd></div>
+            <div><dt>7</dt><dd>UNESCO World Heritage Sites</dd></div>
+            <div><dt>1,200+</dt><dd>species of fish on Red Sea reefs</dd></div>
+            <div><dt>1</dt><dd>place to discover &amp; plan it all</dd></div>
+          </dl>
+        </div></section>
+
+        <section class="moods2 on-dark" id="moods">
+          <img class="moods2__bg" id="mood-bg" alt="">
+          <div class="wrap moods2__in">
+            <div class="moods2__head"><p class="eyebrow">Find your Egypt</p><h2>What kind of Egypt <br>are you looking for?</h2></div>
+            <div class="moods2__tabs" role="tablist" aria-label="Travel moods" id="mood-tabs"></div>
+            <div class="moods2__body">
+              <div><p class="moods2__word">An Egypt <span id="mood-word"></span></p><p class="moods2__desc" id="mood-desc"></p>
+                <p class="moods2__where" id="mood-where"></p></div>
+              <div class="moods2__trips" id="mood-trips"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec dest2"><div class="wrap">
+          <div class="sec__head"><div><p class="eyebrow">Destinations</p><h2>Seven places. <i>Seven different Egypts.</i></h2></div><p>From Cairo's thousand minarets to the silence of Siwa, every region tells its own chapter. Choose a place to step inside it.</p></div>
+          <div class="dest2__row" id="dest-row"></div>
+          <p class="later">The Roamer Journal and the trip planner follow here, as today.</p>
+        </div></section>
+      </section>
+
+      <!-- 2 · Browse: trips grouped by place, each place with its own line of story -->
+      <section data-screen="2" hidden>
+        <div class="phero phero--img on-dark"><img data-img="sc_nile" alt=""><div class="wrap">
+          <p class="crumbs">Home / Experiences</p>
+          <h1>Experiences</h1>
+          <p>Tours and day trips across Egypt, from a private visit to the Giza plateau to an early start for Abu Simbel. Each page explains what the experience is, who it suits and what to know before you book.</p>
+        </div></div>
+        <div class="filters"><div class="wrap">
+          <div class="fgroup"><span>Where</span><div class="chips" id="f-place"></div></div>
+          <div class="fgroup"><span>Length</span><div class="chips" id="f-len"></div></div>
+          <label class="toggle"><input type="checkbox" id="f-private"> Private option</label>
+          <label class="toggle"><input type="checkbox" id="f-pickup"> Hotel pickup</label>
+          <span class="count" id="f-count"></span>
+        </div></div>
+        <div class="wrap" id="groups" style="padding-block:10px 60px"></div>
+      </section>
+
+      <!-- 3 & 4 · the trip, in its own world -->
+      <section data-screen="3" hidden><div id="world" class="world"></div></section>
+
+      <footer class="ftr"><div class="wrap">Egypt Roamer · Prototype for approval · Partner photos on the live site come from Viator's API; this prototype uses our approved photos in their place.</div></footer>
+      <div class="toast" id="toast" hidden></div>
+    </div>
+  </div>
+
+  <aside class="notes" id="notes">
+    <div class="note" data-note="1">
+      <h2>1 · الدخول: القصة وهي بتودّي للرحلات</h2>
+      <p>زي الاقتراح التاني بالظبط، وزوّدنا فيديو حقيقي في فصل الأهرامات.</p>
+      <ul>
+        <li>فصل الأهرامات: فيديو غروب على أهرامات الجيزة (Pexels، مجاني، والمكان مكتوب) <span class="tag">جديد</span></li>
+        <li>كل فصل وكل مزاج بيخلص برحلاته</li>
+        <li>افتح أي رحلة عليها إطار ذهبي: وادي الملوك، أو الغوص، أو الصحراء البيضاء، أو العشاء على النيل</li>
+      </ul>
+    </div>
+    <div class="note" data-note="2" hidden>
+      <h2>2 · تصفّح الرحلات</h2>
+      <p>زي الاقتراح التاني: الرحلات متجمّعة حسب المكان، والفلاتر.</p>
+      <ul><li>الرحلات الأربعة اللي ليها عالم كامل عليها إطار ذهبي</li></ul>
+    </div>
+    <div class="note" data-note="3" hidden>
+      <h2>3 · الرحلة في عالمها</h2>
+      <p>كل رحلة صفحة كاملة يعيش فيها السايح، مش افتتاحية بس. والهيكل واحد في الأربعة:</p>
+      <ul>
+        <li>الافتتاحية: عالم الرحلة (جدار هيروغليفي بكشّاف، أو ضوء البحر، أو نجوم الصحراء، أو فيديو النيل)</li>
+        <li>اليوم محطة محطة مع النزول: الصورة بتتغيّر والمسار بينوّر</li>
+        <li>النصايح العملية على ألواح، وفي الصحراء "ليلة في الصحراء" بسما مليانة نجوم</li>
+        <li>لمين تناسب، واجمعها مع إيه (وفي وادي الملوك فيديو الكرنك)</li>
+        <li>"اختار طريقك": الاختيارات، واختيارنا وسببه، والمقارنة، والفنادق، والإفصاح، وكبسولة الحجز ظاهرة طول الوقت</li>
+      </ul>
+    </div>
+    <div class="note" data-note="4" hidden>
+      <h2>4 · الحجز</h2>
+      <p>"Book" بيفتح الشريك في تبويب جديد، وصفحتنا بتأكّد إيه اللي اتفتح.</p>
+    </div>
+    <div class="note">
+      <h2>الفيديو</h2>
+      <p>3 فيديوهات مجانية من Pexels، والمكان مكتوب بالظبط في كل واحد: أهرامات الجيزة، والنيل في القاهرة، والكرنك.</p>
+      <p>الغوص والصحراء البيضاء ووادي الملوك مالقيتلهمش فيديو مكانه مكتوب بالظبط، فاتعملوا بالصور والحركة.</p>
+    </div>
+    <div class="note note--ask">
+      <h2>محتاج قرارك</h2>
+      <p>التلات اقتراحات اللي قبل ده لسه على لينكاتهم.</p>
+      <div class="next"><button type="button" id="prev" class="ghost">السابق</button><button type="button" id="nextb">التالي</button></div>
+    </div>
+  </aside>
+</main>
+
+<script>
+const IMG = {{imgmap}};
+// Trips: titles, places, facts and option counts as on egyptroamer.com (16 Oct). "dest" from the site's own data.
+const TRIPS = [
+  {id:"valley",k:"valley",world:true,t:"Valley of the Kings & Hatshepsut Temple",loc:"Luxor",place:"Luxor",dest:"luxor",time:"6 hours",len:"full",facts:["Private option available","Pickup offered"],n:3,priv:true,pick:true,open:true},
+  {id:"giza",k:"giza",t:"Pyramids of Giza & Sphinx Private Tour",loc:"Giza, Cairo",place:"Cairo & Giza",dest:"cairo",time:"Half day",len:"short",facts:["Private","Pickup offered"],n:3,priv:true,pick:true},
+  {id:"nile",k:"nile",world:true,t:"Nile Dinner Cruise with Live Show",loc:"Cairo",place:"Cairo & Giza",dest:"cairo",time:"3 hours",len:"short",facts:["Private option available","Pickup on some options"],n:3,priv:true,pick:true},
+  {id:"food",k:"food",t:"Cairo Street Food Tour by Night",loc:"Downtown Cairo",place:"Cairo & Giza",dest:"cairo",time:"4 hours",len:"short",facts:[],n:2,priv:false,pick:false},
+  {id:"abu",k:"abu",t:"Abu Simbel Day Trip from Aswan",loc:"Aswan",place:"Aswan",dest:"aswan",time:"Full day",len:"full",facts:["Private or small group","Pickup offered"],n:3,priv:true,pick:true},
+  {id:"alex",k:"alex",t:"Alexandria Day Trip from Cairo",loc:"Alexandria",place:"Alexandria",dest:"alexandria",time:"About 10–12 hours",len:"full",facts:["Small-group option available","Pickup offered"],n:2,priv:false,pick:true},
+  {id:"redsea",k:"ras",world:true,t:"Red Sea Diving: Two Reef Dives",loc:"Hurghada",place:"Red Sea",dest:"hurghada",time:"1 day · 2 dives",len:"full",facts:["Pickup offered"],n:3,priv:false,pick:true},
+  {id:"ras",k:"ras",t:"Ras Mohammed Snorkelling from Sharm El Sheikh",loc:"Sharm El Sheikh",place:"Red Sea",dest:"sharm",time:"About 5–6 hours",len:"full",facts:["Pickup offered"],n:2,priv:false,pick:true},
+  {id:"white",k:"white",world:true,t:"White Desert & Black Desert Safari",loc:"Western Desert",place:"Western Desert",dest:"",time:"2 days",len:"multi",facts:["Private option available","Pickup offered"],n:3,priv:true,pick:true},
+  {id:"siwa",k:"siwa",t:"Great Sand Sea 4×4 & Hot Springs",loc:"Siwa Oasis",place:"Western Desert",dest:"siwa",time:"Full day",len:"full",facts:["Private option available","Pickup offered"],n:2,priv:true,pick:true},
+];
+const T = Object.fromEntries(TRIPS.map(t=>[t.id,t]));
+// The homepage's four scenes, word for word, each now ending in its trips.
+const CHAPTERS = [
+  {n:"01",video:"video/giza-sunset.mp4",vcredit:"Video: Peggy Anke, Pexels · Giza",eye:"Timeless wonders",name:"Pyramids",line:"Where history still breathes",geo:"29.9792° N · 31.1342° E — Giza Plateau",img:"sc_pyr",trips:["giza","nile","food"],more:"Explore Cairo",place:"Cairo & Giza"},
+  {n:"02",eye:"A river of life",name:"Nile",line:"More than a river. A story that connects a civilization.",geo:"24.0889° N · 32.8998° E — Aswan",img:"sc_nile",trips:["valley","abu"],more:"Explore Nile Cruises",place:"Luxor",route:true},
+  {n:"03",eye:"Beyond the ordinary",name:"Desert",line:"Endless landscapes. Unforgettable adventures.",geo:"27.0957° N · 27.9880° E — Western Desert",img:"sc_desert",trips:["white","siwa"],more:"Explore Desert Experiences",place:"Western Desert"},
+  {n:"04",eye:"A different world",name:"Red Sea",line:"Dive into crystal-clear waters",geo:"27.2579° N · 33.8116° E — Hurghada",img:"sc_sea",trips:["redsea","ras"],more:"Explore Red Sea",place:"Red Sea"},
+];
+const DESTS = {
+  cairo:{name:"Cairo",region:"Capital · Nile Valley",tag:"The city of a thousand minarets",best:"Oct – Apr",place:"Cairo & Giza"},
+  alexandria:{name:"Alexandria",region:"Mediterranean",tag:"The pearl of the Mediterranean",best:"Apr – Oct",place:"Alexandria"},
+  siwa:{name:"Siwa",region:"Western Desert",tag:"An oasis at the edge of the map",best:"Oct – Apr",place:"Western Desert"},
+  luxor:{name:"Luxor",region:"Upper Egypt",tag:"The world's greatest open-air museum",best:"Oct – Mar",place:"Luxor"},
+  aswan:{name:"Aswan",region:"Nubia · Upper Egypt",tag:"Egypt at its most serene",best:"Oct – Mar",place:"Aswan"},
+  hurghada:{name:"Hurghada",region:"Red Sea Coast",tag:"Reefs, islands and endless sun",best:"Year-round",place:"Red Sea"},
+  sharm:{name:"Sharm El Sheikh",region:"South Sinai",tag:"Where the desert meets the reef",best:"Year-round",place:"Red Sea"},
+};
+const MOODS = [
+  ["ancient","Ancient","Of torch-lit tombs, temple columns taller than time, and the first light of dawn on the Giza plateau.","luxor"],
+  ["beach","Beach","Of reef-edge mornings, barefoot dinners and water so clear it barely looks real.","hurghada"],
+  ["luxury","Luxury","Of palace hotels, private Egyptologists and first-class cabins gliding down the Nile.","aswan"],
+  ["adventure","Adventure","Of dune runs, desert camps, canyon hikes and nights beneath an unfiltered Milky Way.","sharm"],
+  ["culture","Culture","Of old bazaars, Nubian villages, Sufi music and cafés that never quite close.","cairo"],
+  ["food","Food","Of koshari at midnight, warm baladi bread and grilled fish by the Mediterranean.","alexandria"],
+  ["nature","Nature","Of palm oases, salt lakes, protected reefs and the quiet green ribbon of the Nile.","siwa"],
+];
+// Browsing groups: one line of story each, taken from the site (destination taglines; the desert scene's line).
+const GROUPS = [
+  ["Cairo & Giza","d_cairo","The city of a thousand minarets","Best time Oct – Apr","Cairo guide"],
+  ["Luxor","d_luxor","The world's greatest open-air museum","Best time Oct – Mar","Luxor guide"],
+  ["Aswan","d_aswan","Egypt at its most serene","Best time Oct – Mar","Aswan guide"],
+  ["Alexandria","d_alexandria","The pearl of the Mediterranean","Best time Apr – Oct","Alexandria guide"],
+  ["Red Sea","d_hurghada","Reefs, islands and endless sun","Hurghada & Sharm El Sheikh · Year-round","Red Sea guides"],
+  ["Western Desert","sc_desert","Endless landscapes. Unforgettable adventures.","Siwa and the White Desert","Desert guides"],
+];
+const PLACES = GROUPS.map(g=>g[0]);
+const LENS=[["all","Any"],["short","Up to 5 hours"],["full","Full day"],["multi","2+ days"]];
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const CLOCK = `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>`;
+const state={place:"all",len:"all",priv:false,pickup:false};
+const vp=$("#vp");
+
+const card=t=>`<button type="button" class="card${t.world?" card--hl":""}" data-trip="${t.id}">
+  <img src="${IMG[t.k]}" alt=""><div class="card__b"><span class="card__loc">${esc(t.loc)}</span><h3>${esc(t.t)}</h3>
+  <div class="facts"><span class="fact fact--time">${CLOCK}${esc(t.time)}</span>${t.facts.map(f=>`<span class="fact">${esc(f)}</span>`).join("")}</div>
+  <div class="card__foot"><span><b>${t.n} options</b> to compare</span><span class="card__go">See options →</span></div></div></button>`;
+const mini=t=>`<button type="button" class="mini${t.world?" mini--hl":""}" data-trip="${t.id}"><img src="${IMG[t.k]}" alt=""><span style="margin:0"><b>${esc(t.t)}</b><span>${esc(t.time)} · <em>${t.n} options</em></span></span></button>`;
+
+function renderHome(){
+  $("#ch-index").innerHTML=CHAPTERS.map((c,i)=>`<li><a href="#ch-${i+1}"><b>${c.n}</b><span>${c.name}</span><small>${c.trips.length} trips</small></a></li>`).join("");
+  $("#chapters").innerHTML=CHAPTERS.map((c,i)=>`<section class="ch on-dark" id="ch-${i+1}">${c.video?`<video class="ch__img" autoplay muted loop playsinline poster="${IMG[c.img]}" src="${c.video}"></video><span class="vbadge">${esc(c.vcredit)}</span>`:`<img class="ch__img" src="${IMG[c.img]}" alt="">`}<div class="wrap">
+    <div><p class="ch__n">${c.n} · ${esc(c.eye)}</p><h2>${esc(c.name)}</h2><p class="ch__line">${esc(c.line)}</p>
+    ${c.route?`<div class="route"><span>The classic route</span><b>Aswan</b><i></i><b>Kom Ombo</b><i></i><b>Edfu</b><i></i><b>Luxor</b></div>`:""}
+    <p class="ch__geo">${esc(c.geo)}</p></div>
+    <div class="ch__trips" style="grid-template-columns:auto repeat(${c.trips.length},minmax(0,1fr))"><div class="ch__trips-h"><p>Trips in this chapter</p><strong>${c.trips.length} trips to book</strong><a href="#" data-place="${esc(c.place)}">${esc(c.more)} →</a></div>${c.trips.map(id=>mini(T[id])).join("")}</div>
+  </div></section>`).join("");
+  $("#mood-tabs").innerHTML=MOODS.map(([id,l],i)=>`<button type="button" role="tab" data-mood="${i}" aria-selected="${i===0}">${l}</button>`).join("");
+  mood(0);
+  const count=d=>TRIPS.filter(t=>t.dest===d).length;
+  $("#dest-row").innerHTML=Object.entries(DESTS).map(([id,d])=>`<button type="button" class="dcard" data-place="${esc(d.place)}"><img src="${IMG["d_"+id]}" alt=""><div><small>${esc(d.region)}</small><b>${esc(d.name)}</b><span>${esc(d.tag)}</span><em>${count(id)} ${count(id)===1?"trip":"trips"} →</em></div></button>`).join("");
+}
+function mood(i){
+  const [id,label,desc,dest]=MOODS[i], d=DESTS[dest], trips=TRIPS.filter(t=>t.dest===dest);
+  $$("#mood-tabs button").forEach((b,j)=>b.setAttribute("aria-selected",String(i===j)));
+  $("#mood-bg").src=IMG["m_"+id]; $("#mood-word").textContent=label; $("#mood-desc").textContent=desc;
+  $("#mood-where").innerHTML=`<small style="letter-spacing:.18em;text-transform:uppercase;font-size:11px;opacity:.75">Where to go</small><b>${esc(d.name)} — ${esc(d.tag)}</b>${esc(d.region)} · Best ${esc(d.best)}`;
+  $("#mood-trips").innerHTML=trips.map(mini).join("")+`<a href="#" class="moods2__more" data-place="${esc(d.place)}">All ${esc(d.place)} trips →</a>`;
+}
+function renderTrips(){
+  $("#f-place").innerHTML=[["all","All"],...PLACES.map(p=>[p,p])].map(([v,l])=>`<button type="button" class="chip" data-fplace="${esc(v)}" aria-pressed="${state.place===v}">${esc(l)}</button>`).join("");
+  $("#f-len").innerHTML=LENS.map(([v,l])=>`<button type="button" class="chip" data-flen="${v}" aria-pressed="${state.len===v}">${l}</button>`).join("");
+  const ok=t=>(state.place==="all"||t.place===state.place)&&(state.len==="all"||t.len===state.len)&&(!state.priv||t.priv)&&(!state.pickup||t.pick);
+  let total=0;
+  $("#groups").innerHTML=GROUPS.map(([p,img,line,sub,guide])=>{const list=TRIPS.filter(t=>t.place===p&&ok(t));total+=list.length;if(!list.length)return "";
+    return `<section class="group"><div class="group__head"><img src="${IMG[img]}" alt=""><div><h2>${esc(p)}</h2><p>${esc(line)} <small>· ${esc(sub)}</small></p></div><a href="#">Read the ${esc(guide)} →</a></div><div class="grid">${list.map(card).join("")}</div></section>`;}).join("")||`<p class="empty">No trips match these filters. Clear one to see more.</p>`;
+  $("#f-count").textContent=`${total} ${total===1?"trip":"trips"}`;
+}
+let step=1, current="valley";
+function go(n,opts={}){
+  step=n;
+  $$("[data-screen]").forEach(s=>s.hidden=!(s.dataset.screen==n||(n==4&&s.dataset.screen=="3")));
+  $$(".steps button").forEach(b=>b.removeAttribute("aria-current"));
+  $(`.steps button[data-go="${n}"]`)?.setAttribute("aria-current","step");
+  $$("[data-note]").forEach(x=>x.hidden=x.dataset.note!=n);
+  $("#url").textContent=n>=3?`egyptroamer.com/experiences/${WORLDS[current].url}/`:["egyptroamer.com","egyptroamer.com/experiences/"][n-1];
+  $("#hdr-cta").innerHTML=n>=3?'Book this trip <span class="arr">↓</span>':'Choose a trip <span class="arr">→</span>';
+  $("#hdr-cta").dataset.go=n>=3?"":"2"; $("#hdr-cta").dataset.wjump=n>=3?"wchoose":"";
+  $("#nav-exp").toggleAttribute("aria-current",n>=2);
+  if(n===2) renderTrips();
+  if(n===3) renderWorld(current);
+  if(n===4){ if(!document.getElementById("wchoose")) renderWorld(current); const o=WORLDS[current].opts.find(x=>x.pick)||WORLDS[current].opts[0]; book(o.p+"|"+o.n,true); return; }
+  if(n<3){ stopFx.forEach(f=>f()); stopFx=[]; }
+  vp.scrollTo({top:0,behavior:"auto"});
+  $("#prev").disabled=n===1; $("#nextb").textContent="التالي";
+}
+function book(spec,silent){
+  const [partner,name]=spec.split("|");
+  $("#wdone").hidden=false; $("#wdone-b").textContent=`${partner} opened in a new tab`; $("#wdone-p").textContent=`“${name}”`;
+  if(!silent) toast(`Prototype: here ${partner} would open in a new tab`);
+  step=4; $$(".steps button").forEach(b=>b.removeAttribute("aria-current")); $('.steps button[data-go="4"]').setAttribute("aria-current","step");
+  $$("[data-note]").forEach(x=>x.hidden=x.dataset.note!="4"); $("#nextb").textContent="من الأول";
+  vp.scrollTo({top:Math.max(0,$("#wchoose").offsetTop-20),behavior:"auto"});
+}
+let tt; function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;t.style.top=(vp.scrollTop+80)+"px";clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,2800);}
+document.addEventListener("click",e=>{
+  const wj=e.target.closest("[data-wjump]"); if(wj&&wj.dataset.wjump){e.preventDefault();const t=document.getElementById(wj.dataset.wjump);if(t)vp.scrollTo({top:t.offsetTop-10});return;}
+  const g=e.target.closest("[data-go]"); if(g&&g.dataset.go){e.preventDefault();go(+g.dataset.go);return;}
+  const p=e.target.closest("[data-place]"); if(p){e.preventDefault();state.place=p.dataset.place;go(2);return;}
+  const m=e.target.closest("[data-mood]"); if(m){mood(+m.dataset.mood);return;}
+  const fp=e.target.closest("[data-fplace]"); if(fp){state.place=fp.dataset.fplace;renderTrips();return;}
+  const fl=e.target.closest("[data-flen]"); if(fl){state.len=fl.dataset.flen;renderTrips();return;}
+  const c=e.target.closest("[data-trip]"); if(c){ if(WORLDS[c.dataset.trip]){current=c.dataset.trip;go(3);} else {toast("Prototype: four trips open in full: Valley of the Kings, Red Sea diving, White Desert, Nile dinner cruise.");} return;}
+  const b=e.target.closest("[data-wbook]"); if(b){book(b.dataset.wbook);return;}
+  const a=e.target.closest('a[href^="#"]'); if(a&&a.getAttribute("href").length>1){const t=document.getElementById(a.getAttribute("href").slice(1)); if(t&&vp.contains(t)){e.preventDefault();vp.scrollTo({top:Math.max(0,t.offsetTop-68)});}}
+});
+$("#f-private").addEventListener("change",e=>{state.priv=e.target.checked;renderTrips();});
+$("#f-pickup").addEventListener("change",e=>{state.pickup=e.target.checked;renderTrips();});
+$("#show-notes").addEventListener("change",e=>$("#stage").classList.toggle("no-notes",!e.target.checked));
+$("#prev").addEventListener("click",()=>go(Math.max(1,step-1)));
+$("#nextb").addEventListener("click",()=>{ if(step===4){go(1);return;} if(step===3){const o=WORLDS[current].opts.find(x=>x.pick)||WORLDS[current].opts[0];book(o.p+"|"+o.n);return;} if(step===1){state.place="all";} go(step+1); });
+$$("[data-img]").forEach(i=>i.src=IMG[i.dataset.img]);
+
+// ---------- Trip worlds: every word below is from the trip's page on egyptroamer.com (16 Oct) ----------
+const WORLDS = {
+  valley: {cls:"w-tomb", fx:"tomb", photo:"trip", url:"valley-of-the-kings-hatshepsut-temple",
+    eyebrow:"Luxor · The West Bank · Ancient Thebes", title:"Valley of the Kings & Hatshepsut Temple",
+    lead:"A guided visit to Luxor’s West Bank, the burial ground of ancient Thebes. You’ll go down into the painted royal tombs of the Valley of the Kings, visit the terraced temple of Hatshepsut beneath the cliffs, and usually stop at the Colossi of Memnon.",
+    chips:["6 hours","3 options from 2 partners","Private option available","Pickup offered"], go:"Go down into the valley",
+    jEyebrow:"The day, stop by stop", jTitle:"Down the corridor",
+    steps:[
+      {img:"kings_l",t:"Valley of the Kings",p:"A standard ticket covers a set number of the tombs open that day. The most famous, such as Tutankhamun’s, need separate tickets. Inside, long corridors lead down to burial chambers covered in texts and images of the gods, some with their colours remarkably well preserved.",why:"Start early: the valley is a sun trap by late morning."},
+      {img:"hat_l",t:"Hatshepsut’s temple",p:"Three great terraces built for the female pharaoh Hatshepsut, with reliefs of her divine birth and the expedition to the land of Punt.",why:"At Deir el-Bahari, beneath the cliffs."},
+      {wall:true,t:"Colossi of Memnon",p:"Two giant seated statues of Amenhotep III, all that stands of his vast temple.",why:"It’s all part of the UNESCO site Ancient Thebes with its Necropolis."}],
+    sec:{eyebrow:"Why a guide makes a difference",title:"The walls speak. A guide reads them.",ps:["The tombs are dense with symbols and texts that are hard to read without help. A guide explains what you’re seeing: the journey through the underworld, the gods, the king’s rebirth. They also choose the tombs worth visiting on the day."],
+      tabs:[["𓇳","","Start early: the valley is a sun trap by late morning."],["𓈗","","Bring water, a hat and sun protection."],["𓂻","","Wear comfortable shoes for the descents."],["𓁹","","Photography rules inside the tombs change. Follow the guards."]],wall:true},
+    papy:[["Who it suits","The essential West Bank day","Everyone visiting Luxor. For those with more time or a deeper interest, add Medinet Habu, the Valley of the Queens and the workers’ village of Deir el-Medina."],
+          ["Combine it with","Karnak and Luxor Temple","Karnak and Luxor Temple on the East Bank, and a sunrise balloon flight over the West Bank. See our Luxor guide for a three-day plan.","karnak"]],
+    sum:["Luxor","About 4–10 hours","Private option available","Pickup offered"],
+    opts:[{n:"Private full day on Luxor West Bank",p:"Viator",f:["Private","About 7–10 hours","Pickup offered"],pick:true},
+          {n:"Luxor West Bank full day with Medinet Habu and Deir el-Medina",p:"Viator",f:["About 6–8 hours","Pickup offered"]},
+          {n:"West Bank Guided Tour: Valley of the Kings",p:"GetYourGuide",f:["Private","4 hours","Pickup offered"]}],
+    cmp:[["Private","Yes","Not stated","Yes"],["Length","About 7–10 h","About 6–8 h","4 h"],["Pickup","Yes","Yes","Yes"]],
+    stay:{title:"Staying in Luxor?",rows:[["Hotels in Luxor","Luxor"],["Hotels on the West Bank (Al Bairat)","West Bank, Luxor"]]}},
+
+  redsea: {cls:"w-sea", fx:"sea", photo:"sea_l", url:"red-sea-diving-two-reef-dives",
+    eyebrow:"Hurghada · Sharm El Sheikh · 1 day · 2 dives", title:"Red Sea Diving: Two Reef Dives",
+    lead:"A day on a dive boat with two guided reef dives in the Red Sea, from Hurghada or Sharm El Sheikh. The Red Sea is known for clear water, colourful coral and abundant reef fish, often just a short boat ride from the coast.",
+    quote:"Snorkellers can often join the same boat.", chips:["Pickup offered","3 options from 2 partners"], go:"Live the dive day",
+    jEyebrow:"What a dive day looks like", jTitle:"From the dock to the reef",
+    steps:[
+      {t:"Check-in",p:"Check-in at the dive centre or on the boat: paperwork, equipment fitting and a briefing."},
+      {t:"Sail to the first site",p:"The boat sails to the first site. The guide explains the dive plan, the depth and what you might see."},
+      {t:"First dive",p:"First dive, then a surface interval on board with lunch or snacks."},
+      {t:"Second dive",p:"Second dive at a different reef, then back to port in the afternoon."}],
+    sec:{eyebrow:"Beginners and certified divers",title:"Dive at your level",ps:["Look for recognised training-agency affiliation and well-maintained equipment. Ask about group sizes per guide. Choose centres that use fixed moorings rather than anchoring on reefs, and that give a proper briefing."],
+      tabs:[["𓈗","No certification","You can do a try-dive (introductory dive) with an instructor at shallow depth after a briefing. It’s a good way to find out whether diving is for you."],["𓆛","Certified divers","Guided dives at depths within your certification level. Bring your certification card and logbook."],["𓋹","Health","You’ll be asked to complete a medical questionnaire. Some conditions require a doctor’s sign-off. Don’t fly within the recommended interval after diving."]]},
+    papy:[["Where to dive","From Hurghada","The Giftun Islands and nearby reefs."],["Where to dive","From Sharm El Sheikh","Ras Mohammed National Park and the Straits of Tiran; the Thistlegorm wreck for experienced divers."]],
+    sum:["Hurghada","Pickup offered"],
+    opts:[{n:"Two boat dives from Hurghada (certified divers)",p:"Viator",f:["About 1 day","Pickup offered"]},
+          {n:"Two dives from Hurghada for beginners and certified divers",p:"Viator",f:["About 7 hours","Pickup offered"]},
+          {n:"Hurghada: Scuba Diving for Certified Divers or Beginners",p:"GetYourGuide",f:["7 hours","Pickup offered"]}],
+    cmp:[["Length","About 1 day","About 7 h","7 h"],["Pickup","Yes","Yes","Yes"]]},
+
+  white: {cls:"w-desert", fx:"desert", photo:"desert_l", url:"white-desert-black-desert-safari",
+    eyebrow:"Western Desert · from Bahariya Oasis · 2 days", title:"White Desert & Black Desert Safari",
+    lead:"A 4×4 journey into the Western Desert, usually starting from Bahariya Oasis. The route crosses the Black Desert, with its dark volcanic hills, to the White Desert, where wind has carved chalk into giant white mushrooms and pillars.",
+    quote:"Most trips include a night camping among the formations.", chips:["Private option available","Pickup offered","Best October to April"], go:"Cross the desert",
+    jEyebrow:"What you see", jTitle:"Black to white",
+    steps:[
+      {t:"The Black Desert",p:"Sand dotted with cone-shaped hills capped in black volcanic stone.",tone:"dark"},
+      {t:"Crystal Mountain",p:"A ridge of quartz crystals by the roadside.",tone:"warm"},
+      {t:"Agabat",p:"Dramatic valleys and dunes between the two deserts.",tone:"warm"},
+      {t:"The White Desert",p:"Chalk formations shaped by the wind, most striking at sunset and sunrise, and ghostly under a full moon. The area is protected as the White Desert Protected Area.",tone:"night"}],
+    sec:{eyebrow:"A night in the desert",title:"A sky full of stars, far from any light",night:true,ps:["Camp is usually set up in the shelter of the formations: dinner cooked over a fire, blankets or a simple tent, and a sky full of stars far from any light. Nights in winter are cold, often much colder than visitors expect.","Ask your operator what bedding and equipment they provide, and whether the trip includes transfers from Cairo."],
+      tabs:[["𓇳","","Warm layers, a hat and a torch for the night."],["𓇶","","Sun protection and sunglasses for the day."],["𓊡","","A scarf or buff against wind and sand."],["𓋹","","Wet wipes, basic medicine, and any snacks you rely on."]]},
+    papy:[["Who it suits","Landscape and adventure","Travellers who want landscape and adventure, and don’t mind simple camping without facilities. It’s not a luxury experience, and the drive from Cairo is long."],
+          ["How long and when","Two days, one night","A typical trip is two days and one night from Bahariya, or three days including the drive from Cairo. The best season is October to April, avoiding the extreme summer heat. Be ready for cold nights in mid-winter."]],
+    sum:["Western Desert","Private option available","Pickup offered"],
+    opts:[{n:"Cairo: 2-Day Bahariya & White Desert Private Camp Adventure",p:"GetYourGuide",f:["Private","2 days","Pickup offered"],pick:true,why:"The only private option"},
+          {n:"Black & White Desert: 2 days from Cairo with camping",p:"Viator",f:["About 2 days","Pickup offered"]},
+          {n:"Overnight White Desert camping from Cairo",p:"Viator",f:["About 2 days","Pickup offered"]}],
+    cmp:[["Private","Yes","Not stated","Not stated"],["Length","2 days","About 2 days","About 2 days"],["Pickup","Yes","Yes","Yes"]]},
+
+  nile: {cls:"w-nile", fx:"nile", photo:"nile_l", video:"video/cairo-nile-sunset.mp4", vcredit:"Video: Nada Ashraf, Pexels · Cairo, the Nile", url:"nile-dinner-cruise-with-live-show",
+    eyebrow:"Cairo · An evening on the river · 3 hours", title:"Nile Dinner Cruise with Live Show",
+    lead:"An evening on the Nile in Cairo aboard a restaurant boat. You get a dinner buffet or set menu, live music and usually a show, while the boat cruises past the lights of the city.",
+    quote:"The mood is festive rather than intimate.", chips:["About 2–4 hours","Private option available","Pickup on some options"], go:"Spend the evening",
+    jEyebrow:"What the evening is like", jTitle:"From the Corniche, after dark",
+    steps:[
+      {t:"Dinner",p:"Dinner, often a buffet of Egyptian and international dishes.",why:"Boats leave from docks along the Corniche and cruise the central stretch of the river."},
+      {t:"Live music",p:"Live music, usually Egyptian and Arabic popular songs."},
+      {t:"Tanoura",p:"A tanoura performance: the spinning dance with multi-coloured skirts, related to Sufi whirling."},
+      {t:"Belly dance",p:"On many boats, a belly dance show.",why:"Expect other groups, families and celebrations on board."}],
+    sec:{eyebrow:"Choosing a boat",title:"Four things to check",ps:["Travellers who want an easy, entertaining evening with a view, families, and groups. If you prefer quiet, a felucca ride at sunset, just the sail, the water and the city, may suit you better. Many visitors do both."],
+      tabs:[["𓏊","Food and drink","Buffet or set menu, and whether drinks are included (alcohol is not served on every boat)."],["𓊛","The show programme","Tanoura, belly dance, or both."],["𓉐","Departure","Where the boat departs, and whether transfers from your hotel are included."],["𓇯","Seating","Tables by the windows or on an open deck."]]},
+    papy:[["Combine it with","A day in old Cairo","A day in Islamic Cairo or Coptic Cairo, ending with dinner on the river. Our Cairo guide covers the areas and a three-day plan."]],
+    sum:["Cairo","About 2–4 hours","Private option available","Pickup on some options"],
+    opts:[{n:"Private Nile dinner cruise with belly dance and tanoura show",p:"Viator",f:["Private","About 4 hours","Pickup offered"],pick:true,why:"The only private option"},
+          {n:"Nile dinner cruise with tanoura show",p:"Viator",f:["About 2 hours","Pickup offered"]},
+          {n:"Cairo: Opal Nile Romantic Dinner Cruise & Live Entertainment",p:"GetYourGuide",f:["2–4 hours"]}],
+    cmp:[["Private","Yes","Not stated","Not stated"],["Length","About 4 h","About 2 h","2–4 h"],["Pickup","Yes","Yes","Not stated"]]},
+};
+const PCHIP={"Viator":"pchip--viator","GetYourGuide":"pchip--gyg","Trip.com":"pchip--trip"};
+const SIGNS=[..."𓄿𓇋𓂝𓅱𓃀𓊪𓆑𓅓𓈖𓂋𓉔𓎛𓐍𓄡𓊃𓋴𓈙𓈎𓎡𓎼𓏏𓍿𓂧𓆓𓋹𓂀𓇳𓆣𓁹𓃭𓊹𓋞𓇯𓊖𓉐𓆄𓅃𓀭𓁐𓂻"];
+function wallHTML(cols){let seed=11;const r=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};let h="";for(let c=0;c<cols;c++){let s="";for(let i=0;i<26;i++)s+=SIGNS[Math.floor(r()*SIGNS.length)];h+=`<span class="col">${s}</span>`;}return `<div class="wall">${h}</div>`;}
+const words=t=>esc(t).split(" ").map((w,i)=>`<span class="w" style="animation-delay:${200+i*110}ms">${w}</span>`).join(" ");
+
+function renderWorld(id){
+  const W=WORLDS[id]; const isTomb=W.fx==="tomb";
+  const bg = W.video ? `<video autoplay muted loop playsinline poster="${IMG[W.photo]}" src="${W.video}"></video>` : `<img class="${isTomb?"dim":""}" src="${IMG[W.photo]}" alt="">`;
+  const open = `<section class="wopen" id="wopen">${bg}
+    ${isTomb?`<div class="wall--dim">${wallHTML(26)}</div><div class="lit" id="lit"><img src="${IMG[W.photo]}" alt="">${wallHTML(26)}</div>`:`<canvas data-fx="${W.fx}"></canvas>`}
+    <div class="wshade"></div>${W.video?`<span class="vbadge">${esc(W.vcredit)}</span>`:""}
+    ${isTomb?`<p class="hint">✦ Move your torch across the wall</p>`:""}
+    <div class="wtxt"><p class="eyebrow">${esc(W.eyebrow)}</p><h1>${words(W.title)}</h1><p class="lead">${esc(W.lead)}</p>${W.quote?`<p class="wq">${esc(W.quote)}</p>`:""}
+      <div class="wchips">${W.chips.map(c=>`<span>${esc(c)}</span>`).join("")}</div>
+      <div class="wacts"><a class="btn btn--gold" href="#wchoose" data-wjump="wchoose">Book this trip</a><a class="btn btn--ghost-light" href="#wjourney" data-wjump="wjourney">${esc(W.go)} ↓</a></div></div></section>`;
+  const layers = W.steps.map((s,i)=> s.img ? `<img class="${i?"":"on"}" data-j="${i}" src="${IMG[s.img]}" alt="">`
+      : s.wall ? `<div class="jlayer ${i?"":"on"}" data-j="${i}" style="background:#0c0a07">${wallHTML(30).replace('class="wall"','class="wall" style="opacity:.25"')}</div>`
+      : `<div class="jlayer ${i?"":"on"}" data-j="${i}"><img src="${IMG[W.photo]}" alt="" style="width:100%;height:100%;object-fit:cover;filter:${s.tone==="night"?"brightness(.45) saturate(.6) hue-rotate(-15deg)":s.tone==="dark"?"brightness(.5) contrast(1.1) saturate(.6)":"brightness(.75) saturate(1.1)"};transform:scale(${1+i*.12}) translate(${i*-2}%,${i*1.5}%)"></div>`).join("");
+  const journey = `<section class="journey2" id="wjourney"><div class="jstage">${layers}${W.fx!=="tomb"?`<canvas data-fx="${W.fx}-j"></canvas>`:""}
+      <div class="jhead"><p class="eyebrow">${esc(W.jEyebrow)}</p><h2>${esc(W.jTitle)}</h2></div>
+      <div class="path">${W.steps.map((s,i)=>`<span class="${i?"":"on"}">${esc(s.t)}</span>`).join("")}</div></div>
+    <div class="jsteps">${W.steps.map((s,i)=>`<div class="jstep" data-js="${i}"><article><span class="n">${String(i+1).padStart(2,"0")}</span><h3>${esc(s.t)}</h3><p>${esc(s.p)}</p>${s.why?`<p class="why">${esc(s.why)}</p>`:""}</article></div>`).join("")}</div></section>`;
+  const S=W.sec;
+  const sec = `<section class="wsec ${S.night?"wsec--night":""}">${S.night?`<canvas data-fx="stars"></canvas>`:""}${S.wall||isTomb?wallHTML(34):""}<div class="wsec__in">
+      <div><p class="eyebrow">${esc(S.eyebrow)}</p><h2>${esc(S.title)}</h2>${S.ps.map(p=>`<p>${esc(p)}</p>`).join("")}</div>
+      <div class="tablets">${S.tabs.map(([g,b,t])=>`<div class="tablet"><i>${g}</i><span>${b?`<b>${esc(b)}</b>`:""}${esc(t)}</span></div>`).join("")}</div></div></section>`;
+  const papy = `<section class="papy"><div class="papy__in">${W.papy.map(([e,h,p,v])=>`<div><p class="eyebrow">${esc(e)}</p><h2>${esc(h)}</h2><p>${esc(p)}</p>${v?`<div class="wvid"><video autoplay muted loop playsinline src="video/karnak-columns.mp4" poster="${IMG.valley}"></video><small>Karnak Temple, Luxor · Video: BOB DK, Pexels</small></div>`:""}</div>`).join("")}</div></section>`;
+  const opts = W.opts.map(o=>`<div class="wopt ${o.pick?"wopt--pick":""}"><div>${o.pick?`<span class="pk">✓ Our pick${o.why?`<span class="why">${esc(o.why)}</span>`:""}</span>`:""}<h3>${esc(o.n)}</h3><div class="facts"><span class="pchip ${PCHIP[o.p]}">${esc(o.p)}</span>${o.f.map(f=>`<span>${esc(f)}</span>`).join("")}</div></div>
+      <button type="button" class="btn ${o.pick||!W.opts.some(x=>x.pick)&&o===W.opts[0]?"btn--gold":"btn--line"} btn--sm" data-wbook="${esc(o.p)}|${esc(o.n)}">Book ↗</button></div>`).join("");
+  const cmp = `<button type="button" class="wcmp" id="wcmp" aria-expanded="false">Compare side by side</button><table class="wtbl" id="wtbl" hidden><thead><tr><th></th>${W.opts.map(o=>`<th>${esc(o.p)}</th>`).join("")}</tr></thead><tbody>${W.cmp.map(([k,...v])=>`<tr><td>${k}</td>${v.map(x=>`<td class="${x==="Yes"?"yes":x==="Not stated"?"no":""}">${esc(x)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  const stay = W.stay?`<div class="wstay"><h3>${esc(W.stay.title)}</h3>${W.stay.rows.map(([n,l])=>`<div class="wopt"><div><h3 style="font-size:17px">${esc(n)}</h3><div class="facts"><span class="pchip pchip--trip">Trip.com</span><span>${esc(l)}</span></div></div><button type="button" class="btn btn--line btn--sm" data-wbook="Trip.com|${esc(n)}">See hotels ↗</button></div>`).join("")}</div>`:"";
+  const choose = `<section class="choose2" id="wchoose"><div class="choose2__grid"><div class="choose2__photo"><img src="${IMG[W.steps.find(s=>s.img)?.img||W.photo]}" alt=""></div>
+      <div><div class="wdone" id="wdone" hidden><b id="wdone-b"></b><p id="wdone-p"></p><p>Choose your date and see the price there. Egypt Roamer never takes bookings or payments.</p></div>
+        <p class="eyebrow">Book this trip</p><h2>Choose your way in</h2><div class="wsum">${W.sum.map(s=>`<span>${esc(s)}</span>`).join("")}</div>
+        ${cmp}${opts}${stay}<p class="wout">Each button opens the partner’s site in a new tab. Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you. It never influences what we recommend. <a href="#">How we work with partners</a></p></div></div></section>`;
+  const capsule = `<a class="capsule" href="#wchoose" data-wjump="wchoose" id="wcap"><span><b>${esc(W.title.split(":")[0].split(" & ")[0])}</b><br><small style="opacity:.75">${W.opts.length} options</small></span><span class="btn btn--gold btn--sm">Book this trip</span></a>`;
+  const host=document.getElementById("world");
+  host.className="world "+W.cls; host.innerHTML=open+journey+sec+papy+choose+capsule+`<div class="wfoot"></div>`;
+  wireWorld(W);
+}
+let stopFx=[];
+function wireWorld(W){
+  stopFx.forEach(f=>f()); stopFx=[];
+  const host=document.getElementById("world");
+  // the descent / journey: the step in view lights its mark and its picture
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=e.target.dataset.js;host.querySelectorAll("[data-j]").forEach(x=>x.classList.toggle("on",x.dataset.j===i));host.querySelectorAll(".path span").forEach((x,k)=>x.classList.toggle("on",String(k)===i));}}),{root:vp,threshold:.55});
+  host.querySelectorAll(".jstep").forEach(s=>io.observe(s)); stopFx.push(()=>io.disconnect());
+  const cap=host.querySelector("#wcap"); const io2=new IntersectionObserver(([e])=>cap.style.visibility=e.isIntersecting?"hidden":"visible",{root:vp,threshold:.2}); io2.observe(host.querySelector("#wchoose")); stopFx.push(()=>io2.disconnect());
+  host.querySelector("#wcmp").addEventListener("click",e=>{const t=host.querySelector("#wtbl");t.hidden=!t.hidden;e.target.setAttribute("aria-expanded",String(!t.hidden));e.target.textContent=t.hidden?"Compare side by side":"Hide comparison";});
+  if(W.fx==="tomb") torch();
+  host.querySelectorAll("canvas[data-fx]").forEach(c=>stopFx.push(fx(c,c.dataset.fx)));
+}
+function torch(){
+  const open=document.getElementById("wopen"), lit=document.getElementById("lit"); let idle=true, run=true; const t0=performance.now();
+  const set=(x,y)=>{lit.style.setProperty("--x",x+"px");lit.style.setProperty("--y",y+"px");};
+  open.addEventListener("pointermove",e=>{idle=false;const r=open.getBoundingClientRect();set(e.clientX-r.left,e.clientY-r.top);});
+  open.addEventListener("pointerleave",()=>idle=true);
+  (function drift(t){if(!run)return;if(idle){const r=open.getBoundingClientRect();const k=(t-t0)/4200;set(r.width*(.64+.15*Math.sin(k)),r.height*(.4+.13*Math.sin(k*1.7)));} if(!REDUCE) requestAnimationFrame(drift);})(t0);
+  stopFx.push(()=>run=false);
+}
+const REDUCE=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function fx(c,kind){
+  if(REDUCE) return ()=>{};
+  const ctx=c.getContext("2d"); let W=0,H=0,run=true; const dpr=devicePixelRatio||1;
+  const base=kind.replace("-j",""); const n=base==="sea"?70:base==="desert"?240:base==="stars"?220:90;
+  const P=Array.from({length:n},()=>({x:Math.random(),y:Math.random(),r:Math.random(),v:.2+Math.random()*.8,p:Math.random()*6.28}));
+  (function frame(t){ if(!run) return; if(c.clientWidth*dpr!==W||c.clientHeight*dpr!==H){W=c.width=c.clientWidth*dpr;H=c.height=c.clientHeight*dpr;} ctx.clearRect(0,0,W,H);
+    if(base==="sea"){ for(let i=0;i<6;i++){const g=ctx.createLinearGradient(0,0,0,H*.75);const x=(Math.sin(t/2600+i*1.3)*.5+.5)*W;g.addColorStop(0,"rgba(170,240,255,.15)");g.addColorStop(1,"rgba(170,240,255,0)");ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(x-40*dpr,0);ctx.lineTo(x+40*dpr,0);ctx.lineTo(x+160*dpr*Math.sin(t/3000+i),H*.75);ctx.lineTo(x+60*dpr*Math.sin(t/3000+i),H*.75);ctx.fill();}
+      P.forEach(b=>{b.y-=b.v*.0016;if(b.y<-.05){b.y=1.05;b.x=Math.random();}ctx.strokeStyle="rgba(220,250,255,.5)";ctx.lineWidth=dpr;ctx.beginPath();ctx.arc((b.x+Math.sin(t/900+b.p)*.004)*W,b.y*H,(1+b.r*3.5)*dpr,0,6.28);ctx.stroke();}); }
+    else if(base==="desert"||base==="stars"){ const night=base==="stars"?1:(Math.sin(t/14000*Math.PI-Math.PI/2)*.5+.5);
+      P.forEach((s,i)=>{ if(base==="stars"||i<160){const a=night*(.35+.65*Math.abs(Math.sin(t/700+s.p)));ctx.fillStyle=`rgba(255,250,235,${a*.9})`;const z=(s.r*1.6+.5)*dpr;ctx.fillRect(s.x*W,s.y*H*(base==="stars"?1:.55),z,z);}
+        else {s.x+=s.v*.0012;if(s.x>1.05){s.x=-.05;s.y=Math.random();}ctx.fillStyle="rgba(240,215,170,.35)";ctx.fillRect(s.x*W,(.6+s.y*.4)*H,(1+s.r*2)*dpr,dpr);} }); }
+    else { P.forEach(l=>{const x=l.x*W,y=(.62+l.y*.38)*H,w=(10+l.r*50)*dpr*(.7+.3*Math.sin(t/400+l.p));ctx.fillStyle=`rgba(${l.r>.5?"255,190,110":"255,235,190"},${.12+.25*Math.abs(Math.sin(t/600+l.p))})`;ctx.fillRect(x-w/2,y,w,1.6*dpr);}); }
+    requestAnimationFrame(frame);})(performance.now());
+  return ()=>run=false;
+}
+
+renderHome(); go(1);
+</script>
