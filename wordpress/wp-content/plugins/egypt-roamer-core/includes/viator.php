@@ -8,7 +8,7 @@
  *     wp-config.php). It is stored with autoload off and never printed back.
  *   - For each live Viator offer, the product code is read from its target URL (".../d826-224493P18" →
  *     "224493P18"), GET /partner/products/{code} returns its images, and the cover image's URL (Viator's CDN) is
- *     kept in the er_viator_images option. Viator asks partners to cache content: refreshed once a day by cron.
+ *     kept in the er_viator_images option. Viator allows single-product responses to be cached for up to 1 hour (Technical Guide), so cron refreshes hourly.
  *   - Only image URLs are used. Reviews and "viatorUniqueContent" must not be indexed under the API terms; they
  *     are never read or shown.
  */
@@ -26,7 +26,7 @@ function er_viator_key(): string {
 
 /** "https://www.viator.com/tours/Luxor/Full-Day-Tour/d826-224493P18" → "224493P18". */
 function er_viator_product_code( string $url ): string {
-	return preg_match( '#/d\d+-([0-9A-Za-z]+P\d+)(?:[/?#]|$)#', $url, $m ) ? $m[1] : '';
+	return preg_match( '~/d\d+-([0-9A-Za-z]+P\d+)(?:[/?#]|$)~', $url, $m ) ? $m[1] : '';
 }
 
 /** Live offers that point to viator.com: slug → product code. */
@@ -55,7 +55,7 @@ function er_viator_fetch_image( string $code, int $min = 240 ): array {
 		return [ 'error' => 'no key' ];
 	}
 	$res = wp_remote_get( ER_VIATOR_API . rawurlencode( $code ), [
-		'timeout' => 15,
+		'timeout' => 8,
 		'headers' => [ 'exp-api-key' => $key, 'Accept' => 'application/json;version=2.0', 'Accept-Language' => 'en-US' ],
 	] );
 	if ( is_wp_error( $res ) ) {
@@ -92,6 +92,9 @@ function er_viator_fetch_image( string $code, int $min = 240 ): array {
 
 /** Refresh every Viator offer's photo; keeps the last good URL when a refresh fails. */
 function er_viator_refresh_all(): array {
+	if ( function_exists( 'set_time_limit' ) ) {
+		@set_time_limit( 180 ); // ~15 offers, up to 8s each.
+	}
 	$store = (array) get_option( 'er_viator_images', [] );
 	$log   = [];
 	foreach ( er_viator_offers() as $slug => $code ) {
@@ -118,11 +121,11 @@ function er_viator_image_for_offer( int $offer_id ): string {
 	return (string) ( $store[ (string) get_post_field( 'post_name', $offer_id ) ]['url'] ?? '' );
 }
 
-/* Daily refresh while a key is set. */
+/* Hourly refresh while a key is set (the 1-hour cache limit). */
 add_action( 'er_viator_refresh', 'er_viator_refresh_all' );
 add_action( 'init', static function () {
 	if ( '' !== er_viator_key() && ! wp_next_scheduled( 'er_viator_refresh' ) ) {
-		wp_schedule_event( time() + HOUR_IN_SECONDS, 'daily', 'er_viator_refresh' );
+		wp_schedule_event( time() + HOUR_IN_SECONDS, 'hourly', 'er_viator_refresh' );
 	}
 } );
 

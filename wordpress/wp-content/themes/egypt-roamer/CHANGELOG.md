@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.73 (Core 1.2.50) — 2026-10-16: Viator offers can show their own trip photo
+- **Owner:** each offer in the booking panel shows its own trip's photo from the partner. Viator supplies product photos only through its Partner API (docs/PARTNER-OPTIONS-2026-10-16.md §4).
+- **Core `includes/viator.php`:** wp-admin → Egypt Roamer → **Viator photos**, where the owner pastes the API key (password field, never shown again; option with autoload off, or `ER_VIATOR_API_KEY`). For each live Viator offer the product code is read from its URL, `GET /partner/products/{code}` returns its images, and the cover photo's URL (Viator's CDN) is stored. Refreshed hourly: Viator's Technical Guide allows single-product responses to be cached for up to 1 hour. Only image URLs are used, never reviews or other content.
+- **Theme:** `er_offer_thumb()` shows the Viator photo first; an offer with an explicit stock photo keeps it. With no key, or no photo yet, nothing changes.
+- Fixed before release: the product-code regex used `#` as its delimiter while its class contained `#`. A slow API can no longer push the save past the PHP time limit (8 s per request, 180 s limit for the refresh).
+
 ## 1.2.72 (Core 1.2.49) — 2026-10-16: GetYourGuide offers get their own photo
 - **Owner:** keep GetYourGuide offers in our design, with a free photo as close as possible to GYG's own (GYG's terms forbid copying its photos; it has no self-serve API).
 - Each of the 9 GYG offers now shows a free Unsplash photo tagged with the exact place, matched to the subject of GYG's product photo: Ras Mohammed water, the Qaitbay harbour, a camel at the pyramids, Nile boats and the Cairo skyline, the Abu Simbel façade, a Hurghada reef with a diver, 4×4s at Bahariya, palms at sunset in Siwa, the Valley of the Kings' cliffs. The source of each is in `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5; `offer-facts.json` "stock".
