@@ -87,6 +87,15 @@ The owner's target is tourists from Europe, Russia and China. Booking.com does n
 ### Ostrovok.ru: only through Travelpayouts
 - Travelpayouts lists 6%. This is not confirmed on Ostrovok's own pages.
 
+### Status (2026-10-16)
+- **Approved** as an Individual affiliate (Industry: Content; method: Click-out).
+- **Account ID (Allianceid):** 11023279. **Site:** "Egypt Roamer", SID 333624383, URL https://egyptroamer.com (set in Account → Manage My Sites).
+- **Link format,** confirmed in the portal's Affiliate Link tool: `<any trip.com URL>?Allianceid=11023279&SID=333624383&trip_sub1=<label>&trip_sub3=D20253592`.
+  - `trip_sub1` is our tracking label, e.g. `er-{lang}-{placement}`. `trip_sub3` is added by the tool.
+  - These IDs appear in every public link; they are not secrets.
+- **Bank details:** empty on 2026-10-16. The owner fills them; we never do.
+- **Not yet on the site:** the hotel boxes are the next task.
+
 ### Plan
 1. **Trip.com** as the hotel partner for all languages. The owner signs up, then sends the affiliate ID.
 2. **ZH pages:**
