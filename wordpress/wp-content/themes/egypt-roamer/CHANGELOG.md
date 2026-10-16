@@ -2,6 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.72 (Core 1.2.49) — 2026-10-16: GetYourGuide offers get their own photo
+- **Owner:** keep GetYourGuide offers in our design, with a free photo as close as possible to GYG's own (GYG's terms forbid copying its photos; it has no self-serve API).
+- Each of the 9 GYG offers now shows a free Unsplash photo tagged with the exact place, matched to the subject of GYG's product photo: Ras Mohammed water, the Qaitbay harbour, a camel at the pyramids, Nile boats and the Cairo skyline, the Abu Simbel façade, a Hurghada reef with a diver, 4×4s at Bahariya, palms at sunset in Siwa, the Valley of the Kings' cliffs. The source of each is in `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5; `offer-facts.json` "stock".
+- Viator offers keep the experience's photo until the Viator API key is in place.
+
 ## 1.2.72 — 2026-10-16: photos in the content cards (preview `?ux=2`)
 - **Step 3 of the photo plan:** the cards that describe each place show its photo at the top (`er_card_photos()`, Core 1.2.48 `data/card-photos.json`, matched by section and card position in every language).
 - **Placed:** the Valley of the Kings and Hatshepsut's temple (Valley of the Kings page), and the Citadel of Qaitbay, the Bibliotheca Alexandrina and Pompey's Pillar (Alexandria). All are free Unsplash photos tagged with the exact place.
