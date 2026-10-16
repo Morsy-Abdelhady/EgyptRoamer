@@ -261,6 +261,8 @@ return [
 		'Trip builder' => '行程规划',
 		'Trip length in nights' => '行程晚数',
 		'Trip options' => '行程选项',
+		'Trips and hotels in {name}' => '{name}的行程与酒店',
+		'Trips in this guide' => '本指南中的行程',
 		'Try:' => '例如：',
 		'UNESCO World Heritage Sites' => '处联合国教科文组织世界遗产',
 		'Unforgettable.' => '终生难忘。',

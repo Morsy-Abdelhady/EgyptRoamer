@@ -261,6 +261,8 @@ return [
 		'Trip builder' => 'Reiseplaner',
 		'Trip length in nights' => 'Reisedauer in Nächten',
 		'Trip options' => 'Angebote für diese Tour',
+		'Trips and hotels in {name}' => 'Touren und Hotels in {name}',
+		'Trips in this guide' => 'Touren in diesem Reiseführer',
 		'Try:' => 'Zum Beispiel:',
 		'UNESCO World Heritage Sites' => 'UNESCO-Welterbestätten',
 		'Unforgettable.' => 'Unvergesslich.',

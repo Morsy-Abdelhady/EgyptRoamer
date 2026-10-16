@@ -1432,6 +1432,24 @@
    "Вариантов: {n}",
    "{n} 个选项",
    "{n} خيارات"
+  ],
+  "Trips and hotels in {name}": [
+   "Touren und Hotels in {name}",
+   "Excursions et hôtels à {name}",
+   "Escursioni e hotel a {name}",
+   "Excursiones y hoteles en {name}",
+   "Поездки и отели: {name}",
+   "{name}的行程与酒店",
+   "رحلات وفنادق في {name}"
+  ],
+  "Trips in this guide": [
+   "Touren in diesem Reiseführer",
+   "Excursions de ce guide",
+   "Escursioni in questa guida",
+   "Excursiones de esta guía",
+   "Поездки из этого гида",
+   "本指南中的行程",
+   "رحلات هذا الدليل"
   ]
  }
 }

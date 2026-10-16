@@ -261,6 +261,8 @@ return [
 		'Trip builder' => 'Планировщик',
 		'Trip length in nights' => 'Длительность поездки в ночах',
 		'Trip options' => 'Варианты поездки',
+		'Trips and hotels in {name}' => 'Поездки и отели: {name}',
+		'Trips in this guide' => 'Поездки из этого гида',
 		'Try:' => 'Например:',
 		'UNESCO World Heritage Sites' => 'объектов Всемирного наследия ЮНЕСКО',
 		'Unforgettable.' => 'Незабываемый.',

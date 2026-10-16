@@ -26,11 +26,17 @@ while ( have_posts() ) :
 	$er_dests   = 'er_guide' === $er_type ? er_get_related( $er_id, '_er_destination' ) : [];
 	$er_related = 'er_guide' === $er_type ? er_get_related( $er_id, '_er_related' ) : [];
 	$er_book    = 'er_guide' === $er_type ? er_page_offers() : [];
+	// New journey (step A, owner 16 Oct): the same booking panel as on trip pages, with the trips the guide covers,
+	// and hotels when it is about one destination. The pick only when the guide covers one trip (its options).
+	$er_hotels  = $er_book && er_ux2() && 1 === count( $er_dests ) && function_exists( 'er_hotel_offers_for_post' ) ? er_hotel_offers_for_post( (int) $er_dests[0]->ID, 4 ) : [];
+	$er_new     = er_ux2() && $er_book;
 
 	// Sidebar (wide screens), as on destinations and experiences: the booking box, pinned while reading, and the
 	// destinations the guide covers. Below 1200px both give way to the in-article box and the sections at the end.
 	ob_start();
-	if ( $er_book ) :
+	if ( $er_new ) :
+		er_booking_panel( $er_book, $er_hotels, $er_hotels ? get_the_title( $er_dests[0] ) : '', 'guide', er_t( 'Trips in this guide' ), [], 1 === count( $er_related ) );
+	elseif ( $er_book ) :
 		?>
 		<div class="offer-box is-wide-only" role="region" aria-labelledby="aside-book-title">
 			<p class="t-label" id="aside-book-title"><?php er_e( 'Book with our partners' ); ?></p>
@@ -63,13 +69,14 @@ while ( have_posts() ) :
 		'stock'   => 'er_guide' === $er_type && function_exists( 'er_stock_id_for' ) ? er_stock_id_for( (int) $er_id ) : '',
 		'meta'    => $er_meta,
 		'measure' => '' === $er_aside,
+		'actions' => $er_new ? '<a class="btn btn--primary" href="#book" data-sheet>' . esc_html( er_book_label() ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>' : '',
 	] );
 	$er_body = er_body();
 	er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
 	er_book_bar(); // As on experience pages (owner, 15 Oct).
 	// Booking box inside the article, after its second section (below 1200px, where there is no sidebar): a reader
 	// who has decided should not have to reach the cards at the very end.
-	if ( $er_book ) {
+	if ( $er_book && ! $er_new ) {
 		ob_start();
 		?>
 		<aside class="offer-box offer-box--inline is-narrow-only" id="book" aria-labelledby="book-title">

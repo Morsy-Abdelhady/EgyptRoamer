@@ -718,9 +718,9 @@ add_action( 'wp_footer', static function (): void {
 	<?php
 } );
 
-/* New journey (P7): a trip page on a phone has one fixed bar, "Book this trip"; the dock steps aside there. */
+/* New journey (P7): a page with the booking panel has one fixed bar on phones; the dock steps aside there. */
 add_filter( 'body_class', static function ( array $classes ): array {
-	if ( er_ux2() && is_singular( 'er_experience' ) && '#book' === er_book_anchor() ) {
+	if ( er_ux2() && is_singular( [ 'er_experience', 'er_destination', 'er_guide' ] ) && '#book' === er_book_anchor() ) {
 		$classes[] = 'er-trip-bar';
 	}
 	return $classes;
@@ -909,7 +909,7 @@ function er_pick_reason( int $pick, array $offers ): string {
  * @param string   $placement placement prefix, e.g. "experience".
  * @param string[] $summary   the trip's own facts for the panel's first line (duration, location).
  */
-function er_booking_panel( array $offers, array $hotels, string $stay_name, string $placement, string $title, array $summary = [] ): void {
+function er_booking_panel( array $offers, array $hotels, string $stay_name, string $placement, string $title, array $summary = [], bool $with_pick = true ): void {
 	if ( ! function_exists( 'er_offer_data' ) || ( ! $offers && ! $hotels ) ) {
 		return;
 	}
@@ -917,7 +917,7 @@ function er_booking_panel( array $offers, array $hotels, string $stay_name, stri
 	$facts  = static fn ( int $id ): array => function_exists( 'er_offer_facts' ) ? er_offer_facts( $id ) : [];
 	// The pick goes first; the rest keep their order.
 	$pick = 0;
-	foreach ( $offers as $id ) {
+	foreach ( $with_pick ? $offers : [] as $id ) {
 		if ( ! empty( $facts( (int) $id )['pick'] ) ) {
 			$pick = (int) $id;
 			break;
@@ -989,7 +989,7 @@ function er_book_anchor(): string {
 		return '';
 	}
 	$id = (int) get_queried_object_id();
-	if ( 'er_experience' === get_post_type( $id ) && function_exists( 'er_preview_for' ) && ! empty( er_preview_for( $id )['story'] ) ) {
+	if ( ! er_ux2() && 'er_experience' === get_post_type( $id ) && function_exists( 'er_preview_for' ) && ! empty( er_preview_for( $id )['story'] ) ) {
 		return '#plan';
 	}
 	return '#book';

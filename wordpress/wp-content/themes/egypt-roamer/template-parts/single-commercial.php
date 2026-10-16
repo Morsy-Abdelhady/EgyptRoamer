@@ -44,7 +44,8 @@ if ( ! empty( $er_facts[ er_t( 'Duration' ) ] ) ) {
 // that one narrative, built from the same approved body. The layout below (tabs, sidebar, card sections) is not used.
 $er_preview = function_exists( 'er_preview_for' ) ? er_preview_for( $er_id ) : [];
 $er_story   = (array) ( $er_preview['story'] ?? [] );
-if ( $er_story ) {
+// New journey: the story page books like every other trip (owner, 16 Oct: "make Abu Simbel like the other trips").
+if ( $er_story && ! er_ux2() ) {
 	$er_help_mode = function_exists( 'er_assistant_mode' ) ? er_assistant_mode() : 'off';
 	$er_help_chat = 'off' !== $er_help_mode && function_exists( 'er_chat_enabled' ) && er_chat_enabled();
 	$er_help      = '';

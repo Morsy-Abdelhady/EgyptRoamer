@@ -2,6 +2,15 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.78 — 2026-10-16: step A, one booking panel on every page (preview `?ux=2` only)
+- **Owner:** approved step A of the second review: one booking panel on every page, then B1 for the homepage. Abu Simbel should be like the other trips. Nothing may change for visitors: everything stays behind `?ux=2`.
+- **Destinations:** the trip page's panel, titled "Trips and hotels in {name}", with the destination's trips (up to 4) and hotels (up to 4), plus its best time. It replaces the sidebar box, the in-article trip and hotel boxes and the box after the article. No "Our pick": the trips differ, so a pick between them says nothing. Hero button "Choose a trip" opens the panel (the sheet on phones).
+- **Guides:** the same panel, "Trips in this guide", with the trips the guide covers, and hotels when it is about one destination. "Our pick" only when the guide covers one trip.
+- **Abu Simbel:** in the preview it uses the trip template, like every other trip (panel, facts, one phone bar), instead of the story layout. Without `?ux=2` the story is unchanged.
+- **Phones:** one fixed bar on every page with the panel (P7 extended to destinations and guides).
+- **Visitors:** checked locally. Without `?ux=2` the HTML of 12 pages (destinations, guides, trips, Arabic, home) is byte-for-byte the same as 1.2.77.
+- 2 new UI strings in all 8 languages.
+
 ## 1.2.77 — 2026-10-16: homepage trip cards follow P4 (preview `?ux=2`)
 - Found while checking 1.2.76 in a browser: the homepage rail is rebuilt by its script from the page data (`er_payload_experience()`), which still gave each card its partner link. In the preview the data now gives "See options" to the trip page and no partner link. The script-built cards show title, place and duration, but not the shared facts that the server-built cards show.
 

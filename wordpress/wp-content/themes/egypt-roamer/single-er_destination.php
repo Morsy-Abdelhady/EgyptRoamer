@@ -17,7 +17,10 @@ while ( have_posts() ) :
 	$er_acts   = er_get_referencing( $er_id, 'er_activity', '_er_destination', 6 );
 	$er_guides = er_get_referencing( $er_id, 'er_guide', '_er_destination', 6 );
 	$er_offers = er_offers_for_post( $er_id, 4 );
-	$er_hotels = function_exists( 'er_hotel_offers_for_post' ) ? er_hotel_offers_for_post( $er_id, 2 ) : [];
+	$er_hotels = function_exists( 'er_hotel_offers_for_post' ) ? er_hotel_offers_for_post( $er_id, er_ux2() ? 4 : 2 ) : [];
+	// New journey (step A, owner 16 Oct): the same booking panel as on trip pages, with the destination's trips and
+	// hotels; it replaces the sidebar box, the in-article boxes and the box after the article.
+	$er_new    = er_ux2() && ( $er_offers || $er_hotels );
 	$er_tag    = (string) get_post_meta( $er_id, '_er_tagline', true );
 	// No "Getting there" fact: its values are travel times, which the editorial fact policy leaves out
 	// (owner decision, 2026-09-29). The meta stays for the homepage map and cards.
@@ -31,7 +34,9 @@ while ( have_posts() ) :
 	// It used to end in "Plan My Trip", which left the page for the homepage planner: the only booking buttons
 	// were then the cards after the whole article (owner, 15 Oct). Below 1200px the box sits in the article.
 	ob_start();
-	if ( $er_offers ) :
+	if ( $er_new ) :
+		er_booking_panel( $er_offers, $er_hotels, get_the_title(), 'destination', er_t( 'Trips and hotels in {name}', [ 'name' => get_the_title() ] ), array_values( array_filter( [ ! empty( $er_facts[ er_t( 'Best time' ) ] ) ? er_t( 'Best time' ) . ': ' . $er_facts[ er_t( 'Best time' ) ] : '' ] ) ), false );
+	elseif ( $er_offers ) :
 		?>
 		<div class="offer-box is-wide-only" role="region" aria-labelledby="aside-book-title">
 			<p class="t-label" id="aside-book-title"><?php echo esc_html( er_t( 'Book {name} with our partners', [ 'name' => get_the_title() ] ) ); ?></p>
@@ -62,13 +67,13 @@ while ( have_posts() ) :
 		'image'   => (int) get_post_thumbnail_id(),
 		'stock'   => er_stock_id_for( (int) get_the_ID() ),
 		'measure' => '' === $er_aside,
-		'actions' => $er_offers ? '<a class="btn btn--primary" href="#book">' . esc_html( er_t( 'Book {name} with our partners', [ 'name' => get_the_title() ] ) ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>' : '',
+		'actions' => $er_new ? '<a class="btn btn--primary" href="#book" data-sheet>' . esc_html( er_book_label() ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>' : ( $er_offers ? '<a class="btn btn--primary" href="#book">' . esc_html( er_t( 'Book {name} with our partners', [ 'name' => get_the_title() ] ) ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>' : '' ),
 	] );
 	$er_body = er_body();
 	er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
 	er_book_bar(); // As on experience pages (owner, 15 Oct).
 	// Below 1200px (no sidebar): the booking box inside the article, after its second section, as on guides.
-	if ( $er_offers ) {
+	if ( $er_offers && ! $er_new ) {
 		ob_start();
 		?>
 		<aside class="offer-box offer-box--inline is-narrow-only" aria-labelledby="inline-book-title">
@@ -85,7 +90,7 @@ while ( have_posts() ) :
 	}
 	// Hotels: their own box at the end of the "Where to stay" section, where the reader picks an area
 	// (else after "How long, and when to go", else at the end of the article). Kept out of the tour box.
-	if ( $er_hotels ) {
+	if ( $er_hotels && ! $er_new ) {
 		ob_start();
 		?>
 		<aside class="offer-box offer-box--inline offer-box--hotels" aria-labelledby="hotels-book-title">
@@ -123,7 +128,7 @@ while ( have_posts() ) :
 			</section>
 		<?php endif; ?>
 
-		<?php if ( $er_offers ) : ?>
+		<?php if ( $er_offers && ! $er_new ) : ?>
 			<section class="related offer-box offer-box--wide" id="book" aria-labelledby="offers-title">
 				<h2 id="offers-title" class="t-h2"><?php echo esc_html( er_t( 'Book {name} with our partners', [ 'name' => get_the_title() ] ) ); ?></h2>
 				<?php er_offer_rows( $er_offers, 'destination-offers' ); ?>

@@ -261,6 +261,8 @@ return [
 		'Trip builder' => 'مخطِّط الرحلة',
 		'Trip length in nights' => 'مدة الرحلة بالليالي',
 		'Trip options' => 'خيارات الرحلة',
+		'Trips and hotels in {name}' => 'رحلات وفنادق في {name}',
+		'Trips in this guide' => 'رحلات هذا الدليل',
 		'Try:' => 'مثلًا:',
 		'UNESCO World Heritage Sites' => 'مواقع على قائمة التراث العالمي لليونسكو',
 		'Unforgettable.' => 'لا تُنسى.',
