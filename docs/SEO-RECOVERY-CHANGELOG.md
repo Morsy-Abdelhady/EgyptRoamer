@@ -47,6 +47,16 @@ Every search-recovery action, with what it is expected to do and how to check it
 - **Test data, 15 Oct:** 26 `/go/` clicks and 27 page views. Treat all of 15 Oct as QA; real measurement effectively starts 16 Oct.
 - **Bing email (welcome, 15 Oct):** it recommends sitemap and URL submission. Both are done. The remaining 49 URLs wait for quota on 16 Oct.
 
+## 2026-10-16: indexing requests (scheduled task `egypt-roamer-indexing-requests-oct16`)
+
+| Change | Where | Verified | Expected effect | Check on |
+|---|---|---|---|---|
+| Requested indexing for 8 guides that were "URL is unknown to Google": AR Grand Egyptian Museum, EN Temples of Aswan and Lake Nasser, EN 14 days, EN Valley of the Kings, EN Great Sand Sea, AR Cairo at Night, EN Luxor West Bank, EN Red Sea dive sites | Search Console URL Inspection | "Indexing requested" for each | Priority crawl | 22 Oct |
+| Already on Google, no request needed: EN Inside the pyramids, EN and AR 10 days, EN Saqqara and Dahshur, EN Mount Sinai, EN Coptic Cairo, AR Valley of the Kings, AR Great Sand Sea | Search Console URL Inspection | "URL is on Google" | — | — |
+| Bing URL Submission: 89 URLs. The 15 Oct leftovers: 7 FR experiences (all except the 3 sent on 15 Oct), all IT, ES, RU and ZH experiences (40), and the destinations/experiences/guides archives in DE, FR, IT, ES, RU and ZH (18). Then the 11 EN guides from the Google list, their 11 AR versions, plus AR GEM and AR Cairo at Night | Bing WMT | "URLs submitted today 89", list now 190; quota left 11 | Bing crawls the rest of the multilingual set | 18 Oct, 22 Oct |
+
+- **Left for 22 Oct:** no Google quota error was hit. The remaining Arabic versions of the fourth-batch guides (Luxor West Bank, Saqqara, Red Sea, Mount Sinai, Coptic Cairo) were not inspected in Google; they are in Bing's list and IndexNow. Other-language guides (DE, FR, IT, ES, RU, ZH) rely on IndexNow and the sitemap.
+
 **Baseline at the start** (Search Console, 29 Sep–12 Oct):
 - 2 clicks, 37 impressions, average position 38.7, CTR 5.4%;
 - 30 pages indexed, 162 not.
