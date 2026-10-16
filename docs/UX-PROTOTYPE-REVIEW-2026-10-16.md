@@ -1,0 +1,75 @@
+# Prototype review: proposal 4 and the article template (16 Oct 2026)
+
+**Owner's request:** review every screen on desktop, tablet and phone, and list the problems and suggestions.
+
+**Method:**
+- Playwright captured 90 screens of both prototypes: 1440 px desktop, an 840 px tablet frame and a 390 px phone frame.
+- Each screen was checked automatically for sideways scroll, small tap targets and text under 10.5 px, then looked at by eye.
+
+**Automatic checks:**
+- No screen scrolls sideways.
+- There are no script errors.
+
+## Owner's additions during the review
+- **Missing production features:** the prototypes leave out the chat (Trip assistant), favourites, search and the full footer.
+- **Language switcher:** the prototypes have none either.
+
+All of these exist on the live site and must be in the approved design before rollout.
+
+## A. Problems (fix before approval)
+
+| # | Where | Size | Problem |
+|---|---|---|---|
+| A1 | All pages | All | The live site's header tools are missing: search, favourites and the language switcher. So are the floating Trip assistant and the full footer (newsletter, links, partners note, legal). |
+| A2 | Header | Tablet (600–900 px) | The nav links are hidden and there is no ☰ menu. Only "Choose a trip" is left, so a tablet visitor cannot reach Destinations or the Travel Guide. |
+| A3 | Trip, "Choose your way in" | Tablet and phone | The trip photo is full width and very tall (4:5) above the options, so the visitor scrolls past a whole screen of photo before the first Book button. |
+| A4 | Browse, trip cards | Tablet | The cards drop to one column, so each card is a full-width photo; the first card's text sits below the screen. Two columns fit at this width. |
+| A5 | Trip pages | Phone | The bottom booking bar covers the last lines of a section (for example "Photography rules…"). The page needs room under the content for the bar. |
+| A6 | Trip opener eyebrow | Phone | "Luxor · The West Bank · Ancient Thebes" wraps onto two letter-spaced lines and reads as broken. |
+| A7 | Phone tap targets | Phone | Several are too small to tap reliably (under the 44 px guideline): "Skip to booking" (22 px), "Compare side by side" (24 px), "Read the Cairo guide" (20 px), "Explore Destination" (25 px), the breadcrumb links (16 px), and the logo link (31 px). The video buttons are 32 px. |
+| A8 | Small text | All | "Where to go" (9.6 px) and "Capital · Nile Valley" (9.3 px) in the live moods and map sections, the photo credits in the article hero (10 px), and the logo strapline (8.5 px). |
+| A9 | Article hero excerpt | Phone | The excerpt is cut at four lines with "…", so a visitor never sees the end of the sentence. A shorter summary line is better than a cut one. |
+| A10 | Article on tablet | Tablet | The booking box drops under the article, so a tablet visitor reads the whole guide without a booking control. The phone's bottom bar should also show on tablet. |
+
+## B. Suggestions (experience and design)
+
+1. **Bring the live site's header and footer in unchanged** (fixes A1 and A2):
+   - search, favourites (♡) and the language menu in the header;
+   - one ☰ menu below 900 px holding the nav, the language and search;
+   - the Trip assistant button floating at the bottom, moved up when the booking bar is on screen;
+   - the live footer.
+2. **Language:**
+   - the prototype should show the language menu with all 8 languages, and Arabic in RTL for at least one page;
+   - the live theme already handles RTL (`rtl.css`), so the prototype's new parts (worlds, article template) should be checked in Arabic before rollout.
+3. **Booking section on tablet and phone (A3):**
+   - show the trip photo as a short banner (16:7) or a small thumbnail next to the title;
+   - the options and the first Book button must be on the first screen of the booking section.
+4. **One bottom booking bar on every trip and guide at phone and tablet widths:**
+   - the same look and behaviour in both templates;
+   - it hides only where a Book button is already on screen;
+   - the page gets bottom padding equal to the bar (A5).
+5. **Favourites:** a ♡ on every trip card and on the trip opener, since the live site already has favourites. Visitors who are comparing trips can save them and come back.
+6. **Tap targets and type (A7, A8):** set a 44 px minimum touch height for links and buttons on phones and an 11 px floor for small labels. Show photo and video credits in the "i" button instead of tiny text.
+7. **Phone opener:**
+   - shorten the eyebrow to the place only ("Luxor · West Bank");
+   - the lead to two sentences;
+   - so that "Book this trip" is on the first screen without scrolling.
+8. **Tablet browse:** two columns of trip cards; the place banners keep one row.
+9. **Trip worlds on phone:**
+   - the step scenes are tall (640 px each), so three steps are three screens of mostly photo;
+   - on phones, show the step text cards in a row the visitor swipes, over one shorter scene.
+10. **Homepage length on phone:**
+    - the story, moods, map and four chapters make a long scroll before any trip list;
+    - keep "Choose a trip" and "Where in Egypt?" in the hero (both are there) and add a short "Popular trips" row after chapter 1.
+
+## C. What works well (keep)
+- **Booking stays in reach:** visitors can book while reading. The capsule or bottom bar is on every trip, and the booking box sits beside every guide.
+- **Cancellation is clear:** free cancellation shows on every option, and the comparison table is useful.
+- **Media sits with its content:** the videos and the places strip sit next to the text they illustrate, each with its own controls.
+- **The live moods and map** now match production exactly.
+- **No sideways scroll** at any size.
+
+## Next step
+1. Fix A1–A10 and apply suggestions 1–4, 6 and 7 in the prototypes.
+2. Show them again on desktop, tablet and phone, in English and Arabic.
+3. Suggestions 5, 8, 9 and 10 are the owner's choice.
