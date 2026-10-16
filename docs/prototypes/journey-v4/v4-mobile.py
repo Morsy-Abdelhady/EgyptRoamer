@@ -38,14 +38,14 @@ CSS = '''
   .hero__lead{font-size:15px;margin:12px 0 20px}
   .hero__acts{display:flex;flex-direction:column;gap:10px}
   .hero__acts .btn{justify-content:center}
-  .finder2{flex-wrap:nowrap;overflow-x:auto;margin-inline:-18px;padding-inline:18px;scrollbar-width:none}
+  .finder2{flex-wrap:nowrap;overflow-x:auto;margin-inline:-18px;padding-inline:18px;scroll-padding-inline:18px;scrollbar-width:none}
   .finder2::-webkit-scrollbar{display:none}
   .finder2 > *{flex:none}
   .chapters{display:none}
   .ch{min-height:620px}
   .ch h2{font-size:50px!important}
   .ch__line{font-size:19px}
-  .ch__trips{display:flex!important;overflow-x:auto;gap:10px;padding:12px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .ch__trips{display:flex!important;overflow-x:auto;gap:10px;padding:12px;scroll-snap-type:x mandatory;scroll-padding-inline:12px;scrollbar-width:none}
   .ch__trips::-webkit-scrollbar{display:none}
   .ch__trips-h{min-width:0;flex:none;width:100%;display:none}
   .ch__trips .mini{flex:0 0 82%;scroll-snap-align:start}
@@ -59,7 +59,7 @@ CSS = '''
   .moods2__word{font-size:40px!important}
   .moods2__desc{font-size:16px}
   .sec__head h2{font-size:30px}
-  .dest2__row{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-18px;padding-inline:18px;gap:10px;scrollbar-width:none}
+  .dest2__row{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-18px;padding-inline:18px;scroll-padding-inline:18px;gap:10px;scrollbar-width:none}
   .dest2__row::-webkit-scrollbar{display:none}
   .dest2__row > *{flex:0 0 46%;scroll-snap-align:start}
 

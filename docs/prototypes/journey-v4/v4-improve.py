@@ -38,7 +38,7 @@ def worlds(w):
          'function lazyVideos(scope){\n  if(!lazyIO) lazyIO=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target; v._in=e.isIntersecting; if(e.isIntersecting){ if(VIDEOS_OFF) return; if(!v.getAttribute("src")) v.src=v.dataset.src; v.play().catch(()=>{}); } else v.pause(); }),{root:vp,rootMargin:"200px 0px",threshold:.1});'),
         ('const REDUCE=matchMedia("(prefers-reduced-motion: reduce)").matches;',
          'const REDUCE=matchMedia("(prefers-reduced-motion: reduce)").matches;\n'
-         'const CONN=navigator.connection||{}; const SAVE=!!CONN.saveData||/(^|-)2g|3g/.test(CONN.effectiveType||"");\n'
+         'const CONN=navigator.connection||{}; const SAVE=!!CONN.saveData;\n'
          'let VIDEOS_OFF=REDUCE||SAVE;'),
     ]
     for a, b in reps:
@@ -52,7 +52,7 @@ def worlds(w):
 // One switch for every video on the site (motion longer than five seconds must be pausable).
 function videoSwitch(){
   const b=document.getElementById("vswitch"); if(!b) return;
-  const paint=()=>{b.setAttribute("aria-pressed",String(!VIDEOS_OFF)); b.innerHTML=VIDEOS_OFF?`<span aria-hidden="true">▶</span> ${SAVE&&!REDUCE?"Videos off to save data · Play":"Play videos"}`:`<span aria-hidden="true">❚❚</span> Pause videos`;};
+  const paint=()=>{b.setAttribute("aria-pressed",String(!VIDEOS_OFF)); b.innerHTML=VIDEOS_OFF?`<span aria-hidden="true">▶</span> Play videos`:`<span aria-hidden="true">❚❚</span> Pause videos`;};
   b.addEventListener("click",()=>{VIDEOS_OFF=!VIDEOS_OFF; document.querySelectorAll("video").forEach(v=>{ if(VIDEOS_OFF) v.pause(); else if(v._in||v.classList.contains("on")||v.id==="mood-vid"){ if(!v.getAttribute("src")) v.src=v.dataset.src||v.dataset.jsrc||""; if(v.getAttribute("src")&&!v.hidden) v.play().catch(()=>{}); } }); paint();});
   paint();
 }

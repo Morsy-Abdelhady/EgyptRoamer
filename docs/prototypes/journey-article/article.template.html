@@ -82,7 +82,7 @@ a{color:inherit}
 .credit{position:absolute;right:16px;bottom:12px;z-index:2;font-size:11px;color:rgba(255,255,255,.75)}
 
 /* body: contents · reading column · booking box */
-.abody{display:grid;grid-template-columns:200px minmax(0,680px) 300px;gap:44px;justify-content:center;padding:52px 40px 20px;max-width:1340px;margin:0 auto}
+.abody{display:grid;grid-template-columns:minmax(0,680px) minmax(280px,320px);gap:56px;justify-content:center;padding:48px 40px 20px;max-width:1180px;margin:0 auto}
 .atoc{position:sticky;top:96px;align-self:start;font-size:13.5px}
 .atoc p{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);font-weight:600;margin:0 0 10px}
 .atoc ol{list-style:none;margin:0;padding:0;border-inline-start:1px solid var(--line)}
@@ -94,7 +94,7 @@ a{color:inherit}
 .prose > p:first-child{font:500 21px/1.6 var(--serif);color:var(--charcoal)}
 .prose > p:first-child::first-letter{float:left;font:600 64px/0.9 var(--serif);color:var(--gold-deep);margin:6px 10px 0 0}
 .prose p{margin:0 0 20px}
-.prose h2{font:600 31px/1.2 var(--serif);margin:52px 0 16px;scroll-margin-top:90px;display:flex;align-items:baseline;gap:14px}
+.prose h2{font:600 31px/1.2 var(--serif);margin:52px 0 16px;scroll-margin-top:136px;display:flex;align-items:baseline;gap:14px}
 .prose h2 small{font:600 13px var(--sans);color:var(--gold-deep);letter-spacing:.08em}
 .prose a{color:var(--nile);text-decoration:underline;text-decoration-color:rgba(201,162,39,.7);text-underline-offset:3px;text-decoration-thickness:1.5px}
 .prose ul{margin:0 0 22px;padding:0;list-style:none}
@@ -128,7 +128,7 @@ figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
 .bk .chips li{font-size:11.5px;padding:2px 9px}
 
 /* booking box: always beside the reading */
-.abox{position:sticky;top:96px;align-self:start}
+.abox{position:sticky;top:138px;align-self:start}
 .bk{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 14px 40px rgba(16,24,32,.08)}
 .bk__img{position:relative;height:150px}
 .bk__img img{width:100%;height:100%;object-fit:cover}
@@ -298,7 +298,7 @@ figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
 
   .amore{padding:40px 0 44px}
   .amore h2{font-size:25px}
-  .amore__g{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -18px;padding:0 18px 4px;gap:12px;scrollbar-width:none}
+  .amore__g{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:18px;margin:0 -18px;padding:0 18px 4px;gap:12px;scrollbar-width:none}
   .amore__g::-webkit-scrollbar{display:none}
   .gcard{flex:0 0 80%;scroll-snap-align:start}
   .ftr .wrap{flex-direction:column;gap:6px}
@@ -316,6 +316,24 @@ figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
   .lb .lb__p,.lb .lb__n{top:auto;bottom:16px;width:42px;height:42px}
   .lb .lb__p{left:calc(50% - 54px)}.lb .lb__n{right:calc(50% - 54px)}
   .lb .lb__x{top:12px;right:12px}
+}
+
+/* section tabs above the article, as on the live guide pages */
+.secbar{position:sticky;top:68px;z-index:15;background:rgba(248,245,237,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.secbar ol{display:flex;gap:4px;list-style:none;margin:0 auto;padding:0 40px;max-width:1180px;overflow-x:auto;scrollbar-width:none}
+.secbar ol::-webkit-scrollbar{display:none}
+.secbar li{flex:none}
+.secbar a{display:block;padding:15px 16px 13px;font-size:14px;text-decoration:none;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap}
+.secbar a:hover{color:var(--charcoal)}
+.secbar a.on{color:var(--charcoal);font-weight:600;border-color:var(--gold)}
+@container site (max-width:900px){
+  .abody{grid-template-columns:minmax(0,1fr)!important}
+  .abox{position:static!important}
+}
+@container site (max-width:600px){
+  .secbar{top:56px}
+  .secbar ol{padding:0 8px}
+  .secbar a{padding:12px 12px 10px;font-size:13.5px}
 }
 @media (prefers-reduced-motion:reduce){.mbar{transition:none}}
 @media (prefers-reduced-motion:reduce){.viewport{scroll-behavior:auto}.tcard,.gcard{transition:none}}
@@ -361,7 +379,8 @@ figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
     <h3>القراءة</h3>
     <ul>
       <li>عمود قراءة مريح (680px)، وأول فقرة مميزة.</li>
-      <li>الفهرس على الشمال بيعلّم القسم اللي إنت فيه، وخط ذهبي فوق بيبيّن إنت قريت قد إيه.</li>
+      <li>أقسام المقالة في شريط ثابت فوق النص، زي صفحات المقالات على الموقع دلوقتي. القسم اللي إنت فيه بيتعلّم، وخط ذهبي تحت الهيدر بيبيّن إنت قريت قد إيه.</li>
+      <li>الهيدر بيبقى لونه ثابت أول ما الصفحة تتحرك، فاللوجو والقايمة مش بيختفوا ورا النص.</li>
       <li>النصايح في كارت بلون البردي.</li>
       <li>الصور بتظهر بين الأقسام، ومكتوب تحت كل صورة مكانها ومصدرها.</li>
       <li><b>شريط "شوف الأماكن":</b> 3 أو 4 صور للأماكن اللي القسم بيتكلم عنها. لو ضغطت على صورة بتكبر، وتقدر تقلّب بالأسهم.</li>
@@ -383,7 +402,7 @@ figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
     </ul>
     <h3>الموبايل (زرار "موبايل" فوق)</h3>
     <ul>
-      <li>الفهرس بقى سطر واحد ثابت تحت الهيدر، مكتوب فيه القسم اللي إنت فيه، ولو ضغطت عليه بيفتح القايمة كلها.</li>
+      <li>شريط الأقسام نفسه بيتسحب بالصباع، وبيتحرك لوحده للقسم اللي إنت فيه.</li>
       <li>بيظهر شريط حجز ثابت تحت بعد الصورة الأولى: اسم الرحلة، "الإلغاء مجاني"، وزرار الاختيارات. وبيختفي لما يوصل لقسم "جاهز تروح؟" عشان ميتكررش.</li>
       <li>صندوق الحجز والفنادق بينزلوا بعد المقالة.</li>
       <li>شريط الأماكن و"اقرأ كمان" بيتسحبوا بالصباع يمين وشمال، والصورة المكبّرة بتقلّب بالسحب.</li>
@@ -451,7 +470,7 @@ function render(key){
   const more = `<section class="amore"><div class="wrap"><p class="eyebrow" style="color:var(--gold-deep)">Keep reading</p><h2>More on ${esc(A.crumb)}</h2><div class="amore__g">${A.more.map(g=>`<a class="gcard" href="#">${g.img?`<img src="${IMG[g.img]}" alt="" loading="lazy">`:`<span class="gtone" aria-hidden="true">𓊽</span>`}<div><small>Guide · ${g.mins} min read</small><h3>${esc(g.title)}</h3><p>${esc(g.excerpt)}</p></div></a>`).join("")}</div></div></section>`;
   $("#art").innerHTML =
     `<section class="ahero">${hero}<div class="wrap"><p class="crumb"><a href="#">Travel Guide</a><span>›</span><a href="#">${esc(A.crumb)}</a></p><p class="eyebrow">${esc(A.topic)} guide</p><h1>${esc(A.title)}</h1><p class="lead">${esc(A.excerpt)}</p><div class="ameta"><span>${A.mins} min read</span><span>${A.toc.length} sections</span><span>Sources listed</span></div></div><span class="credit">${esc(h[2])}</span></section>`
-    + `<div class="abody"><nav class="mtoc" id="mtoc" aria-label="In this guide"><button type="button" aria-expanded="false"><small>In this guide</small><b id="mtoc-cur">${esc(A.toc[0][1])}</b><i>▾</i></button><ol>${toc.replace(/data-toc=/g,"data-mtoc data-toc=")}</ol></nav><nav class="atoc" aria-label="In this guide"><p>In this guide</p><ol>${toc}</ol></nav><article class="prose">${body}${faq}<p class="asrc">Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.</p></article><aside class="abox">${box}</aside></div>`
+    + `<nav class="secbar" aria-label="In this guide"><ol>${toc}</ol></nav><div class="abody"><article class="prose">${body}${faq}<p class="asrc">Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.</p></article><aside class="abox">${box}</aside></div>`
     + end + more;
   $("#mbar").innerHTML = `<div><small>✓ Free cancellation</small><b>${esc(main.title)}</b></div><a class="btn btn--gold btn--sm" href="#">See ${main.n} options</a>`;
   const v = $("#art video"); $("#vswitch").hidden = !v; setSwitch(!!v && !REDUCE); lazyVids();
@@ -475,15 +494,17 @@ function lbOpen(i, from){ lbFrom = from; lbShow(i); $("#lb").hidden = false; $("
 function lbClose(){ $("#lb").hidden = true; lbFrom && lbFrom.focus(); }
 document.addEventListener("keydown", e=>{ if($("#lb").hidden) return; if(e.key==="Escape") lbClose(); if(e.key==="ArrowRight") lbShow(lbi+1); if(e.key==="ArrowLeft") lbShow(lbi-1); });
 $("#vswitch").onclick = () => setSwitch($("#vswitch").getAttribute("aria-pressed")!=="true");
+let lastTab = null;
 vp.addEventListener("scroll", ()=>{
   const lim = vp.getBoundingClientRect().top + vp.clientHeight*.35; let cur = null;
   document.querySelectorAll(".prose h2[id]").forEach(h=>{ if(h.getBoundingClientRect().top < lim) cur = h.id; });
   document.querySelectorAll("[data-toc]").forEach(a=>a.classList.toggle("on", a.dataset.toc===cur));
+  const on = document.querySelector(".secbar a.on"); if(on && on.dataset.toc !== lastTab){ lastTab = on.dataset.toc; const bar = on.closest("ol"); bar.scrollTo({left: on.offsetLeft - 40, behavior: REDUCE ? "auto" : "smooth"}); }
   const ca = document.querySelector(`.atoc [data-toc="${cur}"]`); if($("#mtoc-cur")) $("#mtoc-cur").textContent = ca ? ca.textContent : $(".atoc a").textContent;
   // the bar steps aside whenever another booking element is on screen, so the same button never shows twice
   const vr = vp.getBoundingClientRect(), seen = [...document.querySelectorAll("#art .aend, #art .bk, #art .tcard--slim")].some(x=>{ const r = x.getBoundingClientRect(); return r.top < vr.bottom - 72 && r.bottom > vr.top + 56; });
   $("#mbar").classList.toggle("is-on", vp.scrollTop > 420 && !seen);
-  $("#hdr").classList.toggle("is-solid", vp.scrollTop > 380);
+  $("#hdr").classList.toggle("is-solid", vp.scrollTop > 8);
   const art = $(".prose"); if(!art) return;
   const end = art.offsetTop + art.offsetHeight - vp.clientHeight;
   $("#prog").style.width = Math.max(0, Math.min(1, vp.scrollTop / Math.max(1,end))) * 100 + "%";

@@ -195,3 +195,11 @@ These replace the prototype's own moods and destination cards. `live-capture.mjs
 - the map keeps the whole country in view and updates its card;
 - "Discover" and "Explore Destination" open that place's trips;
 - "Build My Trip" opens browsing.
+
+## Owner's phone review fixes (16 Oct)
+- **Video switch:** the videos were off for the owner because the page guessed a slow connection from `navigator.connection.effectiveType`, which is unreliable.
+  - Only an explicit Data Saver setting or reduced motion turns them off now.
+  - The label is "Play videos" or "Pause videos".
+- **White strip:** the strip under the map is removed.
+- **Moods on phones:** all seven show in two rows.
+- **Swiped rows:** the first card keeps its gap from the edge (`scroll-padding`), so its hover border no longer touches the corner.

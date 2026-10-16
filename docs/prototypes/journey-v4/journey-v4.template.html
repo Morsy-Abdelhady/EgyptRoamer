@@ -537,14 +537,14 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
   .hero__lead{font-size:15px;margin:12px 0 20px}
   .hero__acts{display:flex;flex-direction:column;gap:10px}
   .hero__acts .btn{justify-content:center}
-  .finder2{flex-wrap:nowrap;overflow-x:auto;margin-inline:-18px;padding-inline:18px;scrollbar-width:none}
+  .finder2{flex-wrap:nowrap;overflow-x:auto;margin-inline:-18px;padding-inline:18px;scroll-padding-inline:18px;scrollbar-width:none}
   .finder2::-webkit-scrollbar{display:none}
   .finder2 > *{flex:none}
   .chapters{display:none}
   .ch{min-height:620px}
   .ch h2{font-size:50px!important}
   .ch__line{font-size:19px}
-  .ch__trips{display:flex!important;overflow-x:auto;gap:10px;padding:12px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .ch__trips{display:flex!important;overflow-x:auto;gap:10px;padding:12px;scroll-snap-type:x mandatory;scroll-padding-inline:12px;scrollbar-width:none}
   .ch__trips::-webkit-scrollbar{display:none}
   .ch__trips-h{min-width:0;flex:none;width:100%;display:none}
   .ch__trips .mini{flex:0 0 82%;scroll-snap-align:start}
@@ -558,7 +558,7 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
   .moods2__word{font-size:40px!important}
   .moods2__desc{font-size:16px}
   .sec__head h2{font-size:30px}
-  .dest2__row{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-18px;padding-inline:18px;gap:10px;scrollbar-width:none}
+  .dest2__row{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-18px;padding-inline:18px;scroll-padding-inline:18px;gap:10px;scrollbar-width:none}
   .dest2__row::-webkit-scrollbar{display:none}
   .dest2__row > *{flex:0 0 46%;scroll-snap-align:start}
 
@@ -912,7 +912,7 @@ linear-gradient(to top, var(--ink) 0%, transparent 40%);}
 }
 .live{display:block;font-family:var(--font-sans)}
 .live .moods__hint{display:none}
-@container site (max-width:600px){.live .moods{min-height:0}}
+@container site (max-width:600px){.live .moods{min-height:0}.live .moods__dial{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));overflow:visible!important;margin-inline:0!important;padding-inline:0!important;gap:18px 4px!important}.live .mood{width:auto!important;min-width:0}.live .mood__disc{width:62px!important;height:62px!important;margin-inline:auto}}
 </style>
 <header class="pbar">
   <div class="pbar__in">
@@ -969,7 +969,6 @@ linear-gradient(to top, var(--ink) 0%, transparent 40%);}
         </div></section>
 
         <div class="live" id="live"></div>
-        <p class="later wrap">The Roamer Journal and the trip planner follow here, as today.</p>
       </section>
 
       <!-- 2 · Browse: trips grouped by place, each place with its own line of story -->
@@ -1367,7 +1366,7 @@ function torch(){
   stopFx.push(()=>run=false);
 }
 const REDUCE=matchMedia("(prefers-reduced-motion: reduce)").matches;
-const CONN=navigator.connection||{}; const SAVE=!!CONN.saveData||/(^|-)2g|3g/.test(CONN.effectiveType||"");
+const CONN=navigator.connection||{}; const SAVE=!!CONN.saveData;
 let VIDEOS_OFF=REDUCE||SAVE;
 function fx(c,kind){
   if(REDUCE) return ()=>{};
@@ -1395,7 +1394,7 @@ function lazyVideos(scope){
 // One switch for every video on the site (motion longer than five seconds must be pausable).
 function videoSwitch(){
   const b=document.getElementById("vswitch"); if(!b) return;
-  const paint=()=>{b.setAttribute("aria-pressed",String(!VIDEOS_OFF)); b.innerHTML=VIDEOS_OFF?`<span aria-hidden="true">▶</span> ${SAVE&&!REDUCE?"Videos off to save data · Play":"Play videos"}`:`<span aria-hidden="true">❚❚</span> Pause videos`;};
+  const paint=()=>{b.setAttribute("aria-pressed",String(!VIDEOS_OFF)); b.innerHTML=VIDEOS_OFF?`<span aria-hidden="true">▶</span> Play videos`:`<span aria-hidden="true">❚❚</span> Pause videos`;};
   b.addEventListener("click",()=>{VIDEOS_OFF=!VIDEOS_OFF; document.querySelectorAll("video").forEach(v=>{ if(VIDEOS_OFF) v.pause(); else if(v._in||v.classList.contains("on")||v.id==="mood-vid"){ if(!v.getAttribute("src")) v.src=v.dataset.src||v.dataset.jsrc||""; if(v.getAttribute("src")&&!v.hidden) v.play().catch(()=>{}); } }); paint();});
   paint();
 }

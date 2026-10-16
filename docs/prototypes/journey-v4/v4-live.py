@@ -27,13 +27,13 @@ def css(cap):
     return '\n/* ---------- live site: Find your Egypt + The map (captured 16 Oct) ---------- */\n' + '\n'.join(out) + '''
 .live{display:block;font-family:var(--font-sans)}
 .live .moods__hint{display:none}
-@container site (max-width:600px){.live .moods{min-height:0}}
+@container site (max-width:600px){.live .moods{min-height:0}.live .moods__dial{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));overflow:visible!important;margin-inline:0!important;padding-inline:0!important;gap:18px 4px!important}.live .mood{width:auto!important;min-width:0}.live .mood__disc{width:62px!important;height:62px!important;margin-inline:auto}}
 '''
 
 def body(b):
     a = b.index('<section class="moods2 on-dark" id="moods">')
     e = b.index('</div></section>', b.index('<p class="later">')) + len('</div></section>')
-    return b[:a] + '<div class="live" id="live"></div>\n        <p class="later wrap">The Roamer Journal and the trip planner follow here, as today.</p>' + b[e:]
+    return b[:a] + '<div class="live" id="live"></div>' + b[e:]
 
 def js(j, cap):
     # the old moods and destination cards are gone from the page

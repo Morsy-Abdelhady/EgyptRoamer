@@ -80,3 +80,9 @@ No prices, ratings or reviews. The trip facts are the same as in proposal 4.
 - **Swiping:** the places strip and "Keep reading" are rows you swipe, and the lightbox swipes between photos.
 - **Width:** photos and video run full width.
 - **Checked** at 390 px: no sideways scroll and no script errors.
+
+## Owner's review fixes (16 Oct)
+- **Header:** it turns solid as soon as the page scrolls, so the logo and menu stay readable over the hero.
+- **Contents:** the side contents are replaced by a sticky row of section tabs above the article, as on the live guide pages.
+  - The current tab is marked and scrolls into view.
+  - The article is two columns (text and booking box), and one column below 900 px.
