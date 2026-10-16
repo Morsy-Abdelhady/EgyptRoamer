@@ -702,6 +702,11 @@ function er_partner_chip( string $provider_slug, string $provider_name ): string
  */
 function er_offer_thumb( array $o, string $stock = '' ): string {
 	$attrs = [ 'alt' => '', 'sizes' => '80px' ];
+	// A Viator offer: its own trip photo, supplied by the Viator Partner API (Core viator.php).
+	$viator = '' === $stock && ! empty( $o['id'] ) && function_exists( 'er_viator_image_for_offer' ) ? er_viator_image_for_offer( (int) $o['id'] ) : '';
+	if ( '' !== $viator ) {
+		return '<span class="bp__img"><img src="' . esc_url( $viator ) . '" alt="" loading="lazy" decoding="async" /></span>';
+	}
 	if ( '' === $stock && ! empty( $o['image_id'] ) ) {
 		return '<span class="bp__img">' . er_img( (int) $o['image_id'], 'thumbnail', [ 'alt' => '' ] ) . '</span>';
 	}
