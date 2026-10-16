@@ -2,6 +2,15 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.69 — 2026-10-16: booking panel, round 2 (preview `?ux=2`)
+- **Owner:** apply all six proposed improvements.
+- **Facts per offer instead of the repeated city.** Private or small group, duration ("About …" when the partner says approx.) and "Pickup offered", from Core 1.2.46 `data/offer-facts.json`. All 26 trip offers were read on Viator and GetYourGuide's own product pages on 2026-10-16; a fact the partner page doesn't state is left out.
+- **Our pick.** One offer per experience where a stated fact sets it apart (private, with pickup): Valley of the Kings, Abu Simbel, the dinner cruise, the White Desert and Siwa. It comes first, is labelled, and has the only filled gold button; the others are gold outlines. Its facts line is the reason.
+- **No separate key-facts box.** It only repeated the hero; duration and place now open the panel.
+- **Phone sheet.** A grab handle and a head with the trip's name and a larger close button, kept in view while the sheet scrolls.
+- **Hotels by area**, from the areas the destination guides recommend and Trip.com's own area pages (offers #842–#848): Downtown Cairo (Qasr El Nil), Zamalek, Luxor's West Bank (Al Bairat), El Gouna, beside Giza and the city lists. Up to four per panel.
+- **Partner chips in the site's own colours** (teal, clay, Nile blue), not the partners' brand colours.
+
 ## 1.2.68 — 2026-10-16: booking journey redesign, step 1 (experience page), preview only
 - **Owner request:** one coherent journey from the homepage to booking a trip or a hotel, built on a review of the site as a concept (no traffic data yet). Proposal: artifact "رحلة الحجز في Egypt Roamer".
 - **Preview:** add `?ux=2` to an experience URL. Visitors see the current page until the owner approves; then the `er_ux2` option turns it on for everyone.

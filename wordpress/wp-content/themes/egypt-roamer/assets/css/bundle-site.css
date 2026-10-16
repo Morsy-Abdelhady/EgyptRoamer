@@ -7345,13 +7345,54 @@ letter-spacing: 0.02em;
 line-height: 1.5;
 }
 .bp-chip[data-partner="viator"] {
-background: #1f6b66;
+background: var(--teal);
 }
 .bp-chip[data-partner="getyourguide"] {
-background: #b83c0b;
+background: var(--clay);
 }
 .bp-chip[data-partner="trip-com"] {
-background: #2453c2;
+background: var(--nile);
+}
+.bp__head {
+display: grid;
+gap: 0.2rem;
+}
+.bp__summary {
+font-size: var(--fs-small);
+color: var(--text-muted);
+}
+.bp__pick {
+display: inline-flex;
+align-items: center;
+gap: 0.3rem;
+width: max-content;
+font-size: var(--fs-label);
+font-weight: 600;
+letter-spacing: var(--track-label);
+text-transform: uppercase;
+color: var(--gold-deep);
+}
+[lang="ar"] .bp__pick,
+[lang="zh"] .bp__pick,
+[lang="zh-CN"] .bp__pick {
+letter-spacing: 0;
+}
+.bp__row--pick {
+margin-inline: -0.75rem;
+padding-inline: 0.75rem;
+border-radius: var(--r-md);
+background: color-mix(in srgb, var(--gold) 10%, transparent);
+border-top-color: transparent;
+}
+.bp__row--pick + .bp__row {
+border-top-color: transparent;
+}
+.btn.bp__alt {
+border-color: var(--gold-deep);
+color: var(--text);
+}
+.btn.bp__alt:hover {
+background: color-mix(in srgb, var(--gold) 18%, transparent);
 }
 .bp-sheet {
 position: fixed;
@@ -7377,8 +7418,42 @@ gap: 0.5rem;
 padding: 0.75rem max(1rem, env(safe-area-inset-right)) calc(1rem + env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
 }
 .bp-sheet__head {
-display: flex;
-justify-content: flex-end;
+position: sticky;
+top: 0;
+z-index: 1;
+display: grid;
+grid-template-columns: minmax(0, 1fr) auto;
+align-items: center;
+gap: 0.75rem;
+margin: -0.75rem calc(-1 * max(1rem, env(safe-area-inset-right))) 0 calc(-1 * max(1rem, env(safe-area-inset-left)));
+padding: 1.1rem max(1rem, env(safe-area-inset-right)) 0.5rem max(1rem, env(safe-area-inset-left));
+background: var(--paper);
+border-bottom: 1px solid var(--line);
+}
+.bp-sheet__head::before {
+content: "";
+position: absolute;
+top: 0.45rem;
+left: 50%;
+width: 2.5rem;
+height: 4px;
+border-radius: 2px;
+background: var(--line-strong);
+transform: translateX(-50%);
+}
+.bp-sheet__name {
+overflow: hidden;
+font-family: var(--font-serif);
+font-size: 1.05rem;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+.bp-sheet__head .icon-btn {
+width: 2.75rem;
+height: 2.75rem;
+}
+.bp-sheet .bp__title {
+display: none;
 }
 .bp-sheet .bp {
 padding: 0;

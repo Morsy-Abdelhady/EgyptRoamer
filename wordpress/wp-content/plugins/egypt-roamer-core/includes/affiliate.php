@@ -253,6 +253,19 @@ function er_offer_i18n( int $offer_id ): array {
 	return (array) ( $data[ $slug ][ $lang ] ?? [] );
 }
 
+/**
+ * Facts read on the partner's own product page (data/offer-facts.json): group (private|small), duration
+ * { n, unit: hours|day|days, approx }, pickup, and pick (the editors' choice for its experience). Empty when unknown.
+ */
+function er_offer_facts( int $offer_id ): array {
+	static $data = null;
+	if ( null === $data ) {
+		$file = ER_CORE_DIR . 'data/offer-facts.json';
+		$data = is_readable( $file ) ? ( json_decode( (string) file_get_contents( $file ), true ) ?: [] ) : []; // phpcs:ignore WordPress.WP.AlternativeFunctions
+	}
+	return (array) ( $data[ (string) get_post_field( 'post_name', $offer_id ) ] ?? [] );
+}
+
 /** The page an offer belongs to (experience, tour, activity, else destination): its photo stands in for the offer's. */
 function er_offer_related_id( int $offer_id ): int {
 	foreach ( [ '_er_experience', '_er_tour', '_er_activity', '_er_destination' ] as $key ) {

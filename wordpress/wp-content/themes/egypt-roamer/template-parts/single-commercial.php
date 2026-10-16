@@ -16,7 +16,7 @@ $er_offers   = er_offers_for_post( $er_id, 6 );
 $er_dests    = er_get_related( $er_id, '_er_destination' );
 // Hotels where it happens (the first destination's hotel offers): a trip needs somewhere to stay (owner, 16 Oct).
 $er_stay     = $er_dests && function_exists( 'er_hotel_offers_for_post' ) ? $er_dests[0] : null;
-$er_hotels   = $er_stay ? er_hotel_offers_for_post( (int) $er_stay->ID, 2 ) : [];
+$er_hotels   = $er_stay ? er_hotel_offers_for_post( (int) $er_stay->ID, er_ux2() ? 4 : 2 ) : [];
 $er_facts    = array_filter( [
 	er_t( 'Location' )      => (string) get_post_meta( $er_id, '_er_location', true ),
 	er_t( 'Duration' )      => (string) get_post_meta( $er_id, '_er_duration', true ),
@@ -129,8 +129,8 @@ $er_new = er_ux2() && 'er_experience' === $er_type && ( $er_offers || $er_hotels
 ob_start();
 if ( $er_new ) :
 	// New journey: one panel with the trip options and somewhere to stay, then the key facts.
-	er_booking_panel( $er_offers, $er_hotels, $er_stay ? get_the_title( $er_stay ) : '', 'experience', er_t( 'Book this trip' ) );
-	er_glance( $er_facts );
+	// The key facts box only repeated the hero (location, duration): they open the panel instead.
+	er_booking_panel( $er_offers, $er_hotels, $er_stay ? get_the_title( $er_stay ) : '', 'experience', er_t( 'Book this trip' ), array_values( array_filter( [ $er_facts[ er_t( 'Duration' ) ] ?? '', $er_stay ? get_the_title( $er_stay ) : ( $er_facts[ er_t( 'Location' ) ] ?? '' ) ] ) ) );
 elseif ( $er_offers ) :
 	?>
 	<div class="offer-box" id="book" role="region" aria-labelledby="offers-title">

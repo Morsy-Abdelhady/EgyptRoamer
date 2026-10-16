@@ -1252,6 +1252,78 @@
    "Закрыть",
    "关闭",
    "إغلاق"
+  ],
+  "Private": [
+   "Privat",
+   "Privé",
+   "Privato",
+   "Privado",
+   "Индивидуально",
+   "私人团",
+   "خاص"
+  ],
+  "Small group": [
+   "Kleine Gruppe",
+   "Petit groupe",
+   "Piccolo gruppo",
+   "Grupo reducido",
+   "Малая группа",
+   "小团",
+   "مجموعة صغيرة"
+  ],
+  "{n} hours": [
+   "{n} Std.",
+   "{n} h",
+   "{n} ore",
+   "{n} h",
+   "{n} ч",
+   "{n}小时",
+   "{n} ساعات"
+  ],
+  "{n} day": [
+   "{n} Tag",
+   "{n} jour",
+   "{n} giorno",
+   "{n} día",
+   "{n} день",
+   "{n}天",
+   "يوم واحد"
+  ],
+  "{n} days": [
+   "{n} Tage",
+   "{n} jours",
+   "{n} giorni",
+   "{n} días",
+   "{n} дн.",
+   "{n}天",
+   "{n} أيام"
+  ],
+  "About {duration}": [
+   "Ca. {duration}",
+   "Environ {duration}",
+   "Circa {duration}",
+   "Aprox. {duration}",
+   "Около {duration}",
+   "约{duration}",
+   "حوالي {duration}"
+  ],
+  "Pickup offered": [
+   "Abholung möglich",
+   "Prise en charge proposée",
+   "Prelievo disponibile",
+   "Recogida disponible",
+   "Есть трансфер из отеля",
+   "提供接送",
+   "التوصيل من الفندق متاح"
+  ],
+  "Our pick": [
+   "Unsere Wahl",
+   "Notre choix",
+   "La nostra scelta",
+   "Nuestra elección",
+   "Наш выбор",
+   "我们的推荐",
+   "اختيارنا"
   ]
  }
 }

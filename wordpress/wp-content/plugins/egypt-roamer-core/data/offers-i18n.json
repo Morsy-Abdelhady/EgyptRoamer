@@ -1019,5 +1019,125 @@
    "title": "锡瓦绿洲酒店",
    "location": "锡瓦绿洲"
   }
+ },
+ "tripcom-hotels-downtown-cairo": {
+  "ar": {
+   "title": "فنادق وسط البلد (قصر النيل)",
+   "location": "وسط البلد، القاهرة"
+  },
+  "de": {
+   "title": "Hotels in der Innenstadt von Kairo (Qasr El Nil)",
+   "location": "Innenstadt, Kairo"
+  },
+  "fr": {
+   "title": "Hôtels du centre-ville du Caire (Qasr El Nil)",
+   "location": "Centre-ville, Le Caire"
+  },
+  "it": {
+   "title": "Hotel nel centro del Cairo (Qasr El Nil)",
+   "location": "Centro, Il Cairo"
+  },
+  "es": {
+   "title": "Hoteles en el centro de El Cairo (Qasr El Nil)",
+   "location": "Centro, El Cairo"
+  },
+  "ru": {
+   "title": "Отели в центре Каира (Каср-эн-Нил)",
+   "location": "Центр, Каир"
+  },
+  "zh": {
+   "title": "开罗市中心酒店（Qasr El Nil）",
+   "location": "开罗市中心"
+  }
+ },
+ "tripcom-hotels-zamalek": {
+  "ar": {
+   "title": "فنادق الزمالك",
+   "location": "الزمالك، القاهرة"
+  },
+  "de": {
+   "title": "Hotels in Zamalek",
+   "location": "Zamalek, Kairo"
+  },
+  "fr": {
+   "title": "Hôtels à Zamalek",
+   "location": "Zamalek, Le Caire"
+  },
+  "it": {
+   "title": "Hotel a Zamalek",
+   "location": "Zamalek, Il Cairo"
+  },
+  "es": {
+   "title": "Hoteles en Zamalek",
+   "location": "Zamalek, El Cairo"
+  },
+  "ru": {
+   "title": "Отели в Замалеке",
+   "location": "Замалек, Каир"
+  },
+  "zh": {
+   "title": "扎马雷克酒店",
+   "location": "开罗扎马雷克"
+  }
+ },
+ "tripcom-hotels-luxor-west-bank": {
+  "ar": {
+   "title": "فنادق البر الغربي (البعيرات)",
+   "location": "البر الغربي، الأقصر"
+  },
+  "de": {
+   "title": "Hotels am Westufer (Al Bairat)",
+   "location": "Westufer, Luxor"
+  },
+  "fr": {
+   "title": "Hôtels sur la rive ouest (Al Bairat)",
+   "location": "Rive ouest, Louxor"
+  },
+  "it": {
+   "title": "Hotel sulla riva ovest (Al Bairat)",
+   "location": "Riva ovest, Luxor"
+  },
+  "es": {
+   "title": "Hoteles en la orilla oeste (Al Bairat)",
+   "location": "Orilla oeste, Luxor"
+  },
+  "ru": {
+   "title": "Отели на западном берегу (Аль-Байрат)",
+   "location": "Западный берег, Луксор"
+  },
+  "zh": {
+   "title": "西岸酒店（Al Bairat）",
+   "location": "卢克索西岸"
+  }
+ },
+ "tripcom-hotels-el-gouna": {
+  "ar": {
+   "title": "فنادق الجونة",
+   "location": "الجونة"
+  },
+  "de": {
+   "title": "Hotels in El Gouna",
+   "location": "El Gouna"
+  },
+  "fr": {
+   "title": "Hôtels à El Gouna",
+   "location": "El Gouna"
+  },
+  "it": {
+   "title": "Hotel a El Gouna",
+   "location": "El Gouna"
+  },
+  "es": {
+   "title": "Hoteles en El Gouna",
+   "location": "El Gouna"
+  },
+  "ru": {
+   "title": "Отели в Эль-Гуне",
+   "location": "Эль-Гуна"
+  },
+  "zh": {
+   "title": "古纳酒店",
+   "location": "古纳"
+  }
  }
 }

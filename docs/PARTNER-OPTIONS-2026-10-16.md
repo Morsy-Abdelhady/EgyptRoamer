@@ -101,6 +101,7 @@ The owner's target is tourists from Europe, Russia and China. Booking.com does n
   - Language: `locale@<lang>=` lines open Trip.com in the reader's language (en-XX, ar-SA, de-DE, fr-FR, it-IT, es-ES, ru-RU, zh-HK; zh-HK is Traditional Chinese, the closest Trip.com has). `trip_sub1=er-{lang}-{placement}`.
   - Shown in a "Find a hotel in {name}" box at the end of "Where to stay" (Cairo, Luxor, Hurghada), else after "How long, and when to go".
   - Experience pages (theme 1.2.65, owner request the same day): the hotels of the experience's destination before the FAQ ("Find a hotel in {name}"); the Abu Simbel story shows them in its closing booking section. 9 of 10 experiences; the White & Black Desert safari has no destination (a camping trip from Cairo), so no hotel box.
+  - Area offers added the same day from the areas the destination guides recommend and Trip.com's own area pages: #842 Downtown Cairo (`/hotels/cairo-hotels-list-332/location696398/`, Qasr El Nil), #844 Zamalek (`…/location252856/`), #846 Luxor West Bank (`/hotels/al-bairat-hotels-list-369885/`), #848 El Gouna (`/hotels/el-gouna-hotels-list-700842/`). Each page was opened and checked on 2026-10-16.
   - Redirects checked with a non-counting request, including the Russian page (`trip_sub1=er-ru-destination-hotels&locale=ru-RU`). `page-coverage.mjs`: 336 pages all ok.
 
 ### Plan

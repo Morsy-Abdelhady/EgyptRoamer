@@ -696,47 +696,96 @@ function er_partner_chip( string $provider_slug, string $provider_name ): string
 	return '' === $provider_name ? '' : '<span class="bp-chip" data-partner="' . esc_attr( $provider_slug ) . '">' . esc_html( $provider_name ) . '</span>';
 }
 
+/** "Private · About 4–5 hours · Pickup offered": the partner-stated facts of an offer (er_offer_facts()). */
+function er_offer_facts_line( array $f ): array {
+	$out = [];
+	if ( 'private' === ( $f['group'] ?? '' ) ) {
+		$out[] = er_t( 'Private' );
+	} elseif ( 'small' === ( $f['group'] ?? '' ) ) {
+		$out[] = er_t( 'Small group' );
+	}
+	if ( ! empty( $f['duration']['n'] ) ) {
+		$d    = $f['duration'];
+		$unit = [ 'hours' => '{n} hours', 'day' => '{n} day', 'days' => '{n} days' ][ $d['unit'] ?? 'hours' ] ?? '{n} hours';
+		$txt  = er_t( $unit, [ 'n' => (string) $d['n'] ] );
+		$out[] = ! empty( $d['approx'] ) ? er_t( 'About {duration}', [ 'duration' => $txt ] ) : $txt;
+	}
+	if ( ! empty( $f['pickup'] ) ) {
+		$out[] = er_t( 'Pickup offered' );
+	}
+	return $out;
+}
+
 /**
- * The booking panel (new journey): the trip's partner offers, then hotels where it happens, each row with its
- * partner chip and one gold button; a line that each button opens the partner's site; the disclosure.
+ * The booking panel (new journey): the trip's partner offers, then hotels where it happens.
+ * Trip rows: partner chip and the facts the partner states (no repeated city); the editors' pick first, with the
+ * only filled gold button and its facts as the reason. Hotel rows: partner chip and the area.
  *
- * @param int[]  $offers     tour offers.
- * @param int[]  $hotels     hotel offers.
- * @param string $stay_name  destination name for the stay group.
- * @param string $placement  placement prefix, e.g. "experience".
+ * @param int[]    $offers    tour offers.
+ * @param int[]    $hotels    hotel offers.
+ * @param string   $stay_name destination name for the stay group.
+ * @param string   $placement placement prefix, e.g. "experience".
+ * @param string[] $summary   the trip's own facts for the panel's first line (duration, location).
  */
-function er_booking_panel( array $offers, array $hotels, string $stay_name, string $placement, string $title ): void {
+function er_booking_panel( array $offers, array $hotels, string $stay_name, string $placement, string $title, array $summary = [] ): void {
 	if ( ! function_exists( 'er_offer_data' ) || ( ! $offers && ! $hotels ) ) {
 		return;
 	}
 	$source = (int) get_queried_object_id();
-	$rows   = static function ( array $ids, string $pl, string $label ) use ( $source ): void {
+	$facts  = static fn ( int $id ): array => function_exists( 'er_offer_facts' ) ? er_offer_facts( $id ) : [];
+	// The pick goes first; the rest keep their order.
+	$pick = 0;
+	foreach ( $offers as $id ) {
+		if ( ! empty( $facts( (int) $id )['pick'] ) ) {
+			$pick = (int) $id;
+			break;
+		}
+	}
+	if ( $pick ) {
+		$offers = array_merge( [ $pick ], array_values( array_diff( array_map( 'intval', $offers ), [ $pick ] ) ) );
+	}
+	$rows = static function ( array $ids, string $pl, string $label, bool $tours ) use ( $source, $facts, $pick ): void {
 		echo '<ul class="bp__list">';
 		foreach ( $ids as $id ) {
-			$o    = er_offer_data( (int) $id, $pl, $source );
+			$id   = (int) $id;
+			$o    = er_offer_data( $id, $pl, $source );
 			$slug = $o['provider_id'] ? (string) get_post_field( 'post_name', (int) $o['provider_id'] ) : '';
-			echo '<li class="bp__row"><div class="bp__main">';
+			$is   = $tours && $id === $pick;
+			$bits = $tours ? er_offer_facts_line( $facts( $id ) ) : ( $o['location'] ? [ $o['location'] ] : [] );
+			echo '<li class="bp__row' . ( $is ? ' bp__row--pick' : '' ) . '"><div class="bp__main">';
+			if ( $is ) {
+				echo '<span class="bp__pick">' . er_icon( 'i-check', 'icon--sm' ) . esc_html( er_t( 'Our pick' ) ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput
+			}
 			echo '<span class="bp__name"' . ( $o['title_lang'] ? ' lang="' . esc_attr( $o['title_lang'] ) . '" dir="ltr"' : '' ) . '>' . esc_html( $o['title'] ) . '</span>';
-			echo '<span class="bp__meta">' . er_partner_chip( $slug, (string) $o['provider'] ) . ( $o['location'] ? '<span>' . esc_html( $o['location'] ) . '</span>' : '' ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput
-			echo '</div>';
-			echo er_offer_cta_html( (int) $id, [ 'placement' => $pl, 'source' => $source, 'class' => 'btn btn--primary btn--sm', 'label' => $label, 'icon' => ' ' . er_icon( 'i-arrow-ur', 'icon--sm' ) ] ); // phpcs:ignore WordPress.Security.EscapeOutput
+			echo '<span class="bp__meta">' . er_partner_chip( $slug, (string) $o['provider'] ); // phpcs:ignore WordPress.Security.EscapeOutput
+			foreach ( $bits as $b ) {
+				echo '<span>' . esc_html( $b ) . '</span>';
+			}
+			echo '</span></div>';
+			$class = $is || ! $pick || ! $tours ? 'btn btn--primary btn--sm' : 'btn btn--outline btn--sm bp__alt';
+			echo er_offer_cta_html( $id, [ 'placement' => $pl, 'source' => $source, 'class' => $class, 'label' => $label, 'icon' => ' ' . er_icon( 'i-arrow-ur', 'icon--sm' ) ] ); // phpcs:ignore WordPress.Security.EscapeOutput
 			echo '</li>';
 		}
 		echo '</ul>';
 	};
 	?>
 	<div class="offer-box bp" id="book" role="region" aria-labelledby="bp-title" data-close-label="<?php echo esc_attr( er_t( 'Close' ) ); ?>">
-		<h2 class="bp__title" id="bp-title"><?php echo esc_html( $title ); ?></h2>
+		<div class="bp__head">
+			<h2 class="bp__title" id="bp-title"><?php echo esc_html( $title ); ?></h2>
+			<?php if ( $summary ) : ?>
+				<p class="bp__summary"><?php echo esc_html( implode( ' · ', $summary ) ); ?></p>
+			<?php endif; ?>
+		</div>
 		<?php if ( $offers ) : ?>
 			<div class="bp__group">
 				<p class="bp__h"><?php echo esc_html( er_t( 'Trip options' ) ); ?> <span class="bp__count"><?php echo (int) count( $offers ); ?></span></p>
-				<?php $rows( $offers, $placement . '-offers', er_t( 'Book' ) ); ?>
+				<?php $rows( $offers, $placement . '-offers', er_t( 'Book' ), true ); ?>
 			</div>
 		<?php endif; ?>
 		<?php if ( $hotels ) : ?>
 			<div class="bp__group bp__group--stay">
 				<p class="bp__h"><?php echo esc_html( er_t( 'Staying in {name}?', [ 'name' => $stay_name ] ) ); ?></p>
-				<?php $rows( $hotels, $placement . '-hotels', er_t( 'See hotels' ) ); ?>
+				<?php $rows( $hotels, $placement . '-hotels', er_t( 'See hotels' ), false ); ?>
 			</div>
 		<?php endif; ?>
 		<p class="bp__out"><?php echo esc_html( er_t( 'Each button opens the partner’s site in a new tab.' ) ); ?></p>

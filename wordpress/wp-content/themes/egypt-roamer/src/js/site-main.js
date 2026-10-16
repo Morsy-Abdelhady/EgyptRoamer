@@ -103,10 +103,14 @@ safe("booking-sheet", () => {
       if (icon) close.appendChild(icon.cloneNode(true));
       else close.textContent = "×";
       close.addEventListener("click", () => sheet.close());
-      head.appendChild(close);
+      const name = document.createElement("span");
+      name.className = "bp-sheet__name";
+      name.id = "bp-sheet-title";
+      name.textContent = [panel.querySelector(".bp__title")?.textContent, document.querySelector("h1")?.textContent].filter(Boolean).join(" · ").replace(/\s+/g, " ").trim();
+      head.append(name, close);
       const copy = panel.cloneNode(true);
       copy.removeAttribute("id");
-      copy.querySelector("#bp-title")?.setAttribute("id", "bp-sheet-title");
+      copy.querySelector("#bp-title")?.removeAttribute("id");
       inner.append(head, copy);
       sheet.appendChild(inner);
       sheet.addEventListener("click", (e) => { if (e.target === sheet) sheet.close(); });

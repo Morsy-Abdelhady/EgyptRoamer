@@ -1,0 +1,217 @@
+{
+ "_note": "Facts per offer slug, read on each partner's product page on 2026-10-16. Shown on the booking panel. Never add a fact the partner page does not state. 'pick' marks the editors' choice for that experience; its reason is shown as these facts.",
+ "_checked": "2026-10-16",
+ "ras-mohammed-snorkeling-trip-from-sharm-el-sheikh": {
+  "duration": {
+   "n": "5",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true
+ },
+ "gyg-white-island-and-ras-mohamed-snorkeling-trip": {
+  "duration": {
+   "n": "6",
+   "unit": "hours"
+  },
+  "pickup": true
+ },
+ "alexandria-day-trip-from-cairo": {
+  "duration": {
+   "n": "10–12",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true
+ },
+ "gyg-historical-alexandria-shared-day-tour-from-cairo": {
+  "group": "small",
+  "duration": {
+   "n": "11",
+   "unit": "hours"
+  },
+  "pickup": true
+ },
+ "giza-pyramids-tours-on-viator": {
+  "group": "private",
+  "duration": {
+   "n": "4–5",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true
+ },
+ "giza-pyramids-sphinx-and-grand-egyptian-museum-full-day": {
+  "group": "private",
+  "duration": {
+   "n": "6–8",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true
+ },
+ "gyg-pyramids-great-sphinx-private-tour-camel-ride": {
+  "group": "private",
+  "duration": {
+   "n": "4–8",
+   "unit": "hours"
+  },
+  "pickup": true
+ },
+ "cairo-nile-dinner-cruises-on-viator": {
+  "duration": {
+   "n": "2",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true
+ },
+ "private-nile-dinner-cruise-with-belly-dance-and-tanoura-show": {
+  "group": "private",
+  "duration": {
+   "n": "4",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true,
+  "pick": true
+ },
+ "gyg-opal-nile-dinner-cruise-live-entertainment": {
+  "duration": {
+   "n": "2–4",
+   "unit": "hours"
+  }
+ },
+ "abu-simbel-temples-tours-on-viator": {
+  "group": "private",
+  "duration": {
+   "n": "8–10",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true,
+  "pick": true
+ },
+ "shared-abu-simbel-day-trip-from-aswan": {
+  "group": "small",
+  "duration": {
+   "n": "10",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true
+ },
+ "gyg-abu-simbel-day-tour-private-guide-and-car": {
+  "group": "private",
+  "duration": {
+   "n": "10",
+   "unit": "hours"
+  },
+  "pickup": true
+ },
+ "hurghada-scuba-diving-trips-on-viator": {
+  "duration": {
+   "n": "1",
+   "unit": "day",
+   "approx": true
+  },
+  "pickup": true
+ },
+ "two-dives-from-hurghada-for-beginners-and-certified-divers": {
+  "duration": {
+   "n": "7",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true
+ },
+ "gyg-hurghada-scuba-diving-certified-or-beginners": {
+  "duration": {
+   "n": "7",
+   "unit": "hours"
+  },
+  "pickup": true
+ },
+ "bahariya-oasis-tours-on-viator": {
+  "duration": {
+   "n": "2",
+   "unit": "days",
+   "approx": true
+  },
+  "pickup": true
+ },
+ "overnight-white-desert-camping-from-cairo": {
+  "duration": {
+   "n": "2",
+   "unit": "days",
+   "approx": true
+  },
+  "pickup": true
+ },
+ "gyg-2-day-bahariya-and-white-desert-private-camp": {
+  "group": "private",
+  "duration": {
+   "n": "2",
+   "unit": "days"
+  },
+  "pickup": true,
+  "pick": true
+ },
+ "cairo-food-tours-on-viator": {
+  "duration": {
+   "n": "4",
+   "unit": "hours",
+   "approx": true
+  }
+ },
+ "cairo-evening-food-tour-with-40-tastings": {
+  "duration": {
+   "n": "3",
+   "unit": "hours",
+   "approx": true
+  }
+ },
+ "valley-of-the-kings-tours-on-viator": {
+  "group": "private",
+  "duration": {
+   "n": "7–10",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true,
+  "pick": true
+ },
+ "luxor-west-bank-full-day-with-medinet-habu-and-deir-el-medina": {
+  "duration": {
+   "n": "6–8",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true
+ },
+ "gyg-west-bank-guided-tour-valley-of-the-kings": {
+  "group": "private",
+  "duration": {
+   "n": "4",
+   "unit": "hours"
+  },
+  "pickup": true
+ },
+ "siwa-oasis-3-day-trip-from-cairo-with-a-great-sand-sea-safari": {
+  "group": "private",
+  "duration": {
+   "n": "3",
+   "unit": "days",
+   "approx": true
+  },
+  "pickup": true,
+  "pick": true
+ },
+ "gyg-siwa-oasis-camp-2-nights-from-cairo": {
+  "duration": {
+   "n": "3",
+   "unit": "days"
+  },
+  "pickup": true
+ }
+}
