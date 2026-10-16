@@ -39,7 +39,7 @@ js = js.replace('{{clock}}', clock)
 tpl = head + '<style>' + css + '</style>\n' + body + '\n<script>\n' + js + '\n' + IM.worlds(VP.patch_worlds(open('v4-worlds.js', encoding='utf-8').read())) + '\n' + open('v4-worlds-more.js', encoding='utf-8').read() + '\nrenderHome(); lazyVideos(document); creditsAsInfo(document); videoSwitch(); go(1);\n</script>\n'
 open('v4.template.html', 'w', encoding='utf-8', newline='\n').write(tpl)
 
-imgs = json.load(open('imgs5.json'))
+imgs = json.load(open('imgs6.json'))
 imgs.update({k: v for k, v in json.load(open('imgs3.json')).items() if k in ('sea_l', 'desert_l', 'nile_l')})
 keys = set(imgs)
 used = {k for k in keys if re.search(r'["\'.\[ ]' + k + r'["\'\]]', tpl) or ('"' + k + '"') in tpl or ('m_' in k) or ('d_' in k)}

@@ -22,7 +22,7 @@ Object.assign(WORLDS.nile, {place:"Cairo & Giza", stay:CAIRO_STAY, faq:[
   ["What should I wear?","Smart-casual is fine. Bring a light layer, since it can be cool on the open deck in winter."]]});
 
 Object.assign(WORLDS, {
-  giza: {cls:"w-tomb", fx:"tomb", photo:"giza_l", video:"video/giza-sunset.mp4", vcredit:"Giza · Video: Peggy Anke, Pexels", url:"pyramids-of-giza-sphinx-private-tour", place:"Cairo & Giza",
+  giza: {cls:"w-tomb", fx:"tomb", photo:"giza_camel", video:"video/giza-sunset.mp4", vcredit:"Giza · Video: Peggy Anke, Pexels", url:"pyramids-of-giza-sphinx-private-tour", place:"Cairo & Giza",
     eyebrow:"Giza · Cairo · Half day", title:"Pyramids of Giza & Sphinx Private Tour",
     lead:"A private tour of the Giza plateau with your own Egyptologist guide and driver. You’ll see the three great pyramids of Khufu, Khafre and Menkaure, the panoramic viewpoint and the Sphinx with its valley temple, at your own pace and without joining a group.",
     quote:"Giza is simple to reach but surprisingly hard to do well.", chips:["Half day","3 options from 2 partners","Private","Pickup offered"], go:"Walk the plateau",
@@ -35,7 +35,7 @@ Object.assign(WORLDS, {
     sec:{eyebrow:"Before you go",title:"A good guide makes it simple",ps:["The site is large and exposed, the approaches are crowded with touts, and the story behind the monuments doesn’t explain itself. A good guide handles tickets and the route across the plateau, keeps unwanted sellers at a distance, and turns the stones into the history of the Old Kingdom."],
       tabs:[["𓇳","Timing","Book the earliest start you can. The light is softer and it’s cooler and quieter."],["𓈗","What to bring","Water, a hat, sun protection and comfortable shoes. There’s very little shade."],["𓉐","Inside the pyramids","Not recommended if you’re claustrophobic or have mobility or heart problems."],["𓃗","Camel and horse rides","If you want one, agree the price, the duration and the route in full before you get on. A good guide will help."]]},
     papy:[["Who it suits","Context, without the hassle","First-time visitors who want context and a hassle-free morning, families, and anyone short on time."],
-          ["Combine it with","The Grand Egyptian Museum","Right next to the plateau and home to the full Tutankhamun collection. Better as a separate half-day if you can. To the south: Saqqara, Memphis and Dahshur."]],
+          ["Combine it with","The Grand Egyptian Museum","Right next to the plateau and home to the full Tutankhamun collection. Better as a separate half-day if you can. To the south: Saqqara, Memphis and Dahshur.","img:gem|The Grand Egyptian Museum, Giza"]],
     sum:["Cairo","About 4–8 hours","Private","Pickup offered"],
     opts:[{n:"Private half-day tour of the Giza pyramids",p:"Viator",f:["Private","About 4–5 hours","Pickup offered"]},
           {n:"Giza pyramids, Sphinx and Grand Egyptian Museum full day",p:"Viator",f:["Private","About 6–8 hours","Pickup offered"]},
@@ -52,7 +52,7 @@ Object.assign(WORLDS, {
     jEyebrow:"Why it’s worth the effort", jTitle:"Into the rock",
     steps:[
       {t:"Leave in the dark",p:"By road, the classic option, leaving Aswan in the dark before dawn and arriving in the morning. It’s a very long day, most of it in the vehicle.",tone:"night",why:"By air: short flights from Aswan save hours on the road, at a higher cost."},
-      {t:"Scale",p:"The façade of the Great Temple is one of the most famous images of ancient Egypt, and it’s even bigger in person.",tone:"warm"},
+      {img:"abu_facade",t:"Scale",p:"The façade of the Great Temple is one of the most famous images of ancient Egypt, and it’s even bigger in person.",tone:"warm"},
       {t:"The interiors",p:"Carved halls lead deep into the rock, with battle scenes and statues of the king as a god.",tone:"dark"},
       {t:"The rescue",p:"In the 1960s, as Lake Nasser rose behind the new High Dam, the temples were cut into blocks and reassembled on higher ground. Knowing that as you stand inside makes the visit remarkable.",tone:"warm"}],
     sec:{eyebrow:"The sun festival",title:"When the sun reaches the sanctuary",ps:["On or around 22 February and 22 October, the rising sun shines along the Great Temple’s axis into the innermost sanctuary and lights the seated statues there. These days draw large crowds and events. Book far ahead if you want to see it."],
@@ -75,9 +75,9 @@ Object.assign(WORLDS, {
     jEyebrow:"What you see", jTitle:"Along the Mediterranean",
     steps:[
       {img:"alex_c1",t:"The Citadel of Qaitbay",p:"The 15th-century sea fort built on the site of the ancient Pharos lighthouse, reusing its stone."},
-      {img:"alex_c2",t:"The Bibliotheca Alexandrina",p:"The modern library on the seafront, a tribute to the ancient Library of Alexandria."},
+      {img:"bib_sunset",t:"The Bibliotheca Alexandrina",p:"The modern library on the seafront, a tribute to the ancient Library of Alexandria."},
       {t:"Kom el-Shoqafa",p:"Roman-era catacombs cut deep into the rock, where Egyptian gods appear in Greco-Roman style.",tone:"dark"},
-      {img:"alex_c3",t:"Pompey’s Pillar",p:"A single granite column on the hill of the ancient Serapeum, raised in fact for the emperor Diocletian."},
+      {img:"pompey",t:"Pompey’s Pillar",p:"A single granite column on the hill of the ancient Serapeum, raised in fact for the emperor Diocletian."},
       {t:"The Corniche and Montaza",p:"The seafront promenade and the former royal gardens at its eastern end.",tone:"warm",why:"Lunch is usually fish, chosen from the ice and grilled or fried as you ask."}],
     sec:{eyebrow:"Making one day count",title:"Four or five sites, chosen well",ps:["The round trip from Cairo takes a large share of the day, so most tours start early and focus on four or five sites. A private car with a guide lets you choose them. Tours differ in which sites they include, so compare the itineraries."],
       tabs:[["𓉐","","Check which sites are visited inside, and which are seen only from outside."],["𓏊","","Ask whether entry tickets and lunch are included."],["𓇳","","Confirm the pickup time and place in Cairo or Giza."]]},
@@ -90,14 +90,14 @@ Object.assign(WORLDS, {
          ["Can I still see the ancient Lighthouse or Library?","Neither survives. The Citadel of Qaitbay stands on the lighthouse’s site, and the modern Bibliotheca Alexandrina honours the ancient library."],
          ["Can I go by train instead of a tour?","Yes. Trains run between Cairo and Alexandria throughout the day, and you can move around the city by taxi or ride-hailing app."]]},
 
-  ras: {cls:"w-sea", fx:"sea", photo:"sea_l", video:"video/redsea-reef.mp4", vcredit:"Red Sea, Egypt · Video: Adrien JACTA, Pexels", url:"ras-mohammed-snorkelling-from-sharm", place:"Red Sea",
+  ras: {cls:"w-sea", fx:"sea", photo:"ras_turq", video:"video/redsea-reef.mp4", vcredit:"Red Sea, Egypt · Video: Adrien JACTA, Pexels", url:"ras-mohammed-snorkelling-from-sharm", place:"Red Sea",
     eyebrow:"Sharm El Sheikh · South Sinai · About 5–6 hours", title:"Ras Mohammed Snorkelling from Sharm El Sheikh",
     lead:"A half-day or full-day trip from Sharm El Sheikh to Ras Mohammed National Park, at the southern tip of the Sinai Peninsula. Declared in 1983, it was Egypt’s first national park.",
     quote:"The contrast of desert and sea is part of the experience.", chips:["About 5–6 hours","Pickup offered","Snorkellers of every level"], go:"Into the park",
     jEyebrow:"By road or by boat", jTitle:"Two ways to the reef",
     steps:[
       {t:"By road",p:"A bus or jeep trip into the park, with snorkelling from the shore and stops at its viewpoints and coastal landmarks. A good choice if you prefer to stay close to land.",tone:"warm"},
-      {t:"By boat",p:"A day boat from Sharm reaches the reefs from the water, with time to snorkel at more than one site. Divers can often join the same boat."},
+      {img:"ras_turq",t:"By boat",p:"A day boat from Sharm reaches the reefs from the water, with time to snorkel at more than one site. Divers can often join the same boat."},
       {t:"What you see",p:"Coral gardens and steep reef walls close to the surface, with reef fish in great numbers. Turtles and rays are seen on some days, but nothing is guaranteed.",video:"video/redsea-coral.mp4",credit:"Red Sea · Video: Adrien JACTA, Pexels"}],
     sec:{eyebrow:"The park rules",title:"A protected reef",ps:["Ras Mohammed is protected. Never touch or stand on coral, don’t feed fish, and don’t collect anything. Rules on anchoring and fishing are strict, and operators should follow them."],
       tabs:[["𓈗","","Swimwear, a towel and a rash vest or reef-friendly sun protection."],["𓁹","","Your own mask if you have one that fits well."],["𓇳","","Water and a hat. There is little shade on shore."]]},
@@ -123,7 +123,7 @@ Object.assign(WORLDS, {
     sec:{eyebrow:"Choosing an operator",title:"Never go into the dunes on your own",night:true,ps:["Sun protection, sunglasses and water; swimwear and a towel for the springs; and a warm layer, because it gets cold quickly after sunset, especially in winter."],
       tabs:[["𓀀","","A licensed Siwan operator and an experienced desert driver."],["𓊡","","A vehicle in good condition, with water and communication equipment."],["𓉐","","Whether permits for the desert areas are arranged for you."],["𓇳","","Whether the trip includes springs, sand-boarding and sunset, or goes further for a longer day or an overnight camp."]]},
     papy:[["Who it suits","The classic Siwa excursion","Anyone staying in Siwa. The dune driving can be rough, so it’s not suitable if you have back problems or are pregnant. Ask for a calmer route."],
-          ["Combine it with","The oasis itself","The Shali fortress, the Oracle of Amun and Cleopatra’s Spring in the oasis itself. See our Siwa guide."]],
+          ["Combine it with","The oasis itself","The Shali fortress, the Oracle of Amun and Cleopatra’s Spring in the oasis itself. See our Siwa guide.","img:siwa_lake|Siwa, Egypt"]],
     sum:["Siwa","Private option available","Pickup offered"],
     opts:[{n:"Siwa Oasis 3-day trip from Cairo, with a Great Sand Sea safari",p:"Viator",f:["Private","About 3 days","Pickup offered"],pick:true,why:"The only private option"},
           {n:"2 Nights 3 Days at Siwa Oases camp from Cairo",p:"GetYourGuide",f:["3 days","Pickup offered"]}],

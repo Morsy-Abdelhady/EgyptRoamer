@@ -6,7 +6,7 @@ const WORLDS = {
     chips:["6 hours","3 options from 2 partners","Private option available","Pickup offered"], go:"Go down into the valley",
     jEyebrow:"The day, stop by stop", jTitle:"Down the corridor",
     steps:[
-      {img:"kings_l",t:"Valley of the Kings",p:"A standard ticket covers a set number of the tombs open that day. The most famous, such as Tutankhamun’s, need separate tickets. Inside, long corridors lead down to burial chambers covered in texts and images of the gods, some with their colours remarkably well preserved.",why:"Start early: the valley is a sun trap by late morning."},
+      {img:"kv62",t:"Valley of the Kings",p:"A standard ticket covers a set number of the tombs open that day. The most famous, such as Tutankhamun’s, need separate tickets. Inside, long corridors lead down to burial chambers covered in texts and images of the gods, some with their colours remarkably well preserved.",why:"Start early: the valley is a sun trap by late morning."},
       {img:"hat_l",t:"Hatshepsut’s temple",p:"Three great terraces built for the female pharaoh Hatshepsut, with reliefs of her divine birth and the expedition to the land of Punt.",why:"At Deir el-Bahari, beneath the cliffs."},
       {wall:true,t:"Colossi of Memnon",p:"Two giant seated statues of Amenhotep III, all that stands of his vast temple.",why:"It’s all part of the UNESCO site Ancient Thebes with its Necropolis."}],
     sec:{eyebrow:"Why a guide makes a difference",title:"The walls speak. A guide reads them.",ps:["The tombs are dense with symbols and texts that are hard to read without help. A guide explains what you’re seeing: the journey through the underworld, the gods, the king’s rebirth. They also choose the tombs worth visiting on the day."],
@@ -27,7 +27,7 @@ const WORLDS = {
     jEyebrow:"What a dive day looks like", jTitle:"From the dock to the reef",
     steps:[
       {t:"Check-in",p:"Check-in at the dive centre or on the boat: paperwork, equipment fitting and a briefing."},
-      {t:"Sail to the first site",p:"The boat sails to the first site. The guide explains the dive plan, the depth and what you might see."},
+      {img:"hurg_diver",t:"Sail to the first site",p:"The boat sails to the first site. The guide explains the dive plan, the depth and what you might see."},
       {t:"First dive",p:"First dive, then a surface interval on board with lunch or snacks."},
       {t:"Second dive",p:"Second dive at a different reef, then back to port in the afternoon."}],
     sec:{eyebrow:"Beginners and certified divers",title:"Dive at your level",ps:["Look for recognised training-agency affiliation and well-maintained equipment. Ask about group sizes per guide. Choose centres that use fixed moorings rather than anchoring on reefs, and that give a proper briefing."],
@@ -66,7 +66,7 @@ const WORLDS = {
     jEyebrow:"What the evening is like", jTitle:"From the Corniche, after dark",
     steps:[
       {t:"Dinner",p:"Dinner, often a buffet of Egyptian and international dishes.",why:"Boats leave from docks along the Corniche and cruise the central stretch of the river."},
-      {t:"Live music",p:"Live music, usually Egyptian and Arabic popular songs."},
+      {img:"cairo_nile",t:"Live music",p:"Live music, usually Egyptian and Arabic popular songs."},
       {t:"Tanoura",p:"A tanoura performance: the spinning dance with multi-coloured skirts, related to Sufi whirling."},
       {t:"Belly dance",p:"On many boats, a belly dance show.",why:"Expect other groups, families and celebrations on board."}],
     sec:{eyebrow:"Choosing a boat",title:"Four things to check",ps:["Travellers who want an easy, entertaining evening with a view, families, and groups. If you prefer quiet, a felucca ride at sunset, just the sail, the water and the city, may suit you better. Many visitors do both."],
@@ -104,7 +104,7 @@ function renderWorld(id){
   const sec = `<section class="wsec ${S.night?"wsec--night":""}">${S.night?`<canvas data-fx="stars"></canvas>`:""}${S.wall||isTomb?wallHTML(34):""}<div class="wsec__in">
       <div><p class="eyebrow">${esc(S.eyebrow)}</p><h2>${esc(S.title)}</h2>${S.ps.map(p=>`<p>${esc(p)}</p>`).join("")}</div>
       <div class="tablets">${S.tabs.map(([g,b,t])=>`<div class="tablet"><i>${g}</i><span>${b?`<b>${esc(b)}</b>`:""}${esc(t)}</span></div>`).join("")}</div></div></section>`;
-  const papy = `<section class="papy"><div class="papy__in">${W.papy.map(([e,h,p,v])=>`<div><p class="eyebrow">${esc(e)}</p><h2>${esc(h)}</h2><p>${esc(p)}</p>${v?`<div class="wvid"><video autoplay muted loop playsinline src="video/karnak-columns.mp4" poster="${IMG.valley}"></video><small>Karnak Temple, Luxor · Video: BOB DK, Pexels</small></div>`:""}</div>`).join("")}</div></section>`;
+  const papy = `<section class="papy"><div class="papy__in">${W.papy.map(([e,h,p,v])=>`<div><p class="eyebrow">${esc(e)}</p><h2>${esc(h)}</h2><p>${esc(p)}</p>${v&&v.startsWith("img:")?`<div class="wvid"><img src="${IMG[v.slice(4).split("|")[0]]}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><small>${esc(v.split("|")[1]||"")}</small></div>`:v?`<div class="wvid"><video autoplay muted loop playsinline src="video/karnak-columns.mp4" poster="${IMG.valley}"></video><small>Karnak Temple, Luxor · Video: BOB DK, Pexels</small></div>`:""}</div>`).join("")}</div></section>`;
   const opts = W.opts.map(o=>`<div class="wopt ${o.pick?"wopt--pick":""}"><div>${o.pick?`<span class="pk">✓ Our pick${o.why?`<span class="why">${esc(o.why)}</span>`:""}</span>`:""}<h3>${esc(o.n)}</h3><div class="facts"><span class="pchip ${PCHIP[o.p]}">${esc(o.p)}</span>${o.f.map(f=>`<span>${esc(f)}</span>`).join("")}</div></div>
       <button type="button" class="btn ${o.pick||!W.opts.some(x=>x.pick)&&o===W.opts[0]?"btn--gold":"btn--line"} btn--sm" data-wbook="${esc(o.p)}|${esc(o.n)}">Book ↗</button></div>`).join("");
   const cmp = `<button type="button" class="wcmp" id="wcmp" aria-expanded="false">Compare side by side</button><table class="wtbl" id="wtbl" hidden><thead><tr><th></th>${W.opts.map(o=>`<th>${esc(o.p)}</th>`).join("")}</tr></thead><tbody>${W.cmp.map(([k,...v])=>`<tr><td>${k}</td>${v.map(x=>`<td class="${x==="Yes"?"yes":x==="Not stated"?"no":""}">${esc(x)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;

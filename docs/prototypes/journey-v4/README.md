@@ -107,3 +107,29 @@
 **Performance**
 - **Compression:** the videos went through ffmpeg 9.0.2 (Gyan build, installed with winget on the owner's OK): H.264 at up to 960 px, no audio, at most 14 s, CRF 30, faststart. The 9 files dropped from 55 MB to about 11 MB (0.3 to 2.7 MB each).
 - **Data saver:** with Save-Data on, or a 2G/3G connection, or reduced motion, videos stay as their poster images until the reader presses "Play videos".
+
+## Photo review (owner, 16 Oct: "choose beautiful, fitting, attractive photos")
+All photos are free Unsplash photos whose location tag names the exact place, read on each photo's page on 16 Oct. They are used in the prototype only. Before any of them goes on the live site, record it in `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5.
+
+| Where in the prototype | Replaces | Photo id | Location tag on Unsplash |
+|---|---|---|---|
+| Valley of the Kings, step "Valley of the Kings" | the path photo, with a man in the foreground | 1779366244195-c11f7819693c | "KV62 - Tomb of Tutankhamun, Kings Valley Road, Qena Desert, Egypt" |
+| Pyramids trip photo | a dark, low-resolution silhouette | 1704998250995-37d969c80e03 | "Giza, Egypt" (already in §5) |
+| Pyramids, "Combine it with" | none (new) | 1777189978576-08b21689fcc9 | Grand Egyptian Museum (already in §5, "found but not placed") |
+| Abu Simbel, step "Scale" | a blurred layer | 1748292951610-1ed2f59c9c20 | "Abu Simbel, Égypte" (already in §5) |
+| Alexandria, step "Bibliotheca Alexandrina" | a street-side view | 1649203945407-93bfe807f376 | "Bibliotheca Alexandrina, Al Azaritah WA Ash Shatebi, Bab Sharqi, Egypt" |
+| Alexandria, step "Pompey’s Pillar" | the stairway close-up | 1671203984228-178b1efb6bb4 | "помпейская колонна, Alexandria, Egypt" (Pompey's Pillar) |
+| Red Sea diving, step "Sail to the first site" | a blurred layer | 1777552550371-e05232b1c9c0 | "Hurghada, Ägypten" (already in §5) |
+| Ras Mohammed trip photo and step "By boat" | the reef photo reused from diving | 1616967304670-b75cf9ab4582 | "Ras Mohammed National Park, Egypt" (already in §5) |
+| Nile dinner, step "Live music" | a blurred layer | 1626692880062-35c360fb6afc | "Cairo, Egypt" (already in §5) |
+| Siwa, "Combine it with" | none (new) | 1652377170273-72152e714b96 | "Siwa, Egypt" |
+| Luxor destination card | the same column shot as the Ancient mood | 1710886324980-997f7742f16c | "Luxor Temple, Luxor, Egypt" |
+| Aswan destination card | a felucca photo cropped to a bare hill | 1738580426867-03fa8c8b5288 | "Philae, Aswan 1, Egypt" |
+| Luxury mood (Aswan) | boat cushions | 1644517270263-4112379d97ca | "Aswan, Egypt" (the photo the Aswan card used, now uncropped) |
+| Ancient mood poster (Luxor) | a column close-up | 1689876405589-666038511bf9 | "Karnak, Luxor, Egypt" |
+
+**Not found:**
+- the Great Sand Sea, the White Desert and the Colossi of Memnon: free results were tagged only "Egypt" or not tagged;
+- extra videos: Pexels' Luxor and Philae results are Karnak clips by the same creator as the one in use, or have no stated place.
+
+**Active card:** the gold edge is now a box-shadow that follows the card's corners, with no gap (it was an outline with an offset).
