@@ -2,6 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.72 — 2026-10-16: photos in the content cards (preview `?ux=2`)
+- **Step 3 of the photo plan:** the cards that describe each place show its photo at the top (`er_card_photos()`, Core 1.2.48 `data/card-photos.json`, matched by section and card position in every language).
+- **Placed:** the Valley of the Kings and Hatshepsut's temple (Valley of the Kings page), and the Citadel of Qaitbay, the Bibliotheca Alexandrina and Pompey's Pillar (Alexandria). All are free Unsplash photos tagged with the exact place.
+- **No photo:** cards whose place has no exactly tagged free photo, such as the Colossi of Memnon and the desert sights (`docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5).
+
 ## 1.2.71 — 2026-10-16: photos back on the booking panel (preview `?ux=2`)
 - **Owner:** the old design was better as UI because it showed the place, so the reader knew what to expect. Put the trip's photo back, the same photo on each partner's offer.
 - **Trip rows:** the experience's photo on every offer, beside the partner chip and the partner-stated facts (`er_offer_thumb()`).

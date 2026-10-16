@@ -1100,6 +1100,26 @@ body:has(#nav:not(.is-hidden)) .secnav {
   font-weight: 500;
   line-height: 1.3;
 }
+/* A card with the place's photo (er_card_photos(), new journey): the photo fills the card's top edge. */
+.prose .er-points > li.has-img {
+  overflow: hidden;
+  padding-top: 0;
+}
+.prose .er-points__img {
+  display: block;
+  margin: 0 -1.25rem 0.9rem;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--sand);
+}
+.prose .er-points__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+  object-fit: cover;
+}
 
 /* H3 + paragraph runs → card grid */
 .prose .er-subgrid {

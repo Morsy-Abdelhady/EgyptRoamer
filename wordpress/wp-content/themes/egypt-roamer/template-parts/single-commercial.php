@@ -183,6 +183,9 @@ er_page_hero( [
 		: ( $er_offers ? '<a class="btn btn--primary" href="#book">' . esc_html( er_t( 'Book with our partners' ) ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>' : '' ),
 ] );
 $er_body = er_body();
+if ( $er_new ) {
+	$er_body['html'] = er_card_photos( $er_body['html'], $er_id );
+}
 er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
 if ( 'er_experience' === $er_type ) {
 	er_book_bar();

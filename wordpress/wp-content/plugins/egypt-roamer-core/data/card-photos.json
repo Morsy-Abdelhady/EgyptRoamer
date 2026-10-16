@@ -1,0 +1,19 @@
+{
+ "_note": "Photos for the card lists (.er-points) of an experience's sections, by item position (the same in every language). Free Unsplash photos whose location tag names the exact place; provenance in docs/IMAGE-QUALITY-AUDIT-2026-10-02.md §5. Empty string: no photo with an exact tag was found.",
+ "exp-valley": {
+  "what-you-do": [
+   "1689876021889-b3f6cfd41b95",
+   "1683891043389-31a5ca0692f8",
+   ""
+  ]
+ },
+ "exp-alexandria": {
+  "what-you-see": [
+   "1738511574956-9529fd9f84f1",
+   "1669329330758-cb84ab85113d",
+   "",
+   "1709486725346-7c4cf3d9c0c8",
+   ""
+  ]
+ }
+}

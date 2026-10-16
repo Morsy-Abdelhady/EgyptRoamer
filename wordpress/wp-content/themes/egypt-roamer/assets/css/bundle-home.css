@@ -5800,6 +5800,25 @@ font-size: 1.15rem;
 font-weight: 500;
 line-height: 1.3;
 }
+.prose .er-points > li.has-img {
+overflow: hidden;
+padding-top: 0;
+}
+.prose .er-points__img {
+display: block;
+margin: 0 -1.25rem 0.9rem;
+aspect-ratio: 16 / 10;
+overflow: hidden;
+background: var(--sand);
+}
+.prose .er-points__img img {
+display: block;
+width: 100%;
+height: 100%;
+margin: 0;
+border-radius: 0;
+object-fit: cover;
+}
 .prose .er-subgrid {
 display: grid;
 grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -715,6 +715,36 @@ function er_offer_thumb( array $o, string $stock = '' ): string {
 	return '' === $stock ? '' : '<span class="bp__img">' . er_stock_img( $stock, '', array_diff_key( $attrs, [ 'alt' => 1 ] ), [ 160, 240 ], 1.0 ) . '</span>';
 }
 
+/**
+ * Photos in a section's cards (Core data/card-photos.json), so the reader sees each place the text describes
+ * (owner, 16 Oct). Matched by the experience's seed id (any language: "exp-valley-ar" → "exp-valley"), the
+ * section's anchor and the card's position. Cards without a photo stay as they are.
+ */
+function er_card_photos( string $html, int $post_id ): string {
+	static $map = null;
+	if ( null === $map ) {
+		$file = defined( 'ER_CORE_DIR' ) ? ER_CORE_DIR . 'data/card-photos.json' : '';
+		$map  = $file && is_readable( $file ) ? ( json_decode( (string) file_get_contents( $file ), true ) ?: [] ) : []; // phpcs:ignore WordPress.WP.AlternativeFunctions
+	}
+	$seed = preg_replace( '/-(ar|de|fr|it|es|ru|zh)$/', '', (string) get_post_meta( $post_id, '_er_seed_id', true ) );
+	foreach ( (array) ( $map[ $seed ] ?? [] ) as $anchor => $photos ) {
+		$h = strpos( $html, 'id="' . $anchor . '"' );
+		$u = false !== $h ? strpos( $html, '<ul class="wp-block-list er-points">', $h ) : false;
+		$e = false !== $u ? strpos( $html, '</ul>', $u ) : false;
+		$n = false !== $h ? strpos( $html, '<section class="er-sec">', $h ) : false;
+		if ( false === $u || false === $e || ( false !== $n && $u > $n ) ) {
+			continue;
+		}
+		$i    = 0;
+		$list = preg_replace_callback( '#<li>#', static function () use ( &$i, $photos ): string {
+			$id = (string) ( $photos[ $i++ ] ?? '' );
+			return '' === $id ? '<li>' : '<li class="has-img"><span class="er-points__img">' . er_stock_img( $id, '', [ 'sizes' => '(max-width: 700px) 92vw, 360px' ], [ 400, 640, 800 ], 0.62 ) . '</span>';
+		}, substr( $html, $u, $e - $u ) );
+		$html = substr_replace( $html, $list, $u, $e - $u );
+	}
+	return $html;
+}
+
 /** "Private · About 4–5 hours · Pickup offered": the partner-stated facts of an offer (er_offer_facts()). */
 function er_offer_facts_line( array $f ): array {
 	$out = [];
