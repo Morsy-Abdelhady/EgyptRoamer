@@ -98,6 +98,6 @@ The owner said: go ahead on judgement, without visitor data (there is no traffic
   - The preview keeps `?ux=2` on internal links and is `noindex`.
   - page-coverage passes.
 - **Not done:**
-  - the GoDaddy flush. Edge was not connected to this session, so cached `?ux=2` pages are still old.
+  - ~~the GoDaddy flush~~: done once Edge reconnected; the cached preview pages were rechecked and pass.
   - The homepage rail cards show no shared facts, because the approved JS renders them.
   - P6 and P8–P11.
