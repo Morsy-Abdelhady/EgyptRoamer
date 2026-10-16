@@ -3610,13 +3610,12 @@ html:lang(zh) {
   .page-aside .offer__side {
     grid-column: 2;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
     gap: 0.25rem 0.75rem;
   }
-  .page-aside .offer__side .via {
-    white-space: nowrap;
+  .page-aside .offer__side .btn {
+    flex: none;
   }
   .page-aside .offer-box .disclosure {
     font-size: 0.74rem;

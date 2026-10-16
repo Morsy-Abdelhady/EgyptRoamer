@@ -2,6 +2,9 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.66 — 2026-10-16: sidebar offer button no longer cut off
+- 1.2.65 put the sidebar button and "via …" on one line that could not wrap: with "via GetYourGuide" the button was pushed out of the box ("eck Availability"). The line now wraps, and the button never shrinks.
+
 ## 1.2.65 — 2026-10-16: hotels on experience pages; the booking bar no longer covers a button
 - **Owner report:** none of the experience pages offered a hotel, and "many UX problems". Checked in the browser at 1366×768 and on a phone.
 - **Hotels on experiences:** the hotel offers of the experience's destination ("Find a hotel in {name}") before the questions at the end of the article, at every width (placement `experience-hotels`). The Abu Simbel story shows them in its closing booking section, after the trips.
