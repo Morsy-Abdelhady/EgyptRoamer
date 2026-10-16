@@ -101,3 +101,38 @@ The owner said: go ahead on judgement, without visitor data (there is no traffic
   - ~~the GoDaddy flush~~: done once Edge reconnected; the cached preview pages were rechecked and pass.
   - The homepage rail cards show no shared facts, because the approved JS renders them.
   - P6 and P8–P11.
+
+## 6. Second review (16 Oct, evening, after P1–P5 and P7): the next step to approve
+
+**Re-measured** in the `?ux=2` preview with the same script, every page type, English and Arabic, 390 and 1440 px.
+
+| Page (phone) | Screens | First trip / partner | Booking box |
+|---|---|---|---|
+| Trip page (Valley of the Kings) | 10.4 | **1.2** (was 4.9) | new panel, first |
+| Home | 19.6 | first trip card **12.2**; first partner link 11 (the "Compare options" partner panel) | none |
+| Luxor (destination) | 19.4 | 3.6, old inline box ("Check Availability · via Viator", no photo or facts); the trip cards are at 10.7; full box at 11.3 | old box |
+| Best time (guide) | 14.3 | 3.7, old inline box; trip cards at 7.6 | old box |
+| Abu Simbel story | 17.2 | 10.8; the panel at 14.4 | old box |
+
+**What is left, in order of harm:**
+1. **Two booking designs side by side.** Trip pages have the new panel (photo, partner chip, partner-stated facts, "Book", hotels, one bar on phones). Destinations, guides and the Abu Simbel story keep the old box, with "Check Availability · via Viator", no photos or facts, a separate hotel box, and the bar plus the dock on phones. A visitor going from Luxor to a Luxor trip meets two ways to book. This was the owner's first complaint (16 Oct, "inconsistent, I don't know where to go").
+2. **Home: the first trip is 12 screens down.** The pinned scene sequence takes about 5 screens. Then come the moods (6.3), destinations (7.4), the map (8.6), the partners panel (9.8), the trips (11.7), the journal (13) and the planner (15.4).
+3. **Abu Simbel story:** the booking panel is 14 screens down.
+
+**Recommendation, step A (approve first): one booking panel on every page.**
+- **What:** destinations, guides and the Abu Simbel story use the same panel as the trip page.
+  - Destinations: the top 3 trips plus the destination's hotels.
+  - Guides: the trips the guide covers, plus hotels when the guide is about one destination.
+  - The story: its own trips and hotels.
+- **Placement:** in the sidebar on desktop. On phones, right after the intro (destinations, guides) or after the first chapter (the story).
+- **Phones:** the same single bar as on trip pages.
+- **Unchanged:** the full "Things to do" list stays where it is.
+- **Why first:** every page books the same way, which fixes finding 1 and finding 3. Then `er_ux2` can be switched on for visitors without mixing two designs.
+- **Risk:** small. It reuses the panel already checked on 18 trip pages and is built in the preview first.
+
+**Step B, after A: the homepage.** It is the approved prototype, so the owner chooses:
+- **B1 (recommended):** move the "Handpicked experiences" rail up to right after the scene sequence, so the first trip is at about screen 6 instead of 12. Only the section order changes; sections, CSS and animation stay.
+- **B2:** B1, plus three choices in the hero ("I know where I'm going" / "I want an experience" / "Help me plan") in place of "Explore Egypt / Watch the film".
+- **B3 (not recommended):** shorten the pinned scene sequence. That changes the approved design itself.
+
+**Not proposed now:** P11 (planner) and the travel-time decision, until A and B are done.
