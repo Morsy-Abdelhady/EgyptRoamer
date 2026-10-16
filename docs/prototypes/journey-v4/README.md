@@ -203,3 +203,11 @@ These replace the prototype's own moods and destination cards. `live-capture.mjs
 - **White strip:** the strip under the map is removed.
 - **Moods on phones:** all seven show in two rows.
 - **Swiped rows:** the first card keeps its gap from the edge (`scroll-padding`), so its hover border no longer touches the corner.
+
+## Video controls per section and the booking bar (owner, 16 Oct, `v4-round4.py`)
+- **Video controls:** the header's single switch is gone. Every section with video has its own small control:
+  - an "i" to show the credit;
+  - play/pause, drawn as SVG so it stays centred on phones.
+  - A section the visitor paused stays paused when it scrolls back into view.
+- **Booking bar:** inside a trip, the bar appears as soon as the opener's own "Book this trip" button leaves the screen, and hides at the booking section.
+- **Map on phones:** the place names wrap onto rows, so all seven show.

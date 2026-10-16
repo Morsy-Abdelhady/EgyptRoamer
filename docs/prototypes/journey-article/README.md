@@ -86,3 +86,4 @@ No prices, ratings or reviews. The trip facts are the same as in proposal 4.
 - **Contents:** the side contents are replaced by a sticky row of section tabs above the article, as on the live guide pages.
   - The current tab is marked and scrolls into view.
   - The article is two columns (text and booking box), and one column below 900 px.
+- **Video controls:** each video has its own play/pause, drawn as SVG. The header switch is gone, as in proposal 4.
