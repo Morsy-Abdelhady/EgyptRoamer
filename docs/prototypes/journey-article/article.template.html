@@ -1,0 +1,333 @@
+<title>Egypt Roamer Article Template</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Sans+Egyptian+Hieroglyphs&display=swap">
+<style>
+/* One shared template for every guide. Palette and type are Egypt Roamer's own tokens, as in proposal 4. */
+:root{
+  --charcoal:#101820; --stone:#f8f5ed; --white:#ffffff; --sand:#d8b483; --gold:#c9a227; --gold-deep:#a8871f;
+  --nile:#0e3a5b; --teal:#0f6b7a; --ink:#121c26; --muted:#4e555c; --faint:#6b7177; --papyrus:#efe2c4;
+  --line:rgba(16,24,32,.11); --line-strong:rgba(16,24,32,.22); --proto:#e9e4d8; --note:#fffdf6;
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ar:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+  --glyph:"Noto Sans Egyptian Hieroglyphs",serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--proto);color:var(--charcoal);font:15px/1.6 var(--sans)}
+button{font:inherit;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* prototype chrome */
+.pbar{position:sticky;top:0;z-index:50;background:var(--charcoal);color:#f3eee2;padding:10px 16px}
+.pbar__in{max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;direction:rtl;font-family:var(--ar)}
+.pbar__name{font-weight:600;font-size:14px}
+.pbar__name small{display:block;font-weight:400;opacity:.7;font-size:12px}
+.steps{display:flex;gap:6px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.steps button{border:1px solid rgba(255,255,255,.18);background:transparent;color:#f3eee2;border-radius:999px;padding:6px 14px;font-family:var(--ar);font-size:14px}
+.steps button[aria-current="true"]{background:var(--gold);color:var(--charcoal);border-color:var(--gold)}
+.pbar__notes{margin-inline-start:auto;display:flex;align-items:center;gap:8px;font-size:13px}
+.pbar__notes input{accent-color:var(--gold);width:16px;height:16px}
+.stage{max-width:1400px;margin:0 auto;padding:20px 16px 48px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;align-items:start}
+.stage.no-notes{grid-template-columns:minmax(0,1fr)}
+.stage.no-notes .notes{display:none}
+@media (max-width:1100px){.stage{grid-template-columns:minmax(0,1fr)}}
+.browser{background:var(--white);border-radius:12px;box-shadow:0 18px 50px rgba(16,24,32,.18);overflow:hidden;min-width:0}
+.browser__bar{display:flex;align-items:center;gap:10px;padding:9px 14px;background:#ece8de;border-bottom:1px solid var(--line)}
+.browser__dots{display:flex;gap:6px}.browser__dots i{width:10px;height:10px;border-radius:50%;background:#cfc8b8}
+.browser__url{flex:1;min-width:0;background:#fff;border-radius:6px;padding:4px 12px;font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.viewport{height:calc(100vh - 150px);min-height:620px;overflow:auto;position:relative;background:var(--stone);scroll-behavior:smooth}
+.notes{background:var(--note);border:1px solid var(--line);border-radius:12px;padding:16px 18px;direction:rtl;font-family:var(--ar);font-size:13.5px;line-height:1.75;position:sticky;top:76px;max-height:calc(100vh - 100px);overflow:auto}
+.notes h2{font-size:15px;margin:0 0 8px}
+.notes h3{font-size:13.5px;margin:14px 0 4px;color:var(--gold-deep)}
+.notes ul{margin:0;padding-inline-start:18px}
+.notes li{margin:3px 0}
+
+/* site */
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+.hdr{position:sticky;top:0;z-index:20;color:#fff;transition:background .25s,color .25s,box-shadow .25s;margin-bottom:-68px}
+.hdr .wrap{display:flex;align-items:center;gap:28px;height:68px}
+.hdr.is-solid{background:rgba(248,245,237,.96);color:var(--charcoal);box-shadow:0 1px 0 var(--line);backdrop-filter:blur(8px)}
+.logo{text-decoration:none;line-height:1.05}
+.logo b{display:block;font:600 17px var(--serif);letter-spacing:.14em}
+.logo small{font-size:8.5px;letter-spacing:.32em;opacity:.75}
+.hdr nav{display:flex;gap:24px;margin-inline-start:auto;font-size:14px}
+.hdr nav a{text-decoration:none;opacity:.9}
+.hdr nav a[aria-current="page"]{opacity:1;box-shadow:0 2px 0 var(--gold)}
+.vswitch{background:transparent;border:1px solid currentColor;color:inherit;border-radius:999px;padding:6px 12px;font-size:12px;opacity:.85}
+.vswitch[hidden]{display:none}
+.prog{position:absolute;left:0;bottom:0;height:2px;background:var(--gold);width:0;transition:width .1s linear}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 22px;font-weight:600;font-size:14.5px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn--gold{background:var(--gold);color:var(--charcoal)}
+.btn--gold:hover{background:#d9b23a}
+.btn--line{border-color:var(--line-strong);background:#fff;color:var(--charcoal)}
+.btn--light{border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
+.btn--sm{padding:8px 16px;font-size:13.5px}
+
+/* hero */
+.ahero{position:relative;min-height:540px;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#1a1612}
+.ahero > img,.ahero > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ahero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,24,32,.45) 0%,rgba(16,24,32,.1) 30%,rgba(16,24,32,.85) 100%)}
+.ahero .wrap{position:relative;z-index:1;width:100%;padding-top:120px;padding-bottom:44px}
+.crumb{font-size:13px;opacity:.85;margin:0 0 14px}
+.crumb a{text-decoration:none}.crumb span{margin:0 8px;opacity:.6}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);font-weight:600;margin:0}
+.ahero h1{font:600 52px/1.08 var(--serif);margin:10px 0 14px;max-width:860px;text-wrap:balance}
+.ahero .lead{font-size:17.5px;line-height:1.55;max-width:720px;margin:0 0 20px;color:#f1ece0}
+.ameta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:#e9e1cf}
+.ameta span::before{content:"·";margin-inline-end:18px;opacity:.6}
+.ameta span:first-child::before{content:none}
+.credit{position:absolute;right:16px;bottom:12px;z-index:2;font-size:11px;color:rgba(255,255,255,.75)}
+
+/* body: contents · reading column · booking box */
+.abody{display:grid;grid-template-columns:200px minmax(0,680px) 300px;gap:44px;justify-content:center;padding:52px 40px 20px;max-width:1340px;margin:0 auto}
+.atoc{position:sticky;top:96px;align-self:start;font-size:13.5px}
+.atoc p{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);font-weight:600;margin:0 0 10px}
+.atoc ol{list-style:none;margin:0;padding:0;border-inline-start:1px solid var(--line)}
+.atoc a{display:block;padding:6px 0 6px 14px;margin-inline-start:-1px;border-inline-start:2px solid transparent;text-decoration:none;color:var(--muted);line-height:1.35}
+.atoc a.on{border-color:var(--gold);color:var(--charcoal);font-weight:600}
+.atoc a:hover{color:var(--charcoal)}
+
+.prose{font-size:17.5px;line-height:1.75;color:var(--ink);min-width:0}
+.prose > p:first-child{font:500 21px/1.6 var(--serif);color:var(--charcoal)}
+.prose > p:first-child::first-letter{float:left;font:600 64px/0.9 var(--serif);color:var(--gold-deep);margin:6px 10px 0 0}
+.prose p{margin:0 0 20px}
+.prose h2{font:600 31px/1.2 var(--serif);margin:52px 0 16px;scroll-margin-top:90px;display:flex;align-items:baseline;gap:14px}
+.prose h2 small{font:600 13px var(--sans);color:var(--gold-deep);letter-spacing:.08em}
+.prose a{color:var(--nile);text-decoration:underline;text-decoration-color:rgba(201,162,39,.7);text-underline-offset:3px;text-decoration-thickness:1.5px}
+.prose ul{margin:0 0 22px;padding:0;list-style:none}
+.prose li{position:relative;padding-left:24px;margin:0 0 10px}
+.prose li::before{content:"";position:absolute;left:4px;top:.72em;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.prose strong{color:var(--charcoal)}
+.tip{position:relative;margin:28px 0;padding:22px 26px 20px 74px;background:var(--papyrus);border-radius:14px;font-size:16px;line-height:1.65;overflow:hidden}
+.tip::before{content:attr(data-g);position:absolute;left:22px;top:18px;font:32px/1 var(--glyph);color:var(--gold-deep)}
+.tip b{display:block;font:600 19px var(--serif);margin-bottom:6px}
+.tip p,.tip ul{margin:0}
+.tip li{margin-bottom:6px}
+figure{margin:30px 0 32px}
+figure img{width:100%;height:420px;object-fit:cover;border-radius:14px;display:block}
+figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
+
+/* the trip, inline where the guide names it */
+.tcard{display:grid;grid-template-columns:200px 1fr;gap:0;margin:26px 0 30px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;text-decoration:none!important;color:var(--charcoal)!important;box-shadow:0 8px 24px rgba(16,24,32,.06);transition:box-shadow .2s,transform .2s}
+.tcard:hover{box-shadow:0 14px 34px rgba(16,24,32,.12);transform:translateY(-2px)}
+.tcard img{width:100%;height:100%;min-height:150px;object-fit:cover}
+.tcard div{padding:16px 20px;font-size:14px;line-height:1.5}
+.tcard small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.tcard h4{font:600 20px/1.25 var(--serif);margin:4px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px;padding:0;list-style:none}
+.chips li{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--stone);border:1px solid var(--line);margin:0}
+.chips li::before{content:none}
+.chips .fc{background:#e6f2ee;border-color:#bfdcd3;color:#145c4c}
+.tcard .go{font-weight:600;color:var(--nile)}
+.tcard--slim{grid-template-columns:1fr auto;align-items:center;padding:4px 8px 4px 4px;border-color:rgba(201,162,39,.55);background:linear-gradient(90deg,#fffaf0,#fff)}
+.tcard--slim h4{font-size:18px;margin:2px 0 0}
+.tcard--slim .btn{margin-right:12px}
+.bk .chips li{font-size:11.5px;padding:2px 9px}
+
+/* booking box: always beside the reading */
+.abox{position:sticky;top:96px;align-self:start}
+.bk{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 14px 40px rgba(16,24,32,.08)}
+.bk__img{position:relative;height:150px}
+.bk__img img{width:100%;height:100%;object-fit:cover}
+.bk__img span{position:absolute;left:12px;top:12px;background:rgba(16,24,32,.75);color:#fff;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:999px;font-weight:600}
+.bk__b{padding:16px 18px 18px}
+.bk__b small{font-size:12px;color:var(--faint)}
+.bk__b h3{font:600 19px/1.25 var(--serif);margin:3px 0 10px}
+.bk__b .btn{width:100%;justify-content:center;margin-top:4px}
+.bk__p{font-size:12px;color:var(--faint);margin:10px 0 0;text-align:center}
+.bk__also{display:block;margin-top:12px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:13px;text-decoration:none;line-height:1.4}
+.bk__also small{display:block;font-size:11px;color:var(--faint);letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.bk__also b{font-weight:600}
+.bk__stay{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--stone);border:1px solid var(--line);font-size:13px;text-decoration:none;line-height:1.4}
+.bk__stay small{display:block;color:var(--faint)}
+.bk__stay em{font-style:normal;font-weight:600;color:var(--nile);white-space:nowrap}
+.bk__disc{font-size:11.5px;color:var(--faint);margin:12px 4px 0;line-height:1.5}
+
+/* faq */
+.afaq h2{margin-top:56px}
+.afaq details{border-top:1px solid var(--line);padding:4px 0}
+.afaq details:last-child{border-bottom:1px solid var(--line)}
+.afaq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:14px 0;font:600 18px/1.35 var(--serif)}
+.afaq summary::-webkit-details-marker{display:none}
+.afaq summary::after{content:"+";font:400 24px/1 var(--sans);color:var(--gold-deep);transition:transform .2s}
+.afaq details[open] summary::after{transform:rotate(45deg)}
+.afaq details p{margin:0 0 16px;font-size:16.5px}
+.asrc{font-size:13px;color:var(--faint);border-top:1px solid var(--line);margin-top:40px;padding-top:16px}
+
+/* end: the trip, in its world's tone */
+.aend{position:relative;margin-top:56px;color:#fff;overflow:hidden}
+.aend--tomb{background:radial-gradient(ellipse at 75% 30%,rgba(201,162,39,.25),transparent 60%),#15110b}
+.aend--sea{background:radial-gradient(ellipse at 70% 20%,rgba(64,190,200,.35),transparent 60%),linear-gradient(160deg,#0b3b52,#06222f)}
+.aend .glyphs{position:absolute;inset:0;font:30px/1.6 var(--glyph);color:var(--gold);opacity:.1;word-break:break-all;letter-spacing:.3em;padding:10px;pointer-events:none;overflow:hidden}
+.aend .wrap{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;padding-top:64px;padding-bottom:64px}
+.aend h2{font:600 40px/1.15 var(--serif);margin:10px 0 14px}
+.aend p{color:#e9e1cf;font-size:16px;margin:0 0 22px;max-width:520px}
+.aend .acts{display:flex;gap:10px;flex-wrap:wrap}
+.aopts{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.aopts li{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 16px;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(255,255,255,.06)}
+.aopts b{display:block;font:600 16px/1.3 var(--serif);margin-bottom:6px}
+.aopts small{font-size:12px;color:#d9d0bd}
+.aopts small i{font-style:normal;font-weight:600;color:#fff;margin-right:8px}
+.aopts .btn{flex:none}
+.aopts__t{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sand);font-weight:600;margin:0 0 10px}
+.aend .chips li{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff}
+.aend .chips .fc{background:rgba(127,209,199,.18);border-color:rgba(127,209,199,.4);color:#c9f1ea}
+
+/* keep reading */
+.amore{padding:56px 0 64px}
+.amore h2{font:600 30px var(--serif);margin:6px 0 22px}
+.amore__g{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.gcard{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+.gcard:hover{box-shadow:0 14px 34px rgba(16,24,32,.1);transform:translateY(-2px)}
+.gcard img,.gcard .gtone{width:100%;height:170px;object-fit:cover;display:block}
+.gcard .gtone{background:linear-gradient(150deg,#2a2016,#5b4426);display:grid;place-items:center;font:44px var(--glyph);color:rgba(230,195,90,.55)}
+.gcard div{padding:16px 18px 18px;font-size:14px;color:var(--muted);line-height:1.55}
+.gcard small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.gcard h3{font:600 19px/1.3 var(--serif);color:var(--charcoal);margin:4px 0 8px}
+.gcard p{margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ftr{background:var(--charcoal);color:#cfc8b8;font-size:13px;padding:30px 0}
+.ftr .wrap{display:flex;justify-content:space-between;gap:20px}
+@media (prefers-reduced-motion:reduce){.viewport{scroll-behavior:auto}.tcard,.gcard{transition:none}}
+</style>
+
+<header class="pbar">
+  <div class="pbar__in">
+    <div class="pbar__name">نموذج قالب المقالات الموحّد<small>نسخة الكمبيوتر · نموذج للاعتماد · مقالتين حقيقيتين من الموقع بنفس القالب</small></div>
+    <ol class="steps" aria-label="المقالات">
+      <li><button type="button" data-art="valley" aria-current="true">وادي الملوك (آثار)</button></li>
+      <li><button type="button" data-art="snorkel">السنوركلينج (بحر)</button></li>
+    </ol>
+    <label class="pbar__notes"><input type="checkbox" id="show-notes" checked> الملاحظات</label>
+  </div>
+</header>
+
+<main class="stage" id="stage">
+  <div class="browser">
+    <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url" id="url">egyptroamer.com</span></div>
+    <div class="viewport" id="vp">
+      <header class="hdr" id="hdr"><div class="wrap">
+        <a class="logo" href="#"><b>EGYPT ROAMER</b><small>MORE THAN A DESTINATION</small></a>
+        <nav><a href="#">Destinations</a><a href="#">Experiences</a><a href="#" aria-current="page">Travel Guide</a></nav>
+        <button type="button" class="vswitch" id="vswitch" aria-pressed="true" hidden>❚❚ Pause video</button>
+      </div><div class="prog" id="prog"></div></header>
+      <div id="art"></div>
+      <footer class="ftr"><div class="wrap"><span>© Egypt Roamer · Independent travel guide</span><span>How we work with partners · Privacy</span></div></footer>
+    </div>
+  </div>
+
+  <aside class="notes" id="notes">
+    <h2>القالب الموحّد للمقالات</h2>
+    <p>نفس القالب بالظبط للمقالتين. القالب بيبني كل حاجة من المقالة نفسها، فأي مقالة جديدة هتطلع بنفس الشكل من غير تصميم إضافي.</p>
+    <h3>الدخول</h3>
+    <ul>
+      <li>صورة كبيرة أو فيديو للمكان نفسه، والعنوان والملخص ووقت القراءة.</li>
+      <li>المسار: Travel Guide ← المكان.</li>
+    </ul>
+    <h3>القراءة</h3>
+    <ul>
+      <li>عمود قراءة مريح (680px)، وأول فقرة مميزة.</li>
+      <li>الفهرس على الشمال بيعلّم القسم اللي إنت فيه، وخط ذهبي فوق بيبيّن إنت قريت قد إيه.</li>
+      <li>النصايح في كارت بلون البردي.</li>
+      <li>الصور بتظهر بين الأقسام، ومكتوب تحت كل صورة مكانها ومصدرها.</li>
+    </ul>
+    <h3>الحجز وإنت بتقرا</h3>
+    <ul>
+      <li>صندوق ثابت على اليمين للرحلة المرتبطة بالمقالة: مدتها، وعدد الاختيارات، والشركاء، و"الإلغاء مجاني".</li>
+      <li>لو المقالة مرتبطة برحلة تانية، بتظهر تحته في سطر صغير.</li>
+      <li>لما المقالة تذكر رحلة، كارت الرحلة بيظهر تحت الفقرة اللي ذكرتها.</li>
+      <li>سطر الفنادق بيودّي لـ Trip.com.</li>
+    </ul>
+    <h3>النهاية</h3>
+    <ul>
+      <li>الأسئلة الشائعة بتتفتح وتتقفل.</li>
+      <li>بعدها قسم "جاهز تروح؟" بألوان عالم الرحلة: نقوش فرعونية للآثار، وأزرق للبحر.</li>
+      <li>وفي الآخر "اقرأ كمان": 3 مقالات من نفس المكان.</li>
+    </ul>
+    <h3>ملاحظات</h3>
+    <ul>
+      <li>النصوص هي نصوص المقالات الحقيقية على الموقع بالحرف.</li>
+      <li>المدد والاختيارات من عروض الشركاء، ومفيش أسعار ولا تقييمات.</li>
+      <li>كل الصور من Unsplash ومكتوب عليها مكانها بالظبط، والفيديو من Pexels.</li>
+      <li>زرار "See the options" في الموقع هيفتح صفحة عالم الرحلة (الاقتراح الرابع).</li>
+    </ul>
+  </aside>
+</main>
+
+<script>
+const IMG = {{imgmap}};
+const DATA = {{data}};
+const TRIPS = {{trips}};
+const $ = s => document.querySelector(s), vp = $("#vp");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const GLYPHS = "𓀀𓁐𓂀𓃒𓄿𓅓𓆣𓇋𓈖𓉐𓊪𓋴𓌳𓍯𓎛𓏏𓐍𓇳𓋹𓊽𓂻𓁹𓆛𓈗";
+const FC = "Free cancellation";
+
+function chips(t, light){
+  return `<ul class="chips">${t.facts.map(f=>`<li>${esc(f)}</li>`).join("")}<li class="fc" title="Free cancellation up to 24 hours before, on every option (the partners' own terms)">✓ ${FC}</li></ul>`;
+}
+function tcard(k, main){
+  const t = TRIPS[k];
+  if(main) return `<a class="tcard tcard--slim" href="#"><div><small>The trip in this guide</small><h4>${esc(t.title)}</h4></div><span class="btn btn--gold btn--sm">See the ${t.n} options →</span></a>`;
+  return `<a class="tcard" href="#"><img src="${IMG[t.img]}" alt=""><div><small>The trip · ${esc(t.place)}</small><h4>${esc(t.title)}</h4>${chips(t)}<span class="go">See the ${t.n} options →</span></div></a>`;
+}
+function render(key){
+  const A = DATA[key], main = TRIPS[A.trips[0]], also = A.trips.slice(1).filter(k=>TRIPS[k]);
+  $("#url").textContent = "egyptroamer.com/guides/" + A.title.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"") + "/";
+  const h = A.hero;
+  const hero = h[0]==="video"
+    ? `<video muted loop playsinline ${REDUCE?"":"autoplay"} poster="${IMG[h[1]]}" src="${h[3]}"></video>`
+    : `<img src="${IMG[h[1]]}" alt="">`;
+  let n = 0, shown = new Set();
+  const body = A.blocks.filter(b=>!(b[0]==="h2"&&b[1]==="faq")).map(b=>{
+    if(b[0]==="h2"){ n++; const fig = A.figs[b[1]];
+      return `<h2 id="${b[1]}"><small>${String(n).padStart(2,"0")}</small>${esc(b[2])}</h2>` + (fig?`<figure><img src="${IMG[fig[0]]}" alt="" loading="lazy"><figcaption>${esc(fig[1])}</figcaption></figure>`:""); }
+    if(b[0]==="tip") return `<div class="tip" data-g="${main.world==="tomb"?"𓁹":"𓈗"}"><b>${esc(b[1])}</b>${b[2]}</div>`;
+    let html = b[0]==="ul" ? `<ul>${b[1].map(i=>`<li>${i}</li>`).join("")}</ul>` : `<p>${b[1]}</p>`;
+    // the guide names a trip: its card follows the paragraph, once
+    const m = [...html.matchAll(/data-trip="(\w+)"/g)].map(x=>x[1]).filter(k=>!shown.has(k));
+    m.forEach(k=>{ shown.add(k); html += tcard(k, k===A.trips[0]); });
+    return html;
+  }).join("");
+  const toc = A.toc.filter(t=>t[0]!=="faq").map(([id,t])=>`<li><a href="#${id}" data-toc="${id}">${esc(t)}</a></li>`).join("") + `<li><a href="#faq" data-toc="faq">Questions</a></li>`;
+  const faq = `<section class="afaq"><h2 id="faq"><small>${String(n+1).padStart(2,"0")}</small>Frequently asked questions</h2>${A.faq.map(([q,a],i)=>`<details ${i?"":"open"}><summary>${esc(q)}</summary><p>${a}</p></details>`).join("")}</section>`;
+  const box = `<div class="bk"><div class="bk__img"><img src="${IMG[main.img]}" alt=""><span>The trip for this guide</span></div><div class="bk__b"><small>${esc(main.place)}</small><h3>${esc(main.title)}</h3>${chips(main)}<a class="btn btn--gold" href="#">See the ${main.n} options →</a><p class="bk__p">From ${esc(main.partners)}</p></div></div>`
+    + also.map(k=>`<a class="bk__also" href="#"><small>Also in this guide</small><b>${esc(TRIPS[k].title)}</b> →</a>`).join("")
+    + `<a class="bk__stay" href="#"><span>${esc(A.stay[0])}<small>${esc(A.stay[1])}</small></span><em>${esc(A.stay[2])} ↗</em></a>`
+    + `<p class="bk__disc">Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.</p>`;
+  const end = `<section class="aend aend--${main.world}">${main.world==="tomb"?`<div class="glyphs" aria-hidden="true">${GLYPHS.repeat(30)}</div>`:""}<div class="wrap"><div><p class="eyebrow">Ready to go?</p><h2>${esc(main.title)}</h2>${chips(main)}<p>Compare the options side by side on the trip page, then book on the partner’s site. Free cancellation up to 24 hours before, on every option.</p><div class="acts"><a class="btn btn--gold" href="#">${esc(main.go)} →</a><a class="btn btn--light" href="#">All ${esc(A.crumb)} trips</a></div></div><div><p class="aopts__t">${main.n} ways to do it</p><ul class="aopts">${main.opts.map(o=>`<li><div><b>${esc(o[0])}</b><small><i>${esc(o[1])}</i>${o[2].map(esc).join(" · ")}</small></div><a class="btn btn--line btn--sm" href="#">Book ↗</a></li>`).join("")}</ul></div></div></section>`;
+  const more = `<section class="amore"><div class="wrap"><p class="eyebrow" style="color:var(--gold-deep)">Keep reading</p><h2>More on ${esc(A.crumb)}</h2><div class="amore__g">${A.more.map(g=>`<a class="gcard" href="#">${g.img?`<img src="${IMG[g.img]}" alt="" loading="lazy">`:`<span class="gtone" aria-hidden="true">𓊽</span>`}<div><small>Guide · ${g.mins} min read</small><h3>${esc(g.title)}</h3><p>${esc(g.excerpt)}</p></div></a>`).join("")}</div></div></section>`;
+  $("#art").innerHTML =
+    `<section class="ahero">${hero}<div class="wrap"><p class="crumb"><a href="#">Travel Guide</a><span>›</span><a href="#">${esc(A.crumb)}</a></p><p class="eyebrow">${esc(A.topic)} guide</p><h1>${esc(A.title)}</h1><p class="lead">${esc(A.excerpt)}</p><div class="ameta"><span>${A.mins} min read</span><span>${A.toc.length} sections</span><span>Sources listed</span></div></div><span class="credit">${esc(h[2])}</span></section>`
+    + `<div class="abody"><nav class="atoc" aria-label="In this guide"><p>In this guide</p><ol>${toc}</ol></nav><article class="prose">${body}${faq}<p class="asrc">Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.</p></article><aside class="abox">${box}</aside></div>`
+    + end + more;
+  const v = $("#art video"); $("#vswitch").hidden = !v; setSwitch(!!v && !REDUCE);
+  vp.scrollTop = 0;
+}
+function setSwitch(on){
+  const b = $("#vswitch"), v = $("#art video"); b.setAttribute("aria-pressed", on); b.textContent = on ? "❚❚ Pause video" : "▶ Play video";
+  if(v){ on ? v.play().catch(()=>{}) : v.pause(); }
+}
+$("#vswitch").onclick = () => setSwitch($("#vswitch").getAttribute("aria-pressed")!=="true");
+vp.addEventListener("scroll", ()=>{
+  const lim = vp.getBoundingClientRect().top + vp.clientHeight*.35; let cur = null;
+  document.querySelectorAll(".prose h2[id]").forEach(h=>{ if(h.getBoundingClientRect().top < lim) cur = h.id; });
+  document.querySelectorAll("[data-toc]").forEach(a=>a.classList.toggle("on", a.dataset.toc===cur));
+  $("#hdr").classList.toggle("is-solid", vp.scrollTop > 380);
+  const art = $(".prose"); if(!art) return;
+  const end = art.offsetTop + art.offsetHeight - vp.clientHeight;
+  $("#prog").style.width = Math.max(0, Math.min(1, vp.scrollTop / Math.max(1,end))) * 100 + "%";
+}, {passive:true});
+document.addEventListener("click", e=>{
+  const a = e.target.closest("a[href]"); if(!a) return;
+  const href = a.getAttribute("href");
+  if(href.startsWith("#") && href.length>1){ e.preventDefault(); const t = vp.querySelector(href); t && t.scrollIntoView({behavior: REDUCE?"auto":"smooth"}); }
+  else if(href==="#") e.preventDefault();
+});
+document.querySelectorAll("[data-art]").forEach(b=>b.onclick=()=>{ document.querySelectorAll("[data-art]").forEach(x=>x.setAttribute("aria-current", x===b)); render(b.dataset.art); });
+$("#show-notes").onchange = e => $("#stage").classList.toggle("no-notes", !e.target.checked);
+render("valley");
+</script>
