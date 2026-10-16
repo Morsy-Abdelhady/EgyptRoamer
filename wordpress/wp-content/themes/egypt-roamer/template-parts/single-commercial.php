@@ -129,8 +129,9 @@ $er_new = er_ux2() && 'er_experience' === $er_type && ( $er_offers || $er_hotels
 ob_start();
 if ( $er_new ) :
 	// New journey: one panel with the trip options and somewhere to stay, then the key facts.
-	// The key facts box only repeated the hero (location, duration): they open the panel instead.
-	er_booking_panel( $er_offers, $er_hotels, $er_stay ? get_the_title( $er_stay ) : '', 'experience', er_t( 'Book this trip' ), array_values( array_filter( [ $er_facts[ er_t( 'Duration' ) ] ?? '', $er_stay ? get_the_title( $er_stay ) : ( $er_facts[ er_t( 'Location' ) ] ?? '' ) ] ) ) );
+	// The key facts box only repeated the hero; the place opens the panel. Not the page's own duration: each offer
+	// states its own, and "6 hours" above "About 7–10 hours" read as a contradiction.
+	er_booking_panel( $er_offers, $er_hotels, $er_stay ? get_the_title( $er_stay ) : '', 'experience', er_t( 'Book this trip' ), array_values( array_filter( [ $er_stay ? get_the_title( $er_stay ) : ( $er_facts[ er_t( 'Location' ) ] ?? '' ) ] ) ) );
 elseif ( $er_offers ) :
 	?>
 	<div class="offer-box" id="book" role="region" aria-labelledby="offers-title">

@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.70 — 2026-10-16: panel durations translated; no page duration in the panel
+- Found while reviewing the Arabic preview on a phone: durations read "حوالي 7–10 hours". The duration strings were passed to `er_t()` through a variable, so `tools/i18n-strings.py` never collected them; they are now literal calls and translated in all 8 languages.
+- The panel's first line keeps the place only. The page's own duration ("6 hours") sat above offers stating "About 7–10 hours" and read as a contradiction.
+
 ## 1.2.69 — 2026-10-16: booking panel, round 2 (preview `?ux=2`)
 - **Owner:** apply all six proposed improvements.
 - **Facts per offer instead of the repeated city.** Private or small group, duration ("About …" when the partner says approx.) and "Pickup offered", from Core 1.2.46 `data/offer-facts.json`. All 26 trip offers were read on Viator and GetYourGuide's own product pages on 2026-10-16; a fact the partner page doesn't state is left out.

@@ -705,9 +705,10 @@ function er_offer_facts_line( array $f ): array {
 		$out[] = er_t( 'Small group' );
 	}
 	if ( ! empty( $f['duration']['n'] ) ) {
-		$d    = $f['duration'];
-		$unit = [ 'hours' => '{n} hours', 'day' => '{n} day', 'days' => '{n} days' ][ $d['unit'] ?? 'hours' ] ?? '{n} hours';
-		$txt  = er_t( $unit, [ 'n' => (string) $d['n'] ] );
+		$d   = $f['duration'];
+		$n   = [ 'n' => (string) $d['n'] ];
+		// Literal er_t() calls, so tools/i18n-strings.py finds each string for the translation files.
+		$txt = 'days' === ( $d['unit'] ?? '' ) ? er_t( '{n} days', $n ) : ( 'day' === ( $d['unit'] ?? '' ) ? er_t( '{n} day', $n ) : er_t( '{n} hours', $n ) );
 		$out[] = ! empty( $d['approx'] ) ? er_t( 'About {duration}', [ 'duration' => $txt ] ) : $txt;
 	}
 	if ( ! empty( $f['pickup'] ) ) {
