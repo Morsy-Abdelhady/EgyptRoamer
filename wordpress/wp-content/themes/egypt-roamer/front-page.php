@@ -259,6 +259,13 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 		</div>
 	</section>
 	<span id="journey-start" aria-hidden="true"></span>
+<?php
+	// New journey, B1 (owner, 16 Oct): the experiences rail right after the scenes, so the first trip is about six
+	// screens down instead of twelve. Only the order changes: the sections between are held and printed after it.
+	if ( er_ux2() ) {
+		ob_start();
+	}
+	?>
 
 	<section class="interlude on-dark" aria-label="<?php echo esc_attr( er_home( 'interlude_eyebrow' ) ); ?>">
 		<div class="container interlude__inner">
@@ -391,6 +398,12 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 		</section>
 	<?php endif; ?>
 
+<?php
+	if ( er_ux2() ) {
+		$er_mid = (string) ob_get_clean();
+		ob_start();
+	}
+	?>
 	<?php if ( $er_data['experiences'] ) : ?>
 		<section class="section experiences" id="experiences" aria-labelledby="exp-title">
 			<div class="container">
@@ -429,6 +442,11 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 			<?php endif; ?>
 		</section>
 	<?php endif; ?>
+<?php
+	if ( er_ux2() ) {
+		echo (string) ob_get_clean() . $er_mid; // phpcs:ignore WordPress.Security.EscapeOutput -- this template's own escaped output, reordered
+	}
+	?>
 
 	<?php if ( $er_data['guides'] ) : ?>
 		<section class="section guide" id="guide" aria-labelledby="guide-title">

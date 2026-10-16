@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.79 — 2026-10-16: B1, homepage trips right after the scenes (preview `?ux=2` only)
+- **Owner:** approved B1. Move the "Handpicked experiences" rail to right after the pinned scenes, in the preview only.
+- **Order in the preview:** scenes, experiences, then the quote, moods, destinations, map, partners, journal and planner. Only the order changes: sections, approved CSS and animation are as they were. The "Explore Egypt" button (`#journey-start`) now lands on the trips.
+- **Measured locally:** the first trip card moves from screen 12.0 to 6.1 on phones and from 12.8 to 6.8 on desktop, in English and Arabic. No JavaScript errors, no horizontal overflow.
+- **Visitors:** without `?ux=2` the homepage HTML is byte-for-byte the same as 1.2.78 in all 8 languages.
+
 ## 1.2.78 — 2026-10-16: step A, one booking panel on every page (preview `?ux=2` only)
 - **Owner:** approved step A of the second review: one booking panel on every page, then B1 for the homepage. Abu Simbel should be like the other trips. Nothing may change for visitors: everything stays behind `?ux=2`.
 - **Destinations:** the trip page's panel, titled "Trips and hotels in {name}", with the destination's trips (up to 4) and hotels (up to 4), plus its best time. It replaces the sidebar box, the in-article trip and hotel boxes and the box after the article. No "Our pick": the trips differ, so a pick between them says nothing. Hero button "Choose a trip" opens the panel (the sheet on phones).
