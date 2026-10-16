@@ -56,8 +56,8 @@ No prices, ratings or reviews. The trip facts are the same as in proposal 4.
 
 | Key | Photo | By | Location tag |
 |---|---|---|---|
-| habu1 | https://unsplash.com/photos/ancient-egyptian-columns-with-hieroglyphs-under-a-clear-blue-sky-i3A6Zm7zbaI (1762858279425-ed77c08d7a1c) | Fatih Beki | "Temple d'Amon (Médinet Habou), Al Bairat, Luxor, Egypt" |
-| habu2 | https://unsplash.com/photos/ancient-egyptian-hieroglyphs-carved-on-stone-columns-JaUD8-ocFR8 (1761143551108-d4cb55afd1da) | Fatih Beki | same |
+| habu1 (the painted gateway) | https://unsplash.com/photos/brown-concrete-building-under-blue-sky-during-daytime-VrWGR6_umTM (1622962522220-0d9e0d29d62d) | Siddhesh Mangela | "Medinet Habu, Al Bairat, Al Qarna, Egypt" |
+| habu2 (the carved columns) | https://unsplash.com/photos/ancient-egyptian-columns-with-hieroglyphs-under-a-clear-blue-sky-i3A6Zm7zbaI (1762858279425-ed77c08d7a1c) | Fatih Beki | "Temple d'Amon (Médinet Habou), Al Bairat, Luxor, Egypt" |
 | reef_school | https://unsplash.com/photos/school-of-small-orange-fish-swim-near-coral-reef-GGYYH-Hh03Y | Oliver Schwaneberg | "Hurghada, Ägypten" |
 | reef_clown2 | https://unsplash.com/photos/two-clownfish-nestled-in-a-sea-anemone-nQTw3qMvLpw | Oliver Schwaneberg | "Hurghada, Ägypten" |
 | reef_yellow | https://unsplash.com/photos/several-bright-yellow-fish-swim-near-a-coral-reef-6efiBO_PQqs | Oliver Schwaneberg | "Hurghada, Ägypten" |

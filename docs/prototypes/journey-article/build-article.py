@@ -72,7 +72,7 @@ TRIPS = {
 ARTICLES = {
     'valley': dict(file='g-valley-kings.md', crumb='Luxor', hero=('img', 'kv62', 'KV62, the tomb of Tutankhamun, Valley of the Kings · Photo: Unsplash'),
                    figs={},
-                   strips={'west-bank': ('See the places', [('hat_l', 'Hatshepsut’s temple, Deir el-Bahari', 'Mahmoud Refaat'), ('habu1', 'Medinet Habu, the painted gateway', 'Fatih Beki'), ('habu2', 'Medinet Habu, the carved columns', 'Fatih Beki')])}, videos={},
+                   strips={'west-bank': ('See the places', [('hat_l', 'Hatshepsut’s temple, Deir el-Bahari', 'Mahmoud Refaat'), ('habu1', 'Medinet Habu, the painted gateway', 'Siddhesh Mangela'), ('habu2', 'Medinet Habu, the carved columns', 'Fatih Beki')])}, videos={},
                    stay=('Staying in Luxor?', 'Hotels in Luxor and on the West Bank', 'Trip.com'),
                    more=[('g-west-bank.md', None), ('g-east-bank.md', 'd_luxor'), ('g-nile-cruise.md', 'sc_nile')]),
     'snorkel': dict(file='g-snorkelling.md', crumb='Red Sea', hero=('video', 'ras_turq', 'Red Sea, Egypt · Video: Adrien JACTA, Pexels', 'video/redsea-reef.mp4'),
