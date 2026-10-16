@@ -94,7 +94,13 @@ The owner's target is tourists from Europe, Russia and China. Booking.com does n
   - `trip_sub1` is our tracking label, e.g. `er-{lang}-{placement}`. `trip_sub3` is added by the tool.
   - These IDs appear in every public link; they are not secrets.
 - **Bank details:** empty on 2026-10-16. The owner fills them; we never do.
-- **Not yet on the site:** the hotel boxes are the next task.
+- **Live on the site (2026-10-16, theme 1.2.64, Core 1.2.44):**
+  - Provider **Trip.com #823** (allowed domain `trip.com`).
+  - Eight offers in the "Hotels" category, one per destination, plus Giza on Cairo (the Cairo page advises one or two nights near Giza): #826 Cairo (priority 2), #828 Giza, #830 Luxor, #832 Aswan, #834 Hurghada, #836 Sharm El Sheikh, #838 Alexandria, #840 Siwa.
+  - Each points to Trip.com's city hotel list (`/hotels/<city>-hotels-list-<id>/`, every one opened and checked on 2026-10-16). CTA "Compare Options". No prices or ratings copied.
+  - Language: `locale@<lang>=` lines open Trip.com in the reader's language (en-XX, ar-SA, de-DE, fr-FR, it-IT, es-ES, ru-RU, zh-HK; zh-HK is Traditional Chinese, the closest Trip.com has). `trip_sub1=er-{lang}-{placement}`.
+  - Shown in a "Find a hotel in {name}" box at the end of "Where to stay" (Cairo, Luxor, Hurghada), else after "How long, and when to go".
+  - Redirects checked with a non-counting request, including the Russian page (`trip_sub1=er-ru-destination-hotels&locale=ru-RU`). `page-coverage.mjs`: 336 pages all ok.
 
 ### Plan
 1. **Trip.com** as the hotel partner for all languages. The owner signs up, then sends the affiliate ID.
