@@ -136,3 +136,15 @@ The owner said: go ahead on judgement, without visitor data (there is no traffic
 - **B3 (not recommended):** shorten the pinned scene sequence. That changes the approved design itself.
 
 **Not proposed now:** P11 (planner) and the travel-time decision, until A and B are done.
+
+## 7. Step A done in the preview (theme 1.2.78, 16 Oct)
+
+The owner approved A, then B1. Abu Simbel is to be like the other trips. Everything stays behind `?ux=2`.
+
+- **Visitors (no `?ux=2`):** 344 pages in 8 languages carry no mark of the new journey (panel, phone-bar class, preview noindex, summary, "Choose a trip"). Locally, 12 pages are byte-for-byte unchanged. page-coverage passes, 336 pages × 8 languages.
+- **Preview:** all 41 destinations, guides and trips in English and in Arabic (82 pages), at 390 and 1440 px.
+  - Every page has the one panel: on phones at screen 0.7–1.2, on desktop in the sidebar at about 1.
+  - No old booking boxes. Abu Simbel uses the trip template.
+  - No dock beside the bar on phones, no horizontal overflow, no JavaScript errors.
+  - Seen in the browser: Luxor and Abu Simbel in Arabic on a phone, Best time and Luxor in English on desktop. All panel photos load.
+- **Next:** B1 (homepage: the experiences rail right after the scene sequence), then switching `er_ux2` on for visitors once the owner approves the whole preview.
