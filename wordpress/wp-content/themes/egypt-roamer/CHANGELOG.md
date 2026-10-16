@@ -2,6 +2,13 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.74 — 2026-10-16: trip page, proposals 1–3 of the journey review (preview `?ux=2`)
+- **Owner:** go ahead with the measured journey review (`docs/UX-JOURNEY-REVIEW-2026-10-16.md`), on judgement, since there is no traffic yet to test with.
+- **P1, phones and tablets:** the booking panel comes right after the hero, before the article. In the preview it sat after the FAQ, 4.9 screens down on the Valley of the Kings.
+- **P2, "Before you book":** under the panel title, the place, what the trip's options share and the page's best time. Read from the partner-stated facts only (`er_booking_summary()`): the range of the options' durations (in hours only), private or small group ("Private option available" when only some are), and pickup ("Pickup on some options" when only some have it).
+- **P3, why our pick:** under "Our pick", a partner-stated fact that only the pick has ("The only private option", "The only small-group option", "The only option with pickup"; `er_pick_reason()`). With no such fact, no reason is shown.
+- 8 new UI strings in all 8 languages.
+
 ## 1.2.73 (Core 1.2.50) — 2026-10-16: Viator offers can show their own trip photo
 - **Owner:** each offer in the booking panel shows its own trip's photo from the partner. Viator supplies product photos only through its Partner API (docs/PARTNER-OPTIONS-2026-10-16.md §4).
 - **Core `includes/viator.php`:** wp-admin → Egypt Roamer → **Viator photos**, where the owner pastes the API key (password field, never shown again; option with autoload off, or `ER_VIATOR_API_KEY`). For each live Viator offer the product code is read from its URL, `GET /partner/products/{code}` returns its images, and the cover photo's URL (Viator's CDN) is stored. Refreshed hourly: Viator's Technical Guide allows single-product responses to be cached for up to 1 hour. Only image URLs are used, never reviews or other content.

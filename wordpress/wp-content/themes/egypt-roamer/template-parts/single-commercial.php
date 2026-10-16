@@ -131,7 +131,13 @@ if ( $er_new ) :
 	// New journey: one panel with the trip options and somewhere to stay, then the key facts.
 	// The key facts box only repeated the hero; the place opens the panel. Not the page's own duration: each offer
 	// states its own, and "6 hours" above "About 7–10 hours" read as a contradiction.
-	er_booking_panel( $er_offers, $er_hotels, $er_stay ? get_the_title( $er_stay ) : '', 'experience', er_t( 'Book this trip' ), array_values( array_filter( [ $er_stay ? get_the_title( $er_stay ) : ( $er_facts[ er_t( 'Location' ) ] ?? '' ) ] ) ) );
+	// "Before you book" (P2, 16 Oct): the place, what the options share (partner-stated), and the page's best time.
+	$er_sum = array_merge(
+		array_filter( [ $er_stay ? get_the_title( $er_stay ) : ( $er_facts[ er_t( 'Location' ) ] ?? '' ) ] ),
+		er_booking_summary( $er_offers ),
+		! empty( $er_facts[ er_t( 'Best time' ) ] ) ? [ er_t( 'Best time' ) . ': ' . $er_facts[ er_t( 'Best time' ) ] ] : []
+	);
+	er_booking_panel( $er_offers, $er_hotels, $er_stay ? get_the_title( $er_stay ) : '', 'experience', er_t( 'Book this trip' ), array_values( $er_sum ) );
 elseif ( $er_offers ) :
 	?>
 	<div class="offer-box" id="book" role="region" aria-labelledby="offers-title">

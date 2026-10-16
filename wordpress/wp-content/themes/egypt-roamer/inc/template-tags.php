@@ -772,6 +772,79 @@ function er_offer_facts_line( array $f ): array {
 }
 
 /**
+ * "Before you book": what the trip's options have in common, read from the partner-stated facts only (owner, 16 Oct:
+ * the decision at a glance). The range of durations, private or small group, pickup. Nothing a partner does not
+ * state; a fact only some options have says so.
+ *
+ * @param int[] $offers tour offers.
+ * @return string[]
+ */
+function er_booking_summary( array $offers ): array {
+	if ( ! $offers || ! function_exists( 'er_offer_facts' ) ) {
+		return [];
+	}
+	$all    = array_map( static fn ( $id ): array => er_offer_facts( (int) $id ), $offers );
+	$n      = count( $all );
+	$out    = [];
+	$lo     = null;
+	$hi     = null;
+	$approx = false;
+	$hours  = true;
+	foreach ( $all as $f ) {
+		$d = (array) ( $f['duration'] ?? [] );
+		if ( empty( $d['n'] ) || 'hours' !== ( $d['unit'] ?? '' ) || ! preg_match_all( '/\d+(?:\.\d+)?/', (string) $d['n'], $m ) ) {
+			$hours = false;
+			break;
+		}
+		$lo     = null === $lo ? (float) $m[0][0] : min( $lo, (float) $m[0][0] );
+		$hi     = null === $hi ? (float) end( $m[0] ) : max( $hi, (float) end( $m[0] ) );
+		$approx = $approx || ! empty( $d['approx'] );
+	}
+	if ( $hours && null !== $lo ) {
+		$txt   = er_t( '{n} hours', [ 'n' => $lo === $hi ? (string) $lo : $lo . '–' . $hi ] );
+		$out[] = $approx ? er_t( 'About {duration}', [ 'duration' => $txt ] ) : $txt;
+	}
+	$private = count( array_filter( $all, static fn ( $f ) => 'private' === ( $f['group'] ?? '' ) ) );
+	$small   = count( array_filter( $all, static fn ( $f ) => 'small' === ( $f['group'] ?? '' ) ) );
+	if ( $private && $small ) {
+		$out[] = er_t( 'Private or small group' );
+	} elseif ( $private ) {
+		$out[] = $private === $n ? er_t( 'Private' ) : er_t( 'Private option available' );
+	} elseif ( $small ) {
+		$out[] = $small === $n ? er_t( 'Small group' ) : er_t( 'Small-group option available' );
+	}
+	$pickup = count( array_filter( $all, static fn ( $f ) => ! empty( $f['pickup'] ) ) );
+	if ( $pickup ) {
+		$out[] = $pickup === $n ? er_t( 'Pickup offered' ) : er_t( 'Pickup on some options' );
+	}
+	return $out;
+}
+
+/**
+ * Why the editors' pick: a partner-stated fact that only the pick has among the trip's options, else ''.
+ *
+ * @param int[] $offers tour offers.
+ */
+function er_pick_reason( int $pick, array $offers ): string {
+	if ( ! $pick || count( $offers ) < 2 || ! function_exists( 'er_offer_facts' ) ) {
+		return '';
+	}
+	$mine   = er_offer_facts( $pick );
+	$others = array_map( static fn ( $id ): array => er_offer_facts( (int) $id ), array_values( array_diff( array_map( 'intval', $offers ), [ $pick ] ) ) );
+	$none   = static fn ( callable $has ): bool => ! array_filter( $others, $has );
+	if ( 'private' === ( $mine['group'] ?? '' ) && $none( static fn ( $f ) => 'private' === ( $f['group'] ?? '' ) ) ) {
+		return er_t( 'The only private option' );
+	}
+	if ( 'small' === ( $mine['group'] ?? '' ) && $none( static fn ( $f ) => 'small' === ( $f['group'] ?? '' ) ) ) {
+		return er_t( 'The only small-group option' );
+	}
+	if ( ! empty( $mine['pickup'] ) && $none( static fn ( $f ) => ! empty( $f['pickup'] ) ) ) {
+		return er_t( 'The only option with pickup' );
+	}
+	return '';
+}
+
+/**
  * The booking panel (new journey): the trip's partner offers, then hotels where it happens.
  * Trip rows: partner chip and the facts the partner states (no repeated city); the editors' pick first, with the
  * only filled gold button and its facts as the reason. Hotel rows: partner chip and the area.
@@ -799,7 +872,8 @@ function er_booking_panel( array $offers, array $hotels, string $stay_name, stri
 	if ( $pick ) {
 		$offers = array_merge( [ $pick ], array_values( array_diff( array_map( 'intval', $offers ), [ $pick ] ) ) );
 	}
-	$rows = static function ( array $ids, string $pl, string $label, bool $tours ) use ( $source, $facts, $pick ): void {
+	$reason = er_pick_reason( $pick, $offers );
+	$rows   = static function ( array $ids, string $pl, string $label, bool $tours ) use ( $source, $facts, $pick, $reason ): void {
 		echo '<ul class="bp__list">';
 		foreach ( $ids as $id ) {
 			$id   = (int) $id;
@@ -810,6 +884,9 @@ function er_booking_panel( array $offers, array $hotels, string $stay_name, stri
 			echo '<li class="bp__row' . ( $is ? ' bp__row--pick' : '' ) . '">' . er_offer_thumb( $o, (string) ( $facts( $id )['stock'] ?? '' ) ) . '<div class="bp__main">';
 			if ( $is ) {
 				echo '<span class="bp__pick">' . er_icon( 'i-check', 'icon--sm' ) . esc_html( er_t( 'Our pick' ) ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput
+				if ( '' !== $reason ) {
+					echo '<span class="bp__why">' . esc_html( $reason ) . '</span>';
+				}
 			}
 			echo '<span class="bp__name"' . ( $o['title_lang'] ? ' lang="' . esc_attr( $o['title_lang'] ) . '" dir="ltr"' : '' ) . '>' . esc_html( $o['title'] ) . '</span>';
 			echo '<span class="bp__meta">' . er_partner_chip( $slug, (string) $o['provider'] ); // phpcs:ignore WordPress.Security.EscapeOutput
@@ -828,7 +905,11 @@ function er_booking_panel( array $offers, array $hotels, string $stay_name, stri
 		<div class="bp__head">
 			<h2 class="bp__title" id="bp-title"><?php echo esc_html( $title ); ?></h2>
 			<?php if ( $summary ) : ?>
-				<p class="bp__summary"><?php echo esc_html( implode( ' · ', $summary ) ); ?></p>
+				<ul class="bp__summary" aria-label="<?php echo esc_attr( er_t( 'Before you book' ) ); ?>">
+					<?php foreach ( $summary as $er_s ) : ?>
+						<li><?php echo esc_html( $er_s ); ?></li>
+					<?php endforeach; ?>
+				</ul>
 			<?php endif; ?>
 		</div>
 		<?php if ( $offers ) : ?>

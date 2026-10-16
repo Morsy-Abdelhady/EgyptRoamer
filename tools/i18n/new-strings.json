@@ -1324,6 +1324,78 @@
    "Наш выбор",
    "我们的推荐",
    "اختيارنا"
+  ],
+  "Before you book": [
+   "Vor der Buchung",
+   "Avant de réserver",
+   "Prima di prenotare",
+   "Antes de reservar",
+   "Перед бронированием",
+   "预订前须知",
+   "قبل الحجز"
+  ],
+  "Private or small group": [
+   "Privat oder kleine Gruppe",
+   "Privé ou petit groupe",
+   "Privato o piccolo gruppo",
+   "Privado o grupo reducido",
+   "Индивидуально или в малой группе",
+   "私人或小团",
+   "خاص أو مجموعة صغيرة"
+  ],
+  "Private option available": [
+   "Private Option verfügbar",
+   "Option privée disponible",
+   "Opzione privata disponibile",
+   "Opción privada disponible",
+   "Есть индивидуальный вариант",
+   "可选私人团",
+   "يتوفر خيار خاص"
+  ],
+  "Small-group option available": [
+   "Option in kleiner Gruppe verfügbar",
+   "Option en petit groupe disponible",
+   "Opzione in piccolo gruppo disponibile",
+   "Opción en grupo reducido disponible",
+   "Есть вариант в малой группе",
+   "可选小团",
+   "يتوفر خيار بمجموعة صغيرة"
+  ],
+  "Pickup on some options": [
+   "Abholung bei einigen Optionen",
+   "Prise en charge pour certaines options",
+   "Prelievo in alcune opzioni",
+   "Recogida en algunas opciones",
+   "Трансфер в некоторых вариантах",
+   "部分选项含接送",
+   "التوصيل من الفندق في بعض الخيارات"
+  ],
+  "The only private option": [
+   "Die einzige private Option",
+   "La seule option privée",
+   "L'unica opzione privata",
+   "La única opción privada",
+   "Единственный индивидуальный вариант",
+   "唯一的私人团选项",
+   "الخيار الخاص الوحيد"
+  ],
+  "The only small-group option": [
+   "Die einzige Option in kleiner Gruppe",
+   "La seule option en petit groupe",
+   "L'unica opzione in piccolo gruppo",
+   "La única opción en grupo reducido",
+   "Единственный вариант в малой группе",
+   "唯一的小团选项",
+   "الخيار الوحيد بمجموعة صغيرة"
+  ],
+  "The only option with pickup": [
+   "Die einzige Option mit Abholung",
+   "La seule option avec prise en charge",
+   "L'unica opzione con prelievo",
+   "La única opción con recogida",
+   "Единственный вариант с трансфером",
+   "唯一含接送的选项",
+   "الخيار الوحيد مع التوصيل من الفندق"
   ]
  }
 }

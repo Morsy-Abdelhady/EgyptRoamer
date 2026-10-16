@@ -3802,8 +3802,31 @@ html:lang(zh) {
   gap: 0.2rem;
 }
 .bp__summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   font-size: var(--fs-small);
   color: var(--text-muted);
+}
+/* "Before you book": the place, what the options share, the best time, separated by dots. */
+.bp__summary li:not(:last-child)::after {
+  content: "·";
+  padding-inline: 0.45rem;
+}
+/* Why the pick (a partner-stated fact only it has), under its label. */
+.bp__why {
+  font-size: 0.85rem;
+  color: var(--text);
+}
+/* Phones and tablets (no sidebar): the panel comes right after the hero, before the article (owner review, 16 Oct:
+   in the preview the options sat after the FAQ, 4.9 screens down). */
+@media (max-width: 1199.98px) {
+  .page-layout--aside > .page-aside > .bp {
+    order: -1;
+  }
 }
 /* The editors' pick: first, a label, and the only filled gold button (the others are gold outlines). */
 .bp__pick {
