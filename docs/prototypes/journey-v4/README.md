@@ -59,3 +59,40 @@
 **No exactly located video was found** for the Valley of the Kings, Hatshepsut's temple, Red Sea diving or the White Desert.
 
 **Before any video goes on the live site:** the owner decides whether free videos join the photo policy, and under what rule (the location named exactly).
+
+## Improvements applied (owner: "apply all the suggestions", 16 Oct)
+
+**UX**
+- **Free cancellation:** shown on each option and in the comparison, only where the partner's own page states it.
+  - All 9 GetYourGuide offers, read on 16 Oct, state "Free cancellation · Cancel up to 24 hours in advance for a full refund". The pages read:
+    - t599849 (Valley of the Kings)
+    - t1196989 (Hurghada diving)
+    - t444057 (White Desert camp)
+    - t1270141 (Opal Nile cruise)
+    - t459032 (Pyramids with camel ride)
+    - t447617 (Abu Simbel)
+    - t922070 (Alexandria)
+    - t556707 (Ras Mohammed)
+    - t661189 (Siwa camp)
+  - Viator pages are not read yet: they open only in the owner's Edge, which was disconnected. The comparison says "See Viator's page" for them.
+  - **For the live site:** add a `cancel` fact to Core `data/offer-facts.json` per offer (partner-stated only).
+- **The journey within a trip:** the path marks are buttons that jump to their step, and there is "Skip to booking".
+- **More trips in {place}:** shown after the booking section.
+- **FAQ:** 3 questions per trip, the answers taken from each page, placed before booking.
+- **Home:** "Where in Egypt?" chips under the hero's buttons.
+- **All 10 trips** now open in a world. The 4 templates:
+  - antiquities: Valley, Giza, Abu Simbel;
+  - sea: Red Sea diving, Ras Mohammed;
+  - desert: White Desert, Siwa Great Sand Sea;
+  - city and Nile: Nile dinner, Alexandria, Cairo food.
+
+  Steps without a photo of their own get a blurred, atmospheric layer, so another place's photo is never shown as them. Headings such as "Across the plateau" are editorial labels written for the prototype. The facts under them are the pages' own.
+
+**UI**
+- **Video switch:** one pause/play control for every video on the site. Motion longer than 5 seconds must be pausable (WCAG 2.2.2).
+- **Video credits:** a small "i" that opens on hover or focus.
+- **Gold buttons:** the header button is outlined. Gold is kept for the main action in the content, and the booking capsule stays hidden while the opener or the booking section is on screen.
+
+**Performance**
+- **Compression:** the videos went through ffmpeg 9.0.2 (Gyan build, installed with winget on the owner's OK): H.264 at up to 960 px, no audio, at most 14 s, CRF 30, faststart. The 9 files dropped from 55 MB to about 11 MB (0.3 to 2.7 MB each).
+- **Data saver:** with Save-Data on, or a 2G/3G connection, or reduced motion, videos stay as their poster images until the reader presses "Play videos".

@@ -427,6 +427,48 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
 .moods2 .vbadge{top:20px;z-index:2}
 .ch .vbadge{top:86px;z-index:2}
 .vcred{margin:10px 0 0!important;font-size:11.5px!important;color:#b8b2a6!important;letter-spacing:.02em}
+
+/* ---------- improvements, 16 Oct ---------- */
+.hdr .btn--gold{background:transparent;border:1.5px solid var(--gold);color:#fff}
+.hdr .btn--gold:hover{background:rgba(201,162,39,.15)}
+.finder2{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px}
+.finder2 span{font:600 11.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--sand);margin-inline-end:4px}
+.chip2{font-size:13.5px;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.25);border-radius:999px;padding:6px 13px}
+.chip2:hover{background:rgba(255,255,255,.15)}
+.vbadge{font-size:0!important;letter-spacing:0!important;width:24px;height:24px;padding:0!important;display:grid;place-items:center;border-radius:50%!important;cursor:help}
+.vbadge::before{content:"i";font:600 12px Georgia,serif;text-transform:none}
+.vbadge::after{content:attr(data-tip);position:absolute;inset-inline-end:0;top:30px;white-space:nowrap;font:500 11.5px var(--sans);letter-spacing:0;text-transform:none;background:rgba(0,0,0,.85);color:#fff;border-radius:6px;padding:5px 9px;opacity:0;pointer-events:none;transition:opacity .2s}
+.vbadge:hover::after,.vbadge:focus::after{opacity:1}
+.vcred{display:none}
+.vswitch{position:sticky;bottom:18px;inset-inline-start:18px;float:left;margin-top:-58px;margin-inline-start:18px;z-index:16;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.3);background:rgba(16,24,32,.85);backdrop-filter:blur(8px);color:#fff;border-radius:999px;padding:8px 14px;font:600 12.5px var(--sans)}
+.vswitch span{font-size:11px}
+.skip{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--wc);text-decoration:none;border-bottom:1px solid currentColor}
+.path button{all:unset;position:relative;display:flex;align-items:center;gap:14px;font:600 12px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);cursor:pointer;transition:color .3s}
+.path button::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--wbg);border:2px solid color-mix(in srgb,var(--wc) 50%,transparent);transition:all .3s}
+.path button:hover,.path button:focus-visible{color:#fff}
+.path button:focus-visible{outline:2px solid var(--wc);outline-offset:4px}
+.path button.on{color:#fff}.path button.on::before{background:var(--wc);border-color:var(--wc);box-shadow:0 0 18px var(--wc)}
+.fc{color:#7fd1c7!important;border-color:rgba(127,209,199,.45)!important}
+.wtbl td{color:#efe4cc}
+.wtbl td:first-child{color:var(--wc);font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.wtbl td.yes{color:#7fd1c7}.wtbl td.no{color:#9a9284}
+.wtbl th small{font-weight:500;letter-spacing:.06em;color:#cfc4ad}
+.wtbl th{vertical-align:bottom;text-transform:none!important;letter-spacing:0!important;font-size:12px!important}
+.wfaq{padding:80px 56px;background:color-mix(in srgb,var(--wbg) 85%,#fff 3%)}
+.wfaq__in{max-width:820px}
+.wfaq h2{font-size:36px;margin:8px 0 18px}
+.wfaq details{border-top:1px solid rgba(255,255,255,.14);padding:14px 0}
+.wfaq details:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
+.wfaq summary{cursor:pointer;font:500 19px/1.35 var(--serif);color:#fff;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.wfaq summary::after{content:"+";color:var(--wc);font:400 24px/1 var(--sans)}
+.wfaq details[open] summary::after{content:"–"}
+.wfaq details p{margin:10px 0 0;color:#e3d8c2;font-size:16px;line-height:1.7}
+.wmore{padding:70px 56px 90px;border-top:1px solid rgba(255,255,255,.1)}
+.wmore h2{font-size:34px;margin:8px 0 18px}
+.wmore__row{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1180px;align-items:center}
+.wmore .mini{background:rgba(255,255,255,.96)}
+.wmore__all{color:var(--wc);font-weight:600;font-size:14px}
+@media (max-width:900px){.wfaq,.wmore{padding-inline:18px}}
 </style>
 <header class="pbar">
   <div class="pbar__in">
@@ -462,6 +504,7 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
               <h1>EGYPT<em>You <i>Feel</i> It</em></h1>
               <p class="hero__lead">Ancient wonders. Endless adventures. Unforgettable moments. Discover and plan the best experiences in Egypt — all in one place.</p>
               <div class="hero__acts"><a class="btn btn--gold" href="#" data-go="2">Choose a trip <span class="arr">→</span></a><a class="btn btn--ghost-light" href="#ch-1">Start the story <span class="arr">↓</span></a></div>
+              <div class="finder2" role="group" aria-label="Where in Egypt?"><span>Where in Egypt?</span><a href="#" class="chip2" data-place="Cairo & Giza">Cairo &amp; Giza</a><a href="#" class="chip2" data-place="Luxor">Luxor</a><a href="#" class="chip2" data-place="Aswan">Aswan</a><a href="#" class="chip2" data-place="Alexandria">Alexandria</a><a href="#" class="chip2" data-place="Red Sea">Red Sea</a><a href="#" class="chip2" data-place="Western Desert">Western Desert</a></div>
             </div>
             <nav class="chapters" aria-label="The story"><p class="chapters__t">The story · 4 chapters</p><ol id="ch-index"></ol></nav>
           </div>
@@ -523,33 +566,41 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
 
       <footer class="ftr"><div class="wrap">Egypt Roamer · Prototype for approval · Partner photos on the live site come from Viator's API; this prototype uses our approved photos in their place.</div></footer>
       <div class="toast" id="toast" hidden></div>
+      <button type="button" class="vswitch" id="vswitch" aria-pressed="true"></button>
     </div>
   </div>
 
   <aside class="notes" id="notes">
     <div class="note" data-note="1">
-      <h2>1 · الدخول: القصة وهي بتودّي للرحلات</h2>
-      <p>زي الاقتراح التاني بالظبط، وزوّدنا فيديو حقيقي في فصل الأهرامات.</p>
+      <h2>1 · الدخول</h2>
+      <p>القصة زي ما هي، ومعاها طريق مختصر للي عارف هو رايح فين.</p>
       <ul>
-        <li>فصل الأهرامات: فيديو غروب على أهرامات الجيزة (Pexels، مجاني، والمكان مكتوب) <span class="tag">جديد</span></li>
-        <li>كل فصل وكل مزاج بيخلص برحلاته</li>
-        <li>افتح أي رحلة عليها إطار ذهبي: وادي الملوك، أو الغوص، أو الصحراء البيضاء، أو العشاء على النيل</li>
+        <li>"فين في مصر؟" تحت أزرار الصورة الكبيرة: تودّي لرحلات المكان على طول <span class="tag">جديد</span></li>
+        <li>زرار الهيدر بقى بإطار بس، والذهبي للخطوة الأساسية في الصفحة <span class="tag">جديد</span></li>
+        <li>أسماء أصحاب الفيديوهات بقت "i" صغيرة، تظهر لما تقف عليها <span class="tag">جديد</span></li>
+        <li>زرار "إيقاف الفيديوهات" تحت على الشمال، ظاهر طول الوقت <span class="tag">جديد</span></li>
       </ul>
     </div>
     <div class="note" data-note="2" hidden>
       <h2>2 · تصفّح الرحلات</h2>
-      <p>زي الاقتراح التاني: الرحلات متجمّعة حسب المكان، والفلاتر.</p>
-      <ul><li>الرحلات الأربعة اللي ليها عالم كامل عليها إطار ذهبي</li></ul>
+      <p>الرحلات العشرة كلها بقت تتفتح في عالمها.</p>
     </div>
     <div class="note" data-note="3" hidden>
       <h2>3 · الرحلة في عالمها</h2>
-      <p>كل رحلة صفحة كاملة يعيش فيها السايح، مش افتتاحية بس. والهيكل واحد في الأربعة:</p>
+      <p>الرحلات العشرة على 4 قوالب:</p>
       <ul>
-        <li>الافتتاحية: عالم الرحلة (جدار هيروغليفي بكشّاف، أو ضوء البحر، أو نجوم الصحراء، أو فيديو النيل)</li>
-        <li>اليوم محطة محطة مع النزول: الصورة بتتغيّر والمسار بينوّر</li>
-        <li>النصايح العملية على ألواح، وفي الصحراء "ليلة في الصحراء" بسما مليانة نجوم</li>
-        <li>لمين تناسب، واجمعها مع إيه (وفي وادي الملوك فيديو الكرنك)</li>
-        <li>"اختار طريقك": الاختيارات، واختيارنا وسببه، والمقارنة، والفنادق، والإفصاح، وكبسولة الحجز ظاهرة طول الوقت</li>
+        <li>الآثار: وادي الملوك، والأهرامات، وأبو سمبل</li>
+        <li>البحر: الغوص، ورأس محمد</li>
+        <li>الصحراء: الصحراء البيضاء، وبحر الرمال في سيوة</li>
+        <li>المدينة والنيل: عشاء النيل، والإسكندرية، وجولة الأكل</li>
+      </ul>
+      <p style="margin-top:8px">والجديد في كل رحلة:</p>
+      <ul>
+        <li>علامات المسار بقت بتتضغط وتنقلك للمحطة، وفيه "اقفز للحجز" <span class="tag">جديد</span></li>
+        <li>الأسئلة الشائعة بإجاباتها من الموقع، قبل الحجز <span class="tag">جديد</span></li>
+        <li>"الإلغاء المجاني" على العرض نفسه وفي المقارنة، لو الشريك كاتبه <span class="tag">جديد</span></li>
+        <li>"رحلات تانية في نفس المكان" بعد الحجز <span class="tag">جديد</span></li>
+        <li>المحطة اللي ملهاش صورة خاصة بيها بتظهر بخلفية مموّهة، عشان ما نعرضش صورة مكان تاني على إنها هي</li>
       </ul>
     </div>
     <div class="note" data-note="4" hidden>
@@ -557,16 +608,13 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
       <p>"Book" بيفتح الشريك في تبويب جديد، وصفحتنا بتأكّد إيه اللي اتفتح.</p>
     </div>
     <div class="note">
+      <h2>الإلغاء المجاني</h2>
+      <p>عروض GetYourGuide التسعة كلها مكتوب فيها في صفحتها: "إلغاء مجاني حتى 24 ساعة قبل الرحلة". عروض Viator لسه ماقريتهاش، لأن موقعهم بيتفتح من Edge بس، فالمقارنة بتقول "شوف صفحة Viator".</p>
+    </div>
+    <div class="note">
       <h2>الفيديو</h2>
-      <p>9 فيديوهات مجانية من Pexels، كل واحد منهم بيتحمّل لما يظهر على الشاشة بس، وبيقف لما يخرج منها:</p>
-      <ul>
-        <li>الرئيسية: فصل الأهرامات (الجيزة)، وفصل البحر الأحمر، ومزاج الآثار (الكرنك)، ومزاج الشاطئ (البحر الأحمر)، ومزاج الأكل (قايتباي في الإسكندرية)</li>
-        <li>التصفّح: بانرات متحركة للقاهرة والجيزة، والأقصر، والإسكندرية، والبحر الأحمر</li>
-        <li>الغوص: الافتتاحية، والغطسة الأولى، والغطسة التانية</li>
-        <li>النيل: الافتتاحية، والعشاء، والتنورة (مكتوب "مصري" بس، من غير اسم مدينة)</li>
-        <li>وادي الملوك: الكرنك في "اجمعها مع"</li>
-      </ul>
-      <p>أسوان، ووادي الملوك نفسه، والصحراء البيضاء: مالقيتش فيديو مكانه مكتوب بالظبط وحجمه مناسب.</p>
+      <p>9 فيديوهات مجانية من Pexels، اتضغطوا من 55 ميجا لحوالي 11 ميجا. كل فيديو بيشتغل لما يظهر على الشاشة بس.</p>
+      <p>لو النت ضعيف أو المستخدم مفعّل توفير البيانات، بتظهر الصورة بدل الفيديو.</p>
     </div>
     <div class="note note--ask">
       <h2>محتاج قرارك</h2>
@@ -581,15 +629,15 @@ const IMG = {{imgmap}};
 // Trips: titles, places, facts and option counts as on egyptroamer.com (16 Oct). "dest" from the site's own data.
 const TRIPS = [
   {id:"valley",k:"valley",world:true,t:"Valley of the Kings & Hatshepsut Temple",loc:"Luxor",place:"Luxor",dest:"luxor",time:"6 hours",len:"full",facts:["Private option available","Pickup offered"],n:3,priv:true,pick:true,open:true},
-  {id:"giza",k:"giza",t:"Pyramids of Giza & Sphinx Private Tour",loc:"Giza, Cairo",place:"Cairo & Giza",dest:"cairo",time:"Half day",len:"short",facts:["Private","Pickup offered"],n:3,priv:true,pick:true},
+  {id:"giza",k:"giza",world:true,t:"Pyramids of Giza & Sphinx Private Tour",loc:"Giza, Cairo",place:"Cairo & Giza",dest:"cairo",time:"Half day",len:"short",facts:["Private","Pickup offered"],n:3,priv:true,pick:true},
   {id:"nile",k:"nile",world:true,t:"Nile Dinner Cruise with Live Show",loc:"Cairo",place:"Cairo & Giza",dest:"cairo",time:"3 hours",len:"short",facts:["Private option available","Pickup on some options"],n:3,priv:true,pick:true},
-  {id:"food",k:"food",t:"Cairo Street Food Tour by Night",loc:"Downtown Cairo",place:"Cairo & Giza",dest:"cairo",time:"4 hours",len:"short",facts:[],n:2,priv:false,pick:false},
-  {id:"abu",k:"abu",t:"Abu Simbel Day Trip from Aswan",loc:"Aswan",place:"Aswan",dest:"aswan",time:"Full day",len:"full",facts:["Private or small group","Pickup offered"],n:3,priv:true,pick:true},
-  {id:"alex",k:"alex",t:"Alexandria Day Trip from Cairo",loc:"Alexandria",place:"Alexandria",dest:"alexandria",time:"About 10–12 hours",len:"full",facts:["Small-group option available","Pickup offered"],n:2,priv:false,pick:true},
+  {id:"food",k:"food",world:true,t:"Cairo Street Food Tour by Night",loc:"Downtown Cairo",place:"Cairo & Giza",dest:"cairo",time:"4 hours",len:"short",facts:[],n:2,priv:false,pick:false},
+  {id:"abu",k:"abu",world:true,t:"Abu Simbel Day Trip from Aswan",loc:"Aswan",place:"Aswan",dest:"aswan",time:"Full day",len:"full",facts:["Private or small group","Pickup offered"],n:3,priv:true,pick:true},
+  {id:"alex",k:"alex",world:true,t:"Alexandria Day Trip from Cairo",loc:"Alexandria",place:"Alexandria",dest:"alexandria",time:"About 10–12 hours",len:"full",facts:["Small-group option available","Pickup offered"],n:2,priv:false,pick:true},
   {id:"redsea",k:"ras",world:true,t:"Red Sea Diving: Two Reef Dives",loc:"Hurghada",place:"Red Sea",dest:"hurghada",time:"1 day · 2 dives",len:"full",facts:["Pickup offered"],n:3,priv:false,pick:true},
-  {id:"ras",k:"ras",t:"Ras Mohammed Snorkelling from Sharm El Sheikh",loc:"Sharm El Sheikh",place:"Red Sea",dest:"sharm",time:"About 5–6 hours",len:"full",facts:["Pickup offered"],n:2,priv:false,pick:true},
+  {id:"ras",k:"ras",world:true,t:"Ras Mohammed Snorkelling from Sharm El Sheikh",loc:"Sharm El Sheikh",place:"Red Sea",dest:"sharm",time:"About 5–6 hours",len:"full",facts:["Pickup offered"],n:2,priv:false,pick:true},
   {id:"white",k:"white",world:true,t:"White Desert & Black Desert Safari",loc:"Western Desert",place:"Western Desert",dest:"",time:"2 days",len:"multi",facts:["Private option available","Pickup offered"],n:3,priv:true,pick:true},
-  {id:"siwa",k:"siwa",t:"Great Sand Sea 4×4 & Hot Springs",loc:"Siwa Oasis",place:"Western Desert",dest:"siwa",time:"Full day",len:"full",facts:["Private option available","Pickup offered"],n:2,priv:true,pick:true},
+  {id:"siwa",k:"siwa",world:true,t:"Great Sand Sea 4×4 & Hot Springs",loc:"Siwa Oasis",place:"Western Desert",dest:"siwa",time:"Full day",len:"full",facts:["Private option available","Pickup offered"],n:2,priv:true,pick:true},
 ];
 const T = Object.fromEntries(TRIPS.map(t=>[t.id,t]));
 // The homepage's four scenes, word for word, each now ending in its trips.
@@ -656,7 +704,7 @@ function renderHome(){
 const MOOD_VIDEO={ancient:["video/karnak-columns.mp4","Karnak Temple, Luxor · Video: BOB DK, Pexels"],beach:["video/redsea-reef.mp4","Red Sea, Egypt · Video: Adrien JACTA, Pexels"],food:["video/alexandria-qaitbay.mp4","Qaitbay Citadel, Alexandria · Video: The Instagrapher, Pexels"]};
 function mood(i){
   const [id,label,desc,dest]=MOODS[i], d=DESTS[dest], trips=TRIPS.filter(t=>t.dest===dest);
-  const mv=MOOD_VIDEO[id], v=$("#mood-vid"); if(mv){ v.dataset.src=mv[0]; v.hidden=false; if(v.getAttribute("src")){ if(v.getAttribute("src")!==mv[0]) v.src=mv[0]; v.play().catch(()=>{}); } $("#mood-credit").textContent=mv[1]; $("#mood-credit").hidden=false; } else { v.pause(); v.hidden=true; $("#mood-credit").hidden=true; }
+  const mv=MOOD_VIDEO[id], v=$("#mood-vid"); if(mv){ v.dataset.src=mv[0]; v.hidden=false; if(v.getAttribute("src")){ if(v.getAttribute("src")!==mv[0]) v.src=mv[0]; if(!VIDEOS_OFF) v.play().catch(()=>{}); } $("#mood-credit").dataset.tip=mv[1]; $("#mood-credit").setAttribute("aria-label","Video credit: "+mv[1]); $("#mood-credit").textContent="i"; $("#mood-credit").tabIndex=0; $("#mood-credit").hidden=false; } else { v.pause(); v.hidden=true; $("#mood-credit").hidden=true; }
   $$("#mood-tabs button").forEach((b,j)=>b.setAttribute("aria-selected",String(i===j)));
   $("#mood-bg").src=IMG["m_"+id]; $("#mood-word").textContent=label; $("#mood-desc").textContent=desc;
   $("#mood-where").innerHTML=`<small style="letter-spacing:.18em;text-transform:uppercase;font-size:11px;opacity:.75">Where to go</small><b>${esc(d.name)} — ${esc(d.tag)}</b>${esc(d.region)} · Best ${esc(d.best)}`;
@@ -669,7 +717,7 @@ function renderTrips(){
   let total=0;
   $("#groups").innerHTML=GROUPS.map(([p,img,vid,line,sub,guide])=>{const list=TRIPS.filter(t=>t.place===p&&ok(t));total+=list.length;if(!list.length)return "";
     return `<section class="group"><div class="gbanner">${vid?`<video muted loop playsinline preload="none" poster="${IMG[img]}" data-src="${vid.split("|")[0]}"></video><span class="vbadge">${esc(vid.split("|")[1])}</span>`:`<img src="${IMG[img]}" alt="">`}<div class="gbanner__t"><h2>${esc(p)}</h2><p>${esc(line)} <small>· ${esc(sub)}</small></p></div><a href="#">Read the ${esc(guide)} →</a></div><div class="grid">${list.map(card).join("")}</div></section>`;}).join("")||`<p class="empty">No trips match these filters. Clear one to see more.</p>`;
-  $("#f-count").textContent=`${total} ${total===1?"trip":"trips"}`; lazyVideos($("#groups"));
+  $("#f-count").textContent=`${total} ${total===1?"trip":"trips"}`; lazyVideos($("#groups")); creditsAsInfo($("#groups"));
 }
 let step=1, current="valley";
 function go(n,opts={}){
@@ -813,27 +861,32 @@ function renderWorld(id){
       <div class="wacts"><a class="btn btn--gold" href="#wchoose" data-wjump="wchoose">Book this trip</a><a class="btn btn--ghost-light" href="#wjourney" data-wjump="wjourney">${esc(W.go)} ↓</a></div></div></section>`;
   const layers = W.steps.map((s,i)=> s.video ? `<video class="jv ${i?"":"on"}" data-j="${i}" muted loop playsinline preload="none" poster="${IMG[W.photo]}" data-jsrc="${s.video}"></video>` : s.img ? `<img class="${i?"":"on"}" data-j="${i}" src="${IMG[s.img]}" alt="">`
       : s.wall ? `<div class="jlayer ${i?"":"on"}" data-j="${i}" style="background:#0c0a07">${wallHTML(30).replace('class="wall"','class="wall" style="opacity:.25"')}</div>`
-      : `<div class="jlayer ${i?"":"on"}" data-j="${i}"><img src="${IMG[W.photo]}" alt="" style="width:100%;height:100%;object-fit:cover;filter:${s.tone==="night"?"brightness(.45) saturate(.6) hue-rotate(-15deg)":s.tone==="dark"?"brightness(.5) contrast(1.1) saturate(.6)":"brightness(.75) saturate(1.1)"};transform:scale(${1+i*.12}) translate(${i*-2}%,${i*1.5}%)"></div>`).join("");
+      : `<div class="jlayer ${i?"":"on"}" data-j="${i}"><img src="${IMG[W.photo]}" alt="" style="width:100%;height:100%;object-fit:cover;filter:blur(14px) ${s.tone==="night"?"brightness(.4) saturate(.6) hue-rotate(-15deg)":s.tone==="dark"?"brightness(.45) saturate(.6)":"brightness(.7) saturate(1.1)"};transform:scale(${1.15+i*.1})"></div>`).join("");
   const journey = `<section class="journey2" id="wjourney"><div class="jstage">${layers}${W.fx!=="tomb"?`<canvas data-fx="${W.fx}-j"></canvas>`:""}
-      <div class="jhead"><p class="eyebrow">${esc(W.jEyebrow)}</p><h2>${esc(W.jTitle)}</h2></div>
-      <div class="path">${W.steps.map((s,i)=>`<span class="${i?"":"on"}">${esc(s.t)}</span>`).join("")}</div></div>
+      <div class="jhead"><p class="eyebrow">${esc(W.jEyebrow)}</p><h2>${esc(W.jTitle)}</h2><a class="skip" href="#wchoose" data-wjump="wchoose">Skip to booking ↓</a></div>
+      <div class="path">${W.steps.map((s,i)=>`<button type="button" class="${i?"":"on"}" data-pjump="${i}">${esc(s.t)}</button>`).join("")}</div></div>
     <div class="jsteps">${W.steps.map((s,i)=>`<div class="jstep" data-js="${i}"><article><span class="n">${String(i+1).padStart(2,"0")}</span><h3>${esc(s.t)}</h3><p>${esc(s.p)}</p>${s.why?`<p class="why">${esc(s.why)}</p>`:""}${s.credit?`<p class="vcred">${esc(s.credit)}</p>`:""}</article></div>`).join("")}</div></section>`;
   const S=W.sec;
   const sec = `<section class="wsec ${S.night?"wsec--night":""}">${S.night?`<canvas data-fx="stars"></canvas>`:""}${S.wall||isTomb?wallHTML(34):""}<div class="wsec__in">
       <div><p class="eyebrow">${esc(S.eyebrow)}</p><h2>${esc(S.title)}</h2>${S.ps.map(p=>`<p>${esc(p)}</p>`).join("")}</div>
       <div class="tablets">${S.tabs.map(([g,b,t])=>`<div class="tablet"><i>${g}</i><span>${b?`<b>${esc(b)}</b>`:""}${esc(t)}</span></div>`).join("")}</div></div></section>`;
   const papy = `<section class="papy"><div class="papy__in">${W.papy.map(([e,h,p,v])=>`<div><p class="eyebrow">${esc(e)}</p><h2>${esc(h)}</h2><p>${esc(p)}</p>${v?`<div class="wvid"><video muted loop playsinline preload="none" data-src="video/karnak-columns.mp4" poster="${IMG.valley}"></video><small>Karnak Temple, Luxor · Video: BOB DK, Pexels</small></div>`:""}</div>`).join("")}</div></section>`;
-  const opts = W.opts.map(o=>`<div class="wopt ${o.pick?"wopt--pick":""}"><div>${o.pick?`<span class="pk">✓ Our pick${o.why?`<span class="why">${esc(o.why)}</span>`:""}</span>`:""}<h3>${esc(o.n)}</h3><div class="facts"><span class="pchip ${PCHIP[o.p]}">${esc(o.p)}</span>${o.f.map(f=>`<span>${esc(f)}</span>`).join("")}</div></div>
+  const opts = W.opts.map(o=>`<div class="wopt ${o.pick?"wopt--pick":""}"><div>${o.pick?`<span class="pk">✓ Our pick${o.why?`<span class="why">${esc(o.why)}</span>`:""}</span>`:""}<h3>${esc(o.n)}</h3><div class="facts"><span class="pchip ${PCHIP[o.p]}">${esc(o.p)}</span>${o.f.map(f=>`<span>${esc(f)}</span>`).join("")}${o.cancel?`<span class="fc">✓ ${esc(o.cancel)}</span>`:""}</div></div>
       <button type="button" class="btn ${o.pick||!W.opts.some(x=>x.pick)&&o===W.opts[0]?"btn--gold":"btn--line"} btn--sm" data-wbook="${esc(o.p)}|${esc(o.n)}">Book ↗</button></div>`).join("");
-  const cmp = `<button type="button" class="wcmp" id="wcmp" aria-expanded="false">Compare side by side</button><table class="wtbl" id="wtbl" hidden><thead><tr><th></th>${W.opts.map(o=>`<th>${esc(o.p)}</th>`).join("")}</tr></thead><tbody>${W.cmp.map(([k,...v])=>`<tr><td>${k}</td>${v.map(x=>`<td class="${x==="Yes"?"yes":x==="Not stated"?"no":""}">${esc(x)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  const lenOf=o=>o.f.find(x=>/hour|day/.test(x))||"Not stated";
+  const rowsC=[["Private",o=>o.f.includes("Private")?"Yes":o.f.includes("Small group")?"Small group":"Not stated"],["Length",lenOf],["Pickup",o=>o.f.includes("Pickup offered")?"Yes":"Not stated"],["Free cancellation",o=>o.cancel?"Yes, up to 24 h before":"See "+o.p+"’s page"]];
+  const cmp = `<button type="button" class="wcmp" id="wcmp" aria-expanded="false">Compare side by side</button><table class="wtbl" id="wtbl" hidden><thead><tr><th></th>${W.opts.map(o=>`<th>${esc(o.n.length>38?o.n.slice(0,36)+"…":o.n)}<br><small>${esc(o.p)}</small></th>`).join("")}</tr></thead><tbody>${rowsC.map(([k,fn])=>`<tr><td>${k}</td>${W.opts.map(o=>{const x=fn(o);return `<td class="${/^Yes|Small/.test(x)?"yes":/^Not stated|^See /.test(x)?"no":""}">${esc(x)}</td>`;}).join("")}</tr>`).join("")}</tbody></table>`;
   const stay = W.stay?`<div class="wstay"><h3>${esc(W.stay.title)}</h3>${W.stay.rows.map(([n,l])=>`<div class="wopt"><div><h3 style="font-size:17px">${esc(n)}</h3><div class="facts"><span class="pchip pchip--trip">Trip.com</span><span>${esc(l)}</span></div></div><button type="button" class="btn btn--line btn--sm" data-wbook="Trip.com|${esc(n)}">See hotels ↗</button></div>`).join("")}</div>`:"";
   const choose = `<section class="choose2" id="wchoose"><div class="choose2__grid"><div class="choose2__photo"><img src="${IMG[W.steps.find(s=>s.img)?.img||W.photo]}" alt=""></div>
       <div><div class="wdone" id="wdone" hidden><b id="wdone-b"></b><p id="wdone-p"></p><p>Choose your date and see the price there. Egypt Roamer never takes bookings or payments.</p></div>
         <p class="eyebrow">Book this trip</p><h2>Choose your way in</h2><div class="wsum">${W.sum.map(s=>`<span>${esc(s)}</span>`).join("")}</div>
         ${cmp}${opts}${stay}<p class="wout">Each button opens the partner’s site in a new tab. Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you. It never influences what we recommend. <a href="#">How we work with partners</a></p></div></div></section>`;
+  const faq = W.faq?`<section class="wfaq"><div class="wfaq__in"><p class="eyebrow">Questions before you book</p><h2>Frequently asked questions</h2>${W.faq.map(([q,a],i)=>`<details ${i?"":"open"}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("")}</div></section>`:"";
+  const others = TRIPS.filter(t=>t.place===W.place&&WORLDS[t.id]!==W);
+  const more = others.length?`<section class="wmore"><p class="eyebrow">More trips in ${esc(W.place)}</p><h2>Not quite this one?</h2><div class="wmore__row">${others.map(mini).join("")}<a href="#" class="wmore__all" data-place="${esc(W.place)}">All ${esc(W.place)} trips →</a></div></section>`:"";
   const capsule = `<a class="capsule" href="#wchoose" data-wjump="wchoose" id="wcap"><span><b>${esc(W.title.split(":")[0].split(" & ")[0])}</b><br><small style="opacity:.75">${W.opts.length} options</small></span><span class="btn btn--gold btn--sm">Book this trip</span></a>`;
   const host=document.getElementById("world");
-  host.className="world "+W.cls; host.innerHTML=open+journey+sec+papy+choose+capsule+`<div class="wfoot"></div>`;
+  host.className="world "+W.cls; host.innerHTML=open+journey+sec+papy+faq+choose+more+capsule+`<div class="wfoot"></div>`;
   wireWorld(W);
 }
 let stopFx=[];
@@ -841,11 +894,12 @@ function wireWorld(W){
   stopFx.forEach(f=>f()); stopFx=[];
   const host=document.getElementById("world");
   // the descent / journey: the step in view lights its mark and its picture
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=e.target.dataset.js;host.querySelectorAll("[data-j]").forEach(x=>{const on=x.dataset.j===i;x.classList.toggle("on",on);if(x.tagName==="VIDEO"){if(on){if(!x.getAttribute("src"))x.src=x.dataset.jsrc;x.play().catch(()=>{});}else x.pause();}});host.querySelectorAll(".path span").forEach((x,k)=>x.classList.toggle("on",String(k)===i));}}),{root:vp,threshold:.55});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=e.target.dataset.js;host.querySelectorAll("[data-j]").forEach(x=>{const on=x.dataset.j===i;x.classList.toggle("on",on);if(x.tagName==="VIDEO"){if(on&&!VIDEOS_OFF){if(!x.getAttribute("src"))x.src=x.dataset.jsrc;x.play().catch(()=>{});}else x.pause();}});host.querySelectorAll(".path button").forEach((x,k)=>x.classList.toggle("on",String(k)===i));}}),{root:vp,threshold:.55});
   host.querySelectorAll(".jstep").forEach(s=>io.observe(s)); stopFx.push(()=>io.disconnect());
-  const cap=host.querySelector("#wcap"); const io2=new IntersectionObserver(([e])=>cap.style.visibility=e.isIntersecting?"hidden":"visible",{root:vp,threshold:.2}); io2.observe(host.querySelector("#wchoose")); stopFx.push(()=>io2.disconnect());
+  const cap=host.querySelector("#wcap"); const seen={choose:false,open:true}; const upd=()=>cap.style.visibility=(seen.choose||seen.open)?"hidden":"visible"; const io2=new IntersectionObserver(es=>{es.forEach(e=>{seen[e.target.id==="wchoose"?"choose":"open"]=e.isIntersecting;});upd();},{root:vp,threshold:.2}); io2.observe(host.querySelector("#wchoose")); io2.observe(host.querySelector("#wopen")); stopFx.push(()=>io2.disconnect());
+  host.querySelectorAll("[data-pjump]").forEach(b=>b.addEventListener("click",()=>{const s=host.querySelector(`.jstep[data-js="${b.dataset.pjump}"]`);vp.scrollTo({top:vp.scrollTop+s.getBoundingClientRect().top-vp.getBoundingClientRect().top});}));
   host.querySelector("#wcmp").addEventListener("click",e=>{const t=host.querySelector("#wtbl");t.hidden=!t.hidden;e.target.setAttribute("aria-expanded",String(!t.hidden));e.target.textContent=t.hidden?"Compare side by side":"Hide comparison";});
-  lazyVideos(host); stopFx.push(()=>host.querySelectorAll("video").forEach(v=>v.pause()));
+  lazyVideos(host); creditsAsInfo(host); stopFx.push(()=>host.querySelectorAll("video").forEach(v=>v.pause()));
   if(W.fx==="tomb") torch();
   host.querySelectorAll("canvas[data-fx]").forEach(c=>stopFx.push(fx(c,c.dataset.fx)));
 }
@@ -858,6 +912,8 @@ function torch(){
   stopFx.push(()=>run=false);
 }
 const REDUCE=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const CONN=navigator.connection||{}; const SAVE=!!CONN.saveData||/(^|-)2g|3g/.test(CONN.effectiveType||"");
+let VIDEOS_OFF=REDUCE||SAVE;
 function fx(c,kind){
   if(REDUCE) return ()=>{};
   const ctx=c.getContext("2d"); let W=0,H=0,run=true; const dpr=devicePixelRatio||1;
@@ -877,9 +933,179 @@ function fx(c,kind){
 // Videos load only when they come on screen, and pause when they leave it.
 let lazyIO=null;
 function lazyVideos(scope){
-  if(!lazyIO) lazyIO=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target; if(e.isIntersecting){ if(!v.getAttribute("src")) v.src=v.dataset.src; if(!REDUCE) v.play().catch(()=>{}); } else v.pause(); }),{root:vp,rootMargin:"200px 0px",threshold:.1});
+  if(!lazyIO) lazyIO=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target; v._in=e.isIntersecting; if(e.isIntersecting){ if(VIDEOS_OFF) return; if(!v.getAttribute("src")) v.src=v.dataset.src; v.play().catch(()=>{}); } else v.pause(); }),{root:vp,rootMargin:"200px 0px",threshold:.1});
   (scope||document).querySelectorAll("video[data-src]").forEach(v=>lazyIO.observe(v));
 }
 
-renderHome(); lazyVideos(document); go(1);
+// One switch for every video on the site (motion longer than five seconds must be pausable).
+function videoSwitch(){
+  const b=document.getElementById("vswitch"); if(!b) return;
+  const paint=()=>{b.setAttribute("aria-pressed",String(!VIDEOS_OFF)); b.innerHTML=VIDEOS_OFF?`<span aria-hidden="true">▶</span> ${SAVE&&!REDUCE?"Videos off to save data · Play":"Play videos"}`:`<span aria-hidden="true">❚❚</span> Pause videos`;};
+  b.addEventListener("click",()=>{VIDEOS_OFF=!VIDEOS_OFF; document.querySelectorAll("video").forEach(v=>{ if(VIDEOS_OFF) v.pause(); else if(v._in||v.classList.contains("on")||v.id==="mood-vid"){ if(!v.getAttribute("src")) v.src=v.dataset.src||v.dataset.jsrc||""; if(v.getAttribute("src")&&!v.hidden) v.play().catch(()=>{}); } }); paint();});
+  paint();
+}
+// Video credits: a small "i" that opens on hover or focus.
+function creditsAsInfo(scope){ (scope||document).querySelectorAll(".vbadge").forEach(e=>{ if(!e.dataset.tip){ e.dataset.tip=e.textContent; e.textContent="i"; e.tabIndex=0; e.setAttribute("role","note"); e.setAttribute("aria-label","Video credit: "+e.dataset.tip);} }); }
+
+// ---------- Six more trips in the four world templates, plus FAQ, cancellation and hotels for all ----------
+// Every word is from the trip's page on egyptroamer.com (16 Oct). Cancellation: as each partner's own page states it
+// (GetYourGuide read 16 Oct; Viator pages not read yet, so shown as "see Viator's page").
+const GYG_CANCEL = "Free cancellation up to 24 hours in advance";
+const CAIRO_STAY = {title:"Staying in Cairo?",rows:[["Hotels in Giza, near the pyramids","Giza"],["Hotels in Downtown Cairo (Qasr El Nil)","Downtown Cairo"],["Hotels in Zamalek","Zamalek"],["Hotels in Cairo","Cairo"]]};
+
+Object.assign(WORLDS.valley, {place:"Luxor", faq:[
+  ["Is Tutankhamun’s tomb worth the extra ticket?","Its fame is its main draw. The tomb is small, and his treasures are now at the Grand Egyptian Museum in Cairo. Other royal tombs, such as that of Seti I (also a separate ticket), are larger and more richly decorated."],
+  ["How long does the West Bank take?","A morning covers the Valley of the Kings, Hatshepsut’s temple and the Colossi of Memnon. A full day allows more tombs and temples."],
+  ["Can I visit without a guide?","Yes, but you’ll get much more from the tombs with one, especially on a first visit."]]});
+Object.assign(WORLDS.redsea, {place:"Red Sea", stay:{title:"Staying by the Red Sea?",rows:[["Hotels in Hurghada","Hurghada"],["Hotels in El Gouna","El Gouna"]]}, faq:[
+  ["Can I dive without any experience?","Yes, as a try-dive with an instructor, at shallow depth, after a briefing. You’ll need to be in reasonable health."],
+  ["When is the best time to dive the Red Sea?","It’s possible all year. Water is warmest from late summer into autumn and coolest in late winter, when a thicker wetsuit helps."],
+  ["What about sea life encounters?","Reef fish, turtles and rays are common on many sites. Encounters with larger animals depend on the site and the season, and nothing is guaranteed."]]});
+Object.assign(WORLDS.white, {place:"Western Desert", faq:[
+  ["Is camping in the White Desert safe?","With a licensed local operator and an experienced driver, yes. Don’t try to drive into the desert on your own."],
+  ["Are there toilets or showers at camp?","Usually not. Camps are basic, which is part of the experience. Check with your operator."],
+  ["Can I do it as a day trip?","Not really. The distances are long, and the formations are at their best at sunset and sunrise. The overnight camp is the point."]]});
+Object.assign(WORLDS.nile, {place:"Cairo & Giza", stay:CAIRO_STAY, faq:[
+  ["Is a Nile dinner cruise worth it?","For a lively evening with dinner, music and the city lights, yes. For a quieter view of the river, choose a felucca at sunset instead."],
+  ["What is the tanoura dance?","A traditional Egyptian dance in which performers spin continuously while turning layered, brightly coloured skirts. It’s related to the whirling of Sufi practice."],
+  ["What should I wear?","Smart-casual is fine. Bring a light layer, since it can be cool on the open deck in winter."]]});
+
+Object.assign(WORLDS, {
+  giza: {cls:"w-tomb", fx:"tomb", photo:"giza_l", video:"video/giza-sunset.mp4", vcredit:"Giza · Video: Peggy Anke, Pexels", url:"pyramids-of-giza-sphinx-private-tour", place:"Cairo & Giza",
+    eyebrow:"Giza · Cairo · Half day", title:"Pyramids of Giza & Sphinx Private Tour",
+    lead:"A private tour of the Giza plateau with your own Egyptologist guide and driver. You’ll see the three great pyramids of Khufu, Khafre and Menkaure, the panoramic viewpoint and the Sphinx with its valley temple, at your own pace and without joining a group.",
+    quote:"Giza is simple to reach but surprisingly hard to do well.", chips:["Half day","3 options from 2 partners","Private","Pickup offered"], go:"Walk the plateau",
+    jEyebrow:"What you actually do", jTitle:"Across the plateau",
+    steps:[
+      {t:"The Great Pyramid",p:"Walk around the Great Pyramid, the only surviving Wonder of the Ancient World."},
+      {t:"Khafre and Menkaure",p:"Visit the pyramids of Khafre and Menkaure and the smaller queens’ pyramids."},
+      {t:"The panoramic viewpoint",p:"Stop at the panoramic viewpoint for the classic photo of all the pyramids in a row.",video:"video/giza-camels.mp4",credit:"Near the pyramids of Giza · Video: K, Pexels"},
+      {t:"The Sphinx",p:"Descend to the Sphinx and walk through the valley temple beside it.",why:"Optionally, go inside one of the pyramids. This needs an extra ticket; the passages are narrow, steep and hot."}],
+    sec:{eyebrow:"Before you go",title:"A good guide makes it simple",ps:["The site is large and exposed, the approaches are crowded with touts, and the story behind the monuments doesn’t explain itself. A good guide handles tickets and the route across the plateau, keeps unwanted sellers at a distance, and turns the stones into the history of the Old Kingdom."],
+      tabs:[["𓇳","Timing","Book the earliest start you can. The light is softer and it’s cooler and quieter."],["𓈗","What to bring","Water, a hat, sun protection and comfortable shoes. There’s very little shade."],["𓉐","Inside the pyramids","Not recommended if you’re claustrophobic or have mobility or heart problems."],["𓃗","Camel and horse rides","If you want one, agree the price, the duration and the route in full before you get on. A good guide will help."]]},
+    papy:[["Who it suits","Context, without the hassle","First-time visitors who want context and a hassle-free morning, families, and anyone short on time."],
+          ["Combine it with","The Grand Egyptian Museum","Right next to the plateau and home to the full Tutankhamun collection. Better as a separate half-day if you can. To the south: Saqqara, Memphis and Dahshur."]],
+    sum:["Cairo","About 4–8 hours","Private","Pickup offered"],
+    opts:[{n:"Private half-day tour of the Giza pyramids",p:"Viator",f:["Private","About 4–5 hours","Pickup offered"]},
+          {n:"Giza pyramids, Sphinx and Grand Egyptian Museum full day",p:"Viator",f:["Private","About 6–8 hours","Pickup offered"]},
+          {n:"Cairo: Pyramids & Great Sphinx Private Tour with Camel Ride",p:"GetYourGuide",f:["Private","4–8 hours","Pickup offered"]}],
+    stay:CAIRO_STAY,
+    faq:[["Is a private tour better than a group tour?","It’s more flexible and calmer. You choose the pace and the stops. Group tours cost less but follow a fixed schedule."],
+         ["Can I go inside the Great Pyramid?","Yes, with an extra ticket. The ascending passages are narrow and steep, and the chamber inside is bare. Most visitors find the outside and the viewpoint more impressive."],
+         ["How early should I start?","As early as the site opens. Mornings are cooler and the crowds build through the day."]]},
+
+  abu: {cls:"w-tomb", fx:"tomb", photo:"abu_l", url:"abu-simbel-day-trip-from-aswan", place:"Aswan",
+    eyebrow:"Aswan · Nubia · Full day", title:"Abu Simbel Day Trip from Aswan",
+    lead:"A day trip from Aswan to Abu Simbel, far to the south near the Sudanese border. You’ll see the two rock-cut temples built by Ramesses II: the Great Temple, fronted by four colossal seated statues of the king, and the smaller temple dedicated to Queen Nefertari and the goddess Hathor.",
+    chips:["Full day","3 options from 2 partners","Private or small group","Pickup offered"], go:"Make the journey south",
+    jEyebrow:"Why it’s worth the effort", jTitle:"Into the rock",
+    steps:[
+      {t:"Leave in the dark",p:"By road, the classic option, leaving Aswan in the dark before dawn and arriving in the morning. It’s a very long day, most of it in the vehicle.",tone:"night",why:"By air: short flights from Aswan save hours on the road, at a higher cost."},
+      {t:"Scale",p:"The façade of the Great Temple is one of the most famous images of ancient Egypt, and it’s even bigger in person.",tone:"warm"},
+      {t:"The interiors",p:"Carved halls lead deep into the rock, with battle scenes and statues of the king as a god.",tone:"dark"},
+      {t:"The rescue",p:"In the 1960s, as Lake Nasser rose behind the new High Dam, the temples were cut into blocks and reassembled on higher ground. Knowing that as you stand inside makes the visit remarkable.",tone:"warm"}],
+    sec:{eyebrow:"The sun festival",title:"When the sun reaches the sanctuary",ps:["On or around 22 February and 22 October, the rising sun shines along the Great Temple’s axis into the innermost sanctuary and lights the seated statues there. These days draw large crowds and events. Book far ahead if you want to see it."],
+      tabs:[["𓇳","","Bring breakfast or snacks, water, and a layer for the early morning."],["𓈗","","Sun protection is essential. The forecourt is fully exposed."],["𓁹","","Photography rules inside the temples can change. Follow the guards."]]},
+    papy:[["Who it suits","A real interest in ancient Egypt","Anyone with a real interest in ancient Egypt, and travellers staying at least two days in Aswan. If long road journeys are hard for you, fly, or consider a Lake Nasser cruise."],
+          ["Combine it with","Philae and a felucca","Philae temple, the Unfinished Obelisk and a felucca in Aswan. Plan them for the days before or after, not the same day."]],
+    sum:["Aswan","About 8–10 hours","Private or small group","Pickup offered"],
+    opts:[{n:"Private Abu Simbel day tour from Aswan",p:"Viator",f:["Private","About 8–10 hours","Pickup offered"],pick:true},
+          {n:"Shared Abu Simbel day trip from Aswan",p:"Viator",f:["Small group","About 10 hours","Pickup offered"]},
+          {n:"From Aswan: Abu Simbel Day Tour with Private Guide and Car",p:"GetYourGuide",f:["Private","10 hours","Pickup offered"]}],
+    stay:{title:"Staying in Aswan?",rows:[["Hotels in Aswan","Aswan"]]},
+    faq:[["Can I visit Abu Simbel without a tour?","Yes, you can arrange your own driver or fly independently. Most travellers still book a tour or transfer for the pre-dawn road journey."],
+         ["How long do you spend at the temples?","Usually a few hours, enough for both temples without rushing."],
+         ["Is it worth going on the sun festival day?","It’s unforgettable, but very busy. On other days you get far more space in the temples."]]},
+
+  alex: {cls:"w-nile w-city", fx:"nile", photo:"alex_l", video:"video/alexandria-qaitbay.mp4", vcredit:"Qaitbay Citadel, Alexandria · Video: The Instagrapher, Pexels", url:"alexandria-day-trip-from-cairo", place:"Alexandria",
+    eyebrow:"Alexandria · The Mediterranean · Full day from Cairo", title:"Alexandria Day Trip from Cairo",
+    lead:"A full day from Cairo to Egypt’s Mediterranean city and back. Alexandria was founded by Alexander the Great and became the capital of the Ptolemies.",
+    quote:"A side of Egypt that is Greek, Roman and Mediterranean as much as pharaonic.", chips:["About 10–12 hours","Small-group option available","Pickup offered"], go:"Spend the day by the sea",
+    jEyebrow:"What you see", jTitle:"Along the Mediterranean",
+    steps:[
+      {img:"alex_c1",t:"The Citadel of Qaitbay",p:"The 15th-century sea fort built on the site of the ancient Pharos lighthouse, reusing its stone."},
+      {img:"alex_c2",t:"The Bibliotheca Alexandrina",p:"The modern library on the seafront, a tribute to the ancient Library of Alexandria."},
+      {t:"Kom el-Shoqafa",p:"Roman-era catacombs cut deep into the rock, where Egyptian gods appear in Greco-Roman style.",tone:"dark"},
+      {img:"alex_c3",t:"Pompey’s Pillar",p:"A single granite column on the hill of the ancient Serapeum, raised in fact for the emperor Diocletian."},
+      {t:"The Corniche and Montaza",p:"The seafront promenade and the former royal gardens at its eastern end.",tone:"warm",why:"Lunch is usually fish, chosen from the ice and grilled or fried as you ask."}],
+    sec:{eyebrow:"Making one day count",title:"Four or five sites, chosen well",ps:["The round trip from Cairo takes a large share of the day, so most tours start early and focus on four or five sites. A private car with a guide lets you choose them. Tours differ in which sites they include, so compare the itineraries."],
+      tabs:[["𓉐","","Check which sites are visited inside, and which are seen only from outside."],["𓏊","","Ask whether entry tickets and lunch are included."],["𓇳","","Confirm the pickup time and place in Cairo or Giza."]]},
+    papy:[["Who it suits","A complete change of scene","Travellers with a few days in Cairo who want a complete change of scene, and anyone interested in the Greek and Roman story of Egypt. If you have more time, two days in Alexandria are better than one."]],
+    sum:["Alexandria","About 10–12 hours","Small-group option available","Pickup offered"],
+    opts:[{n:"Alexandria day trip from Cairo",p:"Viator",f:["About 10–12 hours","Pickup offered"]},
+          {n:"From Cairo: Historical Alexandria Shared Day Tour with Lunch",p:"GetYourGuide",f:["Small group","11 hours","Pickup offered"]}],
+    stay:{title:"Staying in Alexandria?",rows:[["Hotels in Alexandria","Alexandria"]]},
+    faq:[["Is a day trip to Alexandria worth it?","Yes, if you have a spare day in Cairo. You will see the highlights, though staying a night gives a more relaxed visit."],
+         ["Can I still see the ancient Lighthouse or Library?","Neither survives. The Citadel of Qaitbay stands on the lighthouse’s site, and the modern Bibliotheca Alexandrina honours the ancient library."],
+         ["Can I go by train instead of a tour?","Yes. Trains run between Cairo and Alexandria throughout the day, and you can move around the city by taxi or ride-hailing app."]]},
+
+  ras: {cls:"w-sea", fx:"sea", photo:"sea_l", video:"video/redsea-reef.mp4", vcredit:"Red Sea, Egypt · Video: Adrien JACTA, Pexels", url:"ras-mohammed-snorkelling-from-sharm", place:"Red Sea",
+    eyebrow:"Sharm El Sheikh · South Sinai · About 5–6 hours", title:"Ras Mohammed Snorkelling from Sharm El Sheikh",
+    lead:"A half-day or full-day trip from Sharm El Sheikh to Ras Mohammed National Park, at the southern tip of the Sinai Peninsula. Declared in 1983, it was Egypt’s first national park.",
+    quote:"The contrast of desert and sea is part of the experience.", chips:["About 5–6 hours","Pickup offered","Snorkellers of every level"], go:"Into the park",
+    jEyebrow:"By road or by boat", jTitle:"Two ways to the reef",
+    steps:[
+      {t:"By road",p:"A bus or jeep trip into the park, with snorkelling from the shore and stops at its viewpoints and coastal landmarks. A good choice if you prefer to stay close to land.",tone:"warm"},
+      {t:"By boat",p:"A day boat from Sharm reaches the reefs from the water, with time to snorkel at more than one site. Divers can often join the same boat."},
+      {t:"What you see",p:"Coral gardens and steep reef walls close to the surface, with reef fish in great numbers. Turtles and rays are seen on some days, but nothing is guaranteed.",video:"video/redsea-coral.mp4",credit:"Red Sea · Video: Adrien JACTA, Pexels"}],
+    sec:{eyebrow:"The park rules",title:"A protected reef",ps:["Ras Mohammed is protected. Never touch or stand on coral, don’t feed fish, and don’t collect anything. Rules on anchoring and fishing are strict, and operators should follow them."],
+      tabs:[["𓈗","","Swimwear, a towel and a rash vest or reef-friendly sun protection."],["𓁹","","Your own mask if you have one that fits well."],["𓇳","","Water and a hat. There is little shade on shore."]]},
+    papy:[["Who it suits","Every level, beginners too","Snorkellers of every level, including beginners. Tell the operator how well you swim, and ask for a life jacket or snorkel vest if you want one. For diving, see our Red Sea diving trip."]],
+    sum:["Sharm El Sheikh","About 5–6 hours","Pickup offered"],
+    opts:[{n:"Ras Mohammed snorkeling trip from Sharm El Sheikh",p:"Viator",f:["About 5 hours","Pickup offered"]},
+          {n:"From Sharm: White Island and Ras Mohamed Snorkeling Trip",p:"GetYourGuide",f:["6 hours","Pickup offered"]}],
+    stay:{title:"Staying in Sharm El Sheikh?",rows:[["Hotels in Sharm El Sheikh","Sharm El Sheikh"]]},
+    faq:[["Do I need to be a strong swimmer?","No. Guides accompany beginners, and vests are usually available. Say so when you book."],
+         ["Is the park fee included?","It depends on the tour. Check before you book."],
+         ["When is the best time to go?","The sea is warm for most of the year. Spring and autumn combine warm water with comfortable air temperatures."]]},
+
+  siwa: {cls:"w-desert", fx:"desert", photo:"siwa_l", url:"great-sand-sea-4-4-hot-springs", place:"Western Desert",
+    eyebrow:"Siwa Oasis · The Great Sand Sea · Full day", title:"Great Sand Sea 4×4 & Hot Springs",
+    lead:"A 4×4 excursion from Siwa into the Great Sand Sea, one of the largest dune fields in the world, stretching south of the oasis. With a local driver you cross towering dunes, stop to swim in springs in the middle of the desert, try sand-boarding, and watch the sun set over the sand.",
+    quote:"Trips usually leave in the afternoon, so you’re in the dunes in the best light.", chips:["Private option available","Pickup offered"], go:"Into the dunes",
+    jEyebrow:"What the day is like", jTitle:"Dunes, springs, sunset",
+    steps:[
+      {t:"Dune driving",p:"Steep climbs and descents that are part rollercoaster, part landscape tour. Tell your driver if you’d prefer a gentler ride.",tone:"warm"},
+      {t:"Springs",p:"Hot and cold springs in the desert. A dip in warm water with dunes all around is the highlight for many.",tone:"warm"},
+      {t:"Sand-boarding",p:"Sand-boarding down the dunes.",tone:"dark"},
+      {t:"Sunset",p:"Sunset from the top of a dune, often with tea made on a small fire.",tone:"night"}],
+    sec:{eyebrow:"Choosing an operator",title:"Never go into the dunes on your own",night:true,ps:["Sun protection, sunglasses and water; swimwear and a towel for the springs; and a warm layer, because it gets cold quickly after sunset, especially in winter."],
+      tabs:[["𓀀","","A licensed Siwan operator and an experienced desert driver."],["𓊡","","A vehicle in good condition, with water and communication equipment."],["𓉐","","Whether permits for the desert areas are arranged for you."],["𓇳","","Whether the trip includes springs, sand-boarding and sunset, or goes further for a longer day or an overnight camp."]]},
+    papy:[["Who it suits","The classic Siwa excursion","Anyone staying in Siwa. The dune driving can be rough, so it’s not suitable if you have back problems or are pregnant. Ask for a calmer route."],
+          ["Combine it with","The oasis itself","The Shali fortress, the Oracle of Amun and Cleopatra’s Spring in the oasis itself. See our Siwa guide."]],
+    sum:["Siwa","Private option available","Pickup offered"],
+    opts:[{n:"Siwa Oasis 3-day trip from Cairo, with a Great Sand Sea safari",p:"Viator",f:["Private","About 3 days","Pickup offered"],pick:true,why:"The only private option"},
+          {n:"2 Nights 3 Days at Siwa Oases camp from Cairo",p:"GetYourGuide",f:["3 days","Pickup offered"]}],
+    stay:{title:"Staying in Siwa?",rows:[["Hotels in Siwa Oasis","Siwa Oasis"]]},
+    faq:[["Is the dune driving scary?","It can be exhilarating. Drivers adjust to their passengers, so just ask for a gentler ride."],
+         ["Do I need to book in advance?","In the main season it’s wise to arrange it on arrival or through your lodge. Local operators run trips most days."],
+         ["Can I stay overnight in the desert?","Yes, many operators offer an overnight camp in the dunes, for a night under the stars."]]},
+
+  food: {cls:"w-nile w-city", fx:"nile", photo:"food_l", url:"cairo-street-food-tour-by-night", place:"Cairo & Giza",
+    eyebrow:"Cairo · After dark · 4 hours", title:"Cairo Street Food Tour by Night",
+    lead:"An evening walk through Cairo’s neighbourhoods with a local guide, tasting street food and snacks at small shops, carts and eateries.",
+    quote:"Cairo eats late, so the city is at its most alive after dark.", chips:["About 3–4 hours","2 options"], go:"Start tasting",
+    jEyebrow:"What you’ll taste", jTitle:"Stop by stop, plate by plate",
+    steps:[
+      {t:"Koshari",p:"Rice, lentils, pasta, spicy tomato sauce and crispy onions, Cairo’s signature dish.",tone:"warm"},
+      {t:"Ful medames and ta’meya",p:"Slow-cooked fava beans, and Egyptian falafel made from fava beans.",tone:"warm"},
+      {t:"Hawawshi",p:"Spiced minced meat baked inside bread.",tone:"dark"},
+      {t:"Feteer meshaltet",p:"Flaky layered pastry, with savoury or sweet fillings.",tone:"warm"},
+      {t:"Sweets and drinks",p:"Basbousa, konafa, or rice pudding; fresh sugarcane juice, mint tea, or coffee in an ahwa.",tone:"night"}],
+    sec:{eyebrow:"Why go with a guide",title:"The best food has no English menu",ps:["The best food in Cairo is in places without menus in English, and often without signs at all. A guide knows where to go, orders for you, explains the dishes, and handles hygiene questions."],
+      tabs:[["𓏊","","Tell the operator about allergies and dietary needs. Vegetarian eating is easy in Egypt, since many classics are meat-free."],["𓌉","","Come hungry: tastings add up."],["𓂻","","Wear comfortable shoes: you’ll be walking on uneven streets."]]},
+    papy:[["Who it suits","A good first evening","First-time visitors, food lovers, and anyone who wants to see local life beyond the monuments. It’s a good first evening in Cairo, when you’re still getting your bearings."],
+          ["Combine it with","Islamic Cairo or Downtown","A day in Islamic Cairo or Downtown. See our Cairo guide for the areas and more on Cairo food."]],
+    sum:["Cairo","About 3–4 hours"],
+    opts:[{n:"Cairo Nights street-food tour",p:"Viator",f:["About 4 hours"]},
+          {n:"Cairo evening food tour with 40 tastings",p:"Viator",f:["About 3 hours"]}],
+    stay:CAIRO_STAY,
+    faq:[["Is Cairo street food safe to eat?","Eating at busy places with high turnover, as guides do, is the best approach. Drink bottled water, and be careful with raw salads if your stomach is sensitive."],
+         ["Is it suitable for vegetarians?","Yes. Koshari, ful, ta’meya and feteer are traditionally vegetarian. Tell your guide in advance."],
+         ["How late does it run?","Evening tours usually start after sunset and last a few hours. Check the start time with the operator."]]},
+});
+// Cancellation as each partner states it.
+Object.values(WORLDS).forEach(W=>W.opts.forEach(o=>{ if(o.p==="GetYourGuide") o.cancel=GYG_CANCEL; }));
+
+renderHome(); lazyVideos(document); creditsAsInfo(document); videoSwitch(); go(1);
 </script>
