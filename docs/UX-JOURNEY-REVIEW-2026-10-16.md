@@ -78,3 +78,14 @@ The aim is one simple path: **choose a place or an activity, open one trip page,
 3. The three action words (P5).
 4. Phones: one fixed bar (P7). This replaces the bar plus dock that the owner asked for earlier.
 5. Planner travel times: keep or remove (finding 8).
+
+## 5. Status (16 Oct, after the owner's go-ahead)
+
+The owner said: go ahead on judgement, without visitor data (there is no traffic yet).
+
+- **Done in the `?ux=2` preview (theme 1.2.74 and 1.2.75):** P1, P2 and P3. Visitors see no change until `er_ux2` is switched on.
+- **P1:** on phones the panel sits at screen 0.8–1.0, measured on all 18 trip pages in English and Arabic. Before, it was at 3.3–4.7. Desktop is unchanged (sidebar at about 1 screen).
+- **P2 and P3** are checked on the same pages. The pick shows a reason on 3 trips (Nile dinner cruise, White Desert, Great Sand Sea). On the others no single partner-stated fact sets the pick apart, so no reason is shown.
+- **Not done:**
+  - the GoDaddy cache flush. Edge was disconnected, so cached pages still link the old CSS; the check above used fresh pages.
+  - P4–P11.
