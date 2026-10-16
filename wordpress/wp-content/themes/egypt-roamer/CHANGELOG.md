@@ -2,6 +2,9 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.75 — 2026-10-16: the panel really comes first on phones
+- 1.2.74's rule lost to the older "everything else after the article" rule (higher specificity), so on phones the panel still followed the article (measured at 3.3–4.7 screens on every experience). The rule is now more specific.
+
 ## 1.2.74 — 2026-10-16: trip page, proposals 1–3 of the journey review (preview `?ux=2`)
 - **Owner:** go ahead with the measured journey review (`docs/UX-JOURNEY-REVIEW-2026-10-16.md`), on judgement, since there is no traffic yet to test with.
 - **P1, phones and tablets:** the booking panel comes right after the hero, before the article. In the preview it sat after the FAQ, 4.9 screens down on the Valley of the Kings.

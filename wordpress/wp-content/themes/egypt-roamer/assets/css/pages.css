@@ -3824,7 +3824,8 @@ html:lang(zh) {
 /* Phones and tablets (no sidebar): the panel comes right after the hero, before the article (owner review, 16 Oct:
    in the preview the options sat after the FAQ, 4.9 screens down). */
 @media (max-width: 1199.98px) {
-  .page-layout--aside > .page-aside > .bp {
+  /* Outranks the "everything else after the article" rule above (its :not() counts as two classes). */
+  .page-layout.page-layout--aside > .page-aside > .bp:not(.glance) {
     order: -1;
   }
 }

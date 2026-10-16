@@ -7417,7 +7417,7 @@ font-size: 0.85rem;
 color: var(--text);
 }
 @media (max-width: 1199.98px) {
-.page-layout--aside > .page-aside > .bp {
+.page-layout.page-layout--aside > .page-aside > .bp:not(.glance) {
 order: -1;
 }
 }
