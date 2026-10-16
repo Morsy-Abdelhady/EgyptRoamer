@@ -14,7 +14,7 @@ const to=(pg,sel,off=0)=>pg.evaluate(([s,o])=>{const vp=document.querySelector("
 const page=(pg,f)=>pg.evaluate((f)=>{const vp=document.querySelector("#vp");vp.style.scrollBehavior="auto";vp.scrollBy(0,vp.clientHeight*f);vp.dispatchEvent(new Event("scroll"));},f);
 let pg=await open("journey-v4.html");
 await shot(pg,"v4","home-top");
-for(const [s,n,o] of [["#live #destinations","destinations",-56],["#live #partners","partners",-56],["#live #experiences","experiences",-56],["#live #guide","journal",-56],["#live #planner","planner",-56],["#ch-1","ch1",-56],["#ch-1 .ch__trips","ch1-trips",-300],["#ch-2","ch2",-56],[".interlude2","interlude",-56],["#live #moods","moods",-56],["#live .moods__body","moods-body",-90],["#live #map","map",-56],["#live .map__canvas","map-canvas",-90]]) { await to(pg,s,o); await shot(pg,"v4",n); }
+for(const [s,n,o] of [["#live #stay","stay",-56],["#live #planner","planner",-56],["#ch-1","ch1",-56],["#ch-1 .ch__trips","ch1-trips",-300],["#ch-2","ch2",-56],[".interlude2","interlude",-56],["#live #moods","moods",-56],["#live .moods__body","moods-body",-90],["#live #map","map",-56],["#live .map__canvas","map-canvas",-90]]) { await to(pg,s,o); await shot(pg,"v4",n); }
 await pg.evaluate(()=>{const vp=document.querySelector("#vp");vp.scrollTo(0,vp.scrollHeight)}); await shot(pg,"v4","footer");
 await pg.evaluate(()=>go(2)); await shot(pg,"v4","browse-top"); await to(pg,"#groups",-120); await shot(pg,"v4","browse-groups"); await page(pg,.85); await shot(pg,"v4","browse-more");
 await pg.evaluate(()=>showPlaces()); await shot(pg,"v4","places-top");

@@ -66,3 +66,21 @@ These are design choices, not bugs, so they wait for the owner.
 - The partners section with an empty tab.
 
 These need fixing on the live site when the design is rolled out.
+
+## 5. Applied (owner: "apply the seven suggestions", 17 Oct)
+Built by `v4-round7.py`, with the route guides in `v4-guides.py`. Checked with `tour.mjs`: 43 screens each at 1440, 840 and 390 px, all looked at full size. There are no script errors.
+
+1. **Shorter homepage:** story, interlude, moods, the map (the owner asked for it on 16 Oct), Where to stay and the Trip Builder.
+   - "Seven places" is on the Places page; "Moments we'd book again" repeated Trips & tours; the Journal repeated the Travel Guide. All three left the homepage. The homepage is now about 9,000 px tall.
+2. **Where to stay** replaces the empty partners tab: Trip.com's hotel areas for each of the seven places, from the same hotel rows the trips show (Cairo: Giza, Downtown, Zamalek, Cairo; Luxor: Luxor, West Bank; and so on).
+3. **One trip behaviour:** every trip opens our trip page, where the options are compared. Partner links appear only on the trip page.
+4. **One vocabulary:**
+   - "Trips & tours" on the browse page;
+   - the map card says "See the place and its trips";
+   - the moods' place card says "See its trips";
+   - the Trip Builder's list says "Trips on your route".
+5. **Phones:** the Trip assistant is an icon in the header between 🔍 and ♡. The floating button is gone, so nothing covers the text.
+6. **Trip Builder:** each partner tour on the route opens its trip ("Compare options"). Tours with no trip page are not listed.
+7. **Route guides** (7, 10 and 14 days, best time, hidden gems, day trips, and any guide with three or more trips):
+   - the box, the end band and the phone bar show "Trips on this route", each with its facts and free cancellation, instead of one trip;
+   - single-trip guides are unchanged.

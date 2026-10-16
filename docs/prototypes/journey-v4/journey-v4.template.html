@@ -2108,6 +2108,17 @@ linear-gradient(to bottom, var(--ink) 0%, transparent 18%);}
 .gd .prose h2{scroll-margin-top:calc(var(--navh,72px) + 64px)!important}
 .gd .prose h3{font:600 21px/1.3 var(--serif);margin:28px 0 10px}
 .gd .tcard,.gd .gcard{cursor:pointer}
+.gd .rtl{list-style:none;margin:6px 0 14px;padding:0;display:grid;gap:8px}
+.gd .rtl li{margin:0;padding:0}.gd .rtl li::before{content:none}
+.gd .rtl a{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;padding:8px;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--charcoal);background:#fff;min-height:44px}
+.gd .rtl a:hover{border-color:var(--gold)}
+.gd .rtl img{width:64px;height:52px;object-fit:cover;border-radius:8px}
+.gd .rtl b{display:block;font:600 14.5px/1.25 var(--serif)}
+.gd .rtl span span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.gd .rtl em{display:block;font-style:normal;font-size:11.5px;font-weight:600;color:#145c4c;margin-top:2px}
+.gd .rtl--dark a{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#fff}
+.gd .rtl--dark span span{color:#d9d0bd}.gd .rtl--dark em{color:#9fe3d6}
+.gd .rt-end{align-items:start}
 .gd-lb{position:absolute;inset:0;z-index:80;pointer-events:auto}
 /* the guide index */
 .gi-hero{position:relative;color:#fff;min-height:360px;display:flex;align-items:flex-end;overflow:hidden;background:#101820}
@@ -2132,6 +2143,31 @@ linear-gradient(to bottom, var(--ink) 0%, transparent 18%);}
 .gi-card em{font-style:normal;margin-top:auto;padding-top:8px;font-size:13px;color:var(--muted)}
 @container site (max-width:900px){ .gi-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @container site (max-width:600px){ .gi-grid{grid-template-columns:1fr;gap:14px} .gi-hero h1{font-size:38px} .gi-hero .wrap{padding-block:96px 26px} .gi-bar button{min-height:44px} }
+
+/* ---------- expert review, 17 Oct ---------- */
+.stay2{background:var(--stone,#f8f5ed);padding:84px 0 90px}
+.stay2 .eyebrow{color:var(--gold-deep,#a8871f)}
+.stay2 h2{font:600 44px/1.1 var(--serif);margin:10px 0 12px;max-width:760px}
+.stay2 h2 em{font-style:italic}
+.stay2 > .wrap > p{max-width:640px;color:var(--muted);margin:0 0 30px;font-size:16px}
+.stay2__g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:start}
+.stay2__c{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.stay2__c img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.stay2__c div{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.stay2__c h3{font:600 20px/1.2 var(--serif);margin:0}
+.stay2__c ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.stay2__c a{display:inline-flex;justify-content:space-between;gap:8px;align-items:center;min-height:40px;padding:8px 12px;border-radius:10px;background:var(--stone,#f8f5ed);text-decoration:none;color:var(--charcoal);font-size:14px}
+.stay2__c a:hover{background:#efe6d3}
+.stay2__c a em{font-style:normal;font-weight:600;color:var(--nile,#0e3a5b);white-space:nowrap;font-size:13px}
+.stay2__note{margin:22px 0 0;font-size:12.5px;color:var(--muted)}
+@container site (max-width:900px){ .stay2__g{grid-template-columns:repeat(2,minmax(0,1fr))} .stay2 h2{font-size:34px} }
+@container site (max-width:600px){ .stay2{padding:56px 0 60px} .stay2__g{grid-template-columns:1fr} .stay2 h2{font-size:28px} .stay2__c a{min-height:44px} }
+/* the assistant: a header icon on phones */
+.lc .nav .lc-ai{display:none}
+@container site (max-width:600px){
+  .lc .nav .lc-ai{display:inline-grid}
+  .lc-ov .assistant-launch{display:none!important}
+}
 </style>
 <header class="pbar">
   <div class="pbar__in">
@@ -2167,7 +2203,7 @@ linear-gradient(to bottom, var(--ink) 0%, transparent 18%);}
 		<div class="nav__actions">
 			<button class="icon-btn" type="button" data-open="search" aria-label="Search Egypt Roamer">
 				<svg class="icon " aria-hidden="true"><use href="#i-search"></use></svg>			</button>
-			<button class="icon-btn" type="button" data-open="saved" aria-label="Saved places and experiences">
+			<button class="icon-btn lc-ai" type="button" data-open="assistant" aria-label="Trip assistant"><svg class="icon" aria-hidden="true"><use href="#i-sparkle"></use></svg></button><button class="icon-btn" type="button" data-open="saved" aria-label="Saved places and experiences">
 				<svg class="icon " aria-hidden="true"><use href="#i-heart"></use></svg>				<span class="icon-btn__badge" data-fav-count=""></span>
 			</button>
 				<div class="lang" data-lang="">
@@ -2243,8 +2279,8 @@ linear-gradient(to bottom, var(--ink) 0%, transparent 18%);}
       <!-- 2 · Browse: trips grouped by place, each place with its own line of story -->
       <section data-screen="2" hidden>
         <div class="phero phero--img on-dark"><img data-img="sc_nile" alt=""><div class="wrap">
-          <p class="crumbs">Home / Experiences</p>
-          <h1>Experiences</h1>
+          <p class="crumbs">Home / Trips &amp; tours</p>
+          <h1>Trips &amp; tours</h1>
           <p>Tours and day trips across Egypt, from a private visit to the Giza plateau to an early start for Abu Simbel. Each page explains what the experience is, who it suits and what to know before you book.</p>
         </div></div>
         <div class="filters"><div class="wrap">
@@ -7512,8 +7548,7 @@ const HOME2_TOAST="<div class=\"toast\" data-nosnippet=\"\" role=\"status\" aria
 function renderHome2(){
   const host=document.getElementById("live"); if(!host||host.querySelector("#destinations")) return;
   const fix=s=>s.replace(/href="(https:\/\/egyptroamer\.com[^"]*)"/g,'href="#" data-href="$1"');
-  host.querySelector("#map").insertAdjacentHTML("beforebegin",fix(HOME2.destinations));
-  host.querySelector("#map").insertAdjacentHTML("afterend",fix(HOME2.partners)+fix(HOME2.experiences)+fix(HOME2.guide)+fix(HOME2.planner));
+  host.querySelector("#map").insertAdjacentHTML("afterend",stayHTML()+fix(HOME2.planner));
   // the captured markup is production's rendered page: the parts the components add themselves are removed first
   host.querySelectorAll("#partners .ptab").forEach(b=>b.remove());
   window.erHome.init();
@@ -7585,7 +7620,10 @@ window.openGuides=function(place){ if(place!==undefined) gFilter=place; showOnly
 let gLB=[], gLbi=0, gLast=null, gMain=null;
 window.openGuide=function(slug){ const A=GUIDES.find(g=>g.slug===slug); if(!A){ openGuides(); return; } gLast=null;
   showOnly("ga"); $("#url").textContent=`egyptroamer.com/guides/${A.slug}/`;
-  const trips=A.trips.map(tripInfo).filter(Boolean), main=trips[0]; gMain=main;
+  const trips=A.trips.map(tripInfo).filter(Boolean);
+  // itineraries and whole-country guides name several trips: they show the trips on the route, not one trip (expert review, 17 Oct)
+  const route=/days-in-egypt|best-time|hidden-gems|day-trips/.test(A.slug)||trips.length>=3;
+  const main=route?null:trips[0]; gMain=main;
   const h=A.hero||["img",null,""]; const heroSrc=h[1]?IMG[h[1]]:gPhoto(A);
   const hero=h[0]==="video"?`<video muted loop playsinline preload="none" poster="${heroSrc}" data-src="${h[3]}"></video>`:`<img src="${heroSrc}" alt="">`;
   let n=0, shown=new Set(), pStrip=null, pVid=null; gLB=[];
@@ -7611,11 +7649,15 @@ window.openGuide=function(slug){ const A=GUIDES.find(g=>g.slug===slug); if(!A){ 
       +(stay?`<a class="bk__stay" href="#" data-gstay><span>${esc(stay.title)}<small>${esc(stay.rows[0][0])}</small></span><em>Trip.com ↗</em></a>`:"")
       +`<p class="bk__disc">Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.</p>`
     :`<div class="bk"><div class="bk__b"><small>Plan with us</small><h3>Find the trips for this plan</h3><p style="margin:0 0 12px;color:var(--muted);font-size:14px">Tours and day trips across Egypt, each with its options side by side.</p><a class="btn btn--gold" href="#" data-go="2">Choose a trip →</a></div></div>`;
-  const end=main?`<section class="aend aend--${main.world==="tomb"?"tomb":"sea"}">${main.world==="tomb"?`<div class="glyphs" aria-hidden="true">${GLYPHS.repeat(30)}</div>`:""}<div class="wrap"><div><p class="eyebrow">Ready to go?</p><h2>${esc(main.title)}</h2>${gchips(main)}<p>Compare the options side by side on the trip page, then book on the partner’s site. Free cancellation up to 24 hours before, on every option.</p><div class="acts"><a class="btn btn--gold" href="#" data-gtrip="${main.id}">${esc(main.go)} →</a><a class="btn btn--light" href="#" data-place="${esc(main.t.places[0]||"")}">All ${esc(main.t.places[0]||"")} trips</a></div></div><div><p class="aopts__t">${main.n} ways to do it</p><ul class="aopts">${main.opts.map(o=>`<li><div><b>${esc(o.n)}</b><small><i>${esc(o.p)}</i>${o.f.map(esc).join(" · ")}</small></div><a class="btn btn--line btn--sm" href="#" data-gtrip="${main.id}" data-gbook>Book ↗</a></li>`).join("")}</ul></div></div></section>`:"";
+  const rcard=T=>`<li><a href="#" data-gtrip="${T.id}"><img src="${T.img}" alt=""><span><b>${esc(T.title)}</b><span>${esc(T.place)} · ${esc(T.facts[0]||"")} · ${T.n} options</span><em>✓ Free cancellation</em></span></a></li>`;
+  const rbox=`<div class="bk" id="gbox"><div class="bk__b"><small>Trips on this route</small><h3>${trips.length} trips for this plan</h3><ul class="rtl">${trips.map(rcard).join("")}</ul><a class="btn btn--gold" href="#" data-go="2">See all trips →</a></div></div><p class="bk__disc">Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.</p>`;
+  const rend=`<section class="aend aend--tomb"><div class="glyphs" aria-hidden="true">${GLYPHS.repeat(30)}</div><div class="wrap rt-end"><div><p class="eyebrow">Ready to go?</p><h2>Trips on this route</h2><p>Each trip has its own page, where its options are compared side by side. Free cancellation up to 24 hours before, on every option.</p></div><ul class="rtl rtl--dark">${trips.map(rcard).join("")}</ul></div></section>`;
+  const end=route&&trips.length?rend:main?`<section class="aend aend--${main.world==="tomb"?"tomb":"sea"}">${main.world==="tomb"?`<div class="glyphs" aria-hidden="true">${GLYPHS.repeat(30)}</div>`:""}<div class="wrap"><div><p class="eyebrow">Ready to go?</p><h2>${esc(main.title)}</h2>${gchips(main)}<p>Compare the options side by side on the trip page, then book on the partner’s site. Free cancellation up to 24 hours before, on every option.</p><div class="acts"><a class="btn btn--gold" href="#" data-gtrip="${main.id}">${esc(main.go)} →</a><a class="btn btn--light" href="#" data-place="${esc(main.t.places[0]||"")}">All ${esc(main.t.places[0]||"")} trips</a></div></div><div><p class="aopts__t">${main.n} ways to do it</p><ul class="aopts">${main.opts.map(o=>`<li><div><b>${esc(o.n)}</b><small><i>${esc(o.p)}</i>${o.f.map(esc).join(" · ")}</small></div><a class="btn btn--line btn--sm" href="#" data-gtrip="${main.id}" data-gbook>Book ↗</a></li>`).join("")}</ul></div></div></section>`:"";
   const more=GUIDES.filter(g=>g!==A&&g.dests.some(d=>A.dests.includes(d))).slice(0,3);
   const moreH=more.length?`<section class="amore"><div class="wrap"><p class="eyebrow" style="color:var(--gold-deep)">Keep reading</p><h2>More on ${esc(gPlace(A))}</h2><div class="amore__g">${more.map(g=>`<a class="gcard" href="#" data-guide-open="${g.slug}"><img src="${gPhoto(g)}" alt="" loading="lazy"><div><small>Guide · ${g.mins} min read</small><h3>${esc(g.title)}</h3><p>${esc(g.excerpt)}</p></div></a>`).join("")}</div></div></section>`:"";
   $("#ga").innerHTML=`<section class="ahero">${hero}<div class="wrap"><p class="crumb"><a href="#" data-guide-index>Travel Guide</a><span>›</span><a href="#" data-guide-index="${A.dests.length===1?A.dests[0]:"all"}">${esc(gPlace(A))}</a></p><p class="eyebrow">${esc(A.topic)} guide</p><h1>${esc(A.title)}</h1><p class="lead">${esc(A.excerpt)}</p><div class="ameta"><span>${A.mins} min read</span><span>${A.toc.length} sections</span><span>Sources listed</span></div></div>${h[2]?`<span class="credit">${esc(h[2])}</span>`:""}</section>`
-    +`<nav class="secbar" aria-label="In this guide"><ol>${toc}</ol></nav><div class="abody"><article class="prose">${body}${faq}<p class="asrc">Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.</p></article><aside class="abox">${box}</aside></div>`+end+moreH
+    +`<nav class="secbar" aria-label="In this guide"><ol>${toc}</ol></nav><div class="abody"><article class="prose">${body}${faq}<p class="asrc">Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.</p></article><aside class="abox">${route&&trips.length?rbox:box}</aside></div>`+end+moreH
+    +(route&&trips.length?`<div class="mbar" id="gmbar"><div><small>✓ Free cancellation on every trip</small><b>${trips.length} trips on this route</b></div><a class="btn btn--gold btn--sm" href="#" data-gtoc="gbox">See the trips</a></div>`:"")
     +(main?`<div class="mbar" id="gmbar"><div><small>✓ Free cancellation</small><b>${esc(main.title)}</b></div><a class="btn btn--gold btn--sm" href="#" data-gtrip="${main.id}" data-gbook>See ${main.n} options</a></div>`:"");
   lazyVideos($("#ga")); vp.scrollTo({top:0,behavior:"auto"}); window.lcPaint&&lcPaint(); window.lcFavPaint&&lcFavPaint(); gScroll(); };
 function gScroll(){ const s=document.querySelector('[data-screen="ga"]'); if(!s||s.hidden) return;
@@ -7639,6 +7681,27 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#gd-lb .lb__p")){ gLbShow(gLbi-1); return; } if(e.target.closest("#gd-lb .lb__n")){ gLbShow(gLbi+1); return; }
 }, true);
 document.addEventListener("keydown",e=>{ const lb=document.getElementById("gd-lb"); if(!lb||lb.hidden) return; if(e.key==="Escape") lb.hidden=true; if(e.key==="ArrowRight") gLbShow(gLbi+1); if(e.key==="ArrowLeft") gLbShow(gLbi-1); });
+
+// ---------- expert review, 17 Oct ----------
+const STAY_PLACES={cairo:["Cairo","Giza","Zamalek"],alexandria:["Alexandria"],siwa:["Siwa"],luxor:["Luxor"],aswan:["Aswan"],hurghada:["Hurghada","Red Sea"],sharm:["Sharm"]};
+function stayHTML(){
+  const rows=[]; Object.values(WORLDS).forEach(W=>(W.stay?.rows||[]).forEach(r=>{ if(!rows.some(x=>x[0]===r[0])) rows.push(r); }));
+  const cards=Object.entries(DESTS).map(([id,d])=>{ const mine=rows.filter(r=>STAY_PLACES[id].some(k=>(r[0]+" "+r[1]).includes(k))); if(!mine.length) return "";
+    return `<article class="stay2__c"><img src="${IMG["d_"+id]}" alt="" loading="lazy"><div><h3>${esc(d.name)}</h3><ul>${mine.map(r=>`<li><a href="#" data-stay="${esc(r[0])}">${esc((s=>s.charAt(0).toUpperCase()+s.slice(1))(r[0].replace(/^Hotels (in|on|near) (the )?/,"")))}<em>Trip.com ↗</em></a></li>`).join("")}</ul></div></article>`; }).join("");
+  return `<section class="stay2" id="stay"><div class="wrap"><p class="eyebrow">Where to stay</p><h2>Hotels near your trips, <em>place by place.</em></h2><p>Our hotel partner is Trip.com. Pick an area to see its hotels; you choose, book and pay on Trip.com.</p><div class="stay2__g">${cards}</div><p class="stay2__note">Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.</p></div></section>`;
+}
+document.addEventListener("click",e=>{ const s=e.target.closest("[data-stay]"); if(!s) return; e.preventDefault(); lcToast(`Prototype: on the site this opens Trip.com, ${s.dataset.stay.toLowerCase()}, in a new tab.`); }, true);
+// 3 and 6 · a partner tour from the Trip Builder opens the trip it belongs to
+function tripForOffer(name){ const n=(name||"").trim().toLowerCase(); return Object.keys(WORLDS).find(k=>WORLDS[k].opts.some(o=>o.n.trim().toLowerCase()===n)); }
+function retarget(scope){ (scope||document).querySelectorAll("#live #planner a.itin__tour").forEach(a=>{ if(a.dataset.gtrip) return;
+  const id=tripForOffer(a.querySelector(".itin__tour-name")?.textContent); if(!id){ a.closest("li").hidden=true; return; }
+  a.dataset.gtrip=id; a.setAttribute("href","#"); a.removeAttribute("target"); a.removeAttribute("rel");
+  const cta=a.querySelector(".itin__tour-cta"); if(cta) cta.firstChild.textContent="Compare options "; }); }
+window.addEventListener("er-live-ready",()=>{ const p=document.querySelector("#live #planner"); if(!p) return; retarget(p); new MutationObserver(()=>retarget(p)).observe(p,{childList:true,subtree:true}); });
+// 4 · the map's place card and the moods' "Where to go" use the same words as the menu
+window.addEventListener("er-live-ready",()=>{ const host=document.getElementById("live"); const words=()=>host.querySelectorAll("#map .map__card .link, #moods .rec__cta").forEach(a=>{ const t=[...a.childNodes].find(n=>n.nodeType===3&&n.textContent.trim()); if(t&&/Explore Destination|Discover/.test(t.textContent)) t.textContent=a.closest("#map")?"See the place and its trips ":"See its trips "; });
+  host.querySelectorAll("#planner *").forEach(e=>{ if(e.childElementCount===0&&/^Book with our partners$/i.test(e.textContent.trim())) e.textContent="Trips on your route"; });
+  words(); new MutationObserver(words).observe(host,{childList:true,subtree:true}); });
 
 renderHome(); renderLive(); renderHome2(); window.dispatchEvent(new Event("er-live-ready")); lazyVideos(document); creditsAsInfo(document); videoSwitch(); go(1);
 </script>
