@@ -1314,6 +1314,31 @@ transparent
 .lc .icon-btn__badge:empty{display:none}
 .lc .icon-btn__badge:not(:empty){transform:scale(1)!important}
 .lcf--txt{display:inline-flex!important;align-items:center;justify-content:center}
+/* ---------- full review 17 Oct ---------- */
+/* chapter trip rows: the heart wrapper takes the card's place in the swipe row (cards were crushed to one word per line) */
+@container site (max-width:900px){
+  .ch__trips{display:flex!important;overflow-x:auto;gap:10px;padding:12px;scroll-snap-type:x mandatory;scroll-padding-inline:12px;scrollbar-width:none}
+  .ch__trips::-webkit-scrollbar{display:none}
+  .ch__trips-h{display:none!important}
+  .ch__trips .lcfw{flex:0 0 82%;scroll-snap-align:start}
+  .ch__trips .lcfw > .mini{flex:1 1 auto;width:100%}
+}
+@container site (min-width:601px) and (max-width:900px){ .ch__trips .lcfw{flex-basis:46%} }
+/* the heart never sits on top of a mini card's title */
+.lcfw > .mini{padding-right:52px!important}
+/* video controls stay under the sticky filters */
+.filters{z-index:20!important}
+/* trip opener: Save is a heart beside Book on phones, not a third full-width button */
+@container site (max-width:600px){
+  .wtxt .wacts{flex-direction:row!important;flex-wrap:wrap;gap:10px!important}
+  .wtxt .wacts > .btn--gold{flex:1 1 calc(100% - 62px)}
+  .wtxt .wacts > .lcf--txt{flex:0 0 52px;width:52px;height:auto;min-height:48px;padding:0}
+  .wtxt .wacts > .lcf--txt span{display:none}
+  .wtxt .wacts > .btn--ghost-light{flex:1 1 100%}
+}
+/* phones: the assistant button steps aside while the visitor reads (scrolling down) and comes back on scroll up */
+.lc .assistant-launch{transition:transform .3s,opacity .3s,bottom .25s}
+.lc-ov.is-reading .assistant-launch{transform:translateY(140%);opacity:0;pointer-events:none}
 /* footer logo: a signature, not a banner (owner, 17 Oct: "the logo is huge") */
 .lc .footer__logo{width:min(100%,260px)!important}
 /* search: the prototype's trips first, then places; the list scrolls inside the panel */
@@ -1343,17 +1368,27 @@ transparent
 .pl-hero .wrap{position:relative;z-index:1;padding-block:110px 36px}
 .pl-hero h1{font-size:56px;line-height:1;margin:8px 0 12px}
 .pl-hero p{max-width:640px;margin:0;font-size:16px;opacity:.9}
-.pl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;padding-block:36px 70px}
+.pl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding-block:36px 70px}
 .pl-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-.pl-card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
-.pl-card div{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
-.pl-card small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep,#a8871f);font-weight:600}
-.pl-card h2{font-size:26px;margin:0}
-.pl-card p{margin:0;color:var(--muted);font-size:14.5px}
-.pl-card .pl-best{font-size:13px;color:var(--muted)}
-.pl-card .pl-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
+.pl-photo{position:relative}
+.pl-photo img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.pl-photo .lcf{position:absolute;top:12px;right:12px}
+.pl-photo small{position:absolute;left:12px;bottom:12px;background:rgba(16,24,32,.72);color:#fff;border-radius:999px;padding:4px 10px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.pl-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.pl-body h2{font-size:26px;margin:0 0 4px}
+.pl-body .pl-tag{margin:0;color:var(--muted);font-size:14.5px}
+.pl-body .pl-best{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+.pl-trips{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--line);display:grid;gap:8px}
+.pl-trips li button{all:unset;cursor:pointer;display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;align-items:center;width:100%;min-height:44px}
+.pl-trips img{width:44px;height:36px;object-fit:cover;border-radius:7px}
+.pl-trips b{display:block;font:500 14.5px/1.25 var(--serif);color:var(--charcoal)}
+.pl-trips span{display:block;font-size:12px;color:var(--muted)}
+.pl-trips li button:hover b{text-decoration:underline;text-decoration-color:var(--gold)}
+.pl-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:14px}
+.pl-foot .btn{min-height:42px}
+.pl-about{background:none;border:0;padding:8px 0;font:600 13.5px var(--sans);color:var(--nile,#0e3a5b);cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(201,162,39,.7)}
 @container site (max-width:900px){ .pl-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
-@container site (max-width:600px){ .pl-grid{grid-template-columns:1fr;gap:14px} .pl-hero h1{font-size:38px} .pl-hero .wrap{padding-block:96px 26px} .pl-card .pl-acts .btn{flex:1;justify-content:center;min-height:44px} }
+@container site (max-width:600px){ .pl-grid{grid-template-columns:1fr;gap:16px} .pl-hero h1{font-size:38px} .pl-hero .wrap{padding-block:96px 26px} .pl-foot{flex-direction:column;align-items:stretch} .pl-foot .btn{justify-content:center;min-height:44px} .pl-about{min-height:44px} }
 
 /* sticky bars sit under the live header, whatever its height */
 .filters,.tabs{top:var(--navh,72px)!important}
@@ -2286,6 +2321,9 @@ const _lazyVideos=lazyVideos; lazyVideos=function(scope){ _lazyVideos(scope); vi
   }
 })();
 
+// phones: hide the assistant button while scrolling down
+(function(){ const vp=document.getElementById("vp"), ov=document.getElementById("lc-ov"); let y=vp.scrollTop;
+  vp.addEventListener("scroll",()=>{ const d=vp.scrollTop-y; y=vp.scrollTop; if(vp.clientWidth>600){ ov.classList.remove("is-reading"); return; } if(d>6&&y>300) ov.classList.add("is-reading"); else if(d<-6||y<300) ov.classList.remove("is-reading"); },{passive:true}); })();
 // saved trips and places: kept in this browser only
 (function(){
   const KEY="er-proto-saved"; let saved=[]; try{ saved=JSON.parse(localStorage.getItem(KEY)||"[]"); }catch(e){}
@@ -2335,10 +2373,13 @@ function showPlaces(){
   $("#url").textContent="egyptroamer.com/destinations/"; $("#nav-exp").removeAttribute("aria-current");
   document.querySelectorAll('#vp .nav__links a').forEach(a=>a.toggleAttribute("aria-current",/destinations/.test(a.dataset.href||"")));
   $("#hdr-cta").innerHTML='Choose a trip <span class="arr">→</span>'; $("#hdr-cta").dataset.go="2"; $("#hdr-cta").dataset.wjump="";
-  const n=pl=>TRIPS.filter(t=>t.place===pl).length;
-  $("#places").innerHTML=`<div class="pl-hero"><img src="${IMG.sc_nile}" alt=""><div class="wrap"><p class="eyebrow">Places</p><h1>Seven places. <i>Seven different Egypts.</i></h1><p>From Cairo's thousand minarets to the silence of Siwa, every region tells its own chapter. Choose a place to read about it, or go straight to its trips.</p></div></div>
-    <div class="wrap pl-grid">${Object.entries(DESTS).map(([id,d])=>`<article class="pl-card"><img src="${IMG["d_"+id]}" alt=""><div><small>${esc(d.region)}</small><h2>${esc(d.name)}</h2><p>${esc(d.tag)}</p><span class="pl-best">Best time ${esc(d.best)}</span>
-      <div class="pl-acts">${window.lcFavBtn?lcFavBtn({id:"place:"+id,title:d.name,meta:`${d.region} · Best time ${d.best}`,img:IMG["d_"+id]}):""}<a class="btn btn--gold btn--sm" href="#" data-place="${esc(d.place)}">${n(d.place)} ${n(d.place)===1?"trip":"trips"} →</a><button type="button" class="btn btn--line btn--sm" data-guide="${esc(d.name)}">Read about ${esc(d.name)}</button></div></div></article>`).join("")}</div>`;
+  const here=id=>TRIPS.filter(t=>t.dest===id);
+  $("#places").innerHTML=`<div class="pl-hero"><img src="${IMG.sc_nile}" alt=""><div class="wrap"><p class="eyebrow">Places</p><h1>Seven places. <i>Seven different Egypts.</i></h1><p>From Cairo's thousand minarets to the silence of Siwa, every region tells its own chapter. Pick a place to see what it is like and the trips you can book there.</p></div></div>
+    <div class="wrap pl-grid">${Object.entries(DESTS).map(([id,d])=>{ const ts=here(id);
+      return `<article class="pl-card"><div class="pl-photo"><img src="${IMG["d_"+id]}" alt=""><small>${esc(d.region)}</small>${window.lcFavBtn?lcFavBtn({id:"place:"+id,title:d.name,meta:`${d.region} · Best time ${d.best}`,img:IMG["d_"+id]}):""}</div>
+      <div class="pl-body"><h2>${esc(d.name)}</h2><p class="pl-tag">${esc(d.tag)}</p><span class="pl-best">Best time ${esc(d.best)}</span>
+      ${ts.length?`<ul class="pl-trips">${ts.map(t=>`<li><button type="button" data-trip="${t.id}"><img src="${IMG[t.k]}" alt=""><span><b>${esc(t.t)}</b><span>${esc(t.time)} · ${t.n} options</span></span></button></li>`).join("")}</ul>`:""}
+      <div class="pl-foot">${ts.length>1?`<a class="btn btn--gold btn--sm" href="#" data-place="${esc(d.place)}">See all ${ts.length} trips →</a>`:ts.length?`<button type="button" class="btn btn--gold btn--sm" data-trip="${ts[0].id}">See the trip →</button>`:""}<button type="button" class="pl-about" data-guide="${esc(d.name)}">About ${esc(d.name)}</button></div></div></article>`; }).join("")}</div>`;
   vp.scrollTo({top:0,behavior:"auto"}); window.lcPaint&&lcPaint();
 }
 document.addEventListener("click",e=>{ const g=e.target.closest("[data-guide]"); if(g){ e.preventDefault(); lcToast(`Prototype: on the site this opens the ${g.dataset.guide} page: what it is, when to go, where to stay and its trips.`); } });

@@ -74,7 +74,7 @@ ARTICLES = {
                    figs={},
                    strips={'west-bank': ('See the places', [('hat_l', 'Hatshepsut’s temple, Deir el-Bahari', 'Mahmoud Refaat'), ('habu1', 'Medinet Habu, the painted gateway', 'Siddhesh Mangela'), ('habu2', 'Medinet Habu, the carved columns', 'Fatih Beki')])}, videos={},
                    stay=('Staying in Luxor?', 'Hotels in Luxor and on the West Bank', 'Trip.com'),
-                   more=[('g-west-bank.md', None), ('g-east-bank.md', 'd_luxor'), ('g-nile-cruise.md', 'sc_nile')]),
+                   more=[('g-west-bank.md', 'hat_l'), ('g-east-bank.md', 'd_luxor'), ('g-nile-cruise.md', 'sc_nile')]),
     'snorkel': dict(file='g-snorkelling.md', crumb='Red Sea', hero=('video', 'ras_turq', 'Red Sea, Egypt · Video: Adrien JACTA, Pexels', 'video/redsea-reef.mp4'),
                     figs={'sharm': ('d_sharm', 'A bay at Sharm El Sheikh · Photo: Unsplash')},
                     strips={'hurghada': ('On Hurghada’s reefs', [('reef_school', 'Small orange fish over a coral reef, Hurghada', 'Oliver Schwaneberg'), ('reef_clown2', 'Two clownfish in a sea anemone, Hurghada', 'Oliver Schwaneberg'), ('reef_yellow', 'Yellow fish on a coral reef, Hurghada', 'Oliver Schwaneberg'), ('reef_puffer', 'A small pufferfish by the reef, Hurghada', 'Oliver Schwaneberg')])},

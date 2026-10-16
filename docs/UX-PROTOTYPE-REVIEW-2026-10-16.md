@@ -127,3 +127,27 @@ The live features had been copied without a design review. The owner found the p
   - the ♡ in the header shows a count;
   - "Saved for later" lists each saved item with its photo and facts; it opens the item or removes it.
   - Items are kept in this browser only, as on the live site.
+
+## Full-size review (17 Oct)
+**What went wrong before:** earlier reviews looked at shrunken contact sheets and automatic checks (overflow, errors). Problems like the crushed cards were invisible at that size.
+
+**How it was done this time:**
+- `tour.mjs` captures every screen of both prototypes (34 per size) on desktop, tablet and phone.
+- Every image was read at full size, one by one.
+
+**Found and fixed:**
+1. **Places page** (owner's screenshot): the ♡ sat alone on its own row, there were three stacked buttons with no clear main one, and "1 trip →" said nothing.
+   - The trip counts were also wrong: Siwa counted the Bahariya safari, and Hurghada and Sharm counted each other's trips.
+   - The page was rebuilt:
+     - the ♡ sits on the photo;
+     - the place's own trips are listed by name with length and options;
+     - there is one gold button ("See all N trips" or "See the trip") and a quiet "About ⟨place⟩" link;
+     - the cards are equal height.
+2. **Chapter trip cards** on phone and tablet were crushed to one word per line. The ♡ wrapper had broken the swipe row. They now show one full card on phones and two on tablets.
+3. **Hearts on mini cards** sat over the end of the title. The title now keeps room for the ♡.
+4. **Browse:** the first banner's video buttons covered the sticky filter bar and hid "10 trips". They now sit under it.
+5. **Trip opener on phones:** three full-width buttons were stacked (Book, Save, Go down). Save is now a ♡ beside "Book this trip".
+6. **The floating assistant button** covered body text on phones. It now steps aside while scrolling down and returns on scroll up.
+7. **"More on Luxor":** the first guide had an empty glyph panel. It now uses the exact-tagged Hatshepsut temple photo.
+
+**Seen and left as they are:** "Free cancellation on every option" is shown above the options, and each option also carries ✓ Free cancellation. This repeats on purpose; it is the visitor's main safety point.

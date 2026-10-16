@@ -735,6 +735,31 @@ transparent
 .lc .icon-btn__badge:empty{display:none}
 .lc .icon-btn__badge:not(:empty){transform:scale(1)!important}
 .lcf--txt{display:inline-flex!important;align-items:center;justify-content:center}
+/* ---------- full review 17 Oct ---------- */
+/* chapter trip rows: the heart wrapper takes the card's place in the swipe row (cards were crushed to one word per line) */
+@container site (max-width:900px){
+  .ch__trips{display:flex!important;overflow-x:auto;gap:10px;padding:12px;scroll-snap-type:x mandatory;scroll-padding-inline:12px;scrollbar-width:none}
+  .ch__trips::-webkit-scrollbar{display:none}
+  .ch__trips-h{display:none!important}
+  .ch__trips .lcfw{flex:0 0 82%;scroll-snap-align:start}
+  .ch__trips .lcfw > .mini{flex:1 1 auto;width:100%}
+}
+@container site (min-width:601px) and (max-width:900px){ .ch__trips .lcfw{flex-basis:46%} }
+/* the heart never sits on top of a mini card's title */
+.lcfw > .mini{padding-right:52px!important}
+/* video controls stay under the sticky filters */
+.filters{z-index:20!important}
+/* trip opener: Save is a heart beside Book on phones, not a third full-width button */
+@container site (max-width:600px){
+  .wtxt .wacts{flex-direction:row!important;flex-wrap:wrap;gap:10px!important}
+  .wtxt .wacts > .btn--gold{flex:1 1 calc(100% - 62px)}
+  .wtxt .wacts > .lcf--txt{flex:0 0 52px;width:52px;height:auto;min-height:48px;padding:0}
+  .wtxt .wacts > .lcf--txt span{display:none}
+  .wtxt .wacts > .btn--ghost-light{flex:1 1 100%}
+}
+/* phones: the assistant button steps aside while the visitor reads (scrolling down) and comes back on scroll up */
+.lc .assistant-launch{transition:transform .3s,opacity .3s,bottom .25s}
+.lc-ov.is-reading .assistant-launch{transform:translateY(140%);opacity:0;pointer-events:none}
 /* footer logo: a signature, not a banner (owner, 17 Oct: "the logo is huge") */
 .lc .footer__logo{width:min(100%,260px)!important}
 /* search: the prototype's trips first, then places; the list scrolls inside the panel */
@@ -1198,6 +1223,9 @@ let tx = null; $("#lb").addEventListener("touchstart", e=>{ tx = e.touches[0].cl
   }
 })();
 
+// phones: hide the assistant button while scrolling down
+(function(){ const vp=document.getElementById("vp"), ov=document.getElementById("lc-ov"); let y=vp.scrollTop;
+  vp.addEventListener("scroll",()=>{ const d=vp.scrollTop-y; y=vp.scrollTop; if(vp.clientWidth>600){ ov.classList.remove("is-reading"); return; } if(d>6&&y>300) ov.classList.add("is-reading"); else if(d<-6||y<300) ov.classList.remove("is-reading"); },{passive:true}); })();
 // saved trips and places: kept in this browser only
 (function(){
   const KEY="er-proto-saved"; let saved=[]; try{ saved=JSON.parse(localStorage.getItem(KEY)||"[]"); }catch(e){}
