@@ -1180,6 +1180,15 @@
    "Иллюстрация, а не съёмка этого места",
    "示意图，并非实地影像",
    "صورة توضيحية وليست تصويرًا حقيقيًا للمكان"
+  ],
+  "Find a hotel in {name}": [
+   "Hotel in {name} finden",
+   "Trouver un hôtel à {name}",
+   "Trova un hotel a {name}",
+   "Encuentra un hotel en {name}",
+   "Найти отель: {name}",
+   "查找{name}的酒店",
+   "ابحث عن فندق في {name}"
   ]
  }
 }

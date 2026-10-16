@@ -779,5 +779,245 @@
    "title": "开罗：Opal号尼罗河浪漫晚餐游船（含现场表演）",
    "location": "开罗"
   }
+ },
+ "tripcom-hotels-cairo": {
+  "ar": {
+   "title": "فنادق القاهرة",
+   "location": "القاهرة"
+  },
+  "de": {
+   "title": "Hotels in Kairo",
+   "location": "Kairo"
+  },
+  "fr": {
+   "title": "Hôtels au Caire",
+   "location": "Le Caire"
+  },
+  "it": {
+   "title": "Hotel al Cairo",
+   "location": "Il Cairo"
+  },
+  "es": {
+   "title": "Hoteles en El Cairo",
+   "location": "El Cairo"
+  },
+  "ru": {
+   "title": "Отели Каира",
+   "location": "Каир"
+  },
+  "zh": {
+   "title": "开罗酒店",
+   "location": "开罗"
+  }
+ },
+ "tripcom-hotels-giza": {
+  "ar": {
+   "title": "فنادق الجيزة، قرب الأهرامات",
+   "location": "الجيزة"
+  },
+  "de": {
+   "title": "Hotels in Gizeh, nahe den Pyramiden",
+   "location": "Gizeh"
+  },
+  "fr": {
+   "title": "Hôtels à Gizeh, près des pyramides",
+   "location": "Gizeh"
+  },
+  "it": {
+   "title": "Hotel a Giza, vicino alle piramidi",
+   "location": "Giza"
+  },
+  "es": {
+   "title": "Hoteles en Guiza, cerca de las pirámides",
+   "location": "Guiza"
+  },
+  "ru": {
+   "title": "Отели Гизы рядом с пирамидами",
+   "location": "Гиза"
+  },
+  "zh": {
+   "title": "吉萨酒店（金字塔附近）",
+   "location": "吉萨"
+  }
+ },
+ "tripcom-hotels-luxor": {
+  "ar": {
+   "title": "فنادق الأقصر",
+   "location": "الأقصر"
+  },
+  "de": {
+   "title": "Hotels in Luxor",
+   "location": "Luxor"
+  },
+  "fr": {
+   "title": "Hôtels à Louxor",
+   "location": "Louxor"
+  },
+  "it": {
+   "title": "Hotel a Luxor",
+   "location": "Luxor"
+  },
+  "es": {
+   "title": "Hoteles en Luxor",
+   "location": "Luxor"
+  },
+  "ru": {
+   "title": "Отели Луксора",
+   "location": "Луксор"
+  },
+  "zh": {
+   "title": "卢克索酒店",
+   "location": "卢克索"
+  }
+ },
+ "tripcom-hotels-aswan": {
+  "ar": {
+   "title": "فنادق أسوان",
+   "location": "أسوان"
+  },
+  "de": {
+   "title": "Hotels in Assuan",
+   "location": "Assuan"
+  },
+  "fr": {
+   "title": "Hôtels à Assouan",
+   "location": "Assouan"
+  },
+  "it": {
+   "title": "Hotel ad Assuan",
+   "location": "Assuan"
+  },
+  "es": {
+   "title": "Hoteles en Asuán",
+   "location": "Asuán"
+  },
+  "ru": {
+   "title": "Отели Асуана",
+   "location": "Асуан"
+  },
+  "zh": {
+   "title": "阿斯旺酒店",
+   "location": "阿斯旺"
+  }
+ },
+ "tripcom-hotels-hurghada": {
+  "ar": {
+   "title": "فنادق الغردقة",
+   "location": "الغردقة"
+  },
+  "de": {
+   "title": "Hotels in Hurghada",
+   "location": "Hurghada"
+  },
+  "fr": {
+   "title": "Hôtels à Hurghada",
+   "location": "Hurghada"
+  },
+  "it": {
+   "title": "Hotel a Hurghada",
+   "location": "Hurghada"
+  },
+  "es": {
+   "title": "Hoteles en Hurghada",
+   "location": "Hurghada"
+  },
+  "ru": {
+   "title": "Отели Хургады",
+   "location": "Хургада"
+  },
+  "zh": {
+   "title": "赫尔格达酒店",
+   "location": "赫尔格达"
+  }
+ },
+ "tripcom-hotels-sharm-el-sheikh": {
+  "ar": {
+   "title": "فنادق شرم الشيخ",
+   "location": "شرم الشيخ"
+  },
+  "de": {
+   "title": "Hotels in Sharm El-Sheikh",
+   "location": "Sharm El-Sheikh"
+  },
+  "fr": {
+   "title": "Hôtels à Charm el-Cheikh",
+   "location": "Charm el-Cheikh"
+  },
+  "it": {
+   "title": "Hotel a Sharm el-Sheikh",
+   "location": "Sharm el-Sheikh"
+  },
+  "es": {
+   "title": "Hoteles en Sharm el-Sheij",
+   "location": "Sharm el-Sheij"
+  },
+  "ru": {
+   "title": "Отели Шарм-эш-Шейха",
+   "location": "Шарм-эш-Шейх"
+  },
+  "zh": {
+   "title": "沙姆沙伊赫酒店",
+   "location": "沙姆沙伊赫"
+  }
+ },
+ "tripcom-hotels-alexandria": {
+  "ar": {
+   "title": "فنادق الإسكندرية",
+   "location": "الإسكندرية"
+  },
+  "de": {
+   "title": "Hotels in Alexandria",
+   "location": "Alexandria"
+  },
+  "fr": {
+   "title": "Hôtels à Alexandrie",
+   "location": "Alexandrie"
+  },
+  "it": {
+   "title": "Hotel ad Alessandria",
+   "location": "Alessandria"
+  },
+  "es": {
+   "title": "Hoteles en Alejandría",
+   "location": "Alejandría"
+  },
+  "ru": {
+   "title": "Отели Александрии",
+   "location": "Александрия"
+  },
+  "zh": {
+   "title": "亚历山大酒店",
+   "location": "亚历山大"
+  }
+ },
+ "tripcom-hotels-siwa": {
+  "ar": {
+   "title": "فنادق واحة سيوة",
+   "location": "واحة سيوة"
+  },
+  "de": {
+   "title": "Hotels in der Oase Siwa",
+   "location": "Oase Siwa"
+  },
+  "fr": {
+   "title": "Hôtels dans l’oasis de Siwa",
+   "location": "Oasis de Siwa"
+  },
+  "it": {
+   "title": "Hotel nell’oasi di Siwa",
+   "location": "Oasi di Siwa"
+  },
+  "es": {
+   "title": "Hoteles en el oasis de Siwa",
+   "location": "Oasis de Siwa"
+  },
+  "ru": {
+   "title": "Отели оазиса Сива",
+   "location": "Оазис Сива"
+  },
+  "zh": {
+   "title": "锡瓦绿洲酒店",
+   "location": "锡瓦绿洲"
+  }
  }
 }

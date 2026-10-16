@@ -17,6 +17,7 @@ while ( have_posts() ) :
 	$er_acts   = er_get_referencing( $er_id, 'er_activity', '_er_destination', 6 );
 	$er_guides = er_get_referencing( $er_id, 'er_guide', '_er_destination', 6 );
 	$er_offers = er_offers_for_post( $er_id, 4 );
+	$er_hotels = function_exists( 'er_hotel_offers_for_post' ) ? er_hotel_offers_for_post( $er_id, 2 ) : [];
 	$er_tag    = (string) get_post_meta( $er_id, '_er_tagline', true );
 	// No "Getting there" fact: its values are travel times, which the editorial fact policy leaves out
 	// (owner decision, 2026-09-29). The meta stays for the homepage map and cards.
@@ -80,6 +81,28 @@ while ( have_posts() ) :
 		$er_first = strpos( $er_body['html'], '<section class="er-sec">' );
 		$er_at    = false !== $er_first ? strpos( $er_body['html'], '<section class="er-sec">', $er_first + 1 ) : false;
 		$er_at    = false !== $er_at ? strpos( $er_body['html'], '<section class="er-sec">', $er_at + 1 ) : false;
+		$er_body['html'] = false !== $er_at ? substr_replace( $er_body['html'], $er_box, $er_at, 0 ) : $er_body['html'] . $er_box;
+	}
+	// Hotels: their own box at the end of the "Where to stay" section, where the reader picks an area
+	// (else after "How long, and when to go", else at the end of the article). Kept out of the tour box.
+	if ( $er_hotels ) {
+		ob_start();
+		?>
+		<aside class="offer-box offer-box--inline offer-box--hotels" aria-labelledby="hotels-book-title">
+			<p class="t-label" id="hotels-book-title"><?php echo esc_html( er_t( 'Find a hotel in {name}', [ 'name' => get_the_title() ] ) ); ?></p>
+			<?php er_offer_rows( $er_hotels, 'destination-hotels' ); ?>
+			<?php er_disclosure(); ?>
+		</aside>
+		<?php
+		$er_box = (string) ob_get_clean();
+		$er_at  = false;
+		foreach ( [ 'where-to-stay', 'when-to-go' ] as $er_anchor ) {
+			$er_h = strpos( $er_body['html'], 'id="' . $er_anchor . '"' );
+			if ( false !== $er_h ) {
+				$er_at = strpos( $er_body['html'], '</section>', $er_h );
+				break;
+			}
+		}
 		$er_body['html'] = false !== $er_at ? substr_replace( $er_body['html'], $er_box, $er_at, 0 ) : $er_body['html'] . $er_box;
 	}
 	?>

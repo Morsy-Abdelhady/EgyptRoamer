@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.64 — 2026-10-16: a hotel box on destination pages
+- **Where:** at the end of the destination's "Where to stay" section, where the reader chooses an area. Destinations without that section get it after "How long, and when to go", else at the end of the article. It shows at every width.
+- **What:** up to two live offers in the "Hotels" category for the destination (Core 1.2.44, `er_hotel_offers_for_post()`), labelled "Find a hotel in {name}" in all 8 languages, with the disclosure. Placement `destination-hotels`.
+- Hotel offers no longer appear in the tour booking boxes (sidebar, inline, `#book`): `er_offers_for_post()` leaves the "Hotels" category out.
+- **First partner:** Trip.com city hotel lists (see `docs/PARTNER-OPTIONS-2026-10-16.md`).
+
 ## 1.2.63 — 2026-10-16: stand-in photos can keep an edge when cropped
 - A stand-in photo id may now end in `:top`, `:bottom`, `:left`, `:right`, `:faces` or `:entropy`. The Unsplash URL then crops toward that edge or subject instead of the centre: `er_stock_url()` in PHP, `img()` in `src/js/data.js`. Anything else is ignored.
 - **First use:** the Mount Sinai guide's new photo, a portrait of Saint Catherine's bell tower (Unsplash, location "Saint Catherine, Egypt", free licence; see `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5).

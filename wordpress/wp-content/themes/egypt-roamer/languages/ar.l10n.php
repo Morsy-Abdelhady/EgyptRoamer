@@ -107,6 +107,7 @@ return [
 		'Filter' => 'تصفية',
 		'Filter experiences' => 'تصفية التجارب',
 		'Filter stories' => 'تصفية المقالات',
+		'Find a hotel in {name}' => 'ابحث عن فندق في {name}',
 		'Find your Egypt' => 'اعثر على مصرك',
 		'Flexible dates' => 'تواريخ مرنة',
 		'Footer' => 'تذييل الصفحة',

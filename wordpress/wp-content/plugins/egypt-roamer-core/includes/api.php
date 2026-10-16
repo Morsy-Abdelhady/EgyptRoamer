@@ -45,7 +45,13 @@ function er_get_referencing( int $post_id, $types, string $key = '_er_destinatio
 function er_offers_for_post( int $post_id, int $limit = 6 ): array {
 	$map  = [ 'er_destination' => 'destination', 'er_tour' => 'tour', 'er_experience' => 'experience', 'er_activity' => 'activity' ];
 	$type = $map[ get_post_type( $post_id ) ] ?? '';
-	return $type ? er_get_offers( [ $type => $post_id, 'limit' => $limit ] ) : [];
+	// Hotel offers have their own box by the page's "Where to stay" section (er_hotel_offers_for_post()).
+	return $type ? er_get_offers( [ $type => $post_id, 'exclude_type' => 'hotels', 'limit' => $limit ] ) : [];
+}
+
+/** Live hotel offers (category "hotels") attached to a destination. */
+function er_hotel_offers_for_post( int $post_id, int $limit = 2 ): array {
+	return 'er_destination' === get_post_type( $post_id ) ? er_get_offers( [ 'destination' => $post_id, 'type' => 'hotels', 'limit' => $limit ] ) : [];
 }
 
 /** Estimated reading time in minutes (≈ 220 words per minute, CJK-aware). */

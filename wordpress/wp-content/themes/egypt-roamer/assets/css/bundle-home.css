@@ -7881,6 +7881,12 @@ margin-top: clamp(3rem, 6vw, 4.5rem);
 .prose > .offer-box--inline .offer__name {
 margin: 0;
 }
+.er-sec > .offer-box--hotels {
+margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+.er-sec > .offer-box--hotels .offer__name {
+margin: 0;
+}
 .itin__tours {
 display: grid;
 gap: 0.7rem;

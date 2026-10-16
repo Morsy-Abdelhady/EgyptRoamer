@@ -3364,6 +3364,13 @@ html:lang(zh) {
 .prose > .offer-box--inline .offer__name {
   margin: 0;
 }
+/* Destination hotels: closes the "Where to stay" section (shown at every width). */
+.er-sec > .offer-box--hotels {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+.er-sec > .offer-box--hotels .offer__name {
+  margin: 0;
+}
 .itin__tours {
   display: grid;
   gap: 0.7rem;

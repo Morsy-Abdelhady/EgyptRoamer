@@ -107,6 +107,7 @@ return [
 		'Filter' => 'Filtern',
 		'Filter experiences' => 'Erlebnisse filtern',
 		'Filter stories' => 'Artikel filtern',
+		'Find a hotel in {name}' => 'Hotel in {name} finden',
 		'Find your Egypt' => 'Finden Sie Ihr Ägypten',
 		'Flexible dates' => 'Flexible Daten',
 		'Footer' => 'Fußzeile',

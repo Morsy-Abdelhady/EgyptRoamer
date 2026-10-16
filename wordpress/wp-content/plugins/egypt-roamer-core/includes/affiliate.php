@@ -152,6 +152,13 @@ function er_offer_destination_url( int $offer_id, array $ctx = [] ) {
 			continue;
 		}
 		[ $k, $v ] = array_map( 'trim', explode( '=', $line, 2 ) );
+		// "locale@ru=ru-RU": a value for one page language only (partners that pick their language by parameter).
+		if ( preg_match( '/^(.+)@([a-z]{2})$/', $k, $only ) ) {
+			if ( (string) ( $ctx['lang'] ?? '' ) !== $only[2] ) {
+				continue;
+			}
+			$k = $only[1];
+		}
 		if ( preg_match( '/^[A-Za-z0-9_.\-\[\]]{1,64}$/', $k ) ) {
 			$params[ $k ] = strtr( $v, $placeholders );
 		}
@@ -292,7 +299,8 @@ function er_offer_data( int $offer_id, string $placement = '', int $source_post_
  * Live offers, highest priority first.
  *
  * @param array $args destination|tour|experience|activity => post ID, type => offer category slug,
- *                    style => travel style slug, limit => int, ids => int[]
+ *                    exclude_type => offer category slug(s) to leave out, style => travel style slug,
+ *                    limit => int, ids => int[]
  */
 function er_get_offers( array $args = [] ): array {
 	static $cache = [];
@@ -318,6 +326,10 @@ function er_get_offers_uncached( array $args ): array {
 			$terms = er_term_group_ids( 'type' === $arg ? 'er_offer_type' : 'er_travel_style', (array) $args[ $arg ] );
 			$ids   = array_filter( $ids, static fn ( $o ) => (bool) array_intersect( $o[ $field ], $terms ) );
 		}
+	}
+	if ( ! empty( $args['exclude_type'] ) ) {
+		$terms = er_term_group_ids( 'er_offer_type', (array) $args['exclude_type'] );
+		$ids   = array_filter( $ids, static fn ( $o ) => ! array_intersect( $o['types'], $terms ) );
 	}
 	if ( ! empty( $args['ids'] ) ) {
 		$order = array_map( 'intval', (array) $args['ids'] );

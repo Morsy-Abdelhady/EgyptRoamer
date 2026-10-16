@@ -107,6 +107,7 @@ return [
 		'Filter' => 'Фильтр',
 		'Filter experiences' => 'Фильтр впечатлений',
 		'Filter stories' => 'Фильтр статей',
+		'Find a hotel in {name}' => 'Найти отель: {name}',
 		'Find your Egypt' => 'Найдите свой Египет',
 		'Flexible dates' => 'Гибкие даты',
 		'Footer' => 'Подвал сайта',

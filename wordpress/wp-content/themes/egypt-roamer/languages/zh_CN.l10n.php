@@ -107,6 +107,7 @@ return [
 		'Filter' => '筛选',
 		'Filter experiences' => '筛选体验',
 		'Filter stories' => '筛选文章',
+		'Find a hotel in {name}' => '查找{name}的酒店',
 		'Find your Egypt' => '寻找你的埃及',
 		'Flexible dates' => '日期灵活',
 		'Footer' => '页脚',
