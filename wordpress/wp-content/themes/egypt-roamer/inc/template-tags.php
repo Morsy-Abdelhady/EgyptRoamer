@@ -670,6 +670,81 @@ function er_page_offers(): array {
 }
 
 /** Where the page's booking box is: "#plan" on an experience story, "#book" elsewhere, '' without offers. */
+/**
+ * The booking journey redesign (owner, 16 Oct; artifact "رحلة الحجز في Egypt Roamer"): one booking panel per page
+ * with the trip options and somewhere to stay, one label per action. Previewed with ?ux=2 until the owner approves,
+ * then switched on for everyone with the er_ux2 option.
+ */
+function er_ux2(): bool {
+	static $on = null;
+	if ( null === $on ) {
+		$on = (bool) get_option( 'er_ux2' ) || ( isset( $_GET['ux'] ) && '2' === $_GET['ux'] ); // phpcs:ignore WordPress.Security.NonceVerification
+	}
+	return $on;
+}
+
+/** The page's one booking label: "Book this trip" on an experience in the new journey, else "Check Availability". */
+function er_book_label(): string {
+	if ( er_ux2() && 'er_experience' === get_post_type( (int) get_queried_object_id() ) ) {
+		return er_t( 'Book this trip' );
+	}
+	return function_exists( 'er_cta_options' ) ? er_cta_options()['check_availability'] : er_t( 'Book with our partners' );
+}
+
+/** Partner name as a coloured chip, so two offers for the same trip never look like one (owner, 16 Oct). */
+function er_partner_chip( string $provider_slug, string $provider_name ): string {
+	return '' === $provider_name ? '' : '<span class="bp-chip" data-partner="' . esc_attr( $provider_slug ) . '">' . esc_html( $provider_name ) . '</span>';
+}
+
+/**
+ * The booking panel (new journey): the trip's partner offers, then hotels where it happens, each row with its
+ * partner chip and one gold button; a line that each button opens the partner's site; the disclosure.
+ *
+ * @param int[]  $offers     tour offers.
+ * @param int[]  $hotels     hotel offers.
+ * @param string $stay_name  destination name for the stay group.
+ * @param string $placement  placement prefix, e.g. "experience".
+ */
+function er_booking_panel( array $offers, array $hotels, string $stay_name, string $placement, string $title ): void {
+	if ( ! function_exists( 'er_offer_data' ) || ( ! $offers && ! $hotels ) ) {
+		return;
+	}
+	$source = (int) get_queried_object_id();
+	$rows   = static function ( array $ids, string $pl, string $label ) use ( $source ): void {
+		echo '<ul class="bp__list">';
+		foreach ( $ids as $id ) {
+			$o    = er_offer_data( (int) $id, $pl, $source );
+			$slug = $o['provider_id'] ? (string) get_post_field( 'post_name', (int) $o['provider_id'] ) : '';
+			echo '<li class="bp__row"><div class="bp__main">';
+			echo '<span class="bp__name"' . ( $o['title_lang'] ? ' lang="' . esc_attr( $o['title_lang'] ) . '" dir="ltr"' : '' ) . '>' . esc_html( $o['title'] ) . '</span>';
+			echo '<span class="bp__meta">' . er_partner_chip( $slug, (string) $o['provider'] ) . ( $o['location'] ? '<span>' . esc_html( $o['location'] ) . '</span>' : '' ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput
+			echo '</div>';
+			echo er_offer_cta_html( (int) $id, [ 'placement' => $pl, 'source' => $source, 'class' => 'btn btn--primary btn--sm', 'label' => $label, 'icon' => ' ' . er_icon( 'i-arrow-ur', 'icon--sm' ) ] ); // phpcs:ignore WordPress.Security.EscapeOutput
+			echo '</li>';
+		}
+		echo '</ul>';
+	};
+	?>
+	<div class="offer-box bp" id="book" role="region" aria-labelledby="bp-title" data-close-label="<?php echo esc_attr( er_t( 'Close' ) ); ?>">
+		<h2 class="bp__title" id="bp-title"><?php echo esc_html( $title ); ?></h2>
+		<?php if ( $offers ) : ?>
+			<div class="bp__group">
+				<p class="bp__h"><?php echo esc_html( er_t( 'Trip options' ) ); ?> <span class="bp__count"><?php echo (int) count( $offers ); ?></span></p>
+				<?php $rows( $offers, $placement . '-offers', er_t( 'Book' ) ); ?>
+			</div>
+		<?php endif; ?>
+		<?php if ( $hotels ) : ?>
+			<div class="bp__group bp__group--stay">
+				<p class="bp__h"><?php echo esc_html( er_t( 'Staying in {name}?', [ 'name' => $stay_name ] ) ); ?></p>
+				<?php $rows( $hotels, $placement . '-hotels', er_t( 'See hotels' ) ); ?>
+			</div>
+		<?php endif; ?>
+		<p class="bp__out"><?php echo esc_html( er_t( 'Each button opens the partner’s site in a new tab.' ) ); ?></p>
+		<?php er_disclosure(); ?>
+	</div>
+	<?php
+}
+
 function er_book_anchor(): string {
 	if ( ! er_page_offers() ) {
 		return '';
@@ -695,8 +770,10 @@ function er_book_bar(): void {
 	?>
 	<div class="xs-bookbar" data-bookbar hidden>
 		<span class="xs-bookbar__title"><?php echo esc_html( get_the_title() ); ?></span>
-		<span class="xs-bookbar__label"><?php er_e( 'Book with our partners' ); ?></span>
-		<a class="btn btn--primary btn--sm" href="<?php echo esc_attr( $anchor ); ?>"><?php echo esc_html( function_exists( 'er_cta_options' ) ? er_cta_options()['check_availability'] : er_t( 'Book with our partners' ) ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
+		<?php if ( ! er_ux2() ) : ?>
+			<span class="xs-bookbar__label"><?php er_e( 'Book with our partners' ); ?></span>
+		<?php endif; ?>
+		<a class="btn btn--primary btn--sm" href="<?php echo esc_attr( $anchor ); ?>"<?php echo er_ux2() ? ' data-sheet' : ''; ?>><?php echo esc_html( er_book_label() ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
 	</div>
 	<?php
 }

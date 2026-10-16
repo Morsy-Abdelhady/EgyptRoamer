@@ -3643,3 +3643,156 @@ html:lang(zh) {
     outline: 3px solid var(--gold);
   }
 }
+
+/* ---------- Booking panel (new journey, ?ux=2 preview; owner, 16 Oct) ----------
+   One panel per page: the trip's partner offers, then somewhere to stay. Each row names its partner with a chip
+   (no repeated photo), one gold button per row; gold means "book with a partner" only. */
+.bp {
+  display: grid;
+  gap: 1rem;
+}
+.bp__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 1.6vw, 1.5rem);
+  line-height: var(--lh-tight);
+}
+.bp__group {
+  display: grid;
+}
+.bp__h {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.35rem;
+  font-size: var(--fs-label);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+[lang="ar"] .bp__h,
+[lang="zh"] .bp__h,
+[lang="zh-CN"] .bp__h {
+  letter-spacing: 0;
+}
+.bp__count {
+  min-width: 1.4rem;
+  padding: 0 0.4rem;
+  border-radius: var(--r-pill);
+  background: var(--sand);
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+.bp__list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.bp__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding-block: 0.8rem;
+  border-top: 1px solid var(--line);
+}
+.bp__main {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.bp__name {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.3;
+}
+.bp__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.6rem;
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+.bp__row .btn {
+  flex: none;
+}
+.bp__group--stay {
+  padding: 0.25rem 0.9rem 0.1rem;
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--sand) 45%, transparent);
+}
+.bp__group--stay .bp__h {
+  padding-top: 0.6rem;
+}
+.bp__group--stay .bp__row:first-of-type {
+  border-top-color: transparent;
+}
+.bp__out {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+.bp-chip {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+.bp-chip[data-partner="viator"] {
+  background: #1f6b66;
+}
+.bp-chip[data-partner="getyourguide"] {
+  background: #b83c0b;
+}
+.bp-chip[data-partner="trip-com"] {
+  background: #2453c2;
+}
+/* Phones: the bar opens the panel as a sheet from the bottom of the screen, instead of a jump past the article. */
+.bp-sheet {
+  position: fixed;
+  inset: auto 0 0 0;
+  width: 100%;
+  max-width: 100%;
+  max-height: 85vh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  background: var(--paper);
+  color: var(--text);
+  box-shadow: 0 -12px 40px rgb(0 0 0 / 0.25);
+  overflow: auto;
+}
+.bp-sheet::backdrop {
+  background: rgb(10 14 22 / 0.5);
+}
+.bp-sheet__inner {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.75rem max(1rem, env(safe-area-inset-right)) calc(1rem + env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+}
+.bp-sheet__head {
+  display: flex;
+  justify-content: flex-end;
+}
+.bp-sheet .bp {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bp-sheet[open] {
+    animation: bp-up 0.28s var(--ease-out);
+  }
+}
+@keyframes bp-up {
+  from { transform: translateY(100%); }
+  to { transform: none; }
+}

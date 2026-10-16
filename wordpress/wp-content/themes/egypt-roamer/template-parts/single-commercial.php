@@ -125,8 +125,13 @@ if ( $er_story ) {
 
 // Sidebar: the booking box first, so it stays whole in view while the sidebar is pinned (with the facts above it,
 // a page's second offer fell below the screen), then the key facts. Below 1200px it follows the article.
+$er_new = er_ux2() && 'er_experience' === $er_type && ( $er_offers || $er_hotels );
 ob_start();
-if ( $er_offers ) :
+if ( $er_new ) :
+	// New journey: one panel with the trip options and somewhere to stay, then the key facts.
+	er_booking_panel( $er_offers, $er_hotels, $er_stay ? get_the_title( $er_stay ) : '', 'experience', er_t( 'Book this trip' ) );
+	er_glance( $er_facts );
+elseif ( $er_offers ) :
 	?>
 	<div class="offer-box" id="book" role="region" aria-labelledby="offers-title">
 		<h2 id="offers-title" class="t-label"><?php er_e( 'Book with our partners' ); ?></h2>
@@ -173,7 +178,8 @@ er_page_hero( [
 	'meta'    => $er_meta,
 	'measure' => '' === $er_aside,
 	// The booking box sits in the sidebar on wide screens but after the whole article below 1200px: one tap to it.
-	'actions' => $er_offers ? '<a class="btn btn--primary" href="#book">' . esc_html( er_t( 'Book with our partners' ) ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>' : '',
+	'actions' => $er_new ? '<a class="btn btn--primary" href="#book" data-sheet>' . esc_html( er_t( 'Book this trip' ) ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>'
+		: ( $er_offers ? '<a class="btn btn--primary" href="#book">' . esc_html( er_t( 'Book with our partners' ) ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>' : '' ),
 ] );
 $er_body = er_body();
 er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
@@ -194,7 +200,7 @@ if ( $er_preview ) {
 
 // Below 1200px (no sidebar): the booking box also inside the article, after its second section, so a reader
 // who has decided need not reach the end of the article (owner, 15 Oct). The full box still follows the article.
-if ( $er_offers ) {
+if ( $er_offers && ! $er_new ) {
 	ob_start();
 	?>
 	<aside class="offer-box offer-box--inline is-narrow-only" aria-labelledby="inline-book-title">
@@ -213,7 +219,7 @@ if ( $er_offers ) {
 }
 
 // Hotels: before the questions at the end of the article (else at its end), at every width.
-if ( $er_hotels ) {
+if ( $er_hotels && ! $er_new ) {
 	ob_start();
 	?>
 	<aside class="offer-box offer-box--inline offer-box--hotels" aria-labelledby="hotels-book-title">

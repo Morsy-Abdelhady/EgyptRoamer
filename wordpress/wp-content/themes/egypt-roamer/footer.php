@@ -77,7 +77,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 	<button type="button" class="dock__item" data-open="saved"><?php echo er_icon( 'i-heart' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php er_e( 'Saved' ); ?></span><i class="dock__badge" data-fav-count></i></button>
 	<button type="button" class="dock__item" data-open="search"><?php echo er_icon( 'i-search' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php er_e( 'Search' ); ?></span></button>
 	<?php if ( er_book_anchor() ) : // A page with partner offers: the dock's main action is booking, via the page's booking box (and its disclosure). ?>
-		<a href="<?php echo esc_attr( er_book_anchor() ); ?>" class="dock__plan"><?php echo er_icon( 'i-calendar' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php echo esc_html( function_exists( 'er_cta_options' ) ? er_cta_options()['check_availability'] : er_t( 'Book with our partners' ) ); ?></span></a>
+		<a href="<?php echo esc_attr( er_book_anchor() ); ?>" class="dock__plan"><?php echo er_icon( 'i-calendar' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php echo esc_html( er_book_label() ); ?></span></a>
 	<?php elseif ( $er_planner_url ) : ?>
 		<a href="<?php echo esc_url( $er_planner_url ); ?>" class="dock__plan"><?php echo er_icon( 'i-route' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span data-nosnippet><?php er_e( 'Plan My Trip' ); ?></span></a>
 	<?php endif; ?>
@@ -87,7 +87,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 	<div class="menu__inner" data-nosnippet>
 		<?php echo er_menu( 'primary', '<ul class="menu__links">%3$s</ul>' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		<?php if ( ! is_front_page() && er_book_anchor() ) : // As in the header: on a page with offers, the menu's gold button books here. ?>
-			<a href="<?php echo esc_attr( er_book_anchor() ); ?>" class="btn btn--primary btn--lg btn--block" data-close><?php echo esc_html( function_exists( 'er_cta_options' ) ? er_cta_options()['check_availability'] : er_t( 'Book with our partners' ) ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
+			<a href="<?php echo esc_attr( er_book_anchor() ); ?>" class="btn btn--primary btn--lg btn--block" data-close><?php echo esc_html( er_book_label() ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
 		<?php elseif ( $er_planner_url ) : ?>
 			<a href="<?php echo esc_url( $er_planner_url ); ?>" class="btn btn--primary btn--lg btn--block" data-close><?php er_e( 'Plan My Trip' ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
 		<?php endif; ?>

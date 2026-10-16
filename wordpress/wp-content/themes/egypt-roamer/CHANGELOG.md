@@ -2,6 +2,16 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.68 — 2026-10-16: booking journey redesign, step 1 (experience page), preview only
+- **Owner request:** one coherent journey from the homepage to booking a trip or a hotel, built on a review of the site as a concept (no traffic data yet). Proposal: artifact "رحلة الحجز في Egypt Roamer".
+- **Preview:** add `?ux=2` to an experience URL. Visitors see the current page until the owner approves; then the `er_ux2` option turns it on for everyone.
+- **The page in the new journey:**
+  - One booking panel, "Book this trip" (`er_booking_panel()`): the trip's partner offers, then "Staying in {city}?" with the destination's hotels. It replaces the sidebar box, the in-article box on narrow screens and the separate hotel box.
+  - Each row shows the partner's name as a coloured chip instead of the same repeated photo, so offers from two partners don't look like one, and has one gold button: "Book" for trips, "See hotels" for hotels. A line says each button opens the partner's site in a new tab.
+  - The header, hero, menu, dock and bar all say "Book this trip" (`er_book_label()`).
+  - On phones and narrow screens, "Book this trip" opens the panel as a sheet from the bottom of the screen, so the reader keeps their place in the article.
+- New UI strings in all 8 languages (unreviewed, as the other template strings).
+
 ## 1.2.67 — 2026-10-16: wider sidebar; guides listed in every language
 - **Owner report (1920px screen):** a wide empty gap between the article and the sidebar's white booking box, and the box too narrow to read well. The sidebar column now takes spare width up to 30rem (was a fixed 21rem pushed to the far edge); offer photos 64px.
 - **Owner report:** the Arabic Abu Simbel page showed one card under "Combine it with" where the English showed three. Cause, in Core 1.2.45: guide translations keep their links to experiences and destinations on the English guide only, so every translated page that lists the guides pointing at it ("Plan it with our guides", "Plan your trip to …", the story's cards) found none. `er_get_referencing()` now matches the relation in any language and shows each guide's translation in the page's language; a guide without one is left out, never shown in English.

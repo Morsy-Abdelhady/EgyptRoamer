@@ -1189,6 +1189,69 @@
    "Найти отель: {name}",
    "查找{name}的酒店",
    "ابحث عن فندق في {name}"
+  ],
+  "Book this trip": [
+   "Diese Tour buchen",
+   "Réserver cette excursion",
+   "Prenota questa escursione",
+   "Reserva esta excursión",
+   "Забронировать поездку",
+   "预订此行程",
+   "احجز الرحلة"
+  ],
+  "Trip options": [
+   "Angebote für diese Tour",
+   "Offres pour cette excursion",
+   "Offerte per questa escursione",
+   "Opciones para esta excursión",
+   "Варианты поездки",
+   "行程选项",
+   "خيارات الرحلة"
+  ],
+  "Staying in {name}?": [
+   "Übernachtung in {name}?",
+   "Vous dormez à {name} ?",
+   "Dormi a {name}?",
+   "¿Te alojas en {name}?",
+   "Остановитесь в {name}?",
+   "住在{name}？",
+   "هتبات في {name}؟"
+  ],
+  "Book": [
+   "Buchen",
+   "Réserver",
+   "Prenota",
+   "Reservar",
+   "Забронировать",
+   "预订",
+   "احجز"
+  ],
+  "See hotels": [
+   "Hotels ansehen",
+   "Voir les hôtels",
+   "Vedi gli hotel",
+   "Ver hoteles",
+   "Смотреть отели",
+   "查看酒店",
+   "شوف الفنادق"
+  ],
+  "Each button opens the partner’s site in a new tab.": [
+   "Jede Schaltfläche öffnet die Website des Partners in einem neuen Tab.",
+   "Chaque bouton ouvre le site du partenaire dans un nouvel onglet.",
+   "Ogni pulsante apre il sito del partner in una nuova scheda.",
+   "Cada botón abre la web del socio en una pestaña nueva.",
+   "Каждая кнопка открывает сайт партнёра в новой вкладке.",
+   "每个按钮都会在新标签页中打开合作伙伴的网站。",
+   "كل زرار بيفتح موقع الشريك في تبويب جديد."
+  ],
+  "Close": [
+   "Schließen",
+   "Fermer",
+   "Chiudi",
+   "Cerrar",
+   "Закрыть",
+   "关闭",
+   "إغلاق"
   ]
  }
 }

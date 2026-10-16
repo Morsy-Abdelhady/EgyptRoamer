@@ -1633,6 +1633,49 @@
       new IntersectionObserver(([e]) => { footIn = e.isIntersecting; update(); }).observe(foot);
     }
   });
+  // New journey (?ux=2): on phones, "Book this trip" (bar, hero) opens the booking panel as a bottom sheet, so the
+  // reader books without leaving their place in the article. Wide screens keep the pinned sidebar panel.
+  safe("booking-sheet", () => {
+    const panel = document.querySelector(".bp#book");
+    if (!panel || typeof HTMLDialogElement === "undefined") return;
+    const phone = window.matchMedia("(max-width: 1199.98px)");
+    let sheet = null;
+    const open = () => {
+      if (!sheet) {
+        sheet = document.createElement("dialog");
+        sheet.className = "bp-sheet";
+        sheet.setAttribute("aria-labelledby", "bp-sheet-title");
+        const inner = document.createElement("div");
+        inner.className = "bp-sheet__inner";
+        const head = document.createElement("div");
+        head.className = "bp-sheet__head";
+        const close = document.createElement("button");
+        close.type = "button";
+        close.className = "icon-btn";
+        close.setAttribute("aria-label", panel.dataset.closeLabel || "Close");
+        const icon = document.querySelector("button.icon-btn[data-close] svg");
+        if (icon) close.appendChild(icon.cloneNode(true));
+        else close.textContent = "×";
+        close.addEventListener("click", () => sheet.close());
+        head.appendChild(close);
+        const copy = panel.cloneNode(true);
+        copy.removeAttribute("id");
+        copy.querySelector("#bp-title")?.setAttribute("id", "bp-sheet-title");
+        inner.append(head, copy);
+        sheet.appendChild(inner);
+        sheet.addEventListener("click", (e) => { if (e.target === sheet) sheet.close(); });
+        document.body.appendChild(sheet);
+      }
+      sheet.showModal();
+    };
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest && e.target.closest("a[data-sheet]");
+      if (!a || !phone.matches) return;
+      e.preventDefault();
+      e.stopPropagation();
+      open();
+    }, true);
+  });
   // "#book" links (header, hero, dock, booking bar) while the sidebar shows a booking box (wide screens): that box is
   // the one to use. On a guide the in-article box is hidden there; on a destination "#book" is the full list after
   // the article, and a jump would take the reader away from where they are reading. So: a sidebar box already in view
