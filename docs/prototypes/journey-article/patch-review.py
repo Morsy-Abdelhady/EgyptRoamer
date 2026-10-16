@@ -2,7 +2,7 @@
 # A1 live header/search/favourites/language/assistant/footer, A7 touch targets, A8 small text, A9 full excerpt,
 # A10 and suggestion 4 the bottom booking bar on tablet too.
 import re, sys, os, importlib.util
-spec = importlib.util.spec_from_file_location('chrome', os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'chrome.py'))
+spec = importlib.util.spec_from_file_location('chrome', os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'chrome2.py'))
 CH = importlib.util.module_from_spec(spec); spec.loader.exec_module(CH)
 
 src = 'article.template.html'
@@ -62,9 +62,10 @@ for a, b in reps:
 
 JS = CH.JS + r'''
 window.LC_TOP=true;
+window.lcPlace=pl=>lcToast(`Prototype: on the site this opens the ${pl} trips (proposal 4).`);
 // the assistant and search also find the guides and trips in this prototype
 window.lcIndex=()=>Object.entries(DATA).map(([k,a])=>({t:a.title+" "+a.crumb+" "+a.excerpt,html:`<span class="search__item-title">${esc(a.title)}</span>`,run:()=>document.querySelector(`[data-art="${k}"]`).click()}))
-  .concat(Object.values(TRIPS).map(t=>({t:t.title+" "+t.place,html:`<span class="search__item-title">${esc(t.title)}</span>`,run:()=>lcToast("Prototype: on the site this opens the trip page (proposal 4).")})));
+  .concat(Object.values(TRIPS).map(t=>({t:t.title+" "+t.place,card:{img:IMG[t.img],title:esc(t.title),meta:`${esc(t.place)} · ${esc(t.facts[0])} · ${t.n} options`,cta:"See the trip"},run:()=>lcToast("Prototype: on the site this opens the trip page (proposal 4).")})));
 window.lcRoute=(href)=>{ const p=href.replace("https://egyptroamer.com",""); const k=Object.keys(DATA).find(k=>p.includes("valley-of-the-kings")&&k==="valley"||p.includes("snorkel")&&k==="snorkel"); if(k){ document.querySelector(`[data-art="${k}"]`).click(); return; } lcToast("Prototype: on the site this opens "+p); };
 // the assistant button moves up while the booking bar is on screen
 setInterval(()=>{ document.getElementById("lc-ov").classList.toggle("is-raised", document.getElementById("mbar").classList.contains("is-on") && getComputedStyle(document.getElementById("mbar")).display!=="none"); },400);

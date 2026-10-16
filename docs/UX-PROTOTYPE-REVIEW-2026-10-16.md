@@ -93,3 +93,23 @@ Both prototypes were republished. They were checked at 1440 px, 840 px and 390 p
 - **A7, suggestion 6:** touch targets of at least 44 px on phones, including the breadcrumbs, section tabs and links. The video buttons are 40 px with a larger hit area.
 - **A8:** no label under 11 px.
 - **A9:** the guide summary is never cut.
+
+## The owner's review of the live chrome (17 Oct) and the fixes (`chrome2.py`)
+The live features had been copied without a design review. The owner found the problems below; each was fixed, then checked on desktop, tablet and phone.
+
+| Problem | Fix |
+|---|---|
+| The phone menu covered the header, so nothing closed it | The menu opens under the header, and ☰ turns into ✕ (label "Close menu"). |
+| No search on phones (also missing on the live site) | 🔍 is in the header at every size, and "Search places, trips and guides" is the first item in the menu. |
+| The menu's "Plan My Trip" differed from the header's button | One main button everywhere: "Choose a trip", or "Book this trip" inside a trip. The menu button copies the header's. Plan My Trip is a plain menu link. The header button stays outlined, as approved on 16 Oct. |
+| "Destinations" and "Experiences" were unclear | They are now "Places" and "Trips & tours" in the header, the menu and the footer, and each menu item has a line saying what it holds. |
+| The assistant answered with bare lines | Answers are trip cards (photo, place, length, options, ✓ Free cancellation, "See the trip"). A place adds "See all ⟨place⟩ trips". With no match, it suggests places. Place chips sit in the welcome message, replacing the second row of suggestions. |
+
+**Found in the self-review and fixed:**
+- **Assistant layout:** a trip card overlapped the question box. The conversation now scrolls in its own area.
+- **Team chat:** "Cancel" in the team-chat form did nothing. It now returns to the assistant.
+- **Search:** the places in the search list had no link; they now open their trips.
+  - The search lists popular trips first.
+  - Its wording matches the menu.
+
+**Note for the live site:** the missing phone search and the unclear menu labels exist on production now. They need the same changes when the design is rolled out.

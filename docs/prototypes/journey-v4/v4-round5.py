@@ -1,7 +1,7 @@
 # Owner, 16 Oct: fix the review's problems A1–A8 and suggestions 1–4, 6 and 7 (docs/UX-PROTOTYPE-REVIEW-2026-10-16.md).
 # Applied last by build4.py.
 import re, importlib.util, os
-spec = importlib.util.spec_from_file_location('chrome', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'chrome.py'))
+spec = importlib.util.spec_from_file_location('chrome', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'chrome2.py'))
 CH = importlib.util.module_from_spec(spec); spec.loader.exec_module(CH)
 
 CSS = '''
@@ -49,9 +49,8 @@ def apply(tpl):
     tpl = tpl[:a] + CH.css() + CSS + tpl[a:]
     # A1, A2, suggestion 1: the live header, menu, overlays and footer replace the prototype's own
     a = tpl.index('      <header class="hdr" id="hdr">'); e = tpl.index('</header>', a) + len('</header>')
-    nav = CH.nav_html()
     # the header button keeps its role: "Choose a trip" while browsing, "Book this trip" inside a trip
-    nav = re.sub(r'<a href="#planner" class="(btn btn--primary btn--sm nav__cta)"', r'<a href="#" id="hdr-cta" data-go="2" class="\1"', nav, count=1)
+    nav = CH.nav_html('id="hdr-cta" data-go="2"')
     assert 'id="hdr-cta"' in nav
     nav = nav.replace('<a href="#" data-href="https://egyptroamer.com/experiences/"', '<a href="#" id="nav-exp" data-href="https://egyptroamer.com/experiences/"', 1)
     assert 'id="nav-exp"' in nav
@@ -73,7 +72,8 @@ def apply(tpl):
     # routes for the live links: places and experiences open the prototype's own screens
     js = CH.JS + r'''
 window.LC_TOP=false;
-window.lcIndex=()=>TRIPS.map(t=>({t:t.t+" "+(t.place||"")+" "+(t.dest||""),html:`<span class="search__item-title">${esc(t.t)}</span>`,run:()=>{ if(WORLDS[t.id]){ current=t.id; lastViewed=t.id; go(3);} else go(2); }}));
+window.lcPlace=pl=>{ go(2); const b=document.querySelector(`[data-fplace="${pl}"]`); b&&b.click(); };
+window.lcIndex=()=>TRIPS.map(t=>({t:t.t+" "+(t.place||"")+" "+(t.dest||""),card:{img:IMG[t.k],title:esc(t.t),meta:`${esc(t.place||"")} · ${esc(t.time)} · ${t.n} options`,cta:WORLDS[t.id]?"See the trip":"See trips"},run:()=>{ if(WORLDS[t.id]){ current=t.id; lastViewed=t.id; go(3);} else go(2); }}));
 window.lcRoute=(href,a)=>{
   const p=href.replace("https://egyptroamer.com","");
   const exp=p.match(/^\/experiences\/([^/]+)\//); if(exp){ const id=Object.keys(WORLDS).find(k=>WORLDS[k].url===exp[1]); if(id){ current=id; lastViewed=id; go(3); return; } }
