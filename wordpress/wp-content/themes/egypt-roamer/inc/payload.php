@@ -158,7 +158,10 @@ function er_payload_experience( int $id, int $index ): array {
 		'url'      => get_permalink( $id ),
 		'cta'      => er_t( 'Discover' ),
 	];
-	if ( $offers ) {
+	if ( $offers && function_exists( 'er_ux2' ) && er_ux2() ) {
+		// New journey (P4): the card opens the trip page, where the options are compared; no partner link here.
+		$item['cta'] = er_t( 'See options' );
+	} elseif ( $offers ) {
 		$o                 = er_payload_offer( $offers[0], 'home-experiences' );
 		$item['href']      = $o['href'];
 		$item['cta']       = $o['cta'];

@@ -2,6 +2,9 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.77 — 2026-10-16: homepage trip cards follow P4 (preview `?ux=2`)
+- Found while checking 1.2.76 in a browser: the homepage rail is rebuilt by its script from the page data (`er_payload_experience()`), which still gave each card its partner link. In the preview the data now gives "See options" to the trip page and no partner link. The script-built cards show title, place and duration, but not the shared facts that the server-built cards show.
+
 ## 1.2.76 — 2026-10-16: proposals 4, 5 and 7 of the journey review (preview `?ux=2`)
 - **Owner:** decide by the established practice of tour-booking sites, not visitor data (the site is still being indexed).
 - **P4, trip cards** (experience archive, homepage, related cards): the card opens the trip page and says what its options offer: the number of options and the partner-stated facts they share ("Private option available", "Pickup offered"), beside the duration. The card has no button to the partner any more; the hand-off happens on the trip page, after the options are compared, as on tour marketplaces. With no partner link on the card, the card grid shows no disclosure.
