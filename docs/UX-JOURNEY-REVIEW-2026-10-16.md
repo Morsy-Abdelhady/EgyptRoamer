@@ -89,3 +89,15 @@ The owner said: go ahead on judgement, without visitor data (there is no traffic
 - **Not done:**
   - the GoDaddy cache flush. Edge was disconnected, so cached pages still link the old CSS; the check above used fresh pages.
   - P4–P11.
+
+**Later on 16 Oct (theme 1.2.76–1.2.77):** P4, P5 and P7 are done in the preview. The owner asked for decisions by tour-site practice, not visitor data, since the site is still being indexed.
+- **Checked fresh (cache-busted):** home, experiences archive, Luxor, Best time, Valley of the Kings; English and Arabic; 390px and 1440px.
+  - The cards (server-built and the homepage rail) open the trip page with "See options" and carry no partner link.
+  - The header, menu and dock say "Choose a trip" (to the trips or the page's box) and "Book this trip" on trip pages; nothing goes to the homepage.
+  - On a trip page on a phone the dock is gone and the bar sits at the bottom.
+  - The preview keeps `?ux=2` on internal links and is `noindex`.
+  - page-coverage passes.
+- **Not done:**
+  - the GoDaddy flush. Edge was not connected to this session, so cached `?ux=2` pages are still old.
+  - The homepage rail cards show no shared facts, because the approved JS renders them.
+  - P6 and P8–P11.
