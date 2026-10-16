@@ -6,6 +6,7 @@ return [
 	'plural-forms' => 'nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);',
 	'messages' => [
 		'1 adult' => 'شخص بالغ',
+		'1 option' => 'خيار واحد',
 		'2 adults' => 'شخصان بالغان',
 		'2 adults, 1 child' => 'بالغان وطفل',
 		'2 adults, 2 children' => 'بالغان وطفلان',
@@ -60,6 +61,7 @@ return [
 		'Chapter three' => 'الفصل الثالث',
 		'Chapter two' => 'الفصل الثاني',
 		'Chat with Egypt Roamer' => 'تحدث مع Egypt Roamer',
+		'Choose a trip' => 'اختر رحلة',
 		'Classic Nile cruise route from Aswan to Luxor' => 'مسار الرحلة النيلية الكلاسيكي من أسوان إلى الأقصر',
 		'Close' => 'إغلاق',
 		'Close assistant' => 'إغلاق المساعد',
@@ -210,6 +212,7 @@ return [
 		'Search destinations, tours, cruises, guides…' => 'ابحث عن وجهات وجولات ورحلات نيلية وأدلة…',
 		'Searching…' => 'جارٍ البحث…',
 		'See hotels' => 'شوف الفنادق',
+		'See options' => 'شاهد الخيارات',
 		'Send' => 'إرسال',
 		'Sending…' => 'جارٍ الإرسال…',
 		'Seven different Egypts.' => 'وسبعة وجوه لمصر.',
@@ -310,6 +313,7 @@ return [
 		'{n} hours' => '{n} ساعات',
 		'{n} min read' => '{n} دقيقة قراءة',
 		'{n} of {total}' => '{n} من {total}',
+		'{n} options' => '{n} خيارات',
 		'© {year} Egypt Roamer. Independent travel discovery. All rights reserved.' => '© {year} Egypt Roamer. منصة مستقلة لاكتشاف السفر. جميع الحقوق محفوظة.',
 	],
 ];

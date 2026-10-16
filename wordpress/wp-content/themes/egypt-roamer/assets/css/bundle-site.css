@@ -7412,6 +7412,24 @@ color: var(--text-muted);
 content: "·";
 padding-inline: 0.45rem;
 }
+.card__meta:has(.card__fact) {
+flex-wrap: wrap;
+gap: 0.25rem 0.75rem;
+}
+.card__fact {
+color: var(--text-muted);
+}
+@media (max-width: 900px) {
+body.er-trip-bar .dock {
+display: none;
+}
+body.er-trip-bar .xs-bookbar {
+bottom: calc(0.75rem + env(safe-area-inset-bottom));
+}
+body.er-trip-bar .assistant-launch {
+bottom: calc(0.75rem + env(safe-area-inset-bottom));
+}
+}
 .bp__why {
 font-size: 0.85rem;
 color: var(--text);

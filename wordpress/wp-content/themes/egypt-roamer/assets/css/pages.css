@@ -3816,6 +3816,26 @@ html:lang(zh) {
   content: "·";
   padding-inline: 0.45rem;
 }
+/* Trip cards in the new journey (P4): what the options offer, beside the duration. */
+.card__meta:has(.card__fact) {
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+}
+.card__fact {
+  color: var(--text-muted);
+}
+/* Trip pages on phones (P7): one fixed bar. The dock steps aside; the bar and the assistant take its place. */
+@media (max-width: 900px) {
+  body.er-trip-bar .dock {
+    display: none;
+  }
+  body.er-trip-bar .xs-bookbar {
+    bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  }
+  body.er-trip-bar .assistant-launch {
+    bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  }
+}
 /* Why the pick (a partner-stated fact only it has), under its label. */
 .bp__why {
   font-size: 0.85rem;

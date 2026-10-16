@@ -87,6 +87,10 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 				<a href="<?php echo esc_attr( er_book_anchor() ); ?>" class="btn btn--primary btn--sm nav__cta" data-magnetic>
 					<?php echo esc_html( er_book_label() ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 				</a>
+			<?php elseif ( er_ux2() ) : // New journey (P5): the trips, never the homepage. ?>
+				<a href="<?php echo esc_url( er_choose_url() ); ?>" class="btn btn--primary btn--sm nav__cta" data-magnetic>
+					<?php echo esc_html( er_book_label() ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+				</a>
 			<?php elseif ( $er_planner_url ) : ?>
 				<a href="<?php echo esc_url( $er_planner_url ); ?>" class="btn btn--primary btn--sm nav__cta" data-magnetic>
 					<?php er_e( 'Plan My Trip' ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>

@@ -1396,6 +1396,42 @@
    "Единственный вариант с трансфером",
    "唯一含接送的选项",
    "الخيار الوحيد مع التوصيل من الفندق"
+  ],
+  "Choose a trip": [
+   "Tour auswählen",
+   "Choisir une excursion",
+   "Scegli un'escursione",
+   "Elige una excursión",
+   "Выбрать поездку",
+   "选择行程",
+   "اختر رحلة"
+  ],
+  "See options": [
+   "Optionen ansehen",
+   "Voir les options",
+   "Vedi le opzioni",
+   "Ver opciones",
+   "Смотреть варианты",
+   "查看选项",
+   "شاهد الخيارات"
+  ],
+  "1 option": [
+   "1 Option",
+   "1 option",
+   "1 opzione",
+   "1 opción",
+   "1 вариант",
+   "1 个选项",
+   "خيار واحد"
+  ],
+  "{n} options": [
+   "{n} Optionen",
+   "{n} options",
+   "{n} opzioni",
+   "{n} opciones",
+   "Вариантов: {n}",
+   "{n} 个选项",
+   "{n} خيارات"
   ]
  }
 }

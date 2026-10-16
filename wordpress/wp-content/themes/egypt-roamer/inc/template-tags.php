@@ -579,7 +579,11 @@ function er_card( int $post_id, string $placement = 'card', string $heading = 'h
 	$duration = (string) get_post_meta( $post_id, '_er_duration', true );
 	$badge    = (string) get_post_meta( $post_id, '_er_badge', true );
 	$image    = er_post_img( $post_id, 'er-card', [ 'sizes' => '(max-width: 700px) 90vw, 360px', 'alt' => '' ] );
-	$offers   = function_exists( 'er_offers_for_post' ) && in_array( $type, [ 'er_tour', 'er_experience', 'er_activity' ], true ) ? er_offers_for_post( $post_id, 1 ) : [];
+	$offers   = function_exists( 'er_offers_for_post' ) && in_array( $type, [ 'er_tour', 'er_experience', 'er_activity' ], true ) ? er_offers_for_post( $post_id, er_ux2() ? 6 : 1 ) : [];
+	// New journey (P4, 16 Oct): a trip card opens the trip page, where the options are compared, and says what they
+	// offer. The hand-off to the partner happens there, not from the card (as on tour marketplaces).
+	$compare  = er_ux2() && $offers;
+	$facts    = $compare ? er_booking_summary( $offers, false ) : [];
 
 	ob_start();
 	?>
@@ -597,8 +601,15 @@ function er_card( int $post_id, string $placement = 'card', string $heading = 'h
 				<span class="card__loc"><?php echo esc_html( er_t( '{n} min read', [ 'n' => function_exists( 'er_read_minutes' ) ? er_read_minutes( $post_id ) : 1 ] ) ); ?></span>
 			<?php endif; ?>
 			<<?php echo $heading; // phpcs:ignore WordPress.Security.EscapeOutput -- whitelisted ?> class="card__title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $title ); ?></a></<?php echo $heading; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
-			<?php if ( $duration ) : ?>
-				<div class="card__meta"><span><?php echo er_icon( 'i-clock' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><?php echo esc_html( $duration ); ?></span></div>
+			<?php if ( $duration || $facts ) : ?>
+				<div class="card__meta">
+					<?php if ( $duration ) : ?>
+						<span><?php echo er_icon( 'i-clock' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><?php echo esc_html( $duration ); ?></span>
+					<?php endif; ?>
+					<?php foreach ( $facts as $er_f ) : ?>
+						<span class="card__fact"><?php echo esc_html( $er_f ); ?></span>
+					<?php endforeach; ?>
+				</div>
 			<?php elseif ( has_excerpt( $post_id ) && in_array( $type, [ 'er_destination', 'er_guide', 'post', 'er_activity' ], true ) ) : ?>
 				<p class="card__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt( $post_id ), 22, '…' ) ); ?></p>
 			<?php endif; ?>
@@ -606,11 +617,17 @@ function er_card( int $post_id, string $placement = 'card', string $heading = 'h
 				<?php
 				// A partner card says whose page the button opens, and the button looks like one (it was a text link).
 				$er_card_partner = $offers && function_exists( 'er_offer_data' ) ? (string) er_offer_data( (int) $offers[0], $placement, (int) get_queried_object_id() )['provider'] : '';
-				echo $er_card_partner ? '<span class="via">' . esc_html( er_t( 'via {partner}', [ 'partner' => $er_card_partner ] ) ) . '</span>' : '<span></span>';
-				if ( $offers ) {
-					echo er_offer_cta_html( $offers[0], [ 'placement' => $placement, 'class' => 'btn btn--outline btn--sm', 'icon' => ' ' . er_icon( 'i-arrow-ur', 'icon--sm' ) ] ); // phpcs:ignore WordPress.Security.EscapeOutput -- built with esc_* in the plugin
+				if ( $compare ) {
+					$er_n = count( $offers );
+					echo '<span class="via">' . esc_html( 1 === $er_n ? er_t( '1 option' ) : er_t( '{n} options', [ 'n' => $er_n ] ) ) . '</span>';
+					printf( '<a class="link" href="%s">%s %s</a>', esc_url( $url ), esc_html( er_t( 'See options' ) ), er_icon( 'i-arrow', 'icon--sm' ) ); // phpcs:ignore WordPress.Security.EscapeOutput
 				} else {
-					printf( '<a class="link" href="%s">%s %s</a>', esc_url( $url ), esc_html( er_t( 'Discover' ) ), er_icon( 'i-arrow', 'icon--sm' ) ); // phpcs:ignore WordPress.Security.EscapeOutput
+					echo $er_card_partner ? '<span class="via">' . esc_html( er_t( 'via {partner}', [ 'partner' => $er_card_partner ] ) ) . '</span>' : '<span></span>';
+					if ( $offers ) {
+						echo er_offer_cta_html( $offers[0], [ 'placement' => $placement, 'class' => 'btn btn--outline btn--sm', 'icon' => ' ' . er_icon( 'i-arrow-ur', 'icon--sm' ) ] ); // phpcs:ignore WordPress.Security.EscapeOutput -- built with esc_* in the plugin
+					} else {
+						printf( '<a class="link" href="%s">%s %s</a>', esc_url( $url ), esc_html( er_t( 'Discover' ) ), er_icon( 'i-arrow', 'icon--sm' ) ); // phpcs:ignore WordPress.Security.EscapeOutput
+					}
 				}
 				?>
 			</div>
@@ -683,10 +700,47 @@ function er_ux2(): bool {
 	return $on;
 }
 
-/** The page's one booking label: "Book this trip" on an experience in the new journey, else "Check Availability". */
+/*
+ * While the new journey is only previewed (?ux=2, option off), keep the preview on the site's own links, so the
+ * owner can walk the whole journey (card → trip page → partner) in it. Not indexed: the preview is noindex.
+ */
+add_action( 'wp_head', static function (): void {
+	if ( ! get_option( 'er_ux2' ) && er_ux2() ) {
+		echo '<meta name="robots" content="noindex, nofollow" />' . "\n";
+	}
+}, 1 );
+add_action( 'wp_footer', static function (): void {
+	if ( get_option( 'er_ux2' ) || ! er_ux2() ) {
+		return;
+	}
+	?>
+	<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a||a.origin!==location.origin||/\/(go|wp-admin)\//.test(a.pathname))return;var u=new URL(a.href);if(u.searchParams.get("ux")!=="2"){u.searchParams.set("ux","2");a.href=u.toString();}},true);</script>
+	<?php
+} );
+
+/* New journey (P7): a trip page on a phone has one fixed bar, "Book this trip"; the dock steps aside there. */
+add_filter( 'body_class', static function ( array $classes ): array {
+	if ( er_ux2() && is_singular( 'er_experience' ) && '#book' === er_book_anchor() ) {
+		$classes[] = 'er-trip-bar';
+	}
+	return $classes;
+} );
+
+/** New journey (P5): where "Choose a trip" goes on a page without its own booking box: the trips, never the home. */
+function er_choose_url(): string {
+	return (string) ( get_post_type_archive_link( 'er_experience' ) ?: er_home_url() );
+}
+
+/**
+ * The page's one booking label: "Book this trip" on an experience in the new journey, else "Check Availability".
+ * New journey (P5, 16 Oct): "Choose a trip" on every other page, whether it leads to the page's box or to the trips.
+ */
 function er_book_label(): string {
-	if ( er_ux2() && 'er_experience' === get_post_type( (int) get_queried_object_id() ) ) {
+	if ( er_ux2() && is_singular( 'er_experience' ) && '' !== er_book_anchor() ) {
 		return er_t( 'Book this trip' );
+	}
+	if ( er_ux2() ) {
+		return er_t( 'Choose a trip' );
 	}
 	return function_exists( 'er_cta_options' ) ? er_cta_options()['check_availability'] : er_t( 'Book with our partners' );
 }
@@ -779,7 +833,7 @@ function er_offer_facts_line( array $f ): array {
  * @param int[] $offers tour offers.
  * @return string[]
  */
-function er_booking_summary( array $offers ): array {
+function er_booking_summary( array $offers, bool $with_duration = true ): array {
 	if ( ! $offers || ! function_exists( 'er_offer_facts' ) ) {
 		return [];
 	}
@@ -800,7 +854,7 @@ function er_booking_summary( array $offers ): array {
 		$hi     = null === $hi ? (float) end( $m[0] ) : max( $hi, (float) end( $m[0] ) );
 		$approx = $approx || ! empty( $d['approx'] );
 	}
-	if ( $hours && null !== $lo ) {
+	if ( $with_duration && $hours && null !== $lo ) {
 		$txt   = er_t( '{n} hours', [ 'n' => $lo === $hi ? (string) $lo : $lo . '–' . $hi ] );
 		$out[] = $approx ? er_t( 'About {duration}', [ 'duration' => $txt ] ) : $txt;
 	}

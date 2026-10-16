@@ -6,6 +6,7 @@ return [
 	'plural-forms' => 'nplurals=1; plural=0;',
 	'messages' => [
 		'1 adult' => '1 位成人',
+		'1 option' => '1 个选项',
 		'2 adults' => '2 位成人',
 		'2 adults, 1 child' => '2 位成人，1 名儿童',
 		'2 adults, 2 children' => '2 位成人，2 名儿童',
@@ -60,6 +61,7 @@ return [
 		'Chapter three' => '第三章',
 		'Chapter two' => '第二章',
 		'Chat with Egypt Roamer' => '与 Egypt Roamer 聊天',
+		'Choose a trip' => '选择行程',
 		'Classic Nile cruise route from Aswan to Luxor' => '从阿斯旺到卢克索的经典尼罗河航线',
 		'Close' => '关闭',
 		'Close assistant' => '关闭助手',
@@ -210,6 +212,7 @@ return [
 		'Search destinations, tours, cruises, guides…' => '搜索目的地、旅游团、游船、指南……',
 		'Searching…' => '正在搜索…',
 		'See hotels' => '查看酒店',
+		'See options' => '查看选项',
 		'Send' => '发送',
 		'Sending…' => '正在发送…',
 		'Seven different Egypts.' => '七种不同的埃及。',
@@ -310,6 +313,7 @@ return [
 		'{n} hours' => '{n}小时',
 		'{n} min read' => '阅读约 {n} 分钟',
 		'{n} of {total}' => '第 {n} 张，共 {total} 张',
+		'{n} options' => '{n} 个选项',
 		'© {year} Egypt Roamer. Independent travel discovery. All rights reserved.' => '© {year} Egypt Roamer。独立旅行发现平台。保留所有权利。',
 	],
 ];

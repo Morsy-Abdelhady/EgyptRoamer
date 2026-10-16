@@ -6,6 +6,7 @@ return [
 	'plural-forms' => 'nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);',
 	'messages' => [
 		'1 adult' => '1 взрослый',
+		'1 option' => '1 вариант',
 		'2 adults' => '2 взрослых',
 		'2 adults, 1 child' => '2 взрослых, 1 ребёнок',
 		'2 adults, 2 children' => '2 взрослых, 2 ребёнка',
@@ -60,6 +61,7 @@ return [
 		'Chapter three' => 'Глава третья',
 		'Chapter two' => 'Глава вторая',
 		'Chat with Egypt Roamer' => 'Написать Egypt Roamer',
+		'Choose a trip' => 'Выбрать поездку',
 		'Classic Nile cruise route from Aswan to Luxor' => 'Классический маршрут круиза из Асуана в Луксор',
 		'Close' => 'Закрыть',
 		'Close assistant' => 'Закрыть помощника',
@@ -210,6 +212,7 @@ return [
 		'Search destinations, tours, cruises, guides…' => 'Направления, туры, круизы, путеводители…',
 		'Searching…' => 'Поиск…',
 		'See hotels' => 'Смотреть отели',
+		'See options' => 'Смотреть варианты',
 		'Send' => 'Отправить',
 		'Sending…' => 'Отправка…',
 		'Seven different Egypts.' => 'Семь разных Египтов.',
@@ -310,6 +313,7 @@ return [
 		'{n} hours' => '{n} ч',
 		'{n} min read' => '{n} минуты чтения',
 		'{n} of {total}' => '{n} из {total}',
+		'{n} options' => 'Вариантов: {n}',
 		'© {year} Egypt Roamer. Independent travel discovery. All rights reserved.' => '© {year} Egypt Roamer. Независимый проект о путешествиях. Все права защищены.',
 	],
 ];

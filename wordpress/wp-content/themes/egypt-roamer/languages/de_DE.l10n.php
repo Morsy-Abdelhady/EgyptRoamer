@@ -6,6 +6,7 @@ return [
 	'plural-forms' => 'nplurals=2; plural=(n != 1);',
 	'messages' => [
 		'1 adult' => '1 Erwachsener',
+		'1 option' => '1 Option',
 		'2 adults' => '2 Erwachsene',
 		'2 adults, 1 child' => '2 Erwachsene, 1 Kind',
 		'2 adults, 2 children' => '2 Erwachsene, 2 Kinder',
@@ -60,6 +61,7 @@ return [
 		'Chapter three' => 'Kapitel drei',
 		'Chapter two' => 'Kapitel zwei',
 		'Chat with Egypt Roamer' => 'Mit Egypt Roamer chatten',
+		'Choose a trip' => 'Tour auswählen',
 		'Classic Nile cruise route from Aswan to Luxor' => 'Klassische Nilkreuzfahrt-Route von Assuan nach Luxor',
 		'Close' => 'Schließen',
 		'Close assistant' => 'Assistenten schließen',
@@ -210,6 +212,7 @@ return [
 		'Search destinations, tours, cruises, guides…' => 'Reiseziele, Touren, Kreuzfahrten, Guides suchen …',
 		'Searching…' => 'Suche läuft…',
 		'See hotels' => 'Hotels ansehen',
+		'See options' => 'Optionen ansehen',
 		'Send' => 'Senden',
 		'Sending…' => 'Wird gesendet …',
 		'Seven different Egypts.' => 'Sieben verschiedene Ägypten.',
@@ -310,6 +313,7 @@ return [
 		'{n} hours' => '{n} Std.',
 		'{n} min read' => '{n} Min. Lesezeit',
 		'{n} of {total}' => '{n} von {total}',
+		'{n} options' => '{n} Optionen',
 		'© {year} Egypt Roamer. Independent travel discovery. All rights reserved.' => '© {year} Egypt Roamer. Unabhängige Reiseentdeckung. Alle Rechte vorbehalten.',
 	],
 ];

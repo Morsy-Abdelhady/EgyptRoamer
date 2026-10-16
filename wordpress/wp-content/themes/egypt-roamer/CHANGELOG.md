@@ -2,6 +2,14 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.76 — 2026-10-16: proposals 4, 5 and 7 of the journey review (preview `?ux=2`)
+- **Owner:** decide by the established practice of tour-booking sites, not visitor data (the site is still being indexed).
+- **P4, trip cards** (experience archive, homepage, related cards): the card opens the trip page and says what its options offer: the number of options and the partner-stated facts they share ("Private option available", "Pickup offered"), beside the duration. The card has no button to the partner any more; the hand-off happens on the trip page, after the options are compared, as on tour marketplaces. With no partner link on the card, the card grid shows no disclosure.
+- **P5, one label set:** "Book this trip" on a trip page with offers; "Choose a trip" everywhere else (header, menu, dock). A page with no booking box links to the trips, never to the homepage planner. Fixed on the way: on the Experiences archive the header said "Book this trip", because the check read the first post in the loop; it now uses `is_singular()`.
+- **P7, phones:** a trip page has one fixed bar ("Book this trip"). The dock steps aside there, and the bar and the assistant button take its place at the bottom. Other pages keep the dock.
+- **Preview:** while `er_ux2` is off, `?ux=2` stays on the site's own links, so the whole journey can be walked in the preview, and preview pages are `noindex, nofollow`.
+- 4 new UI strings in all 8 languages.
+
 ## 1.2.75 — 2026-10-16: the panel really comes first on phones
 - 1.2.74's rule lost to the older "everything else after the article" rule (higher specificity), so on phones the panel still followed the article (measured at 3.3–4.7 screens on every experience). The rule is now more specific.
 
