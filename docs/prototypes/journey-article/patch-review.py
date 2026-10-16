@@ -51,6 +51,10 @@ assert s.count(a) == 1
 s = s.replace(a, '    ' + CH.overlays_html() + '\n' + a)
 
 reps = [
+    ('<a class="btn btn--gold" href="#">See the ${main.n} options →</a><p class="bk__p">',
+     '<a class="btn btn--gold" href="#">See the ${main.n} options →</a><div style="display:flex;justify-content:center;margin-top:10px">${window.lcFavBtn?lcFavBtn({id:"trip:"+A.trips[0],title:main.title,meta:`${main.place} · ${main.facts[0]} · ${main.n} options`,img:IMG[main.img]},true):""}</div><p class="bk__p">'),
+    ('<p class="eyebrow">${esc(A.topic)} guide</p>',
+     '<p class="eyebrow">${esc(A.topic)} guide</p>'),
     ('  $("#hdr").classList.toggle("is-solid", vp.scrollTop > 8);\n', ''),
     ('  if(e.target.closest("#menu")){ const h = $("#hdr"); h.classList.toggle("is-open"); $("#menu").setAttribute("aria-expanded", h.classList.contains("is-open")); return; }\n', ''),
     ('$("#vswitch").onclick = () => setSwitch($("#vswitch").getAttribute("aria-pressed")!=="true");', ''),
@@ -62,6 +66,7 @@ for a, b in reps:
 
 JS = CH.JS + r'''
 window.LC_TOP=true;
+window.lcOpenSaved=id=>lcToast("Prototype: on the site this opens the saved trip or guide.");
 window.lcPlace=pl=>lcToast(`Prototype: on the site this opens the ${pl} trips (proposal 4).`);
 // the assistant and search also find the guides and trips in this prototype
 window.lcIndex=()=>Object.entries(DATA).map(([k,a])=>({t:a.title+" "+a.crumb+" "+a.excerpt,html:`<span class="search__item-title">${esc(a.title)}</span>`,run:()=>document.querySelector(`[data-art="${k}"]`).click()}))

@@ -113,3 +113,17 @@ The live features had been copied without a design review. The owner found the p
   - Its wording matches the menu.
 
 **Note for the live site:** the missing phone search and the unclear menu labels exist on production now. They need the same changes when the design is rolled out.
+
+## More from the owner (17 Oct)
+- **Team chat:** after "Chat with Egypt Roamer", the form ran past the panel, so its buttons could not be reached.
+  - Fix: the form now takes the whole panel and scrolls. "Cancel" returns to the assistant.
+  - Checked at 700 px and 900 px desktop heights, on phone and on tablet.
+- **Footer logo:** it was huge (the live footer draws it up to 880 px wide). It is now at most 260 px.
+- **Places and Trips & tours opened the same list:** the prototype had no places page.
+  - There is now a **Places** screen: the seven places, each with its region, line and best time, a "N trips" button to its trips, and "Read about …".
+  - The difference: **Places** helps the visitor choose where to go, and **Trips & tours** is what they can book.
+- **The ♡ did nothing:** nothing could be saved. Now:
+  - a ♡ sits on every trip card and mini card, "♡ Save" on the trip opener and on the guide's booking box, and a ♡ on every place card;
+  - the ♡ in the header shows a count;
+  - "Saved for later" lists each saved item with its photo and facts; it opens the item or removes it.
+  - Items are kept in this browser only, as on the live site.

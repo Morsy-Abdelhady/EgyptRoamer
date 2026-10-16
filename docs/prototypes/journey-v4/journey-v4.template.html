@@ -1290,6 +1290,32 @@ transparent
 .lc .assistant__log{flex:1 1 auto!important;min-height:140px;overflow-y:auto!important}
 .lc .assistant__foot{flex:none}
 .lc .assistant.is-chat .assistant__form,.lc .assistant.is-chat .assistant__foot > .assistant__note{display:none!important}
+/* team chat: the form takes the whole panel and scrolls, so "Start chat" and "Cancel" are always reachable */
+.lc .assistant.is-chat .assistant__log{display:none!important}
+.lc .assistant.is-chat .assistant__foot{flex:1 1 auto!important;min-height:0;overflow-y:auto!important;border-top:0!important}
+.lc .assistant__foot{max-height:75%;overflow-y:auto}
+/* ---------- saved trips and places (owner, 17 Oct: "what is the heart for if I cannot save a trip?") ---------- */
+.lcf{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(16,24,32,.15);background:rgba(255,255,255,.92);color:#101820;cursor:pointer;padding:0;transition:transform .15s}
+.lcf svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+.lcf[aria-pressed="true"]{color:#c0392b;border-color:rgba(192,57,43,.35)}
+.lcf[aria-pressed="true"] svg{fill:currentColor}
+.lcf:active{transform:scale(.9)}
+.lcfw{position:relative;display:flex;min-width:0}
+.lcfw > .card,.lcfw > .mini{flex:1;min-width:0}
+.lcfw > .lcf{position:absolute;top:10px;right:10px;z-index:3}
+.lcfw > .mini + .lcf{top:50%;transform:translateY(-50%);right:8px;width:34px;height:34px}
+.lcf--txt{width:auto;padding:0 16px;gap:8px;grid-auto-flow:column;font:600 14px/1 var(--font-sans,Inter,sans-serif);border-radius:999px;height:44px}
+.lc .lcs-item{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:12px;align-items:center;background:#fff;border:1px solid rgba(16,24,32,.1);border-radius:14px;padding:8px}
+.lc .lcs-item img{width:72px;height:56px;object-fit:cover;border-radius:10px}
+.lc .lcs-item b{display:block;font:600 15px/1.25 var(--font-serif,Georgia,serif);color:#101820}
+.lc .lcs-item small{display:block;font-size:12.5px;color:#4e555c;margin-top:3px}
+.lc .lcs-item button.lcs-open{all:unset;cursor:pointer;display:block;min-width:0}
+.lc .lcs-note{font-size:13px;color:#4e555c;margin:4px 0 0}
+.lc .icon-btn__badge:empty{display:none}
+.lc .icon-btn__badge:not(:empty){transform:scale(1)!important}
+.lcf--txt{display:inline-flex!important;align-items:center;justify-content:center}
+/* footer logo: a signature, not a banner (owner, 17 Oct: "the logo is huge") */
+.lc .footer__logo{width:min(100%,260px)!important}
 /* search: the prototype's trips first, then places; the list scrolls inside the panel */
 .lc .search__results{max-height:min(70cqh,560px);overflow-y:auto}
 .lc .lcs-trips .search__item{display:flex;gap:12px;align-items:center}
@@ -1310,6 +1336,25 @@ transparent
 .lc .lca-chips button{border:1px solid rgba(16,24,32,.18);background:#fff;border-radius:999px;padding:8px 12px;font:500 13px var(--font-sans,Inter,sans-serif);cursor:pointer;min-height:36px}
 
 /* ---------- review fixes, 16 Oct ---------- */
+/* Places: where to go, as opposed to Trips & tours (what to book) */
+.pl-hero{position:relative;color:#fff;min-height:340px;display:flex;align-items:flex-end;overflow:hidden}
+.pl-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pl-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,24,32,.35),rgba(16,24,32,.85))}
+.pl-hero .wrap{position:relative;z-index:1;padding-block:110px 36px}
+.pl-hero h1{font-size:56px;line-height:1;margin:8px 0 12px}
+.pl-hero p{max-width:640px;margin:0;font-size:16px;opacity:.9}
+.pl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;padding-block:36px 70px}
+.pl-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.pl-card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.pl-card div{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pl-card small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep,#a8871f);font-weight:600}
+.pl-card h2{font-size:26px;margin:0}
+.pl-card p{margin:0;color:var(--muted);font-size:14.5px}
+.pl-card .pl-best{font-size:13px;color:var(--muted)}
+.pl-card .pl-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
+@container site (max-width:900px){ .pl-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@container site (max-width:600px){ .pl-grid{grid-template-columns:1fr;gap:14px} .pl-hero h1{font-size:38px} .pl-hero .wrap{padding-block:96px 26px} .pl-card .pl-acts .btn{flex:1;justify-content:center;min-height:44px} }
+
 /* sticky bars sit under the live header, whatever its height */
 .filters,.tabs{top:var(--navh,72px)!important}
 .choose2__photo{top:calc(var(--navh,72px) + 20px)}
@@ -1470,6 +1515,8 @@ transparent
         </div></div>
         <div class="wrap" id="groups" style="padding-block:10px 60px"></div>
       </section>
+
+      <section data-screen="p" hidden><div id="places"></div></section>
 
       <!-- 3 & 4 · the trip, in its own world -->
       <section data-screen="3" hidden><div id="world" class="world"></div></section>
@@ -1694,11 +1741,11 @@ const CLOCK = `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle c
 const state={place:"all",len:"all",priv:false,pickup:false};
 const vp=$("#vp");
 
-const card=t=>`<button type="button" class="card${t.id===lastViewed?" card--hl":""}" data-trip="${t.id}">
+const card=t=>`<div class="lcfw"><button type="button" class="card${t.id===lastViewed?" card--hl":""}" data-trip="${t.id}">
   <img src="${IMG[t.k]}" alt=""><div class="card__b"><span class="card__loc">${esc(t.loc)}</span><h3>${esc(t.t)}</h3>
   <div class="facts"><span class="fact fact--time">${CLOCK}${esc(t.time)}</span>${t.facts.map(f=>`<span class="fact">${esc(f)}</span>`).join("")}</div>
-  <div class="card__foot"><span><b>${t.n} options</b> to compare</span><span class="card__go">See options →</span></div></div></button>`;
-const mini=t=>`<button type="button" class="mini${t.id===lastViewed?" mini--hl":""}" data-trip="${t.id}"><img src="${IMG[t.k]}" alt=""><span style="margin:0"><b>${esc(t.t)}</b><span>${esc(t.time)} · <em>${t.n} options</em></span></span></button>`;
+  <div class="card__foot"><span><b>${t.n} options</b> to compare</span><span class="card__go">See options →</span></div></div></button>${favTrip(t)}</div>`;
+const mini=t=>`<div class="lcfw"><button type="button" class="mini${t.id===lastViewed?" mini--hl":""}" data-trip="${t.id}"><img src="${IMG[t.k]}" alt=""><span style="margin:0"><b>${esc(t.t)}</b><span>${esc(t.time)} · <em>${t.n} options</em></span></span></button>${favTrip(t)}</div>`;
 
 function renderHome(){
   $("#ch-index").innerHTML=CHAPTERS.map((c,i)=>`<li><a href="#ch-${i+1}"><b>${c.n}</b><span>${c.name}</span><small>${c.trips.length} trips</small></a></li>`).join("");
@@ -1895,7 +1942,7 @@ function renderWorld(id){
     ${isTomb?`<p class="hint">✦ Move your torch across the wall</p>`:""}
     <div class="wtxt"><p class="eyebrow">${W.eyebrow.split(" · ").map((p,i)=>`<span class="ep${i>1?" ep--x":""}">${i?" · ":""}${esc(p)}</span>`).join("")}</p><h1>${words(W.title)}</h1><p class="lead">${esc(W.lead)}</p>${W.quote?`<p class="wq">${esc(W.quote)}</p>`:""}
       <div class="wchips">${W.chips.map(c=>`<span>${esc(c)}</span>`).join("")}</div>
-      <div class="wacts"><a class="btn btn--gold" href="#wchoose" data-wjump="wchoose">Book this trip</a><a class="btn btn--ghost-light" href="#wjourney" data-wjump="wjourney">${esc(W.go)} ↓</a></div></div></section>`;
+      <div class="wacts"><a class="btn btn--gold" href="#wchoose" data-wjump="wchoose">Book this trip</a>${favTrip(TRIPS.find(t=>t.id===current),true)}<a class="btn btn--ghost-light" href="#wjourney" data-wjump="wjourney">${esc(W.go)} ↓</a></div></div></section>`;
   const layers = W.steps.map((s,i)=> s.video ? `<video class="jv ${i?"":"on"}" data-j="${i}" muted loop playsinline preload="none" poster="${IMG[W.photo]}" data-jsrc="${s.video}"></video>` : s.img ? `<img class="${i?"":"on"}" data-j="${i}" src="${IMG[s.img]}" alt="">`
       : s.wall ? `<div class="jlayer ${i?"":"on"}" data-j="${i}" style="background:#0c0a07">${wallHTML(30).replace('class="wall"','class="wall" style="opacity:.25"')}</div>`
       : `<div class="jlayer jtone jtone--${s.tone||"warm"} ${i?"":"on"}" data-j="${i}">${W.fx==="tomb"?wallHTML(30).replace('class="wall"','class="wall" style="opacity:.16"'):""}</div>`).join("");
@@ -2239,6 +2286,28 @@ const _lazyVideos=lazyVideos; lazyVideos=function(scope){ _lazyVideos(scope); vi
   }
 })();
 
+// saved trips and places: kept in this browser only
+(function(){
+  const KEY="er-proto-saved"; let saved=[]; try{ saved=JSON.parse(localStorage.getItem(KEY)||"[]"); }catch(e){}
+  const store=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){} };
+  const HEART='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.8 3.5 4.5 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg>';
+  const has=id=>saved.some(x=>x.id===id);
+  const badge=()=>{ document.querySelectorAll("[data-fav-count]").forEach(b=>{ const t=String(saved.length||""); if(b.textContent!==t) b.textContent=t; }); };
+  const paintAll=()=>{ document.querySelectorAll("[data-fav]").forEach(b=>{ const on=has(b.dataset.fav); b.setAttribute("aria-pressed",String(on)); b.setAttribute("aria-label",(on?"Remove from saved: ":"Save: ")+b.dataset.favTitle); if(b.classList.contains("lcf--txt")){ const t=on?" Saved":" Save"; if(b.lastChild.textContent!==t) b.lastChild.textContent=t; } }); badge(); };
+  const list=document.querySelector("#lc-ov [data-saved-list]");
+  const drawList=()=>{ if(!list) return; if(!saved.length){ list.innerHTML=`<div class="drawer__empty"><svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg><p>Tap the heart on any trip or place to keep it here while you plan.</p><a class="btn btn--dark btn--sm" href="#" data-close data-go="2">Browse trips</a></div>`; return; }
+    list.innerHTML=""; saved.forEach(x=>{ const r=document.createElement("div"); r.className="lcs-item"; r.innerHTML=`<img src="${x.img}" alt=""><button type="button" class="lcs-open"><b>${x.title}</b><small>${x.meta}</small></button><button type="button" class="lcf" data-fav="${x.id}" data-fav-title="${x.title}" aria-pressed="true">${HEART}</button>`;
+      r.querySelector(".lcs-open").addEventListener("click",()=>{ window.lcClose(); window.lcOpenSaved&&lcOpenSaved(x.id); }); list.appendChild(r); });
+    const n=document.createElement("p"); n.className="lcs-note"; n.textContent="Saved in this browser only."; list.appendChild(n); };
+  window.lcFavBtn=(item,txt)=>`<button type="button" class="lcf${txt?" lcf--txt":""}" data-fav="${item.id}" data-fav-title="${item.title.replace(/"/g,"&quot;")}" data-fav-item='${JSON.stringify(item).replace(/'/g,"&#39;")}' aria-pressed="${has(item.id)}">${HEART}${txt?"<span> Save</span>":""}</button>`;
+  window.lcFavPaint=paintAll;
+  document.addEventListener("click",e=>{ const b=e.target.closest("[data-fav]"); if(!b) return; e.preventDefault(); e.stopPropagation();
+    const id=b.dataset.fav; if(has(id)){ saved=saved.filter(x=>x.id!==id); lcToast("Removed from saved"); } else { let it={}; try{ it=JSON.parse(b.dataset.favItem||"{}"); }catch(_){} if(!it.id) return; saved.unshift(it); lcToast(`Saved “${it.title}”. Find it under ♡ at the top.`); }
+    store(); paintAll(); drawList(); }, true);
+  document.addEventListener("click",e=>{ if(e.target.closest('.lc [data-open="saved"]')) setTimeout(drawList,0); }, true);
+  new MutationObserver(ms=>{ if(ms.some(m=>[...m.addedNodes].some(n=>n.nodeType===1&&(n.matches?.("[data-fav]")||n.querySelector?.("[data-fav]"))))) paintAll(); }).observe(document.getElementById("vp"),{childList:true,subtree:true});
+  paintAll(); drawList();
+})();
 // assistant welcome: start from a place
 (function(){ const w=document.querySelector("#lc-ov .assistant__welcome"); if(!w) return; const ch=document.createElement("div"); ch.className="lca-chips";
   ["Cairo & Giza","Luxor","Aswan","Alexandria","Red Sea","Western Desert"].forEach(p=>{ const b=document.createElement("button"); b.type="button"; b.textContent=p; b.addEventListener("click",()=>{ const i=document.querySelector("#lc-ov .assistant__form input"); i.value=p; i.form.requestSubmit(); }); ch.appendChild(b); }); w.appendChild(ch); })();
@@ -2259,13 +2328,28 @@ document.addEventListener("click",e=>{ const as=document.querySelector("#lc-ov #
   dst.addEventListener("click",e=>{ e.preventDefault(); e.stopPropagation(); window.lcClose(); src.click(); }, true); })();
 
 window.LC_TOP=false;
+const favTrip=(t,txt)=>t&&window.lcFavBtn?lcFavBtn({id:"trip:"+t.id,title:t.t,meta:`${t.place} · ${t.time} · ${t.n} options`,img:IMG[t.k]},txt):"";
+window.lcOpenSaved=id=>{ const [k,v]=id.split(":"); if(k==="trip"){ if(WORLDS[v]){ current=v; lastViewed=v; go(3); } else go(2); } else if(k==="place"){ lcPlace(DESTS[v].place); } };
+function showPlaces(){
+  $$("[data-screen]").forEach(x=>x.hidden=x.dataset.screen!=="p"); $$(".steps button").forEach(b=>b.removeAttribute("aria-current"));
+  $("#url").textContent="egyptroamer.com/destinations/"; $("#nav-exp").removeAttribute("aria-current");
+  document.querySelectorAll('#vp .nav__links a').forEach(a=>a.toggleAttribute("aria-current",/destinations/.test(a.dataset.href||"")));
+  $("#hdr-cta").innerHTML='Choose a trip <span class="arr">→</span>'; $("#hdr-cta").dataset.go="2"; $("#hdr-cta").dataset.wjump="";
+  const n=pl=>TRIPS.filter(t=>t.place===pl).length;
+  $("#places").innerHTML=`<div class="pl-hero"><img src="${IMG.sc_nile}" alt=""><div class="wrap"><p class="eyebrow">Places</p><h1>Seven places. <i>Seven different Egypts.</i></h1><p>From Cairo's thousand minarets to the silence of Siwa, every region tells its own chapter. Choose a place to read about it, or go straight to its trips.</p></div></div>
+    <div class="wrap pl-grid">${Object.entries(DESTS).map(([id,d])=>`<article class="pl-card"><img src="${IMG["d_"+id]}" alt=""><div><small>${esc(d.region)}</small><h2>${esc(d.name)}</h2><p>${esc(d.tag)}</p><span class="pl-best">Best time ${esc(d.best)}</span>
+      <div class="pl-acts">${window.lcFavBtn?lcFavBtn({id:"place:"+id,title:d.name,meta:`${d.region} · Best time ${d.best}`,img:IMG["d_"+id]}):""}<a class="btn btn--gold btn--sm" href="#" data-place="${esc(d.place)}">${n(d.place)} ${n(d.place)===1?"trip":"trips"} →</a><button type="button" class="btn btn--line btn--sm" data-guide="${esc(d.name)}">Read about ${esc(d.name)}</button></div></div></article>`).join("")}</div>`;
+  vp.scrollTo({top:0,behavior:"auto"}); window.lcPaint&&lcPaint();
+}
+document.addEventListener("click",e=>{ const g=e.target.closest("[data-guide]"); if(g){ e.preventDefault(); lcToast(`Prototype: on the site this opens the ${g.dataset.guide} page: what it is, when to go, where to stay and its trips.`); } });
 window.lcPlace=pl=>{ go(2); const b=document.querySelector(`[data-fplace="${pl}"]`); b&&b.click(); };
 window.lcIndex=()=>TRIPS.map(t=>({t:t.t+" "+(t.place||"")+" "+(t.dest||""),card:{img:IMG[t.k],title:esc(t.t),meta:`${esc(t.place||"")} · ${esc(t.time)} · ${t.n} options`,cta:WORLDS[t.id]?"See the trip":"See trips"},run:()=>{ if(WORLDS[t.id]){ current=t.id; lastViewed=t.id; go(3);} else go(2); }}));
 window.lcRoute=(href,a)=>{
   const p=href.replace("https://egyptroamer.com","");
   const exp=p.match(/^\/experiences\/([^/]+)\//); if(exp){ const id=Object.keys(WORLDS).find(k=>WORLDS[k].url===exp[1]); if(id){ current=id; lastViewed=id; go(3); return; } }
   const dst=p.match(/^\/destinations\/([^/]+)\//); if(dst){ const pl=LPLACE[dst[1]]; go(2); if(pl){ const b=document.querySelector(`[data-fplace="${pl}"]`); b&&b.click(); } return; }
-  if(/^\/experiences\/?$|^\/destinations\/?$/.test(p)){ go(2); return; }
+  if(/^\/destinations\/?$/.test(p)){ showPlaces(); return; }
+  if(/^\/experiences\/?$/.test(p)){ go(2); return; }
   if(p==="/"||p===""){ go(1); return; }
   lcToast("Prototype: on the site this opens "+p);
 };

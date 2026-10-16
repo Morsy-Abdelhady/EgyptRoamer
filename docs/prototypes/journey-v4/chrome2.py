@@ -75,6 +75,32 @@ CSS = CH.css() + '''
 .lc .assistant__log{flex:1 1 auto!important;min-height:140px;overflow-y:auto!important}
 .lc .assistant__foot{flex:none}
 .lc .assistant.is-chat .assistant__form,.lc .assistant.is-chat .assistant__foot > .assistant__note{display:none!important}
+/* team chat: the form takes the whole panel and scrolls, so "Start chat" and "Cancel" are always reachable */
+.lc .assistant.is-chat .assistant__log{display:none!important}
+.lc .assistant.is-chat .assistant__foot{flex:1 1 auto!important;min-height:0;overflow-y:auto!important;border-top:0!important}
+.lc .assistant__foot{max-height:75%;overflow-y:auto}
+/* ---------- saved trips and places (owner, 17 Oct: "what is the heart for if I cannot save a trip?") ---------- */
+.lcf{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(16,24,32,.15);background:rgba(255,255,255,.92);color:#101820;cursor:pointer;padding:0;transition:transform .15s}
+.lcf svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+.lcf[aria-pressed="true"]{color:#c0392b;border-color:rgba(192,57,43,.35)}
+.lcf[aria-pressed="true"] svg{fill:currentColor}
+.lcf:active{transform:scale(.9)}
+.lcfw{position:relative;display:flex;min-width:0}
+.lcfw > .card,.lcfw > .mini{flex:1;min-width:0}
+.lcfw > .lcf{position:absolute;top:10px;right:10px;z-index:3}
+.lcfw > .mini + .lcf{top:50%;transform:translateY(-50%);right:8px;width:34px;height:34px}
+.lcf--txt{width:auto;padding:0 16px;gap:8px;grid-auto-flow:column;font:600 14px/1 var(--font-sans,Inter,sans-serif);border-radius:999px;height:44px}
+.lc .lcs-item{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:12px;align-items:center;background:#fff;border:1px solid rgba(16,24,32,.1);border-radius:14px;padding:8px}
+.lc .lcs-item img{width:72px;height:56px;object-fit:cover;border-radius:10px}
+.lc .lcs-item b{display:block;font:600 15px/1.25 var(--font-serif,Georgia,serif);color:#101820}
+.lc .lcs-item small{display:block;font-size:12.5px;color:#4e555c;margin-top:3px}
+.lc .lcs-item button.lcs-open{all:unset;cursor:pointer;display:block;min-width:0}
+.lc .lcs-note{font-size:13px;color:#4e555c;margin:4px 0 0}
+.lc .icon-btn__badge:empty{display:none}
+.lc .icon-btn__badge:not(:empty){transform:scale(1)!important}
+.lcf--txt{display:inline-flex!important;align-items:center;justify-content:center}
+/* footer logo: a signature, not a banner (owner, 17 Oct: "the logo is huge") */
+.lc .footer__logo{width:min(100%,260px)!important}
 /* search: the prototype's trips first, then places; the list scrolls inside the panel */
 .lc .search__results{max-height:min(70cqh,560px);overflow-y:auto}
 .lc .lcs-trips .search__item{display:flex;gap:12px;align-items:center}
@@ -124,6 +150,28 @@ JS = JS[:i] + r'''  const PLACES=["Cairo & Giza","Luxor","Aswan","Alexandria","R
     log.append(me,box); log.scrollTop=log.scrollHeight; };''' + JS[e:]
 # the menu's main button mirrors the header's main button
 JS += r'''
+// saved trips and places: kept in this browser only
+(function(){
+  const KEY="er-proto-saved"; let saved=[]; try{ saved=JSON.parse(localStorage.getItem(KEY)||"[]"); }catch(e){}
+  const store=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){} };
+  const HEART='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.8 3.5 4.5 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg>';
+  const has=id=>saved.some(x=>x.id===id);
+  const badge=()=>{ document.querySelectorAll("[data-fav-count]").forEach(b=>{ const t=String(saved.length||""); if(b.textContent!==t) b.textContent=t; }); };
+  const paintAll=()=>{ document.querySelectorAll("[data-fav]").forEach(b=>{ const on=has(b.dataset.fav); b.setAttribute("aria-pressed",String(on)); b.setAttribute("aria-label",(on?"Remove from saved: ":"Save: ")+b.dataset.favTitle); if(b.classList.contains("lcf--txt")){ const t=on?" Saved":" Save"; if(b.lastChild.textContent!==t) b.lastChild.textContent=t; } }); badge(); };
+  const list=document.querySelector("#lc-ov [data-saved-list]");
+  const drawList=()=>{ if(!list) return; if(!saved.length){ list.innerHTML=`<div class="drawer__empty"><svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg><p>Tap the heart on any trip or place to keep it here while you plan.</p><a class="btn btn--dark btn--sm" href="#" data-close data-go="2">Browse trips</a></div>`; return; }
+    list.innerHTML=""; saved.forEach(x=>{ const r=document.createElement("div"); r.className="lcs-item"; r.innerHTML=`<img src="${x.img}" alt=""><button type="button" class="lcs-open"><b>${x.title}</b><small>${x.meta}</small></button><button type="button" class="lcf" data-fav="${x.id}" data-fav-title="${x.title}" aria-pressed="true">${HEART}</button>`;
+      r.querySelector(".lcs-open").addEventListener("click",()=>{ window.lcClose(); window.lcOpenSaved&&lcOpenSaved(x.id); }); list.appendChild(r); });
+    const n=document.createElement("p"); n.className="lcs-note"; n.textContent="Saved in this browser only."; list.appendChild(n); };
+  window.lcFavBtn=(item,txt)=>`<button type="button" class="lcf${txt?" lcf--txt":""}" data-fav="${item.id}" data-fav-title="${item.title.replace(/"/g,"&quot;")}" data-fav-item='${JSON.stringify(item).replace(/'/g,"&#39;")}' aria-pressed="${has(item.id)}">${HEART}${txt?"<span> Save</span>":""}</button>`;
+  window.lcFavPaint=paintAll;
+  document.addEventListener("click",e=>{ const b=e.target.closest("[data-fav]"); if(!b) return; e.preventDefault(); e.stopPropagation();
+    const id=b.dataset.fav; if(has(id)){ saved=saved.filter(x=>x.id!==id); lcToast("Removed from saved"); } else { let it={}; try{ it=JSON.parse(b.dataset.favItem||"{}"); }catch(_){} if(!it.id) return; saved.unshift(it); lcToast(`Saved “${it.title}”. Find it under ♡ at the top.`); }
+    store(); paintAll(); drawList(); }, true);
+  document.addEventListener("click",e=>{ if(e.target.closest('.lc [data-open="saved"]')) setTimeout(drawList,0); }, true);
+  new MutationObserver(ms=>{ if(ms.some(m=>[...m.addedNodes].some(n=>n.nodeType===1&&(n.matches?.("[data-fav]")||n.querySelector?.("[data-fav]"))))) paintAll(); }).observe(document.getElementById("vp"),{childList:true,subtree:true});
+  paintAll(); drawList();
+})();
 // assistant welcome: start from a place
 (function(){ const w=document.querySelector("#lc-ov .assistant__welcome"); if(!w) return; const ch=document.createElement("div"); ch.className="lca-chips";
   ["Cairo & Giza","Luxor","Aswan","Alexandria","Red Sea","Western Desert"].forEach(p=>{ const b=document.createElement("button"); b.type="button"; b.textContent=p; b.addEventListener("click",()=>{ const i=document.querySelector("#lc-ov .assistant__form input"); i.value=p; i.form.requestSubmit(); }); ch.appendChild(b); }); w.appendChild(ch); })();
@@ -158,4 +206,4 @@ def css():
     return CSS
 
 # every replacement above must have landed
-assert 'setNavB' in JS and 'Close menu' in JS and 'b.dataset.icon' in JS and 'lca-card' in JS
+assert 'setNavB' in JS and 'lcFavBtn' in JS and 'Close menu' in JS and 'b.dataset.icon' in JS and 'lca-card' in JS
