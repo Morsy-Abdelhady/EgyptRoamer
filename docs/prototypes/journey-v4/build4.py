@@ -11,7 +11,8 @@ VP = load('vp', 'v4-video-patches.py')   # video placements
 IM = load('im', 'v4-improve.py')         # first round of improvements
 F2 = load('f2', 'v4-fix2.py')            # second review fixes
 MB = load('mb', 'v4-mobile.py')          # phone version
-R4 = load('r4', 'v4-round4.py')          # per-section video controls, booking bar
+R4 = load('r4', 'v4-round4.py')
+R5 = load('r5', 'v4-round5.py')            # review fixes and the live chrome          # per-section video controls, booking bar
 LV = load('lv', 'v4-live.py')            # live site's Find your Egypt + map
 CAP = json.load(open('live/live-sections.json', encoding='utf-8'))
 
@@ -58,6 +59,7 @@ tpl = (head + '<style>' + css + '</style>\n' + body + '\n<script>\n' + js + '\n'
 tpl = MB.apply(tpl)
 tpl = LV.apply(tpl, CAP)
 tpl = R4.apply(tpl)
+tpl = R5.apply(tpl)
 open('v4.template.html', 'w', encoding='utf-8', newline='\n').write(tpl)
 
 imgs = json.load(open('imgs6.json'))

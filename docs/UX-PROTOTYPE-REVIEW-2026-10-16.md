@@ -73,3 +73,23 @@ All of these exist on the live site and must be in the approved design before ro
 1. Fix A1–A10 and apply suggestions 1–4, 6 and 7 in the prototypes.
 2. Show them again on desktop, tablet and phone, in English and Arabic.
 3. Suggestions 5, 8, 9 and 10 are the owner's choice.
+
+## Fixes applied (16 Oct, owner: "fix the ten problems and suggestions 1–4, 6 and 7")
+Both prototypes were republished. They were checked at 1440 px, 840 px and 390 px, and in Arabic (RTL). There is no sideways scroll and no script errors.
+
+- **A1, A2, suggestion 1:** the live site's chrome is now in both prototypes.
+  - It is captured by `chrome-capture.mjs` and placed by `chrome.py`: header (search, ♡ saved, language menu, Plan My Trip), the ☰ menu at tablet and phone widths, the search overlay, the saved drawer, the Trip assistant and the footer.
+  - The live CSS applies only to the chrome, never to the prototype's own elements.
+  - Search filters the live list. The assistant answers from the live page list plus the prototype's own trips and guides. Footer forms send nothing.
+- **Suggestion 2:** the language menu works.
+  - Arabic turns the page right-to-left. The prototype's text stays English, and a note says so.
+- **A3:** on tablet and phone the booking photo is a 16:7 banner.
+- **A4:** two columns of trip cards on tablet.
+- **A5, A10, suggestion 4:**
+  - in trips, a solid bottom booking bar on tablet and phone, with room left under the page;
+  - in guides, the bottom bar also shows on tablet;
+  - the assistant button moves up while a bar is on screen.
+- **A6, suggestion 7:** on phones the trip opener shows the place only, and the booking buttons come before the long text.
+- **A7, suggestion 6:** touch targets of at least 44 px on phones, including the breadcrumbs, section tabs and links. The video buttons are 40 px with a larger hit area.
+- **A8:** no label under 11 px.
+- **A9:** the guide summary is never cut.
