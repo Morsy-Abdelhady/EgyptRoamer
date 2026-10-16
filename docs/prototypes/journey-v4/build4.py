@@ -1,7 +1,15 @@
 import re, json
 import importlib.util
-_sp = importlib.util.spec_from_file_location('vp', 'v4-video-patches.py'); VP = importlib.util.module_from_spec(_sp); _sp.loader.exec_module(VP)
-_si = importlib.util.spec_from_file_location('im', 'v4-improve.py'); IM = importlib.util.module_from_spec(_si); _si.loader.exec_module(IM)
+
+def load(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+VP = load('vp', 'v4-video-patches.py')   # video placements
+IM = load('im', 'v4-improve.py')         # first round of improvements
+F2 = load('f2', 'v4-fix2.py')            # second review fixes
 
 body = open('v2-body.html', encoding='utf-8').read()
 body = body.replace('الاقتراح التاني: القصة + الحجز الواضح<small>نسخة الكمبيوتر · نموذج للاعتماد · المحتوى حقيقي من الموقع</small>',
@@ -28,23 +36,27 @@ for x, y in reps:
     js = js.replace(x, y)
 js, body = VP.patch_home(js, body)
 js, body = IM.home(js, body)
-js = js[:js.index('let step=1;')] + open('v4-nav.js', encoding='utf-8').read()
+js, body = F2.home(js, body)
+js = js[:js.index('let step=1;')] + F2.nav(open('v4-nav.js', encoding='utf-8').read())
 
 v2 = open('journey-story.template.html', encoding='utf-8').read()
 head = v2[:v2.index('<style>')].replace('<title>Egypt Roamer Story Journey</title>', '<title>Egypt Roamer Story Worlds</title>')
 head = head.replace('family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap', 'family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Sans+Egyptian+Hieroglyphs&display=swap')
-css = v2[v2.index('<style>') + 7:v2.index('</style>')] + open('v4-worlds.css', encoding='utf-8').read() + VP.EXTRA_CSS + IM.CSS
+css = v2[v2.index('<style>') + 7:v2.index('</style>')] + open('v4-worlds.css', encoding='utf-8').read() + VP.EXTRA_CSS + IM.CSS + F2.CSS
 clock = re.search(r'const CLOCK = `([\s\S]*?)`;', v2).group(1)
 js = js.replace('{{clock}}', clock)
-tpl = head + '<style>' + css + '</style>\n' + body + '\n<script>\n' + js + '\n' + IM.worlds(VP.patch_worlds(open('v4-worlds.js', encoding='utf-8').read())) + '\n' + open('v4-worlds-more.js', encoding='utf-8').read() + '\nrenderHome(); lazyVideos(document); creditsAsInfo(document); videoSwitch(); go(1);\n</script>\n'
+worlds = F2.worlds(IM.worlds(VP.patch_worlds(open('v4-worlds.js', encoding='utf-8').read())))
+more = F2.more(open('v4-worlds-more.js', encoding='utf-8').read())
+tpl = (head + '<style>' + css + '</style>\n' + body + '\n<script>\n' + js + '\n' + worlds + '\n' + more
+       + '\nrenderHome(); lazyVideos(document); creditsAsInfo(document); videoSwitch(); go(1);\n</script>\n')
 open('v4.template.html', 'w', encoding='utf-8', newline='\n').write(tpl)
 
 imgs = json.load(open('imgs6.json'))
 imgs.update({k: v for k, v in json.load(open('imgs3.json')).items() if k in ('sea_l', 'desert_l', 'nile_l')})
-keys = set(imgs)
-used = {k for k in keys if re.search(r'["\'.\[ ]' + k + r'["\'\]]', tpl) or ('"' + k + '"') in tpl or ('m_' in k) or ('d_' in k)}
+# keep every image the page names: "key", IMG.key, IMG["key"], and "img:key|caption"
+used = {k for k in imgs if re.search(r'(["\'.\[ ]|img:)' + re.escape(k) + r'(["\'\]|])', tpl) or k.startswith(('m_', 'd_'))}
 imgs = {k: v for k, v in imgs.items() if k in used}
 out = tpl.replace('{{imgmap}}', json.dumps(imgs))
 assert '{{' not in out, out[out.index('{{') - 60:out.index('{{') + 40]
 open('journey-v4.html', 'w', encoding='utf-8', newline='\n').write(out)
-print(round(len(out) / 1024), 'KB', len(imgs), 'images:', sorted(imgs))
+print(round(len(out) / 1024), 'KB', len(imgs), 'images')

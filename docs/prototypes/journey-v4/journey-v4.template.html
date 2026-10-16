@@ -478,6 +478,29 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
 .wmore .mini{background:rgba(255,255,255,.96)}
 .wmore__all{color:var(--wc);font-weight:600;font-size:14px}
 @media (max-width:900px){.wfaq,.wmore{padding-inline:18px}}
+
+/* ---------- second review, 16 Oct ---------- */
+.vswitch{position:static!important;float:none!important;margin:0!important;background:transparent!important;border:1px solid rgba(255,255,255,.25)!important;padding:7px 12px!important;font-size:12px!important;backdrop-filter:none!important}
+.hdr .wrap{gap:18px}
+.jtone{background:radial-gradient(ellipse at 70% 30%,color-mix(in srgb,var(--wc) 26%,transparent),transparent 60%),linear-gradient(160deg,color-mix(in srgb,var(--wbg) 70%,#2a2016),var(--wbg))}
+.jtone--night{background:radial-gradient(ellipse at 60% 10%,rgba(80,100,170,.35),transparent 60%),linear-gradient(180deg,#0b1020,var(--wbg))}
+.jtone--dark{background:radial-gradient(ellipse at 30% 70%,color-mix(in srgb,var(--wc) 14%,transparent),transparent 55%),var(--wbg)}
+.jtone .wall{color:var(--wc)}
+.wopen{height:auto!important;min-height:max(560px,calc(min(80vh,880px) - 68px));display:flex;align-items:flex-end}
+.wtxt{position:relative!important;inset:auto!important;bottom:auto!important;padding:96px 56px 30px;max-width:720px}
+.wtxt .lead{font-size:16px!important;margin:0 0 12px!important}
+.wq{margin:0 0 12px!important;font-size:18px!important}
+.wacts{margin-top:14px!important}
+.wtxt h1{margin:8px 0 12px!important}
+.wtxt h1{font-size:54px!important}
+.hero .eyebrow,.ch__n,.wtxt .eyebrow{text-shadow:0 1px 10px rgba(0,0,0,.6)}
+.hero::after{background:linear-gradient(90deg,rgba(16,24,32,.55),transparent 60%),linear-gradient(180deg,rgba(16,24,32,.35) 0%,rgba(16,24,32,.15) 35%,rgba(16,24,32,.82) 100%)!important}
+.dcard::after{background:linear-gradient(180deg,rgba(16,24,32,.05) 15%,rgba(16,24,32,.92) 70%)!important}
+.dcard small{color:#f1d7a6!important;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.moods2__word{font-size:64px}
+.moods2__word span{font-style:italic;color:var(--sand)}
+.wopt.is-opened{border-color:#7fd1c7!important;background:rgba(15,107,122,.18)!important}
+@media (max-width:900px){.wtxt{padding:100px 18px 36px}.wtxt h1{font-size:40px!important}}
 </style>
 <header class="pbar">
   <div class="pbar__in">
@@ -500,7 +523,7 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
       <header class="hdr" id="hdr"><div class="wrap">
         <a class="logo" href="#" data-go="1"><b>EGYPT ROAMER</b><small>MORE THAN A DESTINATION</small></a>
         <nav><a href="#" data-go="2">Destinations</a><a href="#" data-go="2" id="nav-exp">Experiences</a><a href="#">Travel Guide</a></nav>
-        <a class="btn btn--gold btn--sm" href="#" id="hdr-cta" data-go="2">Choose a trip <span class="arr">→</span></a>
+        <button type="button" class="vswitch" id="vswitch" aria-pressed="true"></button><a class="btn btn--gold btn--sm" href="#" id="hdr-cta" data-go="2">Choose a trip <span class="arr">→</span></a>
       </div></header>
 
       <!-- 1 · Arrive: the story, and each chapter ends in its trips -->
@@ -539,7 +562,7 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
             <div class="moods2__head"><p class="eyebrow">Find your Egypt</p><h2>What kind of Egypt <br>are you looking for?</h2></div>
             <div class="moods2__tabs" role="tablist" aria-label="Travel moods" id="mood-tabs"></div>
             <div class="moods2__body">
-              <div><p class="moods2__word">An Egypt <span id="mood-word"></span></p><p class="moods2__desc" id="mood-desc"></p>
+              <div><p class="moods2__word"><span id="mood-word"></span></p><p class="moods2__desc" id="mood-desc"></p>
                 <p class="moods2__where" id="mood-where"></p></div>
               <div class="moods2__trips" id="mood-trips"></div>
             </div>
@@ -575,7 +598,6 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
 
       <footer class="ftr"><div class="wrap">Egypt Roamer · Prototype for approval · Partner photos on the live site come from Viator's API; this prototype uses our approved photos in their place.</div></footer>
       <div class="toast" id="toast" hidden></div>
-      <button type="button" class="vswitch" id="vswitch" aria-pressed="true"></button>
     </div>
   </div>
 
@@ -715,7 +737,7 @@ function mood(i){
   const [id,label,desc,dest]=MOODS[i], d=DESTS[dest], trips=TRIPS.filter(t=>t.dest===dest);
   const mv=MOOD_VIDEO[id], v=$("#mood-vid"); if(mv){ v.dataset.src=mv[0]; v.hidden=false; if(v.getAttribute("src")){ if(v.getAttribute("src")!==mv[0]) v.src=mv[0]; if(!VIDEOS_OFF) v.play().catch(()=>{}); } $("#mood-credit").dataset.tip=mv[1]; $("#mood-credit").setAttribute("aria-label","Video credit: "+mv[1]); $("#mood-credit").textContent="i"; $("#mood-credit").tabIndex=0; $("#mood-credit").hidden=false; } else { v.pause(); v.hidden=true; $("#mood-credit").hidden=true; }
   $$("#mood-tabs button").forEach((b,j)=>b.setAttribute("aria-selected",String(i===j)));
-  $("#mood-bg").src=IMG["m_"+id]; $("#mood-word").textContent=label; $("#mood-desc").textContent=desc;
+  $("#mood-bg").src=IMG["m_"+id]; $("#mood-word").textContent=label; $("#mood-desc").textContent="An Egypt "+desc.charAt(0).toLowerCase()+desc.slice(1);
   $("#mood-where").innerHTML=`<small style="letter-spacing:.18em;text-transform:uppercase;font-size:11px;opacity:.75">Where to go</small><b>${esc(d.name)} — ${esc(d.tag)}</b>${esc(d.region)} · Best ${esc(d.best)}`;
   $("#mood-trips").innerHTML=trips.map(mini).join("")+`<a href="#" class="moods2__more" data-place="${esc(d.place)}">All ${esc(d.place)} trips →</a>`;
 }
@@ -749,6 +771,7 @@ function go(n,opts={}){
 function book(spec,silent){
   const [partner,name]=spec.split("|");
   $("#wdone").hidden=false; $("#wdone-b").textContent=`${partner} opened in a new tab`; $("#wdone-p").textContent=`“${name}”`;
+  document.querySelectorAll("#wchoose [data-wbook]").forEach(b=>{const on=b.dataset.wbook===spec; b.closest(".wopt")?.classList.toggle("is-opened",on); if(on){b.dataset.label=b.dataset.label||b.innerHTML; b.innerHTML="Opened ✓";} else if(b.dataset.label){b.innerHTML=b.dataset.label;} });
   if(!silent) toast(`Prototype: here ${partner} would open in a new tab`);
   step=4; $$(".steps button").forEach(b=>b.removeAttribute("aria-current")); $('.steps button[data-go="4"]').setAttribute("aria-current","step");
   $$("[data-note]").forEach(x=>x.hidden=x.dataset.note!="4"); $("#nextb").textContent="من الأول";
@@ -862,7 +885,7 @@ function renderWorld(id){
   const W=WORLDS[id]; const isTomb=W.fx==="tomb";
   const bg = W.video ? `<video muted loop playsinline preload="none" poster="${IMG[W.photo]}" data-src="${W.video}"></video>` : `<img class="${isTomb?"dim":""}" src="${IMG[W.photo]}" alt="">`;
   const open = `<section class="wopen" id="wopen">${bg}
-    ${isTomb?`<div class="wall--dim">${wallHTML(26)}</div><div class="lit" id="lit"><img src="${IMG[W.photo]}" alt="">${wallHTML(26)}</div>`:`<canvas data-fx="${W.fx}"></canvas>`}
+    ${isTomb?`<div class="wall--dim">${wallHTML(26)}</div><div class="lit" id="lit">${W.video?"":`<img src="${IMG[W.photo]}" alt="">`}${wallHTML(26)}</div>`:`<canvas data-fx="${W.fx}"></canvas>`}
     <div class="wshade"></div>${W.video?`<span class="vbadge">${esc(W.vcredit)}</span>`:""}
     ${isTomb?`<p class="hint">✦ Move your torch across the wall</p>`:""}
     <div class="wtxt"><p class="eyebrow">${esc(W.eyebrow)}</p><h1>${words(W.title)}</h1><p class="lead">${esc(W.lead)}</p>${W.quote?`<p class="wq">${esc(W.quote)}</p>`:""}
@@ -870,7 +893,7 @@ function renderWorld(id){
       <div class="wacts"><a class="btn btn--gold" href="#wchoose" data-wjump="wchoose">Book this trip</a><a class="btn btn--ghost-light" href="#wjourney" data-wjump="wjourney">${esc(W.go)} ↓</a></div></div></section>`;
   const layers = W.steps.map((s,i)=> s.video ? `<video class="jv ${i?"":"on"}" data-j="${i}" muted loop playsinline preload="none" poster="${IMG[W.photo]}" data-jsrc="${s.video}"></video>` : s.img ? `<img class="${i?"":"on"}" data-j="${i}" src="${IMG[s.img]}" alt="">`
       : s.wall ? `<div class="jlayer ${i?"":"on"}" data-j="${i}" style="background:#0c0a07">${wallHTML(30).replace('class="wall"','class="wall" style="opacity:.25"')}</div>`
-      : `<div class="jlayer ${i?"":"on"}" data-j="${i}"><img src="${IMG[W.photo]}" alt="" style="width:100%;height:100%;object-fit:cover;filter:blur(14px) ${s.tone==="night"?"brightness(.4) saturate(.6) hue-rotate(-15deg)":s.tone==="dark"?"brightness(.45) saturate(.6)":"brightness(.7) saturate(1.1)"};transform:scale(${1.15+i*.1})"></div>`).join("");
+      : `<div class="jlayer jtone jtone--${s.tone||"warm"} ${i?"":"on"}" data-j="${i}">${W.fx==="tomb"?wallHTML(30).replace('class="wall"','class="wall" style="opacity:.16"'):""}</div>`).join("");
   const journey = `<section class="journey2" id="wjourney"><div class="jstage">${layers}${W.fx!=="tomb"?`<canvas data-fx="${W.fx}-j"></canvas>`:""}
       <div class="jhead"><p class="eyebrow">${esc(W.jEyebrow)}</p><h2>${esc(W.jTitle)}</h2><a class="skip" href="#wchoose" data-wjump="wchoose">Skip to booking ↓</a></div>
       <div class="path">${W.steps.map((s,i)=>`<button type="button" class="${i?"":"on"}" data-pjump="${i}">${esc(s.t)}</button>`).join("")}</div></div>
@@ -980,14 +1003,14 @@ Object.assign(WORLDS.nile, {place:"Cairo & Giza", stay:CAIRO_STAY, faq:[
   ["What should I wear?","Smart-casual is fine. Bring a light layer, since it can be cool on the open deck in winter."]]});
 
 Object.assign(WORLDS, {
-  giza: {cls:"w-tomb", fx:"tomb", photo:"giza_camel", video:"video/giza-sunset.mp4", vcredit:"Giza · Video: Peggy Anke, Pexels", url:"pyramids-of-giza-sphinx-private-tour", place:"Cairo & Giza",
+  giza: {cls:"w-tomb", fx:"tomb", photo:"giza_camel", url:"pyramids-of-giza-sphinx-private-tour", place:"Cairo & Giza",
     eyebrow:"Giza · Cairo · Half day", title:"Pyramids of Giza & Sphinx Private Tour",
     lead:"A private tour of the Giza plateau with your own Egyptologist guide and driver. You’ll see the three great pyramids of Khufu, Khafre and Menkaure, the panoramic viewpoint and the Sphinx with its valley temple, at your own pace and without joining a group.",
     quote:"Giza is simple to reach but surprisingly hard to do well.", chips:["Half day","3 options from 2 partners","Private","Pickup offered"], go:"Walk the plateau",
     jEyebrow:"What you actually do", jTitle:"Across the plateau",
     steps:[
-      {t:"The Great Pyramid",p:"Walk around the Great Pyramid, the only surviving Wonder of the Ancient World."},
-      {t:"Khafre and Menkaure",p:"Visit the pyramids of Khafre and Menkaure and the smaller queens’ pyramids."},
+      {t:"The Great Pyramid",p:"Walk around the Great Pyramid, the only surviving Wonder of the Ancient World.",video:"video/giza-sunset.mp4",credit:"Giza · Video: Peggy Anke, Pexels"},
+      {img:"sc_pyr",t:"Khafre and Menkaure",p:"Visit the pyramids of Khafre and Menkaure and the smaller queens’ pyramids."},
       {t:"The panoramic viewpoint",p:"Stop at the panoramic viewpoint for the classic photo of all the pyramids in a row.",video:"video/giza-camels.mp4",credit:"Near the pyramids of Giza · Video: K, Pexels"},
       {t:"The Sphinx",p:"Descend to the Sphinx and walk through the valley temple beside it.",why:"Optionally, go inside one of the pyramids. This needs an extra ticket; the passages are narrow, steep and hot."}],
     sec:{eyebrow:"Before you go",title:"A good guide makes it simple",ps:["The site is large and exposed, the approaches are crowded with touts, and the story behind the monuments doesn’t explain itself. A good guide handles tickets and the route across the plateau, keeps unwanted sellers at a distance, and turns the stones into the history of the Old Kingdom."],

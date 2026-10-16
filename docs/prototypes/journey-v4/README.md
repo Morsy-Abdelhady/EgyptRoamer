@@ -133,3 +133,13 @@ All photos are free Unsplash photos whose location tag names the exact place, re
 - extra videos: Pexels' Luxor and Philae results are Karnak clips by the same creator as the one in use, or have no stated place.
 
 **Active card:** the gold edge is now a box-shadow that follows the card's corners, with no gap (it was an outline with an offset).
+
+## Second full review (16 Oct): defects fixed (`v4-fix2.py`)
+1. **Broken images:** the Grand Egyptian Museum and the Siwa lake were missing. The build's image filter did not see keys written as `img:key|caption`.
+2. **Giza opener:** the camel photo appeared inside the torch light, over a sunset video. The opener is now the photo alone. The sunset video plays in the step "The Great Pyramid", and the approved pyramids photo illustrates "Khafre and Menkaure".
+3. **Steps without their own photo:** they now show a designed panel in the world's colours (carved hieroglyphs in the antiquities world), not a blurred photo.
+4. **The video switch** moved into the header; it used to cover content at the bottom left.
+5. **The opener's buttons** now fit the first screen (the opener height allows for the header).
+6. **Contrast:** stronger shading behind the destination cards' region names and the hero's top line.
+7. **Moods:** the label sits on its own line, followed by "An Egypt of torch-lit tombs…", the site's own words.
+8. **After "Book":** the chosen option is marked and its button reads "Opened ✓".
