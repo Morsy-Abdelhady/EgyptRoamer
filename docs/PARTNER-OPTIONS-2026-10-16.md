@@ -110,3 +110,25 @@ The owner's target is tourists from Europe, Russia and China. Booking.com does n
    - Point to Trip.com (English or Traditional Chinese) and say so honestly.
    - Mainland China has no workable programme for us today.
 3. **Yandex Travel:** revisit for the RU pages after Trip.com, if Egypt hotels and non-resident payouts are confirmed with Yandex support.
+
+## 4. Partner product photos (2026-10-16)
+
+The owner asked for each offer to show its own photo from the partner's product page. Copying photos from partner pages is not allowed:
+- **GetYourGuide's Partner T&Cs:**
+  - No scraping or extracting content from its website.
+  - No copying, storing or caching it.
+  - GYG Platform Content may be displayed only "as provided by GetYourGuide", that is, through its API or widgets.
+- **Viator:** product photos reach affiliates through the Partner API.
+
+**Viator API.** With the owner's approval, Claude accepted the API terms on 2026-10-16 (Tools → API Access → Start your development, six terms):
+- Viator content may be used only to drive affiliate traffic to Viator.com, and only on our own domain.
+- No bidding on the Viator brand in search ads.
+- "Viator unique content" must not be indexed. Per the API docs this means reviews and the viatorUniqueContent element only; photos are not part of it.
+
+The result:
+- A **sandbox key** exists (Basic Access).
+- The **production key** needs the owner's contact details first (Tools → API Access → "Go to contact details"). The owner fills them in.
+- Keys are never read or recorded by Claude.
+
+**GetYourGuide.** The partner portal has no self-serve API. Its Tools are Links and the Activity, City and Availability widgets. Third-party sources describe API access as a gated certification project. The official way to show GYG product photos is the Activity widget, which uses GYG's own design.
+
