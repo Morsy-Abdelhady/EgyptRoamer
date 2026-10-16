@@ -12,8 +12,11 @@ defined( 'ABSPATH' ) || exit;
 
 $er_id       = get_the_ID();
 $er_type     = get_post_type();
-$er_dests    = er_get_related( $er_id, '_er_destination' );
 $er_offers   = er_offers_for_post( $er_id, 6 );
+$er_dests    = er_get_related( $er_id, '_er_destination' );
+// Hotels where it happens (the first destination's hotel offers): a trip needs somewhere to stay (owner, 16 Oct).
+$er_stay     = $er_dests && function_exists( 'er_hotel_offers_for_post' ) ? $er_dests[0] : null;
+$er_hotels   = $er_stay ? er_hotel_offers_for_post( (int) $er_stay->ID, 2 ) : [];
 $er_facts    = array_filter( [
 	er_t( 'Location' )      => (string) get_post_meta( $er_id, '_er_location', true ),
 	er_t( 'Duration' )      => (string) get_post_meta( $er_id, '_er_duration', true ),
@@ -109,6 +112,8 @@ if ( $er_story ) {
 		'parts'   => er_body_parts( er_body()['html'] ),
 		'facts'   => $er_facts,
 		'offers'  => $er_offers,
+		'hotels'  => $er_hotels,
+		'hotels_title' => $er_stay ? er_t( 'Find a hotel in {name}', [ 'name' => get_the_title( $er_stay ) ] ) : '',
 		'help'    => $er_help,
 		'hero'    => [ 'image' => (int) get_post_thumbnail_id(), 'stock' => er_stock_id_for( (int) get_the_ID() ) ],
 		'related' => array_merge( wp_list_pluck( $er_dests, 'ID' ), wp_list_pluck( $er_guides, 'ID' ), wp_list_pluck( $er_alts, 'ID' ), wp_list_pluck( $er_acts, 'ID' ) ),
@@ -205,6 +210,22 @@ if ( $er_offers ) {
 	if ( false !== $er_pos ) {
 		$er_body['html'] = substr_replace( $er_body['html'], $er_box, $er_pos, 0 );
 	}
+}
+
+// Hotels: before the questions at the end of the article (else at its end), at every width.
+if ( $er_hotels ) {
+	ob_start();
+	?>
+	<aside class="offer-box offer-box--inline offer-box--hotels" aria-labelledby="hotels-book-title">
+		<p class="t-label" id="hotels-book-title"><?php echo esc_html( er_t( 'Find a hotel in {name}', [ 'name' => get_the_title( $er_stay ) ] ) ); ?></p>
+		<?php er_offer_rows( $er_hotels, str_replace( 'er_', '', $er_type ) . '-hotels' ); ?>
+		<?php er_disclosure(); ?>
+	</aside>
+	<?php
+	$er_box = (string) ob_get_clean();
+	$er_h   = strpos( $er_body['html'], 'id="faq"' );
+	$er_pos = false !== $er_h ? strrpos( substr( $er_body['html'], 0, $er_h ), '<section class="er-sec">' ) : false;
+	$er_body['html'] = false !== $er_pos ? substr_replace( $er_body['html'], $er_box, $er_pos, 0 ) : $er_body['html'] . $er_box;
 }
 
 ob_start();

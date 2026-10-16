@@ -2,6 +2,13 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.65 — 2026-10-16: hotels on experience pages; the booking bar no longer covers a button
+- **Owner report:** none of the experience pages offered a hotel, and "many UX problems". Checked in the browser at 1366×768 and on a phone.
+- **Hotels on experiences:** the hotel offers of the experience's destination ("Find a hotel in {name}") before the questions at the end of the article, at every width (placement `experience-hotels`). The Abu Simbel story shows them in its closing booking section, after the trips.
+- **Desktop, sidebar:** the centred booking bar sat on the sidebar box's third "Check Availability" button. The bar now steps aside while the sidebar's booking box is on screen, and takes over after the article. The sidebar's offer rows are compact (smaller photo and title, the button beside "via …"), so three offers and the disclosure fit the pinned sidebar.
+- **Phones:** the bar and the dock showed two identical gold "Check Availability" buttons, one above the other. While the bar shows, the dock's gold button gives way.
+- **Footer:** the bar steps aside over the footer, where it covered the newsletter form.
+
 ## 1.2.64 — 2026-10-16: a hotel box on destination pages
 - **Where:** at the end of the destination's "Where to stay" section, where the reader chooses an area. Destinations without that section get it after "How long, and when to go", else at the end of the article. It shows at every width.
 - **What:** up to two live offers in the "Hotels" category for the destination (Core 1.2.44, `er_hotel_offers_for_post()`), labelled "Find a hotel in {name}" in all 8 languages, with the disclosure. Placement `destination-hotels`.

@@ -1590,9 +1590,9 @@
   safe("progress", initScrollProgress);
   safe("affiliate", initAffiliateLinks);
   safe("newsletter", initNewsletter);
-  // Experience booking bar: shown past the first screen, hidden again at the booking box it leads to (the story's
-  // closing section). A box pinned in the sidebar is not a reason to hide it: the bar stays, as the owner asked
-  // for every experience page (15 Oct), and remains after the article, where the sidebar ends.
+  // Booking bar: shown past the first screen (phones: from the first screen), hidden again while the booking box it
+  // leads to is on screen. That includes a box pinned in the sidebar (16 Oct): at 1366x768 the centred bar sat on
+  // the sidebar box's last "Check Availability" button. The bar so takes over once the reader is past the sidebar.
   safe("bookbar", () => {
     const bar = document.querySelector("[data-bookbar]");
     const href = bar?.querySelector("a")?.getAttribute("href") || "";
@@ -1601,7 +1601,14 @@
     // The story pins its hero while the first chapters pass over it, so "past the hero" is read from the scroll.
     let past = false;
     let endIn = false;
-    const update = () => { bar.hidden = !past || endIn; };
+    let footIn = false;
+    // While the bar shows, it is the page's one booking button: on phones the dock's gold button (same label, same
+    // target) gives way, so two identical buttons are not stacked over the page (16 Oct). The bar also steps aside
+    // over the footer, where it covered the newsletter form.
+    const update = () => {
+      bar.hidden = !past || endIn || footIn;
+      document.documentElement.classList.toggle("has-bookbar", !bar.hidden);
+    };
     // Phones show it from the first screen (owner, 15 Oct: opened at the top, the bar was not there); wide screens
     // once the reader is past the first screen.
     const phone = window.matchMedia("(max-width: 900px)");
@@ -1609,8 +1616,21 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     phone.addEventListener?.("change", onScroll);
     onScroll();
-    if (!box.closest(".page-aside") && "IntersectionObserver" in window) {
-      new IntersectionObserver(([e]) => { endIn = e.isIntersecting; update(); }, { threshold: 0.15 }).observe(box);
+    if ("IntersectionObserver" in window) {
+      // A sidebar box is not the bar's target on phones (the sidebar is one column there, after the article).
+      const aside = [...document.querySelectorAll(".page-aside .offer-box")].find((b) => b !== box) || null;
+      const seen = new Map();
+      const io = new IntersectionObserver((es) => {
+        es.forEach((e) => seen.set(e.target, e.isIntersecting && e.target.getClientRects().length > 0));
+        endIn = [...seen.values()].some(Boolean);
+        update();
+      }, { threshold: 0.15 });
+      io.observe(box);
+      if (aside) io.observe(aside);
+    }
+    const foot = document.getElementById("footer");
+    if (foot && "IntersectionObserver" in window) {
+      new IntersectionObserver(([e]) => { footIn = e.isIntersecting; update(); }).observe(foot);
     }
   });
   // "#book" links (header, hero, dock, booking bar) while the sidebar shows a booking box (wide screens): that box is

@@ -6991,6 +6991,9 @@ margin: 0;
 .er-sec > .offer-box--hotels {
 margin-top: clamp(1.5rem, 3vw, 2.25rem);
 }
+.xs-end__hotels {
+margin-top: var(--s-5);
+}
 .er-sec > .offer-box--hotels .offer__name {
 margin: 0;
 }
@@ -7191,6 +7194,40 @@ font-size: 0.95rem;
 }
 body:has(.menu.is-open) .xs-bookbar {
 display: none;
+}
+}
+@media (max-width: 900px) {
+.has-bookbar .dock__plan {
+display: none;
+}
+}
+@media (min-width: 1200px) {
+.page-aside .offer {
+grid-template-columns: 56px minmax(0, 1fr);
+gap: 0.5rem 0.85rem;
+padding-block: 0.85rem;
+}
+.page-aside .offer__img {
+aspect-ratio: 1;
+}
+.page-aside .offer__name {
+font-size: 1.05rem;
+line-height: 1.25;
+}
+.page-aside .offer__side {
+grid-column: 2;
+display: flex;
+flex-wrap: nowrap;
+align-items: center;
+justify-content: space-between;
+gap: 0.25rem 0.75rem;
+}
+.page-aside .offer__side .via {
+white-space: nowrap;
+}
+.page-aside .offer-box .disclosure {
+font-size: 0.74rem;
+line-height: 1.45;
 }
 }
 .offer-box.is-called {

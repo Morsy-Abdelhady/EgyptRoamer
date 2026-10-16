@@ -390,6 +390,10 @@ $er_focus = 3 === count( $er_focus ) && empty( $args['hero']['image'] ) ? implod
 					<h2 class="xs-end__title" id="xs-end-title"><?php er_e( 'Book with our partners' ); ?></h2>
 					<div class="xs-end__offers">
 						<?php er_offer_rows( (array) $args['offers'], 'experience-offers' ); ?>
+						<?php if ( ! empty( $args['hotels'] ) ) : // Somewhere to stay, after the trip itself (owner, 16 Oct). ?>
+							<p class="t-label xs-end__hotels"><?php echo esc_html( (string) ( $args['hotels_title'] ?? '' ) ); ?></p>
+							<?php er_offer_rows( (array) $args['hotels'], 'experience-hotels' ); ?>
+						<?php endif; ?>
 						<?php er_disclosure(); ?>
 					</div>
 				<?php else : ?>
