@@ -2,6 +2,14 @@
 
 An affiliate-first travel publication about Egypt, built on WordPress and live at https://egyptroamer.com (GoDaddy Managed WordPress). The site takes no bookings and no payments.
 
+## Current state: read this first
+- **Latest handoff:** `docs/HANDOFF-2026-10-16.md`. It says what is done, what is in progress (Viator photos on branch `wip/viator-photos`, not deployed) and what is next (the booking-journey redesign, previewed with `?ux=2` and waiting for the owner's approval).
+- **Live partners:**
+  - Viator (tours, 17 offers);
+  - GetYourGuide (tours, 9 offers);
+  - Trip.com (hotels, 13 offers).
+  - Details: `docs/PARTNER-OPTIONS-2026-10-16.md`.
+
 ## Layout
 - `wordpress/wp-content/plugins/egypt-roamer-core/`: business logic.
   - Content types, the affiliate engine and `/go/` redirects, clicks, leads, SEO guards.
@@ -13,23 +21,34 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
 - `dist/`: release zips (gitignored). Rebuild them after changes; the theme zip must not include `src/`.
 
 ## Hard rules
-- **Keep indexing off.** "Discourage search engines" stays ticked until the launch gate in `docs/LAUNCH-GATE.md` passes.
+- **Indexing is on** (since 2026-10-02, after the launch gate in `docs/LAUNCH-GATE.md`). New pages are sent automatically by IndexNow. Google and Bing requests are logged in `docs/SEO-RECOVERY-CHANGELOG.md`.
 - **Don't invent anything.** No translations, prices, opening hours, travel times, ratings, reviews, photos, statistics or affiliate providers/URLs.
 - **Editorial content** (owner-approved on 2026-09-28):
   - English bodies are written in `content/editorial/en/*.md`, using only verifiable facts. Sources go in `docs/CONTENT-SOURCES.md`.
   - Run `python tools/editorial.py` to compile them into Core's `data/editorial/en/`.
   - On the server, `wp egypt-roamer editorial` fills only empty or untouched seed text.
   - Guides stay drafts until the owner publishes them.
-- **Photography:** only brand assets are owned. On 2026-09-28 the owner approved the prototype's Unsplash photos as hot-linked stand-ins on every page until a featured image is set. No other photos, and nothing is downloaded into the Media Library without asking.
+- **Photography:** only brand assets are owned. Allowed photos:
+  - the prototype's Unsplash photos, approved 2026-09-28 as hot-linked stand-ins;
+  - new **free** Unsplash photos whose **location tag names the exact Egyptian place** (owner, 2026-10-03). Record each in `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5.
+
+  Rules:
+  - Nothing is downloaded into the Media Library without asking.
+  - **Partner photos are never copied** from partner pages. GetYourGuide's T&Cs forbid it; Viator supplies photos only through its Partner API.
+  - GetYourGuide offers use a free tagged Unsplash photo of the same subject (owner, 2026-10-16).
+- **Partner facts:** offer facts (private or group, duration, pickup) come only from the partner's own product page, in Core `data/offer-facts.json`. No prices, ratings or reviews. Every new offer needs its card text in `data/offers-i18n.json` before it is published.
 - **No redesign, and don't touch the approved CSS.** WordPress-only CSS goes in `assets/css/pages.css`.
 - **Plugins:** at most one SEO plugin (Rank Math, planned). No WooCommerce, direct booking or extra cache plugins.
 - **Seed:** re-runs must never overwrite editors' titles, bodies, status or filled fields.
 - **Line endings:** files use LF. Python on Windows writes CRLF, so pass `newline="\n"`.
 
 ## Production access
-- Everything production-side goes through the owner:
-  - wp-admin in their Chrome;
-  - SSH in their terminal. The WordPress root is `~/html`; running `wp` from `~` fails.
+- **Owner permissions:** the owner granted all project permissions on 2026-10-16.
+  - Claude works in wp-admin and the partner portals through the owner's **Edge** (the claude-in-chrome tools).
+  - Still never handle credentials, payment or bank data, purchases or CAPTCHAs.
+  - Accepting terms, sending messages and submitting forms each need the owner's explicit OK.
+- **SSH** runs in the owner's terminal. The WordPress root is `~/html`; running `wp` from `~` fails.
+- **After every deploy,** flush the GoDaddy cache: wp-admin admin bar → `#wp-admin-bar-wpaas-flush-cache a`.
 - Theme and Core deploy themselves: a push to `main` that touches them runs `.github/workflows/deploy-production.yml` (see `docs/DEPLOY.md`). There is no manual trigger. Database changes still go through the owner.
 - After a theme or Core change passes the local tests, commit and `git push origin main`. Don't stop at a local commit.
 - Never ask for, print or store credentials.
@@ -41,7 +60,16 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
 - `./wp.sh` wraps WP-CLI, and `./reset.sh ml` rebuilds the site the same way production is built.
 - The QA scripts in `tools/qa/*.mjs` need Playwright with the system Chrome (Node 16, so use playwright@1.40).
 - Before reporting any UX or release as done, run `BASE=https://egyptroamer.com node tools/qa/page-coverage.mjs` after the deploy. It checks every page in every language; sample pages are not enough.
+  - Also look at the changed pages in a browser, on desktop and on a phone, in English and Arabic.
+  - The QA does not cover the `?ux=2` preview or the hotel boxes.
+- **Windows quirks:**
+  - Build with `PYTHONUTF8=1`, or `tools/build.py` and `tools/build-translations.mjs` crash on Arabic.
+  - Git Bash `curl` fails with SSL errors; use PowerShell `curl.exe` or `node -e "fetch(...)"`.
+  - `.ps1` scripts are blocked by the execution policy; don't change it.
+- **UI strings** must be literal `er_t( '…' )` calls, or they are never collected for translation. Add them to `tools/i18n/new-strings.json`, then run `node tools/build-translations.mjs`.
 
 ## Working style
 - Do one task per request.
 - Report results in a few lines; long reports go into `docs/`.
+- The owner writes in Egyptian Arabic. Reply in Egyptian Arabic.
+- Say plainly what is not done. The owner has caught several overclaims; review the real pages before saying "done".
