@@ -8,7 +8,7 @@ def worlds(w):
          '  const cmp = `<button type="button" class="wcmp" id="wcmp" aria-expanded="false">Compare side by side</button><table class="wtbl" id="wtbl" hidden><thead><tr><th></th>${W.opts.map(o=>`<th>${esc(o.n.length>38?o.n.slice(0,36)+"…":o.n)}<br><small>${esc(o.p)}</small></th>`).join("")}</tr></thead><tbody>${rowsC.map(([k,fn])=>`<tr><td>${k}</td>${W.opts.map(o=>{const x=fn(o);return `<td class="${/^Yes|Small/.test(x)?"yes":/^Not stated|^See /.test(x)?"no":""}">${esc(x)}</td>`;}).join("")}</tr>`).join("")}</tbody></table>`;'),
         # free cancellation on the option itself, when the partner states it
         ('${o.f.map(f=>`<span>${esc(f)}</span>`).join("")}</div></div>\n      <button',
-         '${o.f.map(f=>`<span>${esc(f)}</span>`).join("")}${o.cancel?`<span class="fc">✓ ${esc(o.cancel)}</span>`:""}</div></div>\n      <button'),
+         '${o.f.map(f=>`<span>${esc(f)}</span>`).join("")}${o.cancel?`<span class="fc" title="${esc(o.cancel)}">✓ Free cancellation</span>`:""}</div></div>\n      <button'),
         # steps without their own photo: atmosphere, not a picture of another place
         ('style="width:100%;height:100%;object-fit:cover;filter:${s.tone==="night"?"brightness(.45) saturate(.6) hue-rotate(-15deg)":s.tone==="dark"?"brightness(.5) contrast(1.1) saturate(.6)":"brightness(.75) saturate(1.1)"};transform:scale(${1+i*.12}) translate(${i*-2}%,${i*1.5}%)"',
          'style="width:100%;height:100%;object-fit:cover;filter:blur(14px) ${s.tone==="night"?"brightness(.4) saturate(.6) hue-rotate(-15deg)":s.tone==="dark"?"brightness(.45) saturate(.6)":"brightness(.7) saturate(1.1)"};transform:scale(${1.15+i*.1})"'),
@@ -79,6 +79,10 @@ def home(js, body):
          '$("#mood-credit").dataset.tip=mv[1]; $("#mood-credit").setAttribute("aria-label","Video credit: "+mv[1]); $("#mood-credit").textContent="i"; $("#mood-credit").tabIndex=0; $("#mood-credit").hidden=false;'),
         ('lazyVideos($("#groups"));', 'lazyVideos($("#groups")); creditsAsInfo($("#groups"));'),
     ]
+    reps += [
+        ('class="card${t.world?" card--hl":""}"', 'class="card${t.id===lastViewed?" card--hl":""}"'),
+        ('class="mini${t.world?" mini--hl":""}"', 'class="mini${t.id===lastViewed?" mini--hl":""}"'),
+    ]
     for a, b in reps:
         assert js.count(a) == 1, a[:90]
         js = js.replace(a, b)
@@ -94,6 +98,12 @@ def home(js, body):
 
 CSS = '''
 /* ---------- improvements, 16 Oct ---------- */
+.card:hover,.card:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.mini:hover,.mini:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.choose2__photo{position:sticky}
+.choose2__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.7))}
+.choose2__photo img{filter:saturate(1.05) contrast(1.03)}
+.choose2__cap{position:absolute;z-index:1;inset-inline:18px;bottom:16px;font:500 20px/1.25 var(--serif);color:#fff}
 .hdr .btn--gold{background:transparent;border:1.5px solid var(--gold);color:#fff}
 .hdr .btn--gold:hover{background:rgba(201,162,39,.15)}
 .finder2{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px}

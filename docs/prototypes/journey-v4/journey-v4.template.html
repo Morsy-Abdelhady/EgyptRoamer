@@ -429,6 +429,12 @@ table.cmp{width:100%;border-collapse:collapse;font-size:12.5px}
 .vcred{margin:10px 0 0!important;font-size:11.5px!important;color:#b8b2a6!important;letter-spacing:.02em}
 
 /* ---------- improvements, 16 Oct ---------- */
+.card:hover,.card:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.mini:hover,.mini:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.choose2__photo{position:sticky}
+.choose2__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.7))}
+.choose2__photo img{filter:saturate(1.05) contrast(1.03)}
+.choose2__cap{position:absolute;z-index:1;inset-inline:18px;bottom:16px;font:500 20px/1.25 var(--serif);color:#fff}
 .hdr .btn--gold{background:transparent;border:1.5px solid var(--gold);color:#fff}
 .hdr .btn--gold:hover{background:rgba(201,162,39,.15)}
 .finder2{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px}
@@ -682,11 +688,11 @@ const CLOCK = `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle c
 const state={place:"all",len:"all",priv:false,pickup:false};
 const vp=$("#vp");
 
-const card=t=>`<button type="button" class="card${t.world?" card--hl":""}" data-trip="${t.id}">
+const card=t=>`<button type="button" class="card${t.id===lastViewed?" card--hl":""}" data-trip="${t.id}">
   <img src="${IMG[t.k]}" alt=""><div class="card__b"><span class="card__loc">${esc(t.loc)}</span><h3>${esc(t.t)}</h3>
   <div class="facts"><span class="fact fact--time">${CLOCK}${esc(t.time)}</span>${t.facts.map(f=>`<span class="fact">${esc(f)}</span>`).join("")}</div>
   <div class="card__foot"><span><b>${t.n} options</b> to compare</span><span class="card__go">See options →</span></div></div></button>`;
-const mini=t=>`<button type="button" class="mini${t.world?" mini--hl":""}" data-trip="${t.id}"><img src="${IMG[t.k]}" alt=""><span style="margin:0"><b>${esc(t.t)}</b><span>${esc(t.time)} · <em>${t.n} options</em></span></span></button>`;
+const mini=t=>`<button type="button" class="mini${t.id===lastViewed?" mini--hl":""}" data-trip="${t.id}"><img src="${IMG[t.k]}" alt=""><span style="margin:0"><b>${esc(t.t)}</b><span>${esc(t.time)} · <em>${t.n} options</em></span></span></button>`;
 
 function renderHome(){
   $("#ch-index").innerHTML=CHAPTERS.map((c,i)=>`<li><a href="#ch-${i+1}"><b>${c.n}</b><span>${c.name}</span><small>${c.trips.length} trips</small></a></li>`).join("");
@@ -719,7 +725,7 @@ function renderTrips(){
     return `<section class="group"><div class="gbanner">${vid?`<video muted loop playsinline preload="none" poster="${IMG[img]}" data-src="${vid.split("|")[0]}"></video><span class="vbadge">${esc(vid.split("|")[1])}</span>`:`<img src="${IMG[img]}" alt="">`}<div class="gbanner__t"><h2>${esc(p)}</h2><p>${esc(line)} <small>· ${esc(sub)}</small></p></div><a href="#">Read the ${esc(guide)} →</a></div><div class="grid">${list.map(card).join("")}</div></section>`;}).join("")||`<p class="empty">No trips match these filters. Clear one to see more.</p>`;
   $("#f-count").textContent=`${total} ${total===1?"trip":"trips"}`; lazyVideos($("#groups")); creditsAsInfo($("#groups"));
 }
-let step=1, current="valley";
+let step=1, current="valley", lastViewed=null;
 function go(n,opts={}){
   step=n;
   $$("[data-screen]").forEach(s=>s.hidden=!(s.dataset.screen==n||(n==4&&s.dataset.screen=="3")));
@@ -753,7 +759,7 @@ document.addEventListener("click",e=>{
   const m=e.target.closest("[data-mood]"); if(m){mood(+m.dataset.mood);return;}
   const fp=e.target.closest("[data-fplace]"); if(fp){state.place=fp.dataset.fplace;renderTrips();return;}
   const fl=e.target.closest("[data-flen]"); if(fl){state.len=fl.dataset.flen;renderTrips();return;}
-  const c=e.target.closest("[data-trip]"); if(c){ if(WORLDS[c.dataset.trip]){current=c.dataset.trip;go(3);} else {toast("Prototype: four trips open in full: Valley of the Kings, Red Sea diving, White Desert, Nile dinner cruise.");} return;}
+  const c=e.target.closest("[data-trip]"); if(c){ if(WORLDS[c.dataset.trip]){current=c.dataset.trip;lastViewed=current;go(3);} else {toast("Prototype: four trips open in full: Valley of the Kings, Red Sea diving, White Desert, Nile dinner cruise.");} return;}
   const b=e.target.closest("[data-wbook]"); if(b){book(b.dataset.wbook);return;}
   const a=e.target.closest('a[href^="#"]'); if(a&&a.getAttribute("href").length>1){const t=document.getElementById(a.getAttribute("href").slice(1)); if(t&&vp.contains(t)){e.preventDefault();vp.scrollTo({top:Math.max(0,t.offsetTop-68)});}}
 });
@@ -871,13 +877,13 @@ function renderWorld(id){
       <div><p class="eyebrow">${esc(S.eyebrow)}</p><h2>${esc(S.title)}</h2>${S.ps.map(p=>`<p>${esc(p)}</p>`).join("")}</div>
       <div class="tablets">${S.tabs.map(([g,b,t])=>`<div class="tablet"><i>${g}</i><span>${b?`<b>${esc(b)}</b>`:""}${esc(t)}</span></div>`).join("")}</div></div></section>`;
   const papy = `<section class="papy"><div class="papy__in">${W.papy.map(([e,h,p,v])=>`<div><p class="eyebrow">${esc(e)}</p><h2>${esc(h)}</h2><p>${esc(p)}</p>${v?`<div class="wvid"><video muted loop playsinline preload="none" data-src="video/karnak-columns.mp4" poster="${IMG.valley}"></video><small>Karnak Temple, Luxor · Video: BOB DK, Pexels</small></div>`:""}</div>`).join("")}</div></section>`;
-  const opts = W.opts.map(o=>`<div class="wopt ${o.pick?"wopt--pick":""}"><div>${o.pick?`<span class="pk">✓ Our pick${o.why?`<span class="why">${esc(o.why)}</span>`:""}</span>`:""}<h3>${esc(o.n)}</h3><div class="facts"><span class="pchip ${PCHIP[o.p]}">${esc(o.p)}</span>${o.f.map(f=>`<span>${esc(f)}</span>`).join("")}${o.cancel?`<span class="fc">✓ ${esc(o.cancel)}</span>`:""}</div></div>
+  const opts = W.opts.map(o=>`<div class="wopt ${o.pick?"wopt--pick":""}"><div>${o.pick?`<span class="pk">✓ Our pick${o.why?`<span class="why">${esc(o.why)}</span>`:""}</span>`:""}<h3>${esc(o.n)}</h3><div class="facts"><span class="pchip ${PCHIP[o.p]}">${esc(o.p)}</span>${o.f.map(f=>`<span>${esc(f)}</span>`).join("")}${o.cancel?`<span class="fc" title="${esc(o.cancel)}">✓ Free cancellation</span>`:""}</div></div>
       <button type="button" class="btn ${o.pick||!W.opts.some(x=>x.pick)&&o===W.opts[0]?"btn--gold":"btn--line"} btn--sm" data-wbook="${esc(o.p)}|${esc(o.n)}">Book ↗</button></div>`).join("");
   const lenOf=o=>o.f.find(x=>/hour|day/.test(x))||"Not stated";
   const rowsC=[["Private",o=>o.f.includes("Private")?"Yes":o.f.includes("Small group")?"Small group":"Not stated"],["Length",lenOf],["Pickup",o=>o.f.includes("Pickup offered")?"Yes":"Not stated"],["Free cancellation",o=>o.cancel?"Yes, up to 24 h before":"See "+o.p+"’s page"]];
   const cmp = `<button type="button" class="wcmp" id="wcmp" aria-expanded="false">Compare side by side</button><table class="wtbl" id="wtbl" hidden><thead><tr><th></th>${W.opts.map(o=>`<th>${esc(o.n.length>38?o.n.slice(0,36)+"…":o.n)}<br><small>${esc(o.p)}</small></th>`).join("")}</tr></thead><tbody>${rowsC.map(([k,fn])=>`<tr><td>${k}</td>${W.opts.map(o=>{const x=fn(o);return `<td class="${/^Yes|Small/.test(x)?"yes":/^Not stated|^See /.test(x)?"no":""}">${esc(x)}</td>`;}).join("")}</tr>`).join("")}</tbody></table>`;
   const stay = W.stay?`<div class="wstay"><h3>${esc(W.stay.title)}</h3>${W.stay.rows.map(([n,l])=>`<div class="wopt"><div><h3 style="font-size:17px">${esc(n)}</h3><div class="facts"><span class="pchip pchip--trip">Trip.com</span><span>${esc(l)}</span></div></div><button type="button" class="btn btn--line btn--sm" data-wbook="Trip.com|${esc(n)}">See hotels ↗</button></div>`).join("")}</div>`:"";
-  const choose = `<section class="choose2" id="wchoose"><div class="choose2__grid"><div class="choose2__photo"><img src="${IMG[W.steps.find(s=>s.img)?.img||W.photo]}" alt=""></div>
+  const choose = `<section class="choose2" id="wchoose"><div class="choose2__grid"><div class="choose2__photo"><img src="${IMG[W.photo]}" alt=""><span class="choose2__cap">${esc(W.title)}</span></div>
       <div><div class="wdone" id="wdone" hidden><b id="wdone-b"></b><p id="wdone-p"></p><p>Choose your date and see the price there. Egypt Roamer never takes bookings or payments.</p></div>
         <p class="eyebrow">Book this trip</p><h2>Choose your way in</h2><div class="wsum">${W.sum.map(s=>`<span>${esc(s)}</span>`).join("")}</div>
         ${cmp}${opts}${stay}<p class="wout">Each button opens the partner’s site in a new tab. Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you. It never influences what we recommend. <a href="#">How we work with partners</a></p></div></div></section>`;

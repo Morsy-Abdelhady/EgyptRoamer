@@ -1,4 +1,4 @@
-let step=1, current="valley";
+let step=1, current="valley", lastViewed=null;
 function go(n,opts={}){
   step=n;
   $$("[data-screen]").forEach(s=>s.hidden=!(s.dataset.screen==n||(n==4&&s.dataset.screen=="3")));
@@ -32,7 +32,7 @@ document.addEventListener("click",e=>{
   const m=e.target.closest("[data-mood]"); if(m){mood(+m.dataset.mood);return;}
   const fp=e.target.closest("[data-fplace]"); if(fp){state.place=fp.dataset.fplace;renderTrips();return;}
   const fl=e.target.closest("[data-flen]"); if(fl){state.len=fl.dataset.flen;renderTrips();return;}
-  const c=e.target.closest("[data-trip]"); if(c){ if(WORLDS[c.dataset.trip]){current=c.dataset.trip;go(3);} else {toast("Prototype: four trips open in full: Valley of the Kings, Red Sea diving, White Desert, Nile dinner cruise.");} return;}
+  const c=e.target.closest("[data-trip]"); if(c){ if(WORLDS[c.dataset.trip]){current=c.dataset.trip;lastViewed=current;go(3);} else {toast("Prototype: four trips open in full: Valley of the Kings, Red Sea diving, White Desert, Nile dinner cruise.");} return;}
   const b=e.target.closest("[data-wbook]"); if(b){book(b.dataset.wbook);return;}
   const a=e.target.closest('a[href^="#"]'); if(a&&a.getAttribute("href").length>1){const t=document.getElementById(a.getAttribute("href").slice(1)); if(t&&vp.contains(t)){e.preventDefault();vp.scrollTo({top:Math.max(0,t.offsetTop-68)});}}
 });
