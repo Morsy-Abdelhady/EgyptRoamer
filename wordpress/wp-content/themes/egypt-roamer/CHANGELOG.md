@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.67 — 2026-10-16: wider sidebar; guides listed in every language
+- **Owner report (1920px screen):** a wide empty gap between the article and the sidebar's white booking box, and the box too narrow to read well. The sidebar column now takes spare width up to 30rem (was a fixed 21rem pushed to the far edge); offer photos 64px.
+- **Owner report:** the Arabic Abu Simbel page showed one card under "Combine it with" where the English showed three. Cause, in Core 1.2.45: guide translations keep their links to experiences and destinations on the English guide only, so every translated page that lists the guides pointing at it ("Plan it with our guides", "Plan your trip to …", the story's cards) found none. `er_get_referencing()` now matches the relation in any language and shows each guide's translation in the page's language; a guide without one is left out, never shown in English.
+
 ## 1.2.66 — 2026-10-16: sidebar offer button no longer cut off
 - 1.2.65 put the sidebar button and "via …" on one line that could not wrap: with "via GetYourGuide" the button was pushed out of the box ("eck Availability"). The line now wraps, and the button never shrinks.
 

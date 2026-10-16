@@ -4018,7 +4018,7 @@ align-content: start;
 }
 @media (min-width: 1200px) {
 .page-layout--aside {
-grid-template-columns: minmax(0, var(--measure)) var(--aside);
+grid-template-columns: minmax(0, var(--measure)) minmax(var(--aside), 30rem);
 justify-content: space-between;
 column-gap: var(--layout-gap);
 }
@@ -7203,7 +7203,7 @@ display: none;
 }
 @media (min-width: 1200px) {
 .page-aside .offer {
-grid-template-columns: 56px minmax(0, 1fr);
+grid-template-columns: 64px minmax(0, 1fr);
 gap: 0.5rem 0.85rem;
 padding-block: 0.85rem;
 }

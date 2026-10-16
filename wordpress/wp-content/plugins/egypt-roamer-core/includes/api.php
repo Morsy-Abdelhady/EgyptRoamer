@@ -29,16 +29,39 @@ function er_get_related( int $post_id, string $key ): array {
 	return array_values( $out );
 }
 
-/** Posts of $types whose $key relation points at $post_id (any translation). */
+/**
+ * Posts of $types whose $key relation points at $post_id (any translation), in the current language.
+ *
+ * Guide translations keep their relations on the English guide only (guide-translations.php), so the relation
+ * is matched in every language and each hit is swapped for its current-language translation. A hit with no
+ * translation in this language is left out, never shown in English (16 Oct: the Arabic Abu Simbel page had one
+ * card where the English had three; every translated "Plan it with our guides" was short or empty).
+ */
 function er_get_referencing( int $post_id, $types, string $key = '_er_destination', int $limit = 12 ): array {
-	return get_posts( [
+	$posts = get_posts( [
 		'post_type'        => (array) $types,
 		'post_status'      => 'publish',
-		'numberposts'      => $limit,
+		'numberposts'      => $limit * 8,
 		'meta_query'       => [ [ 'key' => $key, 'value' => er_translation_group( $post_id ), 'compare' => 'IN', 'type' => 'NUMERIC' ] ],
 		'orderby'          => [ 'menu_order' => 'ASC', 'date' => 'DESC' ],
 		'suppress_filters' => false,
+		'lang'             => '',
 	] );
+	$lang = function_exists( 'pll_current_language' ) ? (string) pll_current_language() : '';
+	$out  = [];
+	foreach ( $posts as $p ) {
+		$id = $p->ID;
+		if ( '' !== $lang && function_exists( 'pll_get_post' ) && function_exists( 'pll_get_post_language' ) && pll_get_post_language( $id ) !== $lang ) {
+			$id = (int) pll_get_post( $id, $lang );
+		}
+		if ( $id && ! isset( $out[ $id ] ) && 'publish' === get_post_status( $id ) ) {
+			$out[ $id ] = $id === $p->ID ? $p : get_post( $id );
+		}
+		if ( count( $out ) >= $limit ) {
+			break;
+		}
+	}
+	return array_values( $out );
 }
 
 /** Live offers attached to a page, by the page's type. */
