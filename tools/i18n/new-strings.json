@@ -1828,6 +1828,69 @@
    "Ваш план · поездок на маршруте: {n}",
    "你的行程 · 路线上的行程：{n}",
    "خطتك · رحلات على المسار: {n}"
+  ],
+  "Abu Simbel included": [
+   "Abu Simbel inklusive",
+   "Abou Simbel inclus",
+   "Abu Simbel incluso",
+   "Abu Simbel incluido",
+   "Абу-Симбел включён",
+   "含阿布辛贝",
+   "يشمل أبو سمبل"
+  ],
+  "Abu Simbel extra": [
+   "Abu Simbel gegen Aufpreis",
+   "Abou Simbel en supplément",
+   "Abu Simbel extra",
+   "Abu Simbel como extra",
+   "Абу-Симбел за доплату",
+   "阿布辛贝需另付",
+   "أبو سمبل بتكلفة إضافية"
+  ],
+  "Balloon flight included": [
+   "Ballonfahrt inklusive",
+   "Montgolfière incluse",
+   "Volo in mongolfiera incluso",
+   "Vuelo en globo incluido",
+   "Полёт на шаре включён",
+   "含热气球飞行",
+   "يشمل رحلة المنطاد"
+  ],
+  "Balloon flight extra": [
+   "Ballonfahrt gegen Aufpreis",
+   "Montgolfière en supplément",
+   "Volo in mongolfiera extra",
+   "Vuelo en globo como extra",
+   "Полёт на шаре за доплату",
+   "热气球飞行需另付",
+   "رحلة المنطاد بتكلفة إضافية"
+  ],
+  "Entrance fees included": [
+   "Eintritt inklusive",
+   "Droits d’entrée inclus",
+   "Ingressi inclusi",
+   "Entradas incluidas",
+   "Входные билеты включены",
+   "含门票",
+   "رسوم الدخول مشمولة"
+  ],
+  "Entrance fees extra": [
+   "Eintritt extra",
+   "Droits d’entrée en sus",
+   "Ingressi esclusi",
+   "Entradas aparte",
+   "Входные билеты отдельно",
+   "门票另付",
+   "رسوم الدخول غير مشمولة"
+  ],
+  "Entrance fees paid locally": [
+   "Eintritt vor Ort zu zahlen",
+   "Droits d’entrée à payer sur place",
+   "Ingressi da pagare in loco",
+   "Entradas a pagar en destino",
+   "Входные билеты оплачиваются на месте",
+   "门票现场支付",
+   "رسوم الدخول تُدفع في المكان"
   ]
  }
 }

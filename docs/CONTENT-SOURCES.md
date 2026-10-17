@@ -103,3 +103,13 @@ These are established and consistent across standard references. Re-check any th
 | What a Trip to Egypt Really Costs in 2026 | real, dated price data |
 | Is Egypt Safe for Tourists? An Honest 2026 Guide | current official travel advice from named governments, reviewed at publication |
 | The Best Nile Cruises, Compared Cabin by Cabin | real boats, cabins and providers |
+
+## `exp-cruise`: Nile Cruise from Aswan to Luxor (17 Oct 2026)
+- **Page text:** the facts come from `g-nile-cruise` (Edfu and Kom Ombo: Britannica rows above) and from the three partner pages below. No new historical claim.
+- **What each option includes,** read on its product page on 17 Oct 2026 (`docs/NILE-CRUISE-OFFERS-2026-10-17.md`):
+
+| Fact | Source |
+|---|---|
+| Abu Simbel and a balloon flight included; entrance fees listed separately; 4 days (approx.); pickup offered | Viator 29896P3 https://www.viator.com/tours/Aswan/Nile-Cruise-3-nights-from-Aswan-to-Luxor/d796-29896P3 |
+| Private guide option; entrance fees included; Abu Simbel and the balloon optional; 4 days (approx.); pickup offered | Viator 57870P4 https://www.viator.com/tours/Aswan/4-Day-3-Night-Nile-Cruise-from-Aswan-to-Luxor-Private-Tour/d796-57870P4 |
+| Abu Simbel and a balloon flight included; entrance fees paid locally; 4 days; pickup included; Egyptologist guide | GetYourGuide 521042 https://www.getyourguide.com/aswan-l543/4days-3-nights-nile-cruise-including-abu-simbel-air-balloon-t521042/ |

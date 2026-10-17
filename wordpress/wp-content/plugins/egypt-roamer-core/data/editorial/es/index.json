@@ -55,6 +55,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-cruise": {
+  "type": "er_experience",
+  "title": "Crucero por el Nilo de Asuán a Luxor",
+  "excerpt": "Un crucero por el Nilo de Asuán a Luxor: cómo son los días a bordo, los templos de Kom Ombo y Edfu en el camino, qué incluyen las opciones (Abu Simbel, un vuelo en globo, las entradas) y a quién le conviene un crucero.",
+  "location": "De Asuán a Luxor",
+  "review": "pending",
+  "current": true
+ },
  "exp-dinner": {
   "type": "er_experience",
   "excerpt": "Un crucero con cena por el Nilo en El Cairo: cómo es la noche, la música y el espectáculo de tanura, para quién es, cómo elegir barco y en qué se diferencia de un simple paseo en falucho al atardecer.",

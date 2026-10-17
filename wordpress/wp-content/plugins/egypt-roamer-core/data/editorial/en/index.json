@@ -39,6 +39,14 @@
   "location": "Alexandria",
   "destination": "alexandria"
  },
+ "exp-cruise": {
+  "type": "er_experience",
+  "title": "Nile Cruise from Aswan to Luxor",
+  "excerpt": "A Nile cruise from Aswan to Luxor: what the days on board are like, the temples of Kom Ombo and Edfu on the way, what the options include (Abu Simbel, a balloon flight, entrance fees), and who a cruise suits.",
+  "slug": "nile-cruise-aswan-to-luxor",
+  "location": "Aswan to Luxor",
+  "destination": "aswan, luxor"
+ },
  "exp-dinner": {
   "type": "er_experience",
   "excerpt": "A Nile dinner cruise in Cairo: what the evening is like, the music and tanoura show, who it suits, how to choose a boat, and how it compares with a simple felucca ride at sunset.",

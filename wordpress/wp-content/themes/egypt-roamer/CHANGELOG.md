@@ -2,6 +2,21 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.89 — 2026-10-17: proposal 4, slice 14: the Nile cruise trip (with Core 1.2.51)
+- **New trip page,** "Nile Cruise from Aswan to Luxor" (`exp-cruise`), in 8 languages.
+  - Written from the sourced cruise guide and the three partner pages (`docs/CONTENT-SOURCES.md`).
+  - Translations are marked pending: they open with the "not yet reviewed" note.
+  - Published from wp-admin → Egypt Roamer → Guide translations, and linked to Aswan and Luxor.
+- **Three offers, facts read on 17 Oct:**
+  - Viator 29896P3 (Abu Simbel and a balloon flight included, entrance fees extra, Our pick);
+  - Viator 57870P4 (private guide, entrance fees included, Abu Simbel and the balloon extra);
+  - GetYourGuide 521042 (Abu Simbel and the balloon included, entrance fees paid locally).
+  - Each offer's card text is in all 8 languages.
+- **Theme (preview):** an option's row lists what it includes (offer-facts `includes`), since the cruise options differ on exactly that.
+  - The trip is in the Trip Builder (Ancient, Luxury).
+  - 7 new strings in all 8 languages, unreviewed.
+- **Visitors:** the theme change is preview-only. The new page and offers are new content for everyone.
+
 ## 1.2.88 — 2026-10-17: proposal 4, slices 11–13 and 15: shorter homepage, Commons card photos, Save this plan, hotel photos
 - **Fix, hotel photos on the homepage (everyone):** the "Find a place worth staying for" rows showed empty boxes, because hotel offers have no seed photo. They now use the area photo from offer-facts, or else the approved photo of their place (`er_offer_stock_fallback()`).
 - **Slice 12, a shorter homepage (preview):** 18 screens on a computer and 20 on a phone became 14.5 and 15, as in the prototype. Left out: the quote interlude, the destinations cards (the map lists every place, and the menu has Places) and the Journal (the Travel Guide is in the menu, and each trip and place links its guides). Kept: hero, trips, moods, map, where to stay and the Trip Builder.

@@ -55,6 +55,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-cruise": {
+  "type": "er_experience",
+  "title": "Croisière sur le Nil d’Assouan à Louxor",
+  "excerpt": "Une croisière sur le Nil d’Assouan à Louxor : à quoi ressemblent les journées à bord, les temples de Kom Ombo et d’Edfou sur le trajet, ce que comprennent les options (Abou Simbel, un vol en montgolfière, les droits d’entrée) et à qui s’adresse une croisière.",
+  "location": "D’Assouan à Louxor",
+  "review": "pending",
+  "current": true
+ },
  "exp-dinner": {
   "type": "er_experience",
   "excerpt": "Un dîner-croisière sur le Nil au Caire : le déroulé de la soirée, la musique et le spectacle de tanoura, à qui il s’adresse, comment choisir un bateau et en quoi il diffère d’une simple balade en felouque au coucher du soleil.",

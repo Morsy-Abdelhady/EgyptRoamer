@@ -55,6 +55,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-cruise": {
+  "type": "er_experience",
+  "title": "从阿斯旺到卢克索的尼罗河游船",
+  "excerpt": "从阿斯旺到卢克索的尼罗河游船：船上的日子是什么样的，沿途的康翁波神庙和埃德富神庙，各选项包含什么（阿布辛贝、热气球飞行、门票），以及游船适合哪些人。",
+  "location": "从阿斯旺到卢克索",
+  "review": "pending",
+  "current": true
+ },
  "exp-dinner": {
   "type": "er_experience",
   "excerpt": "开罗尼罗河晚餐游船：夜晚是怎样度过的、音乐与坦努拉旋转舞表演、适合谁、如何选船，以及它与日落时简单乘一趟三角帆船有何不同。",

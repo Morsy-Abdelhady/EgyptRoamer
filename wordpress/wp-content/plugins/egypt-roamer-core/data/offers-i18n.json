@@ -1139,5 +1139,95 @@
    "title": "古纳酒店",
    "location": "古纳"
   }
+ },
+ "nile-cruise-aswan-luxor-abu-simbel-balloon": {
+  "ar": {
+   "title": "رحلة نيلية 4 أيام من أسوان إلى الأقصر مع أبو سمبل ورحلة بالمنطاد",
+   "location": "من أسوان إلى الأقصر"
+  },
+  "de": {
+   "title": "4-tägige Nilkreuzfahrt von Assuan nach Luxor mit Abu Simbel und Ballonfahrt",
+   "location": "Von Assuan nach Luxor"
+  },
+  "fr": {
+   "title": "Croisière de 4 jours sur le Nil d’Assouan à Louxor avec Abou Simbel et montgolfière",
+   "location": "D’Assouan à Louxor"
+  },
+  "it": {
+   "title": "Crociera di 4 giorni sul Nilo da Assuan a Luxor con Abu Simbel e mongolfiera",
+   "location": "Da Assuan a Luxor"
+  },
+  "es": {
+   "title": "Crucero de 4 días por el Nilo de Asuán a Luxor con Abu Simbel y globo",
+   "location": "De Asuán a Luxor"
+  },
+  "ru": {
+   "title": "4-дневный круиз по Нилу из Асуана в Луксор с Абу-Симбелом и полётом на шаре",
+   "location": "Из Асуана в Луксор"
+  },
+  "zh": {
+   "title": "阿斯旺至卢克索4天尼罗河游船（含阿布辛贝和热气球）",
+   "location": "从阿斯旺到卢克索"
+  }
+ },
+ "nile-cruise-aswan-luxor-private": {
+  "ar": {
+   "title": "رحلة نيلية 4 أيام من أسوان إلى الأقصر بمرشد خاص",
+   "location": "من أسوان إلى الأقصر"
+  },
+  "de": {
+   "title": "4-tägige Nilkreuzfahrt von Assuan nach Luxor mit privatem Guide",
+   "location": "Von Assuan nach Luxor"
+  },
+  "fr": {
+   "title": "Croisière de 4 jours sur le Nil d’Assouan à Louxor avec guide privé",
+   "location": "D’Assouan à Louxor"
+  },
+  "it": {
+   "title": "Crociera di 4 giorni sul Nilo da Assuan a Luxor con guida privata",
+   "location": "Da Assuan a Luxor"
+  },
+  "es": {
+   "title": "Crucero de 4 días por el Nilo de Asuán a Luxor con guía privado",
+   "location": "De Asuán a Luxor"
+  },
+  "ru": {
+   "title": "4-дневный круиз по Нилу из Асуана в Луксор с личным гидом",
+   "location": "Из Асуана в Луксор"
+  },
+  "zh": {
+   "title": "阿斯旺至卢克索4天尼罗河游船（私人导游）",
+   "location": "从阿斯旺到卢克索"
+  }
+ },
+ "gyg-nile-cruise-aswan-luxor-abu-simbel-balloon": {
+  "ar": {
+   "title": "من أسوان: رحلة نيلية 4 أيام إلى الأقصر مع أبو سمبل والمنطاد",
+   "location": "من أسوان إلى الأقصر"
+  },
+  "de": {
+   "title": "Ab Assuan: 4 Tage Nilkreuzfahrt nach Luxor mit Abu Simbel und Ballon",
+   "location": "Von Assuan nach Luxor"
+  },
+  "fr": {
+   "title": "Depuis Assouan : 4 jours de croisière sur le Nil jusqu’à Louxor avec Abou Simbel et montgolfière",
+   "location": "D’Assouan à Louxor"
+  },
+  "it": {
+   "title": "Da Assuan: 4 giorni di crociera sul Nilo fino a Luxor con Abu Simbel e mongolfiera",
+   "location": "Da Assuan a Luxor"
+  },
+  "es": {
+   "title": "Desde Asuán: 4 días de crucero por el Nilo hasta Luxor con Abu Simbel y globo",
+   "location": "De Asuán a Luxor"
+  },
+  "ru": {
+   "title": "Из Асуана: 4 дня круиза по Нилу до Луксора с Абу-Симбелом и шаром",
+   "location": "Из Асуана в Луксор"
+  },
+  "zh": {
+   "title": "从阿斯旺出发：4天尼罗河游船前往卢克索（含阿布辛贝和热气球）",
+   "location": "从阿斯旺到卢克索"
+  }
  }
 }

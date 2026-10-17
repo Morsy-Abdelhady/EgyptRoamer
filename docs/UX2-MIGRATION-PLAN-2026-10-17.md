@@ -206,6 +206,6 @@
 | 11 | White Desert in the Trip Builder (from Cairo, the partners' departure). Siwa's length: right in the preview (options' length); the visitors' line is fixed when the preview is switched on | theme 1.2.88 |
 | 12 | Shorter homepage (preview): 14.5 screens instead of 18 | theme 1.2.88 |
 | 13 | Commons photos on trip cards, with credits (preview) | theme 1.2.88 |
-| 14 | Nile cruise trip (Core offers, 8 languages) | |
+| 14 | Nile cruise trip: page in 8 languages (Core 1.2.51), 3 offers, what each option includes | theme 1.2.89 / Core 1.2.51 |
 | 15 | Save this plan (preview), saved items open their link | theme 1.2.88 |
 | — | Fix (everyone): homepage hotel rows had empty photos | theme 1.2.88 |

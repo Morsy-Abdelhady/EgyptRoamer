@@ -837,6 +837,18 @@ function er_offer_facts_line( array $f ): array {
 	if ( ! empty( $f['pickup'] ) ) {
 		$out[] = er_t( 'Pickup offered' );
 	}
+	// New journey preview: what an option adds, where its partner page states it (offer-facts "includes": the Nile
+	// cruise options differ on Abu Simbel, a balloon flight and entrance fees).
+	$inc = er_ux2() ? (array) ( $f['includes'] ?? [] ) : [];
+	if ( isset( $inc['abu'] ) ) {
+		$out[] = $inc['abu'] ? er_t( 'Abu Simbel included' ) : er_t( 'Abu Simbel extra' );
+	}
+	if ( isset( $inc['balloon'] ) ) {
+		$out[] = $inc['balloon'] ? er_t( 'Balloon flight included' ) : er_t( 'Balloon flight extra' );
+	}
+	if ( isset( $inc['fees'] ) ) {
+		$out[] = 'included' === $inc['fees'] ? er_t( 'Entrance fees included' ) : ( 'local' === $inc['fees'] ? er_t( 'Entrance fees paid locally' ) : er_t( 'Entrance fees extra' ) );
+	}
 	return $out;
 }
 

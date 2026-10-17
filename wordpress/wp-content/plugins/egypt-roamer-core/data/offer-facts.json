@@ -237,5 +237,46 @@
  },
  "tripcom-hotels-el-gouna": {
   "stock": "1511371241697-fbcaef9dd576"
+ },
+ "nile-cruise-aswan-luxor-abu-simbel-balloon": {
+  "duration": {
+   "n": "4",
+   "unit": "days",
+   "approx": true
+  },
+  "pickup": true,
+  "pick": true,
+  "includes": {
+   "abu": true,
+   "balloon": true,
+   "fees": "extra"
+  }
+ },
+ "nile-cruise-aswan-luxor-private": {
+  "group": "private",
+  "duration": {
+   "n": "4",
+   "unit": "days",
+   "approx": true
+  },
+  "pickup": true,
+  "includes": {
+   "abu": false,
+   "balloon": false,
+   "fees": "included"
+  }
+ },
+ "gyg-nile-cruise-aswan-luxor-abu-simbel-balloon": {
+  "duration": {
+   "n": "4",
+   "unit": "days"
+  },
+  "pickup": true,
+  "includes": {
+   "abu": true,
+   "balloon": true,
+   "fees": "local"
+  },
+  "stock": "1778402153163-fc9a5fd0131a"
  }
 }

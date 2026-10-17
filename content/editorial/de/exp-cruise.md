@@ -1,0 +1,45 @@
+---
+type: er_experience
+title: Nilkreuzfahrt von Assuan nach Luxor
+location: Von Assuan nach Luxor
+excerpt: Eine Nilkreuzfahrt von Assuan nach Luxor: wie die Tage an Bord sind, die Tempel von Kom Ombo und Edfu unterwegs, was die Optionen enthalten (Abu Simbel, eine Ballonfahrt, Eintrittsgelder) und für wen sich eine Kreuzfahrt eignet.
+source: 4130530cf347
+review: pending
+---
+## Worum es geht {#what-it-is}
+
+Zwischen Assuan und Luxor fließt der Nil an einigen der besterhaltenen Tempel Ägyptens vorbei. Auf einer Kreuzfahrt ist das Schiff Ihr Hotel und fährt von Ort zu Ort: Kabine, Mahlzeiten und Besichtigungen sind zusammen organisiert, und ein Guide begleitet Sie an jedem Halt zu den Tempeln. Zwischen den Besuchen bleibt Zeit an Deck, um den Fluss zu betrachten: Palmenhaine, Dörfer und Wüste auf beiden Seiten.
+
+## Unterwegs {#on-the-way}
+
+- **Kom Ombo.** Ein Doppeltempel aus ptolemäischer und römischer Zeit an einer Flussbiegung, zwei Göttern zugleich geweiht: Sobek, dem Krokodilgott, und Horus, dem falkenköpfigen Gott.
+- **Edfu.** Der Horustempel von Edfu gehört zu den besterhaltenen Tempeln Ägyptens. Er wurde unter Ptolemaios III. im Jahr 237 v. Chr. begonnen und 57 v. Chr. vollendet, und sein einfacher Grundriss entlang einer Hauptachse gilt als klassisches Beispiel eines ägyptischen Tempels.
+- **Luxor.** Die Kreuzfahrt endet in [Luxor](/destinations/luxor/), mit den Tempeln am Ostufer und den Königsgräbern am Westufer.
+
+## Vor der Buchung {#before-you-book}
+
+Die Optionen auf dieser Seite fahren von [Assuan](/destinations/aswan/) nach Luxor. Sie unterscheiden sich in den Extras: Manche enthalten einen Ausflug nach Abu Simbel und eine Ballonfahrt über Luxor, andere bieten beides gegen Aufpreis an, und die Eintrittsgelder sind bei manchen inklusive und bei anderen separat zu zahlen. Bei jeder Option unten steht, was enthalten ist. Prüfen Sie vor der Buchung auf der Seite des Partners, was enthalten ist.
+
+> **Gut zu wissen**
+> - Abu Simbel und Ballonfahrten beginnen sehr früh am Morgen.
+> - Abu Simbel liegt weit südlich von Assuan und wird als eigener Ausflug von der Stadt aus besucht.
+> - Die Fotoregeln in den Tempeln können sich ändern. Folgen Sie den Wärtern.
+
+## Für wen {#who-it-suits}
+
+Wählen Sie eine Kreuzfahrt, wenn Sie eine einfache, entspannte Reise mit dem Fluss als Höhepunkt möchten: Sie packen nur einmal aus, und die ruhigen Tage an Deck sind für viele Reisende die schönste Erinnerung an Ägypten. Wenn die Monumente Ihre Priorität sind und Sie Ihr eigenes Tempo bestimmen möchten, passen Hotelaufenthalte vielleicht besser. Unser Ratgeber [Nilkreuzfahrt oder Hotels?](/guides/nile-cruise-or-hotels-luxor-aswan/) erklärt den Unterschied.
+
+## Kombinieren mit {#combine}
+
+Viele hängen vor oder nach der Kreuzfahrt einen Tag in Luxor an, für Orte, die der Schiffsplan nur kurz streift, etwa das [Tal der Könige](/experiences/valley-of-the-kings-hatshepsut-temple/).
+
+## Häufige Fragen {#faq}
+
+?? Ist es besser, in Luxor oder in Assuan zu beginnen?
+Beides funktioniert. Wer in Assuan beginnt, endet in Luxor, wo es danach noch viel zu sehen gibt. Die Optionen auf dieser Seite fahren alle von Assuan nach Luxor.
+
+?? Ist Abu Simbel in der Kreuzfahrt enthalten?
+Bei manchen Optionen ja, als Ausflug am frühen Morgen ab Assuan. Bei anderen ist es ein Extra. Jede Option gibt das an.
+
+?? Sind die Tempelbesuche geführt?
+Bei den Optionen auf dieser Seite ja: Ein Ägyptologe führt die Besichtigungen. Prüfen Sie bei der Buchung, was enthalten ist.

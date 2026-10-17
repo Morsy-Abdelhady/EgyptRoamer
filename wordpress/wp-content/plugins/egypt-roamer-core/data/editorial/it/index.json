@@ -55,6 +55,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-cruise": {
+  "type": "er_experience",
+  "title": "Crociera sul Nilo da Assuan a Luxor",
+  "excerpt": "Una crociera sul Nilo da Assuan a Luxor: com’è la vita a bordo, i templi di Kom Ombo ed Edfu lungo il percorso, cosa includono le opzioni (Abu Simbel, un volo in mongolfiera, i biglietti d’ingresso) e a chi è adatta una crociera.",
+  "location": "Da Assuan a Luxor",
+  "review": "pending",
+  "current": true
+ },
  "exp-dinner": {
   "type": "er_experience",
   "excerpt": "Una crociera con cena sul Nilo al Cairo: com’è la serata, la musica e lo spettacolo di tanoura, a chi è adatta, come scegliere la barca e che differenza c’è con un semplice giro in feluca al tramonto.",

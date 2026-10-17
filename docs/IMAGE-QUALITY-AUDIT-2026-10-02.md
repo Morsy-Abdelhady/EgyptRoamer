@@ -160,3 +160,5 @@ Hot-linked from Commons, credited under each photo with a link to its file page.
 | White Desert, Black Desert | File:Black Desert, Egypt 17.jpg | Viktor Lazić | CC BY-SA 4.0 |
 | White Desert, Crystal Mountain | File:Crystal Mountain, White Desert, Egypt 28.jpg | Viktor Lazić | CC BY-SA 4.0 |
 | White Desert, the White Desert | File:White Desert, Rock formations in desert landscape, Egypt.jpg | Vyacheslav Argenberg | CC BY 4.0 |
+
+| 2026-10-17 | Experience `exp-cruise` (seed extraStock) and GetYourGuide offer `gyg-nile-cruise-aswan-luxor-abu-simbel-balloon` | 1778402153163-fc9a5fd0131a | free Unsplash photo by Kuan L, location tag "Aswan" read on the photo page on 17 Oct (also used in `g-nile-cruise`, prototype `guide-photos.py`) | "Aswan" | Unsplash (free) | A cruise ship on the Nile at Aswan |
