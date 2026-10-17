@@ -1891,6 +1891,96 @@
    "Входные билеты оплачиваются на месте",
    "门票现场支付",
    "رسوم الدخول تُدفع في المكان"
+  ],
+  "Start the story": [
+   "Die Geschichte beginnen",
+   "Commencer l'histoire",
+   "Inizia la storia",
+   "Empezar la historia",
+   "Начать историю",
+   "开始这段故事",
+   "ابدأ الحكاية"
+  ],
+  "The story · {n} chapters": [
+   "Die Geschichte · {n} Kapitel",
+   "L'histoire · {n} chapitres",
+   "La storia · {n} capitoli",
+   "La historia · {n} capítulos",
+   "История · глав: {n}",
+   "故事 · {n} 个篇章",
+   "الحكاية · {n} فصول"
+  ],
+  "Trips in this chapter": [
+   "Ausflüge in diesem Kapitel",
+   "Excursions de ce chapitre",
+   "Escursioni di questo capitolo",
+   "Excursiones de este capítulo",
+   "Поездки этой главы",
+   "本篇章的行程",
+   "رحلات هذا الفصل"
+  ],
+  "1 trip": [
+   "1 Ausflug",
+   "1 excursion",
+   "1 escursione",
+   "1 excursión",
+   "1 поездка",
+   "1 个行程",
+   "رحلة واحدة"
+  ],
+  "{n} trips": [
+   "{n} Ausflüge",
+   "{n} excursions",
+   "{n} escursioni",
+   "{n} excursiones",
+   "Поездок: {n}",
+   "{n} 个行程",
+   "{n} رحلات"
+  ],
+  "Read the {place} guide": [
+   "Den Reiseführer zu {place} lesen",
+   "Lire le guide de {place}",
+   "Leggi la guida di {place}",
+   "Leer la guía de {place}",
+   "Путеводитель: {place}",
+   "阅读{place}指南",
+   "اقرأ دليل {place}"
+  ],
+  "More trips": [
+   "Weitere Ausflüge",
+   "Autres excursions",
+   "Altre escursioni",
+   "Más excursiones",
+   "Другие поездки",
+   "更多行程",
+   "رحلات أخرى"
+  ],
+  "See the trip": [
+   "Zum Ausflug",
+   "Voir l'excursion",
+   "Vedi l'escursione",
+   "Ver la excursión",
+   "Смотреть поездку",
+   "查看行程",
+   "شاهد الرحلة"
+  ],
+  "See all {n} trips": [
+   "Alle {n} Ausflüge ansehen",
+   "Voir les {n} excursions",
+   "Vedi tutte le {n} escursioni",
+   "Ver las {n} excursiones",
+   "Все поездки ({n})",
+   "查看全部 {n} 个行程",
+   "شاهد كل الرحلات ({n})"
+  ],
+  "About {place}": [
+   "Über {place}",
+   "À propos de {place}",
+   "Su {place}",
+   "Sobre {place}",
+   "О месте: {place}",
+   "关于{place}",
+   "عن {place}"
   ]
  }
 }

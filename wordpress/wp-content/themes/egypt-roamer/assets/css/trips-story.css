@@ -1,0 +1,41 @@
+/* Proposal 4, Trips & tours by place (inc/world.php er_world_trip_groups), ported from docs/prototypes/journey-v4
+   (.group, .gbanner). */
+.tgroups{display:grid;gap:56px;margin-top:8px}
+.tgroup{display:grid;gap:22px}
+.tbanner{position:relative;min-height:220px;border-radius:18px;overflow:hidden;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:22px 26px;color:var(--white);flex-wrap:wrap}
+.tbanner > img,.tbanner > picture,.tbanner > picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.tbanner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,24,32,.78) 0%,rgba(16,24,32,.35) 60%,rgba(16,24,32,.15) 100%),linear-gradient(180deg,transparent 40%,rgba(16,24,32,.6) 100%);pointer-events:none}
+.tbanner__t,.tbanner__go{position:relative;z-index:1}
+.tbanner__t{min-width:0}
+.tbanner h2{margin:0;font:500 clamp(34px,4vw,52px)/1 var(--font-serif);color:var(--white)}
+.tbanner p{margin:8px 0 0;font:italic 500 18px/1.35 var(--font-serif);color:#f4ecdb}
+.tbanner small{font:500 13px var(--font-sans);font-style:normal;opacity:.8}
+.tbanner__go{font-size:14px;font-weight:600;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:2px;white-space:nowrap}
+.tbanner__go:hover{border-color:var(--gold);color:var(--sand)}
+.tgroup__h{margin:0}
+@media (max-width:600px){.tgroups{gap:40px}.tbanner{min-height:180px;padding:16px 18px;border-radius:14px}.tbanner p{font-size:16px}.tbanner__go{white-space:normal}}
+
+/* Proposal 4, the Places page (inc/world.php er_world_place_cards; prototype showPlaces) */
+.pcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:start}
+.pcard{background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.pcard__img{position:relative;display:block;aspect-ratio:16/10;overflow:hidden}
+.pcard__img img,.pcard__img picture{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.pcard:hover .pcard__img img{transform:scale(1.03)}
+.pcard__region{position:absolute;inset-inline-start:14px;bottom:14px;background:rgba(16,24,32,.82);color:var(--white);font:600 11px var(--font-sans);letter-spacing:.16em;text-transform:uppercase;border-radius:999px;padding:5px 10px}
+.pcard__b{padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pcard h2{margin:0;font:500 30px/1.1 var(--font-serif)}
+.pcard h2 a{color:inherit;text-decoration:none}
+.pcard__tag{margin:0;color:var(--text-muted);font-size:15.5px}
+.pcard__best{margin:0;color:var(--text-muted);font-size:13.5px}
+.pcard__trips{display:grid;gap:4px;margin-top:10px;padding-top:12px;border-top:1px solid var(--line)}
+.pcard .mini{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:center;padding:6px 0;text-decoration:none;color:inherit;border-radius:8px}
+.pcard .mini img,.pcard .mini__ph{width:44px;height:44px;border-radius:8px;object-fit:cover;background:var(--stone)}
+.pcard .mini b{display:block;font:500 15.5px/1.25 var(--font-serif)}
+.pcard .mini__b > span{display:block;font-size:12.5px;color:var(--text-muted);margin-top:2px}
+.pcard .mini em{font-style:normal}
+.pcard .mini:hover b{text-decoration:underline}
+.pcard__acts{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}
+.pcard__about{font-weight:600;font-size:14px;color:var(--charcoal)}
+@media (max-width:1000px){.pcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.pcards{grid-template-columns:1fr}.pcard h2{font-size:26px}.pcard__acts .btn{min-height:44px}}
+html[dir="rtl"] .tbanner__go > span[aria-hidden],html[dir="rtl"] .pcard__acts .btn > span[aria-hidden]{display:inline-block;transform:scaleX(-1)}

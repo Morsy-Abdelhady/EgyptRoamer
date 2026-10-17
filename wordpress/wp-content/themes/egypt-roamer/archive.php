@@ -75,7 +75,9 @@ er_page_hero( [ 'eyebrow' => er_t( 'Egypt Roamer' ), 'title' => $er_title, 'intr
 	<?php endif; ?>
 
 	<?php if ( $er_ux2_trips && ! $er_ids ) : er_ux2_trip_empty(); elseif ( have_posts() ) : ?>
+		<?php if ( $er_ux2_trips && function_exists( 'er_world_on' ) && er_world_on() ) : er_world_trip_groups( $er_ids ); elseif ( 'er_destination' === $er_type && function_exists( 'er_world_on' ) && er_world_on() ) : er_world_place_cards( $er_ids ); else : // proposal 4: trips by place under each place's banner; places with their trips ?>
 		<?php er_card_grid( $er_ids, 'archive-' . str_replace( 'er_', '', $er_type ?: 'list' ), 'h2' ); ?>
+		<?php endif; ?>
 		<?php
 		the_posts_pagination( [
 			'prev_text' => er_icon( 'i-arrow-left' ) . '<span class="visually-hidden">' . esc_html( er_t( 'Previous' ) ) . '</span>',

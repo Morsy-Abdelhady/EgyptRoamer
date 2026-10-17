@@ -290,3 +290,166 @@ add_filter( 'body_class', static function ( array $c ): array {
 	}
 	return $c;
 } );
+
+/*
+ * Proposal 4, the homepage story (prototype renderHome): the hero with the story's index, then the four chapters
+ * (the approved scenes' own words and photographs from Appearance → Homepage), each ending in the trips that belong
+ * to it, so a visitor can book from the chapter they are reading. The sections after the scenes stay as they are.
+ */
+
+/** The trips of each chapter, by seed (prototype CHAPTERS; the Nile cruise joined the Nile on 17 Oct). */
+function er_world_chapter_trips( int $n ): array {
+	$seeds = [
+		1 => [ 'exp-giza', 'exp-dinner', 'exp-food' ],
+		2 => [ 'exp-valley', 'exp-cruise', 'exp-abu' ],
+		3 => [ 'exp-safari', 'exp-siwa' ],
+		4 => [ 'exp-dive', 'exp-ras-mohammed' ],
+	][ $n ] ?? [];
+	$ids = [];
+	foreach ( $seeds as $seed ) {
+		$found = get_posts( [
+			'post_type'        => 'er_experience',
+			'post_status'      => 'publish',
+			'numberposts'      => 1,
+			'fields'           => 'ids',
+			'suppress_filters' => false,
+			'meta_query'       => [ [ 'key' => '_er_seed_id', 'value' => array_merge( [ $seed ], array_map( static fn ( $l ) => $seed . '-' . $l, [ 'ar', 'de', 'fr', 'it', 'es', 'ru', 'zh' ] ) ), 'compare' => 'IN' ] ], // phpcs:ignore WordPress.DB.SlowDBQuery
+		] );
+		if ( $found ) {
+			$ids[] = (int) $found[0];
+		}
+	}
+	return $ids;
+}
+
+/** A trip as a small card: photo, name, length, how many options. Opens the trip's page. */
+function er_world_mini( int $id ): string {
+	$offers = function_exists( 'er_offers_for_post' ) ? er_offers_for_post( $id, 10 ) : [];
+	$len    = function_exists( 'er_ux2_offer_length' ) ? er_ux2_offer_length( $offers ) : '';
+	$len    = '' !== $len ? $len : (string) get_post_meta( $id, '_er_duration', true );
+	$n      = count( $offers );
+	$opts   = $n ? ( 1 === $n ? er_t( '1 option' ) : er_t( '{n} options', [ 'n' => $n ] ) ) : '';
+	$thumb  = function_exists( 'er_ux2_thumb_url' ) ? er_ux2_thumb_url( $id ) : '';
+	return '<a class="mini" href="' . esc_url( get_permalink( $id ) ) . '">'
+		. ( '' !== $thumb ? '<img src="' . esc_url( $thumb ) . '" alt="" loading="lazy" width="76" height="76" />' : '<span class="mini__ph" aria-hidden="true"></span>' )
+		. '<span class="mini__b"><b>' . esc_html( get_the_title( $id ) ) . '</b><span>' . esc_html( $len ) . ( '' !== $len && '' !== $opts ? ' · ' : '' ) . ( '' !== $opts ? '<em>' . esc_html( $opts ) . '</em>' : '' ) . '</span></span></a>';
+}
+
+add_action( 'wp_enqueue_scripts', static function (): void {
+	if ( er_world_on() && is_front_page() ) {
+		wp_enqueue_style( 'er-home-story', ER_THEME_URI . '/assets/css/home-story.css', [ 'er-pages' ], er_asset_ver( 'assets/css/home-story.css' ) );
+	}
+}, 20 );
+
+/** The chapter's place, when the chapter is one place (Pyramids: Cairo; Desert: Siwa), for "See all trips in …". */
+function er_world_chapter_place( int $n ): int {
+	$seed = [ 1 => 'dest-cairo', 3 => 'dest-siwa' ][ $n ] ?? '';
+	if ( '' === $seed ) {
+		return 0;
+	}
+	$found = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'numberposts' => 1, 'fields' => 'ids', 'suppress_filters' => false, 'meta_query' => [ [ 'key' => '_er_seed_id', 'value' => array_merge( [ $seed ], array_map( static fn ( $l ) => $seed . '-' . $l, [ 'ar', 'de', 'fr', 'it', 'es', 'ru', 'zh' ] ) ), 'compare' => 'IN' ] ] ] ); // phpcs:ignore WordPress.DB.SlowDBQuery
+	return $found ? (int) $found[0] : 0;
+}
+
+/*
+ * Proposal 4, Trips & tours by place (prototype renderTrips): each place opens with its banner (photo, name, the
+ * place's own tagline and best time, a link to its guide), then its trips. A trip belongs to its page's place; the
+ * desert safari has none on its page and sits with Siwa, as in the prototype (both are Western Desert trips).
+ */
+function er_world_trip_groups( array $ids ): void {
+	$groups = [];
+	foreach ( $ids as $id ) {
+		$dest = (int) get_post_meta( (int) $id, '_er_destination', true );
+		if ( ! $dest && 'exp-safari' === preg_replace( '/-(ar|de|fr|it|es|ru|zh)$/', '', (string) get_post_meta( (int) $id, '_er_seed_id', true ) ) ) {
+			$dest = er_world_chapter_place( 3 );
+		}
+		$dest = $dest && function_exists( 'er_translated_post_id' ) ? (int) er_translated_post_id( $dest ) : $dest;
+		$groups[ $dest ][] = (int) $id;
+	}
+	$order = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'numberposts' => 30, 'fields' => 'ids', 'orderby' => 'menu_order', 'order' => 'ASC', 'suppress_filters' => false ] );
+	$keys  = array_merge( array_values( array_intersect( array_map( 'intval', $order ), array_keys( $groups ) ) ), array_diff( array_keys( $groups ), array_map( 'intval', $order ) ) );
+	echo '<div class="tgroups">';
+	foreach ( $keys as $dest ) {
+		echo '<section class="tgroup" aria-labelledby="tg-' . (int) $dest . '">';
+		if ( $dest && 'publish' === get_post_status( $dest ) ) {
+			$photo = (int) get_post_thumbnail_id( $dest );
+			$stock = er_stock_id_for( $dest );
+			$img   = $photo ? er_img( $photo, 'er-hero', [ 'alt' => '', 'sizes' => '(max-width: 1240px) 100vw, 1200px', 'loading' => 'lazy' ] ) : ( '' !== $stock ? er_stock_img( $stock, '', [ 'loading' => 'lazy', 'sizes' => '(max-width: 1240px) 100vw, 1200px' ], [ 800, 1200, 1800 ] ) : '' );
+			$tag   = (string) get_post_meta( $dest, '_er_tagline', true );
+			$best  = (string) get_post_meta( $dest, '_er_best_time', true );
+			echo '<div class="tbanner on-dark">' . $img . '<div class="tbanner__t"><h2 id="tg-' . (int) $dest . '">' . esc_html( get_the_title( $dest ) ) . '</h2>'; // phpcs:ignore WordPress.Security.EscapeOutput
+			if ( '' !== $tag || '' !== $best ) {
+				echo '<p>' . esc_html( $tag ) . ( '' !== $best ? ' <small>· ' . esc_html( er_t( 'Best time' ) . ' ' . $best ) . '</small>' : '' ) . '</p>';
+			}
+			echo '</div><a class="tbanner__go" href="' . esc_url( get_permalink( $dest ) ) . '">' . esc_html( er_t( 'Read the {place} guide', [ 'place' => get_the_title( $dest ) ] ) ) . ' <span aria-hidden="true">→</span></a></div>';
+		} else {
+			echo '<h2 class="t-h3 tgroup__h" id="tg-0">' . esc_html( er_t( 'More trips' ) ) . '</h2>';
+		}
+		er_card_grid( $groups[ $dest ], 'archive-experience', 'h3' );
+		echo '</section>';
+	}
+	echo '</div>';
+}
+
+add_action( 'wp_enqueue_scripts', static function (): void {
+	if ( er_world_on() && function_exists( 'er_ux2_trips_page' ) && er_ux2_trips_page() ) {
+		wp_enqueue_style( 'er-trips-story', ER_THEME_URI . '/assets/css/trips-story.css', [ 'er-pages' ], er_asset_ver( 'assets/css/trips-story.css' ) );
+	}
+}, 20 );
+
+/** The trips whose page belongs to this place (any language's copy of it), in the current language. */
+function er_world_place_trips( int $dest ): array {
+	$group = function_exists( 'er_translation_group' ) ? er_translation_group( $dest ) : [ $dest ];
+	$ids   = get_posts( [ 'post_type' => 'er_experience', 'post_status' => 'publish', 'numberposts' => 20, 'fields' => 'ids', 'orderby' => 'menu_order', 'order' => 'ASC', 'suppress_filters' => false, 'meta_query' => [ [ 'key' => '_er_destination', 'value' => $group, 'compare' => 'IN', 'type' => 'NUMERIC' ] ] ] ); // phpcs:ignore WordPress.DB.SlowDBQuery
+	if ( er_world_chapter_place( 3 ) === $dest ) {
+		$ids = array_merge( er_world_chapter_trips( 3 ), $ids ); // the desert safari has no place on its page (see er_world_trip_groups)
+	}
+	return array_values( array_unique( array_map( 'intval', $ids ) ) );
+}
+
+/*
+ * Proposal 4, the Places page (prototype showPlaces): each place as a card that already plans: its photo and region,
+ * its own tagline and best time, the trips you can book there, then "See all trips" and the place's guide.
+ */
+function er_world_place_cards( array $ids ): void {
+	echo '<div class="pcards">';
+	foreach ( $ids as $dest ) {
+		$dest   = (int) $dest;
+		$photo  = (int) get_post_thumbnail_id( $dest );
+		$stock  = er_stock_id_for( $dest );
+		$sizes  = '(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 400px';
+		$img    = $photo ? er_img( $photo, 'large', [ 'alt' => '', 'sizes' => $sizes, 'loading' => 'lazy' ] ) : ( '' !== $stock ? er_stock_img( $stock, '', [ 'loading' => 'lazy', 'sizes' => $sizes ], [ 500, 800, 1100 ] ) : '' );
+		$name   = get_the_title( $dest );
+		$url    = get_permalink( $dest );
+		$trips  = er_world_place_trips( $dest );
+		$n      = count( $trips );
+		$region = (string) get_post_meta( $dest, '_er_region_label', true );
+		$tag    = (string) get_post_meta( $dest, '_er_tagline', true );
+		$best   = (string) get_post_meta( $dest, '_er_best_time', true );
+		echo '<article class="pcard"><a class="pcard__img" href="' . esc_url( $url ) . '" tabindex="-1" aria-hidden="true">' . $img; // phpcs:ignore WordPress.Security.EscapeOutput
+		echo '' !== $region ? '<span class="pcard__region">' . esc_html( $region ) . '</span>' : '';
+		echo '</a><div class="pcard__b"><h2><a href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a></h2>';
+		echo '' !== $tag ? '<p class="pcard__tag">' . esc_html( $tag ) . '</p>' : '';
+		echo '' !== $best ? '<p class="pcard__best">' . esc_html( er_t( 'Best time' ) . ' ' . $best ) . '</p>' : '';
+		if ( $trips ) {
+			echo '<div class="pcard__trips">';
+			foreach ( $trips as $t ) {
+				echo er_world_mini( $t ); // phpcs:ignore WordPress.Security.EscapeOutput
+			}
+			echo '</div>';
+		}
+		echo '<div class="pcard__acts">';
+		if ( $n ) {
+			$go = 1 === $n ? get_permalink( $trips[0] ) : er_ux2_trip_url( [ 'destination' => $dest, 'len' => '', 'private' => false, 'pickup' => false ] );
+			echo '<a class="btn btn--primary btn--sm" href="' . esc_url( $go ) . '">' . esc_html( 1 === $n ? er_t( 'See the trip' ) : er_t( 'See all {n} trips', [ 'n' => (string) $n ] ) ) . ' <span aria-hidden="true">→</span></a>';
+		}
+		echo '<a class="pcard__about" href="' . esc_url( $url ) . '">' . esc_html( er_t( 'About {place}', [ 'place' => $name ] ) ) . '</a></div></div></article>';
+	}
+	echo '</div>';
+}
+
+add_action( 'wp_enqueue_scripts', static function (): void {
+	if ( er_world_on() && is_post_type_archive( 'er_destination' ) ) {
+		wp_enqueue_style( 'er-places-story', ER_THEME_URI . '/assets/css/trips-story.css', [ 'er-pages' ], er_asset_ver( 'assets/css/trips-story.css' ) );
+	}
+}, 20 );

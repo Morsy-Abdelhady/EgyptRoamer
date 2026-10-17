@@ -107,8 +107,30 @@ function er_render_settings_page(): void {
 	wp_nonce_field( 'er_ux2_switch' );
 	echo '<input type="hidden" name="action" value="er_ux2_switch" /><input type="hidden" name="on" value="' . ( $on ? '0' : '1' ) . '" />';
 	submit_button( $on ? __( 'Switch the new journey off', 'egypt-roamer-core' ) : __( 'Switch the new journey on for everyone', 'egypt-roamer-core' ), $on ? 'secondary' : 'primary', 'er-ux2-switch' );
+	echo '</form>';
+	// Proposal 4's screens (theme er_world_on(), previewed with ?ux=3): the story homepage, the trip worlds, Trips &
+	// tours by place and the Places cards (owner, 18 Oct: "apply the prototype in full").
+	$world = (bool) get_option( 'er_world' );
+	echo '<h2 class="er-fields__heading">' . esc_html__( 'Proposal 4 design', 'egypt-roamer-core' ) . '</h2>';
+	echo '<p>' . ( $world
+		? esc_html__( 'On: every visitor sees the story homepage, the trip worlds and the places by trip.', 'egypt-roamer-core' )
+		: esc_html__( 'Off: visitors see the current screens; proposal 4 is only previewed with ?ux=3.', 'egypt-roamer-core' ) ) . '</p>';
+	echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
+	wp_nonce_field( 'er_world_switch' );
+	echo '<input type="hidden" name="action" value="er_world_switch" /><input type="hidden" name="on" value="' . ( $world ? '0' : '1' ) . '" />';
+	submit_button( $world ? __( 'Switch proposal 4 off', 'egypt-roamer-core' ) : __( 'Switch proposal 4 on for everyone', 'egypt-roamer-core' ), $world ? 'secondary' : 'primary', 'er-world-switch' );
 	echo '</form></div>';
 }
+
+add_action( 'admin_post_er_world_switch', static function () {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'egypt-roamer-core' ), 403 );
+	}
+	check_admin_referer( 'er_world_switch' );
+	update_option( 'er_world', ! empty( $_POST['on'] ) ? 1 : 0 ); // phpcs:ignore WordPress.Security.NonceVerification -- checked above
+	wp_safe_redirect( add_query_arg( [ 'page' => 'er-settings', 'updated' => 1 ], admin_url( 'admin.php' ) ) );
+	exit;
+} );
 
 add_action( 'admin_post_er_ux2_switch', static function () {
 	if ( ! current_user_can( 'manage_options' ) ) {

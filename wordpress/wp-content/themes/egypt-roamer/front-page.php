@@ -95,8 +95,10 @@ foreach ( [ 'hotels' => [ 'i-bed', 'Hotels' ], 'tours' => [ 'i-compass', 'Tours 
 	}
 }
 $er_planner_on = (bool) er_home( 'planner_enabled' );
+$er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 4: the story's chapters instead of the pinned scenes
 ?>
 
+<?php if ( ! $er_story ) : ?>
 <aside class="rail" id="rail" aria-label="<?php echo esc_attr( er_t( 'Journey chapters' ) ); ?>">
 	<ol class="rail__list">
 		<?php foreach ( [ 1 => 'pyramids', 2 => 'nile', 3 => 'desert', 4 => 'redsea' ] as $er_n => $er_id ) : ?>
@@ -106,8 +108,12 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 	<span class="rail__track" aria-hidden="true"><i id="rail-fill"></i></span>
 	<p class="rail__scroll"><?php echo er_icon( 'i-mouse' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span><?php er_e( 'Scroll to explore' ); ?></span></p>
 </aside>
+<?php endif; ?>
 
 <main id="main">
+<?php if ( $er_story ) : ?>
+	<?php get_template_part( 'template-parts/home-story', null, [ 'img' => $er_scene_img ] ); ?>
+<?php else : ?>
 	<section class="journey" id="top" aria-label="<?php echo esc_attr( er_t( 'Egypt as a journey' ) ); ?>">
 		<?php // The pin's spacer is part of the markup: ScrollTrigger uses it instead of re-parenting the stage, which made Chrome re-report the hero as a new Largest Contentful Paint (journey.js). ?>
 		<div class="journey__spacer">
@@ -259,6 +265,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 		</div>
 	</section>
 	<span id="journey-start" aria-hidden="true"></span>
+<?php endif; ?>
 <?php
 	// New journey, B1 (owner, 16 Oct): the experiences rail right after the scenes, so the first trip is about six
 	// screens down instead of twelve. Only the order changes: the sections between are held and printed after it.
