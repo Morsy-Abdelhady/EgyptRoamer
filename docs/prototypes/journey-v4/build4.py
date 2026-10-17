@@ -14,8 +14,10 @@ MB = load('mb', 'v4-mobile.py')          # phone version
 R4 = load('r4', 'v4-round4.py')
 H2 = load('h2', 'v4-home2.py')            # production sections the prototype had dropped
 NC = load('nc', 'v4-cruise.py')            # Nile cruise trip (owner OK, 17 Oct)
+WP = load('wp', 'v4-wphotos.py')           # Commons photos for steps without one
 TR = load('tr', 'v4-tourist.py')            # tourist walk-through fixes
-T2 = load('t2', 'v4-tourist2.py')           # first-time tourist review
+T2 = load('t2', 'v4-tourist2.py')
+T3 = load('t3', 'v4-tourist3.py')           # every trip as a tourist           # first-time tourist review
 PL = load('pl', 'v4-planner.py')            # Trip Builder fixes
 R7 = load('r7', 'v4-round7.py')            # expert review suggestions
 GD = load('gd', 'v4-guides.py')            # Travel Guide merged in
@@ -74,8 +76,10 @@ tpl = GD.apply(tpl)
 tpl = R7.apply(tpl)
 tpl = PL.apply(tpl)
 tpl = NC.apply(tpl)
+tpl = WP.apply(tpl)
 tpl = TR.apply(tpl)
 tpl = T2.apply(tpl)
+tpl = T3.apply(tpl)
 open('v4.template.html', 'w', encoding='utf-8', newline='\n').write(tpl)
 
 imgs = json.load(open('imgs6.json'))

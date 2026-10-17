@@ -1,0 +1,142 @@
+{
+ "w_colossi": {
+  "trip": "valley",
+  "step": 3,
+  "file": "img/w_colossi.jpg",
+  "title": "File:Colosos de Memnón, Luxor, Egipto, 2022-04-03, DD 131.jpg",
+  "artist": "Diego Delso",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Colosos_de_Memn%C3%B3n,_Luxor,_Egipto,_2022-04-03,_DD_131.jpg",
+  "bytes": 524187
+ },
+ "w_black": {
+  "trip": "white",
+  "step": 1,
+  "file": "img/w_black.jpg",
+  "title": "File:Black Desert, Egypt 17.jpg",
+  "artist": "Viktor Lazić",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Black_Desert,_Egypt_17.jpg",
+  "bytes": 613911
+ },
+ "w_crystal": {
+  "trip": "white",
+  "step": 2,
+  "file": "img/w_crystal.jpg",
+  "title": "File:Crystal Mountain, White Desert, Egypt 28.jpg",
+  "artist": "Viktor Lazić",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Crystal_Mountain,_White_Desert,_Egypt_28.jpg",
+  "bytes": 786801
+ },
+ "w_white": {
+  "trip": "white",
+  "step": 4,
+  "file": "img/w_white.jpg",
+  "title": "File:White Desert, Rock formations in desert landscape, Egypt.jpg",
+  "artist": "Vyacheslav Argenberg",
+  "lic": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:White_Desert,_Rock_formations_in_desert_landscape,_Egypt.jpg",
+  "bytes": 660476
+ },
+ "w_sphinx": {
+  "trip": "giza",
+  "step": 4,
+  "file": "img/w_sphinx.jpg",
+  "title": "File:Great Sphinx of Giza (أبو الهول).jpg",
+  "artist": "Petar Milošević",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Great_Sphinx_of_Giza_(%D8%A3%D8%A8%D9%88_%D8%A7%D9%84%D9%87%D9%88%D9%84).jpg",
+  "bytes": 655525
+ },
+ "w_abu_in": {
+  "trip": "abu",
+  "step": 3,
+  "file": "img/w_abu_in.jpg",
+  "title": "File:Interior of the Great Temple of Abu Simbel - panoramio (1606).jpg",
+  "artist": "turizm-art",
+  "lic": "CC BY 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Interior_of_the_Great_Temple_of_Abu_Simbel_-_panoramio_(1606).jpg",
+  "bytes": 544501
+ },
+ "w_abu_move": {
+  "trip": "abu",
+  "step": 4,
+  "file": "img/w_abu_move.jpg",
+  "title": "File:Nubia, Temples of Abu Simbel, Pictures, photo 4 of 7 - Archivio fotografico Museo Egizio, Turin Album2 092.jpg",
+  "artist": "",
+  "lic": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:Nubia,_Temples_of_Abu_Simbel,_Pictures,_photo_4_of_7_-_Archivio_fotografico_Museo_Egizio,_Turin_Album2_092.jpg",
+  "bytes": 675577
+ },
+ "w_shoqafa": {
+  "trip": "alex",
+  "step": 3,
+  "file": "img/w_shoqafa.jpg",
+  "title": "File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50852603281.jpg",
+  "artist": "Following Hadrian",
+  "lic": "CC BY-SA 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Catacombs_of_Kom_El_Shoqafa,_Alexandria,_Egypt_-_50852603281.jpg",
+  "bytes": 614229
+ },
+ "w_montaza": {
+  "trip": "alex",
+  "step": 5,
+  "file": "img/w_montaza.jpg",
+  "title": "File:Montaza Palace, Alexandria, Egypt - Murat Özsoy 2018.jpg",
+  "artist": "Murat Özsoy 1958",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Montaza_Palace,_Alexandria,_Egypt_-_Murat_%C3%96zsoy_2018.jpg",
+  "bytes": 578136
+ },
+ "w_siwa_dunes": {
+  "trip": "siwa",
+  "step": 1,
+  "file": "img/w_siwa_dunes.jpg",
+  "title": "File:Great Sand Sea8.jpg",
+  "artist": "ولاء",
+  "lic": "public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Great_Sand_Sea8.jpg",
+  "bytes": 549802
+ },
+ "w_siwa_spring": {
+  "trip": "siwa",
+  "step": 2,
+  "file": "img/w_siwa_spring.jpg",
+  "title": "File:Siwa Oasis, Cleopatra's Bath, Egypt.jpg",
+  "artist": "Vyacheslav Argenberg",
+  "lic": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Siwa_Oasis,_Cleopatra%27s_Bath,_Egypt.jpg",
+  "bytes": 721382
+ },
+ "w_siwa_sunset": {
+  "trip": "siwa",
+  "step": 4,
+  "file": "img/w_siwa_sunset.jpg",
+  "title": "File:Sunset at Great Sand Sea3.jpg",
+  "artist": "ولاء",
+  "lic": "public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Sunset_at_Great_Sand_Sea3.jpg",
+  "bytes": 328719
+ },
+ "w_hurg_marina": {
+  "trip": "redsea",
+  "step": 1,
+  "file": "img/w_hurg_marina.jpg",
+  "title": "File:Hurghada Marina 002.jpg",
+  "artist": "Amr F.Nagy",
+  "lic": "public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Hurghada_Marina_002.jpg",
+  "bytes": 468605
+ },
+ "w_komombo": {
+  "trip": "cruise",
+  "step": 2,
+  "file": "img/w_komombo.jpg",
+  "title": "File:Kom Ombo Portal 03.JPG",
+  "artist": "Olaf Tausch",
+  "lic": "CC BY 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Kom_Ombo_Portal_03.JPG",
+  "bytes": 549215
+ }
+}

@@ -187,3 +187,34 @@ The owner approved these for the food trip, credited as their licence requires: 
 - The Nile chapter and the map show the classic Aswan–Luxor cruise, but there is no Nile cruise offer to book. A partner cruise offer would fill this gap, and adding one needs your OK.
 - There is no guide on safety, the question a first-timer asks most. The assistant now sends it to the team.
 - The two Red Sea trips use the same reef photo.
+
+## 12. Every trip as a first-time tourist, and Commons photos (owner, 17 Oct)
+**Photos:** the owner asked for Wikipedia photos for trip steps that had none. 14 photos from Wikimedia Commons, each of the exact place and under a free licence, are credited on the step (`v4-wphotos.py`):
+- valley, step 3: [Colosos de Memnón, Luxor, Egipto, 2022-04-03, DD 131.jpg](https://commons.wikimedia.org/wiki/File:Colosos_de_Memn%C3%B3n,_Luxor,_Egipto,_2022-04-03,_DD_131.jpg). Diego Delso, CC BY-SA 4.0.
+- white, step 1: [Black Desert, Egypt 17.jpg](https://commons.wikimedia.org/wiki/File:Black_Desert,_Egypt_17.jpg). Viktor Lazić, CC BY-SA 4.0.
+- white, step 2: [Crystal Mountain, White Desert, Egypt 28.jpg](https://commons.wikimedia.org/wiki/File:Crystal_Mountain,_White_Desert,_Egypt_28.jpg). Viktor Lazić, CC BY-SA 4.0.
+- white, step 4: [White Desert, Rock formations in desert landscape, Egypt.jpg](https://commons.wikimedia.org/wiki/File:White_Desert,_Rock_formations_in_desert_landscape,_Egypt.jpg). Vyacheslav Argenberg, CC BY 4.0.
+- giza, step 4: [Great Sphinx of Giza (أبو الهول).jpg](https://commons.wikimedia.org/wiki/File:Great_Sphinx_of_Giza_(%D8%A3%D8%A8%D9%88_%D8%A7%D9%84%D9%87%D9%88%D9%84).jpg). Petar Milošević, CC BY-SA 4.0.
+- abu, step 3: [Interior of the Great Temple of Abu Simbel - panoramio (1606).jpg](https://commons.wikimedia.org/wiki/File:Interior_of_the_Great_Temple_of_Abu_Simbel_-_panoramio_(1606).jpg). turizm-art, CC BY 3.0.
+- abu, step 4: [Nubia, Temples of Abu Simbel, Pictures, photo 4 of 7 - Archivio fotografico Museo Egizio, Turin Album2 092.jpg](https://commons.wikimedia.org/wiki/File:Nubia,_Temples_of_Abu_Simbel,_Pictures,_photo_4_of_7_-_Archivio_fotografico_Museo_Egizio,_Turin_Album2_092.jpg). Museo Egizio, Turin, CC0.
+- alex, step 3: [Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50852603281.jpg](https://commons.wikimedia.org/wiki/File:Catacombs_of_Kom_El_Shoqafa,_Alexandria,_Egypt_-_50852603281.jpg). Following Hadrian, CC BY-SA 2.0.
+- alex, step 5: [Montaza Palace, Alexandria, Egypt - Murat Özsoy 2018.jpg](https://commons.wikimedia.org/wiki/File:Montaza_Palace,_Alexandria,_Egypt_-_Murat_%C3%96zsoy_2018.jpg). Murat Özsoy 1958, CC BY-SA 4.0.
+- siwa, step 1: [Great Sand Sea8.jpg](https://commons.wikimedia.org/wiki/File:Great_Sand_Sea8.jpg). ولاء, public domain.
+- siwa, step 2: [Siwa Oasis, Cleopatra's Bath, Egypt.jpg](https://commons.wikimedia.org/wiki/File:Siwa_Oasis,_Cleopatra%27s_Bath,_Egypt.jpg). Vyacheslav Argenberg, CC BY 4.0.
+- siwa, step 4: [Sunset at Great Sand Sea3.jpg](https://commons.wikimedia.org/wiki/File:Sunset_at_Great_Sand_Sea3.jpg). ولاء, public domain.
+- redsea, step 1: [Hurghada Marina 002.jpg](https://commons.wikimedia.org/wiki/File:Hurghada_Marina_002.jpg). Amr F.Nagy, public domain.
+- cruise, step 2: [Kom Ombo Portal 03.JPG](https://commons.wikimedia.org/wiki/File:Kom_Ombo_Portal_03.JPG). Olaf Tausch, CC BY 3.0.
+
+Left without a photo, on purpose:
+- Agabat: Commons has no photo of Egypt’s Agabat.
+- Belly dance: no photo of a performer is used.
+- Siwa sand-boarding: the only photos are from Fayoum and Sinai.
+- "Leave in the dark" and "By road": they describe a moment, not a place.
+
+**Trips:** all 11 trips were opened, read to the end, compared and booked, on desktop and phone (283 screens). Fixed in `v4-tourist3.py`:
+1. **Missing length.** White Desert, Siwa and the Red Sea dives never said how long they last on the trip page. Their length now shows in the opener and the booking summary.
+2. **Red Sea departures.** The Red Sea dives are listed under Sharm, but all 3 options leave from Hurghada. The card, opener and summary now say "All options leave from Hurghada".
+3. **Guide links.** Trip pages never linked to our guides. Each now ends with "Read before you go": up to 3 guides about that trip, the most specific first.
+4. **Alexandria.** Nothing came after its booking box; its guides now do.
+
+**Checked:** all 11 trips on both sizes, the tour (43), the walks, guides, filters, the Trip Builder and the cruise tests. There are no script errors.
