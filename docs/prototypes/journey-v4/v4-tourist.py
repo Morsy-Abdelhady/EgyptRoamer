@@ -85,7 +85,7 @@ function bkFit(){ const ga=document.getElementById("ga"), bk=ga&&ga.querySelecto
   if(bk.offsetHeight>avail) bk.classList.add("is-tight"); if(bk.offsetHeight>avail) bk.classList.add("is-tighter");
   if(bk.offsetHeight>avail){ bk.classList.remove("is-tight","is-tighter"); bk.style.top=""; bk.classList.add("is-static"); } }
 const _og=window.openGuide; window.openGuide=function(){ const r=_og.apply(this,arguments); requestAnimationFrame(bkFit); return r; };
-new ResizeObserver(()=>{ bkFit(); vp.style.setProperty("--sbw",(vp.offsetWidth-vp.clientWidth)+"px"); }).observe(vp);
+new ResizeObserver(()=>{ bkFit(); document.documentElement.style.setProperty("--sbw",(vp.offsetWidth-vp.clientWidth)+"px"); }).observe(vp);
 '''
 
 def apply(tpl):
