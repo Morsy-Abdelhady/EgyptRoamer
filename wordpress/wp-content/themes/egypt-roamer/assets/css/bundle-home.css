@@ -8797,3 +8797,61 @@ color: var(--charcoal);
 font: 600 0.7rem/1.5 var(--font-sans);
 font-style: normal;
 }
+.ux2-where {
+display: grid;
+gap: 0.6rem;
+margin-top: 1.5rem;
+max-width: 44rem;
+}
+.ux2-where__label {
+font-size: var(--fs-label);
+font-weight: 600;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--sand);
+}
+.ux2-where__chips {
+display: flex;
+flex-wrap: wrap;
+gap: 0.5rem;
+}
+.ux2-where__chips a {
+display: inline-flex;
+align-items: center;
+min-height: 40px;
+padding: 0 0.95rem;
+border-radius: 999px;
+border: 1px solid color-mix(in srgb, var(--white) 40%, transparent);
+background: color-mix(in srgb, var(--charcoal) 35%, transparent);
+color: var(--white);
+font-size: var(--fs-small);
+line-height: 1.1;
+text-decoration: none;
+white-space: nowrap;
+}
+.ux2-where__chips a:hover,
+.ux2-where__chips a:focus-visible {
+background: color-mix(in srgb, var(--white) 16%, transparent);
+}
+@media (max-width: 600px) {
+.ux2-where {
+margin-top: 1rem;
+}
+.ux2-where__chips {
+flex-wrap: nowrap;
+overflow-x: auto;
+scrollbar-width: none;
+margin-inline: calc(-1 * var(--gutter, 1rem));
+padding-inline: var(--gutter, 1rem);
+}
+.ux2-where__chips::-webkit-scrollbar {
+display: none;
+}
+.ux2-where__chips a {
+flex: none;
+}
+}
+[dir="rtl"] .ux2-where__label,
+[dir="rtl"] .ux2-filters__label {
+letter-spacing: 0;
+}

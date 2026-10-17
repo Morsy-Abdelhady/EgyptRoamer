@@ -2,6 +2,16 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.86 — 2026-10-17: proposal 4, slice 7: the homepage (preview `?ux=2` only)
+- **"Where in Egypt?"** under the hero's buttons: the hero offered only "Explore Egypt" (the scenes) and the film, so a tourist who already knew where they were going had no way in. The places are now listed there, and each opens Trips & tours filtered to that place.
+  - Computers: one row of buttons. Phones: one swipeable row, above the bottom bar.
+  - Arabic: right to left, with no letter-spacing on the label.
+- **Not changed:**
+  - the pinned scenes and the order of sections (approved in B1, 1.2.79);
+  - the page length: the prototype's shorter homepage drops approved sections, which needs the owner's decision.
+- **New strings:** 1, in all 8 languages, unreviewed.
+- **Visitors:** without `?ux=2` the homepage HTML in English, Arabic, German and Chinese, plus trips and guides, is unchanged.
+
 ## 1.2.85 — 2026-10-17: proposal 4, slice 6: the Trip Builder (preview `?ux=2` only)
 What a test of the homepage builder found, and what the preview does now:
 - **"What moves you?" changed nothing.** The interests now rank the trips on the route, and each trip shows the interests it matches. When an interest has nothing on the route, the builder offers the places whose trips have it ("+ Hurghada"). The grouping is editorial, by each trip's own subject (`ER_UX2_TRIP_INTERESTS`). Luxury maps to no trip, so it suggests nothing rather than something untrue.

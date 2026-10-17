@@ -20,7 +20,7 @@
 | 4 | Trip page: one length everywhere, a reason for "Our pick", a comparison that shows real differences, "Read before you go" guides, Book bar alignment | `v4-tourist.py` §1–2, `v4-cruise.py` (comparison rows), `v4-tourist3.py` | **Live, theme 1.2.83**, preview only |
 | 5 | Guides: "Trips in this guide" versus "route", no repeated card photos, a compact sticky trip card | `v4-tourist2.py` §6–7, `guides-fix.py`, `v4-tourist.py` §5 | **Live, theme 1.2.84**, preview only |
 | 6 | Trip Builder: interests rank trips, "Private or shared?", dropped-places notice, trip cards, save plan | `v4-planner.py` | **Live, theme 1.2.85**, preview only |
-| 7 | Homepage: "Where in Egypt?" with the 7 places, shorter page | `v4-round7.py`, `v4-tourist.py` §6 | |
+| 7 | Homepage: "Where in Egypt?" with the 7 places, shorter page | `v4-round7.py`, `v4-tourist.py` §6 | **Done locally, theme 1.2.86**, not pushed |
 
 **Needs the owner's decision, not just code:**
 - **Nile cruise trip:** 3 offers in Core plus `offer-facts.json` and `offers-i18n.json` (`docs/NILE-CRUISE-OFFERS-2026-10-17.md`).
@@ -161,3 +161,26 @@
     - interests rank the trips;
     - visitors still see "Travel style" and the partner list.
   - **`page-coverage.mjs`:** the first run stopped on a page that navigated while it was being read (a script error, not a page failure); the rerun passed: 336 pages in 8 languages, all ok.
+
+## Slice 7: done locally, 17 Oct (theme 1.2.86)
+- **Done:** "Where in Egypt?" under the hero, with the 7 places, each opening the filtered Trips & tours.
+- **Tested locally:**
+  - computer (1440 and 1280) and phone, English and Arabic;
+  - the link lands on Trips & tours with the place's button active;
+  - visitors' HTML is unchanged.
+- **For the owner, not done:** the prototype's shorter homepage (moods, map, where to stay, planner). It removes approved sections, so the owner should decide.
+
+## After the 7 slices: what is left
+- **Owner decisions:**
+  - switch the new journey on for everyone (`er_ux2` option);
+  - the shorter homepage;
+  - the Nile cruise (3 offers in Core plus translations);
+  - Commons photos on the site;
+  - Siwa's length line ("Full day", but its options are 3 days);
+  - a destination for the White Desert trip.
+- **Next code slices:**
+  - destination pages (one row per trip, as on guides);
+  - "Save this plan";
+  - the phone menu re-open bug in `nav.js`;
+  - assistant answers with photos.
+- **Translations:** native review of the new strings, all marked unreviewed.

@@ -204,7 +204,7 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 							</button>
 						<?php endif; ?>
 					</div>
-				</div>
+<?php er_ux2_hero_places(); // New journey preview: the places, one tap from the hero (inc/ux2-trips.php). ?>				</div>
 
 				<p class="hero__note" data-hero-fade aria-hidden="true">
 					<?php echo implode( '<br />', array_map( static fn ( $l ) => '<em>' . esc_html( $l ) . '</em>', preg_split( '/\r\n|\r|\n/', (string) er_home( 'hero_note' ) ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>

@@ -319,6 +319,7 @@ return [
 		'Where' => 'Куда',
 		'Where history still breathes' => 'Где история всё ещё дышит',
 		'Where history still breathes.' => 'Где история всё ещё дышит.',
+		'Where in Egypt?' => 'Куда в Египте?',
 		'Where it happens' => 'Где это',
 		'Where to do it' => 'Где этим заняться',
 		'Where to?' => 'Куда?',

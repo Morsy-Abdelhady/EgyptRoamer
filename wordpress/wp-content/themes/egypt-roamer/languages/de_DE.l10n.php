@@ -319,6 +319,7 @@ return [
 		'Where' => 'Wohin',
 		'Where history still breathes' => 'Wo Geschichte noch atmet',
 		'Where history still breathes.' => 'Wo Geschichte noch atmet.',
+		'Where in Egypt?' => 'Wohin in Ägypten?',
 		'Where it happens' => 'Wo es stattfindet',
 		'Where to do it' => 'Wo Sie es erleben',
 		'Where to?' => 'Wohin?',

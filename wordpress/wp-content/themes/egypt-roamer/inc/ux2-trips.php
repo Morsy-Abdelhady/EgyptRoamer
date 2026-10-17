@@ -296,3 +296,23 @@ add_action( 'wp_footer', static function (): void {
 	];
 	echo '<script type="application/json" id="ux2-planner">' . wp_json_encode( $data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput
 }, 6 );
+
+/*
+ * Slice 7 (17 Oct): the homepage, previewed with ?ux=2 only. The hero offered only "Explore Egypt" (the scenes) and
+ * the film: a tourist who already knows where they are going had no way in. Under the hero's buttons, "Where in
+ * Egypt?" lists the places, each opening Trips & tours filtered to that place (prototype v4-improve.py, v4-tourist.py §6).
+ */
+function er_ux2_hero_places(): void {
+	if ( ! er_ux2() ) {
+		return;
+	}
+	$dests = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'numberposts' => 20, 'orderby' => 'menu_order', 'order' => 'ASC', 'suppress_filters' => false ] );
+	if ( ! $dests ) {
+		return;
+	}
+	echo '<nav class="ux2-where" data-hero-fade aria-label="' . esc_attr( er_t( 'Where in Egypt?' ) ) . '"><span class="ux2-where__label">' . esc_html( er_t( 'Where in Egypt?' ) ) . '</span><span class="ux2-where__chips">';
+	foreach ( $dests as $d ) {
+		echo '<a href="' . esc_url( er_ux2_trip_url( [ 'destination' => (int) $d->ID, 'len' => '', 'private' => false, 'pickup' => false ] ) ) . '">' . esc_html( get_the_title( $d ) ) . '</a>';
+	}
+	echo '</span></nav>';
+}

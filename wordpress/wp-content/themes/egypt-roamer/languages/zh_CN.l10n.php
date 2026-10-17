@@ -319,6 +319,7 @@ return [
 		'Where' => '去哪里',
 		'Where history still breathes' => '历史仍在呼吸之地',
 		'Where history still breathes.' => '历史仍在呼吸之地。',
+		'Where in Egypt?' => '去埃及哪里？',
 		'Where it happens' => '所在目的地',
 		'Where to do it' => '在哪里体验',
 		'Where to?' => '去哪里？',
