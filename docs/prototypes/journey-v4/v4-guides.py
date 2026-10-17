@@ -8,6 +8,14 @@
 import json, os, re, html, base64
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+import importlib.util as _iu
+_s = _iu.spec_from_file_location('gp', os.path.join(HERE, 'guide-photos.py')); GP = _iu.module_from_spec(_s); _s.loader.exec_module(GP)
+def _fetch_photos():
+    import urllib.request
+    for i in GP.P:
+        f = os.path.join(HERE, 'img', i + '.jpg')
+        if not os.path.exists(f):
+            urllib.request.urlretrieve('https://images.unsplash.com/photo-%s?auto=format&fit=crop&w=1100&q=62&fm=jpg' % i, f)
 REPO = r'C:\Users\morsy\Desktop\EgyptRoamer'
 ED = os.path.join(REPO, 'content', 'editorial', 'en')
 IDX = json.load(open(os.path.join(HERE, 'live', 'guides.json'), encoding='utf-8'))
@@ -61,7 +69,13 @@ def parse(path):
         if re.match(r'^\d+\. ', b):
             out.append(['ul', [md_inline(re.sub(r'^\d+\. ', '', l)) for l in b.split('\n') if re.match(r'^\d+\. ', l)]]); continue
         if b.startswith('### '):
-            out.append(['h3', md_inline(b[4:].strip())]); continue
+            head, _, rest = b.partition(chr(10))
+            out.append(['h3', md_inline(head[4:].strip())])
+            if not rest.strip():
+                continue
+            b = rest.strip()
+            if b.startswith('- '):
+                out.append(['ul', [md_inline(l[2:]) for l in b.split(chr(10)) if l.startswith('- ')]]); continue
         out.append(['p', md_inline(b.replace('\n', ' '))])
     return meta, out, toc, faq, words
 
@@ -95,6 +109,7 @@ def guides():
                  dests=dests, trips=trips, photo=f"img/{c['photo']}.jpg" if c['photo'] else '', mins=max(1, round(words / 220)),
                  blocks=blocks, toc=toc, faq=faq)
         g.update(EXTRA.get(slug, {}))
+        g.update(GP.EXTRA.get(slug, {}))
         out.append(g)
     return out
 
@@ -149,6 +164,26 @@ def css():
 .gd .prose h2{scroll-margin-top:calc(var(--navh,72px) + 64px)!important}
 .gd .prose h3{font:600 21px/1.3 var(--serif);margin:28px 0 10px}
 .gd .tcard,.gd .gcard{cursor:pointer}
+/* booking box: one compact card stays in view */
+.gd .abox{position:static!important;align-self:stretch!important}
+.gd .abox > .bk{position:sticky;top:calc(var(--navh,72px) + 80px)}
+.gd .bk__img{height:120px}
+.gd .gmore{display:grid;gap:10px;margin:34px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.gd .gmore .bk__also,.gd .gmore .bk__stay{margin:0}
+.gd .gmore .bk__disc{margin:0}
+.gd .gmore a,.gd .gmore a *{text-decoration:none!important}
+@container site (max-width:900px){ .gd .abox > .bk{position:static} }
+/* section bar: fade and arrows only when the sections do not fit */
+.gd .secbar{display:flex;align-items:stretch}
+.gd .secbar ol{flex:1;min-width:0;scroll-behavior:smooth}
+.gd .sb-arr{display:none;flex:none;width:40px;border:0;background:transparent;color:var(--charcoal);font:400 26px/1 var(--serif);cursor:pointer}
+.gd .sb-arr:hover{color:var(--gold-deep)}
+.gd .secbar.is-over .sb-arr{display:block}
+.gd .secbar.is-over.at-start .sb-arr--l,.gd .secbar.is-over.at-end .sb-arr--r{visibility:hidden}
+.gd .secbar.is-over ol{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 28px,#000 calc(100% - 28px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 28px,#000 calc(100% - 28px),transparent 100%)}
+.gd .secbar.is-over.at-start ol{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent 100%);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent 100%)}
+.gd .secbar.is-over.at-end ol{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 28px);mask-image:linear-gradient(90deg,transparent 0,#000 28px)}
+@container site (max-width:600px){ .gd .sb-arr{width:32px} }
 .gd .rtl{list-style:none;margin:6px 0 14px;padding:0;display:grid;gap:8px}
 .gd .rtl li{margin:0;padding:0}.gd .rtl li::before{content:none}
 .gd .rtl a{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;padding:8px;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--charcoal);background:#fff;min-height:44px}
@@ -223,7 +258,7 @@ window.openGuide=function(slug){ const A=GUIDES.find(g=>g.slug===slug); if(!A){ 
   let n=0, shown=new Set(), pStrip=null, pVid=null; gLB=[];
   const body=A.blocks.map(b=>{
     if(b[0]==="h2"){ n++; const fig=(A.figs||{})[b[1]]; pStrip=(A.strips||{})[b[1]]; pVid=(A.videos||{})[b[1]];
-      return `<h2 id="g-${b[1]}"><small>${String(n).padStart(2,"0")}</small>${esc(b[2])}</h2>`+(fig?`<figure><img src="${IMG[fig[0]]}" alt="" loading="lazy"><figcaption>${esc(fig[1])}</figcaption></figure>`:""); }
+      return `<h2 id="g-${b[1]}"><small>${String(n).padStart(2,"0")}</small>${esc(b[2])}</h2>`+(fig?`<figure><img src="${IMG[fig[0]]||fig[0]}" alt="" loading="lazy"><figcaption>${esc(fig[1])}</figcaption></figure>`:""); }
     if(b[0]==="h3") return `<h3>${b[1]}</h3>`;
     if(b[0]==="tip") return `<div class="tip" data-g="${main&&main.world==="tomb"?"𓁹":"𓈗"}">${b[1]?`<b>${esc(b[1])}</b>`:""}${b[2]}</div>`;
     let x=b[0]==="ul"?`<ul>${b[1].map(i=>`<li>${i}</li>`).join("")}</ul>`:`<p>${b[1]}</p>`;
@@ -231,17 +266,19 @@ window.openGuide=function(slug){ const A=GUIDES.find(g=>g.slug===slug); if(!A){ 
       x+=main&&k===main.id?`<a class="tcard tcard--slim" href="#" data-gtrip="${k}"><div><small>The trip in this guide</small><h4>${esc(T.title)}</h4></div><span class="btn btn--gold btn--sm">See the ${T.n} options →</span></a>`
         :`<a class="tcard" href="#" data-gtrip="${k}"><img src="${T.img}" alt=""><div><small>The trip · ${esc(T.place)}</small><h4>${esc(T.title)}</h4>${gchips(T)}<span class="go">See the ${T.n} options →</span></div></a>`; });
     if(pStrip){ const [t,ph]=pStrip; pStrip=null; const base=gLB.length; gLB=gLB.concat(ph);
-      x+=`<div class="strip"><p class="strip__t">${esc(t)}</p><div class="strip__g" style="--n:${ph.length}">${ph.map((p,i)=>`<button type="button" data-glb="${base+i}" aria-label="Open photo: ${esc(p[1])}"><img src="${IMG[p[0]]}" alt="${esc(p[1])}" loading="lazy"><span>${esc(p[1])}</span></button>`).join("")}</div><p class="strip__c">Photos: ${esc([...new Set(ph.map(p=>p[2]))].join(", "))}, Unsplash · Open a photo to see it large</p></div>`; }
+      x+=`<div class="strip"><p class="strip__t">${esc(t)}</p><div class="strip__g" style="--n:${ph.length}">${ph.map((p,i)=>`<button type="button" data-glb="${base+i}" aria-label="Open photo: ${esc(p[1])}"><img src="${IMG[p[0]]||p[0]}" alt="${esc(p[1])}" loading="lazy"><span>${esc(p[1])}</span></button>`).join("")}</div><p class="strip__c">Photos: ${esc([...new Set(ph.map(p=>p[2]))].join(", "))}, Unsplash · Open a photo to see it large</p></div>`; }
     if(pVid){ const [src,poster,cap]=pVid; pVid=null; x+=`<figure class="ivid"><video muted loop playsinline preload="none" poster="${IMG[poster]}" data-src="${src}"></video><figcaption>${esc(cap)}</figcaption></figure>`; }
     return x; }).join("");
   const toc=A.toc.map(([id,t])=>`<li><a href="#" data-gtoc="g-${id}">${esc(t)}</a></li>`).join("")+(A.faq.length?`<li><a href="#" data-gtoc="g-faq">Questions</a></li>`:"");
   const faq=A.faq.length?`<section class="afaq"><h2 id="g-faq"><small>${String(n+1).padStart(2,"0")}</small>Frequently asked questions</h2>${A.faq.map(([q,a],i)=>`<details ${i?"":"open"}><summary>${esc(q)}</summary><p>${a}</p></details>`).join("")}</section>`:"";
   const fav=main&&window.lcFavBtn?lcFavBtn({id:"trip:"+main.id,title:main.title,meta:`${main.place} · ${main.facts[0]||""} · ${main.n} options`,img:main.img},true):"";
   const stay=main&&main.W.stay?main.W.stay:null;
-  const box=main?`<div class="bk"><div class="bk__img"><img src="${main.img}" alt=""><span>The trip for this guide</span></div><div class="bk__b"><small>${esc(main.place)}</small><h3>${esc(main.title)}</h3>${gchips(main)}<a class="btn btn--gold" href="#" data-gtrip="${main.id}" data-gbook>See the ${main.n} options →</a><div style="display:flex;justify-content:center;margin-top:10px">${fav}</div><p class="bk__p">From ${esc(main.partners)}</p></div></div>`
+  const box0=!main?"":`<div class="bk"><div class="bk__img"><img src="${main.img}" alt=""><span>The trip for this guide</span></div><div class="bk__b"><small>${esc(main.place)}</small><h3>${esc(main.title)}</h3>${gchips(main)}<a class="btn btn--gold" href="#" data-gtrip="${main.id}" data-gbook>See the ${main.n} options →</a><div style="display:flex;justify-content:center;margin-top:10px">${fav}</div><p class="bk__p">From ${esc(main.partners)}</p></div></div>`;
+  const boxMore=!main?"":""
       +trips.slice(1).map(T=>`<a class="bk__also" href="#" data-gtrip="${T.id}"><small>Also in this guide</small><b>${esc(T.title)}</b> →</a>`).join("")
       +(stay?`<a class="bk__stay" href="#" data-gstay><span>${esc(stay.title)}<small>${esc(stay.rows[0][0])}</small></span><em>Trip.com ↗</em></a>`:"")
-      +`<p class="bk__disc">Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.</p>`
+      +`<p class="bk__disc">Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.</p>`;
+  const box=main?box0
     :`<div class="bk"><div class="bk__b"><small>Plan with us</small><h3>Find the trips for this plan</h3><p style="margin:0 0 12px;color:var(--muted);font-size:14px">Tours and day trips across Egypt, each with its options side by side.</p><a class="btn btn--gold" href="#" data-go="2">Choose a trip →</a></div></div>`;
   const rcard=T=>`<li><a href="#" data-gtrip="${T.id}"><img src="${T.img}" alt=""><span><b>${esc(T.title)}</b><span>${esc(T.place)} · ${esc(T.facts[0]||"")} · ${T.n} options</span><em>✓ Free cancellation</em></span></a></li>`;
   const rbox=`<div class="bk" id="gbox"><div class="bk__b"><small>Trips on this route</small><h3>${trips.length} trips for this plan</h3><ul class="rtl">${trips.map(rcard).join("")}</ul><a class="btn btn--gold" href="#" data-go="2">See all trips →</a></div></div><p class="bk__disc">Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.</p>`;
@@ -250,18 +287,19 @@ window.openGuide=function(slug){ const A=GUIDES.find(g=>g.slug===slug); if(!A){ 
   const more=GUIDES.filter(g=>g!==A&&g.dests.some(d=>A.dests.includes(d))).slice(0,3);
   const moreH=more.length?`<section class="amore"><div class="wrap"><p class="eyebrow" style="color:var(--gold-deep)">Keep reading</p><h2>More on ${esc(gPlace(A))}</h2><div class="amore__g">${more.map(g=>`<a class="gcard" href="#" data-guide-open="${g.slug}"><img src="${gPhoto(g)}" alt="" loading="lazy"><div><small>Guide · ${g.mins} min read</small><h3>${esc(g.title)}</h3><p>${esc(g.excerpt)}</p></div></a>`).join("")}</div></div></section>`:"";
   $("#ga").innerHTML=`<section class="ahero">${hero}<div class="wrap"><p class="crumb"><a href="#" data-guide-index>Travel Guide</a><span>›</span><a href="#" data-guide-index="${A.dests.length===1?A.dests[0]:"all"}">${esc(gPlace(A))}</a></p><p class="eyebrow">${esc(A.topic)} guide</p><h1>${esc(A.title)}</h1><p class="lead">${esc(A.excerpt)}</p><div class="ameta"><span>${A.mins} min read</span><span>${A.toc.length} sections</span><span>Sources listed</span></div></div>${h[2]?`<span class="credit">${esc(h[2])}</span>`:""}</section>`
-    +`<nav class="secbar" aria-label="In this guide"><ol>${toc}</ol></nav><div class="abody"><article class="prose">${body}${faq}<p class="asrc">Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.</p></article><aside class="abox">${route&&trips.length?rbox:box}</aside></div>`+end+moreH
+    +`<nav class="secbar" aria-label="In this guide"><button type="button" class="sb-arr sb-arr--l" aria-label="Previous sections" data-sbarr="-1">‹</button><ol>${toc}</ol><button type="button" class="sb-arr sb-arr--r" aria-label="More sections" data-sbarr="1">›</button></nav><div class="abody"><article class="prose">${body}${faq}<p class="asrc">Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.</p>${boxMore?`<div class="gmore">${boxMore}</div>`:""}</article><aside class="abox">${route&&trips.length?rbox:box}</aside></div>`+end+moreH
     +(route&&trips.length?`<div class="mbar" id="gmbar"><div><small>✓ Free cancellation on every trip</small><b>${trips.length} trips on this route</b></div><a class="btn btn--gold btn--sm" href="#" data-gtoc="gbox">See the trips</a></div>`:"")
     +(main?`<div class="mbar" id="gmbar"><div><small>✓ Free cancellation</small><b>${esc(main.title)}</b></div><a class="btn btn--gold btn--sm" href="#" data-gtrip="${main.id}" data-gbook>See ${main.n} options</a></div>`:"");
-  lazyVideos($("#ga")); vp.scrollTo({top:0,behavior:"auto"}); window.lcPaint&&lcPaint(); window.lcFavPaint&&lcFavPaint(); gScroll(); };
+  sbFit(); lazyVideos($("#ga")); vp.scrollTo({top:0,behavior:"auto"}); window.lcPaint&&lcPaint(); window.lcFavPaint&&lcFavPaint(); gScroll(); };
+function sbFit(){ const n=document.querySelector("#ga .secbar"); if(!n) return; const ol=n.querySelector("ol"); const over=ol.scrollWidth>ol.clientWidth+4; n.classList.toggle("is-over",over); n.classList.toggle("at-start",ol.scrollLeft<4); n.classList.toggle("at-end",ol.scrollLeft+ol.clientWidth>=ol.scrollWidth-4); if(!n.dataset.w){ n.dataset.w=1; ol.addEventListener("scroll",sbFit,{passive:true}); new ResizeObserver(sbFit).observe(ol); } }
 function gScroll(){ const s=document.querySelector('[data-screen="ga"]'); if(!s||s.hidden) return;
   const vr=vp.getBoundingClientRect(), lim=vr.top+vp.clientHeight*.35; let cur=null;
   s.querySelectorAll(".prose h2[id]").forEach(h=>{ if(h.getBoundingClientRect().top<lim) cur=h.id; });
   s.querySelectorAll("[data-gtoc]").forEach(a=>a.classList.toggle("on",a.dataset.gtoc===cur));
-  const on=s.querySelector(".secbar a.on"); if(on&&cur!==gLast){ gLast=cur; on.closest("ol").scrollTo({left:on.offsetLeft-40,behavior:"auto"}); }
+  const on=s.querySelector(".secbar a.on"); if(on&&cur!==gLast){ gLast=cur; (ol=>ol.scrollTo({left:Math.max(0,on.offsetLeft-ol.offsetLeft-(ol.clientWidth-on.offsetWidth)/2),behavior:"auto"}))(on.closest("ol")); }
   const bar=s.querySelector("#gmbar"); if(bar){ const seen=[...s.querySelectorAll(".aend,.bk,.tcard--slim")].some(x=>{ const r=x.getBoundingClientRect(); return r.top<vr.bottom-72&&r.bottom>vr.top+56; }); bar.classList.toggle("is-on",vp.scrollTop>420&&!seen); } }
 vp.addEventListener("scroll",gScroll,{passive:true});
-function gLbShow(i){ gLbi=(i+gLB.length)%gLB.length; const p=gLB[gLbi]; const lb=document.getElementById("gd-lb"); lb.querySelector("img").src=IMG[p[0]]; lb.querySelector("img").alt=p[1]; lb.querySelector("p").innerHTML=`${esc(p[1])}<small>Photo: ${esc(p[2])}, Unsplash · ${gLbi+1} of ${gLB.length}</small>`; }
+function gLbShow(i){ gLbi=(i+gLB.length)%gLB.length; const p=gLB[gLbi]; const lb=document.getElementById("gd-lb"); lb.querySelector("img").src=IMG[p[0]]||p[0]; lb.querySelector("img").alt=p[1]; lb.querySelector("p").innerHTML=`${esc(p[1])}<small>Photo: ${esc(p[2])}, Unsplash · ${gLbi+1} of ${gLB.length}</small>`; }
 document.addEventListener("click",e=>{
   const go_=e.target.closest("[data-guide-open]"); if(go_){ e.preventDefault(); openGuide(go_.dataset.guideOpen); return; }
   const gi=e.target.closest("[data-guide-index]"); if(gi){ e.preventDefault(); openGuides(gi.dataset.guideIndex||"all"); return; }
@@ -269,6 +307,7 @@ document.addEventListener("click",e=>{
   const gt=e.target.closest("[data-gtrip]"); if(gt&&!e.target.closest("[data-fav]")){ e.preventDefault(); e.stopPropagation(); openTrip(gt.dataset.gtrip, gt.hasAttribute("data-gbook")); return; }
   const tl=e.target.closest("#ga a.tlink[data-trip]"); if(tl){ e.preventDefault(); e.stopPropagation(); openTrip(tl.dataset.trip); return; }
   if(e.target.closest("[data-gstay]")){ e.preventDefault(); lcToast("Prototype: on the site this opens Trip.com hotels in a new tab."); return; }
+  const sa=e.target.closest("[data-sbarr]"); if(sa){ const ol=sa.parentElement.querySelector("ol"); ol.scrollBy({left:+sa.dataset.sbarr*ol.clientWidth*.7,behavior:"smooth"}); return; }
   const toc=e.target.closest("[data-gtoc]"); if(toc){ e.preventDefault(); const t=document.getElementById(toc.dataset.gtoc); t&&vp.scrollTo({top:vp.scrollTop+t.getBoundingClientRect().top-vp.getBoundingClientRect().top-(parseInt(getComputedStyle(vp).getPropertyValue("--navh"))||72)-60,behavior:"smooth"}); return; }
   const lb=e.target.closest("[data-glb]"); if(lb){ gLbShow(+lb.dataset.glb); document.getElementById("gd-lb").hidden=false; document.querySelector("#gd-lb .lb__x").focus(); return; }
   if(e.target.closest("#gd-lb .lb__x")||e.target.id==="gd-lb"){ document.getElementById("gd-lb").hidden=true; return; }
@@ -278,6 +317,7 @@ document.addEventListener("keydown",e=>{ const lb=document.getElementById("gd-lb
 '''
 
 def apply(tpl):
+    _fetch_photos()
     gs = guides()
     assert len(gs) >= 20, len(gs)
     a = tpl.index('</style>'); tpl = tpl[:a] + css() + tpl[a:]

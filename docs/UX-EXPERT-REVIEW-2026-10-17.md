@@ -84,3 +84,11 @@ Built by `v4-round7.py`, with the route guides in `v4-guides.py`. Checked with `
 7. **Route guides** (7, 10 and 14 days, best time, hidden gems, day trips, and any guide with three or more trips):
    - the box, the end band and the phone bar show "Trips on this route", each with its facts and free cancellation, instead of one trip;
    - single-trip guides are unchanged.
+
+## 6. Guide pages (owner, 17 Oct: "is this the best design?" and "only the template guides have photos")
+- **Photos in every guide.** 47 more free Unsplash photos, each with a location tag naming the place, were read on 17 Oct and looked at one by one. Weak ones were dropped: a bare cliff, dark shots, and a museum photo that may show the old Egyptian Museum. They sit as figures or places strips in the sections they show, with photographer credits. The list is in `guide-photos.py`.
+  - **Every guide now has photos in its text,** from 1 (White Desert night) to 8 (itineraries, day trips).
+  - **No exact-tagged free photo was found** for the Colossi of Memnon, the Ramesseum, the Valley of the Queens, Deir el-Medina, the Blue Hole, the Thistlegorm, Wadi Al-Hitan or the Great Sand Sea's dunes. Those sections stay text.
+- **Subheading bug:** in 12 guides, a `###` subheading and the paragraph under it were shown together as one large heading. They are now a heading and a paragraph.
+- **Booking box:** only the compact trip card stays in view. "Also in this guide", the hotel link and the disclosure moved under the article. The card no longer runs off the screen.
+- **Section bar:** when the sections don't fit, the edges fade and ‹ › arrows scroll it. The current section is centred, so no tab is cut in the middle of a word.
