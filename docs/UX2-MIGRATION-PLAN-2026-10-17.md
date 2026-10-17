@@ -20,7 +20,7 @@
 | 4 | Trip page: one length everywhere, a reason for "Our pick", a comparison that shows real differences, "Read before you go" guides, Book bar alignment | `v4-tourist.py` §1–2, `v4-cruise.py` (comparison rows), `v4-tourist3.py` | **Live, theme 1.2.83**, preview only |
 | 5 | Guides: "Trips in this guide" versus "route", no repeated card photos, a compact sticky trip card | `v4-tourist2.py` §6–7, `guides-fix.py`, `v4-tourist.py` §5 | **Live, theme 1.2.84**, preview only |
 | 6 | Trip Builder: interests rank trips, "Private or shared?", dropped-places notice, trip cards, save plan | `v4-planner.py` | **Live, theme 1.2.85**, preview only |
-| 7 | Homepage: "Where in Egypt?" with the 7 places, shorter page | `v4-round7.py`, `v4-tourist.py` §6 | **Done locally, theme 1.2.86**, not pushed |
+| 7 | Homepage: "Where in Egypt?" with the 7 places, shorter page | `v4-round7.py`, `v4-tourist.py` §6 | **Live, theme 1.2.86**, preview only |
 
 **Needs the owner's decision, not just code:**
 - **Nile cruise trip:** 3 offers in Core plus `offer-facts.json` and `offers-i18n.json` (`docs/NILE-CRUISE-OFFERS-2026-10-17.md`).
@@ -169,6 +169,15 @@
   - the link lands on Trips & tours with the place's button active;
   - visitors' HTML is unchanged.
 - **For the owner, not done:** the prototype's shorter homepage (moods, map, where to stay, planner). It removes approved sections, so the owner should decide.
+
+- **Production, 17 Oct:** 1.2.86 deployed and the GoDaddy cache flushed.
+  - **Live checks:**
+    - the 7 places show under the hero on computer and phone, and in Arabic;
+    - Luxor opens Trips & tours with 1 trip;
+    - Arabic Cairo opens 3 trips;
+    - visitors have no row.
+  - `page-coverage.mjs`: 336 pages in 8 languages, all ok.
+- **All 7 slices are live behind `?ux=2`.**
 
 ## After the 7 slices: what is left
 - **Owner decisions:**
