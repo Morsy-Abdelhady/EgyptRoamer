@@ -165,7 +165,11 @@ export function closeOverlay(el) {
   if (!el || el.hidden) return;
   el.classList.remove("is-open");
   const id = el.id;
-  setTimeout(() => (el.hidden = true), id === "menu" ? 800 : 450);
+  // Hidden once the closing transition ends, unless it was opened again meanwhile (reopening the menu within 0.8 s
+  // used to hide it while open).
+  setTimeout(() => {
+    if (!el.classList.contains("is-open")) el.hidden = true;
+  }, id === "menu" ? 800 : 450);
   window.__lenis?.start();
   document.body.style.overflow = "";
   if (id === "menu") {

@@ -239,6 +239,7 @@ return [
 		'Search places, trips and guides' => 'Cerca luoghi, escursioni e guide',
 		'Searching…' => 'Ricerca in corso…',
 		'See all trips' => 'Vedi tutte le escursioni',
+		'See all trips in {place}' => 'Tutte le escursioni a {place}',
 		'See hotels' => 'Vedi gli hotel',
 		'See options' => 'Vedi le opzioni',
 		'Send' => 'Invia',

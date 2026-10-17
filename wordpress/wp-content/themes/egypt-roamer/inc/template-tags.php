@@ -974,7 +974,7 @@ function er_booking_panel( array $offers, array $hotels, string $stay_name, stri
 				</ul>
 			<?php endif; ?>
 		</div>
-		<?php if ( ! empty( $GLOBALS['er_ux2_panel_trips'] ) && 'guide' === $placement && function_exists( 'er_ux2_trip_group' ) ) : er_ux2_trip_group( $GLOBALS['er_ux2_panel_trips'] ); elseif ( $offers ) : ?>
+		<?php if ( ! empty( $GLOBALS['er_ux2_panel_trips'] ) && in_array( $placement, [ 'guide', 'destination' ], true ) && function_exists( 'er_ux2_trip_group' ) ) : er_ux2_trip_group( $GLOBALS['er_ux2_panel_trips'] ); elseif ( $offers ) : ?>
 			<div class="bp__group">
 				<p class="bp__h"><?php echo esc_html( er_t( 'Trip options' ) ); ?> <span class="bp__count"><?php echo (int) count( $offers ); ?></span></p>
 				<?php $rows( $offers, $placement . '-offers', er_t( 'Book' ), true ); ?>
@@ -986,7 +986,7 @@ function er_booking_panel( array $offers, array $hotels, string $stay_name, stri
 				<?php $rows( $hotels, $placement . '-hotels', er_t( 'See hotels' ), false ); ?>
 			</div>
 		<?php endif; ?>
-		<?php if ( empty( $GLOBALS['er_ux2_panel_trips'] ) || 'guide' !== $placement || $hotels ) : ?><p class="bp__out"><?php echo esc_html( er_t( 'Each button opens the partner’s site in a new tab.' ) ); ?></p><?php endif; ?>
+		<?php if ( empty( $GLOBALS['er_ux2_panel_trips'] ) || ! in_array( $placement, [ 'guide', 'destination' ], true ) ) : ?><p class="bp__out"><?php echo esc_html( er_t( 'Each button opens the partner’s site in a new tab.' ) ); ?></p><?php endif; ?>
 		<?php er_disclosure(); ?>
 	</div>
 	<?php

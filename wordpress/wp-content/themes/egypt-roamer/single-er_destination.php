@@ -35,6 +35,8 @@ while ( have_posts() ) :
 	// were then the cards after the whole article (owner, 15 Oct). Below 1200px the box sits in the article.
 	ob_start();
 	if ( $er_new ) :
+		// Preview: the place's trips, one row each, opening the trip page (inc/ux2-guides.php), as on guides.
+		$GLOBALS['er_ux2_panel_trips'] = array_values( array_filter( wp_list_pluck( $er_things, 'ID' ), static fn ( $i ) => 'er_experience' === get_post_type( $i ) ) );
 		er_booking_panel( $er_offers, $er_hotels, get_the_title(), 'destination', er_t( 'Trips and hotels in {name}', [ 'name' => get_the_title() ] ), array_values( array_filter( [ ! empty( $er_facts[ er_t( 'Best time' ) ] ) ? er_t( 'Best time' ) . ': ' . $er_facts[ er_t( 'Best time' ) ] : '' ] ) ), false );
 	elseif ( $er_offers ) :
 		?>

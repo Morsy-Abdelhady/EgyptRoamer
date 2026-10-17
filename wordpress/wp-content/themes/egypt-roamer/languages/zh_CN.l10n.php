@@ -239,6 +239,7 @@ return [
 		'Search places, trips and guides' => '搜索目的地、行程和指南',
 		'Searching…' => '正在搜索…',
 		'See all trips' => '查看全部行程',
+		'See all trips in {place}' => '查看{place}的全部行程',
 		'See hotels' => '查看酒店',
 		'See options' => '查看选项',
 		'Send' => '发送',

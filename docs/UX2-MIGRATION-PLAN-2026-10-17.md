@@ -193,3 +193,18 @@
   - the phone menu re-open bug in `nav.js`;
   - assistant answers with photos.
 - **Translations:** native review of the new strings, all marked unreviewed.
+
+## Owner, 17 Oct: "Implement everything we applied in the prototype; you have the permissions"
+**Next slices:**
+
+| # | Slice | Status |
+|---|---|---|
+| 8 | Destination pages: one row per trip | theme 1.2.87 |
+| 9 | Assistant: place chips, answer cards with photos, "See all trips in {place}" | theme 1.2.87 |
+| 10 | Phone menu re-open bug (everyone) | theme 1.2.87 |
+| — | Fix: Trips & tours was 751px wide on phones (preview since 1.2.82) | theme 1.2.87 |
+| 11 | Content fixes: Siwa's length line, a place for the White Desert trip | next |
+| 12 | Shorter homepage (preview) | |
+| 13 | Commons photos on trip pages (preview) | |
+| 14 | Nile cruise trip (Core offers, 8 languages) | |
+| 15 | Save this plan | |

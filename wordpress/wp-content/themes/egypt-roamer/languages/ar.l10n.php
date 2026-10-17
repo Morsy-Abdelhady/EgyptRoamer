@@ -239,6 +239,7 @@ return [
 		'Search places, trips and guides' => 'ابحث في الأماكن والرحلات والأدلة',
 		'Searching…' => 'جارٍ البحث…',
 		'See all trips' => 'عرض كل الرحلات',
+		'See all trips in {place}' => 'كل الرحلات في {place}',
 		'See hotels' => 'شوف الفنادق',
 		'See options' => 'شاهد الخيارات',
 		'Send' => 'إرسال',

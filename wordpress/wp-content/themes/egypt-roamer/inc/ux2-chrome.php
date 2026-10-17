@@ -104,9 +104,24 @@ function er_ux2_menu_builder( string $planner_url ): void {
  *   days gets the Trip Builder (src/js/assistant.js).
  */
 
+/** A 160px photo URL for a page (its featured image, else its approved stock photo, a guide's own photo first). */
+function er_ux2_thumb_url( int $id ): string {
+	$thumb = (int) get_post_thumbnail_id( $id );
+	if ( $thumb ) {
+		return (string) wp_get_attachment_image_url( $thumb, 'thumbnail' );
+	}
+	$stock = function_exists( 'er_ux2_guide_photo' ) && '' !== er_ux2_guide_photo( $id ) ? er_ux2_guide_photo( $id ) : ( function_exists( 'er_stock_id_for' ) ? er_stock_id_for( $id ) : '' );
+	return '' !== $stock ? er_stock_url( $stock, 160, 0.8 ) : '';
+}
+
+/** The places' names, for the assistant's first suggestions in the preview. */
+function er_ux2_place_names(): array {
+	return array_map( 'get_the_title', get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'numberposts' => 20, 'orderby' => 'menu_order', 'order' => 'ASC', 'suppress_filters' => false ] ) );
+}
+
 /** Every published trip, place and guide in the current language, for the preview's search box. Cached per language. */
 function er_ux2_search_index(): array {
-	$key   = 'er_ux2_search_' . er_lang();
+	$key   = 'er_ux2_search3_' . er_lang();
 	$index = get_transient( $key );
 	if ( is_array( $index ) ) {
 		return $index;
@@ -136,6 +151,8 @@ function er_ux2_search_index(): array {
 				'sub'   => $sub,
 				'url'   => (string) get_permalink( $id ),
 				'image' => er_post_image_payload( $id ),
+				'thumb' => er_ux2_thumb_url( $id ),
+				'trips' => 'place' === $kind && function_exists( 'er_ux2_trip_url' ) ? er_ux2_trip_url( [ 'destination' => $id, 'len' => '', 'private' => false, 'pickup' => false ] ) : '',
 				'text'  => mb_substr( $title . ' ' . $sub . ' ' . (string) get_post_meta( $id, '_er_region_label', true ) . ' ' . $excerpt, 0, 600 ),
 			];
 		}
@@ -148,7 +165,7 @@ function er_ux2_search_index(): array {
 add_action( 'save_post', static function ( int $id ): void {
 	if ( in_array( get_post_type( $id ), [ 'er_experience', 'er_destination', 'er_guide' ], true ) ) {
 		global $wpdb;
-		$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_er\_ux2\_search\_%' OR option_name LIKE '\_transient\_timeout\_er\_ux2\_search\_%'" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+		$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_er\_ux2\_search%' OR option_name LIKE '\_transient\_timeout\_er\_ux2\_search%'" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
 	}
 } );
 
@@ -175,6 +192,7 @@ add_action( 'wp_footer', static function (): void {
 		'team'    => er_t( 'Chat with Egypt Roamer' ),
 		'days'    => er_t( 'Draft a route for {n} days in the Trip Builder' ),
 		'planner' => $planner,
+		'alltrips' => er_t( 'See all trips in {place}' ),
 	];
 	echo '<script type="application/json" id="ux2-data">' . wp_json_encode( $data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput
 }, 5 );

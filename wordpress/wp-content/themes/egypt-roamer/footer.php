@@ -187,7 +187,7 @@ if ( 'off' !== $er_assistant ) :
 			</div>
 			<div class="assistant__foot">
 				<p class="assistant__try" data-assistant-try><span><?php er_e( 'Try:' ); ?></span>
-					<?php foreach ( [ 'Pyramids', 'Nile', 'Desert', 'Red Sea' ] as $er_chip ) : ?>
+					<?php foreach ( er_ux2() ? er_ux2_place_names() : [ 'Pyramids', 'Nile', 'Desert', 'Red Sea' ] as $er_chip ) : // preview: the places (inc/ux2-chrome.php) ?>
 						<button type="button" class="assistant__chip" data-assistant-ask><?php echo esc_html( er_t( $er_chip ) ); ?></button>
 					<?php endforeach; ?>
 				</p>

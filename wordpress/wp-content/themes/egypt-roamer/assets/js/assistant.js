@@ -68,6 +68,13 @@
     };
     const scroll = () => (log.scrollTop = log.scrollHeight);
 
+    // New journey preview (?ux=2, inc/ux2-chrome.php): an honest note on safety questions, and the Trip Builder when a
+    // number of days is given. Nothing is invented: we have no page on safety, so the team answers it.
+    let ux2 = null;
+    try {
+      const d = document.getElementById("ux2-data");
+      ux2 = d ? JSON.parse(d.textContent) : null;
+    } catch (e) {}
     function render(data) {
       const box = el("div", { class: "assistant__a" });
       if (data.answer) box.append(el("p", {}, data.answer));
@@ -78,7 +85,17 @@
         for (const item of items) {
           const li = el("li");
           const a = el("a", { href: own(item.url) });
-          a.append(el("b", {}, item.title), el("small", {}, item.summary || ""));
+          // Preview: a card with the page's photo and what it is (trip, place, guide), from the search index.
+          const hit = ux2 && ux2.index ? ux2.index.find((x) => x.url.replace(/[?#].*$/, "") === String(item.url).replace(/[?#].*$/, "")) : null;
+          if (hit) {
+            li.classList.add("ux2-card");
+            if (hit.thumb) a.append(el("img", { src: hit.thumb, alt: "", loading: "lazy" }));
+            const txt = el("span", { class: "ux2-card__t" });
+            txt.append(el("em", {}, ux2.groups[hit.k] || ""), el("b", {}, item.title), el("small", {}, item.summary || ""));
+            a.append(txt);
+          } else {
+            a.append(el("b", {}, item.title), el("small", {}, item.summary || ""));
+          }
           li.append(a);
           for (const offer of item.offers || []) {
             const url = own(offer.url);
@@ -108,13 +125,6 @@
       return box;
     }
 
-    // New journey preview (?ux=2, inc/ux2-chrome.php): an honest note on safety questions, and the Trip Builder when a
-    // number of days is given. Nothing is invented: we have no page on safety, so the team answers it.
-    let ux2 = null;
-    try {
-      const d = document.getElementById("ux2-data");
-      ux2 = d ? JSON.parse(d.textContent) : null;
-    } catch (e) {}
     const SAFETY = /\b(safe|safety|security|dangerous|danger|scam|sicher|sicherheit|gef[äa]hrlich|s[ûu]r|s[ée]curit[ée]|dangereux|sicuro|sicurezza|pericoloso|seguro|seguridad|peligroso)\b|безопас|опасн|安全|危险|أمان|آمن|امان|خطر/i;
     const DAYS = /(\d{1,2})\s*(days?|nights?|tage|n[äa]chte|jours|nuits|giorni|notti|d[íi]as|noches|дн|дня|дней|ноч|天|晚|أيام|يوم|ليال|ليلة)/i;
     function ux2Notes(q, box) {
@@ -128,6 +138,10 @@
         }
         box.prepend(p);
       }
+      // A place named in the question: its trips, filtered on Trips & tours.
+      const qn = q.toLowerCase();
+      const place = (ux2.index || []).find((x) => x.k === "place" && x.trips && qn.includes(x.title.toLowerCase()));
+      if (place && own(place.trips)) box.append(el("a", { class: "ux2-days", href: own(place.trips) }, ux2.alltrips.replace("{place}", place.title) + " →"));
       const m = q.match(DAYS);
       if (m && ux2.planner && own(ux2.planner)) {
         const a = el("a", { class: "ux2-days", href: own(ux2.planner) }, ux2.days.replace("{n}", m[1]) + " →");

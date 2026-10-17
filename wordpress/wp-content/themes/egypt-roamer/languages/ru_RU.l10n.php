@@ -239,6 +239,7 @@ return [
 		'Search places, trips and guides' => 'Поиск мест, поездок и путеводителей',
 		'Searching…' => 'Поиск…',
 		'See all trips' => 'Все поездки',
+		'See all trips in {place}' => 'Все поездки: {place}',
 		'See hotels' => 'Смотреть отели',
 		'See options' => 'Смотреть варианты',
 		'Send' => 'Отправить',

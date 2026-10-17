@@ -1783,6 +1783,15 @@
    "Куда в Египте?",
    "去埃及哪里？",
    "إلى أين في مصر؟"
+  ],
+  "See all trips in {place}": [
+   "Alle Ausflüge in {place}",
+   "Toutes les excursions à {place}",
+   "Tutte le escursioni a {place}",
+   "Todas las excursiones en {place}",
+   "Все поездки: {place}",
+   "查看{place}的全部行程",
+   "كل الرحلات في {place}"
   ]
  }
 }

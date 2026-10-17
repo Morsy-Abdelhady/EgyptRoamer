@@ -7748,9 +7748,13 @@ font-size: var(--fs-small);
 color: var(--text-muted);
 }
 @media (max-width: 600px) {
+.ux2-filters,
+.ux2-filters__row {
+min-width: 0;
+}
 .ux2-filters__row {
 flex-wrap: nowrap;
-align-items: flex-start;
+align-items: stretch;
 flex-direction: column;
 gap: 0.5rem;
 }
@@ -7759,6 +7763,7 @@ flex: none;
 }
 .ux2-filters__chips {
 flex: none;
+max-width: 100%;
 flex-wrap: nowrap;
 overflow-x: auto;
 width: 100%;
@@ -7961,4 +7966,45 @@ flex: none;
 [dir="rtl"] .ux2-where__label,
 [dir="rtl"] .ux2-filters__label {
 letter-spacing: 0;
+}
+.ux2-card > a {
+display: grid !important;
+grid-template-columns: 64px minmax(0, 1fr);
+gap: 0.75rem;
+align-items: start;
+}
+.ux2-card > a > img {
+width: 64px;
+height: 52px;
+object-fit: cover;
+border-radius: 8px;
+}
+.ux2-card__t {
+display: grid;
+gap: 2px;
+min-width: 0;
+}
+.ux2-card__t em {
+font: 600 var(--fs-label) / 1.4 var(--font-sans);
+font-style: normal;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(--gold-deep);
+}
+[dir="rtl"] .ux2-card__t em {
+letter-spacing: 0;
+}
+.er-ux2 .assistant__try {
+display: flex;
+flex-wrap: nowrap;
+align-items: center;
+gap: 0.4rem;
+overflow-x: auto;
+scrollbar-width: none;
+}
+.er-ux2 .assistant__try::-webkit-scrollbar {
+display: none;
+}
+.er-ux2 .assistant__try > * {
+flex: none;
 }

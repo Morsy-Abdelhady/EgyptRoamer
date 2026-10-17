@@ -239,6 +239,7 @@ return [
 		'Search places, trips and guides' => 'Orte, Ausflüge und Reiseführer suchen',
 		'Searching…' => 'Suche läuft…',
 		'See all trips' => 'Alle Ausflüge ansehen',
+		'See all trips in {place}' => 'Alle Ausflüge in {place}',
 		'See hotels' => 'Hotels ansehen',
 		'See options' => 'Optionen ansehen',
 		'Send' => 'Senden',

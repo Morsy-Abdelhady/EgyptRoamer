@@ -2,6 +2,18 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.87 — 2026-10-17: proposal 4, slices 8–10: destinations, the assistant, a menu fix, and a phone overflow fix
+The owner asked for everything applied in the prototype, with full permissions. These slices are behind `?ux=2` except where marked "everyone".
+- **Slice 8, destinations (preview):** a place page listed up to 4 partner options of different trips, all with gold buttons. As on guides, it now lists the place's trips (photo, length, options, "See options" to the trip page), then its hotels. The "opens the partner's site" line is dropped when trips are listed; the hotel buttons keep their ↗.
+- **Slice 9, the assistant (preview):**
+  - its first suggestions are the 7 places, as one swipeable row;
+  - answers are cards with the page's photo and what it is (trip, place, guide);
+  - a question naming a place ends with "See all trips in {place}", opening the filtered Trips & tours.
+- **Slice 10, the phone menu (everyone):** reopening the menu within 0.8 s of closing it hid it while open. The delayed `hidden` now runs only if the menu is still closed.
+- **Fix, Trips & tours on phones (preview, live since 1.2.82):** the filter rows grew to their swipe rows' full width, so the page was 751px wide and the menu button sat off-screen. The rows now keep the screen's width. Every preview page type was measured at 360, 390 and 768px, in English and Arabic: none is wider than the screen.
+- **New strings:** 1 ("See all trips in {place}"), in all 8 languages, unreviewed.
+- **Visitors:** the HTML of 6 pages is unchanged. The only visitor-facing change is the menu fix in `nav.js`.
+
 ## 1.2.86 — 2026-10-17: proposal 4, slice 7: the homepage (preview `?ux=2` only)
 - **"Where in Egypt?"** under the hero's buttons: the hero offered only "Explore Egypt" (the scenes) and the film, so a tourist who already knew where they were going had no way in. The places are now listed there, and each opens Trips & tours filtered to that place.
   - Computers: one row of buttons. Phones: one swipeable row, above the bottom bar.
