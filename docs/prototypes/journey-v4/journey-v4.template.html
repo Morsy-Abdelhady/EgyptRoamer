@@ -2132,6 +2132,7 @@ linear-gradient(to bottom, var(--ink) 0%, transparent 18%);}
 .gi-bar span{font:600 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-right:6px;flex:none}
 .gi-bar button{flex:none;min-height:40px}
 .gi-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;padding-block:30px 70px}
+.gd .gi-grid{padding-top:32px;padding-bottom:88px}
 .gi-card{all:unset;box-sizing:border-box;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
 .gi-card:hover,.gi-card:focus-visible{box-shadow:0 14px 34px rgba(16,24,32,.1);transform:translateY(-2px);outline:none}
 .gi-card:focus-visible{box-shadow:0 0 0 2px var(--gold)}
@@ -2142,7 +2143,7 @@ linear-gradient(to bottom, var(--ink) 0%, transparent 18%);}
 .gi-card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .gi-card em{font-style:normal;margin-top:auto;padding-top:8px;font-size:13px;color:var(--muted)}
 @container site (max-width:900px){ .gi-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
-@container site (max-width:600px){ .gi-grid{grid-template-columns:1fr;gap:14px} .gi-hero h1{font-size:38px} .gi-hero .wrap{padding-block:96px 26px} .gi-bar button{min-height:44px} }
+@container site (max-width:600px){ .gd .gi-grid{padding-top:20px;padding-bottom:56px} .gi-grid{grid-template-columns:1fr;gap:14px} .gi-hero h1{font-size:38px} .gi-hero .wrap{padding-block:96px 26px} .gi-bar button{min-height:44px} }
 
 /* ---------- expert review, 17 Oct ---------- */
 .stay2{background:var(--stone,#f8f5ed);padding:84px 0 90px}
