@@ -31,6 +31,25 @@ CSS = '''
 .stay2__note{margin:22px 0 0;font-size:12.5px;color:var(--muted)}
 @container site (max-width:900px){ .stay2__g{grid-template-columns:repeat(2,minmax(0,1fr))} .stay2 h2{font-size:34px} }
 @container site (max-width:600px){ .stay2{padding:56px 0 60px} .stay2__g{grid-template-columns:1fr} .stay2 h2{font-size:28px} .stay2__c a{min-height:44px} }
+/* phones: the place row stays in view; length, private and pickup open from one Filters button (owner, 17 Oct) */
+.fbtn{display:none}
+@container site (max-width:600px){
+  .filters .wrap{display:flex!important;flex-wrap:wrap!important;align-items:center;overflow:visible!important;gap:10px 8px!important;padding-block:10px!important}
+  .filters .wrap > .fgroup:first-child{flex:1 1 0;min-width:0;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+  .filters .wrap > .fgroup:first-child::-webkit-scrollbar{display:none}
+  .filters .wrap > .fgroup:first-child > span{display:none}
+  .filters .wrap > *{order:2}
+  .filters .wrap > .fgroup:first-child{order:0}
+  .fbtn{order:1!important;display:inline-flex;flex:none;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line-strong);background:#fff;font:600 14px var(--sans);color:var(--charcoal);cursor:pointer}
+  .fbtn b{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:99px;background:var(--charcoal);color:#fff;font-size:11px}
+  .fbtn b:empty{display:none}
+  .filters:not(.is-open) .wrap > :is(.fgroup + .fgroup, .toggle, .count){display:none!important}
+  .filters .chip{flex:none;white-space:nowrap;min-height:40px}
+  .filters .chips{align-items:center}
+  .filters.is-open .wrap > .fgroup:nth-child(2){flex:1 1 100%;min-width:0;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}
+  .filters.is-open .wrap > .toggle{flex:1 1 calc(50% - 4px);justify-content:center;min-height:44px;white-space:nowrap}
+  .filters.is-open .wrap > .count{flex:1 1 100%;margin:0;text-align:right}
+}
 /* the assistant: a header icon on phones */
 .lc .nav .lc-ai{display:none}
 @container site (max-width:600px){
@@ -55,6 +74,7 @@ def apply(tpl):
         # 4 · labels
         ('<p class="crumbs">Home / Experiences</p>', '<p class="crumbs">Home / Trips &amp; tours</p>'),
         ('<h1>Experiences</h1>', '<h1>Trips &amp; tours</h1>'),
+        ('<span class="count" id="f-count"></span>', '<button type="button" class="fbtn" id="fbtn" aria-expanded="false">Filters <b id="fbtn-n"></b></button><span class="count" id="f-count"></span>'),
     ]
     for x, y in reps:
         assert tpl.count(x) == 1, x[:60]
@@ -73,6 +93,8 @@ function stayHTML(){
     return `<article class="stay2__c"><img src="${IMG["d_"+id]}" alt="" loading="lazy"><div><h3>${esc(d.name)}</h3><ul>${mine.map(r=>`<li><a href="#" data-stay="${esc(r[0])}">${esc((s=>s.charAt(0).toUpperCase()+s.slice(1))(r[0].replace(/^Hotels (in|on|near) (the )?/,"")))}<em>Trip.com ↗</em></a></li>`).join("")}</ul></div></article>`; }).join("");
   return `<section class="stay2" id="stay"><div class="wrap"><p class="eyebrow">Where to stay</p><h2>Hotels near your trips, <em>place by place.</em></h2><p>Our hotel partner is Trip.com. Pick an area to see its hotels; you choose, book and pay on Trip.com.</p><div class="stay2__g">${cards}</div><p class="stay2__note">Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.</p></div></section>`;
 }
+document.addEventListener("click",e=>{ const b=e.target.closest("#fbtn"); if(!b) return; const f=b.closest(".filters"); f.classList.toggle("is-open"); b.setAttribute("aria-expanded",String(f.classList.contains("is-open"))); });
+const _rt=renderTrips; renderTrips=function(){ _rt(); const n=(state.len!=="all")+(state.priv?1:0)+(state.pickup?1:0); const e=document.getElementById("fbtn-n"); if(e) e.textContent=n||""; };
 document.addEventListener("click",e=>{ const s=e.target.closest("[data-stay]"); if(!s) return; e.preventDefault(); lcToast(`Prototype: on the site this opens Trip.com, ${s.dataset.stay.toLowerCase()}, in a new tab.`); }, true);
 // 3 and 6 · a partner tour from the Trip Builder opens the trip it belongs to
 function tripForOffer(name){ const n=(name||"").trim().toLowerCase(); return Object.keys(WORLDS).find(k=>WORLDS[k].opts.some(o=>o.n.trim().toLowerCase()===n)); }
