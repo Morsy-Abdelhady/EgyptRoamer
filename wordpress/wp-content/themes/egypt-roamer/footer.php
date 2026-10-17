@@ -87,8 +87,8 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 
 <nav class="menu" id="menu" aria-label="<?php echo esc_attr( er_t( 'Primary' ) ); ?>" hidden>
 	<div class="menu__inner" data-nosnippet>
-		<?php echo er_menu( 'primary', '<ul class="menu__links">%3$s</ul>' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-		<?php if ( ! is_front_page() && er_book_anchor() ) : // As in the header: on a page with offers, the menu's gold button books here. ?>
+<?php er_ux2_menu_search(); ?>		<?php echo er_menu( 'primary', '<ul class="menu__links">%3$s</ul>' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+<?php er_ux2_menu_builder( (string) ( $er_planner_url ?? '' ) ); ?>		<?php if ( ! is_front_page() && er_book_anchor() ) : // As in the header: on a page with offers, the menu's gold button books here. ?>
 			<a href="<?php echo esc_attr( er_book_anchor() ); ?>" class="btn btn--primary btn--lg btn--block" data-close><?php echo esc_html( er_book_label() ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
 		<?php elseif ( er_ux2() ) : // New journey (P5). ?>
 			<a href="<?php echo esc_url( er_choose_url() ); ?>" class="btn btn--primary btn--lg btn--block" data-close><?php echo esc_html( er_book_label() ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
@@ -103,7 +103,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 	<div class="search__box">
 		<form class="search__field" role="search" method="get" action="<?php echo esc_url( er_home_url() ); ?>">
 			<?php echo er_icon( 'i-search' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-			<input type="search" name="s" placeholder="<?php echo esc_attr( er_t( 'Search destinations, tours, cruises, guides…' ) ); ?>" aria-label="<?php echo esc_attr( er_t( 'Search' ) ); ?>" data-search-input />
+			<input type="search" name="s" placeholder="<?php echo esc_attr( er_ux2() ? er_t( 'Search places, trips and guides' ) : er_t( 'Search destinations, tours, cruises, guides…' ) ); ?>" aria-label="<?php echo esc_attr( er_t( 'Search' ) ); ?>" data-search-input />
 			<button class="icon-btn" type="button" data-close aria-label="<?php echo esc_attr( er_t( 'Close search' ) ); ?>"><?php echo er_icon( 'i-close' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></button>
 		</form>
 		<div class="search__results" data-search-results></div>

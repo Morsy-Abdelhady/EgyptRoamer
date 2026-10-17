@@ -2,6 +2,19 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.80 — 2026-10-17: proposal 4, slice 1: header and menu (preview `?ux=2` only)
+- **Owner:** move the proposal 4 fixes into the theme behind `?ux=2`. Plan: `docs/UX2-MIGRATION-PLAN-2026-10-17.md`.
+- **Labels:** "Places" and "Trips & tours" replace "Destinations" and "Experiences" in the header, the phone menu and the footer. They are changed by a menu filter while `er_ux2()` is on; the menus in the database are untouched.
+- **Phone menu:**
+  - search comes first;
+  - each section has a line saying what it holds;
+  - a "Trip Builder" link (approved translation) with a line saying what it does;
+  - the menu button becomes ✕ while the menu is open.
+- **Assistant:** an "Ask" button in the header, at every size, replaces the floating "Trip assistant", which covered trip cards, booking options and footer links. Below 380px it shows the icon only.
+- **Code:** `inc/ux2-chrome.php` (new). WordPress-only CSS goes in `pages.css`; the approved CSS is untouched.
+- **New strings:** 9, in all 8 languages, unreviewed.
+- **Visitors:** checked locally. Without `?ux=2` the HTML of 8 pages (home, trips, a trip, a destination, a guide, the guides index, Arabic home, German trips) is the same as 1.2.79. The only differences are the build stamp, the CSS version and the per-request form token.
+
 ## 1.2.79 — 2026-10-16: B1, homepage trips right after the scenes (preview `?ux=2` only)
 - **Owner:** approved B1. Move the "Handpicked experiences" rail to right after the pinned scenes, in the preview only.
 - **Order in the preview:** scenes, experiences, then the quote, moods, destinations, map, partners, journal and planner. Only the order changes: sections, approved CSS and animation are as they were. The "Explore Egypt" button (`#journey-start`) now lands on the trips.

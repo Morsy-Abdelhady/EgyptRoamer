@@ -1450,6 +1450,87 @@
    "Поездки из этого гида",
    "本指南中的行程",
    "رحلات هذا الدليل"
+  ],
+  "Ask": [
+   "Fragen",
+   "Demander",
+   "Chiedi",
+   "Preguntar",
+   "Спросить",
+   "提问",
+   "اسأل"
+  ],
+  "Ask the trip assistant": [
+   "Den Reiseassistenten fragen",
+   "Demander à l'assistant de voyage",
+   "Chiedi all'assistente di viaggio",
+   "Pregunta al asistente de viaje",
+   "Спросить помощника по поездке",
+   "询问行程助手",
+   "اسأل مساعد الرحلات"
+  ],
+  "Cairo, Alexandria, Siwa, Luxor, Aswan, Hurghada and Sharm El Sheikh": [
+   "Kairo, Alexandria, Siwa, Luxor, Assuan, Hurghada und Scharm El-Scheich",
+   "Le Caire, Alexandrie, Siwa, Louxor, Assouan, Hurghada et Charm el-Cheikh",
+   "Il Cairo, Alessandria, Siwa, Luxor, Assuan, Hurghada e Sharm el-Sheikh",
+   "El Cairo, Alejandría, Siwa, Luxor, Asuán, Hurgada y Sharm el-Sheij",
+   "Каир, Александрия, Сива, Луксор, Асуан, Хургада и Шарм-эш-Шейх",
+   "开罗、亚历山大、锡瓦、卢克索、阿斯旺、赫尔格达和沙姆沙伊赫",
+   "القاهرة والإسكندرية وسيوة والأقصر وأسوان والغردقة وشرم الشيخ"
+  ],
+  "Choose nights and places; get a route and the trips on it": [
+   "Nächte und Orte wählen – Route und passende Ausflüge erhalten",
+   "Choisissez les nuits et les lieux : obtenez un itinéraire et ses excursions",
+   "Scegli notti e luoghi: ottieni un itinerario e le escursioni lungo il percorso",
+   "Elige noches y lugares: obtén una ruta y las excursiones en ella",
+   "Выберите ночи и места — получите маршрут и поездки на нём",
+   "选择晚数和地点，获得路线及沿途行程",
+   "اختر عدد الليالي والأماكن، واحصل على مسار والرحلات عليه"
+  ],
+  "Places": [
+   "Orte",
+   "Lieux",
+   "Luoghi",
+   "Lugares",
+   "Места",
+   "目的地",
+   "الأماكن"
+  ],
+  "Plans, tips and what to know before you go": [
+   "Pläne, Tipps und was Sie vor der Reise wissen sollten",
+   "Itinéraires, conseils et ce qu'il faut savoir avant de partir",
+   "Itinerari, consigli e cosa sapere prima di partire",
+   "Planes, consejos y lo que conviene saber antes de ir",
+   "Маршруты, советы и что знать перед поездкой",
+   "行程规划、实用建议和出发前须知",
+   "خطط ونصائح وما تحتاج معرفته قبل السفر"
+  ],
+  "Search places, trips and guides": [
+   "Orte, Ausflüge und Reiseführer suchen",
+   "Rechercher lieux, excursions et guides",
+   "Cerca luoghi, escursioni e guide",
+   "Buscar lugares, excursiones y guías",
+   "Поиск мест, поездок и путеводителей",
+   "搜索目的地、行程和指南",
+   "ابحث في الأماكن والرحلات والأدلة"
+  ],
+  "Tours and day trips you can book": [
+   "Touren und Tagesausflüge zum Buchen",
+   "Visites et excursions à la journée à réserver",
+   "Tour ed escursioni giornaliere da prenotare",
+   "Tours y excursiones de un día para reservar",
+   "Туры и однодневные поездки с бронированием",
+   "可预订的游览和一日游",
+   "جولات ورحلات يوم واحد يمكنك حجزها"
+  ],
+  "Trips & tours": [
+   "Ausflüge & Touren",
+   "Excursions et visites",
+   "Escursioni e tour",
+   "Excursiones y tours",
+   "Поездки и туры",
+   "行程与游览",
+   "رحلات وجولات"
   ]
  }
 }

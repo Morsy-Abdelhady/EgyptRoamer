@@ -9,7 +9,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ER_THEME_VERSION', '1.2.79' );
+define( 'ER_THEME_VERSION', '1.2.80' );
 define( 'ER_THEME_DIR', get_template_directory() );
 define( 'ER_THEME_URI', get_template_directory_uri() );
 /** A 1 px transparent GIF: the image source for a breakpoint where a picture is hidden, so it isn't downloaded. */
@@ -18,6 +18,7 @@ define( 'ER_BLANK_IMG', 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAA
 require_once ER_THEME_DIR . '/inc/setup.php';
 require_once ER_THEME_DIR . '/inc/i18n.php';
 require_once ER_THEME_DIR . '/inc/template-tags.php';
+require_once ER_THEME_DIR . '/inc/ux2-chrome.php';
 require_once ER_THEME_DIR . '/inc/sections.php';
 require_once ER_THEME_DIR . '/inc/home-settings.php';
 require_once ER_THEME_DIR . '/inc/payload.php';

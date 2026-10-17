@@ -78,7 +78,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 			<button class="icon-btn" type="button" data-open="search" aria-label="<?php echo esc_attr( er_t( 'Search Egypt Roamer' ) ); ?>">
 				<?php echo er_icon( 'i-search' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			</button>
-			<button class="icon-btn" type="button" data-open="saved" aria-label="<?php echo esc_attr( er_t( 'Saved places and experiences' ) ); ?>">
+<?php er_ux2_ask_button(); ?>			<button class="icon-btn" type="button" data-open="saved" aria-label="<?php echo esc_attr( er_t( 'Saved places and experiences' ) ); ?>">
 				<?php echo er_icon( 'i-heart' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 				<span class="icon-btn__badge" data-fav-count></span>
 			</button>
