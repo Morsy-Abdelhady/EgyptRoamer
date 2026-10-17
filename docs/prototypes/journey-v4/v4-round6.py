@@ -12,7 +12,8 @@ import json, os, re
 HERE = os.path.dirname(os.path.abspath(__file__))
 PAGES = json.load(open(os.path.join(HERE, 'live', 'pages.json'), encoding='utf-8'))
 
-FOOD_MAIN = 'img/1738245868177-8c9977608031.jpg'      # Omar Abozeid: bread seller in a Cairo street
+FOOD_MAIN = 'img/1762631934548-7b83d4bdcaa1.jpg'      # joe boshra: feteer meshaltet with white cheese and salad, Cairo
+FOOD_SELLER = 'img/1738245868177-8c9977608031.jpg'    # Omar Abozeid: a bread seller in a Cairo street
 FOOD_BREAD = 'img/1521791697570-e1f13d0b81d0.jpg'     # Alex Block: baladi bread, Cairo
 FOOD_SWEETS = 'img/1590657140810-25898a847305.jpg'    # mohmed Afify: Egyptian biscuits and sweets, Cairo
 FOOD_STREET = 'img/1652022262085-d454346a353e.jpg'    # Ahmed Assem: a Cairo street
@@ -76,13 +77,14 @@ def apply(tpl):
     reps = [
         ('{t:"Ful medames and ta’meya",p:', '{img:"f_bread",t:"Ful medames and ta’meya",p:'),
         ('{t:"Sweets and drinks",p:', '{img:"f_sweets",t:"Sweets and drinks",p:'),
+        ('{t:"Feteer meshaltet",p:', '{img:"f_feteer",t:"Feteer meshaltet",p:'),
         ('["Combine it with","Islamic Cairo or Downtown","A day in Islamic Cairo or Downtown. See our Cairo guide for the areas and more on Cairo food."]',
          '["Combine it with","Islamic Cairo or Downtown","A day in Islamic Cairo or Downtown. See our Cairo guide for the areas and more on Cairo food.","img:f_street|A Cairo street · Photo: Ahmed Assem, Unsplash"]'),
     ]
     for x, y in reps:
         assert tpl.count(x) == 1, x[:60]
         tpl = tpl.replace(x, y)
-    tpl = tpl.replace(f'"image":"{OLD_FOOD}"', '"image":"1738245868177-8c9977608031"')
+    tpl = tpl.replace(f'"image":"{OLD_FOOD}"', '"image":"1762631934548-7b83d4bdcaa1"')
 
     # 2 · footer pages
     a = '      <!-- 3 & 4 · the trip, in its own world -->'
@@ -93,7 +95,7 @@ def apply(tpl):
     js = r'''
 // ---------- places, food photos, footer pages (owner, 17 Oct) ----------
 TRIPS.forEach(t=>{ t.places=(TRIP_DESTS[t.id]||[]).map(d=>DESTS[d].name); });
-Object.assign(IMG,{food:"''' + FOOD_MAIN + '''",food_l:"''' + FOOD_MAIN + '''",f_bread:"''' + FOOD_BREAD + '''",f_sweets:"''' + FOOD_SWEETS + '''",f_street:"''' + FOOD_STREET + r'''"});
+Object.assign(IMG,{food:"''' + FOOD_MAIN + '''",food_l:"''' + FOOD_MAIN + '''",f_bread:"''' + FOOD_BREAD + '''",f_feteer:"''' + FOOD_MAIN + '''",f_seller:"''' + FOOD_SELLER + '''",f_sweets:"''' + FOOD_SWEETS + '''",f_street:"''' + FOOD_STREET + r'''"});
 const INFO=''' + json.dumps(PAGES) + r''';
 const INFO_URL={affiliate:"/affiliate-disclosure/",contact:"/contact/",privacy:"/privacy-policy/",cookies:"/cookies/"};
 function showInfo(k){ const p=INFO[k]; if(!p) return;

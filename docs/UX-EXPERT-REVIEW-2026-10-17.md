@@ -92,3 +92,31 @@ Built by `v4-round7.py`, with the route guides in `v4-guides.py`. Checked with `
 - **Subheading bug:** in 12 guides, a `###` subheading and the paragraph under it were shown together as one large heading. They are now a heading and a paragraph.
 - **Booking box:** only the compact trip card stays in view. "Also in this guide", the hotel link and the disclosure moved under the article. The card no longer runs off the screen.
 - **Section bar:** when the sections don't fit, the edges fade and ‹ › arrows scroll it. The current section is centred, so no tab is cut in the middle of a word.
+
+## 7. Cairo food trip photos (owner, 17 Oct: "these photos have nothing to do with the trip; no Egyptian food")
+**What tourists eat on Cairo food tours:**
+- koshari, usually the first stop;
+- ful medames and ta'ameya;
+- hawawshi;
+- feteer meshaltet, often the last stop;
+- sugarcane juice.
+
+Also recommended: molokhia, mahshi and wara' enab, om ali, and konafa and basbousa.
+
+**Sources:** porthole.com, civitatis.com, byfood.com, theculturetrip.com, citylifemadrid.com and sheiswanderlust.com (searched 17 Oct).
+
+**Free Unsplash photos with an Egyptian location tag:** 35 dish and food searches found none of koshari, ful, ta'ameya, hawawshi, molokhia, mahshi, om ali or sugarcane juice. Exact Egyptian food photos exist for:
+- feteer meshaltet with white cheese (joe boshra, Cairo), now the trip photo and the Feteer step;
+- baladi bread (Alex Block, Cairo), on the Ful and ta'ameya step;
+- kahk and biscuits (mohmed Afify, Cairo), on the sweets step.
+
+Koshari and hawawshi stay as designed panels. The bread seller photo is no longer the trip photo.
+
+**Owner's choice:** Wikimedia Commons has real Egyptian photos of each dish, under CC BY-SA licences that require a credit and the licence name next to the photo. Examples:
+- "Egyptian food Koshary" (Dina Said, CC BY-SA 4.0);
+- "Hawawshi" (Mohamed Moheyeldin, CC BY-SA 4.0);
+- the "Egyptian-food" series (Mohamed Ouda, CC BY-SA 4.0);
+- "Molokheya Egypt, 2012" (Habib M'henni, CC BY-SA 3.0);
+- "Ful Medames" (CC0).
+
+The photo policy allows only Unsplash today, so using Commons needs the owner's approval.
