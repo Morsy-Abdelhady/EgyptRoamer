@@ -8,6 +8,10 @@
 # 3. after Book, a prototype toast covered the "opened in a new tab" box. The box says it; the toast is gone;
 # 4. after choosing a place, its banner filled the first screen and the trip sat below it. A chosen place gets a
 #    short banner, and when it has one or two trips, its guides follow ("Plan your Luxor visit").
+# 5. (owner, guide page) the trip card stuck 80px under the header, a gap below the section bar, and on a short
+#    screen its bottom ran off and the assistant button sat on it. It now sticks 16px under the section bar, and
+#    when the screen is short it gives up photo height (then the photo) so the whole card, Save included, stays in
+#    view above the assistant button; on a very short screen it scrolls with the page instead of being cut.
 CSS = '''
 /* ---------- tourist walk-through, 17 Oct ---------- */
 #groups.is-one .gbanner{height:118px!important;padding:14px 18px}
@@ -24,6 +28,12 @@ CSS = '''
 .gplan__g span{display:block;padding:0 14px 14px;font-size:12.5px;color:var(--muted)}
 @container site (max-width:900px){ .gplan__g{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @container site (max-width:600px){ .gplan__g{grid-template-columns:1fr} }
+.gd .abox > .bk.is-tight .bk__img{height:64px}
+.gd .abox > .bk.is-tighter .bk__img{display:none}
+.gd .abox > .bk.is-tighter .bk__b{padding:14px 18px 12px}
+.gd .abox > .bk.is-tighter h3{margin-bottom:6px}
+.gd .abox > .bk.is-tighter .btn{min-height:44px;padding-block:10px}
+.gd .abox > .bk.is-static{position:static}
 '''
 JS = r'''
 // ---------- tourist walk-through, 17 Oct ----------
@@ -48,6 +58,18 @@ const _rt2=renderTrips; renderTrips=function(){ _rt2(); const g=document.getElem
   if(!one||typeof GUIDES==="undefined") return; const did=Object.keys(DESTS).find(k=>DESTS[k].name===state.place); if(!did) return;
   const n=g.querySelectorAll(".card").length, gs=GUIDES.filter(x=>x.dests.includes(did)).slice(0,3); if(n>2||!gs.length) return;
   g.insertAdjacentHTML("beforeend",`<section class="gplan"><p class="eyebrow">Before you book</p><h3>Plan your ${esc(DESTS[did].name)} visit</h3><div class="gplan__g">${gs.map(x=>`<button type="button" data-guide-open="${x.slug}"><img src="${x.photo||IMG["d_"+did]}" alt="" loading="lazy"><b>${esc(x.title)}</b><span>Guide · ${x.mins} min read</span></button>`).join("")}</div></section>`); };
+// 5 · the guide's trip card: right under the section bar, and always whole
+function bkFit(){ const ga=document.getElementById("ga"), bk=ga&&ga.querySelector(".abox > .bk"); if(!bk||!bk.offsetParent) return;
+  bk.classList.remove("is-tight","is-tighter","is-static"); bk.style.top="";
+  if(getComputedStyle(bk).position!=="sticky") return;
+  const sb=ga.querySelector(".secbar"), top=(parseInt(getComputedStyle(vp).getPropertyValue("--navh"))||72)+(sb?sb.offsetHeight:0)+16;
+  bk.style.top=top+"px";
+  const fab=document.querySelector(".assistant-launch"), fr=fab&&fab.offsetParent?fab.getBoundingClientRect():null, br=bk.getBoundingClientRect();
+  const bottom=vp.getBoundingClientRect().bottom-(fr&&fr.left<br.right?vp.getBoundingClientRect().bottom-fr.top:0)-16, avail=bottom-vp.getBoundingClientRect().top-top;
+  if(bk.offsetHeight>avail) bk.classList.add("is-tight"); if(bk.offsetHeight>avail) bk.classList.add("is-tighter");
+  if(bk.offsetHeight>avail){ bk.classList.remove("is-tight","is-tighter"); bk.style.top=""; bk.classList.add("is-static"); } }
+const _og=window.openGuide; window.openGuide=function(){ const r=_og.apply(this,arguments); requestAnimationFrame(bkFit); return r; };
+new ResizeObserver(()=>bkFit()).observe(vp);
 '''
 
 def apply(tpl):
