@@ -121,7 +121,7 @@ function er_ux2_place_names(): array {
 
 /** Every published trip, place and guide in the current language, for the preview's search box. Cached per language. */
 function er_ux2_search_index(): array {
-	$key   = 'er_ux2_search3_' . er_lang();
+	$key   = 'er_ux2_search3_' . er_lang() . ( get_option( 'er_ux2' ) ? '_on' : '' ); // the preview's links carry ?ux=2
 	$index = get_transient( $key );
 	if ( is_array( $index ) ) {
 		return $index;

@@ -96,8 +96,29 @@ function er_render_settings_page(): void {
 		er_render_field( 'er-s-' . $k, 'er_settings[' . $k . ']', $field, $values[ $k ] );
 	}
 	submit_button();
+	echo '</form>';
+	// The new booking journey (theme er_ux2(), previewed with ?ux=2): one switch for every visitor (owner, 17 Oct).
+	$on = (bool) get_option( 'er_ux2' );
+	echo '<h2 class="er-fields__heading">' . esc_html__( 'New booking journey', 'egypt-roamer-core' ) . '</h2>';
+	echo '<p>' . ( $on
+		? esc_html__( 'On: every visitor sees the new journey.', 'egypt-roamer-core' )
+		: esc_html__( 'Off: visitors see the current design; the new journey is only previewed with ?ux=2.', 'egypt-roamer-core' ) ) . '</p>';
+	echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
+	wp_nonce_field( 'er_ux2_switch' );
+	echo '<input type="hidden" name="action" value="er_ux2_switch" /><input type="hidden" name="on" value="' . ( $on ? '0' : '1' ) . '" />';
+	submit_button( $on ? __( 'Switch the new journey off', 'egypt-roamer-core' ) : __( 'Switch the new journey on for everyone', 'egypt-roamer-core' ), $on ? 'secondary' : 'primary', 'er-ux2-switch' );
 	echo '</form></div>';
 }
+
+add_action( 'admin_post_er_ux2_switch', static function () {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'Sorry, you are not allowed to do that.', 'egypt-roamer-core' ), 403 );
+	}
+	check_admin_referer( 'er_ux2_switch' );
+	update_option( 'er_ux2', ! empty( $_POST['on'] ) ? 1 : 0 ); // phpcs:ignore WordPress.Security.NonceVerification -- checked above
+	wp_safe_redirect( add_query_arg( [ 'page' => 'er-settings', 'updated' => 1 ], admin_url( 'admin.php' ) ) );
+	exit;
+} );
 
 /* -------------------------------------------------------------------------- */
 /* Dashboard                                                                   */

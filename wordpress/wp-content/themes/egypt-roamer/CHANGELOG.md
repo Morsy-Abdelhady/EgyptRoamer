@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.90 — 2026-10-17: the new journey for every visitor (with Core 1.2.52)
+- **Owner:** switch the new design on for every visitor.
+- **Core 1.2.52:** Egypt Roamer → Settings has a "New booking journey" switch, which sets the `er_ux2` option on or off. Turning it off restores the previous design in one click.
+- **Theme:** the search index cache now depends on the switch, so links built for the preview (with `?ux=2`) are never served once the journey is on.
+- With the switch on, the preview-only extras (noindex and the `?ux=2` link keeper) are off by design (`inc/template-tags.php`).
+
 ## 1.2.89 — 2026-10-17: proposal 4, slice 14: the Nile cruise trip (with Core 1.2.51)
 - **New trip page,** "Nile Cruise from Aswan to Luxor" (`exp-cruise`), in 8 languages.
   - Written from the sourced cruise guide and the three partner pages (`docs/CONTENT-SOURCES.md`).
