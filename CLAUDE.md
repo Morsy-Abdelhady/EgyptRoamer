@@ -3,7 +3,7 @@
 An affiliate-first travel publication about Egypt, built on WordPress and live at https://egyptroamer.com (GoDaddy Managed WordPress). The site takes no bookings and no payments.
 
 ## Current state: read this first
-- **Latest handoff:** `docs/HANDOFF-2026-10-16.md`. It says what is done, what is in progress (Viator photos on branch `wip/viator-photos`, not deployed) and what is next (the booking-journey redesign, previewed with `?ux=2` and waiting for the owner's approval).
+- **Latest handoff:** `docs/HANDOFF-2026-10-16.md`. It says what is done, what is in progress (Viator photos on branch `wip/viator-photos`, not deployed) and what is next. Since 2026-10-17 the new booking journey is on for every visitor (Egypt Roamer → Settings → New booking journey); the move of the proposal 4 screens is logged in `docs/UX2-MIGRATION-PLAN-2026-10-17.md`.
 - **Live partners:**
   - Viator (tours, 17 offers);
   - GetYourGuide (tours, 9 offers);
@@ -37,7 +37,7 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
   - **Partner photos are never copied** from partner pages. GetYourGuide's T&Cs forbid it; Viator supplies photos only through its Partner API.
   - GetYourGuide offers use a free tagged Unsplash photo of the same subject (owner, 2026-10-16).
 - **Partner facts:** offer facts (private or group, duration, pickup) come only from the partner's own product page, in Core `data/offer-facts.json`. No prices, ratings or reviews. Every new offer needs its card text in `data/offers-i18n.json` before it is published.
-- **No redesign, and don't touch the approved CSS.** WordPress-only CSS goes in `assets/css/pages.css`.
+- **Design (owner, 2026-10-18):** the approved design is now proposal 4 (`docs/prototypes/journey-v4/`, published at https://claude.ai/artifact/8Nni2DJA4aBkoDwc2WxEt7). The theme may be redesigned to match it; the old "no redesign" rule is lifted. New design CSS goes in its own files under `assets/css/`, and nothing is invented (content, facts and photos rules below still apply).
 - **Plugins:** at most one SEO plugin (Rank Math, planned). No WooCommerce, direct booking or extra cache plugins.
 - **Seed:** re-runs must never overwrite editors' titles, bodies, status or filled fields.
 - **Line endings:** files use LF. Python on Windows writes CRLF, so pass `newline="\n"`.
