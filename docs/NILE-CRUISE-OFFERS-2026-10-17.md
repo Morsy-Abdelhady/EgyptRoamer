@@ -82,3 +82,23 @@
    - the "Nile Cruise or Hotels?" guide;
    - the 7-, 10- and 14-day itineraries.
 3. Add it to the prototype first (proposal 4).
+
+## Added to the prototype (owner OK, 17 Oct)
+The three offers are now one trip, "Nile Cruise from Aswan to Luxor", in proposal 4 (`docs/prototypes/journey-v4/v4-cruise.py`). It is not on the live site.
+
+**Content and sources:**
+- **Page text:** from our guide "Nile Cruise or Hotels? Luxor to Aswan Explained".
+- **Option facts:** from the three product pages above.
+- **Photos:** approved Unsplash photos already used in the guides.
+
+**Comparison table:** it now also shows Abu Simbel, the balloon flight and entrance fees (included, extra or paid locally) whenever a trip's options differ on them.
+
+**Where it appears:**
+- the Nile chapter (now 3 trips);
+- Trips & tours under Aswan and Luxor, and in the "2+ days" filter;
+- search ("nile cruise" lists it first);
+- the assistant;
+- the Trip Builder (Ancient and Luxury interests) on routes through Aswan or Luxor;
+- the "Nile Cruise or Hotels?" guide.
+
+**For production later:** add the 3 offers in Core, with `offer-facts.json` and `offers-i18n.json` in all languages, and an experience page.

@@ -13,6 +13,7 @@ F2 = load('f2', 'v4-fix2.py')            # second review fixes
 MB = load('mb', 'v4-mobile.py')          # phone version
 R4 = load('r4', 'v4-round4.py')
 H2 = load('h2', 'v4-home2.py')            # production sections the prototype had dropped
+NC = load('nc', 'v4-cruise.py')            # Nile cruise trip (owner OK, 17 Oct)
 TR = load('tr', 'v4-tourist.py')            # tourist walk-through fixes
 T2 = load('t2', 'v4-tourist2.py')           # first-time tourist review
 PL = load('pl', 'v4-planner.py')            # Trip Builder fixes
@@ -72,6 +73,7 @@ tpl = R6.apply(tpl)
 tpl = GD.apply(tpl)
 tpl = R7.apply(tpl)
 tpl = PL.apply(tpl)
+tpl = NC.apply(tpl)
 tpl = TR.apply(tpl)
 tpl = T2.apply(tpl)
 open('v4.template.html', 'w', encoding='utf-8', newline='\n').write(tpl)
