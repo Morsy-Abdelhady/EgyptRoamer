@@ -8,6 +8,10 @@
 # 3. after Book, a prototype toast covered the "opened in a new tab" box. The box says it; the toast is gone;
 # 4. after choosing a place, its banner filled the first screen and the trip sat below it. A chosen place gets a
 #    short banner, and when it has one or two trips, its guides follow ("Plan your Luxor visit").
+# 6. (owner, phone home) "Where in Egypt?" chips were cut at the screen edge and their text sat 5px high. The label
+#    gets its own line (on a phone too) and on a phone the 7 places wrap into two rows, all visible; the text is centred.
+#    The header "Ask" button is 40px like the icons beside it. It stays in the header on phones: a floating button
+#    would sit on the trip page's booking bar and on the text the tourist is reading.
 # 5. (owner, guide page) the trip card stuck 80px under the header, a gap below the section bar, and on a short
 #    screen its bottom ran off and the assistant button sat on it. It now sticks 16px under the section bar, and
 #    when the screen is short it gives up photo height (then the photo) so the whole card, Save included, stays in
@@ -34,6 +38,15 @@ CSS = '''
 .gd .abox > .bk.is-tighter h3{margin-bottom:6px}
 .gd .abox > .bk.is-tighter .btn{min-height:44px;padding-block:10px}
 .gd .abox > .bk.is-static{position:static}
+.chip2{display:inline-flex;align-items:center;justify-content:center;line-height:1.1}
+.finder2 > span{flex:1 1 100%;margin:0 0 2px}
+@container site (max-width:600px){
+  .finder2{flex-wrap:wrap;overflow:visible;margin-inline:0;padding-inline:0;gap:8px}
+  .finder2 > span{flex:1 1 100%;margin:0 0 2px}
+  .chip2{padding:0 14px}
+  .lc .nav .lc-ai{height:40px;padding:0 14px 0 11px;gap:7px;line-height:1}
+  .lc .nav .lc-ai svg{display:block;flex:none}
+}
 '''
 JS = r'''
 // ---------- tourist walk-through, 17 Oct ----------
