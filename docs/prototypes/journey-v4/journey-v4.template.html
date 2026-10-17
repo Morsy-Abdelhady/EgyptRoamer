@@ -1282,7 +1282,9 @@ transparent
 /* assistant: the card's action on its own line; place chips in the welcome; no second row of suggestions */
 .lc .lca-card em,.lc .lca-card i{display:block;margin-left:0}
 .lc .lca-card i{margin-top:4px}
-.lc .assistant__welcome .lca-chips{margin-top:12px}
+.lc .lca-quick{display:flex;flex-wrap:nowrap!important;overflow-x:auto;gap:6px;margin:0 0 10px;padding-bottom:2px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+.lc .lca-quick::-webkit-scrollbar{display:none}
+.lc .lca-quick button{flex:none;white-space:nowrap}
 .lc .assistant__try{display:none!important}
 .lc .lca-all{display:block;width:100%;text-align:left;border:1px dashed rgba(16,24,32,.25);background:transparent;border-radius:12px;padding:12px 14px;font:600 14px var(--font-sans,Inter,sans-serif);color:#a8871f;cursor:pointer;min-height:44px}
 /* assistant: the conversation scrolls inside its own area, never under the question box */
@@ -3145,8 +3147,8 @@ const _lazyVideos=lazyVideos; lazyVideos=function(scope){ _lazyVideos(scope); vi
   paintAll(); drawList();
 })();
 // assistant welcome: start from a place
-(function(){ const w=document.querySelector("#lc-ov .assistant__welcome"); if(!w) return; const ch=document.createElement("div"); ch.className="lca-chips";
-  ["Cairo","Alexandria","Siwa","Luxor","Aswan","Hurghada","Sharm El Sheikh"].forEach(p=>{ const b=document.createElement("button"); b.type="button"; b.textContent=p; b.addEventListener("click",()=>{ const i=document.querySelector("#lc-ov .assistant__form input"); i.value=p; i.form.requestSubmit(); }); ch.appendChild(b); }); w.appendChild(ch); })();
+(function(){ const w=document.querySelector("#lc-ov .assistant__form"); if(!w) return; const ch=document.createElement("div"); ch.className="lca-chips lca-quick"; ch.setAttribute("aria-label","Ask about a place");
+  ["Cairo","Alexandria","Siwa","Luxor","Aswan","Hurghada","Sharm El Sheikh"].forEach(p=>{ const b=document.createElement("button"); b.type="button"; b.textContent=p; b.addEventListener("click",()=>{ const i=document.querySelector("#lc-ov .assistant__form input"); i.value=p; i.form.requestSubmit(); }); ch.appendChild(b); }); w.parentElement.insertBefore(ch,w); })();
 // "Chat with Egypt Roamer" opens the live contact form (nothing is sent in the prototype)
 document.addEventListener("click",e=>{ const as=document.querySelector("#lc-ov #assistant"), f=document.querySelector("#lc-ov [data-chat-form]"), en=document.querySelector("#lc-ov [data-chat-entry]");
   if(e.target.closest(".lc [data-chat-open]")){ e.preventDefault(); f.hidden=false; en.hidden=true; as.classList.add("is-chat"); f.querySelector("textarea,input:not([type=hidden])")?.focus(); return; }
