@@ -81,6 +81,18 @@ CSS = CH.css() + '''
 .lc .assistant.is-chat .assistant__log{display:none!important}
 .lc .assistant.is-chat .assistant__foot{flex:1 1 auto!important;min-height:0;overflow-y:auto!important;border-top:0!important}
 .lc .assistant__foot{max-height:75%;overflow-y:auto}
+/* team chat form: rows keep their own height (the stretched grid pushed each label away from its field) */
+.lc .assistant.is-chat .assistant__foot,.lc .assistant__start{align-content:start!important}
+.lc .assistant__start{gap:16px!important}
+.lc .assistant.is-chat .lca-quick{display:none!important}
+.lc .assistant__start-intro{margin:0 0 2px!important;font-size:15px}
+.lc .assistant__start label{gap:6px!important;font-size:13.5px;font-weight:500;color:#2c3640}
+.lc .assistant__start input,.lc .assistant__start textarea{min-height:44px;padding:10px 12px!important;border-radius:10px!important;border:1px solid rgba(16,24,32,.22)!important;background:#fff!important}
+.lc .assistant__start input:focus,.lc .assistant__start textarea:focus{outline:2px solid #c9a227;outline-offset:1px;border-color:transparent!important}
+.lc .assistant__start textarea{min-height:96px}
+.lc .assistant__start-actions{display:flex!important;gap:10px!important;align-items:center}
+.lc .assistant__start-actions .btn{height:44px;min-height:44px;padding:0 20px!important;flex:0 0 auto;align-self:center}
+.lc .assistant__start-actions .btn--primary{flex:1 1 auto;justify-content:center}
 /* ---------- saved trips and places (owner, 17 Oct: "what is the heart for if I cannot save a trip?") ---------- */
 .lcf{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(16,24,32,.15);background:rgba(255,255,255,.92);color:#101820;cursor:pointer;padding:0;transition:transform .15s}
 .lcf svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
