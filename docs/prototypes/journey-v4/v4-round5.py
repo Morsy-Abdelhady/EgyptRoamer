@@ -106,7 +106,7 @@ def apply(tpl):
     js = CH.JS + r'''
 window.LC_TOP=false;
 const favTrip=(t,txt)=>t&&window.lcFavBtn?lcFavBtn({id:"trip:"+t.id,title:t.t,meta:`${t.place} · ${t.time} · ${t.n} options`,img:IMG[t.k]},txt):"";
-window.lcOpenSaved=id=>{ const [k,v]=id.split(":"); if(k==="trip"){ if(WORLDS[v]){ current=v; lastViewed=v; go(3); } else go(2); } else if(k==="place"){ lcPlace(DESTS[v].place); } };
+window.lcOpenSaved=id=>{ if(!id.includes(":")){ const w=Object.keys(WORLDS).find(k=>WORLDS[k].url===id); if(w){ current=w; lastViewed=w; go(3); return; } if(DESTS[id]){ lcPlace(DESTS[id].place); return; } lcToast("Prototype: on the site this opens the saved page."); return; } const [k,v]=id.split(":"); if(k==="trip"){ if(WORLDS[v]){ current=v; lastViewed=v; go(3); } else go(2); } else if(k==="place"){ lcPlace(DESTS[v].place); } };
 function showPlaces(){
   $$("[data-screen]").forEach(x=>x.hidden=x.dataset.screen!=="p"); $$(".steps button").forEach(b=>b.removeAttribute("aria-current"));
   $("#url").textContent="egyptroamer.com/destinations/"; $("#nav-exp").removeAttribute("aria-current");
@@ -123,7 +123,7 @@ function showPlaces(){
 }
 document.addEventListener("click",e=>{ const g=e.target.closest("[data-guide]"); if(g){ e.preventDefault(); lcToast(`Prototype: on the site this opens the ${g.dataset.guide} page: what it is, when to go, where to stay and its trips.`); } });
 window.lcPlace=pl=>{ go(2); const b=document.querySelector(`[data-fplace="${pl}"]`); b&&b.click(); };
-window.lcIndex=()=>TRIPS.map(t=>({t:t.t+" "+(t.place||"")+" "+(t.dest||""),card:{img:IMG[t.k],title:esc(t.t),meta:`${esc(t.place||"")} · ${esc(t.time)} · ${t.n} options`,cta:WORLDS[t.id]?"See the trip":"See trips"},run:()=>{ if(WORLDS[t.id]){ current=t.id; lastViewed=t.id; go(3);} else go(2); }}));
+window.lcIndex=()=>TRIPS.map(t=>({t:t.t+" "+(t.places||[]).join(" ")+" "+(t.place||""),card:{img:IMG[t.k],title:esc(t.t),meta:`${esc((t.places||[]).join(" · ")||t.place||"")} · ${esc(t.time)} · ${t.n} options`,cta:WORLDS[t.id]?"See the trip":"See trips"},run:()=>{ if(WORLDS[t.id]){ current=t.id; lastViewed=t.id; go(3);} else go(2); }}));
 window.lcRoute=(href,a)=>{
   const p=href.replace("https://egyptroamer.com","");
   const exp=p.match(/^\/experiences\/([^/]+)\//); if(exp){ const id=Object.keys(WORLDS).find(k=>WORLDS[k].url===exp[1]); if(id){ current=id; lastViewed=id; go(3); return; } }

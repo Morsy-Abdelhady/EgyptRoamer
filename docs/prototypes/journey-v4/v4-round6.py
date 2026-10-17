@@ -105,6 +105,7 @@ function showInfo(k){ const p=INFO[k]; if(!p) return;
   $("#info").querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>{ e.preventDefault(); lcToast("Prototype: nothing is sent. On the site this sends your message to our team."); }));
   vp.scrollTo({top:0,behavior:"auto"}); window.lcPaint&&lcPaint(); }
 function toPlanner(){ go(1); setTimeout(()=>{ const p=document.querySelector("#live #planner"); if(p) vp.scrollTo({top:vp.scrollTop+p.getBoundingClientRect().top-vp.getBoundingClientRect().top-70,behavior:"auto"}); },60); }
+window.lcPlace=pl=>{ state.place=pl; go(2); };
 const _route=window.lcRoute;
 window.lcRoute=(href,a)=>{
   const p=href.replace("https://egyptroamer.com","").replace(/[?#].*$/,m=>m.startsWith("#planner")?"#planner":"");

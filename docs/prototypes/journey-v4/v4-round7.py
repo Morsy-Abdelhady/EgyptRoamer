@@ -34,7 +34,13 @@ CSS = '''
 /* the assistant: a header icon on phones */
 .lc .nav .lc-ai{display:none}
 @container site (max-width:600px){
-  .lc .nav .lc-ai{display:inline-grid}
+  .lc .nav .lc-ai{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px 0 10px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;font:600 13px/1 var(--font-sans,Inter,sans-serif);cursor:pointer;opacity:.95}
+  .lc .nav .lc-ai svg{width:18px;height:18px}
+  .lc .nav .lc-ai span{display:inline}
+  /* menu: search sits right above the sections */
+  .lc .menu__inner{gap:18px!important}
+  .lc .lcm-search{margin:0 0 4px!important}
+  .lc .lcm-links a{font-size:30px!important}
   .lc-ov .assistant-launch{display:none!important}
 }
 '''
@@ -56,7 +62,7 @@ def apply(tpl):
     # 5 · the assistant icon sits next to the heart in the header
     a = '<button class="icon-btn" type="button" data-open="saved"'
     assert tpl.count(a) == 1
-    tpl = tpl.replace(a, '<button class="icon-btn lc-ai" type="button" data-open="assistant" aria-label="Trip assistant"><svg class="icon" aria-hidden="true"><use href="#i-sparkle"></use></svg></button>' + a)
+    tpl = tpl.replace(a, '<button class="lc-ai" type="button" data-open="assistant" aria-label="Ask the trip assistant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.2 3.6c-.5.4-1.3.1-1.3-.6V16.9A2.5 2.5 0 0 1 4 14.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 9.5h.01M12 9.5h.01M15.5 9.5h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span>Ask</span></button>' + a)
 
     js = r'''
 // ---------- expert review, 17 Oct ----------

@@ -13,7 +13,7 @@ CH = importlib.util.module_from_spec(spec); spec.loader.exec_module(CH)
 
 ICON = lambda i: f'<svg class="icon" aria-hidden="true"><use href="#{i}"></use></svg>'
 LINKS = [
-    ('https://egyptroamer.com/destinations/', 'Places', 'Cairo, Luxor, Aswan, Alexandria, the Red Sea and the desert'),
+    ('https://egyptroamer.com/destinations/', 'Places', 'Cairo, Alexandria, Siwa, Luxor, Aswan, Hurghada and Sharm El Sheikh'),
     ('https://egyptroamer.com/experiences/', 'Trips &amp; tours', 'Tours and day trips you can book'),
     ('https://egyptroamer.com/guides/', 'Travel Guide', 'Plans, tips and what to know before you go'),
 ]
@@ -160,7 +160,7 @@ JS = CH.JS.replace(
 )
 # assistant: cards instead of bare lines
 i = JS.index('  const answer=q=>{'); e = JS.index('log.append(me,box); log.scrollTop=log.scrollHeight; };', i) + len('log.append(me,box); log.scrollTop=log.scrollHeight; };')
-JS = JS[:i] + r'''  const PLACES=["Cairo & Giza","Luxor","Aswan","Alexandria","Red Sea","Western Desert"];
+JS = JS[:i] + r'''  const PLACES=["Cairo","Alexandria","Siwa","Luxor","Aswan","Hurghada","Sharm El Sheikh"];
   const answer=q=>{ const words=q.toLowerCase().split(/[^a-z0-9&]+/).filter(w=>w.length>2&&!["the","and","for","with","what","where","trip","trips","tour","tours"].includes(w));
     const all=index(); let hits=all.filter(i=>i.card&&words.some(w=>i.t.toLowerCase().includes(w)));
     if(!hits.length) hits=all.filter(i=>words.some(w=>i.t.toLowerCase().includes(w)));
@@ -202,7 +202,7 @@ JS += r'''
 })();
 // assistant welcome: start from a place
 (function(){ const w=document.querySelector("#lc-ov .assistant__welcome"); if(!w) return; const ch=document.createElement("div"); ch.className="lca-chips";
-  ["Cairo & Giza","Luxor","Aswan","Alexandria","Red Sea","Western Desert"].forEach(p=>{ const b=document.createElement("button"); b.type="button"; b.textContent=p; b.addEventListener("click",()=>{ const i=document.querySelector("#lc-ov .assistant__form input"); i.value=p; i.form.requestSubmit(); }); ch.appendChild(b); }); w.appendChild(ch); })();
+  ["Cairo","Alexandria","Siwa","Luxor","Aswan","Hurghada","Sharm El Sheikh"].forEach(p=>{ const b=document.createElement("button"); b.type="button"; b.textContent=p; b.addEventListener("click",()=>{ const i=document.querySelector("#lc-ov .assistant__form input"); i.value=p; i.form.requestSubmit(); }); ch.appendChild(b); }); w.appendChild(ch); })();
 // "Chat with Egypt Roamer" opens the live contact form (nothing is sent in the prototype)
 document.addEventListener("click",e=>{ const as=document.querySelector("#lc-ov #assistant"), f=document.querySelector("#lc-ov [data-chat-form]"), en=document.querySelector("#lc-ov [data-chat-entry]");
   if(e.target.closest(".lc [data-chat-open]")){ e.preventDefault(); f.hidden=false; en.hidden=true; as.classList.add("is-chat"); f.querySelector("textarea,input:not([type=hidden])")?.focus(); return; }
