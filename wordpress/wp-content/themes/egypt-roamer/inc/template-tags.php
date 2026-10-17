@@ -861,6 +861,8 @@ function er_booking_summary( array $offers, bool $with_duration = true ): array 
 	if ( $with_duration && $hours && null !== $lo ) {
 		$txt   = er_t( '{n} hours', [ 'n' => $lo === $hi ? (string) $lo : $lo . '–' . $hi ] );
 		$out[] = $approx ? er_t( 'About {duration}', [ 'duration' => $txt ] ) : $txt;
+	} elseif ( $with_duration && er_ux2() && function_exists( 'er_ux2_offer_length' ) && '' !== er_ux2_offer_length( $offers ) ) {
+		$out[] = er_ux2_offer_length( $offers ); // preview: trips measured in days show their length too
 	}
 	$private = count( array_filter( $all, static fn ( $f ) => 'private' === ( $f['group'] ?? '' ) ) );
 	$small   = count( array_filter( $all, static fn ( $f ) => 'small' === ( $f['group'] ?? '' ) ) );
@@ -899,7 +901,7 @@ function er_pick_reason( int $pick, array $offers ): string {
 	if ( ! empty( $mine['pickup'] ) && $none( static fn ( $f ) => ! empty( $f['pickup'] ) ) ) {
 		return er_t( 'The only option with pickup' );
 	}
-	return '';
+	return er_ux2() && function_exists( 'er_ux2_pick_reason' ) ? er_ux2_pick_reason( $pick, $offers ) : '';
 }
 
 /**

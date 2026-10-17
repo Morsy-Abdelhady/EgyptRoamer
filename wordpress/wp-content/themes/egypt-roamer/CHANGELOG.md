@@ -2,6 +2,19 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.83 — 2026-10-17: proposal 4, slice 4: the trip page (preview `?ux=2` only)
+- **One length per trip:**
+  - The hero's length came from the page's own line ("6 hours", Siwa "Full day"), while the booking box said "About 4–10 hours" and Siwa's options are both 3 days. Both now show the length the partners state for the trip's options (`er_ux2_offer_length()`).
+  - When options mix hours and days (Red Sea dives), the page's own line stays, since no single honest line exists.
+- **Trips measured in days:** White Desert and Siwa now show their length in the booking box ("About 2 days", "About 3 days"); before, only hour ranges were shown.
+- **"Our pick":** when no fact belongs to the pick alone, it now says "Private, the longest visit" or "The longest visit", from the stated facts. On Valley of the Kings: "Private, the longest visit". Where nothing sets the pick apart (Abu Simbel), no reason is invented.
+- **Label above the title:** "Trips & tours" instead of "Experiences".
+- **Already live, nothing changed:** "Plan it with our guides" at the end of trip pages, which the prototype's "Read before you go" needed.
+- **Tests:**
+  - lengths and reasons were checked against the real `offer-facts.json` with a standalone PHP test, because the local database has only test offers;
+  - visitors: without `?ux=2` the HTML of 10 pages (3 trip pages among them) is unchanged.
+- **New strings:** 2, in all 8 languages, unreviewed.
+
 ## 1.2.82 — 2026-10-17: proposal 4, slice 3: the Trips & tours page (preview `?ux=2` only)
 - **Title:** the page and its breadcrumb say "Trips & tours", as the menu does (it was "Experiences"). Destinations are "Places".
 - **Filters:** a dropdown plus an Apply button became link buttons, so each choice is one tap and works without JavaScript:

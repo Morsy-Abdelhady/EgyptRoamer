@@ -158,3 +158,66 @@ function er_ux2_trip_empty(): void {
 	</div>
 	<?php
 }
+
+/*
+ * Slice 4 (17 Oct): the trip page, previewed with ?ux=2 only.
+ * - One length per trip: the hero said "6 hours" while the booking box said "About 4–10 hours" (Siwa: "Full day"
+ *   above two 3-day options). Both now show the length the partners state for the trip's options.
+ * - Trips measured in days (White Desert, Siwa) now show their length in the booking box too.
+ * - "Our pick" always says why when the facts allow: "Private, the longest visit" (from the partners' facts only).
+ */
+
+/** The trip's length from its options' stated durations: "About 4–10 hours", "3 days", "2–3 days"; '' when mixed or unknown. */
+function er_ux2_offer_length( array $offers ): string {
+	if ( ! $offers || ! function_exists( 'er_offer_facts' ) ) {
+		return '';
+	}
+	$lo = null; $hi = null; $approx = false; $unit = '';
+	foreach ( $offers as $id ) {
+		$d = (array) ( er_offer_facts( (int) $id )['duration'] ?? [] );
+		if ( empty( $d['n'] ) || ! preg_match_all( '/\d+(?:\.\d+)?/', (string) $d['n'], $m ) ) {
+			return '';
+		}
+		$u = 'hours' === ( $d['unit'] ?? 'hours' ) ? 'hours' : 'days';
+		if ( '' !== $unit && $u !== $unit ) {
+			return ''; // hours and days mixed: no single honest line
+		}
+		$unit   = $u;
+		$lo     = null === $lo ? (float) $m[0][0] : min( $lo, (float) $m[0][0] );
+		$hi     = null === $hi ? (float) end( $m[0] ) : max( $hi, (float) end( $m[0] ) );
+		$approx = $approx || ! empty( $d['approx'] );
+	}
+	$n = $lo === $hi ? (string) $lo : $lo . '–' . $hi;
+	if ( 'hours' === $unit ) {
+		$txt = er_t( '{n} hours', [ 'n' => $n ] );
+	} else {
+		$txt = '1' === $n ? er_t( '{n} day', [ 'n' => $n ] ) : er_t( '{n} days', [ 'n' => $n ] );
+	}
+	return $approx ? er_t( 'About {duration}', [ 'duration' => $txt ] ) : $txt;
+}
+
+/** The longest stated visit among the options, in hours (a day counts as 24), 0 when unknown. */
+function er_ux2_offer_hours( array $f ): float {
+	$d = (array) ( $f['duration'] ?? [] );
+	if ( empty( $d['n'] ) || ! preg_match_all( '/\d+(?:\.\d+)?/', (string) $d['n'], $m ) ) {
+		return 0;
+	}
+	$v = (float) max( $m[0] );
+	return 'hours' === ( $d['unit'] ?? 'hours' ) ? $v : $v * 24;
+}
+
+/** A reason for "Our pick" when er_pick_reason() finds no fact only the pick has: private and/or the longest visit. */
+function er_ux2_pick_reason( int $pick, array $offers ): string {
+	if ( ! $pick || count( $offers ) < 2 || ! function_exists( 'er_offer_facts' ) ) {
+		return '';
+	}
+	$mine    = er_offer_facts( $pick );
+	$others  = array_map( static fn ( $id ): array => er_offer_facts( (int) $id ), array_values( array_diff( array_map( 'intval', $offers ), [ $pick ] ) ) );
+	$h       = er_ux2_offer_hours( $mine );
+	$longest = $h > 0 && ! array_filter( $others, static fn ( $f ): bool => er_ux2_offer_hours( $f ) >= $h );
+	$private = 'private' === ( $mine['group'] ?? '' );
+	if ( $private && $longest ) {
+		return er_t( 'Private, the longest visit' );
+	}
+	return $longest ? er_t( 'The longest visit' ) : '';
+}

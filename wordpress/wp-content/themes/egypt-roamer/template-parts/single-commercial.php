@@ -30,7 +30,12 @@ $er_alts     = er_get_related( $er_id, '_er_alternatives' );
 $er_acts     = 'er_activity' === $er_type ? [] : er_get_related( $er_id, '_er_activity' );
 $er_guides   = er_get_referencing( $er_id, 'er_guide', '_er_related', 3 );
 $er_hosted   = 'er_activity' === $er_type ? er_get_referencing( $er_id, [ 'er_tour', 'er_experience' ], '_er_activity', 6 ) : [];
-$er_eyebrows = [ 'er_tour' => er_t( 'Tours' ), 'er_experience' => er_t( 'Experiences' ), 'er_activity' => er_t( 'Activities' ) ];
+$er_eyebrows = [ 'er_tour' => er_t( 'Tours' ), 'er_experience' => er_type_label( 'er_experience' ), 'er_activity' => er_t( 'Activities' ) ];
+// New journey preview: one length per trip, the one its options state (inc/ux2-trips.php), in the hero as in the box.
+$er_len = er_ux2() && 'er_experience' === $er_type && function_exists( 'er_ux2_offer_length' ) ? er_ux2_offer_length( $er_offers ) : '';
+if ( '' !== $er_len ) {
+	$er_facts[ er_t( 'Duration' ) ] = $er_len;
+}
 
 $er_meta = '';
 if ( $er_dests ) {

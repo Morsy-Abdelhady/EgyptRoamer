@@ -1657,6 +1657,24 @@
    "Уберите фильтр или посмотрите все поездки.",
    "移除一个筛选条件，或查看全部行程。",
    "احذف أحد الفلاتر، أو اعرض كل الرحلات."
+  ],
+  "Private, the longest visit": [
+   "Privat, der längste Besuch",
+   "Privé, la visite la plus longue",
+   "Privata, la visita più lunga",
+   "Privado, la visita más larga",
+   "Индивидуально, самый долгий визит",
+   "私人，游览时间最长",
+   "خاص، وأطول زيارة"
+  ],
+  "The longest visit": [
+   "Der längste Besuch",
+   "La visite la plus longue",
+   "La visita più lunga",
+   "La visita más larga",
+   "Самый долгий визит",
+   "游览时间最长",
+   "أطول زيارة"
   ]
  }
 }
