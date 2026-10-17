@@ -158,3 +158,32 @@ The owner approved these for the food trip, credited as their licence requires: 
 4. **The place banner filled the first screen** after a place was chosen, and the trip sat below it. A chosen place now gets a short banner. When the place has one or two trips, its guides follow ("Before you book · Plan your Luxor visit").
 
 **Checked:** the walk was re-run on both sizes, along with the filter, guide and Trip Builder tests. There are no script errors.
+
+**Later the same day (owner notes, `v4-tourist.py`):**
+- On the guide page, the trip card sits 16px under the section bar. On a short screen it gives up photo height so it always shows in full.
+- The "Where in Egypt?" label now has its own line. On phones all 7 places show in two rows, with the text centred.
+- The "Ask" button is 40px tall.
+- On trip pages the assistant keeps one place and lines up with the "Book this trip" bar.
+
+## 11. First-time foreign tourist, full review (owner, 17 Oct: "review the whole experience as a typical foreign tourist")
+`journey.mjs` clicks a first-timer's whole visit: the home page top to bottom, Trips & tours, Places, the Trip Builder, the pyramids trip and Book, the Travel Guide and one guide, search, the assistant, and the footer. That is 75 screens on desktop and phone, each looked at full size. Fixed in `v4-tourist2.py`:
+
+1. **Search failed silently.** "nile cruise" returned an empty box: it compared the whole phrase with trip names only. Search now matches words (cruise/cruises, snorkeling/snorkelling) across trips, guides and places, and shows them in groups. When nothing matches, it says so and offers All trips, the Travel Guide and the Trip Builder.
+2. **The assistant gave wrong answers.** "Is Egypt safe? 8 days first time" got Luxor and Aswan in broken cards. It now uses the same search and answers with the 7-, 10- and 14-day itineraries plus "Draft an 8-day route in the Trip Builder". On safety it says we have no page yet and points to the team chat; nothing is invented. Every answer is a card, and the panel opens at the question.
+3. **The floating "Trip assistant" covered content on computers:** the chapter trips' ♡, the hotel links, the trip's step cards, the booking options and the footer's Privacy link. It is now the "Ask" button in the header at every size, as on phones, so it is in one place and covers nothing.
+4. **On trip pages the Book bar covered things.** It hid the bottom of the step cards and the video's pause button; both now sit above it.
+5. **The menu over-promised.** "Plan My Trip · Build a day-by-day plan for your dates" is now "Trip Builder · Choose nights and places; get a route and the trips on it". That matches what the builder does and the footer's name for it.
+6. **Guide boxes said "route" for guides that are not routes.** "Best time to visit" said "Trips on this route · 2 trips for this plan". Only the day-by-day itineraries now say "route"; other guides say "Trips in this guide".
+7. **The Travel Guide index repeated photos.** Coptic Cairo and Inside the Pyramids had the same photo side by side, and four other photos were each used two or three times. Each guide now takes its next photo of its own: 24 guides, 24 different photos.
+8. **The Trips & tours banners were too tall.** Each place had a 190px banner, even for a single trip: 7 banners for 10 trips. They are now 132px, so the trips come first.
+
+**Checked:**
+- The search and assistant questions above, on desktop and phone.
+- The header at 700, 820, 1000 and 1200px.
+- The tour (43 shots), the walk on both sizes, and the guide, filter and Trip Builder tests. There are no script errors.
+- `pbt.mjs` was out of date: it expected a place suggestion with "Private only" on, but the builder correctly offers none. The test now switches back to "Either" first.
+
+**For the owner (content, not design):**
+- The Nile chapter and the map show the classic Aswan–Luxor cruise, but there is no Nile cruise offer to book. A partner cruise offer would fill this gap, and adding one needs your OK.
+- There is no guide on safety, the question a first-timer asks most. The assistant now sends it to the team.
+- The two Red Sea trips use the same reef photo.
