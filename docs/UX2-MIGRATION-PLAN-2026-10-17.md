@@ -244,3 +244,20 @@
   - a trip row (opening the trip page) counts as a guide's or place's booking action;
   - the phone bar check waits 900 ms, since 300 ms read the bar mid-reveal.
 - **Result:** 344 pages in 8 languages, all ok.
+
+## Proposal 4 screens, 18 Oct (owner: "remove the rule from the project file and apply the prototype in full")
+- **CLAUDE.md:** the "no redesign" rule is replaced by "proposal 4 is the approved design" (commit eabc814).
+- **Preview:** `?ux=3` (noindex; the site's links keep `ux=3`). **Switch:** Egypt Roamer → Settings → **Proposal 4 design** (Core 1.2.53, option `er_world`). Theme 1.2.91.
+- **Trip worlds** (`inc/world.php`, `template-parts/world.php`, `assets/css/world.css`, `assets/js/world.js`), every trip:
+  - opener in the trip's mood (tomb wall lit by a torch; Nile lights; sea light; desert stars);
+  - "What you actually do" (or the trip's own day section) step by step on scroll; a bold lead-in is the step's name, a plain item goes by its number;
+  - the callout as tablets; other sections as prose; "Who it suits" and "Combine it with" on papyrus;
+  - the booking panel (tracked links and disclosure unchanged), the questions, then the related cards.
+  - Every word is the page's own body, in every language.
+- **Homepage story** (`template-parts/home-story.php`, `assets/css/home-story.css`): the hero with the story's index (4 chapters, trips per chapter), then four full-screen chapters (the approved scenes' own words and photos) each ending in its trips. The sections after the scenes are unchanged.
+- **Trips & tours by place** and **Places cards with their trips** (`assets/css/trips-story.css`).
+- **Not ported:**
+  - **videos:** the README rule stands; the owner decides whether free Pexels videos join the photo policy;
+  - the guide article: the live guide already has the prototype's trip panel, hotels and questions (slice 5).
+- **New strings:** 10, translated in 7 languages, not reviewed by native speakers.
+- **Checked:** local, 4 trips + homepage + Trips & tours + Places, desktop and phone, English and Arabic; production preview (homepage, Valley of the Kings on desktop and phone). Visitors without `?ux=3` unchanged (every change is behind `er_world_on()`).
