@@ -2,6 +2,16 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.85 — 2026-10-17: proposal 4, slice 6: the Trip Builder (preview `?ux=2` only)
+What a test of the homepage builder found, and what the preview does now:
+- **"What moves you?" changed nothing.** The interests now rank the trips on the route, and each trip shows the interests it matches. When an interest has nothing on the route, the builder offers the places whose trips have it ("+ Hurghada"). The grouping is editorial, by each trip's own subject (`ER_UX2_TRIP_INTERESTS`). Luxury maps to no trip, so it suggests nothing rather than something untrue.
+- **"Travel style" (Smart / Comfort / Luxury) changed nothing,** because there are no prices behind it. It became "Private or shared?" (Either / Private only), which the partners' facts can answer. When the filter hides trips, the builder says how many.
+- **Places were silently dropped.** With fewer nights than places, the builder now says which place was left out and offers "Add the missing nights (+n)".
+- **The result was a list of partner offer names,** the same whatever the interests. It is now one card per trip on the route (photo, places, the length the partners state, number of options, private option, matching interests), opening the trip page where the options are compared.
+- **Code:** `src/js/components/planner.js` (the preview branch reads `#ux2-planner`), plus the trip data in `inc/ux2-trips.php` (front page in the preview only).
+- **New strings:** 11, in all 8 languages, unreviewed.
+- **Visitors:** without `?ux=2` the HTML of 7 pages (home in English, Arabic and German, trips, a trip, a guide, a destination) is unchanged, and the builder keeps "Travel style" and the partner list.
+
 ## 1.2.84 — 2026-10-17: proposal 4, slice 5: the guides (preview `?ux=2` only)
 - **No repeated photos:** the Travel Guide index showed the same photo on neighbouring guides (Coptic Cairo and Inside the Pyramids, Saqqara and the Grand Egyptian Museum, three Valley of the Kings photos). Each of the 24 guides now has its own photo, of its own place, and the guide's hero uses the same one.
   - 19 of these photos are already approved and used in Core data.

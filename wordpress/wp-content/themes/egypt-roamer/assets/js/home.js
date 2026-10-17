@@ -2179,7 +2179,7 @@
      plausible route with paced nights and a budget band. */
   const { t, tp, listJoin, isRTL } = __m["i18n.js"];
   const { $, $$, icon, escapeHtml, money, toast, on, scrollToTarget, affAttrs } = __m["utils.js"];
-  const { moods, destinations, routeOrder, nightWeights, legs, styleRates } = __m["data.js"];
+  const { moods, destinations, routeOrder, nightWeights, legs, styleRates, img } = __m["data.js"];
 
   const DEFAULT_DESTS = ["cairo", "luxor", "aswan"];
   const DEFAULT_INTERESTS = ["ancient", "culture"];
@@ -2206,6 +2206,17 @@
     }
     return stops.map((id, k) => ({ id, nights: alloc[k] }));
   }
+
+  /* New journey preview (?ux=2, inc/ux2-trips.php): interests rank the trips, "Private or shared?" replaces the travel
+     style (no prices behind it), dropped places are named, and the result is the trips on the route. */
+  const UX2P = (() => {
+    try {
+      const el = document.getElementById("ux2-planner");
+      return el ? JSON.parse(el.textContent) : null;
+    } catch (e) {
+      return null;
+    }
+  })();
 
   const legText = (a, b) => legs[`${a}>${b}`] || legs[`${b}>${a}`] || t("Short domestic flight");
 
@@ -2254,6 +2265,87 @@
       )
       .join("");
 
+    // Preview: step 04 asks what the trips can answer, and the trips replace the list of partner offer names.
+    let ux2Priv = false;
+    let ux2Out = null;
+    if (UX2P) {
+      const step = seg.closest("fieldset");
+      seg.hidden = true;
+      seg.style.display = "none"; // the seg's own display rule outranks [hidden]
+      step.querySelector("legend").innerHTML = `<span>04</span> ${escapeHtml(UX2P.t.step)}`;
+      step.insertAdjacentHTML(
+        "beforeend",
+        `<div class="ux2-priv" role="group" aria-label="${escapeHtml(UX2P.t.step)}"><button type="button" data-ux2-priv="0" aria-pressed="true">${escapeHtml(UX2P.t.either)}</button><button type="button" data-ux2-priv="1" aria-pressed="false">${escapeHtml(UX2P.t.private)}</button></div><p class="ux2-priv__hint">${escapeHtml(UX2P.t.hint)}</p>`
+      );
+      step.addEventListener("click", (e) => {
+        const b = e.target.closest("[data-ux2-priv]");
+        if (!b) return;
+        ux2Priv = b.dataset.ux2Priv === "1";
+        $$("[data-ux2-priv]", step).forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+        update();
+      });
+      if (tours) tours.remove();
+      route.insertAdjacentHTML("afterend", '<div class="ux2-pb"></div>');
+      ux2Out = $(".ux2-pb", form);
+      ux2Out.addEventListener("click", (e) => {
+        const add = e.target.closest("[data-ux2-add]");
+        if (add) {
+          days.value = Math.min(Number(days.max), Number(days.value) + Number(add.dataset.ux2Add));
+          update();
+          return;
+        }
+        const pl = e.target.closest("[data-ux2-dest]");
+        if (pl) {
+          const box = $(`input[name=dest][value="${pl.dataset.ux2Dest}"]`, dests);
+          if (box) box.checked = true;
+          update();
+        }
+      });
+    }
+
+    function renderUx2(plan, chosen, n) {
+      if (!ux2Out) return;
+      const T = UX2P.t;
+      const onRoute = plan.map((p) => p.id);
+      const nameOf = (id) => (destinations.find((d) => d.id === id) || {}).name || id;
+      const dropped = chosen.filter((id) => !onRoute.includes(id));
+      const ints = $$("input[name=interest]:checked", interests).map((i) => i.value);
+      const labelOf = (id) => (moods.find((m) => m.id === id) || {}).label || id;
+      let h = "";
+      if (dropped.length) {
+        h += `<p class="ux2-pb__note">${escapeHtml(T.dropped.replace("{places}", listJoin(dropped.map(nameOf))))} <button type="button" data-ux2-add="${dropped.length}">${escapeHtml(T.add.replace("{n}", dropped.length))}</button></p>`;
+      }
+      if (onRoute.length) {
+        const match = (tr) => tr.interests.filter((i) => ints.includes(i));
+        let trips = UX2P.trips.filter((tr) => tr.dests.some((d) => onRoute.includes(d)));
+        const hidden = ux2Priv ? trips.filter((tr) => !tr.private).length : 0;
+        if (ux2Priv) trips = trips.filter((tr) => tr.private);
+        trips.sort((a, b) => match(b).length - match(a).length);
+        h += `<div class="ux2-pb__res"><p class="t-label">${escapeHtml(T.title)}</p>`;
+        if (trips.length) {
+          h += `<p class="ux2-pb__sub">${escapeHtml(T.sub)}${hidden ? " " + escapeHtml(T.hidden.replace("{n}", hidden)) : ""}</p><ul class="ux2-pb__list">`;
+          h += trips
+            .map((tr) => {
+              const m = match(tr);
+              const meta = [tr.places, tr.len, tr.n ? (tr.n === 1 ? T.opt1 : T.optn.replace("{n}", tr.n)) : "", tr.private ? T.privopt : ""].filter(Boolean).join(" · ");
+              return `<li><a class="ux2-pb__card" href="${escapeHtml(tr.url)}"><img src="${img(tr.image, 160)}" alt="" loading="lazy" /><span><b>${escapeHtml(tr.title)}</b><small>${escapeHtml(meta)}</small>${m.length ? `<em>${escapeHtml(m.map(labelOf).join(" · "))}</em>` : ""}</span></a></li>`;
+            })
+            .join("");
+          h += "</ul>";
+        } else {
+          h += `<p class="ux2-pb__sub">${escapeHtml(T.nopriv)}</p>`;
+        }
+        // Interests with nothing on the route: the places whose trips have them.
+        const miss = ints.filter((i) => !trips.some((tr) => tr.interests.includes(i)));
+        miss.forEach((i) => {
+          const places = [...new Set(UX2P.trips.filter((tr) => tr.interests.includes(i) && (!ux2Priv || tr.private)).flatMap((tr) => tr.dests))].filter((d) => !onRoute.includes(d) && destinations.some((x) => x.id === d));
+          if (places.length) h += `<p class="ux2-pb__more">${escapeHtml(T.more.replace("{interest}", labelOf(i)))} ${places.map((d) => `<button type="button" data-ux2-dest="${escapeHtml(d)}">+ ${escapeHtml(nameOf(d))}</button>`).join("")}</p>`;
+        });
+        h += "</div>";
+      }
+      ux2Out.innerHTML = h;
+    }
+
     const segInk = $("i", seg);
     const placeSeg = () => {
       const radios = $$("input", seg);
@@ -2278,6 +2370,7 @@
         budget.textContent = "—";
         season.textContent = "—";
         renderTours([]);
+        renderUx2(plan, chosen, n);
         return;
       }
       const names = plan.map((p) => destinations.find((d) => d.id === p.id).name);
@@ -2302,6 +2395,7 @@
       const coastOnly = plan.every((p) => ["hurghada", "sharm", "alexandria"].includes(p.id));
       season.textContent = t(coastOnly ? "Mar – Nov" : "Oct – Apr");
       renderTours(plan);
+      renderUx2(plan, chosen, n);
     }
 
     form.addEventListener("input", update);

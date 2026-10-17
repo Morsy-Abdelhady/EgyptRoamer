@@ -1675,6 +1675,105 @@
    "Самый долгий визит",
    "游览时间最长",
    "أطول زيارة"
+  ],
+  "Private or shared?": [
+   "Privat oder in der Gruppe?",
+   "Privé ou partagé ?",
+   "Privato o condiviso?",
+   "¿Privado o compartido?",
+   "Индивидуально или в группе?",
+   "私人还是拼团？",
+   "خاص أم مشترك؟"
+  ],
+  "Either": [
+   "Egal",
+   "Peu importe",
+   "Indifferente",
+   "Cualquiera",
+   "Неважно",
+   "都可以",
+   "أيهما"
+  ],
+  "Private only": [
+   "Nur privat",
+   "Privé uniquement",
+   "Solo privato",
+   "Solo privado",
+   "Только индивидуально",
+   "仅私人",
+   "خاص فقط"
+  ],
+  "Every trip shows whether it has a private option.": [
+   "Bei jedem Ausflug steht, ob es eine private Option gibt.",
+   "Chaque excursion indique si une option privée existe.",
+   "Ogni escursione indica se c'è un'opzione privata.",
+   "Cada excursión indica si tiene una opción privada.",
+   "У каждой поездки указано, есть ли индивидуальный вариант.",
+   "每个行程都会注明是否有私人选项。",
+   "كل رحلة توضّح إن كان لها خيار خاص."
+  ],
+  "Trips on your route": [
+   "Ausflüge auf Ihrer Route",
+   "Excursions sur votre itinéraire",
+   "Escursioni sul tuo itinerario",
+   "Excursiones en tu ruta",
+   "Поездки на вашем маршруте",
+   "你路线上的行程",
+   "رحلات على مسارك"
+  ],
+  "The ones that match your interests come first. Each opens its page, where the options are compared.": [
+   "Passende Ausflüge zuerst. Jeder öffnet seine Seite, auf der die Optionen verglichen werden.",
+   "Celles qui correspondent à vos envies d'abord. Chacune ouvre sa page, où les options sont comparées.",
+   "Prima quelle in linea con i tuoi interessi. Ognuna apre la sua pagina, dove le opzioni sono confrontate.",
+   "Primero las que coinciden con tus intereses. Cada una abre su página, donde se comparan las opciones.",
+   "Сначала подходящие вашим интересам. Каждая открывает свою страницу, где сравниваются варианты.",
+   "符合你兴趣的排在前面。每个行程会打开其页面，在那里比较各个选项。",
+   "الرحلات التي تناسب اهتماماتك أولًا. كل رحلة تفتح صفحتها حيث تُقارن الخيارات."
+  ],
+  "Not enough nights for every place: {places} left out.": [
+   "Nicht genug Nächte für jeden Ort: {places} fehlt.",
+   "Pas assez de nuits pour chaque lieu : {places} laissé de côté.",
+   "Notti non sufficienti per ogni luogo: {places} escluso.",
+   "No hay noches suficientes para cada lugar: {places} queda fuera.",
+   "Не хватает ночей на все места: {places} не вошли.",
+   "晚数不够安排每个地点：{places} 未包含。",
+   "الليالي لا تكفي لكل الأماكن: تم استبعاد {places}."
+  ],
+  "Add the missing nights (+{n})": [
+   "Fehlende Nächte hinzufügen (+{n})",
+   "Ajouter les nuits manquantes (+{n})",
+   "Aggiungi le notti mancanti (+{n})",
+   "Añadir las noches que faltan (+{n})",
+   "Добавить недостающие ночи (+{n})",
+   "补上缺少的晚数（+{n}）",
+   "أضف الليالي الناقصة (+{n})"
+  ],
+  "No trip on this route has a private option yet.": [
+   "Auf dieser Route hat noch kein Ausflug eine private Option.",
+   "Aucune excursion sur cet itinéraire n'a encore d'option privée.",
+   "Nessuna escursione su questo itinerario ha ancora un'opzione privata.",
+   "Ninguna excursión de esta ruta tiene aún opción privada.",
+   "На этом маршруте пока нет поездок с индивидуальным вариантом.",
+   "这条路线上暂时没有带私人选项的行程。",
+   "لا توجد على هذا المسار رحلة لها خيار خاص حتى الآن."
+  ],
+  "Trips without a private option are hidden: {n}": [
+   "Ausflüge ohne private Option ausgeblendet: {n}",
+   "Excursions sans option privée masquées : {n}",
+   "Escursioni senza opzione privata nascoste: {n}",
+   "Excursiones sin opción privada ocultas: {n}",
+   "Скрыто поездок без индивидуального варианта: {n}",
+   "已隐藏无私人选项的行程：{n}",
+   "رحلات بلا خيار خاص مخفية: {n}"
+  ],
+  "Nothing on this route for {interest}. Add a place:": [
+   "Nichts auf dieser Route für {interest}. Einen Ort hinzufügen:",
+   "Rien sur cet itinéraire pour {interest}. Ajoutez un lieu :",
+   "Niente su questo itinerario per {interest}. Aggiungi un luogo:",
+   "Nada en esta ruta para {interest}. Añade un lugar:",
+   "На этом маршруте ничего для «{interest}». Добавьте место:",
+   "这条路线上没有「{interest}」相关内容。添加一个地点：",
+   "لا شيء على هذا المسار لـ{interest}. أضف مكانًا:"
   ]
  }
 }

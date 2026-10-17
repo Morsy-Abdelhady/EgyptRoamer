@@ -19,7 +19,7 @@
 | 3 | Trips & tours archive: page title, place filter row with the 7 places, length / private / pickup filters, short place banners, a guide row when a place has one or two trips | `v4-round6.py`, `v4-round7.py`, `v4-tourist.py` §4 | **Live, theme 1.2.82**, preview only |
 | 4 | Trip page: one length everywhere, a reason for "Our pick", a comparison that shows real differences, "Read before you go" guides, Book bar alignment | `v4-tourist.py` §1–2, `v4-cruise.py` (comparison rows), `v4-tourist3.py` | **Live, theme 1.2.83**, preview only |
 | 5 | Guides: "Trips in this guide" versus "route", no repeated card photos, a compact sticky trip card | `v4-tourist2.py` §6–7, `guides-fix.py`, `v4-tourist.py` §5 | **Live, theme 1.2.84**, preview only |
-| 6 | Trip Builder: interests rank trips, "Private or shared?", dropped-places notice, trip cards, save plan | `v4-planner.py` | |
+| 6 | Trip Builder: interests rank trips, "Private or shared?", dropped-places notice, trip cards, save plan | `v4-planner.py` | **Done locally, theme 1.2.85**, not pushed |
 | 7 | Homepage: "Where in Egypt?" with the 7 places, shorter page | `v4-round7.py`, `v4-tourist.py` §6 | |
 
 **Needs the owner's decision, not just code:**
@@ -139,3 +139,18 @@
     - Each trip opens its trip page.
   - **Guides about one trip:** Valley and Inside the Pyramids keep their options and hotels.
   - `page-coverage.mjs`: 336 pages in 8 languages, all ok.
+
+## Slice 6: done locally, 17 Oct (theme 1.2.85)
+- **Done:**
+  - interests rank the trips and mark them;
+  - "Private or shared?" replaces the travel style;
+  - dropped places are named, with "Add the missing nights";
+  - the result is trip cards opening the trip pages;
+  - suggestions for interests with nothing on the route.
+- **Tested locally on desktop and phone:**
+  - default;
+  - 3 nights with 4 places (Hurghada dropped, then added back);
+  - Cairo with food and beach (Sharm and Hurghada suggested, then Sharm added);
+  - Private only (locally empty, since the local data has no offers; check live).
+- **Not in this slice:** "Save this plan" (the prototype's ♡ list is not on the site yet).
+- **Note:** White Desert has no destination in Core, so it never appears on a route. Linking it to a place is a content decision for the owner.

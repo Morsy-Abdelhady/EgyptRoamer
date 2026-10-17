@@ -221,3 +221,78 @@ function er_ux2_pick_reason( int $pick, array $offers ): string {
 	}
 	return $longest ? er_t( 'The longest visit' ) : '';
 }
+
+/*
+ * Slice 6 (17 Oct): the Trip Builder on the homepage, previewed with ?ux=2 only (src/js/components/planner.js).
+ * Tested on the live site before: the route and the nights worked, but
+ * - "What moves you?" changed nothing;
+ * - "Travel style" (Smart / Comfort / Luxury) changed nothing, since there are no prices behind it (none are invented);
+ * - with fewer nights than places, places were dropped from the route without a word;
+ * - the result was a list of partner offer names, the same whatever the interests.
+ * In the preview: interests rank the trips and mark the ones that match; step 04 asks a question the trips can
+ * answer, "Private or shared?"; dropped places are named, with a button to add the nights; the result is one card
+ * per trip on the route, opening the trip page where its options are compared.
+ */
+
+/**
+ * Which interests a trip serves: an editorial grouping by the trip's own subject (default-language slugs), used only
+ * to order the trips and mark matches. No interest is given a trip that does not have that subject.
+ */
+const ER_UX2_TRIP_INTERESTS = [
+	'valley-of-the-kings-hatshepsut-temple'  => [ 'ancient' ],
+	'pyramids-of-giza-sphinx-private-tour'   => [ 'ancient' ],
+	'abu-simbel-day-trip-from-aswan'         => [ 'ancient' ],
+	'alexandria-day-trip-from-cairo'         => [ 'ancient', 'culture' ],
+	'red-sea-diving-two-reef-dives'          => [ 'beach', 'adventure' ],
+	'ras-mohammed-snorkelling-from-sharm'    => [ 'beach', 'nature' ],
+	'white-desert-black-desert-safari'       => [ 'adventure', 'nature' ],
+	'great-sand-sea-4-4-hot-springs'         => [ 'adventure', 'nature' ],
+	'cairo-street-food-tour-by-night'        => [ 'food', 'culture' ],
+	'nile-dinner-cruise-with-live-show'      => [ 'culture' ],
+];
+
+add_action( 'wp_footer', static function (): void {
+	if ( ! er_ux2() || ! is_front_page() ) {
+		return;
+	}
+	$trips = [];
+	$ids   = get_posts( [ 'post_type' => 'er_experience', 'post_status' => 'publish', 'numberposts' => 100, 'fields' => 'ids', 'suppress_filters' => false, 'orderby' => [ 'menu_order' => 'ASC', 'title' => 'ASC' ] ] );
+	foreach ( $ids as $id ) {
+		$id     = (int) $id;
+		$offers = function_exists( 'er_offers_for_post' ) ? er_offers_for_post( $id, 6 ) : [];
+		$t      = er_ux2_trip_traits( $id );
+		$slug   = er_neutral_slug( $id );
+		$trips[] = [
+			'title'     => er_payload_title( $id ),
+			'url'       => (string) get_permalink( $id ),
+			'image'     => er_post_image_payload( $id ),
+			'dests'     => array_map( 'er_neutral_slug', wp_list_pluck( er_get_related( $id, '_er_destination' ), 'ID' ) ),
+			'places'    => implode( ' · ', array_map( 'get_the_title', er_get_related( $id, '_er_destination' ) ) ),
+			'len'       => function_exists( 'er_ux2_offer_length' ) ? er_ux2_offer_length( $offers ) : '',
+			'n'         => count( $offers ),
+			'private'   => $t['private'],
+			'interests' => ER_UX2_TRIP_INTERESTS[ $slug ] ?? [],
+		];
+	}
+	$data = [
+		'trips' => $trips,
+		't'     => [
+			'step'      => er_t( 'Private or shared?' ),
+			'either'    => er_t( 'Either' ),
+			'private'   => er_t( 'Private only' ),
+			'hint'      => er_t( 'Every trip shows whether it has a private option.' ),
+			'title'     => er_t( 'Trips on your route' ),
+			'sub'       => er_t( 'The ones that match your interests come first. Each opens its page, where the options are compared.' ),
+			'dropped'   => er_t( 'Not enough nights for every place: {places} left out.' ),
+			'add'       => er_t( 'Add the missing nights (+{n})' ),
+			'nopriv'    => er_t( 'No trip on this route has a private option yet.' ),
+			'hidden'    => er_t( 'Trips without a private option are hidden: {n}' ),
+			'more'      => er_t( 'Nothing on this route for {interest}. Add a place:' ),
+			'opt1'      => er_t( '1 option' ),
+			'optn'      => er_t( '{n} options' ),
+			'privopt'   => er_t( 'Private option' ),
+			'see'       => er_t( 'See options' ),
+		],
+	];
+	echo '<script type="application/json" id="ux2-planner">' . wp_json_encode( $data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput
+}, 6 );
