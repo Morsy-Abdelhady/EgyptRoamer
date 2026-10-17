@@ -86,7 +86,8 @@ async function check(pg) {
       // Gold buttons that leave the page for the homepage planner (15 Oct: the reader looking to book was sent home).
       goldHome: [...document.querySelectorAll("main a.btn--primary")].filter((a) => vis(a) && /#planner$/.test(a.getAttribute("href") || "")).length,
       offers,
-      tours: document.querySelectorAll(".itin__tour").length,
+      // The new journey (17 Oct) shows the trips on the route (.ux2-pb__card) instead of partner offer names.
+      tours: document.querySelectorAll(".itin__tour, .ux2-pb__card").length,
     };
   });
   await p.close();
@@ -120,7 +121,9 @@ async function check(pg) {
       const href = document.querySelector(".dock__plan")?.getAttribute("href") || "";
       const t = href.startsWith("#") ? document.querySelector(href) : null;
       // The first partner link a reader scrolls past, as a share of the page height.
-      const go = [...document.querySelectorAll('main a[href*="/go/"]')].find((a) => a.getClientRects().length);
+      // New journey (17 Oct): a guide or place covering several trips lists the trips (rows opening each trip page,
+      // where the partner options are compared); that row is its booking action.
+      const go = [...document.querySelectorAll('main a[href*="/go/"], main .ux2-trips__row a')].find((a) => a.getClientRects().length);
       const at = go ? (go.getBoundingClientRect().top + window.scrollY) / document.documentElement.scrollHeight : 1;
       const facts = [...document.querySelectorAll(".page-aside > .glance:not(.glance--things)")].find((g) => g.getClientRects().length);
       const prose = document.querySelector(".prose");
@@ -128,7 +131,7 @@ async function check(pg) {
       // The booking bar on phones (owner, 15 Oct): shown once scrolled, clear of the dock and the assistant button.
       window.scrollTo(0, Math.round(window.innerHeight * 1.5));
       window.dispatchEvent(new Event("scroll"));
-      await new Promise((r) => setTimeout(r, 300));
+      await new Promise((r) => setTimeout(r, 900)); // the bar's reveal follows the scroll; 300 ms read it mid-way
       const bar = document.querySelector("[data-bookbar]");
       const hit = (a, b) => !!a && !!b && a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
       const br = bar && !bar.hidden && bar.getClientRects().length ? bar.getBoundingClientRect() : null;

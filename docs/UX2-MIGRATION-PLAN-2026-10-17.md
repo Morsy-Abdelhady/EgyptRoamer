@@ -228,3 +228,19 @@
 **What is left: owner decisions only**
 - Switch the new journey on for everyone (option `er_ux2`).
 - Native review of the new strings and of the cruise translations.
+
+## Switched on for everyone, 17 Oct (owner: "switch the new design on for every visitor")
+- **Switch:** Egypt Roamer → Settings → **New booking journey** (Core 1.2.52) sets the `er_ux2` option. Pressing "Switch the new journey off" restores the previous design.
+- **On:** switched on in production and the GoDaddy cache flushed.
+- **Visitors without `?ux=2`, checked:**
+  - they see the new journey;
+  - robots is `max-image-preview:large` (indexable, no noindex);
+  - canonicals are unchanged;
+  - no links carry `?ux=2` (theme 1.2.90 keys the search cache on the switch);
+  - English and Arabic, phone and computer;
+  - no page is wider than the screen at 360, 390 or 768px.
+- **`tools/qa/page-coverage.mjs` updated for the new journey:**
+  - the Trip Builder's trip cards count as its partner tours;
+  - a trip row (opening the trip page) counts as a guide's or place's booking action;
+  - the phone bar check waits 900 ms, since 300 ms read the bar mid-reveal.
+- **Result:** 344 pages in 8 languages, all ok.
