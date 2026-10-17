@@ -35,6 +35,11 @@ const PALIAS={"Cairo & Giza":["Cairo"],"Red Sea":["Hurghada","Sharm El Sheikh"],
 const inPlace=(t,p)=>(PALIAS[p]||[p]).some(x=>(t.places||[]).includes(x));'''
 
 CSS = '''
+.wcred{position:absolute;right:16px;bottom:12px;z-index:3;font-size:11.5px;color:rgba(255,255,255,.8);text-decoration:none;background:rgba(0,0,0,.4);padding:3px 9px;border-radius:999px}
+.wcred:hover{color:#fff}
+.jstep .vcred{display:block!important;margin-top:12px!important;font-size:11.5px!important;color:#b8b2a6!important}
+.wcred{right:auto!important;left:56px;bottom:auto!important;top:84px}
+@container site (max-width:600px){.wcred{left:18px;top:68px}}
 /* ---------- footer pages (production text) ---------- */
 .info-hero{background:#101820;color:#fff;padding:120px 0 40px}
 .info-hero h1{font-size:48px;margin:6px 0 10px}
@@ -75,9 +80,11 @@ def apply(tpl):
 
     # 3 · food photos (trip, stops, combine-with; production's food photo also in the live sections)
     reps = [
-        ('{t:"Ful medames and ta’meya",p:', '{img:"f_bread",t:"Ful medames and ta’meya",p:'),
-        ('{t:"Sweets and drinks",p:', '{img:"f_sweets",t:"Sweets and drinks",p:'),
-        ('{t:"Feteer meshaltet",p:', '{img:"f_feteer",t:"Feteer meshaltet",p:'),
+        ('{t:"Koshari",p:', '{img:"c_koshary",credit:"Photo: Dina Said, Wikimedia Commons, CC BY-SA 4.0",t:"Koshari",p:'),
+        ('{t:"Ful medames and ta’meya",p:', '{img:"c_ful",credit:"Photo: Marsupium, Wikimedia Commons, CC BY-SA 4.0",t:"Ful medames and ta’meya",p:'),
+        ('{t:"Hawawshi",p:', '{img:"c_hawawshi",credit:"Photo: Mohamed Moheyeldin, Wikimedia Commons, CC BY-SA 4.0",t:"Hawawshi",p:'),
+        ('{t:"Sweets and drinks",p:', '{img:"f_sweets",credit:"Photo: mohmed Afify, Unsplash",t:"Sweets and drinks",p:'),
+        ('{t:"Feteer meshaltet",p:', '{img:"c_feteer",credit:"Photo: Mohamed Ouda, Wikimedia Commons, CC BY-SA 4.0",t:"Feteer meshaltet",p:'),
         ('["Combine it with","Islamic Cairo or Downtown","A day in Islamic Cairo or Downtown. See our Cairo guide for the areas and more on Cairo food."]',
          '["Combine it with","Islamic Cairo or Downtown","A day in Islamic Cairo or Downtown. See our Cairo guide for the areas and more on Cairo food.","img:f_street|A Cairo street · Photo: Ahmed Assem, Unsplash"]'),
     ]
@@ -95,7 +102,7 @@ def apply(tpl):
     js = r'''
 // ---------- places, food photos, footer pages (owner, 17 Oct) ----------
 TRIPS.forEach(t=>{ t.places=(TRIP_DESTS[t.id]||[]).map(d=>DESTS[d].name); });
-Object.assign(IMG,{food:"''' + FOOD_MAIN + '''",food_l:"''' + FOOD_MAIN + '''",f_bread:"''' + FOOD_BREAD + '''",f_feteer:"''' + FOOD_MAIN + '''",f_seller:"''' + FOOD_SELLER + '''",f_sweets:"''' + FOOD_SWEETS + '''",f_street:"''' + FOOD_STREET + r'''"});
+Object.assign(IMG,{food:"''' + FOOD_MAIN + '''",food_l:"img/c_koshary.jpg",c_koshary:"img/c_koshary.jpg",c_ful:"img/c_ful.jpg",c_hawawshi:"img/c_hawawshi.jpg",c_feteer:"img/c_feteer.jpg",f_bread:"''' + FOOD_BREAD + '''",f_feteer:"''' + FOOD_MAIN + '''",f_seller:"''' + FOOD_SELLER + '''",f_sweets:"''' + FOOD_SWEETS + '''",f_street:"''' + FOOD_STREET + r'''"});
 const INFO=''' + json.dumps(PAGES) + r''';
 const INFO_URL={affiliate:"/affiliate-disclosure/",contact:"/contact/",privacy:"/privacy-policy/",cookies:"/cookies/"};
 function showInfo(k){ const p=INFO[k]; if(!p) return;
@@ -104,6 +111,8 @@ function showInfo(k){ const p=INFO[k]; if(!p) return;
   $("#info").innerHTML=`<div class="info-hero"><div class="wrap"><h1>${esc(p.title)}</h1>${p.lead?`<p>${esc(p.lead)}</p>`:""}</div></div><div class="info-body">${p.html.replace(/href="(https:\/\/egyptroamer\.com[^"]*)"/g,'href="#" data-href="$1"')}</div>`;
   $("#info").querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>{ e.preventDefault(); lcToast("Prototype: nothing is sent. On the site this sends your message to our team."); }));
   vp.scrollTo({top:0,behavior:"auto"}); window.lcPaint&&lcPaint(); }
+// the food trip's opener photo is a Commons photo: its credit sits on the photo
+const _rw=renderWorld; renderWorld=function(id){ _rw(id); if(id==="food"){ const o=document.getElementById("wopen"); if(o&&!o.querySelector(".wcred")) o.insertAdjacentHTML("beforeend",'<a class="wcred" href="https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg" target="_blank" rel="noopener">Koshari · Photo: Dina Said, Wikimedia Commons, CC BY-SA 4.0</a>'); } };
 function toPlanner(){ go(1); setTimeout(()=>{ const p=document.querySelector("#live #planner"); if(p) vp.scrollTo({top:vp.scrollTop+p.getBoundingClientRect().top-vp.getBoundingClientRect().top-70,behavior:"auto"}); },60); }
 window.lcPlace=pl=>{ state.place=pl; go(2); };
 const _route=window.lcRoute;

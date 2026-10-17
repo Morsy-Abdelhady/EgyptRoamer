@@ -120,3 +120,31 @@ Koshari and hawawshi stay as designed panels. The bread seller photo is no longe
 - "Ful Medames" (CC0).
 
 The photo policy allows only Unsplash today, so using Commons needs the owner's approval.
+
+## 8. Dish photos from Wikimedia Commons (owner approved, 17 Oct)
+The owner approved these for the food trip, credited as their licence requires: "Photo: ⟨author⟩, Wikimedia Commons, CC BY-SA 4.0", shown on the opener and on each step.
+
+| Use | File | Author | Licence |
+|---|---|---|---|
+| Opener, Koshari step | [Egyptian food Koshary.jpg](https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg) | Dina Said | CC BY-SA 4.0 |
+| Ful medames step | [Foul Mohamed Ahmed - foul.jpg](https://commons.wikimedia.org/wiki/File:Foul_Mohamed_Ahmed_-_foul.jpg) | Marsupium | CC BY-SA 4.0 |
+| Hawawshi step | [Hawawshi Main 1 Mohamed Moheyeldin.jpg](https://commons.wikimedia.org/wiki/File:Hawawshi_Main_1_Mohamed_Moheyeldin.jpg) (taken in Egypt) | Mohamed Moheyeldin | CC BY-SA 4.0 |
+| Feteer step | [Egyptian-food-16.jpg](https://commons.wikimedia.org/wiki/File:Egyptian-food-16.jpg) (فطير مشلتت) | Mohamed Ouda | CC BY-SA 4.0 |
+
+- **Cards and the "Food" mood** keep the Unsplash feteer photo. A small card has no room for the credit that CC BY-SA requires.
+- **Sweets step:** kahk (Unsplash, mohmed Afify).
+- **Still open:** there is no good Commons photo of ta'ameya. The Commons kunafa photos are black and white, so they were not used.
+
+## 9. Trip Builder (owner: "fix it, by the user experience", 17 Oct)
+**Tested before the fix** (`tb.mjs`, 7 scenarios): the route and the nights worked, but four things failed:
+- "What moves you?" and "Travel style" changed nothing.
+- With fewer nights than places, places were dropped without a word.
+- The result was a list of partner offer names.
+
+**Now** (`v4-planner.py`):
+1. **Interests:** they rank the trips on the route and label the matches (Ancient, Beach and so on). If an interest has no trip on the route, the builder suggests the places that have one ("Beach: + Hurghada").
+2. **Step 04:** "Private or shared?" (Either / Private only), a question the trips can answer. Travel style had no data behind it, since prices are not invented. If private hides trips, the builder says how many. If no trip of an interest has a private option, it says that instead of suggesting places.
+3. **Too few nights:** "4 places don't fit in 3 nights: Hurghada was left out" with an "Add 1 night" button.
+4. **Result:** "Trips on your route" shows one card per trip (photo, places, length, options, private option, free cancellation, matching interests), and each card opens its trip page. "Save this plan" goes to the ♡ list and reopens the builder.
+
+**Checked:** every scenario re-run, desktop and phone looked at full size, no errors.
