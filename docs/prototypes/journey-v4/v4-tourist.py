@@ -14,6 +14,9 @@
 #    would sit on the trip page's booking bar and on the text the tourist is reading.
 # 7. (owner, trip page) "Trip assistant" and the "Book this trip" bar ended at different right edges (20px from the
 #    frame vs 24px from the page, which is left of the scrollbar). On a computer both now end 24px from the page edge.
+# 8. (owner) the assistant jumped up and down as the Book bar came and went. On a trip page it now keeps the upper
+#    place the whole time, so the two never move against each other; it stays on the right, where chat is expected,
+#    and away from the start of the lines the tourist is reading.
 # 5. (owner, guide page) the trip card stuck 80px under the header, a gap below the section bar, and on a short
 #    screen its bottom ran off and the assistant button sat on it. It now sticks 16px under the section bar, and
 #    when the screen is short it gives up photo height (then the photo) so the whole card, Save included, stays in
@@ -89,6 +92,9 @@ new ResizeObserver(()=>{ bkFit(); document.documentElement.style.setProperty("--
 '''
 
 def apply(tpl):
+    a = 'const on=!!c&&c.offsetParent!==null&&getComputedStyle(c).visibility==="visible";'
+    assert tpl.count(a) == 1
+    tpl = tpl.replace(a, 'const on=!!c&&c.offsetParent!==null;')
     a = tpl.index('</style>'); tpl = tpl[:a] + CSS + tpl[a:]
     a = 'renderHome(); renderLive(); renderHome2();'
     assert tpl.count(a) == 1
