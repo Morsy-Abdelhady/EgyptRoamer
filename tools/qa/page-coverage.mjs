@@ -76,8 +76,10 @@ async function check(pg) {
     });
     return {
       layout: document.querySelector(".page-layout")?.className || "",
-      story: !!document.querySelector(".page-hero--story"),
-      hero: document.querySelector(".page-hero__actions a")?.getAttribute("href") || "",
+      // Proposal 4 (18 Oct): a trip "world" has no sidebar; its opener's button and the booking bar (on every screen)
+      // lead to the options, as in the Abu Simbel story.
+      story: !!document.querySelector(".page-hero--story, .world"),
+      hero: document.querySelector(".page-hero__actions a, .wopen .wacts a")?.getAttribute("href") || "",
       box: ["#book", "#plan"].some((s) => vis(document.querySelector(s))) || vis(document.querySelector(".page-aside .offer-box")),
       asideBox: vis(document.querySelector(".page-aside .offer-box")),
       cta: document.querySelector(".nav__cta")?.getAttribute("href") || "",
@@ -139,7 +141,7 @@ async function check(pg) {
       const tb = t && t.getClientRects().length ? t.getBoundingClientRect() : null;
       const boxIn = !!tb && tb.bottom > 0 && tb.top < window.innerHeight;
       const barMob = !bar ? "missing" : !br ? (boxIn ? "" : "not shown") : hit(br, document.querySelector(".dock")?.getBoundingClientRect()) ? "over the dock" : hit(br, document.querySelector(".assistant-launch")?.getBoundingClientRect()) ? "over the assistant button" : "";
-      return { href, at, factsLate, barMob, story: !!document.querySelector(".page-hero--story"), shown: !!t && getComputedStyle(t).display !== "none" && t.getClientRects().length > 0 };
+      return { href, at, factsLate, barMob, story: !!document.querySelector(".page-hero--story, .world"), shown: !!t && getComputedStyle(t).display !== "none" && t.getClientRects().length > 0 };
     });
     await p.close();
     if (!/^#(book|plan)$/.test(m.href)) fail(pg, `phone dock goes to "${m.href}", not the booking box`);

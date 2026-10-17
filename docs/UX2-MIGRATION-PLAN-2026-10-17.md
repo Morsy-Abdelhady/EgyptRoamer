@@ -261,3 +261,9 @@
   - the guide article: the live guide already has the prototype's trip panel, hotels and questions (slice 5).
 - **New strings:** 10, translated in 7 languages, not reviewed by native speakers.
 - **Checked:** local, 4 trips + homepage + Trips & tours + Places, desktop and phone, English and Arabic; production preview (homepage, Valley of the Kings on desktop and phone). Visitors without `?ux=3` unchanged (every change is behind `er_world_on()`).
+
+### Switched on for everyone, 18 Oct (owner: "switch proposal 4's design on for every visitor")
+- **Switch:** Egypt Roamer → Settings → **Proposal 4 design** turned on (option `er_world`); GoDaddy cache flushed. "Switch proposal 4 off" restores the previous screens.
+- **Visitors without `?ux=3`, checked:** homepage (en, ar, de) is the story; Trips & tours (en, ar) by place; Places (ar) as cards with their trips; trip pages are worlds. Robots `max-image-preview:large` (indexable), canonicals unchanged, no link carries `ux=3`. Phone and desktop, English and Arabic.
+- **`tools/qa/page-coverage.mjs`:** a trip world counts like the Abu Simbel story: no sidebar; its opener's "Book this trip" button is the hero button; the booking bar (every screen) and the opener button lead to the options, so the first partner link may sit lower on phones.
+- **Result:** first run 324 problems, all the old-layout assumptions on the 88 trip pages plus 2 slow loads (de/fr 14-day guide, fine on recheck); after the QA update, 344 pages in 8 languages, all ok.
