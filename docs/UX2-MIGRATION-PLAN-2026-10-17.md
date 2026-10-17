@@ -19,7 +19,7 @@
 | 3 | Trips & tours archive: page title, place filter row with the 7 places, length / private / pickup filters, short place banners, a guide row when a place has one or two trips | `v4-round6.py`, `v4-round7.py`, `v4-tourist.py` §4 | **Live, theme 1.2.82**, preview only |
 | 4 | Trip page: one length everywhere, a reason for "Our pick", a comparison that shows real differences, "Read before you go" guides, Book bar alignment | `v4-tourist.py` §1–2, `v4-cruise.py` (comparison rows), `v4-tourist3.py` | **Live, theme 1.2.83**, preview only |
 | 5 | Guides: "Trips in this guide" versus "route", no repeated card photos, a compact sticky trip card | `v4-tourist2.py` §6–7, `guides-fix.py`, `v4-tourist.py` §5 | **Live, theme 1.2.84**, preview only |
-| 6 | Trip Builder: interests rank trips, "Private or shared?", dropped-places notice, trip cards, save plan | `v4-planner.py` | **Done locally, theme 1.2.85**, not pushed |
+| 6 | Trip Builder: interests rank trips, "Private or shared?", dropped-places notice, trip cards, save plan | `v4-planner.py` | **Live, theme 1.2.85**, preview only |
 | 7 | Homepage: "Where in Egypt?" with the 7 places, shorter page | `v4-round7.py`, `v4-tourist.py` §6 | |
 
 **Needs the owner's decision, not just code:**
@@ -154,3 +154,10 @@
   - Private only (locally empty, since the local data has no offers; check live).
 - **Not in this slice:** "Save this plan" (the prototype's ♡ list is not on the site yet).
 - **Note:** White Desert has no destination in Core, so it never appears on a route. Linking it to a place is a content decision for the owner.
+- **Production, 17 Oct:** 1.2.85 deployed and the GoDaddy cache flushed.
+  - **Live checks:**
+    - "Private only" in Cairo keeps the Pyramids and the Nile dinner and hides the food tour;
+    - dropped Hurghada is named, and "+1 night" adds it back;
+    - interests rank the trips;
+    - visitors still see "Travel style" and the partner list.
+  - **`page-coverage.mjs`:** the first run stopped on a page that navigated while it was being read (a script error, not a page failure); the rerun passed: 336 pages in 8 languages, all ok.
