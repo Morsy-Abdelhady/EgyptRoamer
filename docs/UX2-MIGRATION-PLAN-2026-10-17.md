@@ -209,3 +209,22 @@
 | 14 | Nile cruise trip: page in 8 languages (Core 1.2.51), 3 offers, what each option includes | theme 1.2.89 / Core 1.2.51 |
 | 15 | Save this plan (preview), saved items open their link | theme 1.2.88 |
 | — | Fix (everyone): homepage hotel rows had empty photos | theme 1.2.88 |
+
+### Production, 17 Oct: slices 8–15 live (theme 1.2.87–1.2.89, Core 1.2.51)
+- **Nile cruise:** published from wp-admin → Guide translations (#850 English, #851–#857 translations, with the "not yet reviewed" note).
+  - The 5 English guides it also "updated" had the same text; only the encoding of the apostrophe differed.
+  - Offers #858 (Viator 29896P3, pick), #860 (Viator 57870P4) and #862 (GetYourGuide 521042). Each copies its tracking parameters from an existing offer of the same partner, and each redirects to its product page.
+- **Live checks:**
+  - destinations list their trips;
+  - assistant chips and cards;
+  - the menu re-open fix;
+  - no wide pages at 360, 390 or 768px;
+  - shorter homepage (14.6 screens);
+  - Commons cards on 4 trips;
+  - Save this plan, reopened from the hearts;
+  - hotel photos for everyone.
+- **`page-coverage.mjs`:** 344 pages in 8 languages (the cruise adds 8), all ok.
+
+**What is left: owner decisions only**
+- Switch the new journey on for everyone (option `er_ux2`).
+- Native review of the new strings and of the cruise translations.
