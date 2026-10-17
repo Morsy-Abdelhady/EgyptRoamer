@@ -1531,6 +1531,42 @@
    "Поездки и туры",
    "行程与游览",
    "رحلات وجولات"
+  ],
+  "See all trips": [
+   "Alle Ausflüge ansehen",
+   "Voir toutes les excursions",
+   "Vedi tutte le escursioni",
+   "Ver todas las excursiones",
+   "Все поездки",
+   "查看全部行程",
+   "عرض كل الرحلات"
+  ],
+  "Nothing on Egypt Roamer matches “{q}” yet. Try a place or a sight, like Luxor or pyramids.": [
+   "Zu „{q}“ gibt es bei Egypt Roamer noch nichts. Versuchen Sie einen Ort oder eine Sehenswürdigkeit, etwa Luxor oder Pyramiden.",
+   "Rien sur Egypt Roamer ne correspond encore à « {q} ». Essayez un lieu ou un site, comme Louxor ou pyramides.",
+   "Su Egypt Roamer non c'è ancora nulla per “{q}”. Prova un luogo o un sito, come Luxor o piramidi.",
+   "Todavía no hay nada en Egypt Roamer para «{q}». Prueba con un lugar o un monumento, como Luxor o pirámides.",
+   "На Egypt Roamer пока ничего нет по запросу «{q}». Попробуйте место или достопримечательность, например Луксор или пирамиды.",
+   "Egypt Roamer 上暂时没有与“{q}”相关的内容。试试地点或景点，例如卢克索或金字塔。",
+   "لا يوجد شيء على Egypt Roamer يطابق «{q}» حتى الآن. جرّب مكانًا أو معلمًا، مثل الأقصر أو الأهرامات."
+  ],
+  "We have no page on safety yet, so we won’t guess. Our team can answer that:": [
+   "Wir haben noch keine Seite zur Sicherheit und raten deshalb nicht. Unser Team kann das beantworten:",
+   "Nous n'avons pas encore de page sur la sécurité, nous ne voulons donc pas deviner. Notre équipe peut vous répondre :",
+   "Non abbiamo ancora una pagina sulla sicurezza, quindi non tiriamo a indovinare. Il nostro team può rispondere:",
+   "Aún no tenemos una página sobre seguridad, así que no vamos a adivinar. Nuestro equipo puede responderte:",
+   "У нас пока нет страницы о безопасности, поэтому мы не будем гадать. На этот вопрос ответит наша команда:",
+   "我们还没有关于安全的页面，所以不做猜测。我们的团队可以回答：",
+   "ليس لدينا صفحة عن الأمان بعد، لذلك لن نخمّن. فريقنا يمكنه الإجابة:"
+  ],
+  "Draft a route for {n} days in the Trip Builder": [
+   "Eine Route für {n} Tage im Reiseplaner entwerfen",
+   "Esquisser un itinéraire de {n} jours dans le planificateur",
+   "Crea un itinerario di {n} giorni nel pianificatore",
+   "Esboza una ruta de {n} días en el planificador",
+   "Составить маршрут на {n} дн. в конструкторе поездки",
+   "在行程规划中拟定 {n} 天的路线",
+   "ارسم مسارًا لمدة {n} أيام في مخطط الرحلة"
   ]
  }
 }

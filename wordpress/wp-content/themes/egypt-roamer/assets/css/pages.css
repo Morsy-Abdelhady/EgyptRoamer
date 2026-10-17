@@ -4058,3 +4058,56 @@ html:lang(zh) {
 .er-ux2 .nav__burger[aria-expanded="true"]::after {
   transform: rotate(-45deg);
 }
+
+/* ---------- New journey, proposal 4: search and assistant (?ux=2 only; inc/ux2-chrome.php) ---------- */
+.ux2-search__acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0 1.25rem 1.25rem;
+}
+.ux2-search__acts a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  font-size: var(--fs-small);
+  text-decoration: none;
+}
+.ux2-search__acts a:hover {
+  border-color: var(--gold);
+}
+.ux2-note {
+  margin: 0 0 0.75rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--gold) 14%, var(--paper));
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  font-size: var(--fs-small);
+  line-height: 1.45;
+}
+.ux2-note__btn {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--gold-deep);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.ux2-days {
+  display: block;
+  margin-top: 0.6rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 12px;
+  border: 1px dashed var(--line-strong);
+  color: var(--gold-deep);
+  font-weight: 600;
+  font-size: var(--fs-small);
+  text-decoration: none;
+}

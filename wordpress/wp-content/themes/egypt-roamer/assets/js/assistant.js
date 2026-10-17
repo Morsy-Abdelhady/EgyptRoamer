@@ -108,6 +108,33 @@
       return box;
     }
 
+    // New journey preview (?ux=2, inc/ux2-chrome.php): an honest note on safety questions, and the Trip Builder when a
+    // number of days is given. Nothing is invented: we have no page on safety, so the team answers it.
+    let ux2 = null;
+    try {
+      const d = document.getElementById("ux2-data");
+      ux2 = d ? JSON.parse(d.textContent) : null;
+    } catch (e) {}
+    const SAFETY = /\b(safe|safety|security|dangerous|danger|scam|sicher|sicherheit|gef[äa]hrlich|s[ûu]r|s[ée]curit[ée]|dangereux|sicuro|sicurezza|pericoloso|seguro|seguridad|peligroso)\b|безопас|опасн|安全|危险|أمان|آمن|امان|خطر/i;
+    const DAYS = /(\d{1,2})\s*(days?|nights?|tage|n[äa]chte|jours|nuits|giorni|notti|d[íi]as|noches|дн|дня|дней|ноч|天|晚|أيام|يوم|ليال|ليلة)/i;
+    function ux2Notes(q, box) {
+      if (!ux2) return;
+      if (SAFETY.test(q)) {
+        const p = el("p", { class: "ux2-note" }, ux2.safety + " ");
+        if (chat) {
+          const b = el("button", { type: "button", class: "ux2-note__btn" }, ux2.team);
+          b.addEventListener("click", () => chat.openForm(q));
+          p.append(b);
+        }
+        box.prepend(p);
+      }
+      const m = q.match(DAYS);
+      if (m && ux2.planner && own(ux2.planner)) {
+        const a = el("a", { class: "ux2-days", href: own(ux2.planner) }, ux2.days.replace("{n}", m[1]) + " →");
+        box.append(a);
+      }
+    }
+
     // "Can I talk to someone?" in the site's eight languages: offer the team instead of searching pages.
     const WANTS_PERSON = /\b(human|person|someone|somebody|agent|real people|staff|operator|mensch|mitarbeiter|jemand|humain|quelqu'un|conseiller|umano|qualcuno|operatore|humano|alguien|persona|agente)\b|человек|оператор|менеджер|人工|客服|真人|شخص|موظف|بشري|خدمة العملاء/i;
 
@@ -120,7 +147,8 @@
       const q = String(raw || "").trim().slice(0, 300);
       if (!q || busy) return;
       busy = true;
-      log.append(el("p", { class: "assistant__q" }, q));
+      const qEl = el("p", { class: "assistant__q" }, q);
+      log.append(qEl);
       if (chat && WANTS_PERSON.test(q)) {
         const box = el("div", { class: "assistant__a" });
         box.append(el("p", {}, chat.t.connect));
@@ -144,13 +172,17 @@
         });
         if (!res.ok) throw new Error(String(res.status));
         const data = await res.json();
-        status.replaceWith(render(data));
+        const box = render(data);
+        ux2Notes(q, box);
+        status.replaceWith(box);
         transcript.push({ q, a: (data.items || []).map((i) => i.title).slice(0, 4) });
       } catch (e) {
         status.textContent = t.retry;
       }
       busy = false;
-      scroll();
+      // Preview: the answer opens at its question, so a note at its top is read first.
+      if (ux2) log.scrollTop = Math.max(0, qEl.offsetTop - log.offsetTop - 8);
+      else scroll();
     }
 
     const chat = cfg.chat ? initChat(cfg, { el, own, log, form, input, render, transcript, scroll }) : null;

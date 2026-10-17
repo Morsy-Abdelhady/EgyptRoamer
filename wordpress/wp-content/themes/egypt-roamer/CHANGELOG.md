@@ -2,6 +2,16 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.81 — 2026-10-17: proposal 4, slice 2: search and assistant (preview `?ux=2` only)
+- **Search knew only part of the site.** It covered the homepage's featured lists: 8 trips and 7 guides. "Valley of the Kings" or "Siwa" could not be found, and "nile cruise" or "snorkeling" found nothing. In the preview it searches every published trip, place and guide in the page's language, matched by the start of words, grouped as Trips & tours, Places and Travel Guide. With nothing typed it lists the trips. When nothing matches it says so and offers All trips, the Travel Guide and the Trip Builder. The index comes from `inc/ux2-chrome.php`, cached per language and rebuilt whenever a page is saved.
+- **Assistant:**
+  - a question about safety gets an honest note: we have no page on safety, and a button opens the team chat;
+  - a number of days gets "Draft a route for {n} days in the Trip Builder";
+  - the answer opens at its question, so that note is read first.
+- **New strings:** 4, in all 8 languages, unreviewed.
+- **Visitors:** checked locally. Without `?ux=2` the HTML of the same 8 pages is unchanged; the only differences are the build stamp, asset versions and the per-request form token. The search and assistant scripts behave as before when the preview data is absent.
+- **Noticed, not changed:** the phone menu hides itself if it is reopened within 0.8 s of closing (the delayed `hidden` in `nav.js`). The live site has this too; it is listed for a later fix.
+
 ## 1.2.80 — 2026-10-17: proposal 4, slice 1: header and menu (preview `?ux=2` only)
 - **Owner:** move the proposal 4 fixes into the theme behind `?ux=2`. Plan: `docs/UX2-MIGRATION-PLAN-2026-10-17.md`.
 - **Labels:** "Places" and "Trips & tours" replace "Destinations" and "Experiences" in the header, the phone menu and the footer. They are changed by a menu filter while `er_ux2()` is on; the menus in the database are untouched.

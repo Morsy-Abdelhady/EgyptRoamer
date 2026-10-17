@@ -93,3 +93,88 @@ function er_ux2_menu_builder( string $planner_url ): void {
 	<a class="ux2-menu__builder" href="<?php echo esc_url( $planner_url ); ?>" data-close><?php er_e( 'Trip Builder' ); ?><small class="ux2-menu__line"><?php er_e( 'Choose nights and places; get a route and the trips on it' ); ?></small></a>
 	<?php
 }
+
+/*
+ * Slice 2 (17 Oct): search and the assistant, previewed with ?ux=2 only.
+ * - The search box only knew the homepage's featured lists (8 trips, 7 guides): "Valley of the Kings" or "Siwa" could
+ *   not be found, and a phrase like "nile cruise" or "snorkeling" found nothing. In the preview it searches every
+ *   published trip, place and guide in the page's language, by words, grouped, and says what to do when nothing
+ *   matches (src/js/components/search.js).
+ * - The assistant: a safety question gets an honest note (we have no page on it) and the team chat; a number of
+ *   days gets the Trip Builder (src/js/assistant.js).
+ */
+
+/** Every published trip, place and guide in the current language, for the preview's search box. Cached per language. */
+function er_ux2_search_index(): array {
+	$key   = 'er_ux2_search_' . er_lang();
+	$index = get_transient( $key );
+	if ( is_array( $index ) ) {
+		return $index;
+	}
+	$index = [];
+	$types = [
+		'er_experience'  => 'trip',
+		'er_destination' => 'place',
+		'er_guide'       => 'guide',
+	];
+	foreach ( $types as $type => $kind ) {
+		$ids = get_posts( [ 'post_type' => $type, 'post_status' => 'publish', 'numberposts' => 200, 'fields' => 'ids', 'suppress_filters' => false, 'orderby' => [ 'menu_order' => 'ASC', 'title' => 'ASC' ] ] );
+		foreach ( $ids as $id ) {
+			$id      = (int) $id;
+			$title   = er_payload_title( $id );
+			$excerpt = wp_strip_all_tags( (string) get_post_field( 'post_excerpt', $id ) );
+			if ( 'trip' === $kind ) {
+				$sub = implode( ' · ', array_filter( [ (string) get_post_meta( $id, '_er_location', true ), (string) get_post_meta( $id, '_er_duration', true ) ] ) );
+			} elseif ( 'place' === $kind ) {
+				$sub = (string) get_post_meta( $id, '_er_tagline', true );
+			} else {
+				$sub = er_t( 'Guide' );
+			}
+			$index[] = [
+				'k'     => $kind,
+				'title' => $title,
+				'sub'   => $sub,
+				'url'   => (string) get_permalink( $id ),
+				'image' => er_post_image_payload( $id ),
+				'text'  => mb_substr( $title . ' ' . $sub . ' ' . (string) get_post_meta( $id, '_er_region_label', true ) . ' ' . $excerpt, 0, 600 ),
+			];
+		}
+	}
+	set_transient( $key, $index, 12 * HOUR_IN_SECONDS );
+	return $index;
+}
+
+// A page is published, changed or removed: the index is rebuilt on the next preview.
+add_action( 'save_post', static function ( int $id ): void {
+	if ( in_array( get_post_type( $id ), [ 'er_experience', 'er_destination', 'er_guide' ], true ) ) {
+		global $wpdb;
+		$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_er\_ux2\_search\_%' OR option_name LIKE '\_transient\_timeout\_er\_ux2\_search\_%'" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+	}
+} );
+
+/** The preview's search data and strings, read by search.js and assistant.js. */
+add_action( 'wp_footer', static function (): void {
+	if ( ! er_ux2() ) {
+		return;
+	}
+	$planner = (bool) er_home( 'planner_enabled' ) ? er_home_url() . '#planner' : '';
+	$data    = [
+		'index'   => er_ux2_search_index(),
+		'groups'  => [
+			'trip'  => er_t( 'Trips & tours' ),
+			'place' => er_t( 'Places' ),
+			'guide' => er_t( 'Travel Guide' ),
+		],
+		'empty'   => er_t( 'Nothing on Egypt Roamer matches “{q}” yet. Try a place or a sight, like Luxor or pyramids.' ),
+		'actions' => array_values( array_filter( [
+			[ er_t( 'See all trips' ), (string) get_post_type_archive_link( 'er_experience' ) ],
+			[ er_t( 'Travel Guide' ), (string) get_post_type_archive_link( 'er_guide' ) ],
+			$planner ? [ er_t( 'Trip Builder' ), $planner ] : null,
+		] ) ),
+		'safety'  => er_t( 'We have no page on safety yet, so we won’t guess. Our team can answer that:' ),
+		'team'    => er_t( 'Chat with Egypt Roamer' ),
+		'days'    => er_t( 'Draft a route for {n} days in the Trip Builder' ),
+		'planner' => $planner,
+	];
+	echo '<script type="application/json" id="ux2-data">' . wp_json_encode( $data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput
+}, 5 );
