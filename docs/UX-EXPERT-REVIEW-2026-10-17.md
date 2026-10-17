@@ -148,3 +148,13 @@ The owner approved these for the food trip, credited as their licence requires: 
 4. **Result:** "Trips on your route" shows one card per trip (photo, places, length, options, private option, free cancellation, matching interests), and each card opens its trip page. "Save this plan" goes to the ♡ list and reopens the builder.
 
 **Checked:** every scenario re-run, desktop and phone looked at full size, no errors.
+
+## 10. Tourist walk-through (owner, 17 Oct: "review the whole journey as a tourist and decide")
+`walk.mjs` clicks the path a tourist takes, on desktop and phone: home → "Where in Egypt? Luxor" → the trip → Book. Each screen was looked at full size. Fixed without asking the owner, as instructed (`v4-tourist.py`):
+
+1. **One trip showed three different lengths.** The card and the opener said "6 hours" while the booking box said "About 4–10 hours" (Giza: "Half day" vs "About 4–8 hours"; Abu Simbel: "Full day" vs "About 8–10 hours"). The booking summary, built from the partners' own options, is now the one length shown everywhere.
+2. **"Our pick" gave no reason.** Where none was written, the reason now comes from the options' own facts, for example "Private, the longest visit".
+3. **A prototype toast covered "Viator opened in a new tab"** after Book. The toast is gone; the box already says it.
+4. **The place banner filled the first screen** after a place was chosen, and the trip sat below it. A chosen place now gets a short banner. When the place has one or two trips, its guides follow ("Before you book · Plan your Luxor visit").
+
+**Checked:** the walk was re-run on both sizes, along with the filter, guide and Trip Builder tests. There are no script errors.
