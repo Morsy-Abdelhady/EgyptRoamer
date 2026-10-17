@@ -2,6 +2,18 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.84 — 2026-10-17: proposal 4, slice 5: the guides (preview `?ux=2` only)
+- **No repeated photos:** the Travel Guide index showed the same photo on neighbouring guides (Coptic Cairo and Inside the Pyramids, Saqqara and the Grand Egyptian Museum, three Valley of the Kings photos). Each of the 24 guides now has its own photo, of its own place, and the guide's hero uses the same one.
+  - 19 of these photos are already approved and used in Core data.
+  - 5 are free Unsplash photos whose location tag names the place, chosen in the prototype and recorded in `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5.
+  - A featured image set by an editor still wins.
+- **A guide covering several trips** (the 7-, 10- and 14-day itineraries, best time, hidden gems, day trips) listed up to 4 partner options of different trips, each with its own gold "Book", so a reader couldn't tell which option went with which trip. The panel now lists the trips: photo, name, the length the partners state, the number of options, and "See options" to the trip page, where the options are compared.
+  - The line "Each button opens the partner's site" is dropped there, since these buttons open trip pages.
+  - On phones the button is an arrow, so the trip names keep the width.
+  - A guide about one trip keeps its options and "Our pick".
+- **Code:** `inc/ux2-guides.php` (new). No new strings.
+- **Visitors:** without `?ux=2` the HTML of 11 pages (guides index, page 2, 3 guides, trips, a trip, a destination, Arabic and German) is unchanged.
+
 ## 1.2.83 — 2026-10-17: proposal 4, slice 4: the trip page (preview `?ux=2` only)
 - **One length per trip:**
   - The hero's length came from the page's own line ("6 hours", Siwa "Full day"), while the booking box said "About 4–10 hours" and Siwa's options are both 3 days. Both now show the length the partners state for the trip's options (`er_ux2_offer_length()`).

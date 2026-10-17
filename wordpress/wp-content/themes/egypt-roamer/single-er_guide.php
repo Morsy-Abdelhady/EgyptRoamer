@@ -35,6 +35,8 @@ while ( have_posts() ) :
 	// destinations the guide covers. Below 1200px both give way to the in-article box and the sections at the end.
 	ob_start();
 	if ( $er_new ) :
+		// Preview, a guide covering several trips: the panel lists the trips, each opening its page (inc/ux2-guides.php).
+		$GLOBALS['er_ux2_panel_trips'] = count( $er_related ) > 1 ? array_values( array_filter( wp_list_pluck( $er_related, 'ID' ), static fn ( $i ) => 'publish' === get_post_status( $i ) && 'er_experience' === get_post_type( $i ) ) ) : [];
 		er_booking_panel( $er_book, $er_hotels, $er_hotels ? get_the_title( $er_dests[0] ) : '', 'guide', er_t( 'Trips in this guide' ), [], 1 === count( $er_related ) );
 	elseif ( $er_book ) :
 		?>
@@ -66,7 +68,7 @@ while ( have_posts() ) :
 		'image'   => (int) get_post_thumbnail_id(),
 		// The guide's stand-in photo (its cards already show it) until a featured image is set, as on
 		// destinations and experiences. Copied from the article template, guides had a text-only hero.
-		'stock'   => 'er_guide' === $er_type && function_exists( 'er_stock_id_for' ) ? er_stock_id_for( (int) $er_id ) : '',
+		'stock'   => 'er_guide' === $er_type && function_exists( 'er_stock_id_for' ) ? ( function_exists( 'er_ux2_guide_photo' ) && '' !== er_ux2_guide_photo( (int) $er_id ) ? er_ux2_guide_photo( (int) $er_id ) : er_stock_id_for( (int) $er_id ) ) : '',
 		'meta'    => $er_meta,
 		'measure' => '' === $er_aside,
 		'actions' => $er_new ? '<a class="btn btn--primary" href="#book" data-sheet>' . esc_html( er_book_label() ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>' : '',

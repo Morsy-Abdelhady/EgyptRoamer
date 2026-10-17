@@ -18,7 +18,7 @@
 | 2 | Search and assistant: word search across trips, guides and places; grouped results; an empty state with a way on; assistant answers from the same search, safety → team chat | `v4-tourist2.py` §1–2, `chrome2.py` | **Live, theme 1.2.81**, preview only |
 | 3 | Trips & tours archive: page title, place filter row with the 7 places, length / private / pickup filters, short place banners, a guide row when a place has one or two trips | `v4-round6.py`, `v4-round7.py`, `v4-tourist.py` §4 | **Live, theme 1.2.82**, preview only |
 | 4 | Trip page: one length everywhere, a reason for "Our pick", a comparison that shows real differences, "Read before you go" guides, Book bar alignment | `v4-tourist.py` §1–2, `v4-cruise.py` (comparison rows), `v4-tourist3.py` | **Live, theme 1.2.83**, preview only |
-| 5 | Guides: "Trips in this guide" versus "route", no repeated card photos, a compact sticky trip card | `v4-tourist2.py` §6–7, `guides-fix.py`, `v4-tourist.py` §5 | |
+| 5 | Guides: "Trips in this guide" versus "route", no repeated card photos, a compact sticky trip card | `v4-tourist2.py` §6–7, `guides-fix.py`, `v4-tourist.py` §5 | **Done locally, theme 1.2.84**, not pushed |
 | 6 | Trip Builder: interests rank trips, "Private or shared?", dropped-places notice, trip cards, save plan | `v4-planner.py` | |
 | 7 | Homepage: "Where in Egypt?" with the 7 places, shorter page | `v4-round7.py`, `v4-tourist.py` §6 | |
 
@@ -119,3 +119,14 @@
     - Label: "Trips & tours".
   - Visitors still see "Experiences" and "6 hours".
   - `page-coverage.mjs`: 336 pages in 8 languages, all ok.
+
+## Slice 5: done locally, 17 Oct (theme 1.2.84)
+- **Done:**
+  - one photo per guide, with no repeats on the index, and the guide hero matching its card;
+  - guides covering several trips list the trips, each opening its page.
+- **Tested locally:** the index has 0 repeated photos in the preview (visitors still have their 1); the 7-day guide lists 3 trips on desktop and phone.
+- **To check live after the push:** the panels of the guides covering several trips (local data has no offers for most of them).
+- **Not in this slice:**
+  - "route" versus "trips in this guide" wording (the live panel already says "Trips in this guide" for every guide);
+  - a compact sticky trip card.
+- **Same issue elsewhere:** destination pages mix several trips' options in one list. That is for the destination slice, after this plan.

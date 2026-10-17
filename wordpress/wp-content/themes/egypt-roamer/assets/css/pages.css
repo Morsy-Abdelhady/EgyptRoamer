@@ -4198,3 +4198,24 @@ html:lang(zh) {
     margin-inline-start: 0;
   }
 }
+
+/* ---------- New journey, proposal 4: a guide's trips (?ux=2 only; inc/ux2-guides.php) ---------- */
+/* phones: the trip name keeps the width; the button is its arrow */
+@media (max-width: 600px) {
+  .ux2-trips__row .btn {
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .ux2-trips__cta {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

@@ -126,6 +126,8 @@ function er_post_img( int $post_id, string $size = 'er-card', array $attrs = [] 
 		return er_img( (int) $thumb, $size, $attrs );
 	}
 	$stock = function_exists( 'er_stock_id_for' ) ? er_stock_id_for( $post_id ) : '';
+	// New journey preview: each guide has a photo of its own place, never a neighbour's (inc/ux2-guides.php).
+	$stock = function_exists( 'er_ux2_guide_photo' ) && '' !== er_ux2_guide_photo( $post_id ) ? er_ux2_guide_photo( $post_id ) : $stock;
 	// Cards are 4:4.6 portrait frames: crop to that shape, so a 2× screen gets a sharp card (it got 0.6× before).
 	return $stock ? er_stock_img( $stock, (string) ( $attrs['alt'] ?? '' ), array_diff_key( $attrs, [ 'alt' => 1 ] ), [ 400, 600, 800, 1000 ], 1.15 ) : '';
 }
@@ -972,7 +974,7 @@ function er_booking_panel( array $offers, array $hotels, string $stay_name, stri
 				</ul>
 			<?php endif; ?>
 		</div>
-		<?php if ( $offers ) : ?>
+		<?php if ( ! empty( $GLOBALS['er_ux2_panel_trips'] ) && 'guide' === $placement && function_exists( 'er_ux2_trip_group' ) ) : er_ux2_trip_group( $GLOBALS['er_ux2_panel_trips'] ); elseif ( $offers ) : ?>
 			<div class="bp__group">
 				<p class="bp__h"><?php echo esc_html( er_t( 'Trip options' ) ); ?> <span class="bp__count"><?php echo (int) count( $offers ); ?></span></p>
 				<?php $rows( $offers, $placement . '-offers', er_t( 'Book' ), true ); ?>
@@ -984,7 +986,7 @@ function er_booking_panel( array $offers, array $hotels, string $stay_name, stri
 				<?php $rows( $hotels, $placement . '-hotels', er_t( 'See hotels' ), false ); ?>
 			</div>
 		<?php endif; ?>
-		<p class="bp__out"><?php echo esc_html( er_t( 'Each button opens the partner’s site in a new tab.' ) ); ?></p>
+		<?php if ( empty( $GLOBALS['er_ux2_panel_trips'] ) || 'guide' !== $placement || $hotels ) : ?><p class="bp__out"><?php echo esc_html( er_t( 'Each button opens the partner’s site in a new tab.' ) ); ?></p><?php endif; ?>
 		<?php er_disclosure(); ?>
 	</div>
 	<?php
