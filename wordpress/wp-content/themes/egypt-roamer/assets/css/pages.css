@@ -4111,3 +4111,90 @@ html:lang(zh) {
   font-size: var(--fs-small);
   text-decoration: none;
 }
+
+/* ---------- New journey, proposal 4: Trips & tours filters (?ux=2 only; inc/ux2-trips.php) ---------- */
+.ux2-filters {
+  display: grid;
+  gap: 0.75rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.ux2-filters__row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  flex-wrap: wrap;
+}
+.ux2-filters__label {
+  flex: 0 0 4.5rem;
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.ux2-filters__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex: 1 1 0;
+  min-width: 0;
+}
+.ux2-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  color: var(--text);
+  font-size: var(--fs-small);
+  line-height: 1.1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.ux2-chip:hover {
+  border-color: var(--gold);
+}
+.ux2-chip[aria-current="true"] {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--white);
+}
+.ux2-filters__count {
+  margin: 0;
+  margin-inline-start: auto;
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+@media (max-width: 600px) {
+  .ux2-filters__row {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  /* one swipeable row per filter, so the trips start high on the screen */
+  .ux2-filters__label {
+    flex: none; /* in a column, the 4.5rem width became a height */
+  }
+  .ux2-filters__chips {
+    flex: none; /* in a column, "1 1 0" gave the row no height */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .ux2-filters__chips::-webkit-scrollbar {
+    display: none;
+  }
+  .ux2-chip {
+    flex: none;
+  }
+  .ux2-filters__count {
+    margin-inline-start: 0;
+  }
+}

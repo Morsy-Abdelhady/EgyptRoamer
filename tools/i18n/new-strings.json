@@ -1567,6 +1567,96 @@
    "Составить маршрут на {n} дн. в конструкторе поездки",
    "在行程规划中拟定 {n} 天的路线",
    "ارسم مسارًا لمدة {n} أيام في مخطط الرحلة"
+  ],
+  "Any length": [
+   "Jede Dauer",
+   "Toutes durées",
+   "Qualsiasi durata",
+   "Cualquier duración",
+   "Любая длительность",
+   "不限时长",
+   "أي مدة"
+  ],
+  "Up to 5 hours": [
+   "Bis 5 Stunden",
+   "Jusqu'à 5 heures",
+   "Fino a 5 ore",
+   "Hasta 5 horas",
+   "До 5 часов",
+   "5小时以内",
+   "حتى 5 ساعات"
+  ],
+  "Full day": [
+   "Ganzer Tag",
+   "Journée complète",
+   "Giornata intera",
+   "Día completo",
+   "Полный день",
+   "全天",
+   "يوم كامل"
+  ],
+  "2+ days": [
+   "2+ Tage",
+   "2 jours et plus",
+   "2+ giorni",
+   "2+ días",
+   "2+ дня",
+   "2天以上",
+   "يومان أو أكثر"
+  ],
+  "Private option": [
+   "Private Option",
+   "Option privée",
+   "Opzione privata",
+   "Opción privada",
+   "Частный вариант",
+   "私人选项",
+   "خيار خاص"
+  ],
+  "Hotel pickup": [
+   "Abholung vom Hotel",
+   "Prise en charge à l'hôtel",
+   "Prelievo in hotel",
+   "Recogida en el hotel",
+   "Трансфер из отеля",
+   "酒店接送",
+   "استلام من الفندق"
+  ],
+  "Length": [
+   "Dauer",
+   "Durée",
+   "Durata",
+   "Duración",
+   "Длительность",
+   "时长",
+   "المدة"
+  ],
+  "Trips shown: {n}": [
+   "Angezeigte Ausflüge: {n}",
+   "Excursions affichées : {n}",
+   "Escursioni mostrate: {n}",
+   "Excursiones mostradas: {n}",
+   "Показано поездок: {n}",
+   "显示的行程：{n}",
+   "الرحلات المعروضة: {n}"
+  ],
+  "No trip matches all of these.": [
+   "Kein Ausflug erfüllt alle diese Kriterien.",
+   "Aucune excursion ne correspond à tous ces critères.",
+   "Nessuna escursione corrisponde a tutti questi criteri.",
+   "Ninguna excursión cumple todos estos criterios.",
+   "Ни одна поездка не подходит под все эти условия.",
+   "没有符合所有这些条件的行程。",
+   "لا توجد رحلة تطابق كل هذه الشروط."
+  ],
+  "Remove a filter, or see every trip.": [
+   "Entfernen Sie einen Filter oder sehen Sie alle Ausflüge.",
+   "Retirez un filtre ou voyez toutes les excursions.",
+   "Rimuovi un filtro o guarda tutte le escursioni.",
+   "Quita un filtro o mira todas las excursiones.",
+   "Уберите фильтр или посмотрите все поездки.",
+   "移除一个筛选条件，或查看全部行程。",
+   "احذف أحد الفلاتر، أو اعرض كل الرحلات."
   ]
  }
 }

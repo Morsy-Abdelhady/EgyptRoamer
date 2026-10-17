@@ -509,6 +509,10 @@ function er_breadcrumbs(): void {
 
 /** Translated plural label for our content types. */
 function er_type_label( string $post_type ): string {
+	// New journey preview (inc/ux2-chrome.php): the names the menu uses.
+	if ( er_ux2() && in_array( $post_type, [ 'er_experience', 'er_destination' ], true ) ) {
+		return 'er_experience' === $post_type ? er_t( 'Trips & tours' ) : er_t( 'Places' );
+	}
 	$labels = [
 		'er_destination' => er_t( 'Destinations' ),
 		'er_tour'        => er_t( 'Tours' ),

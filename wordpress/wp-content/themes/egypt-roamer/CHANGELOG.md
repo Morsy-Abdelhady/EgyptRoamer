@@ -2,6 +2,19 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.82 — 2026-10-17: proposal 4, slice 3: the Trips & tours page (preview `?ux=2` only)
+- **Title:** the page and its breadcrumb say "Trips & tours", as the menu does (it was "Experiences"). Destinations are "Places".
+- **Filters:** a dropdown plus an Apply button became link buttons, so each choice is one tap and works without JavaScript:
+  - **Where:** All, then the 7 places;
+  - **Length:** Any length, Up to 5 hours, Full day, 2+ days;
+  - **Comfort:** Private option and Hotel pickup.
+- **Where the facts come from:** length, private and pickup are read only from the partners' stated facts (Core `offer-facts.json`), never guessed. A trip matches a length when any of its options does. The trip's length line is used only when no option states a duration.
+- **Results:** a line says how many trips are shown. When nothing matches, the page says so and offers "See all trips".
+- **Phones:** each filter is one swipeable row, so the trips start high on the screen.
+- **Code:** `inc/ux2-trips.php` (new). In the preview, the archive lists every trip, so the filters see them all.
+- **New strings:** 10, in all 8 languages, unreviewed.
+- **Visitors:** without `?ux=2` the HTML of 10 pages is unchanged, including the trips page and its old filter.
+
 ## 1.2.81 — 2026-10-17: proposal 4, slice 2: search and assistant (preview `?ux=2` only)
 - **Search knew only part of the site.** It covered the homepage's featured lists: 8 trips and 7 guides. "Valley of the Kings" or "Siwa" could not be found, and "nile cruise" or "snorkeling" found nothing. In the preview it searches every published trip, place and guide in the page's language, matched by the start of words, grouped as Trips & tours, Places and Travel Guide. With nothing typed it lists the trips. When nothing matches it says so and offers All trips, the Travel Guide and the Trip Builder. The index comes from `inc/ux2-chrome.php`, cached per language and rebuilt whenever a page is saved.
 - **Assistant:**
