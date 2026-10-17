@@ -12,6 +12,8 @@
 #    gets its own line (on a phone too) and on a phone the 7 places wrap into two rows, all visible; the text is centred.
 #    The header "Ask" button is 40px like the icons beside it. It stays in the header on phones: a floating button
 #    would sit on the trip page's booking bar and on the text the tourist is reading.
+# 7. (owner, trip page) "Trip assistant" and the "Book this trip" bar ended at different right edges (20px from the
+#    frame vs 24px from the page, which is left of the scrollbar). On a computer both now end 24px from the page edge.
 # 5. (owner, guide page) the trip card stuck 80px under the header, a gap below the section bar, and on a short
 #    screen its bottom ran off and the assistant button sat on it. It now sticks 16px under the section bar, and
 #    when the screen is short it gives up photo height (then the photo) so the whole card, Save included, stays in
@@ -47,6 +49,7 @@ CSS = '''
   .lc .nav .lc-ai{height:40px;padding:0 14px 0 11px;gap:7px;line-height:1}
   .lc .nav .lc-ai svg{display:block;flex:none}
 }
+@container site (min-width:901px){ .lc-ov .assistant-launch.lc-t{inset-inline-end:calc(24px + var(--sbw,0px))!important} }
 '''
 JS = r'''
 // ---------- tourist walk-through, 17 Oct ----------
@@ -82,7 +85,7 @@ function bkFit(){ const ga=document.getElementById("ga"), bk=ga&&ga.querySelecto
   if(bk.offsetHeight>avail) bk.classList.add("is-tight"); if(bk.offsetHeight>avail) bk.classList.add("is-tighter");
   if(bk.offsetHeight>avail){ bk.classList.remove("is-tight","is-tighter"); bk.style.top=""; bk.classList.add("is-static"); } }
 const _og=window.openGuide; window.openGuide=function(){ const r=_og.apply(this,arguments); requestAnimationFrame(bkFit); return r; };
-new ResizeObserver(()=>bkFit()).observe(vp);
+new ResizeObserver(()=>{ bkFit(); vp.style.setProperty("--sbw",(vp.offsetWidth-vp.clientWidth)+"px"); }).observe(vp);
 '''
 
 def apply(tpl):
