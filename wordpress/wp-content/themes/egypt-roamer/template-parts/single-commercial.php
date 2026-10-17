@@ -182,6 +182,32 @@ else :
 endif;
 $er_aside = trim( (string) ob_get_clean() );
 
+// Proposal 4, the trip "world" (inc/world.php): the whole page in the prototype's design, from this page's content.
+if ( 'er_experience' === $er_type && function_exists( 'er_world_on' ) && er_world_on() ) {
+	$er_wbody = er_body();
+	$er_wbody = er_card_photos( (string) $er_wbody['html'], $er_id );
+	ob_start();
+	foreach ( [ [ $er_dests, er_t( 'Where it happens' ), 'destination-link' ], [ $er_guides, er_t( 'Plan it with our guides' ), 'guide-link' ], [ $er_alts, er_t( 'Alternatives to compare' ), 'alternatives' ] ] as [ $er_list, $er_head, $er_pl ] ) {
+		if ( $er_list ) {
+			echo '<section class="related"><h2 class="t-h2">' . esc_html( $er_head ) . '</h2>';
+			er_card_grid( wp_list_pluck( $er_list, 'ID' ), $er_pl );
+			echo '</section>';
+		}
+	}
+	$er_after = (string) ob_get_clean();
+	get_template_part( 'template-parts/world', null, [
+		'body'   => $er_wbody,
+		'offers' => $er_offers,
+		'dests'  => $er_dests,
+		'panel'  => $er_new ? $er_aside : '',
+		'after'  => '' !== $er_after ? '<div class="wrel"><div class="container">' . $er_after . '</div></div>' : '',
+	] );
+	if ( $er_new ) {
+		er_book_bar();
+	}
+	return;
+}
+
 er_page_hero( [
 	'eyebrow' => $er_eyebrows[ $er_type ] ?? '',
 	'title'   => get_the_title(),

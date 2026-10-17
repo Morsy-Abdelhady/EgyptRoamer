@@ -21,6 +21,7 @@ require_once ER_THEME_DIR . '/inc/template-tags.php';
 require_once ER_THEME_DIR . '/inc/ux2-chrome.php';
 require_once ER_THEME_DIR . '/inc/ux2-trips.php';
 require_once ER_THEME_DIR . '/inc/ux2-guides.php';
+require_once ER_THEME_DIR . '/inc/world.php';
 require_once ER_THEME_DIR . '/inc/sections.php';
 require_once ER_THEME_DIR . '/inc/home-settings.php';
 require_once ER_THEME_DIR . '/inc/payload.php';
