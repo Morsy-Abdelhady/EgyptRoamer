@@ -4444,3 +4444,48 @@ html:lang(zh) {
 .er-ux2 .assistant__try > * {
   flex: none;
 }
+
+/* ---------- New journey, proposal 4: Commons photo credits on trip cards (?ux=2 only) ---------- */
+.prose .er-points__credit {
+  display: block;
+  margin: -0.35rem 0 0.6rem;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--text-faint);
+}
+.prose .er-points__credit a {
+  color: inherit;
+  text-decoration: none;
+}
+.prose .er-points__credit a:hover {
+  text-decoration: underline;
+}
+/* Trip Builder: Save this plan (the site's heart toggle, with words) */
+.ux2-pb__save {
+  margin: 0.9rem 0 0;
+}
+.ux2-pb__savebtn.save-btn {
+  position: static;
+  width: auto;
+  height: 44px;
+  padding: 0 1.1rem;
+  gap: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--line-dark);
+  background: transparent;
+  color: var(--white);
+  font: 600 var(--fs-small) var(--font-sans);
+}
+.ux2-pb__savebtn .ux2-pb__on,
+.ux2-pb__savebtn[aria-pressed="true"] .ux2-pb__off {
+  display: none;
+}
+.ux2-pb__savebtn[aria-pressed="true"] .ux2-pb__on {
+  display: inline;
+}
+.ux2-pb__savebtn[aria-pressed="true"] .icon {
+  fill: currentColor;
+  color: var(--clay);
+}

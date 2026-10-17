@@ -1,7 +1,7 @@
 /* Trip builder — a visual entry point: four choices produce a live,
    plausible route with paced nights and a budget band. */
 import { t, tp, listJoin, isRTL } from "../i18n.js";
-import { $, $$, icon, escapeHtml, money, toast, on, scrollToTarget, affAttrs } from "../utils.js";
+import { $, $$, icon, escapeHtml, money, toast, on, emit, scrollToTarget, affAttrs } from "../utils.js";
 import { moods, destinations, routeOrder, nightWeights, legs, styleRates, img } from "../data.js";
 
 const DEFAULT_DESTS = ["cairo", "luxor", "aswan"];
@@ -164,9 +164,26 @@ export function initPlanner() {
         const places = [...new Set(UX2P.trips.filter((tr) => tr.interests.includes(i) && (!ux2Priv || tr.private)).flatMap((tr) => tr.dests))].filter((d) => !onRoute.includes(d) && destinations.some((x) => x.id === d));
         if (places.length) h += `<p class="ux2-pb__more">${escapeHtml(T.more.replace("{interest}", labelOf(i)))} ${places.map((d) => `<button type="button" data-ux2-dest="${escapeHtml(d)}">+ ${escapeHtml(nameOf(d))}</button>`).join("")}</p>`;
       });
+      // Save this plan: kept with the hearts, with a link that reopens it here.
+      const q = new URLSearchParams({ ux: "2", plan: chosen.join(","), n: String(n), i: ints.join(",") });
+      const item = { id: "plan:" + chosen.join("-") + "-" + n, title: title.textContent, meta: T.planmeta.replace("{n}", String(trips.length)), image: (UX2P.trips.find((tr) => tr.dests.includes(onRoute[0])) || {}).image || "", url: location.pathname + "?" + q.toString() + "#planner" };
+      h += `<p class="ux2-pb__save"><button class="save-btn ux2-pb__savebtn" type="button" data-save='${escapeHtml(JSON.stringify(item))}' aria-pressed="false">${icon("i-heart")}<span class="ux2-pb__off">${escapeHtml(T.save)}</span><span class="ux2-pb__on">${escapeHtml(T.saved)}</span></button></p>`;
       h += "</div>";
     }
     ux2Out.innerHTML = h;
+    emit("favorites:refresh");
+  }
+
+  // A saved plan reopened from the hearts: its places, nights and interests.
+  if (UX2P) {
+    const qs = new URLSearchParams(location.search);
+    if (qs.get("plan")) {
+      const ps = qs.get("plan").split(","), is = (qs.get("i") || "").split(",");
+      $$("input[name=dest]", dests).forEach((c) => (c.checked = ps.includes(c.value)));
+      $$("input[name=interest]", interests).forEach((c) => (c.checked = is.includes(c.value)));
+      const nn = Number(qs.get("n"));
+      if (nn >= Number(days.min) && nn <= Number(days.max)) days.value = nn;
+    }
   }
 
   const segInk = $("i", seg);

@@ -444,11 +444,11 @@ $er_planner_on = (bool) er_home( 'planner_enabled' );
 	<?php endif; ?>
 <?php
 	if ( er_ux2() ) {
-		echo (string) ob_get_clean() . $er_mid; // phpcs:ignore WordPress.Security.EscapeOutput -- this template's own escaped output, reordered
+		echo (string) ob_get_clean() . er_ux2_short_home( $er_mid ); // phpcs:ignore WordPress.Security.EscapeOutput -- this template's own escaped output, reordered
 	}
 	?>
 
-	<?php if ( $er_data['guides'] ) : ?>
+	<?php if ( $er_data['guides'] && ! er_ux2() ) : // preview: the Travel Guide is in the menu (inc/ux2-trips.php, shorter homepage) ?>
 		<section class="section guide" id="guide" aria-labelledby="guide-title">
 			<div class="container">
 				<header class="guide__masthead">

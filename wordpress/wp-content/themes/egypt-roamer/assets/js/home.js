@@ -368,7 +368,7 @@
   __m["components/favorites.js"] = (() => {
   /* Favourites — heart toggles on any [data-save] button, persisted per browser */
   const { t } = __m["i18n.js"];
-  const { $$, icon, escapeHtml, toast, emit } = __m["utils.js"];
+  const { $$, icon, escapeHtml, toast, emit, on } = __m["utils.js"];
   const { img } = __m["data.js"];
 
   const KEY = "ei:saved";
@@ -418,7 +418,7 @@
       .map(
         (it) => `<article class="saved-item">
           <img src="${img(it.image, 200)}" alt="" loading="lazy" />
-          <div><b>${escapeHtml(it.title)}</b><small>${escapeHtml(it.meta || "")}</small></div>
+          <div>${it.url ? `<a href="${escapeHtml(it.url)}" data-close><b>${escapeHtml(it.title)}</b></a>` : `<b>${escapeHtml(it.title)}</b>`}<small>${escapeHtml(it.meta || "")}</small></div>
           <button class="save-btn" type="button" style="background:var(--stone);color:var(--clay)" data-save='${escapeHtml(JSON.stringify(it))}' aria-pressed="true" aria-label="${escapeHtml(t("Remove {title}", { title: it.title }))}">${icon("i-heart")}</button>
         </article>`
       )
@@ -428,6 +428,7 @@
   function initFavorites() {
     load();
     syncButtons();
+    on("favorites:refresh", syncButtons); // buttons drawn later (the Trip Builder's "Save this plan")
     document.addEventListener("click", (e) => {
       const btn = e.target.closest("[data-save]");
       if (!btn) return;
@@ -2182,7 +2183,7 @@
   /* Trip builder — a visual entry point: four choices produce a live,
      plausible route with paced nights and a budget band. */
   const { t, tp, listJoin, isRTL } = __m["i18n.js"];
-  const { $, $$, icon, escapeHtml, money, toast, on, scrollToTarget, affAttrs } = __m["utils.js"];
+  const { $, $$, icon, escapeHtml, money, toast, on, emit, scrollToTarget, affAttrs } = __m["utils.js"];
   const { moods, destinations, routeOrder, nightWeights, legs, styleRates, img } = __m["data.js"];
 
   const DEFAULT_DESTS = ["cairo", "luxor", "aswan"];
@@ -2345,9 +2346,26 @@
           const places = [...new Set(UX2P.trips.filter((tr) => tr.interests.includes(i) && (!ux2Priv || tr.private)).flatMap((tr) => tr.dests))].filter((d) => !onRoute.includes(d) && destinations.some((x) => x.id === d));
           if (places.length) h += `<p class="ux2-pb__more">${escapeHtml(T.more.replace("{interest}", labelOf(i)))} ${places.map((d) => `<button type="button" data-ux2-dest="${escapeHtml(d)}">+ ${escapeHtml(nameOf(d))}</button>`).join("")}</p>`;
         });
+        // Save this plan: kept with the hearts, with a link that reopens it here.
+        const q = new URLSearchParams({ ux: "2", plan: chosen.join(","), n: String(n), i: ints.join(",") });
+        const item = { id: "plan:" + chosen.join("-") + "-" + n, title: title.textContent, meta: T.planmeta.replace("{n}", String(trips.length)), image: (UX2P.trips.find((tr) => tr.dests.includes(onRoute[0])) || {}).image || "", url: location.pathname + "?" + q.toString() + "#planner" };
+        h += `<p class="ux2-pb__save"><button class="save-btn ux2-pb__savebtn" type="button" data-save='${escapeHtml(JSON.stringify(item))}' aria-pressed="false">${icon("i-heart")}<span class="ux2-pb__off">${escapeHtml(T.save)}</span><span class="ux2-pb__on">${escapeHtml(T.saved)}</span></button></p>`;
         h += "</div>";
       }
       ux2Out.innerHTML = h;
+      emit("favorites:refresh");
+    }
+
+    // A saved plan reopened from the hearts: its places, nights and interests.
+    if (UX2P) {
+      const qs = new URLSearchParams(location.search);
+      if (qs.get("plan")) {
+        const ps = qs.get("plan").split(","), is = (qs.get("i") || "").split(",");
+        $$("input[name=dest]", dests).forEach((c) => (c.checked = ps.includes(c.value)));
+        $$("input[name=interest]", interests).forEach((c) => (c.checked = is.includes(c.value)));
+        const nn = Number(qs.get("n"));
+        if (nn >= Number(days.min) && nn <= Number(days.max)) days.value = nn;
+      }
     }
 
     const segInk = $("i", seg);

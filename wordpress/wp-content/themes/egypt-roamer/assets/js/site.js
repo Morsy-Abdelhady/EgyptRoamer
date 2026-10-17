@@ -368,7 +368,7 @@
   __m["components/favorites.js"] = (() => {
   /* Favourites — heart toggles on any [data-save] button, persisted per browser */
   const { t } = __m["i18n.js"];
-  const { $$, icon, escapeHtml, toast, emit } = __m["utils.js"];
+  const { $$, icon, escapeHtml, toast, emit, on } = __m["utils.js"];
   const { img } = __m["data.js"];
 
   const KEY = "ei:saved";
@@ -418,7 +418,7 @@
       .map(
         (it) => `<article class="saved-item">
           <img src="${img(it.image, 200)}" alt="" loading="lazy" />
-          <div><b>${escapeHtml(it.title)}</b><small>${escapeHtml(it.meta || "")}</small></div>
+          <div>${it.url ? `<a href="${escapeHtml(it.url)}" data-close><b>${escapeHtml(it.title)}</b></a>` : `<b>${escapeHtml(it.title)}</b>`}<small>${escapeHtml(it.meta || "")}</small></div>
           <button class="save-btn" type="button" style="background:var(--stone);color:var(--clay)" data-save='${escapeHtml(JSON.stringify(it))}' aria-pressed="true" aria-label="${escapeHtml(t("Remove {title}", { title: it.title }))}">${icon("i-heart")}</button>
         </article>`
       )
@@ -428,6 +428,7 @@
   function initFavorites() {
     load();
     syncButtons();
+    on("favorites:refresh", syncButtons); // buttons drawn later (the Trip Builder's "Save this plan")
     document.addEventListener("click", (e) => {
       const btn = e.target.closest("[data-save]");
       if (!btn) return;

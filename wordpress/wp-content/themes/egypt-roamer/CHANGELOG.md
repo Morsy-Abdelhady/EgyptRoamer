@@ -2,6 +2,20 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.88 — 2026-10-17: proposal 4, slices 11–13 and 15: shorter homepage, Commons card photos, Save this plan, hotel photos
+- **Fix, hotel photos on the homepage (everyone):** the "Find a place worth staying for" rows showed empty boxes, because hotel offers have no seed photo. They now use the area photo from offer-facts, or else the approved photo of their place (`er_offer_stock_fallback()`).
+- **Slice 12, a shorter homepage (preview):** 18 screens on a computer and 20 on a phone became 14.5 and 15, as in the prototype. Left out: the quote interlude, the destinations cards (the map lists every place, and the menu has Places) and the Journal (the Travel Guide is in the menu, and each trip and place links its guides). Kept: hero, trips, moods, map, where to stay and the Trip Builder.
+- **Slice 13, Commons photos on trip cards (preview):** cards that had no photo get one from Wikimedia Commons, showing the exact place or dish under a free licence. Each is credited under the photo, linking to its Commons page.
+  - Food tour: koshari, ful, hawawshi, feteer.
+  - Valley: the Colossi of Memnon.
+  - Alexandria: Kom el-Shoqafa, Montaza.
+  - White Desert: Black Desert, Crystal Mountain, White Desert.
+  - The photos are hot-linked from Commons; nothing is copied into the Media Library.
+- **Slice 15, Save this plan (preview):** the Trip Builder's result ends with a heart button. The plan joins the saved list, and its link reopens the builder with the same places, nights and interests. Saved items with a link now open it (for everyone, though only plans have one).
+- **Slice 11, the White Desert (preview):** the trip has no place, so it never showed in the Trip Builder. Both partner options leave from Cairo ("2 days from Cairo", "Cairo: 2-Day…"), so it now shows on routes through Cairo as "From Cairo". No place is invented for it.
+- **New strings:** 4, in all 8 languages, unreviewed.
+- **Visitors:** the HTML of 7 pages is unchanged apart from the hotel photo fix in the homepage data. No preview page is wider than the screen (360, 390 and 768px, English and Arabic).
+
 ## 1.2.87 — 2026-10-17: proposal 4, slices 8–10: destinations, the assistant, a menu fix, and a phone overflow fix
 The owner asked for everything applied in the prototype, with full permissions. These slices are behind `?ux=2` except where marked "everyone".
 - **Slice 8, destinations (preview):** a place page listed up to 4 partner options of different trips, all with gold buttons. As on guides, it now lists the place's trips (photo, length, options, "See options" to the trip page), then its hotels. The "opens the partner's site" line is dropped when trips are listed; the hotel buttons keep their ↗.

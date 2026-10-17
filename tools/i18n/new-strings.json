@@ -1792,6 +1792,42 @@
    "Все поездки: {place}",
    "查看{place}的全部行程",
    "كل الرحلات في {place}"
+  ],
+  "From {place}": [
+   "Ab {place}",
+   "Au départ de {place}",
+   "Da {place}",
+   "Desde {place}",
+   "Из {place}",
+   "从{place}出发",
+   "انطلاقًا من {place}"
+  ],
+  "Save this plan": [
+   "Plan speichern",
+   "Enregistrer ce plan",
+   "Salva questo piano",
+   "Guardar este plan",
+   "Сохранить план",
+   "保存此行程",
+   "احفظ هذه الخطة"
+  ],
+  "Plan saved": [
+   "Plan gespeichert",
+   "Plan enregistré",
+   "Piano salvato",
+   "Plan guardado",
+   "План сохранён",
+   "行程已保存",
+   "تم حفظ الخطة"
+  ],
+  "Your plan · {n} trips on the route": [
+   "Ihr Plan · Ausflüge auf der Route: {n}",
+   "Votre plan · excursions sur l'itinéraire : {n}",
+   "Il tuo piano · escursioni sul percorso: {n}",
+   "Tu plan · excursiones en la ruta: {n}",
+   "Ваш план · поездок на маршруте: {n}",
+   "你的行程 · 路线上的行程：{n}",
+   "خطتك · رحلات على المسار: {n}"
   ]
  }
 }

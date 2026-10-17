@@ -251,6 +251,9 @@ const ER_UX2_TRIP_INTERESTS = [
 	'nile-dinner-cruise-with-live-show'      => [ 'culture' ],
 ];
 
+/** Trips without a place: where every option leaves from (partner pages: "2 days from Cairo", "Cairo: 2-Day…"). */
+const ER_UX2_TRIP_FROM = [ 'white-desert-black-desert-safari' => 'cairo' ];
+
 add_action( 'wp_footer', static function (): void {
 	if ( ! er_ux2() || ! is_front_page() ) {
 		return;
@@ -262,12 +265,18 @@ add_action( 'wp_footer', static function (): void {
 		$offers = function_exists( 'er_offers_for_post' ) ? er_offers_for_post( $id, 6 ) : [];
 		$t      = er_ux2_trip_traits( $id );
 		$slug   = er_neutral_slug( $id );
+		// A trip with no place of its own (the White Desert): where all its options leave from, as the partners state.
+		$from      = er_get_related( $id, '_er_destination' ) ? '' : ( ER_UX2_TRIP_FROM[ $slug ] ?? '' );
+		$from_post = $from ? get_page_by_path( $from, OBJECT, 'er_destination' ) : null;
+		$from_id   = $from_post && function_exists( 'pll_get_post' ) ? ( (int) pll_get_post( $from_post->ID ) ?: $from_post->ID ) : ( $from_post ? $from_post->ID : 0 );
+		$from_name = $from_id ? get_the_title( $from_id ) : '';
+		$from      = $from_name ? $from : '';
 		$trips[] = [
 			'title'     => er_payload_title( $id ),
 			'url'       => (string) get_permalink( $id ),
 			'image'     => er_post_image_payload( $id ),
-			'dests'     => array_map( 'er_neutral_slug', wp_list_pluck( er_get_related( $id, '_er_destination' ), 'ID' ) ),
-			'places'    => implode( ' · ', array_map( 'get_the_title', er_get_related( $id, '_er_destination' ) ) ),
+			'dests'     => $from ? [ $from ] : array_map( 'er_neutral_slug', wp_list_pluck( er_get_related( $id, '_er_destination' ), 'ID' ) ),
+			'places'    => $from ? er_t( 'From {place}', [ 'place' => $from_name ] ) : implode( ' · ', array_map( 'get_the_title', er_get_related( $id, '_er_destination' ) ) ),
 			'len'       => function_exists( 'er_ux2_offer_length' ) ? er_ux2_offer_length( $offers ) : '',
 			'n'         => count( $offers ),
 			'private'   => $t['private'],
@@ -292,6 +301,9 @@ add_action( 'wp_footer', static function (): void {
 			'optn'      => er_t( '{n} options' ),
 			'privopt'   => er_t( 'Private option' ),
 			'see'       => er_t( 'See options' ),
+			'save'      => er_t( 'Save this plan' ),
+			'saved'     => er_t( 'Plan saved' ),
+			'planmeta'  => er_t( 'Your plan · {n} trips on the route' ),
 		],
 	];
 	echo '<script type="application/json" id="ux2-planner">' . wp_json_encode( $data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput
@@ -316,3 +328,58 @@ function er_ux2_hero_places(): void {
 	}
 	echo '</span></nav>';
 }
+
+/*
+ * Slice 12 (17 Oct): a shorter homepage in the preview (prototype v4-round7.py: hero, trips, moods, map, where to
+ * stay, the Trip Builder). The homepage was 18 screens on a computer and 20 on a phone. Left out in the preview:
+ * the quote interlude, the destinations cards (the map lists every place, each opening its page) and the Journal
+ * (the Travel Guide is in the menu, and each trip and place links its guides).
+ */
+function er_ux2_short_home( string $html ): string {
+	foreach ( [ '<section class="interlude', '<section class="section destinations"' ] as $start ) {
+		$a = strpos( $html, $start );
+		if ( false === $a ) {
+			continue;
+		}
+		$e = strpos( $html, '</section>', $a );
+		if ( false !== $e ) {
+			$html = substr( $html, 0, $a ) . substr( $html, $e + strlen( '</section>' ) );
+		}
+	}
+	return $html;
+}
+
+/*
+ * Slice 13 (17 Oct): Wikimedia Commons photos for trip-page cards that had none (owner, 17 Oct: "the ones without
+ * photos, look on Wikipedia"; dish photos approved the same day). Each shows the exact place or dish, under a free
+ * licence, credited under the photo with a link to its Commons page. Preview only (?ux=2). Sources:
+ * docs/prototypes/journey-v4/wpick.json and the dish files listed in docs/IMAGE-QUALITY-AUDIT-2026-10-02.md §6.
+ */
+const ER_UX2_COMMONS_CARDS = [
+	'exp-valley' => [
+		'what-you-do' => [
+			2 => [ 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Colosos_de_Memn%C3%B3n%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_131.jpg/960px-Colosos_de_Memn%C3%B3n%2C_Luxor%2C_Egipto%2C_2022-04-03%2C_DD_131.jpg', 'Photo: Diego Delso, Wikimedia Commons, CC BY-SA 4.0', 'https://commons.wikimedia.org/wiki/File:Colosos_de_Memn%C3%B3n,_Luxor,_Egipto,_2022-04-03,_DD_131.jpg' ],
+		],
+	],
+	'exp-food' => [
+		'what-youll-taste' => [
+			0 => [ 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Egyptian_food_Koshary.jpg/960px-Egyptian_food_Koshary.jpg', 'Photo: Dina Said, Wikimedia Commons, CC BY-SA 4.0', 'https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg' ],
+			1 => [ 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Foul_Mohamed_Ahmed_-_foul.jpg/960px-Foul_Mohamed_Ahmed_-_foul.jpg', 'Photo: Marsupium, Wikimedia Commons, CC BY-SA 4.0', 'https://commons.wikimedia.org/wiki/File:Foul_Mohamed_Ahmed_-_foul.jpg' ],
+			2 => [ 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Hawawshi_Main_1_Mohamed_Moheyeldin.jpg/960px-Hawawshi_Main_1_Mohamed_Moheyeldin.jpg', 'Photo: Mohamed Moheyeldin, Wikimedia Commons, CC BY-SA 4.0', 'https://commons.wikimedia.org/wiki/File:Hawawshi_Main_1_Mohamed_Moheyeldin.jpg' ],
+			3 => [ 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Egyptian-food-16.jpg/960px-Egyptian-food-16.jpg', 'Photo: Mohamed Ouda, Wikimedia Commons, CC BY-SA 4.0', 'https://commons.wikimedia.org/wiki/File:Egyptian-food-16.jpg' ],
+		],
+	],
+	'exp-alexandria' => [
+		'what-you-see' => [
+			2 => [ 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50852603281.jpg/960px-Catacombs_of_Kom_El_Shoqafa%2C_Alexandria%2C_Egypt_-_50852603281.jpg', 'Photo: Following Hadrian, Wikimedia Commons, CC BY-SA 2.0', 'https://commons.wikimedia.org/wiki/File:Catacombs_of_Kom_El_Shoqafa,_Alexandria,_Egypt_-_50852603281.jpg' ],
+			4 => [ 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Montaza_Palace%2C_Alexandria%2C_Egypt_-_Murat_%C3%96zsoy_2018.jpg/960px-Montaza_Palace%2C_Alexandria%2C_Egypt_-_Murat_%C3%96zsoy_2018.jpg', 'Photo: Murat Özsoy 1958, Wikimedia Commons, CC BY-SA 4.0', 'https://commons.wikimedia.org/wiki/File:Montaza_Palace,_Alexandria,_Egypt_-_Murat_%C3%96zsoy_2018.jpg' ],
+		],
+	],
+	'exp-safari' => [
+		'what-you-see' => [
+			0 => [ 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Black_Desert%2C_Egypt_17.jpg/960px-Black_Desert%2C_Egypt_17.jpg', 'Photo: Viktor Lazić, Wikimedia Commons, CC BY-SA 4.0', 'https://commons.wikimedia.org/wiki/File:Black_Desert,_Egypt_17.jpg' ],
+			1 => [ 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Crystal_Mountain%2C_White_Desert%2C_Egypt_28.jpg/960px-Crystal_Mountain%2C_White_Desert%2C_Egypt_28.jpg', 'Photo: Viktor Lazić, Wikimedia Commons, CC BY-SA 4.0', 'https://commons.wikimedia.org/wiki/File:Crystal_Mountain,_White_Desert,_Egypt_28.jpg' ],
+			3 => [ 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/White_Desert%2C_Rock_formations_in_desert_landscape%2C_Egypt.jpg/960px-White_Desert%2C_Rock_formations_in_desert_landscape%2C_Egypt.jpg', 'Photo: Vyacheslav Argenberg, Wikimedia Commons, CC BY 4.0', 'https://commons.wikimedia.org/wiki/File:White_Desert,_Rock_formations_in_desert_landscape,_Egypt.jpg' ],
+		],
+	],
+];

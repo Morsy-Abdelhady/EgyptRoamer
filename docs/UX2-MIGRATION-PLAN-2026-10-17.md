@@ -203,8 +203,9 @@
 | 9 | Assistant: place chips, answer cards with photos, "See all trips in {place}" | theme 1.2.87 |
 | 10 | Phone menu re-open bug (everyone) | theme 1.2.87 |
 | — | Fix: Trips & tours was 751px wide on phones (preview since 1.2.82) | theme 1.2.87 |
-| 11 | Content fixes: Siwa's length line, a place for the White Desert trip | next |
-| 12 | Shorter homepage (preview) | |
-| 13 | Commons photos on trip pages (preview) | |
+| 11 | White Desert in the Trip Builder (from Cairo, the partners' departure). Siwa's length: right in the preview (options' length); the visitors' line is fixed when the preview is switched on | theme 1.2.88 |
+| 12 | Shorter homepage (preview): 14.5 screens instead of 18 | theme 1.2.88 |
+| 13 | Commons photos on trip cards, with credits (preview) | theme 1.2.88 |
 | 14 | Nile cruise trip (Core offers, 8 languages) | |
-| 15 | Save this plan | |
+| 15 | Save this plan (preview), saved items open their link | theme 1.2.88 |
+| — | Fix (everyone): homepage hotel rows had empty photos | theme 1.2.88 |

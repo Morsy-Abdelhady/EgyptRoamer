@@ -121,7 +121,9 @@ function er_payload_offer( int $offer_id, string $placement ): array {
 		'href'      => $o['go'],
 		'priceText' => $o['price_text'],
 		'unitText'  => $o['unit_text'],
-		'image'     => er_payload_image( $o['image_id'] ?: er_offer_fallback_image( $offer_id ), er_stock_id_for( $offer_id ) ),
+		// A hotel offer has no seed photo: its area's approved photo (offer-facts "stock"), as in the booking panel.
+		// Without it the homepage's hotel rows showed empty boxes (found 17 Oct).
+		'image'     => er_payload_image( $o['image_id'] ?: er_offer_fallback_image( $offer_id ), er_offer_stock_fallback( $offer_id ) ),
 		'track'     => [
 			'offer'     => $o['slug'],
 			'provider'  => $o['provider_id'] ? (string) get_post_field( 'post_name', $o['provider_id'] ) : '',
@@ -130,6 +132,19 @@ function er_payload_offer( int $offer_id, string $placement ): array {
 			'intent'    => er_offer_intent( $offer_id ),
 		],
 	];
+}
+
+/**
+ * An offer's approved stock photo: its seed photo, else the area photo in offer-facts ("stock"), else the photo of
+ * the place it belongs to. Hotel offers have no seed photo, and the homepage's hotel rows showed empty boxes.
+ */
+function er_offer_stock_fallback( int $offer_id ): string {
+	$stock = er_stock_id_for( $offer_id );
+	if ( '' === $stock && function_exists( 'er_offer_facts' ) ) {
+		$stock = (string) ( er_offer_facts( $offer_id )['stock'] ?? '' );
+	}
+	$dest = (int) get_post_meta( $offer_id, '_er_destination', true );
+	return '' === $stock && $dest ? er_stock_id_for( $dest ) : $stock;
 }
 
 /** An offer without its own image uses the image of the tour/experience/activity/destination it belongs to. */

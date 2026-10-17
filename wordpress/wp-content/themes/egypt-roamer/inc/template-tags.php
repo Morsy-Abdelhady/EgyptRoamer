@@ -792,7 +792,10 @@ function er_card_photos( string $html, int $post_id ): string {
 		$map  = $file && is_readable( $file ) ? ( json_decode( (string) file_get_contents( $file ), true ) ?: [] ) : []; // phpcs:ignore WordPress.WP.AlternativeFunctions
 	}
 	$seed = preg_replace( '/-(ar|de|fr|it|es|ru|zh)$/', '', (string) get_post_meta( $post_id, '_er_seed_id', true ) );
-	foreach ( (array) ( $map[ $seed ] ?? [] ) as $anchor => $photos ) {
+	// New journey preview: Commons photos for cards with none (inc/ux2-trips.php), credited under the photo.
+	$commons  = er_ux2() && defined( 'ER_UX2_COMMONS_CARDS' ) ? (array) ( ER_UX2_COMMONS_CARDS[ $seed ] ?? [] ) : [];
+	$sections = (array) ( $map[ $seed ] ?? [] ) + array_fill_keys( array_keys( $commons ), [] );
+	foreach ( $sections as $anchor => $photos ) {
 		$h = strpos( $html, 'id="' . $anchor . '"' );
 		$u = false !== $h ? strpos( $html, '<ul class="wp-block-list er-points">', $h ) : false;
 		$e = false !== $u ? strpos( $html, '</ul>', $u ) : false;
@@ -801,8 +804,14 @@ function er_card_photos( string $html, int $post_id ): string {
 			continue;
 		}
 		$i    = 0;
-		$list = preg_replace_callback( '#<li>#', static function () use ( &$i, $photos ): string {
-			$id = (string) ( $photos[ $i++ ] ?? '' );
+		$extra = (array) ( $commons[ $anchor ] ?? [] );
+		$list  = preg_replace_callback( '#<li>#', static function () use ( &$i, $photos, $extra ): string {
+			$k  = $i++;
+			$id = (string) ( $photos[ $k ] ?? '' );
+			if ( '' === $id && ! empty( $extra[ $k ] ) ) {
+				[ $src, $credit, $page ] = $extra[ $k ];
+				return '<li class="has-img"><span class="er-points__img"><img src="' . esc_url( $src ) . '" alt="" loading="lazy" decoding="async" /></span><small class="er-points__credit"><a href="' . esc_url( $page ) . '" target="_blank" rel="noopener">' . esc_html( $credit ) . '</a></small>';
+			}
 			return '' === $id ? '<li>' : '<li class="has-img"><span class="er-points__img">' . er_stock_img( $id, '', [ 'sizes' => '(max-width: 700px) 92vw, 360px' ], [ 400, 640, 800 ], 0.62 ) . '</span>';
 		}, substr( $html, $u, $e - $u ) );
 		$html = substr_replace( $html, $list, $u, $e - $u );

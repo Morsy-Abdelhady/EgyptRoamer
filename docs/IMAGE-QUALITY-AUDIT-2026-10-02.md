@@ -144,3 +144,19 @@ Searched and **not** used on 2026-10-16:
 | 2026-10-17 | Guide card and hero `temples-of-aswan-and-lake-nasser` (preview `?ux=2` only, theme 1.2.84) | 1738580426867-03fa8c8b5288 | location tag read on the photo page on 17 Oct (Martijn Vonk); list in `docs/prototypes/journey-v4/guide-photos.py` | "Philae, Aswan" | Unsplash (free) | Replaces a photo repeated on the Travel Guide index |
 | 2026-10-17 | Guide card and hero `10-days-in-egypt-itinerary` (preview `?ux=2` only, theme 1.2.84) | 1610331800877-462a21600420 | location tag read on the photo page on 17 Oct (Artem Bryzgalov); list in `docs/prototypes/journey-v4/guide-photos.py` | "Luxor Temple" | Unsplash (free) | Replaces a photo repeated on the Travel Guide index |
 | 2026-10-17 | Guide card and hero `day-trips-from-cairo` (preview `?ux=2` only, theme 1.2.84) | 1738512156462-408182814b21 | location tag read on the photo page on 17 Oct (Martijn Vonk); list in `docs/prototypes/journey-v4/guide-photos.py` | "Pyramid of Djoser" | Unsplash (free) | Replaces a photo repeated on the Travel Guide index |
+
+## 6. Wikimedia Commons photos on trip cards (owner approved, 17 Oct; preview `?ux=2` only, theme 1.2.88)
+Hot-linked from Commons, credited under each photo with a link to its file page. The licences are CC BY or CC BY-SA, and the credit names the photographer and the licence.
+
+| Trip, card | Commons file | Author | Licence |
+|---|---|---|---|
+| Food tour, Koshari | File:Egyptian food Koshary.jpg | Dina Said | CC BY-SA 4.0 |
+| Food tour, Ful medames | File:Foul Mohamed Ahmed - foul.jpg | Marsupium | CC BY-SA 4.0 |
+| Food tour, Hawawshi | File:Hawawshi Main 1 Mohamed Moheyeldin.jpg | Mohamed Moheyeldin | CC BY-SA 4.0 |
+| Food tour, Feteer | File:Egyptian-food-16.jpg | Mohamed Ouda | CC BY-SA 4.0 |
+| Valley, Colossi of Memnon | File:Colosos de Memnón, Luxor, Egipto, 2022-04-03, DD 131.jpg | Diego Delso | CC BY-SA 4.0 |
+| Alexandria, Kom el-Shoqafa | File:Catacombs of Kom El Shoqafa, Alexandria, Egypt - 50852603281.jpg | Following Hadrian | CC BY-SA 2.0 |
+| Alexandria, Montaza | File:Montaza Palace, Alexandria, Egypt - Murat Özsoy 2018.jpg | Murat Özsoy 1958 | CC BY-SA 4.0 |
+| White Desert, Black Desert | File:Black Desert, Egypt 17.jpg | Viktor Lazić | CC BY-SA 4.0 |
+| White Desert, Crystal Mountain | File:Crystal Mountain, White Desert, Egypt 28.jpg | Viktor Lazić | CC BY-SA 4.0 |
+| White Desert, the White Desert | File:White Desert, Rock formations in desert landscape, Egypt.jpg | Vyacheslav Argenberg | CC BY 4.0 |
