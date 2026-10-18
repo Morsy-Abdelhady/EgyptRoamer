@@ -60,3 +60,27 @@ Every search-recovery action, with what it is expected to do and how to check it
 **Baseline at the start** (Search Console, 29 Sep–12 Oct):
 - 2 clicks, 37 impressions, average position 38.7, CTR 5.4%;
 - 30 pages indexed, 162 not.
+
+## 2026-10-18: Bing follow-up (scheduled task `egypt-roamer-bing-check-oct18`), blocked
+
+| Change | Where | Verified | Expected effect | Check on |
+|---|---|---|---|---|
+| **Not done:** Search Performance, Site Explorer, URL Inspection (`/` and `/guides/abu-simbel-from-aswan/`), URL Submission and the wp-admin IndexNow line | Bing WMT, wp-admin | Claude in Chrome was not connected (no browser listed, two retries) | — | Next run, once Edge is connected |
+| Pre-checked the 12 URLs to submit: each returns 200 with no `noindex`; Arabic URLs taken from `hreflang="ar"` | Production, public fetch | 12/12 `200` | Ready to paste into URL Submission | Next run |
+
+URLs ready for Bing URL Submission (12):
+
+```
+https://egyptroamer.com/guides/day-trips-from-cairo/
+https://egyptroamer.com/guides/nile-cruise-or-hotels-luxor-aswan/
+https://egyptroamer.com/guides/snorkelling-hurghada-or-sharm/
+https://egyptroamer.com/guides/white-desert-night/
+https://egyptroamer.com/experiences/alexandria-day-trip-from-cairo/
+https://egyptroamer.com/experiences/ras-mohammed-snorkelling-from-sharm/
+https://egyptroamer.com/ar/guides/%d8%a3%d9%81%d8%b6%d9%84-%d8%b1%d8%ad%d9%84%d8%a7%d8%aa-%d8%a7%d9%84%d9%8a%d9%88%d9%85-%d8%a7%d9%84%d9%88%d8%a7%d8%ad%d8%af-%d9%85%d9%86-%d8%a7%d9%84%d9%82%d8%a7%d9%87%d8%b1%d8%a9/
+https://egyptroamer.com/ar/guides/%d8%b1%d8%ad%d9%84%d8%a9-%d9%86%d9%8a%d9%84%d9%8a%d8%a9-%d8%a3%d9%85-%d9%81%d9%86%d8%a7%d8%af%d9%82%d8%9f-%d9%85%d9%86-%d8%a7%d9%84%d8%a3%d9%82%d8%b5%d8%b1-%d8%a5%d9%84%d9%89/
+https://egyptroamer.com/ar/guides/%d8%a7%d9%84%d8%b3%d9%86%d9%88%d8%b1%d9%83%d9%84%d9%8a%d9%86%d8%ac-%d9%81%d9%8a-%d9%85%d8%b5%d8%b1-%d8%a7%d9%84%d8%ba%d8%b1%d8%af%d9%82%d8%a9-%d8%a3%d9%85-%d8%b4%d8%b1%d9%85/
+https://egyptroamer.com/ar/guides/%d9%84%d9%8a%d9%84%d8%a9-%d9%81%d9%8a-%d8%a7%d9%84%d8%b5%d8%ad%d8%b1%d8%a7%d8%a1-%d8%a7%d9%84%d8%a8%d9%8a%d8%b6%d8%a7%d8%a1-%d9%85%d8%a7%d8%b0%d8%a7-%d8%aa%d8%aa%d9%88%d9%82%d8%b9/
+https://egyptroamer.com/ar/experiences/%d8%b1%d8%ad%d9%84%d8%a9-%d9%8a%d9%88%d9%85-%d8%a5%d9%84%d9%89-%d8%a7%d9%84%d8%a5%d8%b3%d9%83%d9%86%d8%af%d8%b1%d9%8a%d8%a9-%d9%85%d9%86-%d8%a7%d9%84%d9%82%d8%a7%d9%87%d8%b1%d8%a9/
+https://egyptroamer.com/ar/experiences/%d8%b3%d9%86%d9%88%d8%b1%d9%83%d9%84%d9%8a%d9%86%d8%ac-%d9%81%d9%8a-%d8%b1%d8%a3%d8%b3-%d9%85%d8%ad%d9%85%d8%af-%d9%85%d9%86-%d8%b4%d8%b1%d9%85-%d8%a7%d9%84%d8%b4%d9%8a%d8%ae/
+```
