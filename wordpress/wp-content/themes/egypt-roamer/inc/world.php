@@ -338,7 +338,6 @@ function er_world_mini( int $id ): string {
 add_action( 'wp_enqueue_scripts', static function (): void {
 	if ( er_world_on() && is_front_page() ) {
 		wp_enqueue_style( 'er-home-story', ER_THEME_URI . '/assets/css/home-story.css', [ 'er-pages' ], er_asset_ver( 'assets/css/home-story.css' ) );
-		wp_enqueue_script( 'er-home-story', ER_THEME_URI . '/assets/js/home-story.js', [], er_asset_ver( 'assets/js/home-story.js' ), [ 'in_footer' => true, 'strategy' => 'defer' ] );
 	}
 }, 20 );
 
@@ -640,3 +639,39 @@ add_action( 'wp_enqueue_scripts', static function (): void {
 		wp_enqueue_style( 'er-guide-story', ER_THEME_URI . '/assets/css/guide-story.css', [ 'er-pages' ], er_asset_ver( 'assets/css/guide-story.css' ) );
 	}
 }, 20 );
+
+/*
+ * Proposal 4 on the old pinned scenes (owner, 18 Oct: "the scroll between the slides stays like the old design"):
+ * each scene ends in its chapter's trips, where the old "Roamer pick" sat, so the strip comes and goes with the
+ * scene's own animation (journey.js animates .scene__pick); the hero shows the story's index.
+ */
+function er_world_scene_trips( int $n ): void {
+	$ids = er_world_chapter_trips( $n );
+	if ( ! $ids ) {
+		return;
+	}
+	$place = er_world_chapter_place( $n );
+	$url   = $place ? er_ux2_trip_url( [ 'destination' => $place, 'len' => '', 'private' => false, 'pickup' => false ] ) : (string) get_post_type_archive_link( 'er_experience' );
+	echo '<section class="scene__pick scene__trips" aria-label="' . esc_attr( er_t( 'Trips in this chapter' ) ) . '"><div class="scene__trips-h"><p>' . esc_html( er_t( 'Trips in this chapter' ) ) . '</p><strong>' . esc_html( 1 === count( $ids ) ? er_t( '1 trip' ) : er_t( '{n} trips', [ 'n' => (string) count( $ids ) ] ) ) . '</strong>'
+		. '<a href="' . esc_url( $url ) . '">' . esc_html( $place ? er_t( 'See all trips in {place}', [ 'place' => get_the_title( $place ) ] ) : er_t( 'See all trips' ) ) . ' <span aria-hidden="true">→</span></a></div><div class="scene__trips-list">';
+	foreach ( $ids as $id ) {
+		echo er_world_mini( $id ); // phpcs:ignore WordPress.Security.EscapeOutput
+	}
+	echo '</div></section>';
+}
+
+function er_world_story_index(): void {
+	echo '<nav class="story-index" data-hero-fade aria-label="' . esc_attr( er_t( 'Journey chapters' ) ) . '"><p class="story-index__t">' . esc_html( er_t( 'The story · {n} chapters', [ 'n' => '4' ] ) ) . '</p><ol>';
+	foreach ( [ 1 => 'pyramids', 2 => 'nile', 3 => 'desert', 4 => 'redsea' ] as $n => $scene ) {
+		$c = count( er_world_chapter_trips( $n ) );
+		echo '<li><a href="#scene-' . $scene . '" data-rail="' . (int) ( $n - 1 ) . '"><b>' . esc_html( sprintf( '%02d', $n ) ) . '</b><span>' . esc_html( er_home( "scene{$n}_title" ) ) . '</span>' . ( $c ? '<small>' . esc_html( 1 === $c ? er_t( '1 trip' ) : er_t( '{n} trips', [ 'n' => (string) $c ] ) ) . '</small>' : '' ) . '</a></li>';
+	}
+	echo '</ol></nav>';
+}
+
+add_filter( 'body_class', static function ( array $c ): array {
+	if ( er_world_on() && is_front_page() ) {
+		$c[] = 'er-story';
+	}
+	return $c;
+} );

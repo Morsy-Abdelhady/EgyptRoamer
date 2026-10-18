@@ -95,10 +95,9 @@ foreach ( [ 'hotels' => [ 'i-bed', 'Hotels' ], 'tours' => [ 'i-compass', 'Tours 
 	}
 }
 $er_planner_on = (bool) er_home( 'planner_enabled' );
-$er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 4: the story's chapters instead of the pinned scenes
+$er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 4 (owner, 18 Oct): the old pinned scenes and their scroll, each ending in its trips
 ?>
 
-<?php if ( ! $er_story ) : ?>
 <aside class="rail" id="rail" aria-label="<?php echo esc_attr( er_t( 'Journey chapters' ) ); ?>">
 	<ol class="rail__list">
 		<?php foreach ( [ 1 => 'pyramids', 2 => 'nile', 3 => 'desert', 4 => 'redsea' ] as $er_n => $er_id ) : ?>
@@ -108,12 +107,8 @@ $er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 
 	<span class="rail__track" aria-hidden="true"><i id="rail-fill"></i></span>
 	<p class="rail__scroll"><?php echo er_icon( 'i-mouse' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span><?php er_e( 'Scroll to explore' ); ?></span></p>
 </aside>
-<?php endif; ?>
 
 <main id="main">
-<?php if ( $er_story ) : ?>
-	<?php get_template_part( 'template-parts/home-story', null, [ 'img' => $er_scene_img ] ); ?>
-<?php else : ?>
 	<section class="journey" id="top" aria-label="<?php echo esc_attr( er_t( 'Egypt as a journey' ) ); ?>">
 		<?php // The pin's spacer is part of the markup: ScrollTrigger uses it instead of re-parenting the stage, which made Chrome re-report the hero as a new Largest Contentful Paint (journey.js). ?>
 		<div class="journey__spacer">
@@ -131,7 +126,7 @@ $er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 
 				<svg class="scene__fg scene__fg--dune" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path d="M0 150C180 110 320 90 520 118s380 70 560 44 260-58 360-54V260H0Z" /></svg>
 				<div class="scene__shade" aria-hidden="true"></div>
 				<?php $er_scene_head( 1, 'btn--primary' ); ?>
-				<?php $er_pick( 1 ); ?>
+				<?php if ( $er_story ) { er_world_scene_trips( 1 ); } else { $er_pick( 1 ); } ?>
 				<p class="scene__coords"><?php echo esc_html( er_home( 'scene1_coords' ) ); ?></p>
 			</article>
 
@@ -157,7 +152,7 @@ $er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 
 					</svg>
 					<p class="river-cue__meta"><?php er_e( '4 nights · 210 km · 5 temples' ); ?></p>
 				</figure>
-				<?php $er_pick( 2 ); ?>
+				<?php if ( $er_story ) { er_world_scene_trips( 2 ); } else { $er_pick( 2 ); } ?>
 				<p class="scene__coords"><?php echo esc_html( er_home( 'scene2_coords' ) ); ?></p>
 			</article>
 
@@ -167,7 +162,7 @@ $er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 
 				<canvas class="scene__canvas" data-fx="sand" aria-hidden="true"></canvas>
 				<div class="scene__shade" aria-hidden="true"></div>
 				<?php $er_scene_head( 3, 'btn--ghost' ); ?>
-				<?php $er_pick( 3 ); ?>
+				<?php if ( $er_story ) { er_world_scene_trips( 3 ); } else { $er_pick( 3 ); } ?>
 				<p class="scene__coords"><?php echo esc_html( er_home( 'scene3_coords' ) ); ?></p>
 			</article>
 
@@ -181,7 +176,7 @@ $er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 
 				<canvas class="scene__canvas" data-fx="bubbles" aria-hidden="true"></canvas>
 				<div class="scene__shade" aria-hidden="true"></div>
 				<?php $er_scene_head( 4, 'btn--ghost' ); ?>
-				<?php $er_pick( 4 ); ?>
+				<?php if ( $er_story ) { er_world_scene_trips( 4 ); } else { $er_pick( 4 ); } ?>
 				<p class="scene__coords"><?php echo esc_html( er_home( 'scene4_coords' ) ); ?></p>
 			</article>
 
@@ -200,8 +195,11 @@ $er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 
 						<span class="hero__copy-more"><?php echo esc_html( er_home( 'hero_copy_more' ) ); ?></span>
 					</p>
 					<div class="hero__ctas" data-hero-fade>
-						<a href="#journey-start" class="btn btn--primary btn--lg" data-magnetic data-scroll-to="journey">
-							<?php echo esc_html( er_home( 'hero_cta' ) ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+						<?php if ( $er_story ) : ?>
+							<a href="<?php echo esc_url( (string) get_post_type_archive_link( 'er_experience' ) ); ?>" class="btn btn--primary btn--lg"><?php er_e( 'Choose a trip' ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
+						<?php endif; ?>
+						<a href="#journey-start" class="btn <?php echo $er_story ? 'btn--ghost' : 'btn--primary'; ?> btn--lg" data-magnetic data-scroll-to="journey">
+							<?php echo esc_html( $er_story ? er_t( 'Start the story' ) : er_home( 'hero_cta' ) ); ?> <?php echo $er_story ? '<span aria-hidden="true">↓</span>' : er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 						</a>
 						<?php if ( er_home( 'film_enabled' ) ) : ?>
 							<button class="play" type="button" data-open="film" aria-label="<?php echo esc_attr( er_t( 'Watch the Film' ) ); ?>">
@@ -212,6 +210,7 @@ $er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 
 					</div>
 <?php er_ux2_hero_places(); // New journey preview: the places, one tap from the hero (inc/ux2-trips.php). ?>				</div>
 
+				<?php if ( $er_story ) { er_world_story_index(); } ?>
 				<p class="hero__note" data-hero-fade aria-hidden="true">
 					<?php echo implode( '<br />', array_map( static fn ( $l ) => '<em>' . esc_html( $l ) . '</em>', preg_split( '/\r\n|\r|\n/', (string) er_home( 'hero_note' ) ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 				</p>
@@ -265,7 +264,6 @@ $er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 
 		</div>
 	</section>
 	<span id="journey-start" aria-hidden="true"></span>
-<?php endif; ?>
 <?php
 	// New journey, B1 (owner, 16 Oct): the experiences rail right after the scenes, so the first trip is about six
 	// screens down instead of twelve. Only the order changes: the sections between are held and printed after it.
