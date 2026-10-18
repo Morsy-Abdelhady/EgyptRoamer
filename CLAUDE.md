@@ -3,7 +3,7 @@
 An affiliate-first travel publication about Egypt, built on WordPress and live at https://egyptroamer.com (GoDaddy Managed WordPress). The site takes no bookings and no payments.
 
 ## Current state: read this first
-- **Latest handoff:** `docs/HANDOFF-2026-10-16.md`. It says what is done, what is in progress (Viator photos on branch `wip/viator-photos`, not deployed) and what is next. Since 2026-10-17 the new booking journey is on for every visitor (Egypt Roamer → Settings → New booking journey); the move of the proposal 4 screens is logged in `docs/UX2-MIGRATION-PLAN-2026-10-17.md`.
+- **Latest handoff:** `docs/HANDOFF-2026-10-18.md`. Proposal 4 is live for every visitor (Settings → Proposal 4 design, option `er_world`; theme 1.2.93). **Next:** make every card and section match the prototype, listed in `docs/PROTOTYPE-PARITY-2026-10-18.md` (the owner's open complaint). Compare with side-by-side screenshots (`tools/qa/parity/`) before calling anything done.
 - **Live partners:**
   - Viator (tours, 17 offers);
   - GetYourGuide (tours, 9 offers);
