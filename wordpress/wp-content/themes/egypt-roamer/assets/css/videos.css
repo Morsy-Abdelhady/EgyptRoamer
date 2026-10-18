@@ -1,0 +1,32 @@
+/* Proposal 4's videos (inc/world.php er_world_video, assets/js/videos.js): a video over the photo it belongs to,
+   shown once it plays; each section's pause / play button and the credit behind an "i". */
+.wvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease;pointer-events:none}
+.wvid.is-playing{opacity:1}
+.moods__vid{z-index:1}
+.moods__vid:not(.is-on){opacity:0!important}
+
+.vctl{position:absolute;z-index:4;top:calc(var(--nav-h,72px) + 14px);inset-inline-end:16px;display:flex;align-items:center;gap:6px}
+.vctl[hidden]{display:none}
+.vctl button{all:unset;box-sizing:border-box;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);color:#fff;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .2s}
+.vctl button:hover{background:rgba(0,0,0,.65)}
+.vctl button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.vctl svg{width:14px;height:14px;fill:currentColor}
+.vctl .vctl__play{display:none}
+.vctl__btn.is-off .vctl__play{display:block}
+.vctl__btn.is-off .vctl__pause{display:none}
+.vctl__i{font:600 13px Georgia,serif}
+.vctl__tip{position:absolute;top:38px;inset-inline-end:0;white-space:nowrap;font:500 11.5px var(--font-sans);background:rgba(0,0,0,.85);color:#fff;border-radius:6px;padding:5px 9px;opacity:0;pointer-events:none;transition:opacity .2s}
+.vctl__i:hover + .vctl__tip,.vctl__i:focus-visible + .vctl__tip{opacity:1}
+
+/* where they sit */
+.tbanner .wvid{z-index:0}
+.tbanner .vctl{top:12px}
+.papy__vid{position:relative;margin-top:16px;aspect-ratio:16/9;max-width:100%;border-radius:14px;overflow:hidden;background:#2a2014}
+.papy__vid .vctl{top:10px;inset-inline-end:10px}
+.jstage .vstepctl{position:absolute;z-index:4;inset:auto 0 0 auto}
+.jstage .vstepctl:not(.on){display:none}
+.jstage .vstepctl .vctl{top:auto;bottom:22px;inset-inline-end:24px}
+.jstage .vstepctl .vctl__tip{top:auto;bottom:38px}
+.moods .vctl--mood{top:calc(var(--nav-h,72px) + 14px)}
+@media (max-width:600px){.vctl{top:calc(var(--nav-h,64px) + 10px);inset-inline-end:12px}.jstage .vstepctl .vctl{bottom:auto;top:calc(var(--nav-h,64px) + 10px)}.jstage .vstepctl .vctl__tip{bottom:auto;top:38px}}
+@media (prefers-reduced-motion:reduce){.wvid{transition:none}}

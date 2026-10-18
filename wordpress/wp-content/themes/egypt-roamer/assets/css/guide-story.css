@@ -1,0 +1,39 @@
+/* Proposal 4, the guide article (inc/world.php er_world_guide_photos, er_world_guide_end), ported from
+   docs/prototypes/journey-v4 (openGuide: "See the place", "Ready to go?"). */
+.gplace{margin:22px 0 26px}
+.gplace__t{margin:0 0 10px;font:600 11.5px var(--font-sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep,#a8871f)}
+.gplace__g{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.gplace--1 .gplace__g{grid-template-columns:1fr}
+.gplace--3 .gplace__g{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gplace figure{margin:0;min-width:0}
+.gplace img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:12px;background:var(--stone)}
+.gplace--1 img{aspect-ratio:16/9}
+.gplace figcaption{margin-top:6px;font-size:13px;line-height:1.4;color:var(--text-muted)}
+.gplace figcaption span{display:block;color:var(--charcoal)}
+.gplace figcaption small{font-size:11.5px}
+@media (max-width:600px){.gplace--3 .gplace__g{grid-template-columns:repeat(2,minmax(0,1fr))}.gplace--3 figure:last-child{grid-column:1/-1}}
+
+.gend{margin:48px 0 8px;border-radius:20px;overflow:hidden;color:var(--white);background:radial-gradient(120% 140% at 0% 0%,color-mix(in srgb,var(--gold) 16%,#1a1610) 0%,#14110c 55%,#0f0d09 100%)}
+.gend__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;padding:44px 40px;align-items:start}
+.gend .eyebrow{margin:0;font:600 12px var(--font-sans);letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.gend h2{margin:10px 0 14px;font:500 clamp(30px,3.2vw,42px)/1.08 var(--font-serif);color:var(--white);text-wrap:balance}
+.gend__chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.gend__chips span{font-size:13px;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:4px 11px;color:#efe7d6}
+.gend__acts{display:flex;flex-wrap:wrap;gap:12px}
+.gend .btn--ghost{color:var(--white);border-color:rgba(255,255,255,.55)}
+.gend__list{display:grid;gap:10px;min-width:0}
+.gend__opt{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.05)}
+.gend__opt > div{min-width:0}
+.gend__opt b{display:block;font:500 17px/1.25 var(--font-serif)}
+.gend__opt small{display:block;margin-top:4px;font-size:12.5px;color:#cfc6b4}
+.gend .btn--light{flex:none;background:var(--white);color:var(--charcoal);border:0}
+.gend .btn--light:hover{background:var(--sand)}
+.gend .disclosure{color:#bdb4a2;font-size:12px}
+.gend .disclosure a{color:inherit}
+.gend .mini{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;padding:8px;border-radius:12px;background:rgba(255,255,255,.95);color:var(--charcoal);text-decoration:none}
+.gend .mini img,.gend .mini__ph{width:64px;height:64px;border-radius:9px;object-fit:cover;background:var(--stone)}
+.gend .mini b{display:block;font:500 15.5px/1.25 var(--font-serif)}
+.gend .mini__b > span{display:block;font-size:12.5px;color:var(--text-muted);margin-top:3px}
+.gend .mini em{font-style:normal;color:var(--gold-deep,#a8871f);font-weight:600}
+@media (max-width:900px){.gend__in{grid-template-columns:1fr;padding:30px 22px;gap:24px}}
+@media (max-width:600px){.gend{border-radius:16px;margin-inline:-4px}.gend__opt{flex-direction:column;align-items:stretch}.gend__opt .btn{justify-content:center;min-height:44px}.gend__acts .btn{flex:1 1 100%;justify-content:center}}

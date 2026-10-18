@@ -162,3 +162,89 @@ Hot-linked from Commons, credited under each photo with a link to its file page.
 | White Desert, the White Desert | File:White Desert, Rock formations in desert landscape, Egypt.jpg | Vyacheslav Argenberg | CC BY 4.0 |
 
 | 2026-10-17 | Experience `exp-cruise` (seed extraStock) and GetYourGuide offer `gyg-nile-cruise-aswan-luxor-abu-simbel-balloon` | 1778402153163-fc9a5fd0131a | free Unsplash photo by Kuan L, location tag "Aswan" read on the photo page on 17 Oct (also used in `g-nile-cruise`, prototype `guide-photos.py`) | "Aswan" | Unsplash (free) | A cruise ship on the Nile at Aswan |
+
+## 7. Proposal 4 on the live site (18 Oct 2026, owner: "apply everything")
+
+### Videos (free Pexels videos, served from the theme: `assets/video/`)
+Compressed for the prototype on 16 Oct (≤14 s, ≤960 px, no audio). Each has its own pause button and its credit ("Video: name, Pexels"); with Data Saver or reduced motion it stays a still photo until play is pressed.
+
+| File | Pexels page | Creator | Place as stated | Used for |
+|---|---|---|---|---|
+| giza-camels-clear.mp4 | https://www.pexels.com/video/camels-and-pyramids-under-clear-sky-35695240/ | JORGE MONCADA | Camels resting in front of the iconic Pyramids of Giza | home chapter Pyramids; Giza step 3 |
+| giza-day.mp4 | https://www.pexels.com/video/breathtaking-view-of-giza-pyramids-in-egypt-32537727/ | K (@kelly) | the Giza Pyramids under a bright sky in Egypt | Giza step 1 |
+| giza-aerial.mp4 | https://www.pexels.com/video/aerial-view-on-cairo-and-pyramids-10719817/ | Blanka OG | aerial view of Giza Pyramids with Cairo city skyline | Cairo banner (Trips & tours); Giza step 2 |
+| cairo-nile-sunset.mp4 | https://www.pexels.com/video/sunset-river-cruise-on-cairo-nile-35600486/ | Nada Ashraf | along the Nile in Cairo | Nile dinner opener and step 1 |
+| karnak-columns.mp4 | https://www.pexels.com/video/majestic-columns-of-karnak-temple-luxor-egypt-38144362/ | BOB DK | Karnak Temple in Luxor, Egypt | Luxor banner; Ancient mood; Valley 'Combine it with' |
+| redsea-reef.mp4 | https://www.pexels.com/video/vibrant-coral-reef-in-red-sea-egypt-31991096/ | Adrien JACTA | Red Sea, Egypt | home chapter Red Sea; Beach mood; diving and Ras Mohammed openers |
+| redsea-coral.mp4 | https://www.pexels.com/video/colorful-coral-reefs-in-the-red-sea-31991101/ | Adrien JACTA | Red Sea | Hurghada banner; diving step 'First dive' |
+| redsea-moray.mp4 | https://www.pexels.com/video/vibrant-coral-reef-with-moray-eel-in-the-red-sea-31991100/ | Adrien JACTA | Egypt's Red Sea | diving step 'Second dive' |
+| alexandria-qaitbay.mp4 | https://www.pexels.com/video/tracking-shot-of-the-citadel-of-qaitbay-7579787/ | The Instagrapher | Qaitbay Citadel in Alexandria, Egypt | Alexandria banner; Food mood; Alexandria opener |
+| tanoura.mp4 | https://www.pexels.com/video/traditional-egyptian-tanoura-dance-performance-35112875/ | Magda Ehlers | Egyptian (shows the dance, no city) | Nile dinner step 'A tanoura performance' |
+
+### Guide photos ("See the place", `inc/world-guide-photos.php`)
+Free Unsplash photos whose location tag names the place, read on each photo page on 16–17 Oct (`docs/prototypes/journey-v4/guide-photos.py`). Hot-linked from images.unsplash.com, credited "Photo: name, Unsplash"; the caption shows on English pages.
+
+| Photo id | Location tag as read | Photographer | Caption | Guide#section |
+|---|---|---|---|---|
+| 1502250493741-939d1c76eaad | Abu Simbel Temples | AussieActive | The Great Temple, Abu Simbel | temples-of-aswan-and-lake-nasser#abu-simbel, 10-days-in-egypt-itinerary#at-a-glance, abu-simbel-from-aswan#what-you-will-see |
+| 1521791697570-e1f13d0b81d0 | see journey-v4 README / imgs3 (16 Oct) | Alex Block | Baladi bread, Cairo | cairo-at-night#street-food |
+| 1581248708422-db978024f382 | Karnak, Luxor | Kristina | Karnak from the sacred lake | karnak-and-luxor-temple#karnak |
+| 1584114130913-0852aeb8fe8c | Siwa Oasis | Flo P | Sunset over the old town | siwa-or-white-desert#siwa |
+| 1590657140810-25898a847305 | see journey-v4 README / imgs3 (16 Oct) | mohmed Afify | Egyptian biscuits, Cairo | cairo-at-night#street-food |
+| 1594808815295-52034d585f56 | Alexandria | Flo P | Fishing boats in the Eastern Harbour | day-trips-from-cairo#alexandria |
+| 1595979904086-471704dc0e81 | Al-Rifa’i Mosque, Cairo | Omar Adel | The Al-Rifa’i and Sultan Hassan mosques | cairo-travel-guide#old-city-walk |
+| 1596130535979-eedea4278d29 | Luxor Temple | Artem Bryzgalov | The pylon and obelisk | karnak-and-luxor-temple#luxor-temple |
+| 1601816500593-8f1276479ea6 | Alexandria | George Youssef | Alexandria | 14-days-in-egypt-itinerary#at-a-glance, best-time-to-visit-egypt#regions |
+| 1603889844276-06c9d85b7594 | Pyramid of Menkaure | Shady Hassan | The pyramid of Menkaure | inside-the-pyramids-of-giza#the-pyramids |
+| 1603889947015-f3305fc399ea | Saint Catherine | Shady Hassan | Saint Catherine, South Sinai | mount-sinai-saint-catherine#monastery |
+| 1610331800877-462a21600420 | Luxor Temple | Artem Bryzgalov | The colonnade at sunset | karnak-and-luxor-temple#luxor-temple, 14-days-in-egypt-itinerary#at-a-glance, 10-days-in-egypt-itinerary#at-a-glance, best-time-to-visit-egypt#regions, 7-days-in-egypt-itinerary#at-a-glance |
+| 1612442494156-a5fd9a1c3602 | Siwa Oasis | Omar Mohamed | A lake at Siwa Oasis | great-sand-sea#what-it-is, siwa-or-white-desert#siwa, best-time-to-visit-egypt#regions |
+| 1616967304670-b75cf9ab4582 | see journey-v4 README / imgs3 (16 Oct) | Bogdan Nanescu | Ras Mohammed National Park | red-sea-famous-dive-sites#ras-mohammed |
+| 1622962522206-7b7aa3dc5067 | Pyramid of Djoser | Siddhesh Mangela | The colonnade of the Djoser complex | saqqara-and-dahshur-pyramids#saqqara |
+| 1622962522220-0d9e0d29d62d | see journey-v4 README / imgs3 (16 Oct) | Siddhesh Mangela | Medinet Habu, the painted gateway | luxor-west-bank-temples-and-tombs#medinet-habu, valley-of-the-kings-tombs-and-tickets#west-bank, hidden-gems-in-egypt#nile-valley |
+| 1626692880062-35c360fb6afc | Cairo | Roaming Pictures | Boats on the Nile, Cairo | cairo-at-night#dinner-cruise |
+| 1628231354449-18c8bb735b23 | Mount Sinai, Saint Catherine | Raimond Klavins | Sunrise from Mount Sinai | mount-sinai-saint-catherine#the-mountain |
+| 1633033254409-bd538e785f51 | Philae, Aswan | Dmitrii Zhodzishskii | Philae from the water | temples-of-aswan-and-lake-nasser#aswan |
+| 1633163973863-d44691f969b4 | Abu Simbel | Dmitrii Zhodzishskii | The sanctuary, Abu Simbel | temples-of-aswan-and-lake-nasser#abu-simbel, abu-simbel-from-aswan#what-you-will-see |
+| 1633624646814-3a61ed3e2847 | see journey-v4 README / imgs3 (16 Oct) | Juan Nino | Qaitbay Citadel | day-trips-from-cairo#alexandria |
+| 1634464905162-68ba20cb9a06 | Bent Pyramid | Jens Aber | The Bent Pyramid | saqqara-and-dahshur-pyramids#dahshur, hidden-gems-in-egypt#near-cairo |
+| 1649775827146-1d67524b9465 | Abu Simbel | Jorge Fernández Salas | The colossi, close up | abu-simbel-from-aswan#what-you-will-see |
+| 1660430279942-a26bb4c7d4be | Mount Sinai, Saint Catherine | Artem Labunsky | Walkers resting near the summit | mount-sinai-saint-catherine#the-mountain |
+| 1660705630675-d66d60fdca46 | Edfu | mana5280 | The temple of Horus, Edfu | temples-of-aswan-and-lake-nasser#north, nile-cruise-or-hotels-luxor-aswan#temples, hidden-gems-in-egypt#nile-valley |
+| 1661270288617-f3168c7a18be | Mount Sinai, Saint Catherine | Artem Labunsky | The Sinai mountains from Mount Sinai | mount-sinai-saint-catherine#the-mountain |
+| 1662655558673-4e628102f545 | Karnak Temples, Luxor | 2H Media | The ram-headed sphinxes, Karnak | karnak-and-luxor-temple#karnak |
+| 1666041382402-f428986aea0a | The Hanging Church, Old Cairo | Moaz Elsayed | The steps up to the Hanging Church | coptic-cairo-guide#hanging-church |
+| 1668647014988-fc7434eb6e01 | Alexandria | Noel Schläfli | A tram in Alexandria | day-trips-from-cairo#alexandria |
+| 1669521762357-966bfdcbde1d | Temple of Hatshepsut, Kurna | Hongbin | A balloon over Hatshepsut’s temple, Deir el-Bahari | luxor-west-bank-temples-and-tombs#deir-el-bahari |
+| 1674724545219-29637e41ae04 | Cairo Tower, Zamalek | Ahmed Assem | The Nile at sunset by Cairo Tower | cairo-at-night#felucca, cairo-travel-guide#on-the-river |
+| 1678388104119-18fcd08762f5 | Fortress of Babylon, Old Cairo | 2H Media | The walls of the Fortress of Babylon, Old Cairo | coptic-cairo-guide#babylon |
+| 1678747365854-a0a68fd24725 | The Hanging Church, Old Cairo | 2H Media | Wooden screens inside the Hanging Church | coptic-cairo-guide#hanging-church |
+| 1681158077449-77f23f629f0d | see journey-v4 README / imgs3 (16 Oct) | — | A bay at Sharm El Sheikh | snorkelling-hurghada-or-sharm#sharm |
+| 1681403402826-c514f373a156 | Dahshur | Jordi Orts Segalés | A pyramid at Dahshur | saqqara-and-dahshur-pyramids#dahshur |
+| 1681403419483-a30ff02a385f | The Temple of Horus at Edfu | Jordi Orts Segalés | Light in the temple of Horus | temples-of-aswan-and-lake-nasser#north |
+| 1683891043389-31a5ca0692f8 | see journey-v4 README / imgs3 (16 Oct) | Mahmoud Refaat | Hatshepsut’s temple, the statue terrace | luxor-west-bank-temples-and-tombs#deir-el-bahari, valley-of-the-kings-tombs-and-tickets#west-bank |
+| 1689189830710-1cb48a6efbe3 | Siwa | Faqih Abdul | Sandboards ready by a 4×4, Siwa | great-sand-sea#safari |
+| 1691591403777-128b9a842b8b | see journey-v4 README / imgs3 (16 Oct) | — | The White Desert | siwa-or-white-desert#white-desert, white-desert-night#route |
+| 1693654547147-24d94b4ed4ea | Luxor Temple | Hongbin | A colossal statue, Luxor Temple | karnak-and-luxor-temple#luxor-temple |
+| 1702909171830-2c4dca2ac090 | Abu Simbel | Michael Starkie | Abu Simbel | abu-simbel-from-aswan#rescue |
+| 1707172889437-dc6f210ea44a | Khan el-Khalili, Cairo | Thales Botelho de Sousa | A gateway in Khan el-Khalili | cairo-at-night#old-city, cairo-travel-guide#old-city-walk |
+| 1708785033343-cd54bbb7d2cc | Saqqara | oCDr | Painted reliefs in a Saqqara tomb | saqqara-and-dahshur-pyramids#saqqara |
+| 1709485400031-6094ea4f0bad | The Hanging Church, Old Cairo | Dilip Poddar | The Hanging Church and its twin towers | coptic-cairo-guide#hanging-church |
+| 1722264222007-3e4f1808db3e | see journey-v4 README / imgs3 (16 Oct) | Unsplash | The coast at Hurghada | 10-days-in-egypt-itinerary#at-a-glance, best-time-to-visit-egypt#regions |
+| 1738512156462-408182814b21 | Pyramid of Djoser | Martijn Vonk | The Step Pyramid of Djoser | saqqara-and-dahshur-pyramids#saqqara, day-trips-from-cairo#saqqara, hidden-gems-in-egypt#near-cairo |
+| 1738580426867-03fa8c8b5288 | Philae, Aswan | Martijn Vonk | Philae, Aswan | 14-days-in-egypt-itinerary#at-a-glance, temples-of-aswan-and-lake-nasser#aswan, nile-cruise-or-hotels-luxor-aswan#temples, 7-days-in-egypt-itinerary#at-a-glance |
+| 1758720944577-559b852e8493 | Siwa | kai muro | The mud-brick old town, Siwa | siwa-or-white-desert#siwa, hidden-gems-in-egypt#north-and-west |
+| 1760650454610-0a4c9a5d0bb6 | Pyramids Gardens, Giza | Fatih Beki | Camels before the pyramids | inside-the-pyramids-of-giza#the-pyramids |
+| 1760973519064-fc146406c871 | Al-Azhar Mosque, Cairo | Fatih Beki | The minarets of Al-Azhar | cairo-at-night#old-city, cairo-travel-guide#old-city-walk |
+| 1761561044700-4262beec7d63 | Giza Pyramid Complex | Thomas K | The three pyramids of Giza | inside-the-pyramids-of-giza#the-pyramids, 14-days-in-egypt-itinerary#at-a-glance, 10-days-in-egypt-itinerary#at-a-glance, 7-days-in-egypt-itinerary#at-a-glance |
+| 1761688179162-4c42356857ee | Pyramids of Giza | Fatih Beki | The pyramids of Giza | grand-egyptian-museum-visit#with-the-pyramids, day-trips-from-cairo#giza |
+| 1762858279425-ed77c08d7a1c | see journey-v4 README / imgs3 (16 Oct) | Fatih Beki | Medinet Habu, the carved columns | luxor-west-bank-temples-and-tombs#medinet-habu, valley-of-the-kings-tombs-and-tickets#west-bank |
+| 1767938072548-112727a13266 | Grand Egyptian Museum | Suzi Kim | Tutankhamun’s golden mask | grand-egyptian-museum-visit#what-you-will-see |
+| 1770251693846-4167f4c049c6 | Luxor | Anthony Chen | A felucca on the Nile, Luxor | nile-cruise-or-hotels-luxor-aswan#smaller-boats |
+| 1775225819853-1dc8c22cf4d1 | Aswan | Jean Pierre Cabáni | Feluccas at sunset, Aswan | temples-of-aswan-and-lake-nasser#aswan |
+| 1777189978576-08b21689fcc9 | see journey-v4 README / imgs3 (16 Oct) | Aleksei Filimonov | A colossal statue in the museum’s hall | grand-egyptian-museum-visit#what-you-will-see |
+| 1777551881568-50b1beab7d91 | see journey-v4 README / imgs3 (16 Oct) | Oliver Schwaneberg | Small orange fish over a coral reef, Hurghada | red-sea-famous-dive-sites#before-you-book, snorkelling-hurghada-or-sharm#hurghada |
+| 1777552771426-9ac9f515dc40 | see journey-v4 README / imgs3 (16 Oct) | Oliver Schwaneberg | Yellow fish on a coral reef, Hurghada | snorkelling-hurghada-or-sharm#hurghada |
+| 1777552955794-77aa990a47df | see journey-v4 README / imgs3 (16 Oct) | Oliver Schwaneberg | Two clownfish in a sea anemone, Hurghada | red-sea-famous-dive-sites#before-you-book, snorkelling-hurghada-or-sharm#hurghada |
+| 1777552995899-b0c030a3ef92 | see journey-v4 README / imgs3 (16 Oct) | Oliver Schwaneberg | A small pufferfish by the reef, Hurghada | red-sea-famous-dive-sites#before-you-book, snorkelling-hurghada-or-sharm#hurghada |
+| 1778402153163-fc9a5fd0131a | Aswan | Kuan L | A cruise ship on the Nile, Aswan | nile-cruise-or-hotels-luxor-aswan#cruise |

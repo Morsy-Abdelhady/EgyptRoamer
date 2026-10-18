@@ -338,6 +338,7 @@ function er_world_mini( int $id ): string {
 add_action( 'wp_enqueue_scripts', static function (): void {
 	if ( er_world_on() && is_front_page() ) {
 		wp_enqueue_style( 'er-home-story', ER_THEME_URI . '/assets/css/home-story.css', [ 'er-pages' ], er_asset_ver( 'assets/css/home-story.css' ) );
+		wp_enqueue_script( 'er-home-story', ER_THEME_URI . '/assets/js/home-story.js', [], er_asset_ver( 'assets/js/home-story.js' ), [ 'in_footer' => true, 'strategy' => 'defer' ] );
 	}
 }, 20 );
 
@@ -377,7 +378,8 @@ function er_world_trip_groups( array $ids ): void {
 			$img   = $photo ? er_img( $photo, 'er-hero', [ 'alt' => '', 'sizes' => '(max-width: 1240px) 100vw, 1200px', 'loading' => 'lazy' ] ) : ( '' !== $stock ? er_stock_img( $stock, '', [ 'loading' => 'lazy', 'sizes' => '(max-width: 1240px) 100vw, 1200px' ], [ 800, 1200, 1800 ] ) : '' );
 			$tag   = (string) get_post_meta( $dest, '_er_tagline', true );
 			$best  = (string) get_post_meta( $dest, '_er_best_time', true );
-			echo '<div class="tbanner on-dark">' . $img . '<div class="tbanner__t"><h2 id="tg-' . (int) $dest . '">' . esc_html( get_the_title( $dest ) ) . '</h2>'; // phpcs:ignore WordPress.Security.EscapeOutput
+			$vid = er_world_video_for( 'place', er_world_seed( $dest ) );
+			echo '<div class="tbanner on-dark">' . $img . ( $vid ? er_world_video( $vid, 'wvid tbanner__vid' ) : '' ) . '<div class="tbanner__t"><h2 id="tg-' . (int) $dest . '">' . esc_html( get_the_title( $dest ) ) . '</h2>'; // phpcs:ignore WordPress.Security.EscapeOutput
 			if ( '' !== $tag || '' !== $best ) {
 				echo '<p>' . esc_html( $tag ) . ( '' !== $best ? ' <small>· ' . esc_html( er_t( 'Best time' ) . ' ' . $best ) . '</small>' : '' ) . '</p>';
 			}
@@ -451,5 +453,190 @@ function er_world_place_cards( array $ids ): void {
 add_action( 'wp_enqueue_scripts', static function (): void {
 	if ( er_world_on() && is_post_type_archive( 'er_destination' ) ) {
 		wp_enqueue_style( 'er-places-story', ER_THEME_URI . '/assets/css/trips-story.css', [ 'er-pages' ], er_asset_ver( 'assets/css/trips-story.css' ) );
+	}
+}, 20 );
+
+/*
+ * Proposal 4's videos (owner, 18 Oct: "apply everything"). Free Pexels videos whose page names the place, chosen and
+ * compressed for the prototype (docs/prototypes/journey-v4/README.md; ≤14 s, ≤960 px, no audio), served from the
+ * theme. Each one loads only on screen, has its own pause button and its credit, and stays a still photo with Data
+ * Saver or reduced motion until the reader presses play (assets/js/videos.js). Record: docs/IMAGE-QUALITY-AUDIT §7.
+ */
+
+/** File => creator, as on its Pexels page. */
+function er_world_video_creators(): array {
+	return [
+		'giza-camels-clear'  => 'JORGE MONCADA',
+		'giza-day'           => 'K',
+		'giza-aerial'        => 'Blanka OG',
+		'cairo-nile-sunset'  => 'Nada Ashraf',
+		'karnak-columns'     => 'BOB DK',
+		'redsea-reef'        => 'Adrien JACTA',
+		'redsea-coral'       => 'Adrien JACTA',
+		'redsea-moray'       => 'Adrien JACTA',
+		'alexandria-qaitbay' => 'The Instagrapher',
+		'tanoura'            => 'Magda Ehlers',
+	];
+}
+
+function er_world_video_url( string $file ): string {
+	return ER_THEME_URI . '/assets/video/' . $file . '.mp4?ver=' . rawurlencode( (string) er_asset_ver( 'assets/video/' . $file . '.mp4' ) );
+}
+
+/** The seed of a page, without its language suffix. */
+function er_world_seed( int $post_id ): string {
+	return (string) preg_replace( '/-(ar|de|fr|it|es|ru|zh)$/', '', (string) get_post_meta( $post_id, '_er_seed_id', true ) );
+}
+
+/**
+ * A video over the photo it belongs to, with its controls. $poster: an image URL shown until it plays (for places
+ * with no photo behind it). $attrs: extra attributes on the <video> (data-j for a trip step).
+ */
+function er_world_video( string $file, string $class = 'wvid', string $poster = '', string $attrs = '', bool $controls = true ): string {
+	$who = er_world_video_creators()[ $file ] ?? '';
+	if ( '' === $who ) {
+		return '';
+	}
+	$credit = er_t( 'Video: {name}, Pexels', [ 'name' => $who ] );
+	$html   = '<video class="' . esc_attr( $class ) . '" muted loop playsinline preload="none" aria-hidden="true" data-src="' . esc_url( er_world_video_url( $file ) ) . '"' . ( '' !== $poster ? ' poster="' . esc_url( $poster ) . '"' : '' ) . ( '' !== $attrs ? ' ' . $attrs : '' ) . '></video>';
+	if ( $controls ) {
+		$html .= er_world_video_controls( $credit );
+	}
+	return $html;
+}
+
+/** A section's video controls: pause / play, and the credit behind an "i". */
+function er_world_video_controls( string $credit ): string {
+	static $n = 0;
+	$n++;
+	return '<div class="vctl" data-vctl><button type="button" class="vctl__btn" data-vplay aria-pressed="false" aria-label="' . esc_attr( er_t( 'Pause video' ) ) . '" data-l-pause="' . esc_attr( er_t( 'Pause video' ) ) . '" data-l-play="' . esc_attr( er_t( 'Play video' ) ) . '">'
+		. '<svg viewBox="0 0 24 24" aria-hidden="true" class="vctl__pause"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>'
+		. '<svg viewBox="0 0 24 24" aria-hidden="true" class="vctl__play"><path d="M8 5.5v13l11-6.5z"/></svg></button>'
+		. '<button type="button" class="vctl__i" aria-label="' . esc_attr( er_t( 'Video credit' ) ) . '" aria-describedby="vctl-tip-' . $n . '">i</button>'
+		. '<span class="vctl__tip" role="tooltip" id="vctl-tip-' . $n . '">' . esc_html( $credit ) . '</span></div>';
+}
+
+/** Where each video plays (prototype v4-worlds.js, CHAPTERS, GROUPS, MOOD_VIDEO). */
+function er_world_video_for( string $where, string $key ) {
+	$map = [
+		'chapter' => [ 1 => 'giza-camels-clear', 4 => 'redsea-reef' ],
+		'place'   => [ 'dest-cairo' => 'giza-aerial', 'dest-alexandria' => 'alexandria-qaitbay', 'dest-luxor' => 'karnak-columns', 'dest-hurghada' => 'redsea-coral' ],
+		'opener'  => [ 'exp-dinner' => 'cairo-nile-sunset', 'exp-alexandria' => 'alexandria-qaitbay', 'exp-dive' => 'redsea-reef', 'exp-ras-mohammed' => 'redsea-reef' ],
+		'steps'   => [ 'exp-giza' => [ 0 => 'giza-day', 1 => 'giza-aerial', 2 => 'giza-camels-clear' ], 'exp-dive' => [ 2 => 'redsea-coral', 3 => 'redsea-moray' ], 'exp-dinner' => [ 0 => 'cairo-nile-sunset', 2 => 'tanoura' ] ],
+		'papy'    => [ 'exp-valley' => [ 'combine', 'karnak-columns' ] ],
+		'mood'    => [ 'ancient' => 'karnak-columns', 'beach' => 'redsea-reef', 'food' => 'alexandria-qaitbay' ],
+	];
+	return $map[ $where ][ $key ] ?? null;
+}
+
+add_action( 'wp_enqueue_scripts', static function (): void {
+	if ( ! er_world_on() ) {
+		return;
+	}
+	wp_enqueue_style( 'er-videos', ER_THEME_URI . '/assets/css/videos.css', [ 'er-pages' ], er_asset_ver( 'assets/css/videos.css' ) );
+	wp_enqueue_script( 'er-videos', ER_THEME_URI . '/assets/js/videos.js', [], er_asset_ver( 'assets/js/videos.js' ), [ 'in_footer' => true, 'strategy' => 'defer' ] );
+	if ( is_front_page() ) {
+		$moods = [];
+		foreach ( [ 'ancient', 'beach', 'food' ] as $m ) {
+			$f           = er_world_video_for( 'mood', $m );
+			$moods[ $m ] = [ er_world_video_url( $f ), er_t( 'Video: {name}, Pexels', [ 'name' => er_world_video_creators()[ $f ] ] ) ];
+		}
+		wp_add_inline_script( 'er-videos', 'window.erMoodVideos=' . wp_json_encode( $moods ) . ';window.erVideoLabels=' . wp_json_encode( [ 'pause' => er_t( 'Pause video' ), 'play' => er_t( 'Play video' ), 'credit' => er_t( 'Video credit' ) ] ) . ';', 'before' );
+	}
+}, 21 );
+
+/*
+ * Proposal 4, the guide article (prototype openGuide): "See the place" photos inside the sections, and "Ready to go?"
+ * at the end, with the trip's options (tracked partner links) or the guide's trips.
+ */
+
+/** The guide's photos, after the first paragraph of each section that has some (inc/world-guide-photos.php). */
+function er_world_guide_photos( string $html, int $post_id ): string {
+	static $all = null;
+	if ( null === $all ) {
+		$all = (array) require __DIR__ . '/world-guide-photos.php';
+	}
+	$en   = function_exists( 'pll_get_post' ) ? (int) pll_get_post( $post_id, 'en' ) : $post_id;
+	$slug = (string) get_post_field( 'post_name', $en ?: $post_id );
+	if ( empty( $all[ $slug ] ) ) {
+		return $html;
+	}
+	$english = 'en' === er_lang();
+	foreach ( $all[ $slug ] as $sec => $photos ) {
+		$at = strpos( $html, 'id="' . $sec . '"' );
+		if ( false === $at ) {
+			continue;
+		}
+		$next = strpos( $html, '<h2', $at + 4 );
+		$p    = strpos( $html, '</p>', $at );
+		$h2   = strpos( $html, '</h2>', $at );
+		$pos  = false !== $p && ( false === $next || $p < $next ) ? $p + 4 : ( false !== $h2 ? $h2 + 5 : false );
+		if ( false === $pos ) {
+			continue;
+		}
+		$row = '<div class="gplace gplace--' . min( 3, count( $photos ) ) . '"><p class="gplace__t">' . esc_html( er_t( 'See the place' ) ) . '</p><div class="gplace__g">';
+		foreach ( $photos as [ $id, $caption, $who ] ) {
+			$base = 'https://images.unsplash.com/photo-' . $id . '?auto=format&fit=crop&q=72';
+			$row .= '<figure><img src="' . esc_url( $base . '&w=900&h=600' ) . '" srcset="' . esc_attr( $base . '&w=600&h=400 600w, ' . $base . '&w=900&h=600 900w, ' . $base . '&w=1200&h=800 1200w' ) . '" sizes="(max-width: 700px) 90vw, 400px" alt="' . esc_attr( $english ? $caption : '' ) . '" loading="lazy" decoding="async" width="900" height="600" />'
+				. '<figcaption>' . ( $english ? '<span>' . esc_html( $caption ) . '</span>' : '' ) . '<small>' . esc_html( 'Photo: ' . ( '' !== $who ? $who . ', ' : '' ) . 'Unsplash' ) . '</small></figcaption></figure>';
+		}
+		$row .= '</div></div>';
+		$html = substr_replace( $html, $row, $pos, 0 );
+	}
+	return $html;
+}
+
+/** "Ready to go?": the trip's options when the guide is about one trip, else the guide's trips. */
+function er_world_guide_end( array $offers, array $related, array $dests ): string {
+	$trips = array_values( array_filter( array_map( 'intval', wp_list_pluck( $related, 'ID' ) ), static fn ( $i ) => 'publish' === get_post_status( $i ) && 'er_experience' === get_post_type( $i ) ) );
+	if ( ! $trips && ! $offers ) {
+		return '';
+	}
+	$one   = 1 === count( $trips );
+	$place = 1 === count( $dests ) ? (int) $dests[0]->ID : 0;
+	$all   = $place ? er_ux2_trip_url( [ 'destination' => $place, 'len' => '', 'private' => false, 'pickup' => false ] ) : (string) get_post_type_archive_link( 'er_experience' );
+	ob_start();
+	?>
+	<section class="gend on-dark" aria-labelledby="gend-t">
+		<div class="gend__in">
+			<div class="gend__copy">
+				<p class="eyebrow"><?php er_e( 'Ready to go?' ); ?></p>
+				<h2 id="gend-t"><?php echo esc_html( $one ? get_the_title( $trips[0] ) : er_t( 'Trips in this guide' ) ); ?></h2>
+				<?php if ( $one && function_exists( 'er_booking_summary' ) ) : $sum = er_booking_summary( $offers, true ); ?>
+					<?php if ( $sum ) : ?><div class="gend__chips"><?php foreach ( $sum as $c ) { echo '<span>' . esc_html( $c ) . '</span>'; } ?></div><?php endif; ?>
+				<?php endif; ?>
+				<div class="gend__acts">
+					<?php if ( $one ) : ?><a class="btn btn--primary" href="<?php echo esc_url( get_permalink( $trips[0] ) ); ?>"><?php er_e( 'See the trip' ); ?> <?php echo er_icon( 'i-arrow', 'icon--arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></a><?php endif; ?>
+					<a class="btn btn--ghost" href="<?php echo esc_url( $all ); ?>"><?php echo esc_html( $place ? er_t( 'See all trips in {place}', [ 'place' => get_the_title( $place ) ] ) : er_t( 'See all trips' ) ); ?></a>
+				</div>
+			</div>
+			<div class="gend__list">
+				<?php if ( $one && $offers ) : ?>
+					<?php
+					$source = (int) get_queried_object_id();
+					foreach ( $offers as $offer ) {
+						$o     = er_offer_data( (int) $offer, 'guide-end', $source );
+						$facts = function_exists( 'er_offer_facts' ) && function_exists( 'er_offer_facts_line' ) ? er_offer_facts_line( (array) er_offer_facts( (int) $offer ) ) : [];
+						$cta   = er_offer_cta_html( (int) $offer, [ 'placement' => 'guide-end', 'class' => 'btn btn--light btn--sm', 'icon' => ' ' . er_icon( 'i-arrow-ur', 'icon--sm' ) ] );
+						if ( '' === $cta ) {
+							continue;
+						}
+						echo '<div class="gend__opt"><div><b' . ( ! empty( $o['title_lang'] ) ? ' lang="' . esc_attr( $o['title_lang'] ) . '" dir="ltr"' : '' ) . '>' . esc_html( $o['title'] ) . '</b><small>' . esc_html( implode( ' · ', array_filter( array_merge( [ $o['provider'] ], $facts ) ) ) ) . '</small></div>' . $cta . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput
+					}
+					?>
+					<?php er_disclosure(); ?>
+				<?php else : ?>
+					<?php foreach ( $trips as $t ) { echo er_world_mini( $t ); } // phpcs:ignore WordPress.Security.EscapeOutput ?>
+				<?php endif; ?>
+			</div>
+		</div>
+	</section>
+	<?php
+	return (string) ob_get_clean();
+}
+
+add_action( 'wp_enqueue_scripts', static function (): void {
+	if ( er_world_on() && is_singular( 'er_guide' ) ) {
+		wp_enqueue_style( 'er-guide-story', ER_THEME_URI . '/assets/css/guide-story.css', [ 'er-pages' ], er_asset_ver( 'assets/css/guide-story.css' ) );
 	}
 }, 20 );

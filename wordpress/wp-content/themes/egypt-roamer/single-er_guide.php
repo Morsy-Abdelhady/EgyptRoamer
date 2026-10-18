@@ -74,6 +74,10 @@ while ( have_posts() ) :
 		'actions' => $er_new ? '<a class="btn btn--primary" href="#book" data-sheet>' . esc_html( er_book_label() ) . ' ' . er_icon( 'i-arrow', 'icon--arrow' ) . '</a>' : '',
 	] );
 	$er_body = er_body();
+	$er_story = function_exists( 'er_world_on' ) && er_world_on(); // proposal 4: photos in the sections, "Ready to go?" at the end
+	if ( $er_story ) {
+		$er_body['html'] = er_world_guide_photos( (string) $er_body['html'], (int) $er_id );
+	}
 	er_section_nav( $er_body['links'], $er_body['label'], '' === $er_aside );
 	er_book_bar(); // As on experience pages (owner, 15 Oct).
 	// Booking box inside the article, after its second section (below 1200px, where there is no sidebar): a reader
@@ -114,6 +118,7 @@ while ( have_posts() ) :
 	?>
 	<div class="page-body container">
 		<?php er_layout( $er_main, $er_aside ); ?>
+		<?php echo $er_story && 'er_guide' === $er_type ? er_world_guide_end( $er_new ? $er_book : [], $er_related, $er_dests ) : ''; // phpcs:ignore WordPress.Security.EscapeOutput -- this theme's own markup ?>
 
 		<?php if ( $er_related ) : ?>
 			<section class="related" aria-labelledby="rel-title">

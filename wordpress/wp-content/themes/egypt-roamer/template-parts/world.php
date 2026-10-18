@@ -33,6 +33,11 @@ $er_chips  = array_values( array_filter( array_merge( [ $er_len ], function_exis
 $er_lead   = '' !== trim( wp_strip_all_tags( $er_parts['lead'] ) ) ? $er_parts['lead'] : ( has_excerpt() ? '<p>' . esc_html( get_the_excerpt() ) . '</p>' : '' );
 $er_steps  = $er_parts['steps'];
 $er_glyphs = [ '𓇳', '𓈗', '𓂻', '𓁹', '𓊹', '𓋹' ];
+$er_seed   = er_world_seed( $er_id );
+$er_ovid   = er_world_video_for( 'opener', $er_seed );
+$er_svids  = (array) er_world_video_for( 'steps', $er_seed );
+$er_pvid   = er_world_video_for( 'papy', $er_seed );
+$er_poster = $er_photo ? (string) wp_get_attachment_image_url( $er_photo, 'large' ) : ( '' !== $er_stock ? er_stock_url( $er_stock, 1400, 0.72 ) : '' );
 ?>
 <div class="world <?php echo esc_attr( $er_cls ); ?>">
 
@@ -42,6 +47,7 @@ $er_glyphs = [ '𓇳', '𓈗', '𓂻', '𓁹', '𓊹', '𓋹' ];
 			<div class="wall--dim"><?php echo er_world_wall( 26 ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
 			<div class="lit" id="lit" aria-hidden="true"><?php echo $er_img( '100vw' ) . er_world_wall( 26 ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
 		<?php else : ?>
+			<?php echo $er_ovid ? er_world_video( $er_ovid, 'wvid wopen__vid' ) : ''; // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			<canvas data-fx="<?php echo esc_attr( $er_fx ); ?>" aria-hidden="true"></canvas>
 		<?php endif; ?>
 		<div class="wshade"></div>
@@ -66,17 +72,22 @@ $er_glyphs = [ '𓇳', '𓈗', '𓂻', '𓁹', '𓊹', '𓋹' ];
 
 	<?php if ( $er_steps ) : ?>
 		<section class="journey2" id="wjourney" aria-labelledby="wj-title">
-			<div class="jstage" aria-hidden="true">
+			<div class="jstage">
 				<?php foreach ( $er_steps as $i => $s ) : ?>
-					<?php if ( '' !== $s[2] ) : ?>
+					<?php if ( isset( $er_svids[ $i ] ) ) : ?>
+						<?php echo er_world_video( $er_svids[ $i ], 0 === $i ? 'on' : '', '' !== $s[2] ? $s[2] : $er_poster, 'data-j="' . (int) $i . '" data-vstep', false ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+					<?php elseif ( '' !== $s[2] ) : ?>
 						<img class="<?php echo 0 === $i ? 'on' : ''; ?>" data-j="<?php echo (int) $i; ?>" src="<?php echo esc_url( $s[2] ); ?>" alt="" loading="lazy" />
 					<?php else : ?>
-						<div class="jlayer <?php echo 0 === $i ? 'on' : ''; ?> jtone--<?php echo esc_attr( [ 'warm', 'dark', 'night' ][ $i % 3 ] ); ?>" data-j="<?php echo (int) $i; ?>"><?php echo $er_img( '100vw' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+						<div class="jlayer <?php echo 0 === $i ? 'on' : ''; ?> jtone--<?php echo esc_attr( [ 'warm', 'dark', 'night' ][ $i % 3 ] ); ?>" data-j="<?php echo (int) $i; ?>" aria-hidden="true"><?php echo $er_img( '100vw' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
 					<?php endif; ?>
 				<?php endforeach; ?>
-				<?php if ( ! $er_tomb ) : ?><canvas data-fx="<?php echo esc_attr( $er_fx ); ?>-j"></canvas><?php endif; ?>
+				<?php if ( ! $er_tomb ) : ?><canvas data-fx="<?php echo esc_attr( $er_fx ); ?>-j" aria-hidden="true"></canvas><?php endif; ?>
 				<div class="jhead"><p class="eyebrow"><?php echo esc_html( $er_title ); ?></p><h2 id="wj-title"><?php echo esc_html( $er_parts['steps_title'] ); ?></h2></div>
-				<div class="path"><?php foreach ( $er_steps as $i => $s ) { echo '<span class="' . ( 0 === $i ? 'on' : '' ) . '">' . esc_html( '' !== $s[0] ? $s[0] : str_pad( (string) ( $i + 1 ), 2, '0', STR_PAD_LEFT ) ) . '</span>'; } ?></div>
+				<?php foreach ( $er_svids as $i => $f ) : ?>
+					<div class="vstepctl <?php echo 0 === $i ? 'on' : ''; ?>" data-j="<?php echo (int) $i; ?>"><?php echo er_world_video_controls( er_t( 'Video: {name}, Pexels', [ 'name' => (string) ( er_world_video_creators()[ $f ] ?? '' ) ] ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+				<?php endforeach; ?>
+				<div class="path" aria-hidden="true"><?php foreach ( $er_steps as $i => $s ) { echo '<span class="' . ( 0 === $i ? 'on' : '' ) . '">' . esc_html( '' !== $s[0] ? $s[0] : str_pad( (string) ( $i + 1 ), 2, '0', STR_PAD_LEFT ) ) . '</span>'; } ?></div>
 			</div>
 			<div class="jsteps">
 				<?php if ( ! empty( $er_parts['steps_intro'] ) ) : ?>
@@ -114,7 +125,7 @@ $er_glyphs = [ '𓇳', '𓈗', '𓂻', '𓁹', '𓊹', '𓋹' ];
 		<section class="papy">
 			<div class="papy__in">
 				<?php foreach ( $er_parts['papy'] as [ $plabel, $phtml, $pid ] ) : ?>
-					<div id="<?php echo esc_attr( $pid ); ?>"><p class="eyebrow"><?php echo esc_html( $plabel ); ?></p><?php echo wp_kses_post( $phtml ); ?></div>
+					<div id="<?php echo esc_attr( $pid ); ?>"><p class="eyebrow"><?php echo esc_html( $plabel ); ?></p><?php echo wp_kses_post( $phtml ); ?><?php if ( $er_pvid && $er_pvid[0] === $pid ) : ?><div class="papy__vid"><?php echo er_world_video( $er_pvid[1], 'wvid', $er_poster ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div><?php endif; ?></div>
 				<?php endforeach; ?>
 			</div>
 		</section>

@@ -1981,6 +1981,60 @@
    "О месте: {place}",
    "关于{place}",
    "عن {place}"
+  ],
+  "Video: {name}, Pexels": [
+   "Video: {name}, Pexels",
+   "Vidéo : {name}, Pexels",
+   "Video: {name}, Pexels",
+   "Vídeo: {name}, Pexels",
+   "Видео: {name}, Pexels",
+   "视频：{name}，Pexels",
+   "فيديو: {name}، Pexels"
+  ],
+  "Pause video": [
+   "Video pausieren",
+   "Mettre la vidéo en pause",
+   "Metti in pausa il video",
+   "Pausar el vídeo",
+   "Приостановить видео",
+   "暂停视频",
+   "إيقاف الفيديو مؤقتًا"
+  ],
+  "Play video": [
+   "Video abspielen",
+   "Lire la vidéo",
+   "Riproduci il video",
+   "Reproducir el vídeo",
+   "Воспроизвести видео",
+   "播放视频",
+   "تشغيل الفيديو"
+  ],
+  "Video credit": [
+   "Video-Nachweis",
+   "Crédit de la vidéo",
+   "Crediti del video",
+   "Créditos del vídeo",
+   "Автор видео",
+   "视频来源",
+   "مصدر الفيديو"
+  ],
+  "See the place": [
+   "Der Ort",
+   "Le lieu en images",
+   "Il luogo",
+   "El lugar",
+   "Как выглядит место",
+   "看看这个地方",
+   "شاهد المكان"
+  ],
+  "Ready to go?": [
+   "Bereit für die Reise?",
+   "Prêt à partir ?",
+   "Pronti a partire?",
+   "¿Listo para ir?",
+   "Готовы ехать?",
+   "准备出发了吗？",
+   "جاهز للرحلة؟"
   ]
  }
 }

@@ -5,9 +5,26 @@
 
 /* Hero */
 .hstory__hero{position:relative;min-height:max(640px,100svh);display:flex;align-items:flex-end;overflow:hidden}
-.hstory__hero .hstory__img,.hstory__hero picture{position:absolute;inset:0;width:100%;height:100%}
-.hstory__hero img.hstory__img,.hstory__hero picture img{width:100%;height:100%;object-fit:cover;display:block}
-.hstory__hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,24,32,.78) 0%,rgba(16,24,32,.38) 55%,rgba(16,24,32,.12) 100%),linear-gradient(180deg,rgba(16,24,32,.35) 0%,transparent 30%,rgba(16,24,32,.85) 100%);pointer-events:none}
+/* The old hero's layers and animation (journey.css, hero.js): two photos, the sun's glow, the dune */
+.hstory__media{position:absolute;inset:0;overflow:hidden;background:color-mix(in srgb,var(--clay) 45%,var(--charcoal));transform-origin:50% 60%;will-change:transform}
+.hstory__media .hstory__img,.hstory__media picture{position:absolute;inset:0;width:100%;height:100%}
+.hstory__media img,.hstory__media picture img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95) contrast(1.04)}
+.hstory__media .hstory__img--b{opacity:0}
+.hstory__sun{position:absolute;z-index:0;width:60vmax;height:60vmax;left:55%;top:8%;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--gold) 55%,transparent) 0%,color-mix(in srgb,var(--sand) 18%,transparent) 30%,transparent 62%);mix-blend-mode:soft-light;pointer-events:none;will-change:transform,opacity}
+.hstory__dune{position:absolute;z-index:0;left:-2%;right:-2%;bottom:-6vh;width:104%;height:26vh;fill:color-mix(in srgb,var(--charcoal) 88%,var(--clay));opacity:.85;pointer-events:none;will-change:transform}
+.hstory__hero .split-line > span{display:block}
+.hstory__hero .eyebrow .split-line > span{--d:0ms}
+.hstory__title .split-line:first-child > span{--d:120ms}
+.hstory__title .split-line:last-child > span{--d:300ms}
+.hstory__hero [data-hero-fade]{opacity:0;transform:translateY(18px);transition:opacity 1.2s var(--ease-out),transform 1.2s var(--ease-out)}
+.hstory__hero.is-in [data-hero-fade]{opacity:1;transform:none}
+.hstory__hero.is-in .hstory__lead{transition-delay:.55s}
+.hstory__hero.is-in .hstory__acts{transition-delay:.7s}
+.hstory__hero.is-in .ux2-where{transition-delay:.9s}
+.hstory__hero.is-in .hstory__index{transition-delay:1s}
+.no-js .hstory__hero [data-hero-fade]{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.hstory__hero [data-hero-fade],.hstory__hero .split-line > span{transition:none!important;opacity:1;transform:none}}
+.hstory__hero::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(16,24,32,.78) 0%,rgba(16,24,32,.38) 55%,rgba(16,24,32,.12) 100%),linear-gradient(180deg,rgba(16,24,32,.35) 0%,transparent 30%,rgba(16,24,32,.85) 100%);pointer-events:none}
 .hstory__grid{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:end;padding-block:calc(var(--nav-h,72px) + 60px) 56px}
 .hstory__copy{min-width:0}
 .hstory__title{margin:14px 0 0;line-height:.95;color:var(--white)}
@@ -79,5 +96,4 @@
   .hstory .ch__trips-h strong{font-size:18px}
 }
 .hstory__title .t-display{text-transform:uppercase;letter-spacing:.01em}
-.hstory [data-hero-fade]{opacity:1!important;transform:none!important;visibility:visible!important}
 html[dir="rtl"] .ch__trips-h a > span[aria-hidden]{display:inline-block;transform:scaleX(-1)}
