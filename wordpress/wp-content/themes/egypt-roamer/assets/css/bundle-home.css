@@ -9157,6 +9157,8 @@ min-width: 0;
 .lcfw > .mini {
 flex: 1;
 min-width: 0;
+}
+.lcfw > .mini:has(+ .lcf) {
 padding-inline-end: 52px;
 }
 .lcfw > .mini + .lcf {

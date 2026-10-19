@@ -46,6 +46,8 @@ html[dir="rtl"] .scene__pick.scene__trips{left:var(--edge);right:calc(var(--edge
   .scene__trips-list{display:flex;overflow-x:auto;gap:10px;scroll-snap-type:x mandatory;scrollbar-width:none}
   .scene__trips-list::-webkit-scrollbar{display:none}
   .scene__trips-list .mini{flex:0 0 82%;scroll-snap-align:start}
+  .scene__trips-list > .lcfw{flex:0 0 82%;scroll-snap-align:start}
+  .scene__trips-list > .lcfw > .mini{flex:1 1 auto;width:100%}
 }
 
 /* Hotels near your trips, place by place (prototype .stay2; inc/world.php er_world_stay_section) */

@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.99 — 2026-10-20: phone fix
+- **Homepage on phones:** the chapter trip cards were squeezed into narrow columns (one word per line) since the heart was added in 1.2.97. Each card now takes 82% of the strip again, as before.
+- Mini cards without a heart (the place rows) no longer keep the space for one.
+
 ## 1.2.98 — 2026-10-19: homepage, Trips & tours, Places, Travel Guide and guides, as the prototype
 - **Homepage** (the old pinned slides and their scroll are kept, as the owner asked on 18 Oct):
   - each slide's trips box as the prototype: "Trips in this chapter / 3 trips to book / Explore Cairo →" beside the trips, down to 900px; the slide's own button moved into it;
