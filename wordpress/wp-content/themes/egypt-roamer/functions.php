@@ -9,7 +9,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ER_THEME_VERSION', '1.2.96' );
+define( 'ER_THEME_VERSION', '1.2.97' );
 define( 'ER_THEME_DIR', get_template_directory() );
 define( 'ER_THEME_URI', get_template_directory_uri() );
 /** A 1 px transparent GIF: the image source for a breakpoint where a picture is hidden, so it isn't downloaded. */
@@ -22,6 +22,7 @@ require_once ER_THEME_DIR . '/inc/ux2-chrome.php';
 require_once ER_THEME_DIR . '/inc/ux2-trips.php';
 require_once ER_THEME_DIR . '/inc/ux2-guides.php';
 require_once ER_THEME_DIR . '/inc/world.php';
+require_once ER_THEME_DIR . '/inc/world-data.php';
 require_once ER_THEME_DIR . '/inc/sections.php';
 require_once ER_THEME_DIR . '/inc/home-settings.php';
 require_once ER_THEME_DIR . '/inc/payload.php';

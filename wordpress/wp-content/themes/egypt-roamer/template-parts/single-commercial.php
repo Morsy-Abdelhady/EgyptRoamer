@@ -195,6 +195,19 @@ if ( 'er_experience' === $er_type && function_exists( 'er_world_on' ) && er_worl
 		}
 	}
 	$er_after = (string) ob_get_clean();
+	$er_wdata = function_exists( 'er_world_data' ) ? er_world_data( er_world_seed( $er_id ) ) : [];
+	if ( $er_wdata ) {
+		// The prototype's own world for this trip (inc/world-data.php), with the live offers.
+		get_template_part( 'template-parts/world-p4', null, [
+			'world'     => $er_wdata,
+			'offers'    => $er_offers,
+			'hotels'    => $er_hotels,
+			'stay_name' => $er_stay ? get_the_title( $er_stay ) : '',
+			'dests'     => $er_dests,
+			'guides'    => er_get_referencing( $er_id, 'er_guide', '_er_related', 20 ),
+		] );
+		return;
+	}
 	get_template_part( 'template-parts/world', null, [
 		'body'   => $er_wbody,
 		'offers' => $er_offers,

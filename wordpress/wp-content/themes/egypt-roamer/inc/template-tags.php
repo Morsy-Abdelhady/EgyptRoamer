@@ -584,10 +584,13 @@ function er_page_hero( array $args ): void {
  *
  * @param int[] $offers the trip's tour offers.
  */
-function er_trip_card( int $post_id, array $offers, string $heading = 'h3' ): string {
-	$url      = get_permalink( $post_id );
-	$title    = get_the_title( $post_id );
-	$location = (string) get_post_meta( $post_id, '_er_location', true );
+/**
+ * A trip's length as the prototype shows it on its cards ("About 4–8 hours", "4 days"): the range of its options'
+ * hours, else the page's own duration, else the options' days.
+ *
+ * @param int[] $offers tour offers.
+ */
+function er_trip_length( int $post_id, array $offers ): string {
 	$duration = (string) get_post_meta( $post_id, '_er_duration', true );
 	$hours    = true;
 	foreach ( $offers as $er_o ) {
@@ -597,37 +600,61 @@ function er_trip_card( int $post_id, array $offers, string $heading = 'h3' ): st
 			break;
 		}
 	}
-	$with    = er_booking_summary( $offers, true );
-	$facts   = er_booking_summary( $offers, false );
-	$length  = $hours && count( $with ) > count( $facts ) ? (string) $with[0] : $duration;
+	$with   = er_booking_summary( $offers, true );
+	$facts  = er_booking_summary( $offers, false );
+	$length = $hours && count( $with ) > count( $facts ) ? (string) $with[0] : $duration;
 	if ( '' === $length && function_exists( 'er_ux2_offer_length' ) ) {
 		// No length on the page (the Nile cruise): the options' own. In days, without "About", as the prototype ("4 days").
 		$length = preg_replace( '/^' . preg_quote( er_t( 'About {duration}', [ 'duration' => '' ] ), '/' ) . '/u', '', er_ux2_offer_length( $offers ) );
 	}
-	// As the prototype (v4-tourist3): when every option's name says it leaves from Hurghada, say so first.
-	$from_hgd = (bool) $offers;
-	foreach ( $offers as $er_o ) {
-		if ( false === stripos( (string) get_the_title( (int) $er_o ), 'Hurghada' ) ) {
-			$from_hgd = false;
-			break;
+	return (string) $length;
+}
+
+/** "All options leave from Hurghada" when every option's name says so (prototype v4-tourist3), else ''. */
+function er_trip_leaves_from( array $offers ): string {
+	foreach ( $offers ?: [ 0 ] as $er_o ) {
+		if ( ! $er_o || false === stripos( (string) get_the_title( (int) $er_o ), 'Hurghada' ) ) {
+			return '';
 		}
 	}
-	if ( $from_hgd ) {
-		$er_hgd = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'name' => 'hurghada', 'numberposts' => 1, 'fields' => 'ids', 'lang' => '' ] );
-		$er_hgd = $er_hgd && function_exists( 'er_translated_post_id' ) ? (int) er_translated_post_id( (int) $er_hgd[0] ) : 0;
-		array_unshift( $facts, er_t( 'All options leave from {place}', [ 'place' => $er_hgd ? get_the_title( $er_hgd ) : 'Hurghada' ] ) );
+	$er_hgd = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'name' => 'hurghada', 'numberposts' => 1, 'fields' => 'ids', 'lang' => '' ] );
+	$er_hgd = $er_hgd && function_exists( 'er_translated_post_id' ) ? (int) er_translated_post_id( (int) $er_hgd[0] ) : 0;
+	return er_t( 'All options leave from {place}', [ 'place' => $er_hgd ? get_the_title( $er_hgd ) : 'Hurghada' ] );
+}
+
+/** What the site's Saved list keeps for a trip (favorites.js [data-save]). */
+function er_trip_save_data( int $post_id, string $length = '' ): array {
+	$thumb = (int) get_post_thumbnail_id( $post_id );
+	$stock = function_exists( 'er_stock_id_for' ) ? er_stock_id_for( $post_id ) : '';
+	return [
+		'id'    => 'trip:' . $post_id,
+		'title' => get_the_title( $post_id ),
+		'image' => $thumb ? (string) wp_get_attachment_image_url( $thumb, 'medium' ) : $stock,
+		'meta'  => implode( ' · ', array_filter( [ (string) get_post_meta( $post_id, '_er_location', true ), $length ] ) ),
+		'url'   => get_permalink( $post_id ),
+	];
+}
+
+/** The heart (prototype .lcf); $label adds the word, as on the trip opener ("Save"). */
+function er_save_button( array $item, string $class = 'lcf', bool $label = false ): string {
+	return '<button type="button" class="' . esc_attr( $class . ( $label ? ' lcf--txt' : '' ) ) . '" data-save="' . esc_attr( (string) wp_json_encode( $item ) ) . '" aria-pressed="false" aria-label="' . esc_attr( er_t( 'Save {title}', [ 'title' => (string) $item['title'] ] ) ) . '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.8 3.5 4.5 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg>' . ( $label ? '<span>' . esc_html( er_t( 'Save' ) ) . '</span>' : '' ) . '</button>';
+}
+
+function er_trip_card( int $post_id, array $offers, string $heading = 'h3' ): string {
+	$url      = get_permalink( $post_id );
+	$title    = get_the_title( $post_id );
+	$location = (string) get_post_meta( $post_id, '_er_location', true );
+	$length   = er_trip_length( $post_id, $offers );
+	$facts    = er_booking_summary( $offers, false );
+	$er_leave = er_trip_leaves_from( $offers );
+	if ( '' !== $er_leave ) {
+		array_unshift( $facts, $er_leave );
 	}
 	$n       = count( $offers );
 	$stock   = function_exists( 'er_stock_id_for' ) ? er_stock_id_for( $post_id ) : '';
 	$thumb   = (int) get_post_thumbnail_id( $post_id );
 	$image   = $thumb ? er_img( $thumb, 'er-card', [ 'sizes' => '(max-width: 700px) 90vw, 340px', 'alt' => '' ] ) : ( $stock ? er_stock_img( $stock, '', [ 'sizes' => '(max-width: 700px) 90vw, 340px' ], [ 400, 600, 800 ], 0.75 ) : '' );
-	$save    = [
-		'id'    => 'trip:' . $post_id,
-		'title' => $title,
-		'image' => $thumb ? (string) wp_get_attachment_image_url( $thumb, 'medium' ) : $stock,
-		'meta'  => implode( ' · ', array_filter( [ $location, $length ] ) ),
-		'url'   => $url,
-	];
+	$save    = er_trip_save_data( $post_id, $length );
 	$options = 1 === $n ? er_t( '1 option' ) : er_t( '{n} options', [ 'n' => $n ] );
 	$heading = in_array( $heading, [ 'h2', 'h3' ], true ) ? $heading : 'h3';
 	ob_start();

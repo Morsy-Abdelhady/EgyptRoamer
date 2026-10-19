@@ -248,3 +248,55 @@ Free Unsplash photos whose location tag names the place, read on each photo page
 | 1777552955794-77aa990a47df | see journey-v4 README / imgs3 (16 Oct) | Oliver Schwaneberg | Two clownfish in a sea anemone, Hurghada | red-sea-famous-dive-sites#before-you-book, snorkelling-hurghada-or-sharm#hurghada |
 | 1777552995899-b0c030a3ef92 | see journey-v4 README / imgs3 (16 Oct) | Oliver Schwaneberg | A small pufferfish by the reef, Hurghada | red-sea-famous-dive-sites#before-you-book, snorkelling-hurghada-or-sharm#hurghada |
 | 1778402153163-fc9a5fd0131a | Aswan | Kuan L | A cruise ship on the Nile, Aswan | nile-cruise-or-hotels-luxor-aswan#cruise |
+
+
+## 8. Proposal 4 trip pages, as the prototype (19 Oct 2026, theme 1.2.97)
+The trip pages now use the prototype's own photos for the opener, each step and the papyrus (`inc/world-data.php`, from `docs/prototypes/journey-v4/world-data.json`). Unsplash photos are the prototype's approved stand-ins (matched to their ids by picture, `tools/world/imgmap.json`); Commons files are the prototype's credited picks (`docs/prototypes/journey-v4/wpick.json`, author and licence on each step). Nothing is downloaded; Unsplash is hot-linked, Commons is served through `Special:FilePath`.
+
+| Trip | Where | Source | Credit shown |
+|---|---|---|---|
+| exp-valley | opener | Unsplash 1623417765161-c71d6c83cfee | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-valley | step 1 (Valley of the Kings) | Unsplash 1779366244195-c11f7819693c | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-valley | step 2 (Hatshepsut’s temple) | Unsplash 1683891043389-31a5ca0692f8 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-valley | step 3 (Colossi of Memnon) | Commons Colosos_de_Memnón,_Luxor,_Egipto,_2022-04-03,_DD_131.jpg | Photo: Diego Delso, Wikimedia Commons, CC BY-SA 4.0 |
+| exp-dive | opener | Unsplash 1778400283418-b419be4be7a5 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-dive | step 1 (Check-in) | Commons Hurghada_Marina_002.jpg | Photo: Amr F.Nagy, Wikimedia Commons, public domain |
+| exp-dive | step 2 (Sail to the first site) | Unsplash 1777552550371-e05232b1c9c0 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-safari | opener | Unsplash 1691591403777-128b9a842b8b | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-safari | step 1 (The Black Desert) | Commons Black_Desert,_Egypt_17.jpg | Photo: Viktor Lazić, Wikimedia Commons, CC BY-SA 4.0 |
+| exp-safari | step 2 (Crystal Mountain) | Commons Crystal_Mountain,_White_Desert,_Egypt_28.jpg | Photo: Viktor Lazić, Wikimedia Commons, CC BY-SA 4.0 |
+| exp-safari | step 4 (The White Desert) | Commons White_Desert,_Rock_formations_in_desert_landscape,_Egypt.jpg | Photo: Vyacheslav Argenberg, Wikimedia Commons, CC BY 4.0 |
+| exp-dinner | opener | Unsplash 1761421852464-463fb31f2dc0 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-dinner | step 2 (Live music) | Unsplash 1626692880062-35c360fb6afc | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-giza | opener | Unsplash 1704998250995-37d969c80e03 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-giza | step 4 (The Sphinx) | Commons Great_Sphinx_of_Giza_(أبو_الهول).jpg | Photo: Petar Milošević, Wikimedia Commons, CC BY-SA 4.0 |
+| exp-giza | papyrus (The Grand Egyptian Museum) | Unsplash 1777189978576-08b21689fcc9 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-abu | opener | Unsplash 1633163893862-4cdc62de7d82 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-abu | step 2 (Scale) | Unsplash 1748292951610-1ed2f59c9c20 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-abu | step 3 (The interiors) | Commons Interior_of_the_Great_Temple_of_Abu_Simbel_-_panoramio_(1606).jpg | Photo: turizm-art, Wikimedia Commons, CC BY 3.0 |
+| exp-abu | step 4 (The rescue) | Commons Nubia,_Temples_of_Abu_Simbel,_Pictures,_photo_4_of_7_-_Archivio_fotografico_Museo_Egizio,_Turin_Album2_092.jpg | The Great Temple shortly before the move · Photo: Museo Egizio, Turin (photo archive), Wikimedia Commons, public domain |
+| exp-alexandria | opener | Unsplash 1633624646814-3a61ed3e2847 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-alexandria | step 1 (The Citadel of Qaitbay) | Unsplash 1738511574956-9529fd9f84f1 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-alexandria | step 2 (The Bibliotheca Alexandrina) | Unsplash 1649203945407-93bfe807f376 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-alexandria | step 3 (Kom el-Shoqafa) | Commons Catacombs_of_Kom_El_Shoqafa,_Alexandria,_Egypt_-_50852603281.jpg | Photo: Following Hadrian, Wikimedia Commons, CC BY-SA 2.0 |
+| exp-alexandria | step 4 (Pompey’s Pillar) | Unsplash 1671203984228-178b1efb6bb4 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-alexandria | step 5 (The Corniche and Montaza) | Commons Montaza_Palace,_Alexandria,_Egypt_-_Murat_Özsoy_2018.jpg | Photo: Murat Özsoy 1958, Wikimedia Commons, CC BY-SA 4.0 |
+| exp-ras-mohammed | opener | Unsplash 1616967304670-b75cf9ab4582 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-ras-mohammed | step 2 (By boat) | Unsplash 1616967304670-b75cf9ab4582 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-siwa | opener | Unsplash 1771839535027-865f757ae09c | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-siwa | step 1 (Dune driving) | Commons Great_Sand_Sea8.jpg | Photo: Walaa, Wikimedia Commons, public domain |
+| exp-siwa | step 2 (Springs) | Commons Siwa_Oasis,_Cleopatra's_Bath,_Egypt.jpg | Photo: Vyacheslav Argenberg, Wikimedia Commons, CC BY 4.0 |
+| exp-siwa | step 4 (Sunset) | Commons Sunset_at_Great_Sand_Sea3.jpg | Photo: Walaa, Wikimedia Commons, public domain |
+| exp-siwa | papyrus (The oasis itself) | Unsplash 1652377170273-72152e714b96 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-food | opener | Commons Egyptian_food_Koshary.jpg |  |
+| exp-food | step 1 (Koshari) | Commons Egyptian_food_Koshary.jpg | Photo: Dina Said, Wikimedia Commons, CC BY-SA 4.0 |
+| exp-food | step 2 (Ful medames and ta’meya) | Commons Foul_Mohamed_Ahmed_-_foul.jpg | Photo: Marsupium, Wikimedia Commons, CC BY-SA 4.0 |
+| exp-food | step 3 (Hawawshi) | Commons Hawawshi_Main_1_Mohamed_Moheyeldin.jpg | Photo: Mohamed Moheyeldin, Wikimedia Commons, CC BY-SA 4.0 |
+| exp-food | step 4 (Feteer meshaltet) | Commons Egyptian-food-16.jpg | Photo: Mohamed Ouda, Wikimedia Commons, CC BY-SA 4.0 |
+| exp-food | step 5 (Sweets and drinks) | Unsplash 1590657140810-25898a847305 | Photo: mohmed Afify, Unsplash |
+| exp-food | papyrus (Islamic Cairo or Downtown) | Unsplash 1652022262085-d454346a353e | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-cruise | opener | Unsplash 1778402153163-fc9a5fd0131a | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-cruise | step 1 (Aswan) | Unsplash 1738580426867-03fa8c8b5288 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-cruise | step 2 (Kom Ombo) | Commons Kom_Ombo_Portal_03.JPG | Photo: Olaf Tausch, Wikimedia Commons, CC BY 3.0 |
+| exp-cruise | step 3 (Edfu) | Unsplash 1660705630675-d66d60fdca46 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+| exp-cruise | step 4 (Luxor) | Unsplash 1610331800877-462a21600420 | prototype photo (journey-v4 imgs, approved 18 Oct) |

@@ -1,0 +1,236 @@
+/* ---------- Proposal 4, the trip page exactly as the prototype (19 Oct: "every section 100%") ----------
+   template-parts/world-p4.php. Loaded after world.css, which holds the prototype's world rules; this file undoes what
+   the site's own base styles changed in them (type, eyebrows, buttons) and adds the parts the first port missed.
+   Values are the prototype's computed styles (docs/prototypes/journey-v4, renderWorld). */
+
+.p4w {
+  font: 15px/1.6 var(--font-sans);
+}
+.p4w h1,
+.p4w h2,
+.p4w h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.p4w .wtxt h1 {
+  letter-spacing: -0.015em;
+}
+/* Eyebrows: the prototype's plain gold label (the site's has a leading line and a flex box). */
+.p4w .eyebrow {
+  display: block;
+  margin: 1em 0;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--wc);
+}
+.p4w .eyebrow::before {
+  content: none;
+  display: none;
+}
+.p4w .papy .eyebrow {
+  color: var(--clay) !important;
+}
+.p4w p {
+  margin: 0;
+}
+.p4w .wsec__in > div > p:not(.eyebrow) {
+  margin: 0 0 12px;
+}
+.p4w .wtxt .lead {
+  margin: 0 0 12px;
+}
+
+/* Buttons: the prototype's pill (600 14px, 11px 20px, no border). */
+.p4w .btn {
+  min-height: 0;
+  gap: 8px;
+  padding: 11px 20px;
+  border: 0;
+  font: 600 14px var(--font-sans);
+  letter-spacing: 0;
+  line-height: 22px;
+  overflow: visible;
+}
+.p4w .btn--sm {
+  padding: 8px 15px;
+  font-size: 13px;
+  line-height: 17px;
+}
+.p4w .btn--gold {
+  background: var(--gold);
+  color: var(--charcoal);
+}
+.p4w .btn--gold:hover {
+  background: #d4ae35;
+}
+.p4w .btn--line {
+  background: transparent;
+  border: 1.5px solid var(--wc);
+  color: #fff;
+}
+.p4w .btn--ghost-light {
+  background: rgb(255 255 255 / 0.08);
+  border: 1.5px solid rgb(255 255 255 / 0.55);
+  color: #fff;
+}
+.p4w .btn--ghost-light:hover {
+  background: rgb(255 255 255 / 0.16);
+}
+.p4w .btn::after,
+.p4w .btn::before {
+  content: none;
+}
+
+/* The steps: a step's title and its path mark are the same words. */
+.p4w .jstep article p.why {
+  margin-top: 12px;
+}
+.p4w .jstep .vcred {
+  display: block !important;
+  margin: 10px 0 0 !important;
+  font-size: 11.5px !important;
+  color: #b8b2a6 !important;
+}
+.p4w .jstep .vcred a {
+  color: inherit;
+  text-decoration: none;
+}
+.p4w .jstep .vcred a:hover {
+  text-decoration: underline;
+}
+.p4w .jhead .eyebrow {
+  margin: 0;
+}
+
+/* "Choose your way in": the comparison scrolls sideways on a phone; the partner line and the disclosure read as one. */
+.p4w .wtbl__wrap {
+  overflow-x: auto;
+}
+.p4w .wtbl[hidden] {
+  display: none;
+}
+.p4w .choose2 .eyebrow {
+  margin: 0;
+}
+.p4w .fc {
+  font-size: 12.5px;
+  color: #7fd1c7 !important;
+  border-color: rgb(127 209 199 / 0.4) !important;
+}
+.p4w .wout {
+  margin: 16px 0 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #a9a08f;
+}
+.p4w .wout p,
+.p4w .wout .disclosure,
+.p4w .wout .disclosure span {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+}
+.p4w .wout .disclosure .icon {
+  display: none;
+}
+.p4w .wout a {
+  color: var(--wc);
+}
+.p4w .wopt .pchip,
+.p4w .wopt .partner-chip {
+  border: 0 !important;
+}
+
+/* "Read before you go": the prototype's guide rows (links here). */
+.p4w .wguides__row a {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 8px;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 0.96);
+  color: #101820;
+  text-decoration: none;
+}
+.p4w .wguides__row a:hover,
+.p4w .wguides__row a:focus-visible {
+  outline: 2px solid var(--wc, #c9a227);
+}
+.p4w .wguides__row a > span {
+  margin: 0;
+}
+
+/* The booking capsule: hidden while the opener's buttons or the options are in view (world.js). */
+.p4w .capsule[hidden] {
+  display: none !important;
+}
+.p4w .capsule {
+  margin-top: -78px;
+}
+
+/* The Save button on the opener (prototype .lcf--txt). */
+.p4w .wacts .lcf--txt {
+  height: 44px;
+}
+@media (max-width: 600px) {
+  .p4w .wtxt .wacts > .lcf--txt {
+    height: auto;
+  }
+}
+
+/* Small fixes found by the computed-style comparison (19 Oct). */
+.p4w .wsec .eyebrow,
+.p4w .wfaq .eyebrow,
+.p4w .choose2 .eyebrow,
+.p4w .wmore .eyebrow,
+.p4w .wguides .eyebrow,
+.p4w .jhead .eyebrow,
+.p4w .wtxt .eyebrow {
+  color: var(--wc);
+}
+.p4w .skip {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--wc);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.p4w .papy__vid {
+  margin-top: 14px;
+}
+.p4w .papy__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.p4w .papy__cap {
+  position: absolute;
+  z-index: 3;
+  inset-inline-start: 10px;
+  bottom: 8px;
+  font-size: 11px;
+  color: #fff;
+  background: rgb(0 0 0 / 0.5);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+.p4w .wmore .mini {
+  background: rgb(255 255 255 / 0.96);
+}

@@ -170,3 +170,133 @@
     transition: none;
   }
 }
+
+/* ---------- The trip's mini card and heart (prototype .mini, .lcf, .lcfw), wherever trips are listed small ---------- */
+.lcf {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid rgb(16 24 32 / 0.15);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.92);
+  color: #101820;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.lcf svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+.lcf[aria-pressed="true"] {
+  color: #c0392b;
+  border-color: rgb(192 57 43 / 0.35);
+}
+.lcf[aria-pressed="true"] svg {
+  fill: currentColor;
+}
+.lcf:active {
+  transform: scale(0.9);
+}
+.lcf--txt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font: 600 14px/1 var(--font-sans);
+}
+.lcfw {
+  position: relative;
+  display: flex;
+  min-width: 0;
+}
+.lcfw > .mini {
+  flex: 1;
+  min-width: 0;
+  padding-inline-end: 52px;
+}
+.lcfw > .mini + .lcf {
+  position: absolute;
+  top: 50%;
+  inset-inline-end: 8px;
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  transform: translateY(-50%);
+}
+.lcfw > .mini + .lcf:active {
+  transform: translateY(-50%) scale(0.9);
+}
+.mini {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--charcoal);
+  text-align: start;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.mini:hover,
+.mini:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--gold);
+}
+.mini img,
+.mini .mini__ph {
+  width: 76px;
+  height: 76px;
+  border-radius: 9px;
+  object-fit: cover;
+  background: var(--stone);
+}
+.mini__b {
+  min-width: 0;
+}
+.mini b {
+  display: block;
+  font: 500 15.5px/1.25 var(--font-serif);
+}
+.mini__b > span {
+  display: block;
+  margin-top: 4px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.mini em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--gold-deep, #a8871f);
+}
+
+/* The header's button as the prototype: a gold outline, not a filled pill (.hdr .btn--gold); on a trip page it points
+   down to the options. */
+.nav .nav__cta.btn--primary {
+  background: transparent;
+  border: 1.5px solid var(--gold);
+  color: inherit;
+  box-shadow: none;
+}
+.nav .nav__cta.btn--primary:hover {
+  background: rgb(201 162 39 / 0.15);
+}
+.er-world .nav .nav__cta .icon--arrow {
+  transform: rotate(90deg);
+}
+
+/* The footer's wordmark at the prototype's size (.lc .footer__logo: 260px), not the full-width one. */
+.footer__logo {
+  width: min(100%, 260px);
+}

@@ -1,0 +1,5873 @@
+{
+ "WORLDS": {
+  "valley": {
+   "cls": "w-tomb",
+   "fx": "tomb",
+   "photo": "trip",
+   "url": "valley-of-the-kings-hatshepsut-temple",
+   "eyebrow": "Luxor · The West Bank · Ancient Thebes",
+   "title": "Valley of the Kings & Hatshepsut Temple",
+   "lead": "A guided visit to Luxor’s West Bank, the burial ground of ancient Thebes. You’ll go down into the painted royal tombs of the Valley of the Kings, visit the terraced temple of Hatshepsut beneath the cliffs, and usually stop at the Colossi of Memnon.",
+   "chips": [
+    "About 4–10 hours",
+    "3 options from 2 partners",
+    "Private option available",
+    "Pickup offered"
+   ],
+   "go": "Go down into the valley",
+   "jEyebrow": "The day, stop by stop",
+   "jTitle": "Down the corridor",
+   "steps": [
+    {
+     "img": "kv62",
+     "t": "Valley of the Kings",
+     "p": "A standard ticket covers a set number of the tombs open that day. The most famous, such as Tutankhamun’s, need separate tickets. Inside, long corridors lead down to burial chambers covered in texts and images of the gods, some with their colours remarkably well preserved.",
+     "why": "Start early: the valley is a sun trap by late morning."
+    },
+    {
+     "img": "hat_l",
+     "t": "Hatshepsut’s temple",
+     "p": "Three great terraces built for the female pharaoh Hatshepsut, with reliefs of her divine birth and the expedition to the land of Punt.",
+     "why": "At Deir el-Bahari, beneath the cliffs."
+    },
+    {
+     "wall": true,
+     "t": "Colossi of Memnon",
+     "p": "Two giant seated statues of Amenhotep III, all that stands of his vast temple.",
+     "why": "It’s all part of the UNESCO site Ancient Thebes with its Necropolis.",
+     "img": "w_colossi",
+     "credit": "Photo: Diego Delso, Wikimedia Commons, CC BY-SA 4.0"
+    }
+   ],
+   "sec": {
+    "eyebrow": "Why a guide makes a difference",
+    "title": "The walls speak. A guide reads them.",
+    "ps": [
+     "The tombs are dense with symbols and texts that are hard to read without help. A guide explains what you’re seeing: the journey through the underworld, the gods, the king’s rebirth. They also choose the tombs worth visiting on the day."
+    ],
+    "tabs": [
+     [
+      "𓇳",
+      "",
+      "Start early: the valley is a sun trap by late morning."
+     ],
+     [
+      "𓈗",
+      "",
+      "Bring water, a hat and sun protection."
+     ],
+     [
+      "𓂻",
+      "",
+      "Wear comfortable shoes for the descents."
+     ],
+     [
+      "𓁹",
+      "",
+      "Photography rules inside the tombs change. Follow the guards."
+     ]
+    ],
+    "wall": true
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "The essential West Bank day",
+     "Everyone visiting Luxor. For those with more time or a deeper interest, add Medinet Habu, the Valley of the Queens and the workers’ village of Deir el-Medina."
+    ],
+    [
+     "Combine it with",
+     "Karnak and Luxor Temple",
+     "Karnak and Luxor Temple on the East Bank, and a sunrise balloon flight over the West Bank. See our Luxor guide for a three-day plan.",
+     "karnak"
+    ]
+   ],
+   "sum": [
+    "Luxor",
+    "About 4–10 hours",
+    "Private option available",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "Private full day on Luxor West Bank",
+     "p": "Viator",
+     "f": [
+      "Private",
+      "About 7–10 hours",
+      "Pickup offered"
+     ],
+     "pick": true,
+     "cancel": "Free cancellation up to 24 hours before the experience starts",
+     "why": "Private, the longest visit"
+    },
+    {
+     "n": "Luxor West Bank full day with Medinet Habu and Deir el-Medina",
+     "p": "Viator",
+     "f": [
+      "About 6–8 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "West Bank Guided Tour: Valley of the Kings",
+     "p": "GetYourGuide",
+     "f": [
+      "Private",
+      "4 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours in advance"
+    }
+   ],
+   "cmp": [
+    [
+     "Private",
+     "Yes",
+     "Not stated",
+     "Yes"
+    ],
+    [
+     "Length",
+     "About 7–10 h",
+     "About 6–8 h",
+     "4 h"
+    ],
+    [
+     "Pickup",
+     "Yes",
+     "Yes",
+     "Yes"
+    ]
+   ],
+   "stay": {
+    "title": "Staying in Luxor?",
+    "rows": [
+     [
+      "Hotels in Luxor",
+      "Luxor"
+     ],
+     [
+      "Hotels on the West Bank (Al Bairat)",
+      "West Bank, Luxor"
+     ]
+    ]
+   },
+   "place": "Luxor",
+   "faq": [
+    [
+     "Is Tutankhamun’s tomb worth the extra ticket?",
+     "Its fame is its main draw. The tomb is small, and his treasures are now at the Grand Egyptian Museum in Cairo. Other royal tombs, such as that of Seti I (also a separate ticket), are larger and more richly decorated."
+    ],
+    [
+     "How long does the West Bank take?",
+     "A morning covers the Valley of the Kings, Hatshepsut’s temple and the Colossi of Memnon. A full day allows more tombs and temples."
+    ],
+    [
+     "Can I visit without a guide?",
+     "Yes, but you’ll get much more from the tombs with one, especially on a first visit."
+    ]
+   ]
+  },
+  "redsea": {
+   "cls": "w-sea",
+   "fx": "sea",
+   "photo": "sea_l",
+   "video": "video/redsea-reef.mp4",
+   "vcredit": "Red Sea, Egypt · Video: Adrien JACTA, Pexels",
+   "url": "red-sea-diving-two-reef-dives",
+   "eyebrow": "Hurghada · Sharm El Sheikh · 1 day · 2 dives",
+   "title": "Red Sea Diving: Two Reef Dives",
+   "lead": "A day on a dive boat with two guided reef dives in the Red Sea, from Hurghada or Sharm El Sheikh. The Red Sea is known for clear water, colourful coral and abundant reef fish, often just a short boat ride from the coast.",
+   "quote": "Snorkellers can often join the same boat.",
+   "chips": [
+    "1 day · 2 dives",
+    "All options leave from Hurghada",
+    "Pickup offered",
+    "3 options from 2 partners"
+   ],
+   "go": "Live the dive day",
+   "jEyebrow": "What a dive day looks like",
+   "jTitle": "From the dock to the reef",
+   "steps": [
+    {
+     "t": "Check-in",
+     "p": "Check-in at the dive centre or on the boat: paperwork, equipment fitting and a briefing.",
+     "img": "w_hurg_marina",
+     "credit": "Photo: Amr F.Nagy, Wikimedia Commons, public domain"
+    },
+    {
+     "img": "hurg_diver",
+     "t": "Sail to the first site",
+     "p": "The boat sails to the first site. The guide explains the dive plan, the depth and what you might see."
+    },
+    {
+     "t": "First dive",
+     "p": "First dive, then a surface interval on board with lunch or snacks.",
+     "video": "video/redsea-coral.mp4",
+     "credit": "Red Sea · Video: Adrien JACTA, Pexels"
+    },
+    {
+     "t": "Second dive",
+     "p": "Second dive at a different reef, then back to port in the afternoon.",
+     "video": "video/redsea-moray.mp4",
+     "credit": "Egypt's Red Sea · Video: Adrien JACTA, Pexels"
+    }
+   ],
+   "sec": {
+    "eyebrow": "Beginners and certified divers",
+    "title": "Dive at your level",
+    "ps": [
+     "Look for recognised training-agency affiliation and well-maintained equipment. Ask about group sizes per guide. Choose centres that use fixed moorings rather than anchoring on reefs, and that give a proper briefing."
+    ],
+    "tabs": [
+     [
+      "𓈗",
+      "No certification",
+      "You can do a try-dive (introductory dive) with an instructor at shallow depth after a briefing. It’s a good way to find out whether diving is for you."
+     ],
+     [
+      "𓆛",
+      "Certified divers",
+      "Guided dives at depths within your certification level. Bring your certification card and logbook."
+     ],
+     [
+      "𓋹",
+      "Health",
+      "You’ll be asked to complete a medical questionnaire. Some conditions require a doctor’s sign-off. Don’t fly within the recommended interval after diving."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Where to dive",
+     "From Hurghada",
+     "The Giftun Islands and nearby reefs."
+    ],
+    [
+     "Where to dive",
+     "From Sharm El Sheikh",
+     "Ras Mohammed National Park and the Straits of Tiran; the Thistlegorm wreck for experienced divers."
+    ]
+   ],
+   "sum": [
+    "Hurghada",
+    "1 day · 2 dives",
+    "All options leave from Hurghada",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "Two boat dives from Hurghada (certified divers)",
+     "p": "Viator",
+     "f": [
+      "About 1 day",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "Two dives from Hurghada for beginners and certified divers",
+     "p": "Viator",
+     "f": [
+      "About 7 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "Hurghada: Scuba Diving for Certified Divers or Beginners",
+     "p": "GetYourGuide",
+     "f": [
+      "7 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours in advance"
+    }
+   ],
+   "cmp": [
+    [
+     "Length",
+     "About 1 day",
+     "About 7 h",
+     "7 h"
+    ],
+    [
+     "Pickup",
+     "Yes",
+     "Yes",
+     "Yes"
+    ]
+   ],
+   "place": "Red Sea",
+   "stay": {
+    "title": "Staying by the Red Sea?",
+    "rows": [
+     [
+      "Hotels in Hurghada",
+      "Hurghada"
+     ],
+     [
+      "Hotels in El Gouna",
+      "El Gouna"
+     ]
+    ]
+   },
+   "faq": [
+    [
+     "Can I dive without any experience?",
+     "Yes, as a try-dive with an instructor, at shallow depth, after a briefing. You’ll need to be in reasonable health."
+    ],
+    [
+     "When is the best time to dive the Red Sea?",
+     "It’s possible all year. Water is warmest from late summer into autumn and coolest in late winter, when a thicker wetsuit helps."
+    ],
+    [
+     "What about sea life encounters?",
+     "Reef fish, turtles and rays are common on many sites. Encounters with larger animals depend on the site and the season, and nothing is guaranteed."
+    ]
+   ]
+  },
+  "white": {
+   "cls": "w-desert",
+   "fx": "desert",
+   "photo": "desert_l",
+   "url": "white-desert-black-desert-safari",
+   "eyebrow": "Western Desert · from Bahariya Oasis · 2 days",
+   "title": "White Desert & Black Desert Safari",
+   "lead": "A 4×4 journey into the Western Desert, usually starting from Bahariya Oasis. The route crosses the Black Desert, with its dark volcanic hills, to the White Desert, where wind has carved chalk into giant white mushrooms and pillars.",
+   "quote": "Most trips include a night camping among the formations.",
+   "chips": [
+    "2 days",
+    "Private option available",
+    "Pickup offered",
+    "Best October to April"
+   ],
+   "go": "Cross the desert",
+   "jEyebrow": "What you see",
+   "jTitle": "Black to white",
+   "steps": [
+    {
+     "t": "The Black Desert",
+     "p": "Sand dotted with cone-shaped hills capped in black volcanic stone.",
+     "tone": "dark",
+     "img": "w_black",
+     "credit": "Photo: Viktor Lazić, Wikimedia Commons, CC BY-SA 4.0"
+    },
+    {
+     "t": "Crystal Mountain",
+     "p": "A ridge of quartz crystals by the roadside.",
+     "tone": "warm",
+     "img": "w_crystal",
+     "credit": "Photo: Viktor Lazić, Wikimedia Commons, CC BY-SA 4.0"
+    },
+    {
+     "t": "Agabat",
+     "p": "Dramatic valleys and dunes between the two deserts.",
+     "tone": "warm"
+    },
+    {
+     "t": "The White Desert",
+     "p": "Chalk formations shaped by the wind, most striking at sunset and sunrise, and ghostly under a full moon. The area is protected as the White Desert Protected Area.",
+     "tone": "night",
+     "img": "w_white",
+     "credit": "Photo: Vyacheslav Argenberg, Wikimedia Commons, CC BY 4.0"
+    }
+   ],
+   "sec": {
+    "eyebrow": "A night in the desert",
+    "title": "A sky full of stars, far from any light",
+    "night": true,
+    "ps": [
+     "Camp is usually set up in the shelter of the formations: dinner cooked over a fire, blankets or a simple tent, and a sky full of stars far from any light. Nights in winter are cold, often much colder than visitors expect.",
+     "Ask your operator what bedding and equipment they provide, and whether the trip includes transfers from Cairo."
+    ],
+    "tabs": [
+     [
+      "𓇳",
+      "",
+      "Warm layers, a hat and a torch for the night."
+     ],
+     [
+      "𓇶",
+      "",
+      "Sun protection and sunglasses for the day."
+     ],
+     [
+      "𓊡",
+      "",
+      "A scarf or buff against wind and sand."
+     ],
+     [
+      "𓋹",
+      "",
+      "Wet wipes, basic medicine, and any snacks you rely on."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "Landscape and adventure",
+     "Travellers who want landscape and adventure, and don’t mind simple camping without facilities. It’s not a luxury experience, and the drive from Cairo is long."
+    ],
+    [
+     "How long and when",
+     "Two days, one night",
+     "A typical trip is two days and one night from Bahariya, or three days including the drive from Cairo. The best season is October to April, avoiding the extreme summer heat. Be ready for cold nights in mid-winter."
+    ]
+   ],
+   "sum": [
+    "Western Desert",
+    "2 days",
+    "Private option available",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "Cairo: 2-Day Bahariya & White Desert Private Camp Adventure",
+     "p": "GetYourGuide",
+     "f": [
+      "Private",
+      "2 days",
+      "Pickup offered"
+     ],
+     "pick": true,
+     "why": "The only private option",
+     "cancel": "Free cancellation up to 24 hours in advance"
+    },
+    {
+     "n": "Black & White Desert: 2 days from Cairo with camping",
+     "p": "Viator",
+     "f": [
+      "About 2 days",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "Overnight White Desert camping from Cairo",
+     "p": "Viator",
+     "f": [
+      "About 2 days",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    }
+   ],
+   "cmp": [
+    [
+     "Private",
+     "Yes",
+     "Not stated",
+     "Not stated"
+    ],
+    [
+     "Length",
+     "2 days",
+     "About 2 days",
+     "About 2 days"
+    ],
+    [
+     "Pickup",
+     "Yes",
+     "Yes",
+     "Yes"
+    ]
+   ],
+   "place": "Western Desert",
+   "faq": [
+    [
+     "Is camping in the White Desert safe?",
+     "With a licensed local operator and an experienced driver, yes. Don’t try to drive into the desert on your own."
+    ],
+    [
+     "Are there toilets or showers at camp?",
+     "Usually not. Camps are basic, which is part of the experience. Check with your operator."
+    ],
+    [
+     "Can I do it as a day trip?",
+     "Not really. The distances are long, and the formations are at their best at sunset and sunrise. The overnight camp is the point."
+    ]
+   ]
+  },
+  "nile": {
+   "cls": "w-nile",
+   "fx": "nile",
+   "photo": "nile_l",
+   "video": "video/cairo-nile-sunset.mp4",
+   "vcredit": "Video: Nada Ashraf, Pexels · Cairo, the Nile",
+   "url": "nile-dinner-cruise-with-live-show",
+   "eyebrow": "Cairo · An evening on the river · 3 hours",
+   "title": "Nile Dinner Cruise with Live Show",
+   "lead": "An evening on the Nile in Cairo aboard a restaurant boat. You get a dinner buffet or set menu, live music and usually a show, while the boat cruises past the lights of the city.",
+   "quote": "The mood is festive rather than intimate.",
+   "chips": [
+    "About 2–4 hours",
+    "Private option available",
+    "Pickup on some options"
+   ],
+   "go": "Spend the evening",
+   "jEyebrow": "What the evening is like",
+   "jTitle": "From the Corniche, after dark",
+   "steps": [
+    {
+     "t": "Dinner",
+     "p": "Dinner, often a buffet of Egyptian and international dishes.",
+     "video": "video/cairo-nile-sunset.mp4",
+     "credit": "Cairo, the Nile · Video: Nada Ashraf, Pexels",
+     "why": "Boats leave from docks along the Corniche and cruise the central stretch of the river."
+    },
+    {
+     "img": "cairo_nile",
+     "t": "Live music",
+     "p": "Live music, usually Egyptian and Arabic popular songs."
+    },
+    {
+     "t": "Tanoura",
+     "p": "A tanoura performance: the spinning dance with multi-coloured skirts, related to Sufi whirling.",
+     "video": "video/tanoura.mp4",
+     "credit": "Egyptian tanoura dance, city not stated · Video: Magda Ehlers, Pexels"
+    },
+    {
+     "t": "Belly dance",
+     "p": "On many boats, a belly dance show.",
+     "why": "Expect other groups, families and celebrations on board."
+    }
+   ],
+   "sec": {
+    "eyebrow": "Choosing a boat",
+    "title": "Four things to check",
+    "ps": [
+     "Travellers who want an easy, entertaining evening with a view, families, and groups. If you prefer quiet, a felucca ride at sunset, just the sail, the water and the city, may suit you better. Many visitors do both."
+    ],
+    "tabs": [
+     [
+      "𓏊",
+      "Food and drink",
+      "Buffet or set menu, and whether drinks are included (alcohol is not served on every boat)."
+     ],
+     [
+      "𓊛",
+      "The show programme",
+      "Tanoura, belly dance, or both."
+     ],
+     [
+      "𓉐",
+      "Departure",
+      "Where the boat departs, and whether transfers from your hotel are included."
+     ],
+     [
+      "𓇯",
+      "Seating",
+      "Tables by the windows or on an open deck."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Combine it with",
+     "A day in old Cairo",
+     "A day in Islamic Cairo or Coptic Cairo, ending with dinner on the river. Our Cairo guide covers the areas and a three-day plan."
+    ]
+   ],
+   "sum": [
+    "Cairo",
+    "About 2–4 hours",
+    "Private option available",
+    "Pickup on some options",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "Private Nile dinner cruise with belly dance and tanoura show",
+     "p": "Viator",
+     "f": [
+      "Private",
+      "About 4 hours",
+      "Pickup offered"
+     ],
+     "pick": true,
+     "why": "The only private option",
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "Nile dinner cruise with tanoura show",
+     "p": "Viator",
+     "f": [
+      "About 2 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "Cairo: Opal Nile Romantic Dinner Cruise & Live Entertainment",
+     "p": "GetYourGuide",
+     "f": [
+      "2–4 hours"
+     ],
+     "cancel": "Free cancellation up to 24 hours in advance"
+    }
+   ],
+   "cmp": [
+    [
+     "Private",
+     "Yes",
+     "Not stated",
+     "Not stated"
+    ],
+    [
+     "Length",
+     "About 4 h",
+     "About 2 h",
+     "2–4 h"
+    ],
+    [
+     "Pickup",
+     "Yes",
+     "Yes",
+     "Not stated"
+    ]
+   ],
+   "place": "Cairo & Giza",
+   "stay": {
+    "title": "Staying in Cairo?",
+    "rows": [
+     [
+      "Hotels in Giza, near the pyramids",
+      "Giza"
+     ],
+     [
+      "Hotels in Downtown Cairo (Qasr El Nil)",
+      "Downtown Cairo"
+     ],
+     [
+      "Hotels in Zamalek",
+      "Zamalek"
+     ],
+     [
+      "Hotels in Cairo",
+      "Cairo"
+     ]
+    ]
+   },
+   "faq": [
+    [
+     "Is a Nile dinner cruise worth it?",
+     "For a lively evening with dinner, music and the city lights, yes. For a quieter view of the river, choose a felucca at sunset instead."
+    ],
+    [
+     "What is the tanoura dance?",
+     "A traditional Egyptian dance in which performers spin continuously while turning layered, brightly coloured skirts. It’s related to the whirling of Sufi practice."
+    ],
+    [
+     "What should I wear?",
+     "Smart-casual is fine. Bring a light layer, since it can be cool on the open deck in winter."
+    ]
+   ]
+  },
+  "giza": {
+   "cls": "w-tomb",
+   "fx": "tomb",
+   "photo": "giza_camel",
+   "url": "pyramids-of-giza-sphinx-private-tour",
+   "place": "Cairo & Giza",
+   "eyebrow": "Giza · Cairo · Half day",
+   "title": "Pyramids of Giza & Sphinx Private Tour",
+   "lead": "A private tour of the Giza plateau with your own Egyptologist guide and driver. You’ll see the three great pyramids of Khufu, Khafre and Menkaure, the panoramic viewpoint and the Sphinx with its valley temple, at your own pace and without joining a group.",
+   "quote": "Giza is simple to reach but surprisingly hard to do well.",
+   "chips": [
+    "About 4–8 hours",
+    "3 options from 2 partners",
+    "Private",
+    "Pickup offered"
+   ],
+   "go": "Walk the plateau",
+   "jEyebrow": "What you actually do",
+   "jTitle": "Across the plateau",
+   "steps": [
+    {
+     "t": "The Great Pyramid",
+     "p": "Walk around the Great Pyramid, the only surviving Wonder of the Ancient World.",
+     "video": "video/giza-day.mp4",
+     "credit": "Giza · Video: K, Pexels"
+    },
+    {
+     "video": "video/giza-aerial.mp4",
+     "credit": "Giza and Cairo · Video: Blanka OG, Pexels",
+     "t": "Khafre and Menkaure",
+     "p": "Visit the pyramids of Khafre and Menkaure and the smaller queens’ pyramids."
+    },
+    {
+     "t": "The panoramic viewpoint",
+     "p": "Stop at the panoramic viewpoint for the classic photo of all the pyramids in a row.",
+     "video": "video/giza-camels-clear.mp4",
+     "credit": "Giza · Video: JORGE MONCADA, Pexels"
+    },
+    {
+     "t": "The Sphinx",
+     "p": "Descend to the Sphinx and walk through the valley temple beside it.",
+     "why": "Optionally, go inside one of the pyramids. This needs an extra ticket; the passages are narrow, steep and hot.",
+     "img": "w_sphinx",
+     "credit": "Photo: Petar Milošević, Wikimedia Commons, CC BY-SA 4.0"
+    }
+   ],
+   "sec": {
+    "eyebrow": "Before you go",
+    "title": "A good guide makes it simple",
+    "ps": [
+     "The site is large and exposed, the approaches are crowded with touts, and the story behind the monuments doesn’t explain itself. A good guide handles tickets and the route across the plateau, keeps unwanted sellers at a distance, and turns the stones into the history of the Old Kingdom."
+    ],
+    "tabs": [
+     [
+      "𓇳",
+      "Timing",
+      "Book the earliest start you can. The light is softer and it’s cooler and quieter."
+     ],
+     [
+      "𓈗",
+      "What to bring",
+      "Water, a hat, sun protection and comfortable shoes. There’s very little shade."
+     ],
+     [
+      "𓉐",
+      "Inside the pyramids",
+      "Not recommended if you’re claustrophobic or have mobility or heart problems."
+     ],
+     [
+      "𓃗",
+      "Camel and horse rides",
+      "If you want one, agree the price, the duration and the route in full before you get on. A good guide will help."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "Context, without the hassle",
+     "First-time visitors who want context and a hassle-free morning, families, and anyone short on time."
+    ],
+    [
+     "Combine it with",
+     "The Grand Egyptian Museum",
+     "Right next to the plateau and home to the full Tutankhamun collection. Better as a separate half-day if you can. To the south: Saqqara, Memphis and Dahshur.",
+     "img:gem|The Grand Egyptian Museum, Giza"
+    ]
+   ],
+   "sum": [
+    "Cairo",
+    "About 4–8 hours",
+    "Private",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "Private half-day tour of the Giza pyramids",
+     "p": "Viator",
+     "f": [
+      "Private",
+      "About 4–5 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "Giza pyramids, Sphinx and Grand Egyptian Museum full day",
+     "p": "Viator",
+     "f": [
+      "Private",
+      "About 6–8 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "Cairo: Pyramids & Great Sphinx Private Tour with Camel Ride",
+     "p": "GetYourGuide",
+     "f": [
+      "Private",
+      "4–8 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours in advance"
+    }
+   ],
+   "stay": {
+    "title": "Staying in Cairo?",
+    "rows": [
+     [
+      "Hotels in Giza, near the pyramids",
+      "Giza"
+     ],
+     [
+      "Hotels in Downtown Cairo (Qasr El Nil)",
+      "Downtown Cairo"
+     ],
+     [
+      "Hotels in Zamalek",
+      "Zamalek"
+     ],
+     [
+      "Hotels in Cairo",
+      "Cairo"
+     ]
+    ]
+   },
+   "faq": [
+    [
+     "Is a private tour better than a group tour?",
+     "It’s more flexible and calmer. You choose the pace and the stops. Group tours cost less but follow a fixed schedule."
+    ],
+    [
+     "Can I go inside the Great Pyramid?",
+     "Yes, with an extra ticket. The ascending passages are narrow and steep, and the chamber inside is bare. Most visitors find the outside and the viewpoint more impressive."
+    ],
+    [
+     "How early should I start?",
+     "As early as the site opens. Mornings are cooler and the crowds build through the day."
+    ]
+   ]
+  },
+  "abu": {
+   "cls": "w-tomb",
+   "fx": "tomb",
+   "photo": "abu_l",
+   "url": "abu-simbel-day-trip-from-aswan",
+   "place": "Aswan",
+   "eyebrow": "Aswan · Nubia · Full day",
+   "title": "Abu Simbel Day Trip from Aswan",
+   "lead": "A day trip from Aswan to Abu Simbel, far to the south near the Sudanese border. You’ll see the two rock-cut temples built by Ramesses II: the Great Temple, fronted by four colossal seated statues of the king, and the smaller temple dedicated to Queen Nefertari and the goddess Hathor.",
+   "chips": [
+    "About 8–10 hours",
+    "3 options from 2 partners",
+    "Private or small group",
+    "Pickup offered"
+   ],
+   "go": "Make the journey south",
+   "jEyebrow": "Why it’s worth the effort",
+   "jTitle": "Into the rock",
+   "steps": [
+    {
+     "t": "Leave in the dark",
+     "p": "By road, the classic option, leaving Aswan in the dark before dawn and arriving in the morning. It’s a very long day, most of it in the vehicle.",
+     "tone": "night",
+     "why": "By air: short flights from Aswan save hours on the road, at a higher cost."
+    },
+    {
+     "img": "abu_facade",
+     "t": "Scale",
+     "p": "The façade of the Great Temple is one of the most famous images of ancient Egypt, and it’s even bigger in person.",
+     "tone": "warm"
+    },
+    {
+     "t": "The interiors",
+     "p": "Carved halls lead deep into the rock, with battle scenes and statues of the king as a god.",
+     "tone": "dark",
+     "img": "w_abu_in",
+     "credit": "Photo: turizm-art, Wikimedia Commons, CC BY 3.0"
+    },
+    {
+     "t": "The rescue",
+     "p": "In the 1960s, as Lake Nasser rose behind the new High Dam, the temples were cut into blocks and reassembled on higher ground. Knowing that as you stand inside makes the visit remarkable.",
+     "tone": "warm",
+     "img": "w_abu_move",
+     "credit": "The Great Temple shortly before the move · Photo: Museo Egizio, Turin (photo archive), Wikimedia Commons, public domain"
+    }
+   ],
+   "sec": {
+    "eyebrow": "The sun festival",
+    "title": "When the sun reaches the sanctuary",
+    "ps": [
+     "On or around 22 February and 22 October, the rising sun shines along the Great Temple’s axis into the innermost sanctuary and lights the seated statues there. These days draw large crowds and events. Book far ahead if you want to see it."
+    ],
+    "tabs": [
+     [
+      "𓇳",
+      "",
+      "Bring breakfast or snacks, water, and a layer for the early morning."
+     ],
+     [
+      "𓈗",
+      "",
+      "Sun protection is essential. The forecourt is fully exposed."
+     ],
+     [
+      "𓁹",
+      "",
+      "Photography rules inside the temples can change. Follow the guards."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "A real interest in ancient Egypt",
+     "Anyone with a real interest in ancient Egypt, and travellers staying at least two days in Aswan. If long road journeys are hard for you, fly, or consider a Lake Nasser cruise."
+    ],
+    [
+     "Combine it with",
+     "Philae and a felucca",
+     "Philae temple, the Unfinished Obelisk and a felucca in Aswan. Plan them for the days before or after, not the same day."
+    ]
+   ],
+   "sum": [
+    "Aswan",
+    "About 8–10 hours",
+    "Private or small group",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "Private Abu Simbel day tour from Aswan",
+     "p": "Viator",
+     "f": [
+      "Private",
+      "About 8–10 hours",
+      "Pickup offered"
+     ],
+     "pick": true,
+     "cancel": "Free cancellation up to 24 hours before the experience starts",
+     "why": "Private"
+    },
+    {
+     "n": "Shared Abu Simbel day trip from Aswan",
+     "p": "Viator",
+     "f": [
+      "Small group",
+      "About 10 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "From Aswan: Abu Simbel Day Tour with Private Guide and Car",
+     "p": "GetYourGuide",
+     "f": [
+      "Private",
+      "10 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours in advance"
+    }
+   ],
+   "stay": {
+    "title": "Staying in Aswan?",
+    "rows": [
+     [
+      "Hotels in Aswan",
+      "Aswan"
+     ]
+    ]
+   },
+   "faq": [
+    [
+     "Can I visit Abu Simbel without a tour?",
+     "Yes, you can arrange your own driver or fly independently. Most travellers still book a tour or transfer for the pre-dawn road journey."
+    ],
+    [
+     "How long do you spend at the temples?",
+     "Usually a few hours, enough for both temples without rushing."
+    ],
+    [
+     "Is it worth going on the sun festival day?",
+     "It’s unforgettable, but very busy. On other days you get far more space in the temples."
+    ]
+   ]
+  },
+  "alex": {
+   "cls": "w-nile w-city",
+   "fx": "nile",
+   "photo": "alex_l",
+   "video": "video/alexandria-qaitbay.mp4",
+   "vcredit": "Qaitbay Citadel, Alexandria · Video: The Instagrapher, Pexels",
+   "url": "alexandria-day-trip-from-cairo",
+   "place": "Alexandria",
+   "eyebrow": "Alexandria · The Mediterranean · Full day from Cairo",
+   "title": "Alexandria Day Trip from Cairo",
+   "lead": "A full day from Cairo to Egypt’s Mediterranean city and back. Alexandria was founded by Alexander the Great and became the capital of the Ptolemies.",
+   "quote": "A side of Egypt that is Greek, Roman and Mediterranean as much as pharaonic.",
+   "chips": [
+    "About 10–12 hours",
+    "Small-group option available",
+    "Pickup offered"
+   ],
+   "go": "Spend the day by the sea",
+   "jEyebrow": "What you see",
+   "jTitle": "Along the Mediterranean",
+   "steps": [
+    {
+     "img": "alex_c1",
+     "t": "The Citadel of Qaitbay",
+     "p": "The 15th-century sea fort built on the site of the ancient Pharos lighthouse, reusing its stone."
+    },
+    {
+     "img": "bib_sunset",
+     "t": "The Bibliotheca Alexandrina",
+     "p": "The modern library on the seafront, a tribute to the ancient Library of Alexandria."
+    },
+    {
+     "t": "Kom el-Shoqafa",
+     "p": "Roman-era catacombs cut deep into the rock, where Egyptian gods appear in Greco-Roman style.",
+     "tone": "dark",
+     "img": "w_shoqafa",
+     "credit": "Photo: Following Hadrian, Wikimedia Commons, CC BY-SA 2.0"
+    },
+    {
+     "img": "pompey",
+     "t": "Pompey’s Pillar",
+     "p": "A single granite column on the hill of the ancient Serapeum, raised in fact for the emperor Diocletian."
+    },
+    {
+     "t": "The Corniche and Montaza",
+     "p": "The seafront promenade and the former royal gardens at its eastern end.",
+     "tone": "warm",
+     "why": "Lunch is usually fish, chosen from the ice and grilled or fried as you ask.",
+     "img": "w_montaza",
+     "credit": "Photo: Murat Özsoy 1958, Wikimedia Commons, CC BY-SA 4.0"
+    }
+   ],
+   "sec": {
+    "eyebrow": "Making one day count",
+    "title": "Four or five sites, chosen well",
+    "ps": [
+     "The round trip from Cairo takes a large share of the day, so most tours start early and focus on four or five sites. A private car with a guide lets you choose them. Tours differ in which sites they include, so compare the itineraries."
+    ],
+    "tabs": [
+     [
+      "𓉐",
+      "",
+      "Check which sites are visited inside, and which are seen only from outside."
+     ],
+     [
+      "𓏊",
+      "",
+      "Ask whether entry tickets and lunch are included."
+     ],
+     [
+      "𓇳",
+      "",
+      "Confirm the pickup time and place in Cairo or Giza."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "A complete change of scene",
+     "Travellers with a few days in Cairo who want a complete change of scene, and anyone interested in the Greek and Roman story of Egypt. If you have more time, two days in Alexandria are better than one."
+    ]
+   ],
+   "sum": [
+    "Alexandria",
+    "About 10–12 hours",
+    "Small-group option available",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "Alexandria day trip from Cairo",
+     "p": "Viator",
+     "f": [
+      "About 10–12 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "From Cairo: Historical Alexandria Shared Day Tour with Lunch",
+     "p": "GetYourGuide",
+     "f": [
+      "Small group",
+      "11 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours in advance"
+    }
+   ],
+   "stay": {
+    "title": "Staying in Alexandria?",
+    "rows": [
+     [
+      "Hotels in Alexandria",
+      "Alexandria"
+     ]
+    ]
+   },
+   "faq": [
+    [
+     "Is a day trip to Alexandria worth it?",
+     "Yes, if you have a spare day in Cairo. You will see the highlights, though staying a night gives a more relaxed visit."
+    ],
+    [
+     "Can I still see the ancient Lighthouse or Library?",
+     "Neither survives. The Citadel of Qaitbay stands on the lighthouse’s site, and the modern Bibliotheca Alexandrina honours the ancient library."
+    ],
+    [
+     "Can I go by train instead of a tour?",
+     "Yes. Trains run between Cairo and Alexandria throughout the day, and you can move around the city by taxi or ride-hailing app."
+    ]
+   ]
+  },
+  "ras": {
+   "cls": "w-sea",
+   "fx": "sea",
+   "photo": "ras_turq",
+   "video": "video/redsea-reef.mp4",
+   "vcredit": "Red Sea, Egypt · Video: Adrien JACTA, Pexels",
+   "url": "ras-mohammed-snorkelling-from-sharm",
+   "place": "Red Sea",
+   "eyebrow": "Sharm El Sheikh · South Sinai · About 5–6 hours",
+   "title": "Ras Mohammed Snorkelling from Sharm El Sheikh",
+   "lead": "A half-day or full-day trip from Sharm El Sheikh to Ras Mohammed National Park, at the southern tip of the Sinai Peninsula. Declared in 1983, it was Egypt’s first national park.",
+   "quote": "The contrast of desert and sea is part of the experience.",
+   "chips": [
+    "About 5–6 hours",
+    "Pickup offered",
+    "Snorkellers of every level"
+   ],
+   "go": "Into the park",
+   "jEyebrow": "By road or by boat",
+   "jTitle": "Two ways to the reef",
+   "steps": [
+    {
+     "t": "By road",
+     "p": "A bus or jeep trip into the park, with snorkelling from the shore and stops at its viewpoints and coastal landmarks. A good choice if you prefer to stay close to land.",
+     "tone": "warm"
+    },
+    {
+     "img": "ras_turq",
+     "t": "By boat",
+     "p": "A day boat from Sharm reaches the reefs from the water, with time to snorkel at more than one site. Divers can often join the same boat."
+    },
+    {
+     "t": "What you see",
+     "p": "Coral gardens and steep reef walls close to the surface, with reef fish in great numbers. Turtles and rays are seen on some days, but nothing is guaranteed.",
+     "video": "video/redsea-coral.mp4",
+     "credit": "Red Sea · Video: Adrien JACTA, Pexels"
+    }
+   ],
+   "sec": {
+    "eyebrow": "The park rules",
+    "title": "A protected reef",
+    "ps": [
+     "Ras Mohammed is protected. Never touch or stand on coral, don’t feed fish, and don’t collect anything. Rules on anchoring and fishing are strict, and operators should follow them."
+    ],
+    "tabs": [
+     [
+      "𓈗",
+      "",
+      "Swimwear, a towel and a rash vest or reef-friendly sun protection."
+     ],
+     [
+      "𓁹",
+      "",
+      "Your own mask if you have one that fits well."
+     ],
+     [
+      "𓇳",
+      "",
+      "Water and a hat. There is little shade on shore."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "Every level, beginners too",
+     "Snorkellers of every level, including beginners. Tell the operator how well you swim, and ask for a life jacket or snorkel vest if you want one. For diving, see our Red Sea diving trip."
+    ]
+   ],
+   "sum": [
+    "Sharm El Sheikh",
+    "About 5–6 hours",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "Ras Mohammed snorkeling trip from Sharm El Sheikh",
+     "p": "Viator",
+     "f": [
+      "About 5 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "From Sharm: White Island and Ras Mohamed Snorkeling Trip",
+     "p": "GetYourGuide",
+     "f": [
+      "6 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours in advance"
+    }
+   ],
+   "stay": {
+    "title": "Staying in Sharm El Sheikh?",
+    "rows": [
+     [
+      "Hotels in Sharm El Sheikh",
+      "Sharm El Sheikh"
+     ]
+    ]
+   },
+   "faq": [
+    [
+     "Do I need to be a strong swimmer?",
+     "No. Guides accompany beginners, and vests are usually available. Say so when you book."
+    ],
+    [
+     "Is the park fee included?",
+     "It depends on the tour. Check before you book."
+    ],
+    [
+     "When is the best time to go?",
+     "The sea is warm for most of the year. Spring and autumn combine warm water with comfortable air temperatures."
+    ]
+   ]
+  },
+  "siwa": {
+   "cls": "w-desert",
+   "fx": "desert",
+   "photo": "siwa_l",
+   "url": "great-sand-sea-4-4-hot-springs",
+   "place": "Western Desert",
+   "eyebrow": "Siwa Oasis · The Great Sand Sea · Full day",
+   "title": "Great Sand Sea 4×4 & Hot Springs",
+   "lead": "A 4×4 excursion from Siwa into the Great Sand Sea, one of the largest dune fields in the world, stretching south of the oasis. With a local driver you cross towering dunes, stop to swim in springs in the middle of the desert, try sand-boarding, and watch the sun set over the sand.",
+   "quote": "Trips usually leave in the afternoon, so you’re in the dunes in the best light.",
+   "chips": [
+    "Full day",
+    "Private option available",
+    "Pickup offered"
+   ],
+   "go": "Into the dunes",
+   "jEyebrow": "What the day is like",
+   "jTitle": "Dunes, springs, sunset",
+   "steps": [
+    {
+     "t": "Dune driving",
+     "p": "Steep climbs and descents that are part rollercoaster, part landscape tour. Tell your driver if you’d prefer a gentler ride.",
+     "tone": "warm",
+     "img": "w_siwa_dunes",
+     "credit": "Photo: Walaa, Wikimedia Commons, public domain"
+    },
+    {
+     "t": "Springs",
+     "p": "Hot and cold springs in the desert. A dip in warm water with dunes all around is the highlight for many.",
+     "tone": "warm",
+     "img": "w_siwa_spring",
+     "credit": "Photo: Vyacheslav Argenberg, Wikimedia Commons, CC BY 4.0"
+    },
+    {
+     "t": "Sand-boarding",
+     "p": "Sand-boarding down the dunes.",
+     "tone": "dark"
+    },
+    {
+     "t": "Sunset",
+     "p": "Sunset from the top of a dune, often with tea made on a small fire.",
+     "tone": "night",
+     "img": "w_siwa_sunset",
+     "credit": "Photo: Walaa, Wikimedia Commons, public domain"
+    }
+   ],
+   "sec": {
+    "eyebrow": "Choosing an operator",
+    "title": "Never go into the dunes on your own",
+    "night": true,
+    "ps": [
+     "Sun protection, sunglasses and water; swimwear and a towel for the springs; and a warm layer, because it gets cold quickly after sunset, especially in winter."
+    ],
+    "tabs": [
+     [
+      "𓀀",
+      "",
+      "A licensed Siwan operator and an experienced desert driver."
+     ],
+     [
+      "𓊡",
+      "",
+      "A vehicle in good condition, with water and communication equipment."
+     ],
+     [
+      "𓉐",
+      "",
+      "Whether permits for the desert areas are arranged for you."
+     ],
+     [
+      "𓇳",
+      "",
+      "Whether the trip includes springs, sand-boarding and sunset, or goes further for a longer day or an overnight camp."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "The classic Siwa excursion",
+     "Anyone staying in Siwa. The dune driving can be rough, so it’s not suitable if you have back problems or are pregnant. Ask for a calmer route."
+    ],
+    [
+     "Combine it with",
+     "The oasis itself",
+     "The Shali fortress, the Oracle of Amun and Cleopatra’s Spring in the oasis itself. See our Siwa guide.",
+     "img:siwa_lake|Siwa, Egypt"
+    ]
+   ],
+   "sum": [
+    "Siwa",
+    "Full day",
+    "Private option available",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "Siwa Oasis 3-day trip from Cairo, with a Great Sand Sea safari",
+     "p": "Viator",
+     "f": [
+      "Private",
+      "About 3 days",
+      "Pickup offered"
+     ],
+     "pick": true,
+     "why": "The only private option",
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "2 Nights 3 Days at Siwa Oases camp from Cairo",
+     "p": "GetYourGuide",
+     "f": [
+      "3 days",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation up to 24 hours in advance"
+    }
+   ],
+   "stay": {
+    "title": "Staying in Siwa?",
+    "rows": [
+     [
+      "Hotels in Siwa Oasis",
+      "Siwa Oasis"
+     ]
+    ]
+   },
+   "faq": [
+    [
+     "Is the dune driving scary?",
+     "It can be exhilarating. Drivers adjust to their passengers, so just ask for a gentler ride."
+    ],
+    [
+     "Do I need to book in advance?",
+     "In the main season it’s wise to arrange it on arrival or through your lodge. Local operators run trips most days."
+    ],
+    [
+     "Can I stay overnight in the desert?",
+     "Yes, many operators offer an overnight camp in the dunes, for a night under the stars."
+    ]
+   ]
+  },
+  "food": {
+   "cls": "w-nile w-city",
+   "fx": "nile",
+   "photo": "food_l",
+   "url": "cairo-street-food-tour-by-night",
+   "place": "Cairo & Giza",
+   "eyebrow": "Cairo · After dark · 4 hours",
+   "title": "Cairo Street Food Tour by Night",
+   "lead": "An evening walk through Cairo’s neighbourhoods with a local guide, tasting street food and snacks at small shops, carts and eateries.",
+   "quote": "Cairo eats late, so the city is at its most alive after dark.",
+   "chips": [
+    "About 3–4 hours",
+    "2 options"
+   ],
+   "go": "Start tasting",
+   "jEyebrow": "What you’ll taste",
+   "jTitle": "Stop by stop, plate by plate",
+   "steps": [
+    {
+     "img": "c_koshary",
+     "credit": "Photo: Dina Said, Wikimedia Commons, CC BY-SA 4.0",
+     "t": "Koshari",
+     "p": "Rice, lentils, pasta, spicy tomato sauce and crispy onions, Cairo’s signature dish.",
+     "tone": "warm"
+    },
+    {
+     "img": "c_ful",
+     "credit": "Photo: Marsupium, Wikimedia Commons, CC BY-SA 4.0",
+     "t": "Ful medames and ta’meya",
+     "p": "Slow-cooked fava beans, and Egyptian falafel made from fava beans.",
+     "tone": "warm"
+    },
+    {
+     "img": "c_hawawshi",
+     "credit": "Photo: Mohamed Moheyeldin, Wikimedia Commons, CC BY-SA 4.0",
+     "t": "Hawawshi",
+     "p": "Spiced minced meat baked inside bread.",
+     "tone": "dark"
+    },
+    {
+     "img": "c_feteer",
+     "credit": "Photo: Mohamed Ouda, Wikimedia Commons, CC BY-SA 4.0",
+     "t": "Feteer meshaltet",
+     "p": "Flaky layered pastry, with savoury or sweet fillings.",
+     "tone": "warm"
+    },
+    {
+     "img": "f_sweets",
+     "credit": "Photo: mohmed Afify, Unsplash",
+     "t": "Sweets and drinks",
+     "p": "Basbousa, konafa, or rice pudding; fresh sugarcane juice, mint tea, or coffee in an ahwa.",
+     "tone": "night"
+    }
+   ],
+   "sec": {
+    "eyebrow": "Why go with a guide",
+    "title": "The best food has no English menu",
+    "ps": [
+     "The best food in Cairo is in places without menus in English, and often without signs at all. A guide knows where to go, orders for you, explains the dishes, and handles hygiene questions."
+    ],
+    "tabs": [
+     [
+      "𓏊",
+      "",
+      "Tell the operator about allergies and dietary needs. Vegetarian eating is easy in Egypt, since many classics are meat-free."
+     ],
+     [
+      "𓌉",
+      "",
+      "Come hungry: tastings add up."
+     ],
+     [
+      "𓂻",
+      "",
+      "Wear comfortable shoes: you’ll be walking on uneven streets."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "A good first evening",
+     "First-time visitors, food lovers, and anyone who wants to see local life beyond the monuments. It’s a good first evening in Cairo, when you’re still getting your bearings."
+    ],
+    [
+     "Combine it with",
+     "Islamic Cairo or Downtown",
+     "A day in Islamic Cairo or Downtown. See our Cairo guide for the areas and more on Cairo food.",
+     "img:f_street|A Cairo street · Photo: Ahmed Assem, Unsplash"
+    ]
+   ],
+   "sum": [
+    "Cairo",
+    "About 3–4 hours",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "Cairo Nights street-food tour",
+     "p": "Viator",
+     "f": [
+      "About 4 hours"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "Cairo evening food tour with 40 tastings",
+     "p": "Viator",
+     "f": [
+      "About 3 hours"
+     ],
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    }
+   ],
+   "stay": {
+    "title": "Staying in Cairo?",
+    "rows": [
+     [
+      "Hotels in Giza, near the pyramids",
+      "Giza"
+     ],
+     [
+      "Hotels in Downtown Cairo (Qasr El Nil)",
+      "Downtown Cairo"
+     ],
+     [
+      "Hotels in Zamalek",
+      "Zamalek"
+     ],
+     [
+      "Hotels in Cairo",
+      "Cairo"
+     ]
+    ]
+   },
+   "faq": [
+    [
+     "Is Cairo street food safe to eat?",
+     "Eating at busy places with high turnover, as guides do, is the best approach. Drink bottled water, and be careful with raw salads if your stomach is sensitive."
+    ],
+    [
+     "Is it suitable for vegetarians?",
+     "Yes. Koshari, ful, ta’meya and feteer are traditionally vegetarian. Tell your guide in advance."
+    ],
+    [
+     "How late does it run?",
+     "Evening tours usually start after sunset and last a few hours. Check the start time with the operator."
+    ]
+   ]
+  },
+  "cruise": {
+   "cls": "w-nile",
+   "fx": "nile",
+   "photo": "cruise_l",
+   "url": "nile-cruise-aswan-to-luxor",
+   "place": "Aswan",
+   "eyebrow": "Aswan to Luxor · On the Nile · 4 days",
+   "title": "Nile Cruise from Aswan to Luxor",
+   "lead": "Between Aswan and Luxor, the Nile passes some of the best-preserved temples in Egypt. On a cruise the boat is your hotel and moves between the sites: your cabin, meals and the visits are arranged together, and a guide takes you to the temples at each stop.",
+   "quote": "Unpacking once, and seeing the river itself.",
+   "chips": [
+    "4 days",
+    "3 options from 2 partners",
+    "Private option available",
+    "Pickup offered"
+   ],
+   "go": "Sail the classic route",
+   "jEyebrow": "On the way",
+   "jTitle": "Aswan to Luxor",
+   "steps": [
+    {
+     "img": "cruise_philae",
+     "t": "Aswan",
+     "p": "With your guide, the High Dam and the temple of Philae on its island, before the boat sets off.",
+     "tone": "warm"
+    },
+    {
+     "t": "Kom Ombo",
+     "p": "A double temple of the Ptolemaic and Roman periods on a bend of the river, dedicated to two gods at once: Sobek, the crocodile god, and Horus, the falcon-headed god.",
+     "tone": "dark",
+     "img": "w_komombo",
+     "credit": "Photo: Olaf Tausch, Wikimedia Commons, CC BY 3.0"
+    },
+    {
+     "img": "cruise_edfu",
+     "t": "Edfu",
+     "p": "The Temple of Horus at Edfu is one of the best-preserved temples in Egypt. It was begun under Ptolemy III in 237 BC and completed in 57 BC.",
+     "tone": "warm"
+    },
+    {
+     "img": "cruise_luxor",
+     "t": "Luxor",
+     "p": "Karnak and Luxor Temple on the East Bank, then the West Bank: the Valley of the Kings, Hatshepsut’s temple and the Colossi of Memnon.",
+     "tone": "dark",
+     "why": "Between visits there is time on deck to watch the river: palm groves, villages and desert on either side."
+    }
+   ],
+   "sec": {
+    "eyebrow": "Before you book",
+    "title": "Same river, different extras",
+    "ps": [
+     "All three options sail from Aswan to Luxor over four days with an Egyptologist guide. They differ in what is added: Abu Simbel and a hot-air balloon flight over Luxor are part of two options and extras on the private one, and entrance fees are extra on two of them. Check what is included on the partner’s page before you book."
+    ],
+    "tabs": [
+     [
+      "𓇳",
+      "Early starts",
+      "Abu Simbel and the balloon flight start before dawn."
+     ],
+     [
+      "𓊛",
+      "Departures",
+      "The Viator options leave Aswan on Monday, Wednesday or Friday."
+     ],
+     [
+      "𓉐",
+      "Entrance fees",
+      "Included on the private option; extra, or paid locally, on the other two."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "The river as the highlight",
+     "Choose a cruise if you want an easy, relaxed trip with the river as the highlight. If the monuments are your priority and you like to set your own pace, staying in hotels may suit you better."
+    ],
+    [
+     "Combine it with",
+     "An extra day in Luxor",
+     "Many people add an extra day in Luxor before or after for the sites the boat schedule rushes."
+    ]
+   ],
+   "sum": [
+    "Aswan to Luxor",
+    "4 days",
+    "Private option available",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "4-day Nile cruise from Aswan to Luxor with Abu Simbel and a balloon flight",
+     "p": "Viator",
+     "f": [
+      "Group",
+      "4 days",
+      "Abu Simbel included",
+      "Balloon flight included",
+      "Pickup offered"
+     ],
+     "pick": true,
+     "why": "Abu Simbel and the balloon flight included",
+     "fees": "Extra",
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "4-day Nile cruise from Aswan to Luxor with a private guide",
+     "p": "Viator",
+     "f": [
+      "Private",
+      "4 days",
+      "Entrance fees included",
+      "Pickup offered"
+     ],
+     "fees": "Included",
+     "cancel": "Free cancellation up to 24 hours before the experience starts"
+    },
+    {
+     "n": "From Aswan: 4 Days Nile Cruise Luxor Abu Simbel & Air Balloon",
+     "p": "GetYourGuide",
+     "f": [
+      "4 days",
+      "Abu Simbel included",
+      "Balloon flight included",
+      "Pickup included"
+     ],
+     "fees": "Paid locally",
+     "cancel": "Free cancellation up to 24 hours in advance"
+    }
+   ],
+   "stay": {
+    "title": "Before or after the cruise",
+    "rows": [
+     [
+      "Hotels in Aswan",
+      "Aswan"
+     ],
+     [
+      "Hotels in Luxor",
+      "Luxor"
+     ]
+    ]
+   },
+   "faq": [
+    [
+     "Is it better to start in Luxor or in Aswan?",
+     "Both work. Starting in Aswan ends the trip in Luxor, which has more to see afterwards. Starting in Luxor ends it in Aswan’s calmer atmosphere. These three options all sail from Aswan to Luxor."
+    ],
+    [
+     "Does the cruise include Abu Simbel?",
+     "On two of the three options, yes, as an early-morning trip from Aswan. On the private option it is an extra."
+    ],
+    [
+     "Are the temple visits guided?",
+     "Yes. On all three options an Egyptologist guide leads the visits."
+    ]
+   ]
+  }
+ },
+ "TRIPS": [
+  {
+   "id": "cruise",
+   "k": "cruise_l",
+   "world": true,
+   "t": "Nile Cruise from Aswan to Luxor",
+   "loc": "Aswan to Luxor",
+   "place": "Aswan",
+   "dest": "aswan",
+   "time": "4 days",
+   "len": "multi",
+   "facts": [
+    "Private option available",
+    "Pickup offered"
+   ],
+   "n": 3,
+   "priv": true,
+   "pick": true,
+   "places": [
+    "Aswan",
+    "Luxor"
+   ]
+  },
+  {
+   "id": "valley",
+   "k": "valley",
+   "world": true,
+   "t": "Valley of the Kings & Hatshepsut Temple",
+   "loc": "Luxor",
+   "place": "Luxor",
+   "dest": "luxor",
+   "time": "About 4–10 hours",
+   "len": "full",
+   "facts": [
+    "Private option available",
+    "Pickup offered"
+   ],
+   "n": 3,
+   "priv": true,
+   "pick": true,
+   "open": true,
+   "places": [
+    "Luxor"
+   ]
+  },
+  {
+   "id": "giza",
+   "k": "giza",
+   "world": true,
+   "t": "Pyramids of Giza & Sphinx Private Tour",
+   "loc": "Giza, Cairo",
+   "place": "Cairo & Giza",
+   "dest": "cairo",
+   "time": "About 4–8 hours",
+   "len": "short",
+   "facts": [
+    "Private",
+    "Pickup offered"
+   ],
+   "n": 3,
+   "priv": true,
+   "pick": true,
+   "places": [
+    "Cairo"
+   ]
+  },
+  {
+   "id": "nile",
+   "k": "nile",
+   "world": true,
+   "t": "Nile Dinner Cruise with Live Show",
+   "loc": "Cairo",
+   "place": "Cairo & Giza",
+   "dest": "cairo",
+   "time": "About 2–4 hours",
+   "len": "short",
+   "facts": [
+    "Private option available",
+    "Pickup on some options"
+   ],
+   "n": 3,
+   "priv": true,
+   "pick": true,
+   "places": [
+    "Cairo"
+   ]
+  },
+  {
+   "id": "food",
+   "k": "food",
+   "world": true,
+   "t": "Cairo Street Food Tour by Night",
+   "loc": "Downtown Cairo",
+   "place": "Cairo & Giza",
+   "dest": "cairo",
+   "time": "About 3–4 hours",
+   "len": "short",
+   "facts": [],
+   "n": 2,
+   "priv": false,
+   "pick": false,
+   "places": [
+    "Cairo"
+   ]
+  },
+  {
+   "id": "abu",
+   "k": "abu",
+   "world": true,
+   "t": "Abu Simbel Day Trip from Aswan",
+   "loc": "Aswan",
+   "place": "Aswan",
+   "dest": "aswan",
+   "time": "About 8–10 hours",
+   "len": "full",
+   "facts": [
+    "Private or small group",
+    "Pickup offered"
+   ],
+   "n": 3,
+   "priv": true,
+   "pick": true,
+   "places": [
+    "Aswan"
+   ]
+  },
+  {
+   "id": "alex",
+   "k": "alex",
+   "world": true,
+   "t": "Alexandria Day Trip from Cairo",
+   "loc": "Alexandria",
+   "place": "Alexandria",
+   "dest": "alexandria",
+   "time": "About 10–12 hours",
+   "len": "full",
+   "facts": [
+    "Small-group option available",
+    "Pickup offered"
+   ],
+   "n": 2,
+   "priv": false,
+   "pick": true,
+   "places": [
+    "Alexandria"
+   ]
+  },
+  {
+   "id": "redsea",
+   "k": "ras",
+   "world": true,
+   "t": "Red Sea Diving: Two Reef Dives",
+   "loc": "Hurghada",
+   "place": "Red Sea",
+   "dest": "hurghada",
+   "time": "1 day · 2 dives",
+   "len": "full",
+   "facts": [
+    "All options leave from Hurghada",
+    "Pickup offered"
+   ],
+   "n": 3,
+   "priv": false,
+   "pick": true,
+   "places": [
+    "Hurghada",
+    "Sharm El Sheikh"
+   ]
+  },
+  {
+   "id": "ras",
+   "k": "ras",
+   "world": true,
+   "t": "Ras Mohammed Snorkelling from Sharm El Sheikh",
+   "loc": "Sharm El Sheikh",
+   "place": "Red Sea",
+   "dest": "sharm",
+   "time": "About 5–6 hours",
+   "len": "full",
+   "facts": [
+    "Pickup offered"
+   ],
+   "n": 2,
+   "priv": false,
+   "pick": true,
+   "places": [
+    "Sharm El Sheikh"
+   ]
+  },
+  {
+   "id": "white",
+   "k": "white",
+   "world": true,
+   "t": "White Desert & Black Desert Safari",
+   "loc": "Western Desert",
+   "place": "Western Desert",
+   "dest": "",
+   "time": "2 days",
+   "len": "multi",
+   "facts": [
+    "Private option available",
+    "Pickup offered"
+   ],
+   "n": 3,
+   "priv": true,
+   "pick": true,
+   "places": [
+    "Siwa"
+   ]
+  },
+  {
+   "id": "siwa",
+   "k": "siwa",
+   "world": true,
+   "t": "Great Sand Sea 4×4 & Hot Springs",
+   "loc": "Siwa Oasis",
+   "place": "Western Desert",
+   "dest": "siwa",
+   "time": "Full day",
+   "len": "full",
+   "facts": [
+    "Private option available",
+    "Pickup offered"
+   ],
+   "n": 2,
+   "priv": true,
+   "pick": true,
+   "places": [
+    "Siwa"
+   ]
+  }
+ ],
+ "IMG": {
+  "hero": "DATA",
+  "trip": "DATA",
+  "ras": "DATA",
+  "alex": "DATA",
+  "giza": "DATA",
+  "nile": "DATA",
+  "abu": "DATA",
+  "white": "DATA",
+  "food": "img/1762631934548-7b83d4bdcaa1.jpg",
+  "valley": "DATA",
+  "siwa": "DATA",
+  "hotel": "DATA",
+  "sc_pyr": "DATA",
+  "sc_nile": "DATA",
+  "sc_desert": "DATA",
+  "sc_sea": "DATA",
+  "d_cairo": "DATA",
+  "d_alexandria": "DATA",
+  "d_siwa": "DATA",
+  "d_luxor": "DATA",
+  "d_aswan": "DATA",
+  "d_hurghada": "DATA",
+  "d_sharm": "DATA",
+  "hat_l": "DATA",
+  "sea_l": "DATA",
+  "desert_l": "DATA",
+  "nile_l": "DATA",
+  "abu_l": "DATA",
+  "alex_l": "DATA",
+  "alex_c1": "DATA",
+  "siwa_l": "DATA",
+  "food_l": "img/c_koshary.jpg",
+  "kv62": "DATA",
+  "bib_sunset": "DATA",
+  "pompey": "DATA",
+  "abu_facade": "DATA",
+  "hurg_diver": "DATA",
+  "ras_turq": "DATA",
+  "giza_camel": "DATA",
+  "gem": "DATA",
+  "siwa_lake": "DATA",
+  "cairo_nile": "DATA",
+  "c_koshary": "img/c_koshary.jpg",
+  "c_ful": "img/c_ful.jpg",
+  "c_hawawshi": "img/c_hawawshi.jpg",
+  "c_feteer": "img/c_feteer.jpg",
+  "f_bread": "img/1521791697570-e1f13d0b81d0.jpg",
+  "f_feteer": "img/1762631934548-7b83d4bdcaa1.jpg",
+  "f_seller": "img/1738245868177-8c9977608031.jpg",
+  "f_sweets": "img/1590657140810-25898a847305.jpg",
+  "f_street": "img/1652022262085-d454346a353e.jpg",
+  "habu1": "img/a_habu1.jpg",
+  "habu2": "img/a_habu2.jpg",
+  "reef_school": "img/a_reef_school.jpg",
+  "reef_clown2": "img/a_reef_clown2.jpg",
+  "reef_yellow": "img/a_reef_yellow.jpg",
+  "reef_puffer": "img/a_reef_puffer.jpg",
+  "reef_coral": "img/a_reef_coral.jpg",
+  "cruise_l": "img/1778402153163-fc9a5fd0131a.jpg",
+  "cruise_philae": "img/1738580426867-03fa8c8b5288.jpg",
+  "cruise_edfu": "img/1660705630675-d66d60fdca46.jpg",
+  "cruise_luxor": "img/1610331800877-462a21600420.jpg",
+  "cruise_felucca": "img/1770251693846-4167f4c049c6.jpg",
+  "w_colossi": "img/w_colossi.jpg",
+  "w_black": "img/w_black.jpg",
+  "w_crystal": "img/w_crystal.jpg",
+  "w_white": "img/w_white.jpg",
+  "w_sphinx": "img/w_sphinx.jpg",
+  "w_abu_in": "img/w_abu_in.jpg",
+  "w_abu_move": "img/w_abu_move.jpg",
+  "w_shoqafa": "img/w_shoqafa.jpg",
+  "w_montaza": "img/w_montaza.jpg",
+  "w_siwa_dunes": "img/w_siwa_dunes.jpg",
+  "w_siwa_spring": "img/w_siwa_spring.jpg",
+  "w_siwa_sunset": "img/w_siwa_sunset.jpg",
+  "w_hurg_marina": "img/w_hurg_marina.jpg",
+  "w_komombo": "img/w_komombo.jpg"
+ },
+ "GUIDES": [
+  {
+   "slug": "luxor-west-bank-temples-and-tombs",
+   "title": "Luxor’s West Bank Beyond the Valley of the Kings",
+   "excerpt": "Luxor's West Bank beyond the royal tombs: Hatshepsut's terraced temple at Deir el-Bahari, the Colossi of Memnon, the Ramesseum, Medinet Habu, the Valley of the Queens and the tomb builders' village at Deir el-Medina, and how to plan the day.",
+   "topic": "Planning",
+   "dests": [
+    "luxor"
+   ],
+   "trips": [
+    "valley"
+   ],
+   "photo": "img/1623417765161-c71d6c83cfee.jpg",
+   "mins": 3,
+   "blocks": [
+    [
+     "p",
+     "Ancient Thebes buried its kings on the West Bank of the Nile, and built their funerary temples there too. Most visitors come for the Valley of the Kings, but the West Bank holds much more: temples, queens' tombs and the village of the craftsmen who cut the royal tombs. This guide covers what else to see."
+    ],
+    [
+     "h2",
+     "deir-el-bahari",
+     "Hatshepsut's temple at Deir el-Bahari"
+    ],
+    [
+     "p",
+     "Deir el-Bahari is a bay in the cliffs on the West Bank, east of the Valley of the Kings. Its name is Arabic for \"northern monastery\", after a monastery built there in the 7th century. Three temples stand on the site:"
+    ],
+    [
+     "ul",
+     [
+      "<strong>The terraced temple of Queen Hatshepsut,</strong> built around 1470 BC. Set beneath the cliffs, it is a famous example of architecture that makes the most of its site. It was uncovered in the 1890s beneath the monastery ruins and later partly restored.",
+      "<strong>The funerary temple of King Mentuhotep II,</strong> around 1970 BC, which has lost much of its upper structure.",
+      "<strong>A temple of Thutmose III,</strong> found by a Polish mission that began restoring Hatshepsut's third terrace in 1968."
+     ]
+    ],
+    [
+     "h2",
+     "colossi",
+     "The Colossi of Memnon"
+    ],
+    [
+     "p",
+     "Two huge quartzite statues of Amenhotep III once flanked the gateway of his funerary temple. The temple is gone, and the statues now sit in the middle of the fields. The name Memnon is a later Greek one."
+    ],
+    [
+     "h2",
+     "ramesseum",
+     "The Ramesseum"
+    ],
+    [
+     "p",
+     "The funerary temple of Ramesses II, dedicated to the god Amun and to the dead king. It was famous for a seated statue of Ramesses about 17 metres high, of which only fragments are left. The shattered colossus inspired Shelley's 1818 poem \"Ozymandias\". About half of the temple survives, with reliefs of the Battle of Kadesh, the Syrian wars and the Festival of Min."
+    ],
+    [
+     "h2",
+     "medinet-habu",
+     "Medinet Habu"
+    ],
+    [
+     "p",
+     "The funerary temple of Ramesses III, also dedicated to Amun, stands within a fortified enclosure entered through towers modelled on Syrian fortresses. Its walls show religious scenes and Ramesses III's wars against the Libyans, the Nubians and the Sea Peoples. A royal palace stood beside the forecourt. In the first millennium AD, a Coptic town called Djeme grew up inside the walls."
+    ],
+    [
+     "tip",
+     "At Medinet Habu",
+     "<p>Look for Ramesses III's battles among the religious scenes, and take time at the fortified gate.</p>"
+    ],
+    [
+     "h2",
+     "valley-of-the-queens",
+     "The Valley of the Queens"
+    ],
+    [
+     "p",
+     "A gorge in the hills where queens and some royal children of the 19th and 20th dynasties were buried. More than 90 tombs are known, most with an entrance passage, a few short halls and a sarcophagus chamber. The most famous is that of Nefertari, the favourite queen of Ramesses II. The princes Khaemwaset and Amenherkhepeshef were also buried here."
+    ],
+    [
+     "h2",
+     "deir-el-medina",
+     "Deir el-Medina"
+    ],
+    [
+     "p",
+     "The village of the craftsmen who worked on the royal tombs, especially in the Valley of the Kings. It is the best-preserved village of its kind. Thousands of inscribed papyri and pottery fragments found here tell scholars about the workers' daily lives. The artisans' own tombs and three temples built for the workers are on the site."
+    ],
+    [
+     "h2",
+     "planning",
+     "Planning the day"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Start early:</strong> the West Bank is hot and exposed, with little shade.",
+      "<strong>Choose:</strong> few people can see everything in one day. Combine the Valley of the Kings with Hatshepsut's temple, then add one or two of the others.",
+      "<strong>Tickets:</strong> many sites, and some tombs, have their own ticket. Check on the day which are open."
+     ]
+    ],
+    [
+     "p",
+     "Our <a href=\"#\" class=\"tlink\" data-trip=\"valley\" data-href=\"https://egyptroamer.com/experiences/valley-of-the-kings-hatshepsut-temple/\">Valley of the Kings and Hatshepsut's temple</a> day covers the two best-known sites. Read our <a href=\"#\" data-href=\"https://egyptroamer.com/guides/valley-of-the-kings-tombs-and-tickets/\">Valley of the Kings guide</a>, our <a href=\"#\" data-href=\"https://egyptroamer.com/guides/karnak-and-luxor-temple/\">guide to the East Bank temples</a> and our <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/luxor/\">Luxor guide</a>."
+    ]
+   ],
+   "toc": [
+    [
+     "deir-el-bahari",
+     "Hatshepsut's temple at Deir el-Bahari"
+    ],
+    [
+     "colossi",
+     "The Colossi of Memnon"
+    ],
+    [
+     "ramesseum",
+     "The Ramesseum"
+    ],
+    [
+     "medinet-habu",
+     "Medinet Habu"
+    ],
+    [
+     "valley-of-the-queens",
+     "The Valley of the Queens"
+    ],
+    [
+     "deir-el-medina",
+     "Deir el-Medina"
+    ],
+    [
+     "planning",
+     "Planning the day"
+    ]
+   ],
+   "faq": [
+    [
+     "Is the West Bank part of a World Heritage site?",
+     "Yes. The Valley of the Kings, the Valley of the Queens and the other sites of Thebes were added to the UNESCO World Heritage List in 1979."
+    ],
+    [
+     "Can I see Nefertari's tomb?",
+     "Its opening and ticket change from time to time. Check on the day."
+    ],
+    [
+     "Hatshepsut's temple or Medinet Habu, if I only have time for one?",
+     "Hatshepsut's temple for its setting under the cliffs. Medinet Habu for its war reliefs and fortified gate."
+    ]
+   ],
+   "strips": {
+    "deir-el-bahari": [
+     "See the place",
+     [
+      [
+       "img/1669521762357-966bfdcbde1d.jpg",
+       "A balloon over Hatshepsut’s temple, Deir el-Bahari",
+       "Hongbin"
+      ],
+      [
+       "hat_l",
+       "Hatshepsut’s temple, the statue terrace",
+       "Mahmoud Refaat"
+      ]
+     ]
+    ],
+    "medinet-habu": [
+     "Medinet Habu",
+     [
+      [
+       "habu1",
+       "Medinet Habu, the painted gateway",
+       "Siddhesh Mangela"
+      ],
+      [
+       "habu2",
+       "Medinet Habu, the carved columns",
+       "Fatih Beki"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "mount-sinai-saint-catherine",
+   "title": "Mount Sinai and Saint Catherine’s Monastery",
+   "excerpt": "Mount Sinai and Saint Catherine's Monastery in South Sinai: why the area is sacred to three religions, the 6th-century monastery and its icons and manuscripts, the Path of Moses to the summit, and how to plan a visit from Sharm El Sheikh.",
+   "topic": "Planning",
+   "dests": [
+    "sharm"
+   ],
+   "trips": [
+    "ras"
+   ],
+   "photo": "img/1603889947015-f3305fc399ea.jpg",
+   "mins": 3,
+   "blocks": [
+    [
+     "p",
+     "In the mountains of South Sinai, at the foot of the mountain where, the Old Testament records, Moses received the Tablets of the Law, stands one of the oldest monasteries in the world. The area is sacred to Christianity, Islam and Judaism, and UNESCO lists it as a World Heritage site, the <em>Saint Catherine Area</em>. This guide covers what you will see and how to plan the trip."
+    ],
+    [
+     "h2",
+     "the-mountain",
+     "The mountain"
+    ],
+    [
+     "p",
+     "The mountain is known as Mount Sinai, Mount Horeb and, in Arabic, Jebel Musa, the Mountain of Moses. Muslims revere it too. The Path of Moses (<em>Sikket Sayidna Musa</em>) leads to the summit, passing two stone arches, the Gate of Stephen and the Gate of the Law, and the remains of chapels. On the summit stand a mosque and a chapel."
+    ],
+    [
+     "h2",
+     "monastery",
+     "Saint Catherine's Monastery"
+    ],
+    [
+     "p",
+     "The Greek Orthodox monastery was founded in the 6th century under the Byzantine emperor Justinian I, on the traditional site of the burning bush seen by Moses. UNESCO calls it the oldest Christian monastery still used for its original purpose."
+    ],
+    [
+     "ul",
+     [
+      "<strong>The walls and the church:</strong> the original granite walls still stand, and so does the church of the Virgin Mary, built at the same time. In its apse is a mosaic of the Transfiguration from the early Byzantine period.",
+      "<strong>A mosque within the walls:</strong> by tradition the monks built a small mosque inside the walls, where local Bedouin still pray. The Bedouin who live near the monastery have long acted as its guards.",
+      "<strong>Icons and manuscripts:</strong> the monastery's greatest treasures. Some icons were painted before the 8th century. The library holds manuscripts mainly in Greek and Arabic, among them the Codex Syriacus, a Syriac text of the Gospels written around the year 400."
+     ]
+    ],
+    [
+     "tip",
+     "The Codex Sinaiticus",
+     "<p>A nearly complete 4th-century Greek Bible that once belonged to the monastery is now in London. In 1975, workers found missing parts of it, with thousands of other manuscripts, behind a wall in the monastery.</p>"
+    ],
+    [
+     "h2",
+     "planning",
+     "Planning a visit"
+    ],
+    [
+     "ul",
+     [
+      "<strong>From Sharm El Sheikh:</strong> many visitors come on an organised trip, often with a night climb to see sunrise from the summit.",
+      "<strong>A guide:</strong> go with a licensed guide, who also knows the path in the dark.",
+      "<strong>Warm clothes:</strong> the mountain is cold at night, even when the coast is hot. Bring a torch, water and good shoes.",
+      "<strong>The monastery:</strong> it is a working monastery, and visiting is limited. Dress modestly and check opening before you go.",
+      "<strong>Travel advice:</strong> check current access to the area before you book."
+     ]
+    ],
+    [
+     "p",
+     "Combine Sinai with the Red Sea: read our <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/sharm/\">Sharm El Sheikh guide</a>, our <a href=\"#\" class=\"tlink\" data-trip=\"ras\" data-href=\"https://egyptroamer.com/experiences/ras-mohammed-snorkelling-from-sharm/\">Ras Mohammed snorkelling trip</a> and our guide to <a href=\"#\" data-href=\"https://egyptroamer.com/guides/red-sea-famous-dive-sites/\">the Red Sea's famous dive sites</a>."
+    ]
+   ],
+   "toc": [
+    [
+     "the-mountain",
+     "The mountain"
+    ],
+    [
+     "monastery",
+     "Saint Catherine's Monastery"
+    ],
+    [
+     "planning",
+     "Planning a visit"
+    ]
+   ],
+   "faq": [
+    [
+     "Is the monastery a World Heritage site?",
+     "Yes. The Saint Catherine Area is on the UNESCO World Heritage List. Britannica dates its listing to 2002."
+    ],
+    [
+     "Do I have to climb the mountain to visit the monastery?",
+     "No. The monastery stands at the foot of the mountain. The climb is a separate choice."
+    ],
+    [
+     "Why do people climb at night?",
+     "To reach the summit for sunrise and avoid the heat of the day. Dress warmly: it is cold at the top before dawn."
+    ]
+   ],
+   "strips": {
+    "the-mountain": [
+     "On the mountain",
+     [
+      [
+       "img/1661270288617-f3168c7a18be.jpg",
+       "The Sinai mountains from Mount Sinai",
+       "Artem Labunsky"
+      ],
+      [
+       "img/1628231354449-18c8bb735b23.jpg",
+       "Sunrise from Mount Sinai",
+       "Raimond Klavins"
+      ],
+      [
+       "img/1660430279942-a26bb4c7d4be.jpg",
+       "Walkers resting near the summit",
+       "Artem Labunsky"
+      ]
+     ]
+    ]
+   },
+   "figs": {
+    "monastery": [
+     "img/1603889947015-f3305fc399ea.jpg",
+     "Saint Catherine, South Sinai · Photo: Shady Hassan, Unsplash"
+    ]
+   }
+  },
+  {
+   "slug": "saqqara-and-dahshur-pyramids",
+   "title": "Saqqara and Dahshur: The Pyramids Before Giza",
+   "excerpt": "Saqqara and Dahshur, the pyramid fields south of Giza: Djoser's Step Pyramid, the Pyramid Texts, the Serapeum, Sneferu's Bent and Red Pyramids, and how to add them to a day at the pyramids.",
+   "topic": "Planning",
+   "dests": [
+    "cairo"
+   ],
+   "trips": [
+    "giza"
+   ],
+   "photo": "img/1678038592327-c5730737f867.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "The Great Pyramid did not appear from nowhere. South of Giza, at Saqqara and Dahshur, you can follow how the Egyptians learned to build pyramids: from a stepped tomb to the first true pyramid. Both sites belong to the necropolis of ancient Memphis, and they are often much quieter than Giza."
+    ],
+    [
+     "h2",
+     "saqqara",
+     "Saqqara"
+    ],
+    [
+     "p",
+     "Saqqara stretches along the edge of the desert plateau, with Abusir to the north and Dahshur to the south."
+    ],
+    [
+     "h3",
+     "The Step Pyramid of Djoser"
+    ],
+    [
+     "p",
+     "Djoser was the second king of the 3rd dynasty. His architect Imhotep designed a new kind of royal tomb: a pyramid in six stages. Around it lies a huge complex of halls and courts, where buildings once made of mud brick, wood and reed were built in fine limestone for the first time."
+    ],
+    [
+     "h3",
+     "The Pyramid Texts"
+    ],
+    [
+     "p",
+     "Unas, the last king of the 5th dynasty, was the first to have the walls of his burial chambers inscribed with the Pyramid Texts. These spells were meant to protect the king and give him life in the afterlife. The kings of the 6th dynasty continued the practice."
+    ],
+    [
+     "h3",
+     "Tombs and the Serapeum"
+    ],
+    [
+     "p",
+     "Around the royal pyramids, Old Kingdom nobles were buried in <em>mastabas</em>, tombs whose carved walls show scenes of daily life. From the New Kingdom on, the sacred Apis bulls were buried in large underground galleries, the most famous of which is the Serapeum."
+    ],
+    [
+     "h2",
+     "dahshur",
+     "Dahshur"
+    ],
+    [
+     "p",
+     "Dahshur lies just south of Saqqara. Its two great pyramids were built by King Sneferu of the 4th dynasty."
+    ],
+    [
+     "ul",
+     [
+      "<strong>The Bent Pyramid:</strong> an early attempt at a true pyramid. Its first angle, 52°, was too steep, so the upper part was built at 43.5°, which gives it its double slope. It is the only Old Kingdom pyramid with two entrances.",
+      "<strong>The Red Pyramid:</strong> Sneferu's second pyramid, built at the lower angle of 43° from the start. It is the first true pyramid to be completed successfully."
+     ]
+    ],
+    [
+     "tip",
+     "Why go",
+     "<p>At Dahshur you see the step from the Bent Pyramid to the Red Pyramid, the experiment that made the Great Pyramid possible.</p>"
+    ],
+    [
+     "h2",
+     "planning",
+     "Adding them to your trip"
+    ],
+    [
+     "ul",
+     [
+      "Saqqara and Dahshur are usually visited together, often with Giza or the ruins of Memphis.",
+      "A car and driver, or a guided tour, is the practical way to reach them.",
+      "Bring sun protection and water: the plateaus are open, with little shade."
+     ]
+    ],
+    [
+     "p",
+     "Our <a href=\"#\" class=\"tlink\" data-trip=\"giza\" data-href=\"https://egyptroamer.com/experiences/pyramids-of-giza-sphinx-private-tour/\">Giza pyramids tour</a> is the place to start. Read <a href=\"#\" data-href=\"https://egyptroamer.com/guides/inside-the-pyramids-of-giza/\">Inside the Pyramids of Giza</a>, our guide to <a href=\"#\" data-href=\"https://egyptroamer.com/guides/day-trips-from-cairo/\">day trips from Cairo</a> and our <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/cairo/\">Cairo guide</a>."
+    ]
+   ],
+   "toc": [
+    [
+     "saqqara",
+     "Saqqara"
+    ],
+    [
+     "dahshur",
+     "Dahshur"
+    ],
+    [
+     "planning",
+     "Adding them to your trip"
+    ]
+   ],
+   "faq": [
+    [
+     "Are Saqqara and Dahshur part of a World Heritage site?",
+     "Yes. With Giza, Abusir and Abu Rawash, they belong to the Memphis area, added to the UNESCO World Heritage List in 1979."
+    ],
+    [
+     "Which is older, the Step Pyramid or the Great Pyramid?",
+     "The Step Pyramid of Djoser, from the 3rd dynasty. The Great Pyramid was built later, in the 4th dynasty, after Sneferu's pyramids at Dahshur."
+    ],
+    [
+     "Can I go inside?",
+     "Some pyramids and tombs open to visitors, and this changes. Check on the day."
+    ]
+   ],
+   "strips": {
+    "saqqara": [
+     "Saqqara",
+     [
+      [
+       "img/1738512156462-408182814b21.jpg",
+       "The Step Pyramid of Djoser",
+       "Martijn Vonk"
+      ],
+      [
+       "img/1622962522206-7b7aa3dc5067.jpg",
+       "The colonnade of the Djoser complex",
+       "Siddhesh Mangela"
+      ],
+      [
+       "img/1708785033343-cd54bbb7d2cc.jpg",
+       "Painted reliefs in a Saqqara tomb",
+       "oCDr"
+      ]
+     ]
+    ],
+    "dahshur": [
+     "Dahshur",
+     [
+      [
+       "img/1634464905162-68ba20cb9a06.jpg",
+       "The Bent Pyramid",
+       "Jens Aber"
+      ],
+      [
+       "img/1681403402826-c514f373a156.jpg",
+       "A pyramid at Dahshur",
+       "Jordi Orts Segalés"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "red-sea-famous-dive-sites",
+   "title": "The Red Sea’s Famous Dive Sites: Thistlegorm, Ras Mohammed and the Blue Hole",
+   "excerpt": "Egypt's best-known Red Sea dive sites: the SS Thistlegorm wreck, Shark and Yolanda reefs at Ras Mohammed, the Blue Hole at Dahab and why its Arch is only for technical divers, plus what to know before you book a dive.",
+   "topic": "Planning",
+   "dests": [
+    "hurghada",
+    "sharm"
+   ],
+   "trips": [
+    "redsea",
+    "ras"
+   ],
+   "photo": "img/1778400283418-b419be4be7a5.jpg",
+   "mins": 3,
+   "blocks": [
+    [
+     "p",
+     "The Red Sea is one of the reasons many people come to Egypt. Its reefs start close to shore, and a few sites are famous among divers worldwide. This guide covers three of them, what makes each special, and what to know before you book."
+    ],
+    [
+     "h2",
+     "thistlegorm",
+     "The SS Thistlegorm"
+    ],
+    [
+     "p",
+     "The <em>Thistlegorm</em> was a British cargo steamship built in Sunderland in 1940. In 1941 she sailed for Egypt with supplies for the Allied forces, and she was waiting at anchor in the Red Sea when German bombers sank her on 6 October 1941."
+    ],
+    [
+     "p",
+     "Most of her cargo stayed inside the ship: trucks, motorcycles, Wellington boots, rifles and aircraft parts. Two steam locomotives carried on deck were thrown to either side of the wreck. Jacques Cousteau found the wreck in the early 1950s, and recreational diving on it began in the 1990s, as Sharm El Sheikh grew as a dive resort. It lies near Ras Mohammed National Park and is one of the best-known wreck dives in the world."
+    ],
+    [
+     "h2",
+     "ras-mohammed",
+     "Ras Mohammed"
+    ],
+    [
+     "p",
+     "At the southern tip of the Sinai Peninsula, between the Gulf of Suez and the Gulf of Aqaba, Ras Mohammed was declared Egypt's first national park in 1983. Shark Reef and Yolanda Reef are its best-known dive sites, and it is also one of the great places to snorkel. Read our <a href=\"#\" class=\"tlink\" data-trip=\"ras\" data-href=\"https://egyptroamer.com/experiences/ras-mohammed-snorkelling-from-sharm/\">Ras Mohammed snorkelling trip</a>."
+    ],
+    [
+     "h2",
+     "blue-hole",
+     "The Blue Hole at Dahab"
+    ],
+    [
+     "p",
+     "The Blue Hole is a submarine sinkhole on the Sinai coast just north of Dahab, on the Gulf of Aqaba. Its rim is rich in coral and reef fish, and divers and snorkellers enjoy its shallow parts."
+    ],
+    [
+     "tip",
+     "The Arch is not a recreational dive",
+     "<p>A deep tunnel called the Arch links the hole to the open sea. It has a reputation as one of the deadliest dive sites in the world, mostly because divers without the right training try to swim through it. Local operators require technical diving qualifications for the Arch. Recreational divers stay at the shallower sites nearby.</p>"
+    ],
+    [
+     "h2",
+     "before-you-book",
+     "Before you book a dive"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Certification:</strong> bring your certification card and logbook. If you are new to diving, choose a trip with a try-dive and an instructor.",
+      "<strong>Operators:</strong> dive only with licensed operators and follow the guide's briefing.",
+      "<strong>Protect the reef:</strong> never touch, stand on or collect coral, and use reef-friendly sun protection.",
+      "<strong>Flying after diving:</strong> leave enough time between your last dive and your flight home. Ask your operator."
+     ]
+    ],
+    [
+     "p",
+     "Our <a href=\"#\" class=\"tlink\" data-trip=\"redsea\" data-href=\"https://egyptroamer.com/experiences/red-sea-diving-two-reef-dives/\">Red Sea diving trip</a> offers two guided reef dives. Not a diver? Read <a href=\"#\" data-href=\"https://egyptroamer.com/guides/snorkelling-hurghada-or-sharm/\">Snorkelling in Egypt: Hurghada or Sharm El Sheikh?</a>, and our guides to <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/hurghada/\">Hurghada</a> and <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/sharm/\">Sharm El Sheikh</a>."
+    ]
+   ],
+   "toc": [
+    [
+     "thistlegorm",
+     "The SS Thistlegorm"
+    ],
+    [
+     "ras-mohammed",
+     "Ras Mohammed"
+    ],
+    [
+     "blue-hole",
+     "The Blue Hole at Dahab"
+    ],
+    [
+     "before-you-book",
+     "Before you book a dive"
+    ]
+   ],
+   "faq": [
+    [
+     "Can beginners dive the Thistlegorm?",
+     "It is usually dived by certified divers on a guided boat trip. Ask the operator what level they require."
+    ],
+    [
+     "Is the Blue Hole dangerous?",
+     "The Arch is, for anyone without technical training. Recreational divers and snorkellers stay in the shallower parts, with a guide."
+    ],
+    [
+     "Hurghada or Sharm El Sheikh for diving?",
+     "Both are good bases. Sharm El Sheikh is closer to Ras Mohammed and the Thistlegorm; Hurghada has its own reefs and islands, such as Giftun."
+    ]
+   ],
+   "figs": {
+    "ras-mohammed": [
+     "ras_turq",
+     "Ras Mohammed National Park · Photo: Bogdan Nanescu, Unsplash"
+    ]
+   },
+   "strips": {
+    "before-you-book": [
+     "On the reefs",
+     [
+      [
+       "reef_school",
+       "Small orange fish over a coral reef, Hurghada",
+       "Oliver Schwaneberg"
+      ],
+      [
+       "reef_clown2",
+       "Two clownfish in a sea anemone, Hurghada",
+       "Oliver Schwaneberg"
+      ],
+      [
+       "reef_puffer",
+       "A small pufferfish by the reef, Hurghada",
+       "Oliver Schwaneberg"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "coptic-cairo-guide",
+   "title": "Coptic Cairo: Churches, a Synagogue and the Coptic Museum",
+   "excerpt": "A guide to Coptic Cairo (Old Cairo): the Hanging Church over the Roman fortress of Babylon, the church of Abu Serga and the Holy Family tradition, the Ben Ezra Synagogue and the Cairo Geniza, the Coptic Museum, and how to visit.",
+   "topic": "Planning",
+   "dests": [
+    "cairo"
+   ],
+   "trips": [
+    "food",
+    "giza"
+   ],
+   "photo": "img/1679238211153-546821b75f98.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "Inside the walls of an old Roman fortress in the south of Cairo stands one of the city's quietest and oldest quarters. Churches, a synagogue and the Coptic Museum sit side by side in a few lanes, and the Mosque of Amr ibn al-As is close by. This guide covers what to see in Coptic Cairo, also called Old Cairo."
+    ],
+    [
+     "h2",
+     "babylon",
+     "The Roman fortress of Babylon"
+    ],
+    [
+     "p",
+     "The quarter grew around and within the Roman fortress of Babylon, part of the area of al-Fustat. Its remains are still visible, and several buildings stand on top of them."
+    ],
+    [
+     "h2",
+     "hanging-church",
+     "The Hanging Church"
+    ],
+    [
+     "p",
+     "The church takes its name from being built over the ruins of the Roman fortress, so that it seems to hang above them. Inside, three rows of marble columns divide it into four aisles, and its wooden ceiling was made to recall Noah's Ark. Look for the marble pulpit on ten columns, which dates from the 11th century, and the icons on its walls. The oldest is from the 15th century, and most of the others from the late 18th century."
+    ],
+    [
+     "h2",
+     "abu-serga",
+     "The church of Abu Serga"
+    ],
+    [
+     "p",
+     "The church of Saints Sergius and Bacchus, known as Abu Serga, is named after two early 4th-century martyrs. Below its sanctuary lies a crypt. By tradition, this is the cave where the Holy Family sheltered during its journey through Egypt."
+    ],
+    [
+     "h2",
+     "ben-ezra",
+     "The Ben Ezra Synagogue"
+    ],
+    [
+     "p",
+     "The oldest synagogue in Egypt, named after the scholar and philosopher Abraham ibn Ezra. It is no longer used for worship. Its <em>hekhal</em>, which marks the direction of prayer, is decorated in Arabesque style and inlaid with mother-of-pearl. Like every synagogue, it kept a <em>geniza</em>, a storeroom for old documents that could not be thrown away. Ben Ezra's held documents gathered over about 850 years. Found by Europeans in 1888, the Cairo Geniza is now kept in libraries around the world."
+    ],
+    [
+     "h2",
+     "coptic-museum",
+     "The Coptic Museum"
+    ],
+    [
+     "p",
+     "The largest museum of Coptic history, antiquities and art, with about 16,000 objects. Marcus Simaika Pasha began building it in 1908 on land of the Coptic Church, and it opened in 1910. It became state property in 1931."
+    ],
+    [
+     "tip",
+     "Visiting Coptic Cairo",
+     "<ul><li>These are places of worship. Dress modestly and keep quiet during services.</li><li>Mar Girgis metro station is beside the quarter, the easiest way to arrive.</li><li>Photography rules differ from building to building. Ask first.</li></ul>"
+    ],
+    [
+     "h2",
+     "combine",
+     "Combine it with"
+    ],
+    [
+     "p",
+     "Coptic Cairo pairs well with a morning at Islamic Cairo or an evening of <a href=\"#\" class=\"tlink\" data-trip=\"food\" data-href=\"https://egyptroamer.com/experiences/cairo-street-food-tour-by-night/\">Cairo street food</a>. For the rest of the city, read our <a href=\"#\" data-href=\"https://egyptroamer.com/guides/cairo-travel-guide/\">Cairo guide</a> and our <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/cairo/\">Cairo destination page</a>."
+    ]
+   ],
+   "toc": [
+    [
+     "babylon",
+     "The Roman fortress of Babylon"
+    ],
+    [
+     "hanging-church",
+     "The Hanging Church"
+    ],
+    [
+     "abu-serga",
+     "The church of Abu Serga"
+    ],
+    [
+     "ben-ezra",
+     "The Ben Ezra Synagogue"
+    ],
+    [
+     "coptic-museum",
+     "The Coptic Museum"
+    ],
+    [
+     "combine",
+     "Combine it with"
+    ]
+   ],
+   "faq": [
+    [
+     "Is Coptic Cairo the same as Old Cairo?",
+     "Mostly. The name covers the churches, synagogue and museum within and around the Roman fortress, part of the old area of al-Fustat."
+    ],
+    [
+     "How much time do I need?",
+     "Half a day is enough for the main churches, the synagogue and the museum, at an easy pace."
+    ],
+    [
+     "Can I visit during services?",
+     "The churches are places of worship. If a service is on, keep quiet, stay at the back and do not take photos. Check opening on the day."
+    ]
+   ],
+   "figs": {
+    "babylon": [
+     "img/1678388104119-18fcd08762f5.jpg",
+     "The walls of the Fortress of Babylon, Old Cairo · Photo: 2H Media, Unsplash"
+    ]
+   },
+   "strips": {
+    "hanging-church": [
+     "The Hanging Church",
+     [
+      [
+       "img/1709485400031-6094ea4f0bad.jpg",
+       "The Hanging Church and its twin towers",
+       "Dilip Poddar"
+      ],
+      [
+       "img/1666041382402-f428986aea0a.jpg",
+       "The steps up to the Hanging Church",
+       "Moaz Elsayed"
+      ],
+      [
+       "img/1678747365854-a0a68fd24725.jpg",
+       "Wooden screens inside the Hanging Church",
+       "2H Media"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "inside-the-pyramids-of-giza",
+   "title": "Inside the Pyramids of Giza: Is It Worth Going In?",
+   "excerpt": "What it is like inside the Pyramids of Giza: the Great Pyramid's corridors, Grand Gallery and King's Chamber, what you will and won't see, who should skip it, and how to plan a visit to the plateau.",
+   "topic": "Planning",
+   "dests": [
+    "cairo"
+   ],
+   "trips": [
+    "giza"
+   ],
+   "photo": "img/1761561044700-4262beec7d63.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "Standing at the foot of the Great Pyramid is unforgettable. Going inside is a different experience: narrow, steep and hot, but for many people the closest they will ever feel to the builders. This guide explains what you will find inside, so you can decide whether it is for you."
+    ],
+    [
+     "h2",
+     "the-pyramids",
+     "The pyramids of Giza"
+    ],
+    [
+     "p",
+     "Three pyramids of the 4th dynasty stand on the Giza plateau, built for the kings Khufu, Khafre and Menkaure. The oldest and largest, built for Khufu, is the Great Pyramid, completed in the early 25th century BC. Together they were counted among the Seven Wonders of the ancient world, and they are the only one of the wonders still standing. Nearby lies the Great Sphinx, which most scholars date to the reign of Khafre."
+    ],
+    [
+     "h2",
+     "great-pyramid",
+     "Inside the Great Pyramid"
+    ],
+    [
+     "p",
+     "For all its size, the Great Pyramid has very little open space inside. The entrance is on the north side. From there:"
+    ],
+    [
+     "ul",
+     [
+      "<strong>A descending corridor</strong> runs down through the masonry into the rock below, to an unfinished underground chamber.",
+      "<strong>An ascending passage</strong> branches off it towards the Queen's Chamber and the <strong>Grand Gallery</strong>, a tall corbelled passage about 46 metres long.",
+      "<strong>At the top of the Grand Gallery,</strong> a narrow passage leads to the <strong>King's Chamber</strong>, lined and roofed with granite, with the stone sarcophagus."
+     ]
+    ],
+    [
+     "p",
+     "Above the King's Chamber are five compartments separated by huge granite slabs, probably built to take the weight of the masonry off the ceiling. You cannot visit them."
+    ],
+    [
+     "tip",
+     "What you won't see",
+     "<p>There are no painted walls and no treasure. The pyramids were plundered in ancient and medieval times. The experience is the architecture: the climb, the Grand Gallery and the stillness of the granite chamber.</p>"
+    ],
+    [
+     "h2",
+     "for-you",
+     "Is it for you?"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Go in</strong> if you are fit and comfortable in tight, steep and warm spaces.",
+      "<strong>Skip it</strong> if you are claustrophobic, have heart or breathing problems, or find stairs and stooping difficult. The view of the pyramids from outside is the highlight anyway."
+     ]
+    ],
+    [
+     "h2",
+     "planning",
+     "Planning your visit"
+    ],
+    [
+     "ul",
+     [
+      "Going inside is usually ticketed separately from the plateau, and which pyramids are open can change. Check on the day.",
+      "Go early, before the heat and the crowds.",
+      "Some tours include entering one of the pyramids. See our <a href=\"#\" class=\"tlink\" data-trip=\"giza\" data-href=\"https://egyptroamer.com/experiences/pyramids-of-giza-sphinx-private-tour/\">pyramids of Giza tour</a>.",
+      "Combine the plateau with the <a href=\"#\" data-href=\"https://egyptroamer.com/guides/grand-egyptian-museum-visit/\">Grand Egyptian Museum</a> in the afternoon."
+     ]
+    ]
+   ],
+   "toc": [
+    [
+     "the-pyramids",
+     "The pyramids of Giza"
+    ],
+    [
+     "great-pyramid",
+     "Inside the Great Pyramid"
+    ],
+    [
+     "for-you",
+     "Is it for you?"
+    ],
+    [
+     "planning",
+     "Planning your visit"
+    ]
+   ],
+   "faq": [
+    [
+     "Can I go inside all three pyramids?",
+     "Openings change over time, and some pyramids may be closed. Check which are open when you arrive."
+    ],
+    [
+     "Is there anything to see inside?",
+     "The passages and the granite King's Chamber. There are no paintings, and the burial goods disappeared long ago."
+    ],
+    [
+     "Are photos allowed inside?",
+     "Rules change. Follow the guards' instructions."
+    ]
+   ],
+   "strips": {
+    "the-pyramids": [
+     "The plateau",
+     [
+      [
+       "img/1761561044700-4262beec7d63.jpg",
+       "The three pyramids of Giza",
+       "Thomas K"
+      ],
+      [
+       "img/1603889844276-06c9d85b7594.jpg",
+       "The pyramid of Menkaure",
+       "Shady Hassan"
+      ],
+      [
+       "img/1760650454610-0a4c9a5d0bb6.jpg",
+       "Camels before the pyramids",
+       "Fatih Beki"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "great-sand-sea",
+   "title": "The Great Sand Sea: Egypt’s Ocean of Dunes",
+   "excerpt": "The Great Sand Sea of Egypt's Western Desert: where it is, how to visit it from Siwa Oasis by 4×4, what a dune safari involves, desert springs and sunsets, safety, and the best season.",
+   "topic": "Planning",
+   "dests": [
+    "siwa"
+   ],
+   "trips": [
+    "siwa"
+   ],
+   "photo": "img/1771839535027-865f757ae09c.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "The Great Sand Sea is one of the great deserts of the world: a vast sea of dunes that stretches from western Egypt into eastern Libya. For most travellers, the way in is from Siwa Oasis, on its eastern edge. This guide explains what the Great Sand Sea is and how to experience it safely."
+    ],
+    [
+     "h2",
+     "what-it-is",
+     "What it is"
+    ],
+    [
+     "p",
+     "The Great Sand Sea is an erg, a sand desert in which most of the land is covered by dunes. Long ridges of sand run for great distances with almost nothing else in sight. Siwa Oasis lies in its eastern part, with its springs, salt lakes and palm groves, which makes it the natural base for a visit. Read about the oasis in our <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/siwa/\">Siwa guide</a>."
+    ],
+    [
+     "h2",
+     "safari",
+     "A dune safari from Siwa"
+    ],
+    [
+     "p",
+     "Excursions leave Siwa by 4×4 with a local driver. A typical day or afternoon in the dunes includes:"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Dune driving</strong> over the ridges, which is thrilling but bumpy.",
+      "<strong>Sand-boarding</strong> on the steeper slopes.",
+      "<strong>Desert springs:</strong> many trips stop at springs among the dunes for a swim.",
+      "<strong>Sunset</strong> over the dunes before the drive back."
+     ]
+    ],
+    [
+     "p",
+     "Our <a href=\"#\" class=\"tlink\" data-trip=\"siwa\" data-href=\"https://egyptroamer.com/experiences/great-sand-sea-4-4-hot-springs/\">Great Sand Sea 4×4 trip</a> shows the tours we recommend, including a three-day trip from Cairo."
+    ],
+    [
+     "tip",
+     "Safety first",
+     "<ul><li>Go only with a licensed local operator and an experienced desert driver. Never drive into the dunes on your own.</li><li>Your operator also handles any permits the desert areas require.</li><li>Tell the driver if you suffer from motion sickness or back problems: dune driving is rough.</li></ul>"
+    ],
+    [
+     "h2",
+     "bring",
+     "What to bring"
+    ],
+    [
+     "ul",
+     [
+      "Sun protection, sunglasses and a hat.",
+      "A scarf or buff against wind and sand.",
+      "Swimwear and a towel for the springs.",
+      "A warm layer for the evening drive back."
+     ]
+    ],
+    [
+     "h2",
+     "when",
+     "When to go"
+    ],
+    [
+     "p",
+     "October to April. Summer is extremely hot in the Western Desert. In winter, days are pleasant and evenings cool."
+    ]
+   ],
+   "toc": [
+    [
+     "what-it-is",
+     "What it is"
+    ],
+    [
+     "safari",
+     "A dune safari from Siwa"
+    ],
+    [
+     "bring",
+     "What to bring"
+    ],
+    [
+     "when",
+     "When to go"
+    ]
+   ],
+   "faq": [
+    [
+     "Can I visit the Great Sand Sea from Cairo in a day?",
+     "No. It's reached from Siwa, which itself is a long journey from Cairo. Plan several nights in the oasis."
+    ],
+    [
+     "Is a dune safari suitable for children?",
+     "For children who enjoy adventure, yes, with a careful driver. Discuss it with the operator first."
+    ],
+    [
+     "How is it different from the White Desert?",
+     "The Great Sand Sea is about dunes and open sand. The White Desert is about wind-carved chalk formations. Read <a href=\"#\" data-href=\"https://egyptroamer.com/guides/siwa-or-white-desert/\">Siwa or the White Desert?</a>"
+    ]
+   ],
+   "figs": {
+    "what-it-is": [
+     "img/1612442494156-a5fd9a1c3602.jpg",
+     "A lake at Siwa Oasis · Photo: Omar Mohamed, Unsplash"
+    ],
+    "safari": [
+     "img/1689189830710-1cb48a6efbe3.jpg",
+     "Sandboards ready by a 4×4, Siwa · Photo: Faqih Abdul, Unsplash"
+    ]
+   }
+  },
+  {
+   "slug": "grand-egyptian-museum-visit",
+   "title": "The Grand Egyptian Museum: How to Plan Your Visit",
+   "excerpt": "How to plan a visit to the Grand Egyptian Museum in Giza: what it is, the colossal Ramesses II and the grand staircase, the Tutankhamun collection, how to combine it with the pyramids, and practical tips.",
+   "topic": "Planning",
+   "dests": [
+    "cairo"
+   ],
+   "trips": [
+    "giza"
+   ],
+   "photo": "img/1761688179162-4c42356857ee.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "The Grand Egyptian Museum, in Giza, is the new home of ancient Egypt's treasures. Britannica describes it as the largest archaeological museum in the world. Its collection spans thousands of years, from the predynastic period to the Greco-Roman era. This guide explains what to expect and how to fit it into your days in Cairo."
+    ],
+    [
+     "h2",
+     "what-it-is",
+     "What the museum is"
+    ],
+    [
+     "p",
+     "The museum brings together objects from institutions across Egypt, including the Egyptian Museum in downtown Cairo. It was designed by the Dublin firm Heneghan Peng. The building's facade, with its pattern of triangles, and its sloping interior ceilings echo the pyramids nearby. The official opening was on 1 November 2025, and it opened to the public on 4 November 2025."
+    ],
+    [
+     "h2",
+     "what-you-will-see",
+     "What you will see"
+    ],
+    [
+     "h3",
+     "The atrium and the grand staircase"
+    ],
+    [
+     "p",
+     "You enter through a facade of translucent alabaster into a shaded atrium, where a colossal statue of Ramesses II, more than 3,200 years old, greets visitors. From there a grand staircase, lined with statues of gods and kings, climbs to the exhibition halls. Tall windows at the southeast end of the building look out towards the pyramids."
+    ],
+    [
+     "h3",
+     "The galleries"
+    ],
+    [
+     "p",
+     "The displays are arranged by period and by themes such as religion, kingship and society, so you can follow the story of Egypt through time."
+    ],
+    [
+     "h3",
+     "Tutankhamun"
+    ],
+    [
+     "p",
+     "For the first time, the full collection from the tomb of Tutankhamun is shown together. For many visitors it is the reason to come. The tomb itself is in Luxor; read about it in our <a href=\"#\" data-href=\"https://egyptroamer.com/guides/valley-of-the-kings-tombs-and-tickets/\">Valley of the Kings guide</a>."
+    ],
+    [
+     "tip",
+     "Plan your time",
+     "<p>The museum is very large. Decide in advance what matters most to you, for example the staircase, Tutankhamun and one period, rather than trying to see everything.</p>"
+    ],
+    [
+     "h2",
+     "with-the-pyramids",
+     "With the pyramids"
+    ],
+    [
+     "p",
+     "The museum and the Giza pyramids are close to each other, so many visitors combine them in one day: the plateau early, before the heat, and the museum in the afternoon. Some tours include both with an Egyptologist guide. See our <a href=\"#\" class=\"tlink\" data-trip=\"giza\" data-href=\"https://egyptroamer.com/experiences/pyramids-of-giza-sphinx-private-tour/\">pyramids of Giza tour</a>, and our guide <a href=\"#\" data-href=\"https://egyptroamer.com/guides/inside-the-pyramids-of-giza/\">Inside the pyramids of Giza</a>."
+    ],
+    [
+     "h2",
+     "tips",
+     "Practical tips"
+    ],
+    [
+     "ul",
+     [
+      "Check opening times and ticket options on the museum's official channels before you go. They can change.",
+      "A guide makes a big difference in the galleries.",
+      "Wear comfortable shoes. Distances inside are long.",
+      "Leave time for the windows and terraces facing the pyramids."
+     ]
+    ]
+   ],
+   "toc": [
+    [
+     "what-it-is",
+     "What the museum is"
+    ],
+    [
+     "what-you-will-see",
+     "What you will see"
+    ],
+    [
+     "with-the-pyramids",
+     "With the pyramids"
+    ],
+    [
+     "tips",
+     "Practical tips"
+    ]
+   ],
+   "faq": [
+    [
+     "How much time do I need at the Grand Egyptian Museum?",
+     "At least half a day. Enthusiasts can easily spend longer."
+    ],
+    [
+     "Is the Egyptian Museum in Tahrir still worth visiting?",
+     "Many objects moved to the new museum, including the Tutankhamun collection. If your time is short, the Grand Egyptian Museum comes first."
+    ],
+    [
+     "Can I combine it with the pyramids in one day?",
+     "Yes. Start at the pyramids in the morning and spend the afternoon in the museum."
+    ]
+   ],
+   "strips": {
+    "what-you-will-see": [
+     "In the museum",
+     [
+      [
+       "img/1767938072548-112727a13266.jpg",
+       "Tutankhamun’s golden mask",
+       "Suzi Kim"
+      ],
+      [
+       "gem",
+       "A colossal statue in the museum’s hall",
+       "Aleksei Filimonov"
+      ]
+     ]
+    ]
+   },
+   "figs": {
+    "with-the-pyramids": [
+     "img/1761688179162-4c42356857ee.jpg",
+     "The pyramids of Giza · Photo: Fatih Beki, Unsplash"
+    ]
+   }
+  },
+  {
+   "slug": "karnak-and-luxor-temple",
+   "title": "Karnak and Luxor Temple: A Guide to Luxor’s East Bank",
+   "excerpt": "A guide to Luxor's East Bank temples: Karnak's great temple of Amun-Ra and its hypostyle hall of 134 columns, Luxor Temple and its colonnade, the avenue of sphinxes between them, and how to plan the day.",
+   "topic": "Planning",
+   "dests": [
+    "luxor"
+   ],
+   "trips": [
+    "valley"
+   ],
+   "photo": "img/1761056981183-3faf66a62d6e.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "Luxor stands on the site of ancient Thebes. The ancient Egyptians built their great temples for the living on the East Bank, where the sun rises, and buried their kings on the West Bank. This guide covers the two great East Bank temples, Karnak and Luxor Temple, and how to see them."
+    ],
+    [
+     "h2",
+     "karnak",
+     "Karnak"
+    ],
+    [
+     "p",
+     "Karnak is one of the largest temple complexes in the world. At its heart is the great temple of the state god Amun-Ra, flanked by the precincts of the goddess Mut and the war god Montu. Built and rebuilt over many centuries, it has no single plan. It has been called a great historical document in stone."
+    ],
+    [
+     "h3",
+     "The hypostyle hall"
+    ],
+    [
+     "p",
+     "Karnak's most striking feature is the hypostyle hall, built between the second and third pylons and decorated under Seti I and Ramesses II. Twelve enormous columns, about 24 metres high, line the central nave, and with the side aisles the hall holds 134 columns. Reliefs on its outer walls show the victories of Seti I, and Ramesses II at the Battle of Kadesh."
+    ],
+    [
+     "tip",
+     "At Karnak",
+     "<p>Go early in the morning. The complex is huge and exposed, with little shade.</p>"
+    ],
+    [
+     "h2",
+     "luxor-temple",
+     "Luxor Temple"
+    ],
+    [
+     "p",
+     "In the centre of the modern town, Luxor Temple was dedicated to Amun, his consort Mut and their son Khonsu. It was commissioned by Amenhotep III, completed under Tutankhamun and Horemheb, and enlarged by Ramesses II, who added a court, a pylon and obelisks. Its most striking feature is a colonnade of 14 columns, about 16 metres high."
+    ],
+    [
+     "h2",
+     "avenue",
+     "The avenue of sphinxes"
+    ],
+    [
+     "p",
+     "In ancient times, an avenue of sphinxes linked Luxor Temple with the temple of Amun at Karnak. Walking part of it between the two temples connects the visit."
+    ],
+    [
+     "h2",
+     "planning",
+     "Planning the day"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Morning:</strong> Karnak, before the heat.",
+      "<strong>Midday:</strong> rest, or the Luxor Museum.",
+      "<strong>Dusk:</strong> Luxor Temple, beautifully lit as the light fades."
+     ]
+    ],
+    [
+     "p",
+     "Keep the West Bank for another day: the <a href=\"#\" class=\"tlink\" data-trip=\"valley\" data-href=\"https://egyptroamer.com/experiences/valley-of-the-kings-hatshepsut-temple/\">Valley of the Kings and Hatshepsut's temple</a>. Read our <a href=\"#\" data-href=\"https://egyptroamer.com/guides/valley-of-the-kings-tombs-and-tickets/\">Valley of the Kings guide</a> and our <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/luxor/\">Luxor guide</a>."
+    ]
+   ],
+   "toc": [
+    [
+     "karnak",
+     "Karnak"
+    ],
+    [
+     "luxor-temple",
+     "Luxor Temple"
+    ],
+    [
+     "avenue",
+     "The avenue of sphinxes"
+    ],
+    [
+     "planning",
+     "Planning the day"
+    ]
+   ],
+   "faq": [
+    [
+     "Karnak or Luxor Temple, if I only have time for one?",
+     "Karnak, for its scale and the hypostyle hall. Luxor Temple is easier to fit in at dusk."
+    ],
+    [
+     "Are the East Bank temples part of a World Heritage site?",
+     "Yes. Karnak and Luxor Temple belong to <em>Ancient Thebes with its Necropolis</em>, inscribed by UNESCO in 1979."
+    ],
+    [
+     "Do I need a guide?",
+     "It's not essential, but a guide helps you read the reliefs and find your way around Karnak's huge complex."
+    ]
+   ],
+   "strips": {
+    "karnak": [
+     "Karnak",
+     [
+      [
+       "img/1662655558673-4e628102f545.jpg",
+       "The ram-headed sphinxes, Karnak",
+       "2H Media"
+      ],
+      [
+       "img/1581248708422-db978024f382.jpg",
+       "Karnak from the sacred lake",
+       "Kristina"
+      ]
+     ]
+    ],
+    "luxor-temple": [
+     "Luxor Temple",
+     [
+      [
+       "img/1693654547147-24d94b4ed4ea.jpg",
+       "A colossal statue, Luxor Temple",
+       "Hongbin"
+      ],
+      [
+       "img/1610331800877-462a21600420.jpg",
+       "The colonnade at sunset",
+       "Artem Bryzgalov"
+      ],
+      [
+       "img/1596130535979-eedea4278d29.jpg",
+       "The pylon and obelisk",
+       "Artem Bryzgalov"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "14-days-in-egypt-itinerary",
+   "title": "14 Days in Egypt: The Complete Itinerary",
+   "excerpt": "A two-week Egypt itinerary: Cairo and Alexandria, a Nile cruise or hotels between Luxor and Aswan with Abu Simbel, and a choice of the Red Sea or the Western Desert to finish, with how to travel between them.",
+   "topic": "Planning",
+   "dests": [
+    "cairo",
+    "alexandria",
+    "luxor",
+    "aswan",
+    "hurghada"
+   ],
+   "trips": [
+    "giza",
+    "alex",
+    "valley",
+    "abu",
+    "redsea"
+   ],
+   "photo": "img/1644517270263-4112379d97ca.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "Two weeks is enough to see Egypt without rushing: the great sites of Cairo and the Nile Valley, a day on the Mediterranean, and a few days by the sea or in the desert. It builds on our <a href=\"#\" data-href=\"https://egyptroamer.com/guides/7-days-in-egypt-itinerary/\">7-day</a> and <a href=\"#\" data-href=\"https://egyptroamer.com/guides/10-days-in-egypt-itinerary/\">10-day</a> itineraries."
+    ],
+    [
+     "h2",
+     "at-a-glance",
+     "The plan at a glance"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Days 1–4: Cairo,</strong> with a day trip to Alexandria.",
+      "<strong>Days 5–6: Aswan,</strong> with Abu Simbel.",
+      "<strong>Days 7–10: the Nile,</strong> by cruise from Aswan to Luxor, or by road with hotel stays.",
+      "<strong>Days 11–14: the Red Sea</strong> at Hurghada, or the Western Desert."
+     ]
+    ],
+    [
+     "h2",
+     "day-by-day",
+     "Day by day"
+    ],
+    [
+     "p",
+     "+ <strong>Day 1 — Arrive in Cairo</strong> An easy first evening. + <strong>Day 2 — Giza</strong> The pyramids early, then the <a href=\"#\" data-href=\"https://egyptroamer.com/guides/grand-egyptian-museum-visit/\">Grand Egyptian Museum</a>. + <strong>Day 3 — Old Cairo</strong> Coptic and Islamic Cairo, with an evening on Al-Muizz Street. See <a href=\"#\" data-href=\"https://egyptroamer.com/guides/cairo-at-night/\">Cairo at night</a>. + <strong>Day 4 — Alexandria</strong> A day trip to the Mediterranean city. See our <a href=\"#\" class=\"tlink\" data-trip=\"alex\" data-href=\"https://egyptroamer.com/experiences/alexandria-day-trip-from-cairo/\">Alexandria day trip</a>. + <strong>Day 5 — Fly to Aswan</strong> Philae in the afternoon and a felucca at sunset. + <strong>Day 6 — Abu Simbel</strong> A pre-dawn start for <a href=\"#\" class=\"tlink\" data-trip=\"abu\" data-href=\"https://egyptroamer.com/experiences/abu-simbel-day-trip-from-aswan/\">Abu Simbel</a>. + <strong>Days 7–9 — Down the Nile</strong> A cruise from Aswan to Luxor, with stops at Kom Ombo and Edfu. Or travel by road and stay in hotels. Read <a href=\"#\" data-href=\"https://egyptroamer.com/guides/nile-cruise-or-hotels-luxor-aswan/\">Nile cruise or hotels?</a> + <strong>Day 10 — Luxor</strong> <a href=\"#\" class=\"tlink\" data-trip=\"valley\" data-href=\"https://egyptroamer.com/experiences/valley-of-the-kings-hatshepsut-temple/\">The Valley of the Kings</a> on the West Bank, and <a href=\"#\" data-href=\"https://egyptroamer.com/guides/karnak-and-luxor-temple/\">Karnak and Luxor Temple</a> on the East Bank. + <strong>Day 11 — To the Red Sea</strong> Cross from Luxor to Hurghada by road. + <strong>Days 12–13 — The reefs</strong> Snorkelling at the Giftun Islands, or a <a href=\"#\" class=\"tlink\" data-trip=\"redsea\" data-href=\"https://egyptroamer.com/experiences/red-sea-diving-two-reef-dives/\">dive trip</a>. + <strong>Day 14 — Departure</strong> Fly home from Hurghada."
+    ],
+    [
+     "tip",
+     "Pacing",
+     "<p>Two weeks gives you room for rest days. Use them: a slow morning in Aswan or an afternoon by the pool after the temple days makes the whole trip better.</p>"
+    ],
+    [
+     "h2",
+     "variations",
+     "Variations"
+    ],
+    [
+     "h3",
+     "The desert instead of the sea"
+    ],
+    [
+     "p",
+     "Replace days 11–14 with a night in the <a href=\"#\" data-href=\"https://egyptroamer.com/guides/white-desert-night/\">White Desert</a> from Cairo, or several days in <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/siwa/\">Siwa</a> and the <a href=\"#\" data-href=\"https://egyptroamer.com/guides/great-sand-sea/\">Great Sand Sea</a>."
+    ],
+    [
+     "h3",
+     "Sharm El Sheikh instead of Hurghada"
+    ],
+    [
+     "p",
+     "Fly to Sharm El Sheikh for Ras Mohammed and the Tiran reefs. Read <a href=\"#\" data-href=\"https://egyptroamer.com/guides/snorkelling-hurghada-or-sharm/\">Hurghada or Sharm El Sheikh?</a>"
+    ]
+   ],
+   "toc": [
+    [
+     "at-a-glance",
+     "The plan at a glance"
+    ],
+    [
+     "day-by-day",
+     "Day by day"
+    ],
+    [
+     "variations",
+     "Variations"
+    ]
+   ],
+   "faq": [
+    [
+     "Is two weeks too long for Egypt?",
+     "No. It lets you see the main sites at a comfortable pace and add the sea or the desert."
+    ],
+    [
+     "Should the Nile cruise go north or south?",
+     "Both work. This plan goes north, from Aswan to Luxor, so you can cross from Luxor to the Red Sea."
+    ],
+    [
+     "Can I add Siwa and the Red Sea?",
+     "In two weeks it's too much. Choose one, or plan a second trip."
+    ]
+   ],
+   "strips": {
+    "at-a-glance": [
+     "On the route",
+     [
+      [
+       "img/1761561044700-4262beec7d63.jpg",
+       "Giza",
+       "Thomas K"
+      ],
+      [
+       "img/1601816500593-8f1276479ea6.jpg",
+       "Alexandria",
+       "George Youssef"
+      ],
+      [
+       "img/1610331800877-462a21600420.jpg",
+       "Luxor Temple",
+       "Artem Bryzgalov"
+      ],
+      [
+       "img/1738580426867-03fa8c8b5288.jpg",
+       "Philae, Aswan",
+       "Martijn Vonk"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "siwa-or-white-desert",
+   "title": "Siwa or the White Desert? Choosing Your Desert Trip",
+   "excerpt": "Siwa Oasis or the White Desert: which Western Desert trip is right for you? Landscapes, culture, time needed, camping or oasis stays, and who each trip suits, with the tours we recommend for both.",
+   "topic": "Planning",
+   "dests": [
+    "siwa"
+   ],
+   "trips": [
+    "siwa",
+    "white"
+   ],
+   "photo": "img/1771236469626-323bb7a34bac.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "Egypt's Western Desert offers two classic trips from Cairo: the oasis of Siwa near the Libyan border, and a night among the chalk formations of the White Desert beyond Bahariya. Both are unforgettable, and both are very different. This guide helps you choose."
+    ],
+    [
+     "h2",
+     "at-a-glance",
+     "At a glance"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Siwa</strong> is a living oasis: palm groves, salt lakes and springs, a mud-brick old town and an Amazigh community with its own language. The Great Sand Sea begins at its edge.",
+      "<strong>The White Desert</strong> is pure landscape: wind-carved chalk, the volcanic hills of the Black Desert, and a night camping under the stars."
+     ]
+    ],
+    [
+     "h2",
+     "siwa",
+     "Siwa: the oasis"
+    ],
+    [
+     "p",
+     "Siwa lies in the Western Desert near the Libyan border. It has about 200 springs and is known for its dates and olives. Its old walled settlements of Siwa and Aghurmi stand on rock outcrops, and at Aghurmi are the ruins of the temple of the Oracle of Amun, consulted by Alexander the Great. From the oasis, 4×4 trips go out into the dunes of the Great Sand Sea. Read more in our <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/siwa/\">Siwa guide</a>."
+    ],
+    [
+     "h2",
+     "white-desert",
+     "The White Desert: the landscape"
+    ],
+    [
+     "p",
+     "Trips leave Cairo for Bahariya Oasis, then cross the Black Desert and Crystal Mountain to the White Desert, a protected area where the wind has shaped chalk into giant mushrooms and pillars. The night is spent at a simple camp among the formations. Read <a href=\"#\" data-href=\"https://egyptroamer.com/guides/white-desert-night/\">A night in the White Desert</a>."
+    ],
+    [
+     "h2",
+     "compare",
+     "How they compare"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Time.</strong> The White Desert works as a two-day, one-night trip from Cairo. Siwa needs more: the oasis deserves several nights, plus a long travel day each way.",
+      "<strong>Comfort.</strong> In Siwa you sleep in guesthouses or hotels. White Desert camps are basic, usually without toilets or showers.",
+      "<strong>Culture.</strong> Siwa has a traditional community and a long history. The White Desert is about nature and silence.",
+      "<strong>Season.</strong> Both are best from October to April. Desert nights are cold in winter."
+     ]
+    ],
+    [
+     "tip",
+     "Which should you choose?",
+     "<ul><li><strong>Short on time:</strong> the White Desert.</li><li><strong>Want culture as well as landscape:</strong> Siwa.</li><li><strong>Love the desert:</strong> both, on separate trips.</li></ul>"
+    ]
+   ],
+   "toc": [
+    [
+     "at-a-glance",
+     "At a glance"
+    ],
+    [
+     "siwa",
+     "Siwa: the oasis"
+    ],
+    [
+     "white-desert",
+     "The White Desert: the landscape"
+    ],
+    [
+     "compare",
+     "How they compare"
+    ]
+   ],
+   "faq": [
+    [
+     "Can I visit both on one trip?",
+     "They lie in different parts of the Western Desert. Combining them takes a long desert circuit, so most people choose one per trip."
+    ],
+    [
+     "Which is better for families?",
+     "Siwa, with real beds and more to do in the oasis. The White Desert suits children who are happy with basic camping."
+    ],
+    [
+     "Do I need a tour?",
+     "For the desert itself, yes: trips need a 4×4 and a licensed local driver. In Siwa town you can explore on your own."
+    ]
+   ],
+   "strips": {
+    "siwa": [
+     "Siwa",
+     [
+      [
+       "img/1758720944577-559b852e8493.jpg",
+       "The mud-brick old town, Siwa",
+       "kai muro"
+      ],
+      [
+       "img/1584114130913-0852aeb8fe8c.jpg",
+       "Sunset over the old town",
+       "Flo P"
+      ],
+      [
+       "img/1612442494156-a5fd9a1c3602.jpg",
+       "A lake at Siwa Oasis",
+       "Omar Mohamed"
+      ]
+     ]
+    ]
+   },
+   "figs": {
+    "white-desert": [
+     "desert_l",
+     "The White Desert · Photo: Unsplash"
+    ]
+   }
+  },
+  {
+   "slug": "valley-of-the-kings-tombs-and-tickets",
+   "title": "The Valley of the Kings: Tombs, Tickets and Tips",
+   "excerpt": "How to visit the Valley of the Kings in Luxor: what the royal tombs are, how tickets work, Tutankhamun and Seti I, what else to see on the West Bank, and practical tips for a hot, busy valley.",
+   "topic": "Planning",
+   "dests": [
+    "luxor"
+   ],
+   "trips": [
+    "valley"
+   ],
+   "photo": "DATA",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "The Valley of the Kings, on Luxor's West Bank, is where the pharaohs of Egypt's New Kingdom were buried. Walking down a corridor cut deep into the mountain, its walls still painted with gods and texts, is one of the great experiences of Egypt. This guide explains how the visit works."
+    ],
+    [
+     "h2",
+     "what-it-is",
+     "What the valley is"
+    ],
+    [
+     "p",
+     "The valley was the burial site of almost all the kings of the 18th, 19th and 20th dynasties, from about 1539 to 1075 BC. To protect their rich burials, they hid their tombs in a lonely valley in the hills behind Deir el-Bahari. There are 62 known tombs. Most follow the same idea: a corridor descending into the rock, chambers along the way, and a burial chamber at the end, with walls painted with scenes of the king among the gods of the underworld. UNESCO lists the valley as part of <em>Ancient Thebes with its Necropolis</em>, inscribed in 1979."
+    ],
+    [
+     "h2",
+     "tickets",
+     "How tickets work"
+    ],
+    [
+     "ul",
+     [
+      "A standard ticket covers a selection of tombs.",
+      "Some of the most famous tombs, including Tutankhamun's and Seti I's, need a separate ticket.",
+      "The tombs open to visitors rotate, so check which are open on the day."
+     ]
+    ],
+    [
+     "tip",
+     "Choosing your tombs",
+     "<p>Ask your guide or the ticket office which tombs are open, and pick a mix: a long corridor tomb, a well-painted one and a smaller one. Your guide can explain the scenes before you go in.</p>"
+    ],
+    [
+     "h2",
+     "tutankhamun",
+     "Tutankhamun"
+    ],
+    [
+     "p",
+     "Tutankhamun's tomb is small, but it is the only royal tomb in the valley that escaped looting in antiquity. Its treasures were brought out after 1922, and the full collection is now shown together at the <a href=\"#\" data-href=\"https://egyptroamer.com/guides/day-trips-from-cairo/\">Grand Egyptian Museum</a> in Giza. Seeing the tomb in Luxor and the treasures in Giza tells the whole story."
+    ],
+    [
+     "h2",
+     "west-bank",
+     "The rest of the West Bank"
+    ],
+    [
+     "p",
+     "The valley is usually combined with other West Bank sites:"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Hatshepsut's temple</strong> at Deir el-Bahari, set against the cliffs.",
+      "<strong>The Valley of the Queens,</strong> with the tomb of Nefertari (separate ticket).",
+      "<strong>Medinet Habu,</strong> the temple of Ramesses III, with richly carved reliefs.",
+      "<strong>Deir el-Medina,</strong> the village of the craftsmen who built the royal tombs.",
+      "<strong>The Colossi of Memnon</strong> by the roadside."
+     ]
+    ],
+    [
+     "p",
+     "Our <a href=\"#\" class=\"tlink\" data-trip=\"valley\" data-href=\"https://egyptroamer.com/experiences/valley-of-the-kings-hatshepsut-temple/\">Valley of the Kings and Hatshepsut Temple</a> day covers the classic circuit with a guide."
+    ],
+    [
+     "h2",
+     "tips",
+     "Practical tips"
+    ],
+    [
+     "ul",
+     [
+      "Go early. The valley heats up fast and there is little shade.",
+      "Bring water, a hat and small notes.",
+      "Photography rules inside the tombs vary. Follow the guards' instructions.",
+      "Plan the East Bank, Karnak and Luxor Temple, for a separate day. See our <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/luxor/\">Luxor guide</a>."
+     ]
+    ]
+   ],
+   "toc": [
+    [
+     "what-it-is",
+     "What the valley is"
+    ],
+    [
+     "tickets",
+     "How tickets work"
+    ],
+    [
+     "tutankhamun",
+     "Tutankhamun"
+    ],
+    [
+     "west-bank",
+     "The rest of the West Bank"
+    ],
+    [
+     "tips",
+     "Practical tips"
+    ]
+   ],
+   "faq": [
+    [
+     "How many tombs can I see?",
+     "A standard ticket covers a selection, and some famous tombs have their own tickets. Check on the day."
+    ],
+    [
+     "Is Tutankhamun's tomb worth the extra ticket?",
+     "For its history, yes. It is small and simple compared with the great corridor tombs, and its treasures are in Giza."
+    ],
+    [
+     "How long do I need for the West Bank?",
+     "A full day covers the valley, Hatshepsut's temple and one more site. With more time, add Medinet Habu and Deir el-Medina."
+    ]
+   ],
+   "hero": [
+    "img",
+    "kv62",
+    "KV62, the tomb of Tutankhamun, Valley of the Kings · Photo: Unsplash"
+   ],
+   "strips": {
+    "west-bank": [
+     "See the places",
+     [
+      [
+       "hat_l",
+       "Hatshepsut’s temple, Deir el-Bahari",
+       "Mahmoud Refaat"
+      ],
+      [
+       "habu1",
+       "Medinet Habu, the painted gateway",
+       "Siddhesh Mangela"
+      ],
+      [
+       "habu2",
+       "Medinet Habu, the carved columns",
+       "Fatih Beki"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "cairo-at-night",
+   "title": "Cairo at Night: Nile Cruises, Street Food and the Old City",
+   "excerpt": "What to do in Cairo at night: a Nile dinner cruise with music and a tanoura show, a street-food tour, Al-Muizz Street and Khan el-Khalili after dark, sunset in Al-Azhar Park, and tips for evenings in the city.",
+   "topic": "Planning",
+   "dests": [
+    "cairo"
+   ],
+   "trips": [
+    "nile",
+    "food"
+   ],
+   "photo": "img/1761421852464-463fb31f2dc0.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "Cairo comes alive after dark. Dinner is eaten late, the old city glows under its lamps, and the Nile fills with lit-up boats. If your days are spent at the pyramids and museums, the evenings are when you meet the city itself. Here are the best ways to spend them."
+    ],
+    [
+     "h2",
+     "dinner-cruise",
+     "A Nile dinner cruise"
+    ],
+    [
+     "p",
+     "The classic Cairo evening: dinner on a restaurant boat while it cruises past the lights of the city, with live music and usually a show. The highlight for many is the <strong>tanoura</strong>, the spinning dance with multicoloured skirts, related to Sufi whirling. Many boats also have a belly dance show. See our <a href=\"#\" class=\"tlink\" data-trip=\"nile\" data-href=\"https://egyptroamer.com/experiences/nile-dinner-cruise-with-live-show/\">Nile dinner cruise</a>."
+    ],
+    [
+     "tip",
+     "Choosing a boat",
+     "<p>Check whether drinks are included, which shows are on, where the boat departs and whether hotel transfers are included.</p>"
+    ],
+    [
+     "h2",
+     "street-food",
+     "A street-food tour"
+    ],
+    [
+     "p",
+     "Cairo's food is best on the street and in small local restaurants: koshari, ful medames, ta'meya, feteer and hawawshi. An evening food tour with a local guide takes you through the backstreets and explains what you're eating. See our <a href=\"#\" class=\"tlink\" data-trip=\"food\" data-href=\"https://egyptroamer.com/experiences/cairo-street-food-tour-by-night/\">Cairo street food tour by night</a>."
+    ],
+    [
+     "h2",
+     "old-city",
+     "The old city after dark"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Al-Muizz Street:</strong> the main street of Fatimid Cairo, lined with mosques, madrasas and fountains, and lively in the evening.",
+      "<strong>Khan el-Khalili:</strong> the old bazaar, with lanes of shops and traditional cafés for tea and a water pipe.",
+      "<strong>Al-Azhar Park:</strong> a hilltop garden above the old city, the place to watch the sunset before heading down to the lanes."
+     ]
+    ],
+    [
+     "p",
+     "Our <a href=\"#\" data-href=\"https://egyptroamer.com/guides/cairo-travel-guide/\">Cairo guide</a> has a walking route through the old city."
+    ],
+    [
+     "h2",
+     "felucca",
+     "A felucca at sunset"
+    ],
+    [
+     "p",
+     "For something quieter than a dinner cruise, hire a felucca from the Corniche for an hour on the river at sunset. Agree the time and price before you board."
+    ],
+    [
+     "h2",
+     "tips",
+     "Tips for Cairo evenings"
+    ],
+    [
+     "ul",
+     [
+      "Dinner is late. Many places stay busy past midnight.",
+      "Plan your evening by area. Traffic can make crossing the city slow.",
+      "Dress modestly in the old city, and carry small notes for tea and tips.",
+      "Ride-hailing apps are the easiest way to get around at night."
+     ]
+    ]
+   ],
+   "toc": [
+    [
+     "dinner-cruise",
+     "A Nile dinner cruise"
+    ],
+    [
+     "street-food",
+     "A street-food tour"
+    ],
+    [
+     "old-city",
+     "The old city after dark"
+    ],
+    [
+     "felucca",
+     "A felucca at sunset"
+    ],
+    [
+     "tips",
+     "Tips for Cairo evenings"
+    ]
+   ],
+   "faq": [
+    [
+     "Is a Nile dinner cruise worth it?",
+     "For an easy, festive evening with a view, yes. If you prefer quiet, a felucca at sunset suits you better."
+    ],
+    [
+     "Is the old city safe at night?",
+     "Al-Muizz Street and Khan el-Khalili are busy, lived-in areas in the evening. As in any big city, watch your bag and phone."
+    ],
+    [
+     "Can I do a food tour and a cruise on the same night?",
+     "They overlap in time, so choose one per evening. With two nights in Cairo, do both."
+    ]
+   ],
+   "figs": {
+    "dinner-cruise": [
+     "img/1626692880062-35c360fb6afc.jpg",
+     "Boats on the Nile, Cairo · Photo: Roaming Pictures, Unsplash"
+    ],
+    "felucca": [
+     "img/1674724545219-29637e41ae04.jpg",
+     "The Nile at sunset by Cairo Tower · Photo: Ahmed Assem, Unsplash"
+    ]
+   },
+   "strips": {
+    "street-food": [
+     "Street food",
+     [
+      [
+       "f_bread",
+       "Baladi bread, Cairo",
+       "Alex Block"
+      ],
+      [
+       "f_sweets",
+       "Egyptian biscuits, Cairo",
+       "mohmed Afify"
+      ]
+     ]
+    ],
+    "old-city": [
+     "The old city",
+     [
+      [
+       "img/1707172889437-dc6f210ea44a.jpg",
+       "A gateway in Khan el-Khalili",
+       "Thales Botelho de Sousa"
+      ],
+      [
+       "img/1760973519064-fc146406c871.jpg",
+       "The minarets of Al-Azhar",
+       "Fatih Beki"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "temples-of-aswan-and-lake-nasser",
+   "title": "The Temples of Aswan and Lake Nasser: Which to See",
+   "excerpt": "The temples of Aswan and Lake Nasser, and which to see: Philae and its rescue, Kom Ombo and Edfu to the north, Kalabsha by the High Dam, the rescued temples on the lake, and Abu Simbel, with how to fit them into your days.",
+   "topic": "Planning",
+   "dests": [
+    "aswan"
+   ],
+   "trips": [
+    "abu"
+   ],
+   "photo": "img/1738580426867-03fa8c8b5288.jpg",
+   "mins": 3,
+   "blocks": [
+    [
+     "p",
+     "Aswan is the gateway to the temples of Nubia. Some stand on islands in the Nile, some were moved stone by stone when Lake Nasser rose, and the greatest of them, Abu Simbel, lies far to the south. This guide sorts them by how easy they are to reach, so you can choose what fits your days."
+    ],
+    [
+     "h2",
+     "aswan",
+     "In and around Aswan"
+    ],
+    [
+     "h3",
+     "Philae"
+    ],
+    [
+     "p",
+     "The temple of the goddess Isis on its island is the classic Aswan visit. Like Abu Simbel, it was moved during the UNESCO rescue campaign, to the island of Agilkia. UNESCO describes Philae as the final bastion of ancient Egyptian religion. You reach it by a short boat ride."
+    ],
+    [
+     "h3",
+     "Around the city"
+    ],
+    [
+     "ul",
+     [
+      "<strong>The Unfinished Obelisk:</strong> a giant obelisk abandoned in the granite quarry where it was cut. UNESCO notes that the quarries are a basis of our knowledge of ancient Egyptian quarrying.",
+      "<strong>Qubbet el-Hawa:</strong> rock tombs of the officials who ran Nubian affairs in the Old and Middle Kingdoms, on the hill above the west bank.",
+      "<strong>The Monastery of St Simeon:</strong> the well-preserved ruins of one of the biggest monasteries in Egypt, on the west bank."
+     ]
+    ],
+    [
+     "h2",
+     "north",
+     "North of Aswan: Kom Ombo and Edfu"
+    ],
+    [
+     "p",
+     "On the way to Luxor stand two of the best temples of the late period:"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Kom Ombo:</strong> a double temple of the Ptolemaic and Roman periods, dedicated to Sobek, the crocodile god, and Horus, the falcon-headed god.",
+      "<strong>Edfu:</strong> the Temple of Horus, one of the best-preserved temples in Egypt, built between 237 and 57 BC."
+     ]
+    ],
+    [
+     "p",
+     "Nile cruises stop at both. By road, they fit into the transfer day between Aswan and Luxor. See our guide <a href=\"#\" data-href=\"https://egyptroamer.com/guides/nile-cruise-or-hotels-luxor-aswan/\">Nile cruise or hotels?</a>"
+    ],
+    [
+     "h2",
+     "lake",
+     "Kalabsha and the temples of the lake"
+    ],
+    [
+     "p",
+     "The rescue campaign moved several more temples to new sites:"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Kalabsha:</strong> the temple of Kalabsha, with the temple of Beit el-Wali and the Kiosk of Qertassi, was reassembled near the High Dam.",
+      "<strong>The lake temples:</strong> Wadi es-Sebua, Dakka and Maharraqa were rebuilt near the former site of Wadi es-Sebua, and Amada and Derr near the former site of Amada. They are usually seen on a Lake Nasser cruise."
+     ]
+    ],
+    [
+     "h2",
+     "abu-simbel",
+     "Abu Simbel"
+    ],
+    [
+     "p",
+     "The two rock temples of Ramesses II are the high point of any trip to the south. They were moved in the 1960s, about 60 metres above their original site, and on about 22 February and 22 October the rising sun reaches the statues in the sanctuary. Most visitors go on a day trip from Aswan. Read our guide <a href=\"#\" data-href=\"https://egyptroamer.com/guides/abu-simbel-from-aswan/\">Abu Simbel from Aswan</a>, or see the <a href=\"#\" class=\"tlink\" data-trip=\"abu\" data-href=\"https://egyptroamer.com/experiences/abu-simbel-day-trip-from-aswan/\">Abu Simbel day trip</a>."
+    ],
+    [
+     "tip",
+     "How to fit them in",
+     "<ul><li><strong>One day in Aswan:</strong> Philae, the Unfinished Obelisk and a felucca at sunset.</li><li><strong>Two days:</strong> add Abu Simbel.</li><li><strong>On the way to Luxor:</strong> Kom Ombo and Edfu.</li><li><strong>More time:</strong> a Lake Nasser cruise for Kalabsha and the lake temples.</li></ul>"
+    ]
+   ],
+   "toc": [
+    [
+     "aswan",
+     "In and around Aswan"
+    ],
+    [
+     "north",
+     "North of Aswan: Kom Ombo and Edfu"
+    ],
+    [
+     "lake",
+     "Kalabsha and the temples of the lake"
+    ],
+    [
+     "abu-simbel",
+     "Abu Simbel"
+    ]
+   ],
+   "faq": [
+    [
+     "Which Aswan temple should I see if I only have one day?",
+     "Philae, by boat. Add the Unfinished Obelisk and end with a felucca on the Nile."
+    ],
+    [
+     "Are the Nubian temples part of a World Heritage site?",
+     "Yes. They belong to <em>Nubian Monuments from Abu Simbel to Philae</em>, inscribed by UNESCO in 1979."
+    ],
+    [
+     "Can I see Kom Ombo and Edfu without a cruise?",
+     "Yes, on a road transfer between Aswan and Luxor with a driver or a tour. More about the city is in our <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/aswan/\">Aswan guide</a>."
+    ]
+   ],
+   "strips": {
+    "aswan": [
+     "In and around Aswan",
+     [
+      [
+       "img/1738580426867-03fa8c8b5288.jpg",
+       "The temple of Philae",
+       "Martijn Vonk"
+      ],
+      [
+       "img/1633033254409-bd538e785f51.jpg",
+       "Philae from the water",
+       "Dmitrii Zhodzishskii"
+      ],
+      [
+       "img/1775225819853-1dc8c22cf4d1.jpg",
+       "Feluccas at sunset, Aswan",
+       "Jean Pierre Cabáni"
+      ]
+     ]
+    ],
+    "north": [
+     "Edfu",
+     [
+      [
+       "img/1660705630675-d66d60fdca46.jpg",
+       "The temple of Horus, Edfu",
+       "mana5280"
+      ],
+      [
+       "img/1681403419483-a30ff02a385f.jpg",
+       "Light in the temple of Horus",
+       "Jordi Orts Segalés"
+      ]
+     ]
+    ],
+    "abu-simbel": [
+     "Abu Simbel",
+     [
+      [
+       "img/1502250493741-939d1c76eaad.jpg",
+       "The Great Temple, Abu Simbel",
+       "AussieActive"
+      ],
+      [
+       "img/1633163973863-d44691f969b4.jpg",
+       "The sanctuary, Abu Simbel",
+       "Dmitrii Zhodzishskii"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "10-days-in-egypt-itinerary",
+   "title": "10 Days in Egypt: The Nile Valley and the Red Sea",
+   "excerpt": "A 10-day Egypt itinerary: Cairo and the pyramids, Luxor and Aswan with Abu Simbel, then three days on the Red Sea at Hurghada, with how to travel between them and what to change if you prefer a Nile cruise.",
+   "topic": "Planning",
+   "dests": [
+    "cairo",
+    "luxor",
+    "aswan",
+    "hurghada"
+   ],
+   "trips": [
+    "giza",
+    "valley",
+    "abu",
+    "redsea"
+   ],
+   "photo": "img/1610331800877-462a21600420.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "Ten days lets you add something the <a href=\"#\" data-href=\"https://egyptroamer.com/guides/7-days-in-egypt-itinerary/\">seven-day itinerary</a> has to leave out: the sea. This plan covers the great sites of the Nile Valley, then ends with three days on the Red Sea to rest, snorkel or dive."
+    ],
+    [
+     "h2",
+     "at-a-glance",
+     "The plan at a glance"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Days 1–3: Cairo.</strong> The pyramids, the Grand Egyptian Museum, Islamic and Coptic Cairo.",
+      "<strong>Days 4–5: Aswan.</strong> Philae, the Nile by felucca, and Abu Simbel.",
+      "<strong>Days 6–7: Luxor.</strong> The East Bank temples and the West Bank tombs.",
+      "<strong>Days 8–10: Hurghada.</strong> Reefs, islands and rest."
+     ]
+    ],
+    [
+     "p",
+     "Fly from Cairo to Aswan, travel north to Luxor by road, train or boat, cross to Hurghada by road, and fly home from Hurghada."
+    ],
+    [
+     "h2",
+     "day-by-day",
+     "Day by day"
+    ],
+    [
+     "p",
+     "+ <strong>Day 1 — Arrive in Cairo</strong> Settle in and have an easy first evening. + <strong>Day 2 — Giza</strong> <a href=\"#\" class=\"tlink\" data-trip=\"giza\" data-href=\"https://egyptroamer.com/experiences/pyramids-of-giza-sphinx-private-tour/\">The pyramids and the Sphinx</a> early, then the Grand Egyptian Museum. + <strong>Day 3 — Old Cairo</strong> Coptic Cairo and Islamic Cairo, with an evening on Al-Muizz Street. See <a href=\"#\" data-href=\"https://egyptroamer.com/guides/cairo-at-night/\">Cairo at night</a>. + <strong>Day 4 — Aswan</strong> Fly south. Philae in the afternoon and a felucca at sunset. + <strong>Day 5 — Abu Simbel</strong> A pre-dawn start for <a href=\"#\" class=\"tlink\" data-trip=\"abu\" data-href=\"https://egyptroamer.com/experiences/abu-simbel-day-trip-from-aswan/\">Abu Simbel</a>, back in Aswan by the afternoon. + <strong>Day 6 — To Luxor</strong> North by road, stopping at Kom Ombo and Edfu. Luxor Temple at dusk. + <strong>Day 7 — Luxor, West Bank</strong> <a href=\"#\" class=\"tlink\" data-trip=\"valley\" data-href=\"https://egyptroamer.com/experiences/valley-of-the-kings-hatshepsut-temple/\">The Valley of the Kings and Hatshepsut's temple</a>. Karnak later in the day. + <strong>Day 8 — To Hurghada</strong> Cross the desert to the Red Sea and rest. + <strong>Day 9 — The reefs</strong> A boat day to the Giftun Islands, or a <a href=\"#\" class=\"tlink\" data-trip=\"redsea\" data-href=\"https://egyptroamer.com/experiences/red-sea-diving-two-reef-dives/\">dive trip</a>. + <strong>Day 10 — Departure</strong> A last swim, then fly home from Hurghada."
+    ],
+    [
+     "tip",
+     "Why this order",
+     "<p>Ending at the sea gives the trip a slow finish after early starts at the temples. Flying straight to Aswan saves a long journey south.</p>"
+    ],
+    [
+     "h2",
+     "variations",
+     "Variations"
+    ],
+    [
+     "h3",
+     "With a Nile cruise"
+    ],
+    [
+     "p",
+     "Replace days 4–7 with a cruise between Aswan and Luxor. It stops at Kom Ombo and Edfu, and you unpack only once. Book Abu Simbel as a separate trip from Aswan. Read <a href=\"#\" data-href=\"https://egyptroamer.com/guides/nile-cruise-or-hotels-luxor-aswan/\">Nile cruise or hotels?</a>"
+    ],
+    [
+     "h3",
+     "With Sharm El Sheikh"
+    ],
+    [
+     "p",
+     "Fly to Sharm El Sheikh instead of driving to Hurghada, for Ras Mohammed and the Tiran reefs. Read <a href=\"#\" data-href=\"https://egyptroamer.com/guides/snorkelling-hurghada-or-sharm/\">Hurghada or Sharm El Sheikh?</a>"
+    ],
+    [
+     "h3",
+     "With the desert"
+    ],
+    [
+     "p",
+     "Swap the Red Sea for a night in the <a href=\"#\" data-href=\"https://egyptroamer.com/guides/white-desert-night/\">White Desert</a> from Cairo."
+    ]
+   ],
+   "toc": [
+    [
+     "at-a-glance",
+     "The plan at a glance"
+    ],
+    [
+     "day-by-day",
+     "Day by day"
+    ],
+    [
+     "variations",
+     "Variations"
+    ]
+   ],
+   "faq": [
+    [
+     "Is 10 days enough for Egypt?",
+     "For the Nile Valley and a few days by the sea, yes. Alexandria, Siwa and Sinai are best left for another trip."
+    ],
+    [
+     "Should I go to the Red Sea first or last?",
+     "Last. It's the best way to recover after the early starts of the temple days."
+    ],
+    [
+     "Can I do Luxor before Aswan?",
+     "Yes. Reverse days 4–7, then cross from Luxor to Hurghada, which is the shorter road to the sea."
+    ]
+   ],
+   "strips": {
+    "at-a-glance": [
+     "On the route",
+     [
+      [
+       "img/1761561044700-4262beec7d63.jpg",
+       "Giza",
+       "Thomas K"
+      ],
+      [
+       "img/1610331800877-462a21600420.jpg",
+       "Luxor Temple",
+       "Artem Bryzgalov"
+      ],
+      [
+       "img/1502250493741-939d1c76eaad.jpg",
+       "Abu Simbel",
+       "AussieActive"
+      ],
+      [
+       "d_hurghada",
+       "The coast at Hurghada",
+       "Unsplash"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "white-desert-night",
+   "title": "A Night in the White Desert: What to Expect",
+   "excerpt": "What a night in Egypt's White Desert is really like: the route through Bahariya, the Black Desert and Crystal Mountain, the chalk formations at sunset, camp life and cold nights, what to pack and how to choose an operator.",
+   "topic": "Planning",
+   "dests": [],
+   "trips": [
+    "white"
+   ],
+   "photo": "img/1691591403777-128b9a842b8b.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "A night in the White Desert is one of the most memorable things to do in Egypt, and one of the least like the rest of the trip. There are no temples, just wind-carved chalk, a campfire and a sky full of stars. This guide explains what the trip is really like, so you know what you're signing up for."
+    ],
+    [
+     "h2",
+     "route",
+     "The route"
+    ],
+    [
+     "p",
+     "Most trips start from Cairo and head to <strong>Bahariya Oasis</strong>, the gateway to the desert, where you switch to a 4×4. From there the route crosses:"
+    ],
+    [
+     "ul",
+     [
+      "<strong>The Black Desert:</strong> sand dotted with cone-shaped hills capped in black volcanic stone.",
+      "<strong>Crystal Mountain:</strong> a ridge of quartz crystals by the roadside.",
+      "<strong>Agabat:</strong> valleys and dunes between the two deserts.",
+      "<strong>The White Desert:</strong> chalk shaped by the wind into giant mushrooms and pillars, protected as the White Desert Protected Area."
+     ]
+    ],
+    [
+     "h2",
+     "night",
+     "Sunset, night and sunrise"
+    ],
+    [
+     "p",
+     "The formations are at their best when the light is low. Most trips arrive in the afternoon, so you see the chalk turn gold and pink at sunset. Camp is set up in the shelter of the rocks, dinner is cooked over a fire, and you sleep under blankets or in a simple tent. Morning brings a second show at sunrise."
+    ],
+    [
+     "tip",
+     "It gets cold",
+     "<p>Desert nights are much colder than most visitors expect, especially in winter. Bring warm layers, a hat and something to sleep in.</p>"
+    ],
+    [
+     "h2",
+     "camp",
+     "Camp life"
+    ],
+    [
+     "p",
+     "Camps are basic, and that's part of the point. There are usually no toilets or showers. Ask your operator exactly what bedding, tents and food they provide, and whether there is a private tent or a shared shelter."
+    ],
+    [
+     "h2",
+     "pack",
+     "What to pack"
+    ],
+    [
+     "ul",
+     [
+      "Warm layers, a hat and a torch for the night.",
+      "Sun protection and sunglasses for the day.",
+      "A scarf or buff against wind and sand.",
+      "Wet wipes, basic medicine and any snacks you rely on."
+     ]
+    ],
+    [
+     "h2",
+     "operator",
+     "Choosing an operator"
+    ],
+    [
+     "ul",
+     [
+      "Go with a licensed local operator and an experienced desert driver. Never drive into the desert on your own.",
+      "Check whether transfers from Cairo are included, or whether the trip starts in Bahariya.",
+      "Ask how many travellers share a vehicle and a camp."
+     ]
+    ],
+    [
+     "p",
+     "See our <a href=\"#\" class=\"tlink\" data-trip=\"white\" data-href=\"https://egyptroamer.com/experiences/white-desert-black-desert-safari/\">White Desert and Black Desert safari</a> for the trips we recommend."
+    ]
+   ],
+   "toc": [
+    [
+     "route",
+     "The route"
+    ],
+    [
+     "night",
+     "Sunset, night and sunrise"
+    ],
+    [
+     "camp",
+     "Camp life"
+    ],
+    [
+     "pack",
+     "What to pack"
+    ],
+    [
+     "operator",
+     "Choosing an operator"
+    ]
+   ],
+   "faq": [
+    [
+     "Can I do the White Desert as a day trip?",
+     "Not really. The distances are long, and the formations are at their best at sunset and sunrise. The overnight camp is the point."
+    ],
+    [
+     "When is the best season?",
+     "October to April, avoiding the extreme summer heat. Mid-winter nights are cold."
+    ],
+    [
+     "Is it suitable for children?",
+     "For children who are happy with basic camping, yes. Talk to the operator about bedding and warm clothing."
+    ]
+   ],
+   "figs": {
+    "route": [
+     "desert_l",
+     "The White Desert · Photo: Unsplash"
+    ]
+   }
+  },
+  {
+   "slug": "snorkelling-hurghada-or-sharm",
+   "title": "Snorkelling in Egypt: Hurghada or Sharm El Sheikh?",
+   "excerpt": "Snorkelling in the Red Sea: Hurghada or Sharm El Sheikh? The Giftun Islands and Ras Mohammed National Park compared, boat or shore, trips for beginners, reef etiquette and how to choose a responsible operator.",
+   "topic": "Planning",
+   "dests": [
+    "hurghada",
+    "sharm"
+   ],
+   "trips": [
+    "ras",
+    "redsea"
+   ],
+   "photo": "img/1722264222007-3e4f1808db3e.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "The Red Sea is one of the easiest places in the world to see a coral reef: clear, warm water and reefs a short boat ride from the coast. Egypt's two big resort areas, Hurghada and Sharm El Sheikh, both offer excellent snorkelling. This guide compares them and explains how to choose a trip."
+    ],
+    [
+     "h2",
+     "hurghada",
+     "Hurghada: islands and easy boat trips"
+    ],
+    [
+     "p",
+     "From <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/hurghada/\">Hurghada</a>, the classic trip is a boat to the <strong>Giftun Islands</strong>, protected islands offshore with sandy beaches and fringing reefs. Many reefs are shallow enough to be excellent with just a mask and fins. Hurghada is also the Red Sea resort that combines most easily with Luxor and the Nile Valley."
+    ],
+    [
+     "h2",
+     "sharm",
+     "Sharm El Sheikh: Ras Mohammed and Tiran"
+    ],
+    [
+     "p",
+     "From <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/sharm/\">Sharm El Sheikh</a>, the highlight is <strong>Ras Mohammed National Park</strong>, declared in 1983 as Egypt's first national park, with coral walls close to the surface. The reefs of the <strong>Straits of Tiran</strong> are another classic day-boat trip, with stronger currents. See our <a href=\"#\" class=\"tlink\" data-trip=\"ras\" data-href=\"https://egyptroamer.com/experiences/ras-mohammed-snorkelling-from-sharm/\">Ras Mohammed snorkelling trip</a>."
+    ],
+    [
+     "h2",
+     "boat-or-shore",
+     "Boat or shore"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Boat trips</strong> reach the best offshore reefs and usually stop at two or three sites, often with lunch on board.",
+      "<strong>Shore snorkelling</strong> is possible from some resorts' house reefs and, at Ras Mohammed, from the beach on road trips.",
+      "<strong>Snorkellers and divers</strong> often share the same boat, which suits mixed groups. For diving, see our <a href=\"#\" class=\"tlink\" data-trip=\"redsea\" data-href=\"https://egyptroamer.com/experiences/red-sea-diving-two-reef-dives/\">Red Sea diving trip</a>."
+     ]
+    ],
+    [
+     "h2",
+     "beginners",
+     "For beginners"
+    ],
+    [
+     "p",
+     "You don't need to be a strong swimmer. Most boats provide life jackets or snorkel vests, and guides accompany beginners. Tell the operator your level when you book, and start at a calm, shallow site."
+    ],
+    [
+     "tip",
+     "Reef etiquette",
+     "<ul><li>Never touch, stand on or collect coral or shells.</li><li>Don't feed fish.</li><li>Use reef-friendly sun protection, or better, a rash vest.</li><li>Choose operators who use fixed moorings instead of anchoring on the reef.</li></ul>"
+    ],
+    [
+     "h2",
+     "how-to-choose",
+     "How to choose"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Choose Hurghada</strong> if you want easy island days and plan to combine the sea with Luxor.",
+      "<strong>Choose Sharm El Sheikh</strong> if the reefs are the main reason for your trip, or if you also want Mount Sinai."
+     ]
+    ]
+   ],
+   "toc": [
+    [
+     "hurghada",
+     "Hurghada: islands and easy boat trips"
+    ],
+    [
+     "sharm",
+     "Sharm El Sheikh: Ras Mohammed and Tiran"
+    ],
+    [
+     "boat-or-shore",
+     "Boat or shore"
+    ],
+    [
+     "beginners",
+     "For beginners"
+    ],
+    [
+     "how-to-choose",
+     "How to choose"
+    ]
+   ],
+   "faq": [
+    [
+     "Can I snorkel all year?",
+     "Yes. The water is warmest from late summer into autumn and coolest in late winter, when a wetsuit helps."
+    ],
+    [
+     "Do I need my own equipment?",
+     "No. Masks, snorkels and fins are usually provided. A mask that fits you well makes a difference, so bring yours if you have one."
+    ],
+    [
+     "Will I see turtles or dolphins?",
+     "Turtles and rays are seen on many trips, but encounters with any animal depend on the site and the season, and nothing is guaranteed."
+    ]
+   ],
+   "hero": [
+    "video",
+    "ras_turq",
+    "Red Sea, Egypt · Video: Adrien JACTA, Pexels",
+    "video/redsea-reef.mp4"
+   ],
+   "figs": {
+    "sharm": [
+     "d_sharm",
+     "A bay at Sharm El Sheikh · Photo: Unsplash"
+    ]
+   },
+   "strips": {
+    "hurghada": [
+     "On Hurghada’s reefs",
+     [
+      [
+       "reef_school",
+       "Small orange fish over a coral reef, Hurghada",
+       "Oliver Schwaneberg"
+      ],
+      [
+       "reef_clown2",
+       "Two clownfish in a sea anemone, Hurghada",
+       "Oliver Schwaneberg"
+      ],
+      [
+       "reef_yellow",
+       "Yellow fish on a coral reef, Hurghada",
+       "Oliver Schwaneberg"
+      ],
+      [
+       "reef_puffer",
+       "A small pufferfish by the reef, Hurghada",
+       "Oliver Schwaneberg"
+      ]
+     ]
+    ]
+   },
+   "videos": {
+    "boat-or-shore": [
+     "video/redsea-coral.mp4",
+     "reef_coral",
+     "Red Sea · Video: Adrien JACTA, Pexels"
+    ]
+   }
+  },
+  {
+   "slug": "nile-cruise-or-hotels-luxor-aswan",
+   "title": "Nile Cruise or Hotels? Luxor to Aswan Explained",
+   "excerpt": "Should you see Luxor and Aswan by Nile cruise or by staying in hotels? What a cruise is like, the temples of Edfu and Kom Ombo on the way, the trade-offs in time and freedom, smaller sailing boats, and how to choose.",
+   "topic": "Planning",
+   "dests": [
+    "luxor",
+    "aswan"
+   ],
+   "trips": [
+    "cruise",
+    "valley",
+    "abu"
+   ],
+   "photo": "img/1778402153163-fc9a5fd0131a.jpg",
+   "mins": 3,
+   "blocks": [
+    [
+     "p",
+     "Between Luxor and Aswan, the Nile passes some of the best-preserved temples in Egypt. You can see the stretch in two ways: on a cruise, where the boat is your hotel and moves between the sites, or by staying in hotels in each city and travelling between them by road or train. Both work well. This guide explains the difference so you can choose."
+    ],
+    [
+     "h2",
+     "cruise",
+     "What a Nile cruise is like"
+    ],
+    [
+     "p",
+     "A Luxor–Aswan cruise runs in either direction. Your cabin, meals and the visits are usually arranged together, and a guide takes the group to the temples at each stop. Between visits there is time on deck to watch the river: palm groves, villages and desert on either side."
+    ],
+    [
+     "tip",
+     "Why people love it",
+     "<p>Unpacking once, and seeing the river itself. For many travellers the slow days on deck are the best memory of Egypt.</p>"
+    ],
+    [
+     "h2",
+     "temples",
+     "The temples on the way"
+    ],
+    [
+     "h3",
+     "Edfu"
+    ],
+    [
+     "p",
+     "The Temple of Horus at Edfu is one of the best-preserved temples in Egypt. It was begun under Ptolemy III in 237 BC and completed in 57 BC, and its simple plan along one main axis is the classic example of an Egyptian temple."
+    ],
+    [
+     "h3",
+     "Kom Ombo"
+    ],
+    [
+     "p",
+     "A double temple of the Ptolemaic and Roman periods on a bend of the river, dedicated to two gods at once: Sobek, the crocodile god, and Horus, the falcon-headed god."
+    ],
+    [
+     "p",
+     "Cruises stop at both. By road, they can be visited on the transfer day between Luxor and <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/aswan/\">Aswan</a>."
+    ],
+    [
+     "h2",
+     "trade-offs",
+     "Cruise or hotels: the trade-offs"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Time at the sites.</strong> Cruise visits follow the boat's schedule and are often short. Staying in hotels lets you spend longer at Karnak, the West Bank and Philae.",
+      "<strong>Freedom.</strong> In hotels you choose where to eat and when to rest. On a boat the day has a set rhythm.",
+      "<strong>Effort.</strong> A cruise means unpacking once and no transfers. The hotel route needs one road or train day between the cities.",
+      "<strong>The river.</strong> Only a cruise gives you days on the water."
+     ]
+    ],
+    [
+     "p",
+     "Many people combine the two: a cruise, plus an extra day in <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/luxor/\">Luxor</a> before or after for the sites the boat schedule rushes."
+    ],
+    [
+     "h2",
+     "smaller-boats",
+     "Smaller boats"
+    ],
+    [
+     "p",
+     "Besides the large cruise ships, smaller boats sail the same stretch. Traditional sailing boats called dahabiyas carry far fewer passengers, and some moor at quieter places along the bank. In Aswan, a felucca, the local lateen-sailed boat, is the way to see the river for an afternoon."
+    ],
+    [
+     "h2",
+     "how-to-choose",
+     "How to choose"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Choose a cruise</strong> if you want an easy, relaxed trip with the river as the highlight.",
+      "<strong>Choose hotels</strong> if the monuments are your priority and you like to set your own pace.",
+      "<strong>Either way,</strong> plan the <a href=\"#\" class=\"tlink\" data-trip=\"valley\" data-href=\"https://egyptroamer.com/experiences/valley-of-the-kings-hatshepsut-temple/\">Valley of the Kings</a> in Luxor and <a href=\"#\" class=\"tlink\" data-trip=\"abu\" data-href=\"https://egyptroamer.com/experiences/abu-simbel-day-trip-from-aswan/\">Abu Simbel</a> from Aswan, which are outside the usual cruise route."
+     ]
+    ]
+   ],
+   "toc": [
+    [
+     "cruise",
+     "What a Nile cruise is like"
+    ],
+    [
+     "temples",
+     "The temples on the way"
+    ],
+    [
+     "trade-offs",
+     "Cruise or hotels: the trade-offs"
+    ],
+    [
+     "smaller-boats",
+     "Smaller boats"
+    ],
+    [
+     "how-to-choose",
+     "How to choose"
+    ]
+   ],
+   "faq": [
+    [
+     "Is it better to start in Luxor or in Aswan?",
+     "Both work. Starting in Aswan ends the trip in Luxor, which has more to see afterwards. Starting in Luxor ends it in Aswan's calmer atmosphere."
+    ],
+    [
+     "Does a cruise include Abu Simbel?",
+     "Usually not. Abu Simbel lies far south of Aswan and is visited as a separate trip from the city, or on a Lake Nasser cruise."
+    ],
+    [
+     "Are the temple visits guided?",
+     "On most cruises, yes. Check what is included when you book."
+    ]
+   ],
+   "figs": {
+    "cruise": [
+     "img/1778402153163-fc9a5fd0131a.jpg",
+     "A cruise ship on the Nile, Aswan · Photo: Kuan L, Unsplash"
+    ],
+    "smaller-boats": [
+     "img/1770251693846-4167f4c049c6.jpg",
+     "A felucca on the Nile, Luxor · Photo: Anthony Chen, Unsplash"
+    ]
+   },
+   "strips": {
+    "temples": [
+     "On the way",
+     [
+      [
+       "img/1660705630675-d66d60fdca46.jpg",
+       "The temple of Horus, Edfu",
+       "mana5280"
+      ],
+      [
+       "img/1738580426867-03fa8c8b5288.jpg",
+       "Philae, Aswan",
+       "Martijn Vonk"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "day-trips-from-cairo",
+   "title": "The Best Day Trips from Cairo",
+   "excerpt": "The best day trips from Cairo: Giza and the Grand Egyptian Museum, Saqqara and Dahshur, Alexandria on the Mediterranean, and Wadi Al-Hitan in the Fayoum desert, with what each is like and how to plan it.",
+   "topic": "Planning",
+   "dests": [
+    "cairo",
+    "alexandria"
+   ],
+   "trips": [
+    "giza",
+    "alex",
+    "white"
+   ],
+   "photo": "img/1738512156462-408182814b21.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "Cairo is a good base for more than the city itself. Within a day's reach are the pyramid fields, the Mediterranean and a World Heritage desert of fossil whales. Here are the trips worth a day, and what each one is like."
+    ],
+    [
+     "h2",
+     "giza",
+     "Giza and the Grand Egyptian Museum"
+    ],
+    [
+     "p",
+     "The obvious first day. The pyramids and the Sphinx stand on the Giza plateau at the edge of the city, and the Grand Egyptian Museum is close by. Some tours combine both in one long day. Start early for the plateau, and leave the museum for the heat of the afternoon. See our <a href=\"#\" class=\"tlink\" data-trip=\"giza\" data-href=\"https://egyptroamer.com/experiences/pyramids-of-giza-sphinx-private-tour/\">pyramids of Giza private tour</a>."
+    ],
+    [
+     "h2",
+     "saqqara",
+     "Saqqara and Dahshur"
+    ],
+    [
+     "p",
+     "South of Giza, the pyramid fields continue. At <strong>Saqqara</strong> stands the Step Pyramid of Djoser, designed by his architect Imhotep as a pyramid in six stages. At <strong>Dahshur</strong>, the Bent Pyramid and the Red Pyramid of Sneferu rise from open desert. Giza, Saqqara and Dahshur all belong to the World Heritage site <em>Memphis and its Necropolis – the Pyramid Fields from Giza to Dahshur</em>, inscribed in 1979. They are far quieter than Giza, and many visitors pair them in one day."
+    ],
+    [
+     "h2",
+     "alexandria",
+     "Alexandria"
+    ],
+    [
+     "p",
+     "Egypt's Mediterranean city, founded by Alexander the Great. A day trip covers the Citadel of Qaitbay on the site of the ancient Pharos, the Bibliotheca Alexandrina, the Roman catacombs of Kom el-Shoqafa and a fish lunch on the Corniche. It's a long day, so go with a car and a plan. See our <a href=\"#\" class=\"tlink\" data-trip=\"alex\" data-href=\"https://egyptroamer.com/experiences/alexandria-day-trip-from-cairo/\">Alexandria day trip</a>."
+    ],
+    [
+     "h2",
+     "wadi-al-hitan",
+     "Wadi Al-Hitan (Whale Valley)"
+    ],
+    [
+     "p",
+     "In the Fayoum desert, Wadi Al-Hitan holds fossil skeletons of early whales from the time they were changing from land animals to sea mammals; the youngest still show traces of hind legs. UNESCO inscribed it as a World Heritage site in 2005. It's a full day by 4×4, best with a specialist guide."
+    ],
+    [
+     "h2",
+     "white-desert",
+     "Further: the White Desert"
+    ],
+    [
+     "p",
+     "The White and Black Deserts are often sold from Cairo, but they are not a day trip. The point is a night camping among the chalk formations. See our <a href=\"#\" class=\"tlink\" data-trip=\"white\" data-href=\"https://egyptroamer.com/experiences/white-desert-black-desert-safari/\">White Desert safari</a>."
+    ],
+    [
+     "tip",
+     "Planning day trips",
+     "<ul><li>Start early: traffic leaving Cairo builds through the morning.</li><li>Check what is included: entry tickets, lunch and a guide vary between tours.</li><li>Keep one day trip per day. Combining Alexandria with anything else is too much.</li></ul>"
+    ]
+   ],
+   "toc": [
+    [
+     "giza",
+     "Giza and the Grand Egyptian Museum"
+    ],
+    [
+     "saqqara",
+     "Saqqara and Dahshur"
+    ],
+    [
+     "alexandria",
+     "Alexandria"
+    ],
+    [
+     "wadi-al-hitan",
+     "Wadi Al-Hitan (Whale Valley)"
+    ],
+    [
+     "white-desert",
+     "Further: the White Desert"
+    ]
+   ],
+   "faq": [
+    [
+     "Which day trip should I choose first?",
+     "Giza and the Grand Egyptian Museum. After that, Saqqara and Dahshur for more pyramids, or Alexandria for a change of scene."
+    ],
+    [
+     "Can I do these trips without a tour?",
+     "Yes, with a private driver. A guide adds a lot at Saqqara and in Alexandria."
+    ],
+    [
+     "Is Wadi Al-Hitan suitable for children?",
+     "For older children who enjoy the outdoors, yes. It's a long day in the desert, with little shade."
+    ]
+   ],
+   "figs": {
+    "giza": [
+     "img/1761688179162-4c42356857ee.jpg",
+     "The pyramids of Giza · Photo: Fatih Beki, Unsplash"
+    ],
+    "saqqara": [
+     "img/1738512156462-408182814b21.jpg",
+     "The Step Pyramid of Djoser, Saqqara · Photo: Martijn Vonk, Unsplash"
+    ]
+   },
+   "strips": {
+    "alexandria": [
+     "Alexandria",
+     [
+      [
+       "alex",
+       "Qaitbay Citadel",
+       "Juan Nino"
+      ],
+      [
+       "img/1594808815295-52034d585f56.jpg",
+       "Fishing boats in the Eastern Harbour",
+       "Flo P"
+      ],
+      [
+       "img/1668647014988-fc7434eb6e01.jpg",
+       "A tram in Alexandria",
+       "Noel Schläfli"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "abu-simbel-from-aswan",
+   "title": "Abu Simbel from Aswan: How to Plan the Day",
+   "excerpt": "How to plan a visit to Abu Simbel from Aswan: what you will see in the two temples of Ramesses II, how they were saved from Lake Nasser, road, air or a Lake Nasser cruise, private or shared tours, and the February and October sun days.",
+   "topic": "Planning",
+   "dests": [
+    "aswan"
+   ],
+   "trips": [
+    "abu"
+   ],
+   "photo": "img/1633163893862-4cdc62de7d82.jpg",
+   "mins": 4,
+   "blocks": [
+    [
+     "p",
+     "Abu Simbel is the one day of an Egypt trip that most people plan around. The two rock temples of Ramesses II stand far to the south of Aswan, near the Sudanese border, so the visit takes a full day away from the city. This guide covers what you will see, how the temples were saved, the ways to get there, and how to choose between the tours on offer."
+    ],
+    [
+     "h2",
+     "what-you-will-see",
+     "What you will see"
+    ],
+    [
+     "h3",
+     "The Great Temple"
+    ],
+    [
+     "p",
+     "Carved out of a sandstone cliff on the west bank of the Nile, the Great Temple is fronted by four seated statues of Ramesses II, each about 20 metres high, two on either side of the entrance. Small figures of his queen Nefertari, his mother and his children stand around their feet. Inside, three halls run some 56 metres into the rock, lined with statues of the king in the form of Osiris and with scenes of his campaign at the Battle of Kadesh. The temple is dedicated to the sun gods Amun-Ra and Ra-Horakhty."
+    ],
+    [
+     "h3",
+     "The Small Temple"
+    ],
+    [
+     "p",
+     "Just to the north stands a smaller temple, dedicated to Queen Nefertari for the worship of the goddess Hathor. Its façade carries standing statues of the king and the queen, about 10.5 metres high."
+    ],
+    [
+     "tip",
+     "Before you go in",
+     "<p>On the southern colossi, look for graffiti left by Greek mercenaries serving Egypt in the 6th century BC. They are among the early evidence for the Greek alphabet.</p>"
+    ],
+    [
+     "h2",
+     "rescue",
+     "How the temples were saved"
+    ],
+    [
+     "p",
+     "When the Aswan High Dam was built, the rising waters of Lake Nasser threatened to submerge Abu Simbel. Between 1963 and 1968, an international team, funded by more than 50 countries, cut away the top of the cliff, took both temples apart and rebuilt them on higher ground, about 60 metres above their original site. It was part of the UNESCO campaign of 1960 to 1980 that moved the temples of Nubia, and Abu Simbel is now part of the World Heritage site <em>Nubian Monuments from Abu Simbel to Philae</em>, inscribed in 1979."
+    ],
+    [
+     "h2",
+     "getting-there",
+     "Getting there: three ways"
+    ],
+    [
+     "ul",
+     [
+      "<strong>By road from Aswan.</strong> The usual choice. Tours leave Aswan before dawn and return in the afternoon, so most of the day is spent in the vehicle. Most include hotel pickup.",
+      "<strong>By air.</strong> Short flights from Aswan save the long drive, at a higher cost. Check the flight times against the temple visit you want.",
+      "<strong>By Lake Nasser cruise.</strong> Cruises on Lake Nasser between Aswan and Abu Simbel reach the temples by water. Other temples moved during the rescue, such as Wadi es-Sebua and Amada, stand by the lake."
+     ]
+    ],
+    [
+     "h2",
+     "choosing-a-tour",
+     "Choosing a tour"
+    ],
+    [
+     "p",
+     "Day trips from Aswan come in two main forms:"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Private tours.</strong> A car and driver for you alone, often with an Egyptologist guide. You agree the pickup time and the pace with the driver.",
+      "<strong>Shared tours.</strong> You join a group in a minibus or coach. They are cheaper and the route is the same, but pickups and timings are fixed."
+     ]
+    ],
+    [
+     "tip",
+     "What to check before you book",
+     "<ul><li>Whether the temple entry tickets are included or paid on the day.</li><li>Whether a guide comes into the temples or only drives.</li><li>The pickup time and place, and how long you will have at the site.</li><li>The cancellation terms, especially around the sun days.</li></ul>"
+    ],
+    [
+     "p",
+     "Our <a href=\"#\" class=\"tlink\" data-trip=\"abu\" data-href=\"https://egyptroamer.com/experiences/abu-simbel-day-trip-from-aswan/\">Abu Simbel day trip page</a> compares the options we recommend."
+    ],
+    [
+     "h2",
+     "sun-days",
+     "The sun days in February and October"
+    ],
+    [
+     "p",
+     "On two days of the year, about <strong>22 February</strong> and <strong>22 October</strong>, the first rays of the morning sun run the full length of the Great Temple and light the statues in the innermost sanctuary. It still happens today, on the rebuilt temple. These mornings bring large crowds and special events, so book well ahead and expect a very early start. On other days you will have more space inside the temples."
+    ],
+    [
+     "h2",
+     "tips",
+     "Practical tips"
+    ],
+    [
+     "ul",
+     [
+      "Take water, a snack and sun protection. The forecourt has little shade.",
+      "Carry a layer for the pre-dawn drive. Desert mornings can be cool in winter.",
+      "Photography rules inside the temples can change. Follow the guards.",
+      "Leave the rest of the day free. Plan Philae, a felucca and the Nubian villages in <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/aswan/\">Aswan</a> for the days before or after."
+     ]
+    ]
+   ],
+   "toc": [
+    [
+     "what-you-will-see",
+     "What you will see"
+    ],
+    [
+     "rescue",
+     "How the temples were saved"
+    ],
+    [
+     "getting-there",
+     "Getting there: three ways"
+    ],
+    [
+     "choosing-a-tour",
+     "Choosing a tour"
+    ],
+    [
+     "sun-days",
+     "The sun days in February and October"
+    ],
+    [
+     "tips",
+     "Practical tips"
+    ]
+   ],
+   "faq": [
+    [
+     "How far is Abu Simbel from Aswan?",
+     "Far to the south, near the border with Sudan. Most visitors go on a day trip by road or take a short flight."
+    ],
+    [
+     "Is a private tour worth it?",
+     "If you want a guide inside the temples and a flexible pace, yes. A shared tour sees the same temples for less, with fixed timings."
+    ],
+    [
+     "When does the sun reach the sanctuary?",
+     "On or around 22 February and 22 October, at sunrise. On those days the temples are at their busiest."
+    ],
+    [
+     "Can I see both temples on a day trip?",
+     "Yes. The Great Temple and the Small Temple stand next to each other, and day trips include both."
+    ]
+   ],
+   "strips": {
+    "what-you-will-see": [
+     "The temples",
+     [
+      [
+       "img/1502250493741-939d1c76eaad.jpg",
+       "The Great Temple of Ramesses II",
+       "AussieActive"
+      ],
+      [
+       "img/1649775827146-1d67524b9465.jpg",
+       "The colossi, close up",
+       "Jorge Fernández Salas"
+      ],
+      [
+       "img/1633163973863-d44691f969b4.jpg",
+       "The sanctuary",
+       "Dmitrii Zhodzishskii"
+      ]
+     ]
+    ]
+   },
+   "figs": {
+    "rescue": [
+     "img/1702909171830-2c4dca2ac090.jpg",
+     "Abu Simbel · Photo: Michael Starkie, Unsplash"
+    ]
+   }
+  },
+  {
+   "slug": "best-time-to-visit-egypt",
+   "title": "The Best Time to Visit Egypt, Month by Month",
+   "excerpt": "When to visit Egypt, season by season and region by region: the Nile Valley's comfortable winter, the Red Sea's long beach season, the desert's cold nights, and how Ramadan and holidays change a trip.",
+   "topic": "Planning",
+   "dests": [
+    "cairo",
+    "luxor",
+    "aswan",
+    "hurghada",
+    "sharm",
+    "siwa",
+    "alexandria"
+   ],
+   "trips": [
+    "abu",
+    "white"
+   ],
+   "photo": "img/1762530162773-c99f38d4d5d3.jpg",
+   "mins": 3,
+   "blocks": [
+    [
+     "p",
+     "There is no single best month for Egypt, because the country covers very different climates. The Nile Valley has hot deserts on both sides. The Red Sea coasts have long, warm seasons. The Mediterranean coast is milder and wetter, and the Western Desert is extreme in both directions. The right time depends on what you plan to do. This guide goes region by region, then through the calendar."
+    ],
+    [
+     "h2",
+     "short-answer",
+     "The short answer"
+    ],
+    [
+     "ul",
+     [
+      "<strong>For temples and sightseeing</strong> (Cairo, Luxor, Aswan): <strong>October to April</strong>, when days are warm rather than scorching.",
+      "<strong>For the Red Sea</strong> (Hurghada, <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/sharm/\">Sharm El Sheikh</a>): <strong>most of the year</strong>. Spring and autumn give warm water without the summer heat.",
+      "<strong>For the desert</strong> (<a href=\"#\" data-href=\"https://egyptroamer.com/destinations/siwa/\">Siwa</a>, <a href=\"#\" class=\"tlink\" data-trip=\"white\" data-href=\"https://egyptroamer.com/experiences/white-desert-black-desert-safari/\">the White Desert</a>): <strong>October to April</strong>, but pack for cold nights.",
+      "<strong>For <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/alexandria/\">Alexandria</a> and the north coast:</strong> <strong>spring and autumn</strong>. Summer is Egypt's own beach season."
+     ]
+    ],
+    [
+     "h2",
+     "regions",
+     "Region by region"
+    ],
+    [
+     "h3",
+     "Cairo"
+    ],
+    [
+     "p",
+     "Mild in winter, hot in summer. Sightseeing at Giza is the main thing affected by the heat, because the plateau is exposed. In the warm months, plan it for the early morning."
+    ],
+    [
+     "h3",
+     "Luxor and Aswan"
+    ],
+    [
+     "p",
+     "The heat increases the further south you go. From late spring to early autumn, Luxor and Aswan are among the hottest places in Egypt. Winter is the peak season, with the most comfortable conditions and the most visitors."
+    ],
+    [
+     "h3",
+     "The Red Sea coast"
+    ],
+    [
+     "p",
+     "Warm for most of the year. Winter is milder on land, with cooler water and more wind (good news for kitesurfers). Late summer and autumn bring the warmest sea."
+    ],
+    [
+     "h3",
+     "Alexandria and the Mediterranean"
+    ],
+    [
+     "p",
+     "The most temperate climate in the country, with the sea's humidity. Winter brings some rain and wind. Summer is busy with Egyptian holidaymakers."
+    ],
+    [
+     "h3",
+     "The Western Desert"
+    ],
+    [
+     "p",
+     "Hot by day for much of the year and very hot in summer. In winter, nights in the desert are cold, sometimes near freezing. Pack accordingly."
+    ],
+    [
+     "h2",
+     "through-the-year",
+     "Through the year"
+    ],
+    [
+     "ul",
+     [
+      "<strong>December to February.</strong> Peak season in the Nile Valley: pleasant days, cool evenings and chilly early mornings. Busiest around Christmas and New Year. The <strong><a href=\"#\" class=\"tlink\" data-trip=\"abu\" data-href=\"https://egyptroamer.com/experiences/abu-simbel-day-trip-from-aswan/\">Abu Simbel</a> sun festival</strong> falls on or around 22 February.",
+      "<strong>March and April.</strong> Warming up, and still excellent for sightseeing. Spring winds can occasionally bring sand.",
+      "<strong>May to September.</strong> Hot to very hot in the south. It's the low season for Nile Valley sightseeing, so plan early starts and midday rests. The Red Sea is in full summer season.",
+      "<strong>October and November.</strong> Temperatures fall and the season restarts. It's an excellent time everywhere. The second <strong>Abu Simbel sun festival</strong> falls on or around 22 October."
+     ]
+    ],
+    [
+     "h2",
+     "ramadan",
+     "Ramadan and holidays"
+    ],
+    [
+     "p",
+     "Ramadan follows the Islamic lunar calendar and moves earlier each year. During the month: - opening hours of sites and shops often change; - many people fast from dawn to sunset; - evenings become especially lively and festive."
+    ],
+    [
+     "p",
+     "Travelling during Ramadan is entirely possible and can be memorable. Be discreet about eating and drinking in public during the day, and check opening times."
+    ],
+    [
+     "p",
+     "The Eid holidays after Ramadan and after the Hajj are busy domestic travel periods, particularly on the coasts."
+    ],
+    [
+     "h2",
+     "how-to-choose",
+     "How to choose"
+    ],
+    [
+     "ul",
+     [
+      "If temples are your priority, travel between October and April, and book early for the Christmas and New Year peak.",
+      "If you can only travel in summer, combine early-morning sightseeing with the Red Sea.",
+      "If you want the desert, pick spring or autumn for the mildest days and nights."
+     ]
+    ],
+    [
+     "p",
+     "Ready to plan? See our destination guides for <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/cairo/\">Cairo</a>, <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/luxor/\">Luxor</a>, <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/aswan/\">Aswan</a> and the <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/hurghada/\">Red Sea at Hurghada</a>."
+    ]
+   ],
+   "toc": [
+    [
+     "short-answer",
+     "The short answer"
+    ],
+    [
+     "regions",
+     "Region by region"
+    ],
+    [
+     "through-the-year",
+     "Through the year"
+    ],
+    [
+     "ramadan",
+     "Ramadan and holidays"
+    ],
+    [
+     "how-to-choose",
+     "How to choose"
+    ]
+   ],
+   "faq": [
+    [
+     "What is the worst time to visit Egypt?",
+     "For Nile Valley sightseeing, the height of summer, when the south is extremely hot. It's still possible with early starts, and it's the quietest season at the sites."
+    ],
+    [
+     "Is it cold in Egypt in winter?",
+     "Days are usually mild to warm, but mornings, evenings and desert nights can be cold. Bring layers."
+    ],
+    [
+     "Is it a good idea to travel during Ramadan?",
+     "Yes, with some planning: opening hours change, but the evenings are festive and welcoming."
+    ]
+   ],
+   "strips": {
+    "regions": [
+     "Region by region",
+     [
+      [
+       "img/1610331800877-462a21600420.jpg",
+       "Luxor",
+       "Artem Bryzgalov"
+      ],
+      [
+       "d_hurghada",
+       "Hurghada",
+       "Unsplash"
+      ],
+      [
+       "img/1612442494156-a5fd9a1c3602.jpg",
+       "Siwa Oasis",
+       "Omar Mohamed"
+      ],
+      [
+       "img/1601816500593-8f1276479ea6.jpg",
+       "Alexandria",
+       "George Youssef"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "7-days-in-egypt-itinerary",
+   "title": "7 Days in Egypt: The Perfect First Itinerary",
+   "excerpt": "A realistic first-time Egypt itinerary for seven days: Cairo and the pyramids, Luxor's temples and tombs, and Aswan, with options for a Nile cruise, the Red Sea or Abu Simbel, and what to leave out.",
+   "topic": "Planning",
+   "dests": [
+    "cairo",
+    "luxor",
+    "aswan"
+   ],
+   "trips": [
+    "giza",
+    "valley",
+    "abu"
+   ],
+   "photo": "img/1767797865870-0fd4d82608f7.jpg",
+   "mins": 3,
+   "blocks": [
+    [
+     "p",
+     "Seven days is enough for a first taste of Egypt if you accept one rule: <strong>stick to the Nile Valley.</strong> Cairo, Luxor and Aswan hold most of the monuments people come to see, and they're connected by short flights, trains and the river. Adding the Red Sea, Alexandria or the desert to one week means spending more time in transit than at the sites."
+    ],
+    [
+     "h2",
+     "at-a-glance",
+     "The plan at a glance"
+    ],
+    [
+     "ul",
+     [
+      "<strong>Days 1–3: Cairo.</strong> The pyramids, the Grand Egyptian Museum, Islamic and Coptic Cairo.",
+      "<strong>Days 4–5: Luxor.</strong> The East Bank temples and the West Bank tombs.",
+      "<strong>Days 6–7: Aswan.</strong> Philae, the Nile by felucca, and Abu Simbel."
+     ]
+    ],
+    [
+     "p",
+     "Fly from Cairo to Luxor (or take the overnight train), travel between Luxor and Aswan by road, train or boat, and fly back from Aswan."
+    ],
+    [
+     "h2",
+     "day-by-day",
+     "Day by day"
+    ],
+    [
+     "p",
+     "+ <strong>Day 1 — Arrive in Cairo</strong> Arrive, settle in and have an easy first evening. If you have the energy, walk Downtown or eat at a street-food spot. + <strong>Day 2 — Giza</strong> An early start at <a href=\"#\" class=\"tlink\" data-trip=\"giza\" data-href=\"https://egyptroamer.com/experiences/pyramids-of-giza-sphinx-private-tour/\">the pyramids and the Sphinx</a>, then the Grand Egyptian Museum in the afternoon. + <strong>Day 3 — Old Cairo</strong> Coptic Cairo and the National Museum of Egyptian Civilization in the morning. Late afternoon on Al-Muizz Street and in Khan el-Khalili. Overnight train, or a morning flight next day, to Luxor. + <strong>Day 4 — Luxor, East Bank</strong> Karnak in the morning, rest at midday, then Luxor Temple at dusk. + <strong>Day 5 — Luxor, West Bank</strong> <a href=\"#\" class=\"tlink\" data-trip=\"valley\" data-href=\"https://egyptroamer.com/experiences/valley-of-the-kings-hatshepsut-temple/\">Valley of the Kings, Hatshepsut's temple</a> and Medinet Habu. Optional balloon flight at dawn. + <strong>Day 6 — To Aswan</strong> Travel south, stopping at Edfu and Kom Ombo if you go by road. Philae temple, and a felucca at sunset. + <strong>Day 7 — Abu Simbel, then home</strong> A <a href=\"#\" class=\"tlink\" data-trip=\"abu\" data-href=\"https://egyptroamer.com/experiences/abu-simbel-day-trip-from-aswan/\">pre-dawn trip to Abu Simbel</a> (or a morning on Elephantine Island if you'd rather rest), then fly to Cairo for your connection."
+    ],
+    [
+     "tip",
+     "Where the time goes",
+     "<p>Transfers take longer than they look on a map. Leave a buffer on your departure day, and avoid booking a very early international flight on the day you return from Aswan.</p>"
+    ],
+    [
+     "h2",
+     "variations",
+     "Variations"
+    ],
+    [
+     "h3",
+     "With a Nile cruise"
+    ],
+    [
+     "p",
+     "Replace days 4–7 with a 3- or 4-night Luxor–Aswan cruise. It visits Edfu and Kom Ombo on the way, and your hotel moves with you. Give Luxor an extra day before or after, because cruise stops are short."
+    ],
+    [
+     "h3",
+     "With the Red Sea"
+    ],
+    [
+     "p",
+     "Drop Aswan and go from Luxor to <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/hurghada/\">Hurghada</a> by road for two or three days of reefs. You'll lose Abu Simbel and Philae."
+    ],
+    [
+     "h3",
+     "Slower"
+    ],
+    [
+     "p",
+     "If seven days feels rushed, drop Abu Simbel and give each city an extra half-day. Most people who return to Egypt say they wish they'd slowed down the first time."
+    ],
+    [
+     "h2",
+     "next-time",
+     "What to leave for next time"
+    ],
+    [
+     "p",
+     "<a href=\"#\" data-href=\"https://egyptroamer.com/destinations/alexandria/\">Alexandria</a>, <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/siwa/\">Siwa and the Western Desert</a>, Sinai and a longer Red Sea stay each deserve their own trip. Trying to squeeze them into one week means you see none of them properly."
+    ],
+    [
+     "h2",
+     "plan",
+     "Plan the details"
+    ],
+    [
+     "ul",
+     [
+      "<a href=\"#\" data-href=\"https://egyptroamer.com/destinations/cairo/\">Cairo guide</a>: areas, where to stay, a three-day plan.",
+      "<a href=\"#\" data-href=\"https://egyptroamer.com/destinations/luxor/\">Luxor guide</a>: the two banks, tombs and balloons.",
+      "<a href=\"#\" data-href=\"https://egyptroamer.com/destinations/aswan/\">Aswan guide</a>: Philae, Nubia and Abu Simbel."
+     ]
+    ]
+   ],
+   "toc": [
+    [
+     "at-a-glance",
+     "The plan at a glance"
+    ],
+    [
+     "day-by-day",
+     "Day by day"
+    ],
+    [
+     "variations",
+     "Variations"
+    ],
+    [
+     "next-time",
+     "What to leave for next time"
+    ],
+    [
+     "plan",
+     "Plan the details"
+    ]
+   ],
+   "faq": [
+    [
+     "Is seven days enough for Egypt?",
+     "Enough for the highlights of the Nile Valley, with early starts. Ten days lets you add a cruise or the Red Sea at a gentler pace."
+    ],
+    [
+     "Should I fly or take the train between Cairo and Luxor?",
+     "Flights are faster. The overnight sleeper train saves a hotel night and is an experience in itself. Both work."
+    ],
+    [
+     "Is a Nile cruise better than hotels?",
+     "A cruise is relaxing and includes Edfu and Kom Ombo. Hotels give you more time in Luxor and Aswan themselves. It depends on your pace."
+    ]
+   ],
+   "strips": {
+    "at-a-glance": [
+     "On the route",
+     [
+      [
+       "img/1761561044700-4262beec7d63.jpg",
+       "Giza",
+       "Thomas K"
+      ],
+      [
+       "img/1610331800877-462a21600420.jpg",
+       "Luxor Temple",
+       "Artem Bryzgalov"
+      ],
+      [
+       "img/1738580426867-03fa8c8b5288.jpg",
+       "Philae, Aswan",
+       "Martijn Vonk"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "cairo-travel-guide",
+   "title": "Cairo Travel Guide: Beyond the Pyramids",
+   "excerpt": "Cairo beyond the pyramids: a neighbourhood-by-neighbourhood guide to Islamic Cairo, Coptic Cairo, Downtown, Zamalek and the Nile, with a walking route through the old city and tips for everyday Cairo.",
+   "topic": "Planning",
+   "dests": [
+    "cairo"
+   ],
+   "trips": [
+    "giza",
+    "nile",
+    "food"
+   ],
+   "photo": "img/1647108694450-67be2c64ba3e.jpg",
+   "mins": 3,
+   "blocks": [
+    [
+     "p",
+     "Most visitors see Cairo through <a href=\"#\" class=\"tlink\" data-trip=\"giza\" data-href=\"https://egyptroamer.com/experiences/pyramids-of-giza-sphinx-private-tour/\">the pyramids</a> and the new museum at Giza, then leave. This guide is about the rest of the city: the neighbourhoods where Cairenes live, pray, shop and eat. It's where Cairo stops being a transit stop and starts being one of the great cities of the world. For the essentials (the sights, where to stay, how many days), start with our <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/cairo/\">Cairo destination guide</a>."
+    ],
+    [
+     "h2",
+     "old-city-walk",
+     "A walk through the old city"
+    ],
+    [
+     "p",
+     "This route follows the spine of Fatimid Cairo from north to south. It's best in the late afternoon, when the light softens and the streets fill up:"
+    ],
+    [
+     "ul",
+     [
+      "Start at <strong>Bab al-Futuh</strong>, one of the northern gates of the medieval city.",
+      "Walk south along <strong>Al-Muizz Street</strong>, past mosques, madrasas and <em>sabil-kuttabs</em> (fountain-schools), some of them restored.",
+      "Stop at the <strong>Qalawun complex</strong>, one of the great Mamluk monuments.",
+      "Cross into the lanes of <strong>Khan el-Khalili</strong>, and take tea at an old café.",
+      "Cross the main road to <strong>Al-Azhar Mosque</strong>.",
+      "Continue south through the textile and spice streets to <strong>Bab Zuweila</strong>, and climb its minarets if they're open.",
+      "End with sunset at <strong>Al-Azhar Park</strong> on the hill above the old city."
+     ]
+    ],
+    [
+     "tip",
+     "Walking the old city",
+     "<p>Wear shoes with grip, since the streets are uneven. Dress modestly. Keep small notes for tea, entry to monuments and tips. Mosques ask visitors to remove their shoes, and women to cover their hair.</p>"
+    ],
+    [
+     "h2",
+     "neighbourhoods",
+     "Neighbourhoods"
+    ],
+    [
+     "h3",
+     "Coptic Cairo"
+    ],
+    [
+     "p",
+     "A walled, quiet quarter of churches, the Coptic Museum and the Ben Ezra Synagogue, inside the old Roman fortress of Babylon. Mar Girgis metro station is right beside it."
+    ],
+    [
+     "h3",
+     "Downtown (Wust el-Balad)"
+    ],
+    [
+     "p",
+     "The 19th-century centre, laid out in a European style, with grand façades, old cinemas, bookshops, galleries and local cafés. Walk it at night, when it's busiest."
+    ],
+    [
+     "h3",
+     "Zamalek"
+    ],
+    [
+     "p",
+     "The island neighbourhood of Gezira, leafy and cosmopolitan, full of galleries, restaurants and embassies. The Cairo Tower offers a view over the whole city."
+    ],
+    [
+     "h3",
+     "Garden City"
+    ],
+    [
+     "p",
+     "Curving streets of old villas and embassies along the Nile, just south of Downtown."
+    ],
+    [
+     "h3",
+     "The Citadel and around"
+    ],
+    [
+     "p",
+     "The hilltop fortress, the great mosques of Sultan Hassan and Al-Rifa'i below it, and, a short walk away, the Ibn Tulun mosque and the Gayer-Anderson Museum."
+    ],
+    [
+     "h2",
+     "everyday-cairo",
+     "Everyday Cairo"
+    ],
+    [
+     "ul",
+     [
+      "<strong>The ahwa.</strong> The traditional coffee house is the city's living room: tea, coffee, <em>shisha</em>, backgammon and dominoes. Sitting in one is a rite of passage.",
+      "<strong>Eating late.</strong> Dinner is often late, and many places stay busy past midnight.",
+      "<strong>Friday.</strong> The weekly day of rest. Mornings are quiet, and mosques are busy around the midday prayer.",
+      "<strong>Traffic.</strong> Plan your days by area. Crossing the city at rush hour can take a long time."
+     ]
+    ],
+    [
+     "h2",
+     "on-the-river",
+     "On the river"
+    ],
+    [
+     "p",
+     "End a day with a <strong>felucca</strong> at sunset from the Corniche, or a <a href=\"#\" class=\"tlink\" data-trip=\"nile\" data-href=\"https://egyptroamer.com/experiences/nile-dinner-cruise-with-live-show/\">dinner cruise with music and a show</a>. For a street-food evening with a local guide, see our <a href=\"#\" class=\"tlink\" data-trip=\"food\" data-href=\"https://egyptroamer.com/experiences/cairo-street-food-tour-by-night/\">night food tour</a>."
+    ]
+   ],
+   "toc": [
+    [
+     "old-city-walk",
+     "A walk through the old city"
+    ],
+    [
+     "neighbourhoods",
+     "Neighbourhoods"
+    ],
+    [
+     "everyday-cairo",
+     "Everyday Cairo"
+    ],
+    [
+     "on-the-river",
+     "On the river"
+    ]
+   ],
+   "faq": [
+    [
+     "Is Islamic Cairo safe to walk around?",
+     "It's a busy, lived-in area, and walking in daytime and early evening is the normal way to explore it. Use ordinary city precautions with bags and phones, and dress modestly."
+    ],
+    [
+     "How long does the old-city walk take?",
+     "Allow a half-day at a relaxed pace, with stops for monuments and tea."
+    ],
+    [
+     "What's the best area for an evening out?",
+     "Downtown and Zamalek for cafés and restaurants, and the old city around Khan el-Khalili and Al-Muizz Street for atmosphere."
+    ]
+   ],
+   "strips": {
+    "old-city-walk": [
+     "The old city",
+     [
+      [
+       "img/1760973519064-fc146406c871.jpg",
+       "Al-Azhar Mosque",
+       "Fatih Beki"
+      ],
+      [
+       "img/1707172889437-dc6f210ea44a.jpg",
+       "Khan el-Khalili",
+       "Thales Botelho de Sousa"
+      ],
+      [
+       "img/1595979904086-471704dc0e81.jpg",
+       "The Al-Rifa’i and Sultan Hassan mosques",
+       "Omar Adel"
+      ]
+     ]
+    ]
+   },
+   "figs": {
+    "on-the-river": [
+     "img/1674724545219-29637e41ae04.jpg",
+     "The Nile by Cairo Tower · Photo: Ahmed Assem, Unsplash"
+    ]
+   }
+  },
+  {
+   "slug": "hidden-gems-in-egypt",
+   "title": "10 Hidden Gems Most Visitors Never See",
+   "excerpt": "Ten remarkable places in Egypt that most visitors skip: from the Bent Pyramid and Medinet Habu to Abydos, Dendera, Wadi Al-Hitan and Rosetta, with what makes each special and how to fit it into a trip.",
+   "topic": "Planning",
+   "dests": [
+    "cairo",
+    "luxor",
+    "aswan",
+    "alexandria",
+    "siwa"
+   ],
+   "trips": [
+    "giza",
+    "valley"
+   ],
+   "photo": "img/1714229722648-3a90c3ef229f.jpg",
+   "mins": 2,
+   "blocks": [
+    [
+     "p",
+     "Most first trips to Egypt follow the same route: Giza, Luxor, Aswan, maybe the Red Sea. That route is popular for good reason. But some of the country's most memorable places sit just off it, and they are often far quieter. These ten are all well-established sites, not secret spots. They're simply the ones that visitors in a hurry tend to leave out."
+    ],
+    [
+     "h2",
+     "near-cairo",
+     "Near Cairo"
+    ],
+    [
+     "h3",
+     "1. Dahshur: the Bent and Red Pyramids"
+    ],
+    [
+     "p",
+     "South of Saqqara, two of the pharaoh Sneferu's pyramids stand in open desert. The Bent Pyramid changes angle halfway up, and you can go inside the Red Pyramid. They belong to the same UNESCO site as <a href=\"#\" class=\"tlink\" data-trip=\"giza\" data-href=\"https://egyptroamer.com/experiences/pyramids-of-giza-sphinx-private-tour/\">Giza</a>, but they usually see a fraction of the visitors."
+    ],
+    [
+     "h3",
+     "2. Wadi Al-Hitan (Whale Valley)"
+    ],
+    [
+     "p",
+     "In the Fayoum desert, fossilised skeletons of early whales lie in the sand, with legs from the era when whales were evolving from land animals. It's Egypt's natural World Heritage site, and a surreal desert landscape. It needs a 4×4 and a long day from Cairo."
+    ],
+    [
+     "h3",
+     "3. The Gayer-Anderson Museum and Ibn Tulun"
+    ],
+    [
+     "p",
+     "In the middle of Islamic Cairo, a restored Ottoman-era house full of eclectic collections sits beside one of the city's oldest and most serene mosques."
+    ],
+    [
+     "h2",
+     "nile-valley",
+     "In the Nile Valley"
+    ],
+    [
+     "h3",
+     "4. Abydos: the Temple of Seti I"
+    ],
+    [
+     "p",
+     "One of the most important religious sites of ancient Egypt, with some of the finest reliefs anywhere, and the famous list of kings. It's usually visited as a day trip from Luxor."
+    ],
+    [
+     "h3",
+     "5. Dendera: the Temple of Hathor"
+    ],
+    [
+     "p",
+     "A superbly preserved late temple, with painted ceilings and rooftop chapels. It's often combined with Abydos on the same day."
+    ],
+    [
+     "h3",
+     "6. Medinet Habu"
+    ],
+    [
+     "p",
+     "On Luxor's West Bank, the mortuary temple of Ramesses III has deeply carved, still-coloured reliefs. It's usually quieter than the Valley of the Kings."
+    ],
+    [
+     "h3",
+     "7. Deir el-Medina"
+    ],
+    [
+     "p",
+     "The village of the craftsmen who built the royal tombs, with their own small, brightly painted tombs. It's an intimate look at everyday life in ancient Thebes."
+    ],
+    [
+     "h3",
+     "8. The Monastery of St Simeon, Aswan"
+    ],
+    [
+     "p",
+     "The ruins of a fortified desert monastery on Aswan's west bank, reached by boat and a walk or camel ride through the sand."
+    ],
+    [
+     "h2",
+     "north-and-west",
+     "North and west"
+    ],
+    [
+     "h3",
+     "9. Rosetta (Rashid)"
+    ],
+    [
+     "p",
+     "Where the Rosetta Stone was found, on the Nile's western mouth near Alexandria. Its Ottoman-era merchant houses are the attraction today."
+    ],
+    [
+     "h3",
+     "10. Siwa Oasis"
+    ],
+    [
+     "p",
+     "Remote, Amazigh, surrounded by salt lakes and dunes. See our full <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/siwa/\">Siwa guide</a>."
+    ],
+    [
+     "tip",
+     "Fitting them in",
+     "<ul><li>From Cairo: Dahshur (half-day, easy to add to Saqqara); Wadi Al-Hitan (a long full day).</li><li>From Luxor: Abydos and Dendera (a full day together); Medinet Habu and Deir el-Medina (add to <a href=\"#\" class=\"tlink\" data-trip=\"valley\" data-href=\"https://egyptroamer.com/experiences/valley-of-the-kings-hatshepsut-temple/\">a West Bank day</a>).</li><li>From Alexandria: Rosetta (a half or full day).</li></ul>"
+    ],
+    [
+     "h2",
+     "plan",
+     "Plan your trip"
+    ],
+    [
+     "p",
+     "Start with our destination guides for <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/cairo/\">Cairo</a>, <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/luxor/\">Luxor</a>, <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/aswan/\">Aswan</a> and <a href=\"#\" data-href=\"https://egyptroamer.com/destinations/alexandria/\">Alexandria</a>."
+    ]
+   ],
+   "toc": [
+    [
+     "near-cairo",
+     "Near Cairo"
+    ],
+    [
+     "nile-valley",
+     "In the Nile Valley"
+    ],
+    [
+     "north-and-west",
+     "North and west"
+    ],
+    [
+     "plan",
+     "Plan your trip"
+    ]
+   ],
+   "faq": [],
+   "strips": {
+    "near-cairo": [
+     "Near Cairo",
+     [
+      [
+       "img/1634464905162-68ba20cb9a06.jpg",
+       "The Bent Pyramid, Dahshur",
+       "Jens Aber"
+      ],
+      [
+       "img/1738512156462-408182814b21.jpg",
+       "The Step Pyramid, Saqqara",
+       "Martijn Vonk"
+      ]
+     ]
+    ],
+    "nile-valley": [
+     "In the Nile Valley",
+     [
+      [
+       "habu1",
+       "Medinet Habu, the painted gateway",
+       "Siddhesh Mangela"
+      ],
+      [
+       "img/1660705630675-d66d60fdca46.jpg",
+       "Edfu",
+       "mana5280"
+      ]
+     ]
+    ],
+    "north-and-west": [
+     "North and west",
+     [
+      [
+       "img/1758720944577-559b852e8493.jpg",
+       "The old town, Siwa",
+       "kai muro"
+      ]
+     ]
+    ]
+   }
+  }
+ ],
+ "PLACES": [
+  "Cairo",
+  "Alexandria",
+  "Siwa",
+  "Luxor",
+  "Aswan",
+  "Hurghada",
+  "Sharm El Sheikh"
+ ],
+ "TRIP_DESTS": {
+  "giza": [
+   "cairo"
+  ],
+  "nile": [
+   "cairo"
+  ],
+  "food": [
+   "cairo"
+  ],
+  "alex": [
+   "alexandria"
+  ],
+  "siwa": [
+   "siwa"
+  ],
+  "white": [
+   "siwa"
+  ],
+  "valley": [
+   "luxor"
+  ],
+  "abu": [
+   "aswan"
+  ],
+  "redsea": [
+   "hurghada",
+   "sharm"
+  ],
+  "ras": [
+   "sharm"
+  ],
+  "cruise": [
+   "aswan",
+   "luxor"
+  ]
+ },
+ "CHAPTERS": [
+  {
+   "n": "01",
+   "video": "video/giza-camels-clear.mp4",
+   "vcredit": "Giza · Video: JORGE MONCADA, Pexels",
+   "eye": "Timeless wonders",
+   "name": "Pyramids",
+   "line": "Where history still breathes",
+   "geo": "29.9792° N · 31.1342° E — Giza Plateau",
+   "img": "sc_pyr",
+   "trips": [
+    "giza",
+    "nile",
+    "food"
+   ],
+   "more": "Explore Cairo",
+   "place": "Cairo & Giza"
+  },
+  {
+   "n": "02",
+   "eye": "A river of life",
+   "name": "Nile",
+   "line": "More than a river. A story that connects a civilization.",
+   "geo": "24.0889° N · 32.8998° E — Aswan",
+   "img": "sc_nile",
+   "trips": [
+    "cruise",
+    "valley",
+    "abu"
+   ],
+   "more": "Explore Nile Cruises",
+   "place": "Luxor",
+   "route": true
+  },
+  {
+   "n": "03",
+   "eye": "Beyond the ordinary",
+   "name": "Desert",
+   "line": "Endless landscapes. Unforgettable adventures.",
+   "geo": "27.0957° N · 27.9880° E — Western Desert",
+   "img": "sc_desert",
+   "trips": [
+    "white",
+    "siwa"
+   ],
+   "more": "Explore Desert Experiences",
+   "place": "Western Desert"
+  },
+  {
+   "n": "04",
+   "video": "video/redsea-reef.mp4",
+   "vcredit": "Red Sea, Egypt · Video: Adrien JACTA, Pexels",
+   "eye": "A different world",
+   "name": "Red Sea",
+   "line": "Dive into crystal-clear waters",
+   "geo": "27.2579° N · 33.8116° E — Hurghada",
+   "img": "sc_sea",
+   "trips": [
+    "redsea",
+    "ras"
+   ],
+   "more": "Explore Red Sea",
+   "place": "Red Sea"
+  }
+ ],
+ "MOODS": [
+  [
+   "ancient",
+   "Ancient",
+   "Of torch-lit tombs, temple columns taller than time, and the first light of dawn on the Giza plateau.",
+   "luxor"
+  ],
+  [
+   "beach",
+   "Beach",
+   "Of reef-edge mornings, barefoot dinners and water so clear it barely looks real.",
+   "hurghada"
+  ],
+  [
+   "luxury",
+   "Luxury",
+   "Of palace hotels, private Egyptologists and first-class cabins gliding down the Nile.",
+   "aswan"
+  ],
+  [
+   "adventure",
+   "Adventure",
+   "Of dune runs, desert camps, canyon hikes and nights beneath an unfiltered Milky Way.",
+   "sharm"
+  ],
+  [
+   "culture",
+   "Culture",
+   "Of old bazaars, Nubian villages, Sufi music and cafés that never quite close.",
+   "cairo"
+  ],
+  [
+   "food",
+   "Food",
+   "Of koshari at midnight, warm baladi bread and grilled fish by the Mediterranean.",
+   "alexandria"
+  ],
+  [
+   "nature",
+   "Nature",
+   "Of palm oases, salt lakes, protected reefs and the quiet green ribbon of the Nile.",
+   "siwa"
+  ]
+ ],
+ "STAY": "ERR STAY is not defined",
+ "PCHIP": {
+  "Viator": "pchip--viator",
+  "GetYourGuide": "pchip--gyg",
+  "Trip.com": "pchip--trip"
+ }
+}

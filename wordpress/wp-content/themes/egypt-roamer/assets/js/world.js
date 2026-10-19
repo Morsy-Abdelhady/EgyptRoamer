@@ -10,7 +10,7 @@
   // The day, step by step
   var steps = host.querySelectorAll(".jstep[data-js]");
   if (steps.length && "IntersectionObserver" in window) {
-    var marks = host.querySelectorAll(".path span");
+    var marks = host.querySelectorAll(".path span, .path button");
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (!e.isIntersecting) return;
@@ -20,6 +20,38 @@
       });
     }, { rootMargin: "-45% 0px -45% 0px" });
     steps.forEach(function (s) { io.observe(s); });
+  }
+
+  // The path marks jump to their step (prototype data-pjump)
+  host.querySelectorAll("[data-pjump]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var s = host.querySelector('.jstep[data-js="' + b.getAttribute("data-pjump") + '"]');
+      if (s) window.scrollTo({ top: window.scrollY + s.getBoundingClientRect().top + s.offsetHeight / 2 - window.innerHeight / 2, behavior: REDUCE ? "auto" : "smooth" });
+    });
+  });
+
+  // "Compare side by side"
+  var cmp = host.querySelector("#wcmp"), tbl = host.querySelector("#wtbl");
+  if (cmp && tbl) {
+    cmp.addEventListener("click", function () {
+      tbl.hidden = !tbl.hidden;
+      cmp.setAttribute("aria-expanded", String(!tbl.hidden));
+      cmp.textContent = cmp.getAttribute(tbl.hidden ? "data-l-show" : "data-l-hide");
+    });
+  }
+
+  // The booking capsule: shown once the opener's buttons are out of view, hidden again at the options
+  var cap = host.querySelector("[data-capsule]"), choose = host.querySelector("#wchoose"), acts = host.querySelector(".wopen .wacts");
+  if (cap && choose && acts && "IntersectionObserver" in window) {
+    var seen = { choose: false, open: true };
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { seen[e.target === choose ? "choose" : "open"] = e.isIntersecting; });
+      cap.hidden = seen.choose || seen.open;
+    }, { threshold: 0.2 }).observe(choose);
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { seen.open = e.isIntersecting; });
+      cap.hidden = seen.choose || seen.open;
+    }).observe(acts);
   }
 
   // The torch on the tomb wall

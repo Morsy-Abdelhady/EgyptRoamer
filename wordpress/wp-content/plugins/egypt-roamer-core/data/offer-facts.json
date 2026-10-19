@@ -7,7 +7,8 @@
    "unit": "hours",
    "approx": true
   },
-  "pickup": true
+  "pickup": true,
+  "cancel": true
  },
  "gyg-white-island-and-ras-mohamed-snorkeling-trip": {
   "duration": {
@@ -15,7 +16,8 @@
    "unit": "hours"
   },
   "pickup": true,
-  "stock": "1616967304670-b75cf9ab4582"
+  "stock": "1616967304670-b75cf9ab4582",
+  "cancel": true
  },
  "alexandria-day-trip-from-cairo": {
   "duration": {
@@ -23,7 +25,8 @@
    "unit": "hours",
    "approx": true
   },
-  "pickup": true
+  "pickup": true,
+  "cancel": true
  },
  "gyg-historical-alexandria-shared-day-tour-from-cairo": {
   "group": "small",
@@ -32,7 +35,8 @@
    "unit": "hours"
   },
   "pickup": true,
-  "stock": "1583146464420-6bc4fe5eb279"
+  "stock": "1583146464420-6bc4fe5eb279",
+  "cancel": true
  },
  "giza-pyramids-tours-on-viator": {
   "group": "private",
@@ -41,7 +45,8 @@
    "unit": "hours",
    "approx": true
   },
-  "pickup": true
+  "pickup": true,
+  "cancel": true
  },
  "giza-pyramids-sphinx-and-grand-egyptian-museum-full-day": {
   "group": "private",
@@ -50,7 +55,8 @@
    "unit": "hours",
    "approx": true
   },
-  "pickup": true
+  "pickup": true,
+  "cancel": true
  },
  "gyg-pyramids-great-sphinx-private-tour-camel-ride": {
   "group": "private",
@@ -59,7 +65,8 @@
    "unit": "hours"
   },
   "pickup": true,
-  "stock": "1704998250995-37d969c80e03"
+  "stock": "1704998250995-37d969c80e03",
+  "cancel": true
  },
  "cairo-nile-dinner-cruises-on-viator": {
   "duration": {
@@ -67,7 +74,8 @@
    "unit": "hours",
    "approx": true
   },
-  "pickup": true
+  "pickup": true,
+  "cancel": true
  },
  "private-nile-dinner-cruise-with-belly-dance-and-tanoura-show": {
   "group": "private",
@@ -77,14 +85,16 @@
    "approx": true
   },
   "pickup": true,
-  "pick": true
+  "pick": true,
+  "cancel": true
  },
  "gyg-opal-nile-dinner-cruise-live-entertainment": {
   "duration": {
    "n": "2–4",
    "unit": "hours"
   },
-  "stock": "1626692880062-35c360fb6afc"
+  "stock": "1626692880062-35c360fb6afc",
+  "cancel": true
  },
  "abu-simbel-temples-tours-on-viator": {
   "group": "private",
@@ -94,7 +104,8 @@
    "approx": true
   },
   "pickup": true,
-  "pick": true
+  "pick": true,
+  "cancel": true
  },
  "shared-abu-simbel-day-trip-from-aswan": {
   "group": "small",
@@ -103,7 +114,8 @@
    "unit": "hours",
    "approx": true
   },
-  "pickup": true
+  "pickup": true,
+  "cancel": true
  },
  "gyg-abu-simbel-day-tour-private-guide-and-car": {
   "group": "private",
@@ -112,7 +124,8 @@
    "unit": "hours"
   },
   "pickup": true,
-  "stock": "1748292951610-1ed2f59c9c20"
+  "stock": "1748292951610-1ed2f59c9c20",
+  "cancel": true
  },
  "hurghada-scuba-diving-trips-on-viator": {
   "duration": {
@@ -120,7 +133,8 @@
    "unit": "day",
    "approx": true
   },
-  "pickup": true
+  "pickup": true,
+  "cancel": true
  },
  "two-dives-from-hurghada-for-beginners-and-certified-divers": {
   "duration": {
@@ -128,7 +142,8 @@
    "unit": "hours",
    "approx": true
   },
-  "pickup": true
+  "pickup": true,
+  "cancel": true
  },
  "gyg-hurghada-scuba-diving-certified-or-beginners": {
   "duration": {
@@ -136,7 +151,8 @@
    "unit": "hours"
   },
   "pickup": true,
-  "stock": "1777552550371-e05232b1c9c0"
+  "stock": "1777552550371-e05232b1c9c0",
+  "cancel": true
  },
  "bahariya-oasis-tours-on-viator": {
   "duration": {
@@ -144,7 +160,8 @@
    "unit": "days",
    "approx": true
   },
-  "pickup": true
+  "pickup": true,
+  "cancel": true
  },
  "overnight-white-desert-camping-from-cairo": {
   "duration": {
@@ -152,7 +169,8 @@
    "unit": "days",
    "approx": true
   },
-  "pickup": true
+  "pickup": true,
+  "cancel": true
  },
  "gyg-2-day-bahariya-and-white-desert-private-camp": {
   "group": "private",
@@ -162,21 +180,24 @@
   },
   "pickup": true,
   "pick": true,
-  "stock": "1631750025018-2a2cad86d641"
+  "stock": "1631750025018-2a2cad86d641",
+  "cancel": true
  },
  "cairo-food-tours-on-viator": {
   "duration": {
    "n": "4",
    "unit": "hours",
    "approx": true
-  }
+  },
+  "cancel": true
  },
  "cairo-evening-food-tour-with-40-tastings": {
   "duration": {
    "n": "3",
    "unit": "hours",
    "approx": true
-  }
+  },
+  "cancel": true
  },
  "valley-of-the-kings-tours-on-viator": {
   "group": "private",
@@ -186,7 +207,8 @@
    "approx": true
   },
   "pickup": true,
-  "pick": true
+  "pick": true,
+  "cancel": true
  },
  "luxor-west-bank-full-day-with-medinet-habu-and-deir-el-medina": {
   "duration": {
@@ -194,7 +216,8 @@
    "unit": "hours",
    "approx": true
   },
-  "pickup": true
+  "pickup": true,
+  "cancel": true
  },
  "gyg-west-bank-guided-tour-valley-of-the-kings": {
   "group": "private",
@@ -203,7 +226,8 @@
    "unit": "hours"
   },
   "pickup": true,
-  "stock": "1695178234643-9656316a0e66"
+  "stock": "1695178234643-9656316a0e66",
+  "cancel": true
  },
  "siwa-oasis-3-day-trip-from-cairo-with-a-great-sand-sea-safari": {
   "group": "private",
@@ -213,7 +237,8 @@
    "approx": true
   },
   "pickup": true,
-  "pick": true
+  "pick": true,
+  "cancel": true
  },
  "gyg-siwa-oasis-camp-2-nights-from-cairo": {
   "duration": {
@@ -221,7 +246,8 @@
    "unit": "days"
   },
   "pickup": true,
-  "stock": "1584114189754-83d744ee2de8"
+  "stock": "1584114189754-83d744ee2de8",
+  "cancel": true
  },
  "tripcom-hotels-giza": {
   "stock": "1678038592327-c5730737f867"
@@ -250,7 +276,8 @@
    "abu": true,
    "balloon": true,
    "fees": "extra"
-  }
+  },
+  "cancel": true
  },
  "nile-cruise-aswan-luxor-private": {
   "group": "private",
@@ -264,7 +291,8 @@
    "abu": false,
    "balloon": false,
    "fees": "included"
-  }
+  },
+  "cancel": true
  },
  "gyg-nile-cruise-aswan-luxor-abu-simbel-balloon": {
   "duration": {
@@ -277,6 +305,8 @@
    "balloon": true,
    "fees": "local"
   },
-  "stock": "1778402153163-fc9a5fd0131a"
- }
+  "stock": "1778402153163-fc9a5fd0131a",
+  "cancel": true
+ },
+ "_note_cancel": "cancel: free cancellation up to 24 hours before, as each partner's own product page states it (26 offers read 16 Oct, docs/prototypes/journey-v4/README.md; the 3 Nile cruise offers read 17 Oct, docs/NILE-CRUISE-OFFERS-2026-10-17.md)."
 }

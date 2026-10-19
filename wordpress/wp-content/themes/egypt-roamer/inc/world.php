@@ -281,6 +281,7 @@ add_action( 'wp_enqueue_scripts', static function (): void {
 		return;
 	}
 	wp_enqueue_style( 'er-world', ER_THEME_URI . '/assets/css/world.css', [ 'er-pages' ], er_asset_ver( 'assets/css/world.css' ) );
+	wp_enqueue_style( 'er-p4-world', ER_THEME_URI . '/assets/css/p4-world.css', [ 'er-world' ], er_asset_ver( 'assets/css/p4-world.css' ) );
 	wp_enqueue_script( 'er-world', ER_THEME_URI . '/assets/js/world.js', [], er_asset_ver( 'assets/js/world.js' ), [ 'in_footer' => true, 'strategy' => 'defer' ] );
 }, 20 );
 
@@ -322,17 +323,17 @@ function er_world_chapter_trips( int $n ): array {
 	return $ids;
 }
 
-/** A trip as a small card: photo, name, length, how many options. Opens the trip's page. */
+/** A trip as a small card: photo, name, length, how many options, and its heart (prototype mini + lcf). */
 function er_world_mini( int $id ): string {
 	$offers = function_exists( 'er_offers_for_post' ) ? er_offers_for_post( $id, 10 ) : [];
-	$len    = function_exists( 'er_ux2_offer_length' ) ? er_ux2_offer_length( $offers ) : '';
-	$len    = '' !== $len ? $len : (string) get_post_meta( $id, '_er_duration', true );
+	$len    = er_trip_length( $id, $offers );
 	$n      = count( $offers );
 	$opts   = $n ? ( 1 === $n ? er_t( '1 option' ) : er_t( '{n} options', [ 'n' => $n ] ) ) : '';
 	$thumb  = function_exists( 'er_ux2_thumb_url' ) ? er_ux2_thumb_url( $id ) : '';
-	return '<a class="mini" href="' . esc_url( get_permalink( $id ) ) . '">'
+	return '<div class="lcfw"><a class="mini" href="' . esc_url( get_permalink( $id ) ) . '">'
 		. ( '' !== $thumb ? '<img src="' . esc_url( $thumb ) . '" alt="" loading="lazy" width="76" height="76" />' : '<span class="mini__ph" aria-hidden="true"></span>' )
-		. '<span class="mini__b"><b>' . esc_html( get_the_title( $id ) ) . '</b><span>' . esc_html( $len ) . ( '' !== $len && '' !== $opts ? ' · ' : '' ) . ( '' !== $opts ? '<em>' . esc_html( $opts ) . '</em>' : '' ) . '</span></span></a>';
+		. '<span class="mini__b"><b>' . esc_html( get_the_title( $id ) ) . '</b><span>' . esc_html( $len ) . ( '' !== $len && '' !== $opts ? ' · ' : '' ) . ( '' !== $opts ? '<em>' . esc_html( $opts ) . '</em>' : '' ) . '</span></span></a>'
+		. er_save_button( er_trip_save_data( $id, $len ) ) . '</div>';
 }
 
 add_action( 'wp_enqueue_scripts', static function (): void {
