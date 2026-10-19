@@ -43,3 +43,17 @@ No JS errors; homepage LCP about 2.0 s on desktop and 0.5 s on the phone.
 7. **"Hotels" in the menu**, opening the hotels-by-place section as its own page.
 8. **Share / email my plan** for the Saved list and the Trip Builder.
 9. **Native review** of the 7 languages, starting with Arabic and German.
+
+## Status, 20 Oct (theme 1.3.0–1.3.1, Core 1.2.59–1.2.60)
+| # | Suggestion | Status |
+|---|---|---|
+| 1 | "From $X" on options | **Done for Viator** (API availability schedule, refreshed hourly, hidden after 24 h). GetYourGuide and Trip.com give this account no data API (links and widgets only). |
+| 2 | Ratings | **Done for Viator** (average and count from the API; no review texts). |
+| 3 | About + Sources pages | **Done**, 8 languages; footer and every guide link to them. |
+| 4 | Place pages in the new design | **Done** (`template-parts/guide-p4.php`, place mode). |
+| 5 | One bar on phones | **Done** (the dock steps aside while the trip bar shows). |
+| 6 | Date before "Book" | **Not done.** Viator and GetYourGuide document no date parameter for affiliate links; a field that the partner ignores would mislead. The date is chosen on the partner's page. |
+| 7 | Hotels in the menu | **Done**: a Hotels page in 8 languages, in the main menu. |
+| 8 | Share / email the list | **Done** in the Saved drawer (the Trip Builder's "Save this plan" goes into the same list). |
+| 9 | Native review of translations | **Owner**: needs native speakers. |
+| — | Homepage length / Desert slide | Not changed: the pinned slides stay as the owner asked (18 Oct). |
