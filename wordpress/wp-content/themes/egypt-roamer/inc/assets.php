@@ -46,6 +46,7 @@ add_action( 'wp_enqueue_scripts', static function () {
 		}
 		wp_enqueue_style( 'er-sections', $css( 'sections' ), $deps, er_asset_ver( 'assets/css/sections.css' ) );
 		wp_enqueue_style( 'er-pages', $css( 'pages' ), [ 'er-sections' ], er_asset_ver( 'assets/css/pages.css' ) );
+		wp_enqueue_style( 'er-p4-cards', $css( 'p4-cards' ), [ 'er-pages' ], er_asset_ver( 'assets/css/p4-cards.css' ) );
 	}
 	if ( is_rtl() || in_array( $lang, [ 'ar', 'zh' ], true ) ) {
 		wp_enqueue_style( 'er-rtl', $css( 'rtl' ), [ 'er-pages' ], er_asset_ver( 'assets/css/rtl.css' ) );

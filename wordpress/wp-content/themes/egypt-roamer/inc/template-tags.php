@@ -575,6 +575,74 @@ function er_page_hero( array $args ): void {
 /* Cards                                                                        */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * Proposal 4's trip card (prototype `.card`, 19 Oct: "match the prototype exactly"): a white framed card, the photo at
+ * 4:3 with a save heart on it, the place in clay capitals, the length and the options' shared facts as chips, and
+ * "**3 options** to compare / See options →". The whole card opens the trip page; nothing leaves the site from it.
+ * Length: the range of the options' partner-stated hours when every option is measured in hours (as the prototype:
+ * "About 4–8 hours"), else the page's own length ("2 days", "Full day").
+ *
+ * @param int[] $offers the trip's tour offers.
+ */
+function er_trip_card( int $post_id, array $offers, string $heading = 'h3' ): string {
+	$url      = get_permalink( $post_id );
+	$title    = get_the_title( $post_id );
+	$location = (string) get_post_meta( $post_id, '_er_location', true );
+	$duration = (string) get_post_meta( $post_id, '_er_duration', true );
+	$hours    = true;
+	foreach ( $offers as $er_o ) {
+		$er_d = (array) ( ( function_exists( 'er_offer_facts' ) ? er_offer_facts( (int) $er_o ) : [] )['duration'] ?? [] );
+		if ( 'hours' !== ( $er_d['unit'] ?? '' ) ) {
+			$hours = false;
+			break;
+		}
+	}
+	$with    = er_booking_summary( $offers, true );
+	$facts   = er_booking_summary( $offers, false );
+	$length  = $hours && count( $with ) > count( $facts ) ? (string) $with[0] : $duration;
+	$n       = count( $offers );
+	$stock   = function_exists( 'er_stock_id_for' ) ? er_stock_id_for( $post_id ) : '';
+	$thumb   = (int) get_post_thumbnail_id( $post_id );
+	$image   = $thumb ? er_img( $thumb, 'er-card', [ 'sizes' => '(max-width: 700px) 90vw, 340px', 'alt' => '' ] ) : ( $stock ? er_stock_img( $stock, '', [ 'sizes' => '(max-width: 700px) 90vw, 340px' ], [ 400, 600, 800 ], 0.75 ) : '' );
+	$save    = [
+		'id'    => 'trip:' . $post_id,
+		'title' => $title,
+		'image' => $thumb ? (string) wp_get_attachment_image_url( $thumb, 'medium' ) : $stock,
+		'meta'  => implode( ' · ', array_filter( [ $location, $length ] ) ),
+		'url'   => $url,
+	];
+	$options = 1 === $n ? er_t( '1 option' ) : er_t( '{n} options', [ 'n' => $n ] );
+	$heading = in_array( $heading, [ 'h2', 'h3' ], true ) ? $heading : 'h3';
+	ob_start();
+	?>
+	<li class="tcard" data-reveal>
+		<span class="tcard__img"><?php echo $image ?: '<span class="media__empty"></span>'; // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
+		<button type="button" class="tcard__save" data-save="<?php echo esc_attr( (string) wp_json_encode( $save ) ); ?>" aria-pressed="false" aria-label="<?php echo esc_attr( er_t( 'Save {title}', [ 'title' => $title ] ) ); ?>"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.8 3.5 4.5 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg></button>
+		<div class="tcard__b">
+			<?php if ( $location ) : ?>
+				<span class="tcard__loc"><?php echo esc_html( $location ); ?></span>
+			<?php endif; ?>
+			<<?php echo $heading; // phpcs:ignore WordPress.Security.EscapeOutput -- whitelisted ?> class="tcard__title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $title ); ?></a></<?php echo $heading; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
+			<?php if ( $length || $facts ) : ?>
+				<div class="tcard__facts">
+					<?php if ( $length ) : ?>
+						<span class="tcard__fact tcard__fact--time"><svg class="tcard__ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><?php echo esc_html( $length ); ?></span>
+					<?php endif; ?>
+					<?php foreach ( $facts as $er_f ) : ?>
+						<span class="tcard__fact"><?php echo esc_html( $er_f ); ?></span>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
+			<div class="tcard__foot">
+				<span><?php echo str_replace( '{options}', '<b>' . esc_html( $options ) . '</b>', esc_html( er_t( '{options} to compare' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped parts ?></span>
+				<span class="tcard__go"><?php echo esc_html( er_t( 'See options' ) ); ?> <span class="tcard__arrow" aria-hidden="true">→</span></span>
+			</div>
+		</div>
+	</li>
+	<?php
+	return (string) ob_get_clean();
+}
+
 /** Editorial card for grids (destinations, tours, experiences, activities, guides, articles). */
 function er_card( int $post_id, string $placement = 'card', string $heading = 'h3' ): string {
 	$heading  = in_array( $heading, [ 'h2', 'h3' ], true ) ? $heading : 'h3';
@@ -589,6 +657,9 @@ function er_card( int $post_id, string $placement = 'card', string $heading = 'h
 	// New journey (P4, 16 Oct): a trip card opens the trip page, where the options are compared, and says what they
 	// offer. The hand-off to the partner happens there, not from the card (as on tour marketplaces).
 	$compare  = er_ux2() && $offers;
+	if ( $compare && function_exists( 'er_world_on' ) && er_world_on() ) {
+		return er_trip_card( $post_id, $offers, $heading );
+	}
 	$facts    = $compare ? er_booking_summary( $offers, false ) : [];
 
 	ob_start();

@@ -246,6 +246,7 @@ return [
 		'Roamer letters' => 'Письма Roamer',
 		'Roamer pick' => 'Выбор Roamer',
 		'Save this plan' => 'Сохранить план',
+		'Save {title}' => 'Сохранить: {title}',
 		'Saved' => 'Избранное',
 		'Saved for later' => 'Отложено на потом',
 		'Saved places and experiences' => 'Сохранённые места и впечатления',
@@ -382,6 +383,7 @@ return [
 		'{n} of {total}' => '{n} из {total}',
 		'{n} options' => 'Вариантов: {n}',
 		'{n} trips' => 'Поездок: {n}',
+		'{options} to compare' => '{options} для сравнения',
 		'© {year} Egypt Roamer. Independent travel discovery. All rights reserved.' => '© {year} Egypt Roamer. Независимый проект о путешествиях. Все права защищены.',
 	],
 ];

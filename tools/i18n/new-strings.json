@@ -2035,6 +2035,24 @@
    "Готовы ехать?",
    "准备出发了吗？",
    "جاهز للرحلة؟"
+  ],
+  "{options} to compare": [
+   "{options} zum Vergleichen",
+   "{options} à comparer",
+   "{options} da confrontare",
+   "{options} para comparar",
+   "{options} для сравнения",
+   "{options}可比较",
+   "{options} للمقارنة"
+  ],
+  "Save {title}": [
+   "{title} merken",
+   "Enregistrer {title}",
+   "Salva {title}",
+   "Guardar {title}",
+   "Сохранить: {title}",
+   "收藏{title}",
+   "احفظ {title}"
   ]
  }
 }

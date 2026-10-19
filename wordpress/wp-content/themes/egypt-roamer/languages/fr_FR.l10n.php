@@ -246,6 +246,7 @@ return [
 		'Roamer letters' => 'Lettres de Roamer',
 		'Roamer pick' => 'Le choix Roamer',
 		'Save this plan' => 'Enregistrer ce plan',
+		'Save {title}' => 'Enregistrer {title}',
 		'Saved' => 'Favoris',
 		'Saved for later' => 'Mis de côté',
 		'Saved places and experiences' => 'Lieux et expériences enregistrés',
@@ -382,6 +383,7 @@ return [
 		'{n} of {total}' => '{n} sur {total}',
 		'{n} options' => '{n} options',
 		'{n} trips' => '{n} excursions',
+		'{options} to compare' => '{options} à comparer',
 		'© {year} Egypt Roamer. Independent travel discovery. All rights reserved.' => '© {year} Egypt Roamer. Découverte de voyage indépendante. Tous droits réservés.',
 	],
 ];

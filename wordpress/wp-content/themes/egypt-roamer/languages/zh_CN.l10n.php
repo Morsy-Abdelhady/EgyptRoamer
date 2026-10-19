@@ -246,6 +246,7 @@ return [
 		'Roamer letters' => 'Roamer 来信',
 		'Roamer pick' => 'Roamer 精选',
 		'Save this plan' => '保存此行程',
+		'Save {title}' => '收藏{title}',
 		'Saved' => '收藏',
 		'Saved for later' => '稍后再看',
 		'Saved places and experiences' => '已收藏的地点与体验',
@@ -382,6 +383,7 @@ return [
 		'{n} of {total}' => '第 {n} 张，共 {total} 张',
 		'{n} options' => '{n} 个选项',
 		'{n} trips' => '{n} 个行程',
+		'{options} to compare' => '{options}可比较',
 		'© {year} Egypt Roamer. Independent travel discovery. All rights reserved.' => '© {year} Egypt Roamer。独立旅行发现平台。保留所有权利。',
 	],
 ];
