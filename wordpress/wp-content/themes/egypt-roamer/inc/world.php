@@ -740,3 +740,27 @@ function er_world_short_home( string $html ): string {
 	}
 	return $html;
 }
+
+/**
+ * A place's trips in this language, also when the translated trips don't name the place: then the English place's
+ * trips, each in this language (the Alexandria day trip in the seven translations, 20 Oct).
+ */
+function er_world_place_trips_any( int $dest ): array {
+	$ids = er_world_place_trips( $dest );
+	if ( $ids || ! function_exists( 'pll_get_post' ) ) {
+		return $ids;
+	}
+	$en = (int) pll_get_post( $dest, 'en' );
+	if ( ! $en || $en === $dest ) {
+		return $ids;
+	}
+	$found = get_posts( [ 'post_type' => 'er_experience', 'post_status' => 'publish', 'numberposts' => 20, 'fields' => 'ids', 'lang' => 'en', 'meta_query' => [ [ 'key' => '_er_destination', 'value' => $en, 'compare' => '=' ] ] ] ); // phpcs:ignore WordPress.DB.SlowDBQuery
+	$out   = [];
+	foreach ( $found as $t ) {
+		$tr = (int) pll_get_post( (int) $t, er_lang() );
+		if ( $tr && 'publish' === get_post_status( $tr ) ) {
+			$out[] = $tr;
+		}
+	}
+	return array_values( array_unique( $out ) );
+}

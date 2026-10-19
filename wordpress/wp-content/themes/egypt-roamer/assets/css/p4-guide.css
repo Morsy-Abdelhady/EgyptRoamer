@@ -265,3 +265,4 @@
 @media (max-width:600px){.gd .prose > .er-sec > h2{font-size:25px;margin:40px 0 12px;gap:10px}.gd .prose > p.wp-block-paragraph:first-child{font-size:19px}.gd .prose > p.wp-block-paragraph:first-child::first-letter{font-size:54px}.gd .prose,.gd .prose p,.gd .prose li{font-size:17px;line-height:1.7}.gd .prose .tip.er-callout{font-size:15.5px}}
 @media (max-width:600px){html.has-p4bar .dock{transform:translateY(140%)}html.has-p4bar .gd .mbar{bottom:calc(0.75rem + env(safe-area-inset-bottom))}}
 .gd .bk__h{margin:16px 0 4px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.gd .ahero__acts{margin-top:18px;display:flex;gap:10px}

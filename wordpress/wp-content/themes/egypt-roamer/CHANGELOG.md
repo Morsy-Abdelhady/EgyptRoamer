@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.1 — 2026-10-20: place pages, QA fixes
+- **Place pages:** the opener has "See all {n} trips →" to the trips and hotels box.
+- **Alexandria in the 7 translations** showed no trips (the translated trip doesn't name the place); the place now takes the English place's trips, each in its language.
+
 ## 1.3.0 — 2026-10-20: live partner data and the visitor review (with Core 1.2.59–1.2.60)
 - **Owner:** "prepare the APIs with the partners, then apply all the notes and suggestions" (`docs/TOURIST-REVIEW-2026-10-20.md`).
 - **Viator Partner API (Core 1.2.59):** besides the photo, each Viator product's average rating, number of reviews (numbers only, no review texts) and lowest price for the coming dates (availability schedule), refreshed hourly; a price older than 24 hours is not shown. All 19 Viator offers return data. GetYourGuide and Trip.com give this account links and widgets only, no data API.

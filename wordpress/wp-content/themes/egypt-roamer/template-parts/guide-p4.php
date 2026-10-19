@@ -17,7 +17,7 @@ $er_slug  = (string) get_post_field( 'post_name', $er_en );
 // A place page (Luxor, Cairo…) uses the same layout, with the place's trips and hotels (owner, 20 Oct).
 $er_isplace = 'place' === ( $args['mode'] ?? '' );
 $er_dests   = $er_isplace ? [ get_post( $er_id ) ] : er_get_related( $er_id, '_er_destination' );
-$er_trips   = $er_isplace ? er_world_place_trips( $er_id ) : array_values( array_filter( array_map( 'intval', wp_list_pluck( er_get_related( $er_id, '_er_related' ), 'ID' ) ), static fn ( $i ) => 'publish' === get_post_status( $i ) && 'er_experience' === get_post_type( $i ) ) );
+$er_trips   = $er_isplace ? er_world_place_trips_any( $er_id ) : array_values( array_filter( array_map( 'intval', wp_list_pluck( er_get_related( $er_id, '_er_related' ), 'ID' ) ), static fn ( $i ) => 'publish' === get_post_status( $i ) && 'er_experience' === get_post_type( $i ) ) );
 // Itineraries and whole-country guides name several trips: they show the trips on the route, not one trip.
 $er_route = $er_isplace || (bool) preg_match( '/days-in-egypt|best-time|hidden-gems|day-trips/', $er_slug ) || count( $er_trips ) >= 3;
 $er_plan  = (bool) preg_match( '/days-in-egypt/', $er_slug );
@@ -141,6 +141,9 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 				<span><?php er_e( 'Sources listed' ); ?></span>
 				<time class="visually-hidden" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( er_local_date() ); ?></time>
 			</div>
+			<?php if ( $er_isplace && $er_all ) : ?>
+				<div class="acts ahero__acts"><a class="btn btn--gold" href="#book"><?php echo esc_html( 1 === count( $er_all ) ? er_t( 'See the trip' ) : er_t( 'See all {n} trips', [ 'n' => (string) count( $er_all ) ] ) ); ?> →</a></div>
+			<?php endif; ?>
 		</div>
 		<?php if ( $er_hero && '' !== $er_hero[2] ) : ?><span class="credit"><?php echo esc_html( $er_hero[2] ); ?></span><?php endif; ?>
 	</section>
