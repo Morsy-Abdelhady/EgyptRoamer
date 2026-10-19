@@ -2,6 +2,21 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.94 — 2026-10-19: the trip card, as the prototype
+- **Owner:** make the trip card match proposal 4's prototype exactly (`docs/PROTOTYPE-PARITY-2026-10-18.md`, Trips & tours).
+- **New `er_trip_card()`,** used by `er_card()` for every trip with offers while proposal 4 is on (`er_world`). Values were read from the prototype's computed styles:
+  - a white card with a hairline frame and 14px corners;
+  - the photo at 4:3, flush with the frame;
+  - a save heart on the photo (the site's favourites, `[data-save]`);
+  - the place in clay capitals with no pin; the Playfair title at 21px;
+  - the length and the options' shared facts as beige chips;
+  - "**3 options** to compare" with a gold "See options →".
+  The whole card opens the trip page. Cards with no offers (places, guides) are unchanged.
+- **Length:** the range of the options' partner-stated hours when every option is measured in hours ("About 4–8 hours", as the prototype), else the page's own length.
+- **CSS:** in its own file, `assets/css/p4-cards.css`, added to both bundles.
+- **Strings:** "{options} to compare" and "Save {title}" in 8 languages.
+- (1.2.91–1.2.93 are recorded in `docs/HANDOFF-2026-10-18.md`.)
+
 ## 1.2.90 — 2026-10-17: the new journey for every visitor (with Core 1.2.52)
 - **Owner:** switch the new design on for every visitor.
 - **Core 1.2.52:** Egypt Roamer → Settings has a "New booking journey" switch, which sets the `er_ux2` option on or off. Turning it off restores the previous design in one click.
