@@ -601,7 +601,8 @@ function er_trip_card( int $post_id, array $offers, string $heading = 'h3' ): st
 	$facts   = er_booking_summary( $offers, false );
 	$length  = $hours && count( $with ) > count( $facts ) ? (string) $with[0] : $duration;
 	if ( '' === $length && function_exists( 'er_ux2_offer_length' ) ) {
-		$length = er_ux2_offer_length( $offers ); // no length on the page (the Nile cruise): the options' own, "4 days"
+		// No length on the page (the Nile cruise): the options' own. In days, without "About", as the prototype ("4 days").
+		$length = preg_replace( '/^' . preg_quote( er_t( 'About {duration}', [ 'duration' => '' ] ), '/' ) . '/u', '', er_ux2_offer_length( $offers ) );
 	}
 	// As the prototype (v4-tourist3): when every option's name says it leaves from Hurghada, say so first.
 	$from_hgd = (bool) $offers;

@@ -370,6 +370,12 @@ function er_world_trip_groups( array $ids ): void {
 			$groups[ $dest ][] = (int) $id;
 		}
 	}
+	// As the prototype: in each place, a trip that spans two places comes first (the cruise in Luxor and Aswan, the
+	// diving trip in Sharm El Sheikh).
+	foreach ( $groups as $er_k => $er_list ) {
+		$er_multi = array_filter( $er_list, static fn ( $x ) => count( array_unique( (array) get_post_meta( (int) $x, '_er_destination', false ) ) ) > 1 );
+		$groups[ $er_k ] = array_values( array_merge( $er_multi, array_diff( $er_list, $er_multi ) ) );
+	}
 	$order = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'numberposts' => 30, 'fields' => 'ids', 'orderby' => 'menu_order', 'order' => 'ASC', 'suppress_filters' => false ] );
 	$keys  = array_merge( array_values( array_intersect( array_map( 'intval', $order ), array_keys( $groups ) ) ), array_diff( array_keys( $groups ), array_map( 'intval', $order ) ) );
 	echo '<div class="tgroups">';

@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.96 — 2026-10-19: trip cards, round 3
+- **The cruise's length in days** shows without "About" ("4 days"), as the prototype.
+- **A trip that spans two places comes first** in each of its places, as the prototype (diving in Sharm El Sheikh, the cruise in Luxor and Aswan).
+
 ## 1.2.95 — 2026-10-19: trip cards, round 2 (prototype comparison)
 - Compared every card's text with the prototype's Trips & tours screen. Three differences fixed:
   - **The Nile cruise:** its page has no length, so the card now takes the options' own length ("4 days").
