@@ -79,7 +79,7 @@ async function check(pg) {
       // Proposal 4 (18 Oct): a trip "world" has no sidebar; its opener's button and the booking bar (on every screen)
       // lead to the options, as in the Abu Simbel story.
       story: !!document.querySelector(".page-hero--story, .world, .gd"),
-      hero: document.querySelector(".page-hero__actions a, .wopen .wacts a")?.getAttribute("href") || "",
+      hero: document.querySelector(".page-hero__actions a, .wopen .wacts a, .ahero__acts a")?.getAttribute("href") || "",
       box: ["#book", "#plan"].some((s) => vis(document.querySelector(s))) || vis(document.querySelector(".page-aside .offer-box")),
       asideBox: vis(document.querySelector(".page-aside .offer-box")),
       cta: document.querySelector(".nav__cta")?.getAttribute("href") || "",
