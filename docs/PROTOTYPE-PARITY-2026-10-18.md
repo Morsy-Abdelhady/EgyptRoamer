@@ -33,6 +33,7 @@ Not copied on purpose: headings the prototype made up for itself ("The walls spe
 | Part | Prototype | Live before | Fix |
 |---|---|---|---|
 | Trip card | white framed card; clay place label; clock + length "About 4–8 hours"; beige chips; "**3 options** to compare" + gold "See options →"; heart | unframed; grey label with pin; plain facts; "Half day"; grey "3 options" | the prototype card |
+| **Status, 19 Oct (theme 1.2.94–1.2.96)** | | | **Done and compared.** `er_trip_card()` + `assets/css/p4-cards.css`, with values read from the prototype's computed styles. Side-by-side shots at 1048 px and 390 px: card 304×480 against the prototype's 305×478; the text of all 11 cards is identical to the prototype's; the order in all 7 place groups is identical (two-place trips appear in both groups, first). Arabic checked (heart on the left, arrow mirrored). The heart saves to Saved; the whole card opens the trip page. |
 
 ## Places
 | Part | Prototype | Live before | Fix |
