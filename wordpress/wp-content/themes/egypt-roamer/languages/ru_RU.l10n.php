@@ -34,6 +34,7 @@ return [
 		'Affiliate Disclosure' => 'Партнёрские ссылки',
 		'All' => 'Все',
 		'All destinations' => 'Все направления',
+		'All options leave from {place}' => 'Все варианты — с отправлением из: {place}',
 		'Alternatives to compare' => 'Альтернативы для сравнения',
 		'An Egypt' => 'Египет',
 		'Ancient wonders. Endless adventures. Unforgettable moments.' => 'Древние чудеса. Бесконечные приключения. Незабываемые моменты.',

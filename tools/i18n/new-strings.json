@@ -2053,6 +2053,15 @@
    "Сохранить: {title}",
    "收藏{title}",
    "احفظ {title}"
+  ],
+  "All options leave from {place}": [
+   "Alle Angebote starten in {place}",
+   "Toutes les options partent de {place}",
+   "Tutte le opzioni partono da {place}",
+   "Todas las opciones salen de {place}",
+   "Все варианты — с отправлением из: {place}",
+   "所有选项均从{place}出发",
+   "جميع الخيارات تنطلق من {place}"
   ]
  }
 }

@@ -600,6 +600,22 @@ function er_trip_card( int $post_id, array $offers, string $heading = 'h3' ): st
 	$with    = er_booking_summary( $offers, true );
 	$facts   = er_booking_summary( $offers, false );
 	$length  = $hours && count( $with ) > count( $facts ) ? (string) $with[0] : $duration;
+	if ( '' === $length && function_exists( 'er_ux2_offer_length' ) ) {
+		$length = er_ux2_offer_length( $offers ); // no length on the page (the Nile cruise): the options' own, "4 days"
+	}
+	// As the prototype (v4-tourist3): when every option's name says it leaves from Hurghada, say so first.
+	$from_hgd = (bool) $offers;
+	foreach ( $offers as $er_o ) {
+		if ( false === stripos( (string) get_the_title( (int) $er_o ), 'Hurghada' ) ) {
+			$from_hgd = false;
+			break;
+		}
+	}
+	if ( $from_hgd ) {
+		$er_hgd = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'name' => 'hurghada', 'numberposts' => 1, 'fields' => 'ids', 'lang' => '' ] );
+		$er_hgd = $er_hgd && function_exists( 'er_translated_post_id' ) ? (int) er_translated_post_id( (int) $er_hgd[0] ) : 0;
+		array_unshift( $facts, er_t( 'All options leave from {place}', [ 'place' => $er_hgd ? get_the_title( $er_hgd ) : 'Hurghada' ] ) );
+	}
 	$n       = count( $offers );
 	$stock   = function_exists( 'er_stock_id_for' ) ? er_stock_id_for( $post_id ) : '';
 	$thumb   = (int) get_post_thumbnail_id( $post_id );

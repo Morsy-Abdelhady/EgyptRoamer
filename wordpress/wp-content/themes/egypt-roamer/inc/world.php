@@ -359,12 +359,16 @@ function er_world_chapter_place( int $n ): int {
 function er_world_trip_groups( array $ids ): void {
 	$groups = [];
 	foreach ( $ids as $id ) {
-		$dest = (int) get_post_meta( (int) $id, '_er_destination', true );
-		if ( ! $dest && 'exp-safari' === preg_replace( '/-(ar|de|fr|it|es|ru|zh)$/', '', (string) get_post_meta( (int) $id, '_er_seed_id', true ) ) ) {
-			$dest = er_world_chapter_place( 3 );
+		// A trip in two places (the Nile cruise: Aswan and Luxor; Red Sea diving: Hurghada and Sharm) is shown under
+		// each, as in the prototype.
+		$dests = array_values( array_unique( array_filter( array_map( 'intval', (array) get_post_meta( (int) $id, '_er_destination', false ) ) ) ) );
+		if ( ! $dests && 'exp-safari' === preg_replace( '/-(ar|de|fr|it|es|ru|zh)$/', '', (string) get_post_meta( (int) $id, '_er_seed_id', true ) ) ) {
+			$dests = [ (int) er_world_chapter_place( 3 ) ];
 		}
-		$dest = $dest && function_exists( 'er_translated_post_id' ) ? (int) er_translated_post_id( $dest ) : $dest;
-		$groups[ $dest ][] = (int) $id;
+		foreach ( $dests ?: [ 0 ] as $dest ) {
+			$dest = $dest && function_exists( 'er_translated_post_id' ) ? (int) er_translated_post_id( $dest ) : $dest;
+			$groups[ $dest ][] = (int) $id;
+		}
 	}
 	$order = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'numberposts' => 30, 'fields' => 'ids', 'orderby' => 'menu_order', 'order' => 'ASC', 'suppress_filters' => false ] );
 	$keys  = array_merge( array_values( array_intersect( array_map( 'intval', $order ), array_keys( $groups ) ) ), array_diff( array_keys( $groups ), array_map( 'intval', $order ) ) );

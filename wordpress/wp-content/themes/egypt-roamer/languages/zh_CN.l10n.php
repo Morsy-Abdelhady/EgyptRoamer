@@ -34,6 +34,7 @@ return [
 		'Affiliate Disclosure' => '联盟披露',
 		'All' => '全部',
 		'All destinations' => '全部目的地',
+		'All options leave from {place}' => '所有选项均从{place}出发',
 		'Alternatives to compare' => '可比较的其他选择',
 		'An Egypt' => '埃及，',
 		'Ancient wonders. Endless adventures. Unforgettable moments.' => '古老奇迹。无尽冒险。难忘时刻。',

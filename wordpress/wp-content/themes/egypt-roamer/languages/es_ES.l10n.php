@@ -34,6 +34,7 @@ return [
 		'Affiliate Disclosure' => 'Aviso de afiliación',
 		'All' => 'Todo',
 		'All destinations' => 'Todos los destinos',
+		'All options leave from {place}' => 'Todas las opciones salen de {place}',
 		'Alternatives to compare' => 'Alternativas para comparar',
 		'An Egypt' => 'Un Egipto',
 		'Ancient wonders. Endless adventures. Unforgettable moments.' => 'Maravillas antiguas. Aventuras sin fin. Momentos inolvidables.',

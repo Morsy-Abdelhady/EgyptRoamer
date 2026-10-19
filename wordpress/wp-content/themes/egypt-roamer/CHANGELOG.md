@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.2.95 — 2026-10-19: trip cards, round 2 (prototype comparison)
+- Compared every card's text with the prototype's Trips & tours screen. Three differences fixed:
+  - **The Nile cruise:** its page has no length, so the card now takes the options' own length ("4 days").
+  - **Red Sea diving:** "All options leave from Hurghada" comes first among its facts, as in the prototype. The prototype's rule: every option's name says Hurghada. Translated in 8 languages.
+  - **A trip in two places** appears under each place's banner (the cruise under Luxor and Aswan; diving under Hurghada and Sharm El Sheikh). It used to appear under the first place only.
+
 ## 1.2.94 — 2026-10-19: the trip card, as the prototype
 - **Owner:** make the trip card match proposal 4's prototype exactly (`docs/PROTOTYPE-PARITY-2026-10-18.md`, Trips & tours).
 - **New `er_trip_card()`,** used by `er_card()` for every trip with offers while proposal 4 is on (`er_world`). Values were read from the prototype's computed styles:

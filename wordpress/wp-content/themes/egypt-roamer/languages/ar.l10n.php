@@ -34,6 +34,7 @@ return [
 		'Affiliate Disclosure' => 'إفصاح الشراكة',
 		'All' => 'الكل',
 		'All destinations' => 'كل الوجهات',
+		'All options leave from {place}' => 'جميع الخيارات تنطلق من {place}',
 		'Alternatives to compare' => 'بدائل للمقارنة',
 		'An Egypt' => 'مصرُ',
 		'Ancient wonders. Endless adventures. Unforgettable moments.' => 'عجائب عريقة. مغامرات بلا حدود. لحظات لا تُنسى.',
