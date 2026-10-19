@@ -84,3 +84,16 @@ https://egyptroamer.com/ar/guides/%d9%84%d9%8a%d9%84%d8%a9-%d9%81%d9%8a-%d8%a7%d
 https://egyptroamer.com/ar/experiences/%d8%b1%d8%ad%d9%84%d8%a9-%d9%8a%d9%88%d9%85-%d8%a5%d9%84%d9%89-%d8%a7%d9%84%d8%a5%d8%b3%d9%83%d9%86%d8%af%d8%b1%d9%8a%d8%a9-%d9%85%d9%86-%d8%a7%d9%84%d9%82%d8%a7%d9%87%d8%b1%d8%a9/
 https://egyptroamer.com/ar/experiences/%d8%b3%d9%86%d9%88%d8%b1%d9%83%d9%84%d9%8a%d9%86%d8%ac-%d9%81%d9%8a-%d8%b1%d8%a3%d8%b3-%d9%85%d8%ad%d9%85%d8%af-%d9%85%d9%86-%d8%b4%d8%b1%d9%85-%d8%a7%d9%84%d8%b4%d9%8a%d8%ae/
 ```
+
+## 2026-10-20: the 17 and 18 Oct follow-ups, redone (owner: "check the tasks, I'm not sure they ran")
+The scheduled Viator run (17 Oct) stopped after a few seconds without reading anything, and the Bing run (18 Oct)
+was blocked (browser not connected). Both done by hand today, in the owner's browser.
+
+| Change | Where | Verified | Expected effect | Check on |
+|---|---|---|---|---|
+| Viator Performance Snapshot, last 30 days: **1 visitor, 0 bookings, 0% conversion, $0 booking value**. Payout details still not entered (owner action) | partners.viator.com/dashboard | read on screen | — | 22 Oct |
+| Site visits, 16–19 Oct: 285 page views, 160 entrances, **1 from a search engine (google.com)**, 0 from AI assistants, 8 `/go/` redirects, 0 failed links. Most views are the Trips & tours pages in 8 languages, mainly our own release checks (headless browsers are not all filtered out) | wp-admin → Visits | read on screen | — | 22 Oct |
+| Bing Search Performance: 0 clicks, 0 impressions. Site Explorer: no indexed URLs | Bing WMT | read on screen | — | 22 Oct |
+| Bing URL Inspection `/`: still "Not indexed due to NOINDEX directive", last crawl **27 Sep** (pre-launch). Live page has no noindex (`robots: max-image-preview:large`, robots.txt allows). **Request indexing** sent | Bing WMT | "URL submitted successfully" | Bing recrawls the homepage and drops the stale noindex | 22 Oct |
+| Bing URL Submission: the 12 URLs listed on 18 Oct (4 guides + 2 experiences, EN and AR) | Bing WMT | "12 URLs submitted successfully"; quota 99 → 87 | Indexing of the new pages | 22 Oct |
+| IndexNow line: "13 URLs sent on 2026-10-17 21:37, answer 200" | wp-admin → Egypt Roamer | read on screen | — | — |
