@@ -9,8 +9,9 @@
  *   - For each live Viator offer, the product code is read from its target URL (".../d826-224493P18" →
  *     "224493P18"), GET /partner/products/{code} returns its images, and the cover image's URL (Viator's CDN) is
  *     kept in the er_viator_images option. Viator allows single-product responses to be cached for up to 1 hour (Technical Guide), so cron refreshes hourly.
- *   - Only image URLs are used. Reviews and "viatorUniqueContent" must not be indexed under the API terms; they
- *     are never read or shown.
+ *   - The cover photo, the average rating and the number of reviews (numbers only), and the lowest price from the
+ *     availability schedule. Review texts and "viatorUniqueContent" must not be indexed under the API terms;
+ *     they are never read or shown.
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -67,8 +68,14 @@ function er_viator_fetch_image( string $code, int $min = 240 ): array {
 	}
 	$data   = json_decode( (string) wp_remote_retrieve_body( $res ), true );
 	$images = (array) ( $data['images'] ?? [] );
+	// The rating and the number of reviews (numbers only; review texts are never read or shown, API terms).
+	$rev    = (array) ( $data['reviews'] ?? [] );
+	$meta   = [
+		'rating'  => isset( $rev['combinedAverageRating'] ) ? round( (float) $rev['combinedAverageRating'], 1 ) : null,
+		'reviews' => isset( $rev['totalReviews'] ) ? (int) $rev['totalReviews'] : null,
+	];
 	if ( ! $images ) {
-		return [ 'error' => 'no images' ];
+		return [ 'error' => 'no images' ] + $meta;
 	}
 	$cover = $images[0];
 	foreach ( $images as $img ) {
@@ -87,7 +94,33 @@ function er_viator_fetch_image( string $code, int $min = 240 ): array {
 		}
 	}
 	$url = (string) ( $pick['url'] ?? '' );
-	return 0 === strpos( $url, 'https://' ) ? [ 'url' => $url ] : [ 'error' => 'no image URL' ];
+	return ( 0 === strpos( $url, 'https://' ) ? [ 'url' => $url ] : [ 'error' => 'no image URL' ] ) + $meta;
+}
+
+/**
+ * The product's lowest price for the coming dates, from its availability schedule (GET
+ * /partner/availability/schedules/{code}, summary.fromPrice), in the partner account's currency. [ price, currency ]
+ * or [ error ].
+ */
+function er_viator_fetch_price( string $code ): array {
+	$key = er_viator_key();
+	if ( '' === $key ) {
+		return [ 'error' => 'no key' ];
+	}
+	$res = wp_remote_get( 'https://api.viator.com/partner/availability/schedules/' . rawurlencode( $code ), [
+		'timeout' => 8,
+		'headers' => [ 'exp-api-key' => $key, 'Accept' => 'application/json;version=2.0', 'Accept-Language' => 'en-US' ],
+	] );
+	if ( is_wp_error( $res ) ) {
+		return [ 'error' => $res->get_error_message() ];
+	}
+	$status = (int) wp_remote_retrieve_response_code( $res );
+	if ( 200 !== $status ) {
+		return [ 'error' => 'HTTP ' . $status ];
+	}
+	$data  = json_decode( (string) wp_remote_retrieve_body( $res ), true );
+	$price = $data['summary']['fromPrice'] ?? null;
+	return is_numeric( $price ) && (float) $price > 0 ? [ 'price' => (float) $price, 'currency' => (string) ( $data['currency'] ?? 'USD' ) ] : [ 'error' => 'no price' ];
 }
 
 /** Refresh every Viator offer's photo; keeps the last good URL when a refresh fails. */
@@ -98,15 +131,32 @@ function er_viator_refresh_all(): array {
 	$store = (array) get_option( 'er_viator_images', [] );
 	$log   = [];
 	foreach ( er_viator_offers() as $slug => $code ) {
-		$r = er_viator_fetch_image( $code );
+		$r    = er_viator_fetch_image( $code );
+		$pr   = er_viator_fetch_price( $code );
+		$row  = (array) ( $store[ $slug ] ?? [] );
+		$row['code'] = $code;
+		unset( $row['error'], $row['price_error'] );
 		if ( isset( $r['url'] ) ) {
-			$store[ $slug ] = [ 'url' => $r['url'], 'code' => $code, 'at' => time() ];
-			$log[ $slug ]   = 'ok';
+			$row['url'] = $r['url'];
+			$row['at']  = time();
+			$log[ $slug ] = 'ok';
 		} else {
-			$store[ $slug ]['error'] = $r['error'];
-			$store[ $slug ]['code']  = $code;
-			$log[ $slug ]            = $r['error'];
+			$row['error'] = $r['error'];
+			$log[ $slug ] = $r['error'];
 		}
+		if ( null !== ( $r['rating'] ?? null ) && ( $r['reviews'] ?? 0 ) > 0 ) {
+			$row['rating']  = $r['rating'];
+			$row['reviews'] = $r['reviews'];
+		}
+		if ( isset( $pr['price'] ) ) {
+			$row['price']    = $pr['price'];
+			$row['currency'] = $pr['currency'];
+			$row['price_at'] = time();
+		} else {
+			$row['price_error'] = $pr['error'];
+			// A price older than a day is not shown (er_viator_live_for_offer).
+		}
+		$store[ $slug ] = $row;
 	}
 	update_option( 'er_viator_images', $store, false );
 	return $log;
@@ -119,6 +169,29 @@ function er_viator_image_for_offer( int $offer_id ): string {
 		$store = (array) get_option( 'er_viator_images', [] );
 	}
 	return (string) ( $store[ (string) get_post_field( 'post_name', $offer_id ) ]['url'] ?? '' );
+}
+
+/**
+ * What Viator states live for an offer: [ rating, reviews, price, currency, price_at ] (each may be missing). A price
+ * is given only when it was read in the last 24 hours, so a stale price is never shown.
+ */
+function er_viator_live_for_offer( int $offer_id ): array {
+	static $store = null;
+	if ( null === $store ) {
+		$store = (array) get_option( 'er_viator_images', [] );
+	}
+	$row = (array) ( $store[ (string) get_post_field( 'post_name', $offer_id ) ] ?? [] );
+	$out = [];
+	if ( isset( $row['rating'], $row['reviews'] ) && $row['reviews'] > 0 ) {
+		$out['rating']  = (float) $row['rating'];
+		$out['reviews'] = (int) $row['reviews'];
+	}
+	if ( isset( $row['price'], $row['price_at'] ) && time() - (int) $row['price_at'] < DAY_IN_SECONDS ) {
+		$out['price']    = (float) $row['price'];
+		$out['currency'] = (string) ( $row['currency'] ?? 'USD' );
+		$out['price_at'] = (int) $row['price_at'];
+	}
+	return $out;
 }
 
 /* Hourly refresh while a key is set (the 1-hour cache limit). */
@@ -199,7 +272,7 @@ function er_render_viator_page(): void {
 		</form>
 		<h2><?php esc_html_e( 'Viator offers', 'egypt-roamer-core' ); ?></h2>
 		<table class="widefat striped">
-			<thead><tr><th><?php esc_html_e( 'Offer', 'egypt-roamer-core' ); ?></th><th><?php esc_html_e( 'Product code', 'egypt-roamer-core' ); ?></th><th><?php esc_html_e( 'Photo', 'egypt-roamer-core' ); ?></th></tr></thead>
+			<thead><tr><th><?php esc_html_e( 'Offer', 'egypt-roamer-core' ); ?></th><th><?php esc_html_e( 'Product code', 'egypt-roamer-core' ); ?></th><th><?php esc_html_e( 'Photo', 'egypt-roamer-core' ); ?></th><th><?php esc_html_e( 'Rating', 'egypt-roamer-core' ); ?></th><th><?php esc_html_e( 'From price', 'egypt-roamer-core' ); ?></th></tr></thead>
 			<tbody>
 				<?php foreach ( er_viator_offers() as $slug => $code ) : ?>
 					<?php $row = (array) ( $store[ $slug ] ?? [] ); ?>
@@ -215,6 +288,8 @@ function er_render_viator_page(): void {
 								<span style="color:#b32d2e"><?php echo esc_html( (string) $row['error'] ); ?></span>
 							<?php endif; ?>
 						</td>
+						<td><?php echo isset( $row['rating'] ) ? esc_html( '★ ' . $row['rating'] . ' (' . number_format_i18n( (int) $row['reviews'] ) . ')' ) : '—'; ?></td>
+						<td><?php echo isset( $row['price'] ) ? esc_html( ( $row['currency'] ?? '' ) . ' ' . number_format_i18n( (float) $row['price'], 2 ) . ' · ' . wp_date( 'j M H:i', (int) $row['price_at'] ) ) : ( ! empty( $row['price_error'] ) ? '<span style="color:#b32d2e">' . esc_html( (string) $row['price_error'] ) . '</span>' : '—' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
