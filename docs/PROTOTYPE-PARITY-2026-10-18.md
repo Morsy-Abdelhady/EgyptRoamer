@@ -59,3 +59,22 @@ Not copied on purpose: headings the prototype made up for itself ("The walls spe
 `cancel` in Core `data/offer-facts.json` for all 29 tour offers: "free up to 24 hours before", as read on each
 partner's product page (26 on 16 Oct, `docs/prototypes/journey-v4/README.md`; the 3 cruise offers on 17 Oct,
 `docs/NILE-CRUISE-OFFERS-2026-10-17.md`). Trip.com hotel areas: none.
+
+## Status, 19 Oct (theme 1.2.97–1.2.98, Core 1.2.54): every screen redone and compared
+Owner (19 Oct): "the theme isn't right; review every section against the prototype: style, photos, videos, UX, 100%".
+Each screen was captured top to bottom at the prototype frame's width (1048 px) and on a phone (390 px), prototype
+left, site right (`scratchpad/pwt/survey.mjs` + `svsheet.py`), and key parts compared by computed style
+(`stylediff.mjs`).
+
+| Screen | Done | Kept on purpose / not identical |
+|---|---|---|
+| Trip pages (11) | The prototype's own world per trip (`inc/world-data.php`): eyebrow, lead, quote, steps with its photos and videos, tablets, papyrus, questions first, the dark "Choose your way in" with Compare side by side and ✓ Free cancellation, More trips, Our guides, the capsule. Header button outlined. | Options, facts and hotels are the live offers (the prototype's were a copy of them). Hotel rows follow the live order. |
+| Homepage | Chapter trips box as the prototype, Pyramids and Red Sea videos, quote + facts, moods, map, hotels place by place, Trip Builder with ✓ Free cancellation. | **The old pinned slides and their scroll stay** (owner, 18 Oct), so the slide titles keep the old big capitals and the rail. |
+| Trips & tours | Photo header, sticky filter bar, banners at 132 px, the trip card (1.2.94–96). | Filters are links (the page reloads) rather than instant. |
+| Places | Photo hero with the prototype's words, heart on each place. | — |
+| Travel Guide | Photo hero, "Where" chips, the prototype's cards and order. | — |
+| Guide pages (24) | Rebuilt to the prototype (`template-parts/guide-p4.php`). | Body text is each guide's own; "See the place" photos are the prototype's strips without the lightbox. |
+| Footer | Wordmark at the prototype's 260 px. | — |
+
+New strings: 390 for the trip worlds (234 read from each page's own translated body, 156 translated) and about 40
+for the other screens, in 7 languages, not yet reviewed by native speakers.
