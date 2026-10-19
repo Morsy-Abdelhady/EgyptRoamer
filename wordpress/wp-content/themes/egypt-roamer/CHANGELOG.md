@@ -2,6 +2,17 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.0 — 2026-10-20: live partner data and the visitor review (with Core 1.2.59–1.2.60)
+- **Owner:** "prepare the APIs with the partners, then apply all the notes and suggestions" (`docs/TOURIST-REVIEW-2026-10-20.md`).
+- **Viator Partner API (Core 1.2.59):** besides the photo, each Viator product's average rating, number of reviews (numbers only, no review texts) and lowest price for the coming dates (availability schedule), refreshed hourly; a price older than 24 hours is not shown. All 19 Viator offers return data. GetYourGuide and Trip.com give this account links and widgets only, no data API.
+- **Prices and ratings on the site:** each Viator option shows "★ 4.9 (834)" and "From US$28.53"; "Compare side by side" gets From and Rating rows; trip cards say "From US$28 on Viator"; guide endings list them; a line says the final price depends on date and group and is shown by the partner before paying.
+- **About and Sources pages (Core 1.2.60), in 8 languages:** the seed's unpublished "Our Story" placeholder becomes "About Egypt Roamer" (how the site works: no bookings, commissions, sources, what is left out); "Our sources" lists the 40 checked facts with their sources and dates (`data/sources.json`, from `docs/CONTENT-SOURCES.md` by `tools/sources.py`). Linked in the footer and from every guide's sources line.
+- **Place pages** (Luxor, Cairo…) in the guide pages' design: photo opener with region, best time and trips; section bar; the trips you can book and the hotels in the sidebar; "Ready to go?" with the place's trips; more guides.
+- **Hotels page** ("Hotels in Egypt, place by place") in 8 languages, and "Hotels" in the main menu.
+- **Phones:** one bar at the bottom: while a trip's booking bar shows, the dock steps aside.
+- **Saved list:** "Share my list" (share sheet or copied link) and "Email my list"; a shared link adds the list on the other device (the list travels in the link's fragment, never sent to the server).
+- New strings in 8 languages (`tools/world/ui-strings-p4b.json`, `-p4c.json`), not yet reviewed by native speakers.
+
 ## 1.2.99 — 2026-10-20: phone fix
 - **Homepage on phones:** the chapter trip cards were squeezed into narrow columns (one word per line) since the heart was added in 1.2.97. Each card now takes 82% of the strip again, as before.
 - Mini cards without a heart (the place rows) no longer keep the space for one.

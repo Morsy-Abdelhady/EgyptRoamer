@@ -12,6 +12,15 @@ $er_col          = static function ( string $title, string $location ) use ( &$e
 	if ( ! $menu ) {
 		return;
 	}
+	// The company column ends with the About and Sources pages (inc/world-archives.php er_trust_page).
+	if ( 'footer_company' === $location && function_exists( 'er_trust_page' ) ) {
+		foreach ( [ 'about', 'sources' ] as $er_k ) {
+			$er_tp = er_trust_page( $er_k );
+			if ( $er_tp && false === strpos( $menu, $er_tp[0] ) ) {
+				$menu = (string) preg_replace( '#</ul>\s*$#', '<li class="menu-item"><a href="' . esc_url( $er_tp[0] ) . '">' . esc_html( $er_tp[1] ) . '</a></li></ul>', rtrim( $menu ), 1 );
+			}
+		}
+	}
 	$er_footer_links .= $menu;
 	echo '<div data-footer-col="' . esc_attr( $location ) . '"><h3 class="t-label">' . esc_html( $title ) . '</h3>' . $menu . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput -- wp_nav_menu output
 };
@@ -116,7 +125,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 			<h2 class="t-h3"><?php er_e( 'Saved for later' ); ?></h2>
 			<button class="icon-btn" type="button" data-close aria-label="<?php echo esc_attr( er_t( 'Close saved' ) ); ?>"><?php echo er_icon( 'i-close' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></button>
 		</div>
-		<div class="drawer__body" data-saved-list></div>
+		<div class="drawer__body" data-saved-list data-l-share="<?php echo esc_attr( er_t( 'Share my list' ) ); ?>" data-l-email="<?php echo esc_attr( er_t( 'Email my list' ) ); ?>" data-l-copied="<?php echo esc_attr( er_t( 'Link copied' ) ); ?>" data-l-subject="<?php echo esc_attr( er_t( 'My Egypt trip list' ) ); ?>" data-l-shared="<?php echo esc_attr( er_t( 'A list was shared with you and added here.' ) ); ?>"></div>
 	</div>
 </div>
 

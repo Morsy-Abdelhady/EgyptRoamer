@@ -5968,6 +5968,141 @@
    "Путеводитель: {topic}",
    "{topic}指南",
    "دليل {topic}"
+  ],
+  "Checked {date}": [
+   "Geprüft am {date}",
+   "Vérifié le {date}",
+   "Verificato il {date}",
+   "Comprobado el {date}",
+   "Проверено {date}",
+   "核实于{date}",
+   "تم التحقق في {date}"
+  ],
+  "Every fact in our guides is checked against a published source. These are the sources, with the date each one was read.": [
+   "Jede Angabe in unseren Guides wird mit einer veröffentlichten Quelle abgeglichen. Hier sind die Quellen, jeweils mit dem Datum, an dem sie gelesen wurden.",
+   "Chaque fait de nos guides est vérifié auprès d’une source publiée. Voici ces sources, avec la date à laquelle chacune a été lue.",
+   "Ogni dato delle nostre guide è verificato su una fonte pubblicata. Ecco le fonti, con la data in cui ciascuna è stata letta.",
+   "Cada dato de nuestras guías se comprueba con una fuente publicada. Estas son las fuentes, con la fecha en que se leyó cada una.",
+   "Каждый факт в наших путеводителях сверен с опубликованным источником. Вот эти источники с датой, когда каждый был прочитан.",
+   "我们指南中的每条信息都对照已出版的资料核实。以下是这些来源，以及每个来源的查阅日期。",
+   "كل معلومة في أدلتنا مُراجَعة على مصدر منشور. هذه هي المصادر، مع تاريخ قراءة كل منها."
+  ],
+  "From": [
+   "Ab",
+   "À partir de",
+   "Da",
+   "Desde",
+   "От",
+   "起价",
+   "ابتداءً من"
+  ],
+  "From {price}": [
+   "Ab {price}",
+   "Dès {price}",
+   "Da {price}",
+   "Desde {price}",
+   "От {price}",
+   "{price}起",
+   "ابتداءً من {price}"
+  ],
+  "From {price} on {partner}": [
+   "Ab {price} bei {partner}",
+   "Dès {price} sur {partner}",
+   "Da {price} su {partner}",
+   "Desde {price} en {partner}",
+   "От {price} на {partner}",
+   "{partner}上{price}起",
+   "ابتداءً من {price} على {partner}"
+  ],
+  "Prices and ratings as the partner states them today. The final price depends on your date and group; you see it on the partner’s page before you pay.": [
+   "Preise und Bewertungen so, wie der Partner sie heute angibt. Der Endpreis hängt von Datum und Gruppe ab; Sie sehen ihn auf der Seite des Partners, bevor Sie zahlen.",
+   "Prix et notes tels que le partenaire les indique aujourd’hui. Le prix final dépend de votre date et de votre groupe ; vous le voyez sur la page du partenaire avant de payer.",
+   "Prezzi e valutazioni come li indica oggi il partner. Il prezzo finale dipende dalla data e dal gruppo; lo vedete sulla pagina del partner prima di pagare.",
+   "Precios y valoraciones tal como los indica hoy el socio. El precio final depende de tu fecha y tu grupo; lo ves en la página del socio antes de pagar.",
+   "Цены и оценки — так, как их сегодня указывает партнёр. Итоговая цена зависит от даты и группы; вы увидите её на странице партнёра до оплаты.",
+   "价格和评分以合作伙伴今天公布的为准。最终价格取决于日期和人数，付款前您会在合作伙伴页面看到。",
+   "الأسعار والتقييمات كما يذكرها الشريك اليوم. السعر النهائي يعتمد على تاريخك وعدد أفراد مجموعتك، وتراه في صفحة الشريك قبل الدفع."
+  ],
+  "Rating": [
+   "Bewertung",
+   "Note",
+   "Valutazione",
+   "Valoración",
+   "Оценка",
+   "评分",
+   "التقييم"
+  ],
+  "The sources are listed as published, in their original language.": [
+   "Die Quellen sind so aufgeführt, wie sie veröffentlicht wurden, in ihrer Originalsprache.",
+   "Les sources sont citées telles que publiées, dans leur langue d’origine.",
+   "Le fonti sono elencate così come pubblicate, nella lingua originale.",
+   "Las fuentes se citan tal como se publicaron, en su idioma original.",
+   "Источники приведены так, как опубликованы, на языке оригинала.",
+   "来源按原文发布的形式和语言列出。",
+   "المصادر مذكورة كما نُشرت، بلغتها الأصلية."
+  ],
+  "A list was shared with you and added here.": [
+   "Eine Liste wurde mit Ihnen geteilt und hier hinzugefügt.",
+   "Une liste a été partagée avec vous et ajoutée ici.",
+   "Una lista è stata condivisa con voi e aggiunta qui.",
+   "Alguien compartió una lista contigo y se ha añadido aquí.",
+   "С вами поделились списком, он добавлен сюда.",
+   "有人与您分享了一个清单，已添加到这里。",
+   "تمت مشاركة قائمة معك وأُضيفت هنا."
+  ],
+  "Email my list": [
+   "Liste per E-Mail senden",
+   "Envoyer ma liste par e-mail",
+   "Invia la lista per e-mail",
+   "Enviar mi lista por correo",
+   "Отправить список по почте",
+   "通过邮件发送清单",
+   "أرسل قائمتي بالبريد"
+  ],
+  "Link copied": [
+   "Link kopiert",
+   "Lien copié",
+   "Link copiato",
+   "Enlace copiado",
+   "Ссылка скопирована",
+   "链接已复制",
+   "تم نسخ الرابط"
+  ],
+  "My Egypt trip list": [
+   "Meine Ägypten-Reiseliste",
+   "Ma liste de voyage en Égypte",
+   "La mia lista per l’Egitto",
+   "Mi lista de viaje a Egipto",
+   "Мой список для поездки в Египет",
+   "我的埃及旅行清单",
+   "قائمة رحلتي إلى مصر"
+  ],
+  "Share my list": [
+   "Liste teilen",
+   "Partager ma liste",
+   "Condividi la lista",
+   "Compartir mi lista",
+   "Поделиться списком",
+   "分享清单",
+   "شارك قائمتي"
+  ],
+  "Trips in {place}": [
+   "Touren in {place}",
+   "Excursions à {place}",
+   "Escursioni a {place}",
+   "Excursiones en {place}",
+   "Поездки: {place}",
+   "{place}的行程",
+   "رحلات في {place}"
+  ],
+  "{n} trips you can book": [
+   "{n} buchbare Touren",
+   "{n} excursions à réserver",
+   "{n} escursioni prenotabili",
+   "{n} excursiones que puedes reservar",
+   "Можно забронировать: {n}",
+   "{n}个可预订行程",
+   "{n} رحلات يمكنك حجزها"
   ]
  }
 }

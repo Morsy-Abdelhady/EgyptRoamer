@@ -189,6 +189,14 @@ $er_ep     = explode( ' · ', (string) $W['eyebrow'] );
 					<?php
 					if ( $er_n > 1 ) :
 						$er_rows = [
+							[ er_t( 'From' ), static function ( array $f, string $p = '', int $o = 0 ): array {
+								$l = er_offer_live( $o );
+								return isset( $l['price'] ) ? [ er_money( $l['price'], $l['currency'] ), '' ] : [ er_t( 'See {partner}’s page', [ 'partner' => $p ] ), 'no' ];
+							} ],
+							[ er_t( 'Rating' ), static function ( array $f, string $p = '', int $o = 0 ): array {
+								$l = er_offer_live( $o );
+								return isset( $l['rating'] ) ? [ '★ ' . number_format_i18n( $l['rating'], 1 ) . ' (' . number_format_i18n( $l['reviews'] ) . ')', 'yes' ] : [ er_t( 'See {partner}’s page', [ 'partner' => $p ] ), 'no' ];
+							} ],
 							[ er_t( 'Private' ), static function ( array $f ): array {
 								$g = (string) ( $f['group'] ?? '' );
 								return 'private' === $g ? [ er_t( 'Yes' ), 'yes' ] : ( 'small' === $g ? [ er_t( 'Small group' ), 'yes' ] : [ er_t( 'Not stated' ), 'no' ] );
@@ -220,7 +228,7 @@ $er_ep     = explode( ' · ', (string) $W['eyebrow'] );
 							</tr></thead>
 							<tbody>
 								<?php foreach ( $er_rows as [ $er_k, $er_fn ] ) : ?>
-									<tr><td><?php echo esc_html( $er_k ); ?></td><?php foreach ( $er_offers as $o ) { [ $v, $c ] = $er_fn( $er_facts( $o ), (string) er_offer_data( $o )['provider'] ); echo '<td' . ( '' !== $c ? ' class="' . esc_attr( $c ) . '"' : '' ) . '>' . esc_html( $v ) . '</td>'; } ?></tr>
+									<tr><td><?php echo esc_html( $er_k ); ?></td><?php foreach ( $er_offers as $o ) { [ $v, $c ] = $er_fn( $er_facts( $o ), (string) er_offer_data( $o )['provider'], $o ); echo '<td' . ( '' !== $c ? ' class="' . esc_attr( $c ) . '"' : '' ) . '>' . esc_html( $v ) . '</td>'; } ?></tr>
 								<?php endforeach; ?>
 							</tbody>
 						</table></div>
@@ -237,11 +245,14 @@ $er_ep     = explode( ' · ', (string) $W['eyebrow'] );
 							<div>
 								<?php if ( $is ) : ?><span class="pk">✓ <?php er_e( 'Our pick' ); ?><?php if ( '' !== $why ) : ?><span class="why"><?php echo esc_html( $why ); ?></span><?php endif; ?></span><?php endif; ?>
 								<h3<?php echo $od['title_lang'] ? ' lang="' . esc_attr( $od['title_lang'] ) . '" dir="ltr"' : ''; ?>><?php echo esc_html( $od['title'] ); ?></h3>
-								<div class="facts"><?php echo er_partner_chip( $slug, (string) $od['provider'] ); // phpcs:ignore WordPress.Security.EscapeOutput ?><?php foreach ( er_offer_facts_line( $er_facts( $o ) ) as $b ) { echo '<span>' . esc_html( $b ) . '</span>'; } ?><?php if ( ! empty( $er_facts( $o )['cancel'] ) ) : ?><span class="fc">✓ <?php er_e( 'Free cancellation' ); ?></span><?php endif; ?></div>
+								<div class="facts"><?php echo er_partner_chip( $slug, (string) $od['provider'] ); // phpcs:ignore WordPress.Security.EscapeOutput ?><?php $er_lc = er_offer_live_chips( $o ); foreach ( $er_lc as $er_k => $er_v ) { echo '<span class="live live--' . esc_attr( $er_k ) . '">' . esc_html( $er_v ) . '</span>'; } ?><?php foreach ( er_offer_facts_line( $er_facts( $o ) ) as $b ) { echo '<span>' . esc_html( $b ) . '</span>'; } ?><?php if ( ! empty( $er_facts( $o )['cancel'] ) ) : ?><span class="fc">✓ <?php er_e( 'Free cancellation' ); ?></span><?php endif; ?></div>
 							</div>
 							<?php echo er_offer_cta_html( $o, [ 'placement' => 'experience-offers', 'source' => $er_source, 'class' => 'btn btn--sm ' . ( $gold ? 'btn--gold' : 'btn--line' ), 'label' => er_t( 'Book' ), 'icon' => ' ↗' ] ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 						</div>
 					<?php endforeach; ?>
+					<?php if ( array_filter( array_map( 'er_offer_live', $er_offers ) ) ) : ?>
+						<p class="wlive"><?php er_e( 'Prices and ratings as the partner states them today. The final price depends on your date and group; you see it on the partner’s page before you pay.' ); ?></p>
+					<?php endif; ?>
 					<?php if ( $er_hotels ) : ?>
 						<div class="wstay">
 							<h3><?php echo esc_html( '' !== $W['stay'] ? $W['stay'] : er_t( 'Staying in {name}?', [ 'name' => (string) $args['stay_name'] ] ) ); ?></h3>

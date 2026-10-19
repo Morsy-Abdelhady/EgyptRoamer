@@ -114,12 +114,53 @@ add_action( 'pre_get_posts', static function ( WP_Query $q ): void {
 }, 20 );
 
 add_action( 'wp_enqueue_scripts', static function (): void {
-	if ( er_world_on() && is_singular( 'er_guide' ) ) {
+	if ( er_world_on() && is_singular( [ 'er_guide', 'er_destination' ] ) ) {
 		wp_enqueue_style( 'er-p4-guide', ER_THEME_URI . '/assets/css/p4-guide.css', [ 'er-pages' ], er_asset_ver( 'assets/css/p4-guide.css' ) );
 		wp_enqueue_style( 'er-p4-archives', ER_THEME_URI . '/assets/css/p4-archives.css', [ 'er-pages' ], er_asset_ver( 'assets/css/p4-archives.css' ) );
 		wp_enqueue_script( 'er-p4-guide', ER_THEME_URI . '/assets/js/p4-guide.js', [], er_asset_ver( 'assets/js/p4-guide.js' ), [ 'in_footer' => true, 'strategy' => 'defer' ] );
+	}
+	if ( is_page_template( 'templates/hotels.php' ) ) {
+		wp_enqueue_style( 'er-p4-archives', ER_THEME_URI . '/assets/css/p4-archives.css', [ 'er-pages' ], er_asset_ver( 'assets/css/p4-archives.css' ) );
+		wp_enqueue_style( 'er-home-story', ER_THEME_URI . '/assets/css/home-story.css', [ 'er-pages' ], er_asset_ver( 'assets/css/home-story.css' ) );
+	}
+	if ( is_page_template( 'templates/sources.php' ) ) {
+		wp_enqueue_style( 'er-p4-archives', ER_THEME_URI . '/assets/css/p4-archives.css', [ 'er-pages' ], er_asset_ver( 'assets/css/p4-archives.css' ) );
 	}
 	if ( er_world_on() && ( is_post_type_archive( [ 'er_experience', 'er_destination', 'er_guide' ] ) ) ) {
 		wp_enqueue_style( 'er-p4-archives', ER_THEME_URI . '/assets/css/p4-archives.css', [ 'er-pages' ], er_asset_ver( 'assets/css/p4-archives.css' ) );
 	}
 }, 21 );
+
+/** The About, Sources and Hotels pages in the current language (Core option er_trust_pages), as [ url, title ]. */
+function er_trust_page( string $kind ): array {
+	$id = (int) ( ( (array) get_option( 'er_trust_pages', [] ) )[ $kind ] ?? 0 );
+	$id = $id && function_exists( 'er_translated_post_id' ) ? (int) er_translated_post_id( $id ) : $id;
+	return $id && 'publish' === get_post_status( $id ) ? [ (string) get_permalink( $id ), get_the_title( $id ) ] : [];
+}
+
+/* "Hotels" in the main menu (header and phone menu), after the Travel Guide, in every language. */
+add_filter( 'wp_nav_menu_objects', static function ( array $items, $args ): array {
+	$loc = (string) ( $args->theme_location ?? '' );
+	if ( ! er_world_on() || 0 !== strpos( $loc, 'primary' ) || ! $items ) {
+		return $items;
+	}
+	$page = er_trust_page( 'hotels' );
+	if ( ! $page || array_filter( $items, static fn ( $i ) => (string) $i->url === $page[0] ) ) {
+		return $items;
+	}
+	$item                   = clone end( $items );
+	$item->ID               = 990001;
+	$item->db_id            = 990001;
+	$item->title            = er_t( 'Hotels' );
+	$item->url              = $page[0];
+	$item->menu_item_parent = '0';
+	$item->object           = 'page';
+	$item->type             = 'custom';
+	$item->classes          = [ 'menu-item' ];
+	$item->current          = is_page_template( 'templates/hotels.php' );
+	if ( $item->current ) {
+		$item->classes[] = 'current-menu-item';
+	}
+	$items[] = $item;
+	return $items;
+}, 30, 2 );

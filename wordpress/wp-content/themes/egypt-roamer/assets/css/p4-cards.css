@@ -302,3 +302,21 @@
 .footer__logo {
   width: min(100%, 260px);
 }
+
+/* "From US$28 on Viator" under the options count (live, Viator API) */
+.tcard__from {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Saved list: share or email it (favorites.js) */
+.saved-share {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 0 4px;
+  border-top: 1px solid var(--line);
+  margin-top: 8px;
+}

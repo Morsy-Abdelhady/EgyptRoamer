@@ -650,6 +650,14 @@ function er_trip_card( int $post_id, array $offers, string $heading = 'h3' ): st
 	if ( '' !== $er_leave ) {
 		array_unshift( $facts, $er_leave );
 	}
+	// The lowest live price among the options whose partner states one (Viator API), named with its partner.
+	$er_low = null;
+	foreach ( $offers as $er_o ) {
+		$er_l = er_offer_live( (int) $er_o );
+		if ( isset( $er_l['price'] ) && ( null === $er_low || $er_l['price'] < $er_low[0] ) ) {
+			$er_low = [ $er_l['price'], $er_l['currency'], (string) er_offer_data( (int) $er_o )['provider'] ];
+		}
+	}
 	$n       = count( $offers );
 	$stock   = function_exists( 'er_stock_id_for' ) ? er_stock_id_for( $post_id ) : '';
 	$thumb   = (int) get_post_thumbnail_id( $post_id );
@@ -678,7 +686,7 @@ function er_trip_card( int $post_id, array $offers, string $heading = 'h3' ): st
 				</div>
 			<?php endif; ?>
 			<div class="tcard__foot">
-				<span><?php echo str_replace( '{options}', '<b>' . esc_html( $options ) . '</b>', esc_html( er_t( '{options} to compare' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped parts ?></span>
+				<span><?php echo str_replace( '{options}', '<b>' . esc_html( $options ) . '</b>', esc_html( er_t( '{options} to compare' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped parts ?><?php if ( $er_low ) : ?><small class="tcard__from"><?php echo esc_html( er_t( 'From {price} on {partner}', [ 'price' => er_money( $er_low[0], $er_low[1] ), 'partner' => $er_low[2] ] ) ); ?></small><?php endif; ?></span>
 				<span class="tcard__go"><?php echo esc_html( er_t( 'See options' ) ); ?> <span class="tcard__arrow" aria-hidden="true">→</span></span>
 			</div>
 		</div>
@@ -1354,3 +1362,32 @@ add_filter( 'the_content', static function ( string $content ): string {
 	$h2      = strpos( $without, '<h2' );
 	return substr_replace( $without, $toc[0][0] . "\n", $h2, 0 );
 }, 20 );
+
+/**
+ * What the partner states live about an offer, through its API (Core includes/viator.php): rating, number of
+ * reviews, the lowest price for the coming dates (read in the last 24 hours) and its currency. Only Viator offers
+ * have an API today; [] for the others.
+ */
+function er_offer_live( int $offer_id ): array {
+	return function_exists( 'er_viator_live_for_offer' ) ? er_viator_live_for_offer( $offer_id ) : [];
+}
+
+/** "US$36", "€60", "US$28.53": a partner's price as the partner states it. */
+function er_money( float $amount, string $currency ): string {
+	$sym = [ 'USD' => 'US$', 'EUR' => '€', 'GBP' => '£', 'EGP' => 'E£' ][ strtoupper( $currency ) ] ?? strtoupper( $currency ) . ' ';
+	$num = floor( $amount ) == $amount ? number_format_i18n( $amount ) : number_format_i18n( $amount, 2 );
+	return $sym . $num;
+}
+
+/** The live chips for an option: "★ 4.9 (834)" and "From US$28.53". */
+function er_offer_live_chips( int $offer_id ): array {
+	$l   = er_offer_live( $offer_id );
+	$out = [];
+	if ( isset( $l['rating'] ) ) {
+		$out['rating'] = '★ ' . number_format_i18n( $l['rating'], 1 ) . ' (' . number_format_i18n( $l['reviews'] ) . ')';
+	}
+	if ( isset( $l['price'] ) ) {
+		$out['price'] = er_t( 'From {price}', [ 'price' => er_money( $l['price'], $l['currency'] ) ] );
+	}
+	return $out;
+}

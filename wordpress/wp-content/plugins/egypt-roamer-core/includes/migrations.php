@@ -61,4 +61,36 @@ add_action( 'admin_init', static function (): void {
 			update_option( 'er_migrations', $done, false );
 		}
 	}
+	// 20 Oct (owner): an About page and the Sources page every guide promises, in each language.
+	if ( empty( $done['trust-pages-3'] ) && function_exists( 'pll_set_post_language' ) ) {
+		$pages = (array) require ER_CORE_DIR . 'data/trust-pages.php';
+		$ids   = [];
+		foreach ( $pages as $kind => $langs ) {
+			$group = [];
+			foreach ( $langs as $lang => [ $slug, $title, $content ] ) {
+				$found = get_posts( [ 'post_type' => 'page', 'name' => $slug, 'post_status' => 'any', 'numberposts' => 1, 'fields' => 'ids', 'lang' => '' ] );
+				$id    = $found ? (int) $found[0] : (int) wp_insert_post( [ 'post_type' => 'page', 'post_status' => 'publish', 'post_title' => $title, 'post_name' => $slug, 'post_content' => $content ] );
+				if ( ! $id ) {
+					continue;
+				}
+				// The seed's untouched placeholder (an unpublished draft with its editorial note) gets this text;
+				// a page an editor has written is left as it is.
+				if ( $found && 'publish' !== get_post_status( $id ) && false !== strpos( (string) get_post_field( 'post_content', $id ), 'er-editorial-note' ) ) {
+					wp_update_post( [ 'ID' => $id, 'post_title' => $title, 'post_content' => $content, 'post_status' => 'publish' ] );
+				}
+				pll_set_post_language( $id, $lang );
+				if ( in_array( $kind, [ 'sources', 'hotels' ], true ) ) {
+					update_post_meta( $id, '_wp_page_template', 'templates/' . $kind . '.php' );
+				}
+				$group[ $lang ] = $id;
+			}
+			if ( function_exists( 'pll_save_post_translations' ) && $group ) {
+				pll_save_post_translations( $group );
+			}
+			$ids[ $kind ] = (int) ( $group['en'] ?? 0 );
+		}
+		update_option( 'er_trust_pages', $ids, false );
+		$done['trust-pages-3'] = gmdate( 'c' );
+		update_option( 'er_migrations', $done, false );
+	}
 } );

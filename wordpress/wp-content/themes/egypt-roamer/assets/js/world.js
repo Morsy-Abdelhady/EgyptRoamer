@@ -47,10 +47,12 @@
     new IntersectionObserver(function (es) {
       es.forEach(function (e) { seen[e.target === choose ? "choose" : "open"] = e.isIntersecting; });
       cap.hidden = seen.choose || seen.open;
+      document.documentElement.classList.toggle("has-p4bar", !cap.hidden);
     }, { threshold: 0.2 }).observe(choose);
     new IntersectionObserver(function (es) {
       es.forEach(function (e) { seen.open = e.isIntersecting; });
       cap.hidden = seen.choose || seen.open;
+      document.documentElement.classList.toggle("has-p4bar", !cap.hidden);
     }).observe(acts);
   }
 

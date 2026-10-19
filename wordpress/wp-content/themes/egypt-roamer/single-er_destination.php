@@ -13,6 +13,13 @@ get_header();
 while ( have_posts() ) :
 	the_post();
 	$er_id     = get_the_ID();
+	// Proposal 4: the place in the guide pages' design, with its trips and hotels (template-parts/guide-p4.php).
+	if ( function_exists( 'er_world_on' ) && er_world_on() ) {
+		$er_pbody         = er_body();
+		$er_pbody['html'] = er_card_photos( (string) $er_pbody['html'], (int) $er_id );
+		get_template_part( 'template-parts/guide-p4', null, [ 'body' => $er_pbody, 'mode' => 'place' ] );
+		continue;
+	}
 	$er_things = er_get_referencing( $er_id, [ 'er_experience', 'er_tour' ], '_er_destination', 9 );
 	$er_acts   = er_get_referencing( $er_id, 'er_activity', '_er_destination', 6 );
 	$er_guides = er_get_referencing( $er_id, 'er_guide', '_er_destination', 6 );

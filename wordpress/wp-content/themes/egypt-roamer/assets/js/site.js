@@ -422,14 +422,55 @@
           <button class="save-btn" type="button" style="background:var(--stone);color:var(--clay)" data-save='${escapeHtml(JSON.stringify(it))}' aria-pressed="true" aria-label="${escapeHtml(t("Remove {title}", { title: it.title }))}">${icon("i-heart")}</button>
         </article>`
       )
-      .join("");
+      .join("") + shareBar(list);
+  }
+
+  /* Share the list (owner, 20 Oct): the items travel in the link's #saved= fragment (never sent to the server), so a
+     list opens on another phone or in an email. */
+  function shareLink() {
+    const items = [...saved.values()].map(({ id, title, image, meta, url }) => ({ id, title, image: typeof image === "string" ? image : "", meta, url }));
+    const enc = btoa(unescape(encodeURIComponent(JSON.stringify(items))));
+    return location.origin + location.pathname + "#saved=" + enc;
+  }
+  function shareBar(list) {
+    const L = list.dataset;
+    if (!L.lShare) return "";
+    const mail = `mailto:?subject=${encodeURIComponent(L.lSubject || "")}&body=${encodeURIComponent(shareLink())}`;
+    return `<div class="saved-share"><button type="button" class="btn btn--dark btn--sm" data-saved-share>${escapeHtml(L.lShare)}</button><a class="btn btn--outline btn--sm" href="${escapeHtml(mail)}">${escapeHtml(L.lEmail)}</a></div>`;
+  }
+  function importShared() {
+    const m = location.hash.match(/^#saved=([A-Za-z0-9+/=]+)/);
+    if (!m) return false;
+    try {
+      const items = JSON.parse(decodeURIComponent(escape(atob(m[1]))));
+      items.forEach((it) => { if (it && it.id && it.title && (!it.url || /^https?:\/\//.test(it.url))) saved.set(it.id, it); });
+      persist();
+      history.replaceState(null, "", location.pathname + location.search);
+      return items.length > 0;
+    } catch { return false; }
   }
 
   function initFavorites() {
     load();
+    const shared = importShared();
     syncButtons();
+    if (shared) {
+      const list = document.querySelector("[data-saved-list]");
+      toast(list?.dataset.lShared || "", "i-heart");
+      document.querySelector('[data-open="saved"]')?.click();
+    }
     on("favorites:refresh", syncButtons); // buttons drawn later (the Trip Builder's "Save this plan")
-    document.addEventListener("click", (e) => {
+    document.addEventListener("click", async (e) => {
+      const sh = e.target.closest("[data-saved-share]");
+      if (sh) {
+        const url = shareLink();
+        const L = document.querySelector("[data-saved-list]")?.dataset || {};
+        try {
+          if (navigator.share) await navigator.share({ title: L.lSubject || document.title, url });
+          else { await navigator.clipboard.writeText(url); toast(L.lCopied || "", "i-heart"); }
+        } catch {}
+        return;
+      }
       const btn = e.target.closest("[data-save]");
       if (!btn) return;
       e.preventDefault();

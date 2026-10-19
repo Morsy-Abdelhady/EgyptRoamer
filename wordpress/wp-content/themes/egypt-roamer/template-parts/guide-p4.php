@@ -14,15 +14,18 @@ defined( 'ABSPATH' ) || exit;
 $er_id    = (int) get_the_ID();
 $er_en    = function_exists( 'pll_get_post' ) ? ( (int) pll_get_post( $er_id, 'en' ) ?: $er_id ) : $er_id;
 $er_slug  = (string) get_post_field( 'post_name', $er_en );
-$er_dests = er_get_related( $er_id, '_er_destination' );
-$er_trips = array_values( array_filter( array_map( 'intval', wp_list_pluck( er_get_related( $er_id, '_er_related' ), 'ID' ) ), static fn ( $i ) => 'publish' === get_post_status( $i ) && 'er_experience' === get_post_type( $i ) ) );
+// A place page (Luxor, Cairo…) uses the same layout, with the place's trips and hotels (owner, 20 Oct).
+$er_isplace = 'place' === ( $args['mode'] ?? '' );
+$er_dests   = $er_isplace ? [ get_post( $er_id ) ] : er_get_related( $er_id, '_er_destination' );
+$er_trips   = $er_isplace ? er_world_place_trips( $er_id ) : array_values( array_filter( array_map( 'intval', wp_list_pluck( er_get_related( $er_id, '_er_related' ), 'ID' ) ), static fn ( $i ) => 'publish' === get_post_status( $i ) && 'er_experience' === get_post_type( $i ) ) );
 // Itineraries and whole-country guides name several trips: they show the trips on the route, not one trip.
-$er_route = (bool) preg_match( '/days-in-egypt|best-time|hidden-gems|day-trips/', $er_slug ) || count( $er_trips ) >= 3;
+$er_route = $er_isplace || (bool) preg_match( '/days-in-egypt|best-time|hidden-gems|day-trips/', $er_slug ) || count( $er_trips ) >= 3;
 $er_plan  = (bool) preg_match( '/days-in-egypt/', $er_slug );
 $er_main  = ! $er_route && $er_trips ? $er_trips[0] : 0;
 $er_place = count( $er_dests ) && count( $er_dests ) <= 2 ? implode( ' & ', array_map( 'get_the_title', $er_dests ) ) : er_t( 'Egypt' );
-$er_terms = get_the_terms( $er_id, 'er_guide_topic' );
+$er_terms = $er_isplace ? false : get_the_terms( $er_id, 'er_guide_topic' );
 $er_topic = $er_terms && ! is_wp_error( $er_terms ) ? $er_terms[0]->name : '';
+$er_pname = get_the_title( $er_id );
 $er_min   = function_exists( 'er_read_minutes' ) ? er_read_minutes( $er_id ) : 0;
 $er_body  = (array) $args['body'];
 $er_html  = (string) $er_body['html'];
@@ -103,10 +106,10 @@ $er_hero = [
 	'snorkelling-hurghada-or-sharm'         => [ 'video', '1616967304670-b75cf9ab4582', '', 'redsea-reef' ],
 ][ $er_slug ] ?? null;
 $er_thumb = (int) get_post_thumbnail_id( $er_id );
-$er_stock = function_exists( 'er_ux2_guide_photo' ) && '' !== er_ux2_guide_photo( $er_id ) ? er_ux2_guide_photo( $er_id ) : er_stock_id_for( $er_id );
+$er_stock = ! $er_isplace && function_exists( 'er_ux2_guide_photo' ) && '' !== er_ux2_guide_photo( $er_id ) ? er_ux2_guide_photo( $er_id ) : er_stock_id_for( $er_id );
 $er_himg  = $er_hero ? er_stock_img( $er_hero[1], '', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw' ], [ 960, 1400, 2000 ] ) : ( $er_thumb ? er_img( $er_thumb, 'er-hero', [ 'alt' => '', 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw' ] ) : ( '' !== $er_stock ? er_stock_img( $er_stock, '', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw' ], [ 960, 1400, 2000 ] ) : '' ) );
-$er_gidx  = (string) get_post_type_archive_link( 'er_guide' );
-$er_pidx  = 1 === count( $er_dests ) ? add_query_arg( 'destination', (int) $er_dests[0]->ID, $er_gidx ) : $er_gidx;
+$er_gidx  = (string) get_post_type_archive_link( $er_isplace ? 'er_destination' : 'er_guide' );
+$er_pidx  = ! $er_isplace && 1 === count( $er_dests ) ? add_query_arg( 'destination', (int) $er_dests[0]->ID, $er_gidx ) : $er_gidx;
 $er_src   = (int) get_queried_object_id();
 $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.' );
 ?>
@@ -118,13 +121,23 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 		<?php endif; ?>
 		<div class="wrap">
 			<div class="visually-hidden"><?php er_breadcrumbs(); ?></div>
-			<p class="crumb" aria-hidden="true"><a href="<?php echo esc_url( $er_gidx ); ?>"><?php er_e( 'Travel Guide' ); ?></a><span>›</span><a href="<?php echo esc_url( $er_pidx ); ?>"><?php echo esc_html( $er_place ); ?></a></p>
-			<?php if ( '' !== $er_topic ) : ?><p class="eyebrow"><?php echo esc_html( er_t( '{topic} guide', [ 'topic' => $er_topic ] ) ); ?></p><?php endif; ?>
+			<?php if ( $er_isplace ) : ?>
+				<p class="crumb" aria-hidden="true"><a href="<?php echo esc_url( $er_gidx ); ?>"><?php er_e( 'Places' ); ?></a><span>›</span><span><?php echo esc_html( $er_pname ); ?></span></p>
+				<?php $er_reg = (string) get_post_meta( $er_id, '_er_region_label', true ); ?>
+				<?php if ( '' !== $er_reg ) : ?><p class="eyebrow"><?php echo esc_html( $er_reg ); ?></p><?php endif; ?>
+			<?php else : ?>
+				<p class="crumb" aria-hidden="true"><a href="<?php echo esc_url( $er_gidx ); ?>"><?php er_e( 'Travel Guide' ); ?></a><span>›</span><a href="<?php echo esc_url( $er_pidx ); ?>"><?php echo esc_html( $er_place ); ?></a></p>
+				<?php if ( '' !== $er_topic ) : ?><p class="eyebrow"><?php echo esc_html( er_t( '{topic} guide', [ 'topic' => $er_topic ] ) ); ?></p><?php endif; ?>
+			<?php endif; ?>
 			<h1><?php the_title(); ?></h1>
-			<?php if ( has_excerpt() ) : ?><p class="lead"><?php echo esc_html( get_the_excerpt() ); ?></p><?php endif; ?>
+			<?php $er_lead = has_excerpt() ? get_the_excerpt() : (string) get_post_meta( $er_id, '_er_tagline', true ); ?>
+			<?php if ( '' !== $er_lead ) : ?><p class="lead"><?php echo esc_html( $er_lead ); ?></p><?php endif; ?>
 			<div class="ameta">
+				<?php $er_best = $er_isplace ? (string) get_post_meta( $er_id, '_er_best_time', true ) : ''; ?>
+				<?php if ( '' !== $er_best ) : ?><span><?php echo esc_html( er_t( 'Best time' ) . ' ' . $er_best ); ?></span><?php endif; ?>
+				<?php if ( $er_isplace && $er_all ) : ?><span><?php echo esc_html( 1 === count( $er_all ) ? er_t( '1 trip' ) : er_t( '{n} trips', [ 'n' => (string) count( $er_all ) ] ) ); ?></span><?php endif; ?>
 				<?php if ( $er_min ) : ?><span><?php echo esc_html( er_t( '{n} min read', [ 'n' => $er_min ] ) ); ?></span><?php endif; ?>
-				<span><?php echo esc_html( er_t( '{n} sections', [ 'n' => count( array_filter( $er_links, static fn ( $l ) => 'faq' !== $l[0] ) ) ] ) ); ?></span>
+				<?php if ( ! $er_isplace ) : ?><span><?php echo esc_html( er_t( '{n} sections', [ 'n' => count( array_filter( $er_links, static fn ( $l ) => 'faq' !== $l[0] ) ) ] ) ); ?></span><?php endif; ?>
 				<span><?php er_e( 'Sources listed' ); ?></span>
 				<time class="visually-hidden" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( er_local_date() ); ?></time>
 			</div>
@@ -147,7 +160,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 	<div class="abody">
 		<article class="prose">
 			<?php echo $er_html; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?>
-			<p class="asrc"><?php er_e( 'Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.' ); ?></p>
+			<p class="asrc"><?php er_e( 'Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.' ); ?><?php $er_sp = er_trust_page( 'sources' ); ?><?php if ( $er_sp ) : ?> <a href="<?php echo esc_url( $er_sp[0] ); ?>"><?php echo esc_html( $er_sp[1] ); ?> →</a><?php endif; ?></p>
 			<?php if ( $M ) : ?>
 				<div class="gmore">
 					<?php foreach ( array_slice( $er_all, 1 ) as $T ) : ?>
@@ -180,10 +193,20 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 			<?php elseif ( $er_all ) : ?>
 				<div class="bk" id="book">
 					<div class="bk__b">
-						<small><?php echo esc_html( $er_plan ? er_t( 'Trips on this route' ) : er_t( 'Trips in this guide' ) ); ?></small>
-						<h3><?php echo esc_html( $er_plan ? er_t( '{n} trips for this plan', [ 'n' => count( $er_all ) ] ) : ( 1 === count( $er_all ) ? er_t( '1 trip mentioned here' ) : er_t( '{n} trips mentioned here', [ 'n' => count( $er_all ) ] ) ) ); ?></h3>
+						<small><?php echo esc_html( $er_isplace ? er_t( 'Trips in {place}', [ 'place' => $er_pname ] ) : ( $er_plan ? er_t( 'Trips on this route' ) : er_t( 'Trips in this guide' ) ) ); ?></small>
+						<h3><?php echo esc_html( $er_isplace ? er_t( '{n} trips you can book', [ 'n' => count( $er_all ) ] ) : ( $er_plan ? er_t( '{n} trips for this plan', [ 'n' => count( $er_all ) ] ) : ( 1 === count( $er_all ) ? er_t( '1 trip mentioned here' ) : er_t( '{n} trips mentioned here', [ 'n' => count( $er_all ) ] ) ) ) ); ?></h3>
 						<ul class="rtl"><?php foreach ( $er_all as $T ) { echo er_world_guide_rcard( $T ); } // phpcs:ignore WordPress.Security.EscapeOutput ?></ul>
-						<a class="btn btn--gold" href="<?php echo esc_url( (string) get_post_type_archive_link( 'er_experience' ) ); ?>"><?php er_e( 'See all trips' ); ?> →</a>
+						<a class="btn btn--gold" href="<?php echo esc_url( $er_isplace ? er_ux2_trip_url( [ 'destination' => $er_id, 'len' => '', 'private' => false, 'pickup' => false ] ) : (string) get_post_type_archive_link( 'er_experience' ) ); ?>"><?php echo esc_html( $er_isplace ? er_t( 'All {place} trips', [ 'place' => $er_pname ] ) : er_t( 'See all trips' ) ); ?> →</a>
+						<?php $er_ph = $er_isplace && function_exists( 'er_hotel_offers_for_post' ) ? er_hotel_offers_for_post( $er_id, 6 ) : []; ?>
+						<?php if ( $er_ph ) : ?>
+							<p class="bk__h"><?php echo esc_html( er_t( 'Staying in {name}?', [ 'name' => $er_pname ] ) ); ?></p>
+							<?php
+							foreach ( $er_ph as $er_hh ) {
+								$er_ho = er_offer_data( (int) $er_hh, 'destination-hotels', $er_src );
+								echo er_offer_cta_html( (int) $er_hh, [ 'placement' => 'destination-hotels', 'source' => $er_src, 'class' => 'bk__stay', 'label' => '', 'icon' => '<span>' . esc_html( (string) $er_ho['title'] ) . '<small>' . esc_html( (string) $er_ho['location'] ) . '</small></span><em>' . esc_html( (string) $er_ho['provider'] ) . ' ↗</em>' ] ); // phpcs:ignore WordPress.Security.EscapeOutput
+							}
+							?>
+						<?php endif; ?>
 					</div>
 				</div>
 				<p class="bk__disc"><?php echo esc_html( $er_disc ); ?></p>
@@ -199,7 +222,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 		<section class="aend aend--tomb">
 			<div class="glyphs" aria-hidden="true"><?php echo esc_html( str_repeat( '𓂀𓇳𓋹𓆣𓊹𓁹𓃭𓈗', 30 ) ); ?></div>
 			<div class="wrap rt-end">
-				<div><p class="eyebrow"><?php er_e( 'Ready to go?' ); ?></p><h2><?php echo esc_html( $er_plan ? er_t( 'Trips on this route' ) : er_t( 'Trips in this guide' ) ); ?></h2><p><?php er_e( 'Each trip has its own page, where its options are compared side by side. Free cancellation up to 24 hours before, on every option.' ); ?></p></div>
+				<div><p class="eyebrow"><?php er_e( 'Ready to go?' ); ?></p><h2><?php echo esc_html( $er_isplace ? er_t( 'Trips in {place}', [ 'place' => $er_pname ] ) : ( $er_plan ? er_t( 'Trips on this route' ) : er_t( 'Trips in this guide' ) ) ); ?></h2><p><?php er_e( 'Each trip has its own page, where its options are compared side by side. Free cancellation up to 24 hours before, on every option.' ); ?></p></div>
 				<ul class="rtl rtl--dark"><?php foreach ( $er_all as $T ) { echo er_world_guide_rcard( $T ); } // phpcs:ignore WordPress.Security.EscapeOutput ?></ul>
 			</div>
 		</section>
@@ -222,7 +245,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 					<p class="aopts__t"><?php echo esc_html( er_t( '{n} ways to do it', [ 'n' => $M['n'] ] ) ); ?></p>
 					<ul class="aopts">
 						<?php foreach ( $M['offers'] as $er_o ) : $er_od = er_offer_data( (int) $er_o, 'guide-end', $er_src ); ?>
-							<li><div><b<?php echo $er_od['title_lang'] ? ' lang="' . esc_attr( $er_od['title_lang'] ) . '" dir="ltr"' : ''; ?>><?php echo esc_html( $er_od['title'] ); ?></b><small><i><?php echo esc_html( (string) $er_od['provider'] ); ?></i><?php echo esc_html( implode( ' · ', er_offer_facts_line( er_offer_facts( (int) $er_o ) ) ) ); ?></small></div><?php echo er_offer_cta_html( (int) $er_o, [ 'placement' => 'guide-end', 'source' => $er_src, 'class' => 'btn btn--line btn--sm', 'label' => er_t( 'Book' ), 'icon' => ' ↗' ] ); // phpcs:ignore WordPress.Security.EscapeOutput ?></li>
+							<li><div><b<?php echo $er_od['title_lang'] ? ' lang="' . esc_attr( $er_od['title_lang'] ) . '" dir="ltr"' : ''; ?>><?php echo esc_html( $er_od['title'] ); ?></b><small><i><?php echo esc_html( (string) $er_od['provider'] ); ?></i><?php echo esc_html( implode( ' · ', array_merge( array_values( er_offer_live_chips( (int) $er_o ) ), er_offer_facts_line( er_offer_facts( (int) $er_o ) ) ) ) ); ?></small></div><?php echo er_offer_cta_html( (int) $er_o, [ 'placement' => 'guide-end', 'source' => $er_src, 'class' => 'btn btn--line btn--sm', 'label' => er_t( 'Book' ), 'icon' => ' ↗' ] ); // phpcs:ignore WordPress.Security.EscapeOutput ?></li>
 						<?php endforeach; ?>
 					</ul>
 				</div>
@@ -232,7 +255,8 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 
 	<?php
 	// Keep reading: other guides about the same place (prototype order).
-	$er_dids = array_map( static fn ( $d ) => (int) $d->ID, $er_dests );
+	$er_dids  = array_map( static fn ( $d ) => (int) $d->ID, $er_dests );
+	$er_place = $er_isplace ? $er_pname : $er_place;
 	$er_more = [];
 	foreach ( er_world_guide_order( $er_guide ) as $er_g ) {
 		if ( $er_g !== $er_id && array_intersect( $er_dids, array_map( static fn ( $d ) => (int) $d->ID, er_get_related( $er_g, '_er_destination' ) ) ) ) {
@@ -265,6 +289,6 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 	<?php if ( $M ) : ?>
 		<div class="mbar" data-mbar data-bookbar><div><small>✓ <?php er_e( 'Free cancellation' ); ?></small><b><?php echo esc_html( $M['title'] ); ?></b></div><a class="btn btn--gold btn--sm" href="<?php echo esc_url( $M['url'] . '#book' ); ?>"><?php echo esc_html( er_t( 'See {n} options', [ 'n' => $M['n'] ] ) ); ?></a></div>
 	<?php elseif ( $er_route && $er_all ) : ?>
-		<div class="mbar" data-mbar data-bookbar><div><small>✓ <?php er_e( 'Free cancellation on every trip' ); ?></small><b><?php echo esc_html( er_t( '{n} trips on this route', [ 'n' => count( $er_all ) ] ) ); ?></b></div><a class="btn btn--gold btn--sm" href="#book"><?php er_e( 'See the trips' ); ?></a></div>
+		<div class="mbar" data-mbar data-bookbar><div><small>✓ <?php er_e( 'Free cancellation on every trip' ); ?></small><b><?php echo esc_html( $er_isplace ? er_t( 'Trips in {place}', [ 'place' => $er_pname ] ) : er_t( '{n} trips on this route', [ 'n' => count( $er_all ) ] ) ); ?></b></div><a class="btn btn--gold btn--sm" href="#book"><?php er_e( 'See the trips' ); ?></a></div>
 	<?php endif; ?>
 </div>

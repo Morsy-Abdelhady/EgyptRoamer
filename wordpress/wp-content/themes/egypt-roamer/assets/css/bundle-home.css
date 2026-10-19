@@ -9233,3 +9233,17 @@ transform: rotate(90deg);
 .footer__logo {
 width: min(100%, 260px);
 }
+.tcard__from {
+display: block;
+margin-top: 2px;
+font-size: 12px;
+color: var(--text-muted);
+}
+.saved-share {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+padding: 16px 0 4px;
+border-top: 1px solid var(--line);
+margin-top: 8px;
+}

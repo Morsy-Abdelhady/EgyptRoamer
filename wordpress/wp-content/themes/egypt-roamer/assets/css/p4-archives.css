@@ -347,3 +347,17 @@
 }
 .p4body--experience .tbanner p{font-size:16px;margin-top:2px}
 .p4body--experience .tbanner__go{font-size:13.5px;border-bottom:0}
+
+/* The Sources page (templates/sources.php) */
+.srcs{max-width:860px;padding-bottom:64px}
+.srcs__note{color:var(--text-muted);font-size:14px}
+.srcs__list{margin:18px 0 0;padding-inline-start:1.4em;display:grid;gap:18px}
+.srcs__list li{padding-bottom:16px;border-bottom:1px solid var(--line)}
+.srcs__claim{margin:0 0 6px;line-height:1.6}
+.srcs__links{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin:0;font-size:14px}
+.srcs__links a{color:var(--nile,#0e3a5b);font-weight:600}
+.srcs__links small{color:var(--text-muted)}
+
+/* The Hotels page: the section header is the page header */
+.p4hotels .stay2 > .container > .eyebrow,.p4hotels .stay2 > .container > h2,.p4hotels .stay2__intro{display:none}
+.p4hotels .stay2{padding-top:40px}

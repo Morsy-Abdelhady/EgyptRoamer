@@ -249,3 +249,19 @@
     padding: 6px 6px 6px 16px !important;
   }
 }
+
+/* Live partner data (Viator API): rating and from-price on each option */
+.p4w .wopt .facts .live{color:#fff;border-color:color-mix(in srgb,var(--wc) 55%,transparent);font-weight:600}
+.p4w .wopt .facts .live--rating{color:#ffd77a}
+.p4w .wlive{margin:6px 0 4px;font-size:12px;color:#a9a08f}
+
+/* One bar at the bottom of a phone: while the trip's booking bar shows, the dock steps aside and the bar takes its place */
+@media (max-width: 900px) {
+  html.has-p4bar .dock {
+    transform: translateY(140%);
+  }
+  html.has-p4bar .p4w .capsule {
+    inset-inline: 0.75rem 4.75rem !important;
+    bottom: calc(0.75rem + env(safe-area-inset-bottom)) !important;
+  }
+}
