@@ -35,10 +35,21 @@ if ( $er_ux2_trips ) {
 $er_filterable = in_array( $er_type, [ 'er_tour', 'er_experience', 'er_activity', 'er_guide' ], true ) && ( have_posts() || $er_f_dest || $er_f_style || $er_f_topic );
 
 echo '<main id="main">';
-er_page_hero( [ 'eyebrow' => er_t( 'Egypt Roamer' ), 'title' => $er_title, 'intro' => $er_intro ] );
+// Proposal 4: the prototype's photo headers, the sticky trip filters and the guides' "Where" chips (inc/world-archives.php).
+$er_p4 = function_exists( 'er_world_on' ) && er_world_on() && in_array( $er_type, [ 'er_experience', 'er_destination', 'er_guide' ], true );
+if ( $er_p4 ) {
+	er_world_archive_hero( $er_type, $er_title, $er_intro );
+	if ( $er_ux2_trips ) {
+		er_world_trip_filter_bar( count( $er_ids ) );
+	} elseif ( 'er_guide' === $er_type ) {
+		er_world_guide_bar();
+	}
+} else {
+	er_page_hero( [ 'eyebrow' => er_t( 'Egypt Roamer' ), 'title' => $er_title, 'intro' => $er_intro ] );
+}
 ?>
-<div class="page-body container">
-	<?php if ( $er_ux2_trips ) : er_ux2_trip_filter_bar( count( $er_ids ) ); elseif ( $er_filterable ) : ?>
+<div class="page-body container<?php echo $er_p4 ? ' p4body p4body--' . esc_attr( str_replace( 'er_', '', $er_type ) ) : ''; ?>">
+	<?php if ( $er_p4 ) : elseif ( $er_ux2_trips ) : er_ux2_trip_filter_bar( count( $er_ids ) ); elseif ( $er_filterable ) : ?>
 		<form class="filters" method="get" action="<?php echo esc_url( get_post_type_archive_link( $er_type ) ); ?>" aria-label="<?php echo esc_attr( er_t( 'Filter' ) ); ?>">
 			<?php if ( 'er_guide' === $er_type ) : ?>
 				<label><span><?php er_e( 'Topic' ); ?></span>
@@ -76,7 +87,7 @@ er_page_hero( [ 'eyebrow' => er_t( 'Egypt Roamer' ), 'title' => $er_title, 'intr
 
 	<?php if ( $er_ux2_trips && ! $er_ids ) : er_ux2_trip_empty(); elseif ( have_posts() ) : ?>
 		<?php if ( $er_ux2_trips && function_exists( 'er_world_on' ) && er_world_on() ) : er_world_trip_groups( $er_ids ); elseif ( 'er_destination' === $er_type && function_exists( 'er_world_on' ) && er_world_on() ) : er_world_place_cards( $er_ids ); else : // proposal 4: trips by place under each place's banner; places with their trips ?>
-		<?php er_card_grid( $er_ids, 'archive-' . str_replace( 'er_', '', $er_type ?: 'list' ), 'h2' ); ?>
+		<?php if ( $er_p4 && 'er_guide' === $er_type ) : echo '<ul class="gi-grid">' . implode( '', array_map( 'er_world_guide_card', er_world_guide_order( $er_ids ) ) ) . '</ul>'; else : er_card_grid( $er_ids, 'archive-' . str_replace( 'er_', '', $er_type ?: 'list' ), 'h2' ); endif; // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		<?php endif; ?>
 		<?php
 		the_posts_pagination( [

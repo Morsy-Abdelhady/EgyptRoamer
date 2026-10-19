@@ -99,7 +99,7 @@ $er_ep     = explode( ' · ', (string) $W['eyebrow'] );
 			<?php if ( '' !== $W['quote'] ) : ?><p class="wq"><?php echo esc_html( $W['quote'] ); ?></p><?php endif; ?>
 			<?php if ( $er_chips ) : ?><div class="wchips"><?php foreach ( $er_chips as $c ) { echo '<span>' . esc_html( $c ) . '</span>'; } ?></div><?php endif; ?>
 			<div class="wacts">
-				<?php if ( $er_offers ) : ?><a class="btn btn--gold" href="#wchoose"><?php er_e( 'Book this trip' ); ?></a><?php endif; ?>
+				<?php if ( $er_offers ) : ?><a class="btn btn--gold" href="#book"><?php er_e( 'Book this trip' ); ?></a><?php endif; ?>
 				<?php echo er_save_button( $er_save, 'lcf', true ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 				<a class="btn btn--ghost-light" href="#wjourney"><?php echo esc_html( $W['go'] ); ?> ↓</a>
 			</div>
@@ -120,7 +120,7 @@ $er_ep     = explode( ' · ', (string) $W['eyebrow'] );
 				<?php endif; ?>
 			<?php endforeach; ?>
 			<?php if ( ! $er_tomb ) : ?><canvas data-fx="<?php echo esc_attr( $W['fx'] ); ?>-j" aria-hidden="true"></canvas><?php endif; ?>
-			<div class="jhead"><p class="eyebrow"><?php echo esc_html( $W['j_eyebrow'] ); ?></p><h2 id="wj-title"><?php echo esc_html( $W['j_title'] ); ?></h2><a class="skip" href="#wchoose"><?php er_e( 'Skip to booking' ); ?> ↓</a></div>
+			<div class="jhead"><p class="eyebrow"><?php echo esc_html( $W['j_eyebrow'] ); ?></p><h2 id="wj-title"><?php echo esc_html( $W['j_title'] ); ?></h2><a class="skip" href="#book"><?php er_e( 'Skip to booking' ); ?> ↓</a></div>
 			<?php foreach ( $W['steps'] as $i => $s ) : ?>
 				<?php if ( '' !== $s['video'] ) : ?>
 					<div class="vstepctl <?php echo 0 === $i ? 'on' : ''; ?>" data-j="<?php echo (int) $i; ?>"><?php echo er_world_video_controls( er_t( 'Video: {name}, Pexels', [ 'name' => (string) ( er_world_video_creators()[ $s['video'] ] ?? '' ) ] ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
@@ -309,7 +309,7 @@ $er_ep     = explode( ' · ', (string) $W['eyebrow'] );
 	<?php endif; ?>
 
 	<?php if ( $er_offers ) : ?>
-		<a class="capsule" href="#wchoose" id="wcap" data-capsule hidden><span><b><?php echo esc_html( preg_split( '/:| & /u', html_entity_decode( $er_title, ENT_QUOTES, 'UTF-8' ) )[0] ); ?></b><br><small><?php echo esc_html( 1 === $er_n ? er_t( '1 option' ) : er_t( '{n} options', [ 'n' => $er_n ] ) ); ?></small></span><span class="btn btn--gold btn--sm"><?php er_e( 'Book this trip' ); ?></span></a>
+		<a class="capsule" href="#book" id="wcap" data-capsule data-bookbar hidden><span><b><?php echo esc_html( preg_split( '/:| & /u', html_entity_decode( $er_title, ENT_QUOTES, 'UTF-8' ) )[0] ); ?></b><br><small><?php echo esc_html( 1 === $er_n ? er_t( '1 option' ) : er_t( '{n} options', [ 'n' => $er_n ] ) ); ?></small></span><span class="btn btn--gold btn--sm"><?php er_e( 'Book this trip' ); ?></span></a>
 	<?php endif; ?>
 	<div class="wfoot"></div>
 </div>

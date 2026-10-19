@@ -120,8 +120,11 @@ $er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 
 					<?php
 					$er_b = (int) er_home( 'hero_image_b' );
 					echo $er_b ? er_img( $er_b, 'er-hero', [ 'class' => 'scene__img scene__img--b', 'sizes' => '100vw', 'alt' => '', 'fetchpriority' => 'low' ] ) : er_stock_picture( $er_stock['hero_b'], '', [ 'class' => 'scene__img scene__img--b', 'fetchpriority' => 'low' ], [ 900, 1200, 1600, 2000 ], 'screen' ); // phpcs:ignore WordPress.Security.EscapeOutput
+					// Proposal 4: the Pyramids chapter as the prototype's video (camels before the pyramids).
+					echo $er_story && er_world_video_for( 'chapter', 1 ) ? er_world_video( (string) er_world_video_for( 'chapter', 1 ), 'wvid scene__vid', '', '', false ) : ''; // phpcs:ignore WordPress.Security.EscapeOutput
 					?>
 				</div>
+				<?php echo $er_story && er_world_video_for( 'chapter', 1 ) ? '<div class="scene__vctl">' . er_world_video_controls( er_t( 'Video: {name}, Pexels', [ 'name' => er_world_video_creators()[ er_world_video_for( 'chapter', 1 ) ] ] ) ) . '</div>' : ''; // phpcs:ignore WordPress.Security.EscapeOutput ?>
 				<div class="scene__sun" aria-hidden="true"></div>
 				<svg class="scene__fg scene__fg--dune" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path d="M0 150C180 110 320 90 520 118s380 70 560 44 260-58 360-54V260H0Z" /></svg>
 				<div class="scene__shade" aria-hidden="true"></div>
@@ -171,7 +174,8 @@ $er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 
 					<defs><linearGradient id="surface-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75" /><stop offset=".35" stop-color="#bfe6ea" stop-opacity=".35" /><stop offset="1" stop-color="#0F6B7A" stop-opacity="0" /></linearGradient></defs>
 					<path d="M0 40c120-26 240-26 360 0s240 26 360 0 240-26 360 0 240 26 360 0v80H0Z" />
 				</svg>
-				<div class="scene__media" data-depth><?php echo $er_scene_img( 4, 'scene__img scene__img--flip' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+				<div class="scene__media" data-depth><?php echo $er_scene_img( 4, 'scene__img scene__img--flip' ) . ( $er_story && er_world_video_for( 'chapter', 4 ) ? er_world_video( (string) er_world_video_for( 'chapter', 4 ), 'wvid scene__vid', '', '', false ) : '' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+				<?php echo $er_story && er_world_video_for( 'chapter', 4 ) ? '<div class="scene__vctl">' . er_world_video_controls( er_t( 'Video: {name}, Pexels', [ 'name' => er_world_video_creators()[ er_world_video_for( 'chapter', 4 ) ] ] ) ) . '</div>' : ''; // phpcs:ignore WordPress.Security.EscapeOutput ?>
 				<div class="scene__rays" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 				<canvas class="scene__canvas" data-fx="bubbles" aria-hidden="true"></canvas>
 				<div class="scene__shade" aria-hidden="true"></div>
@@ -449,7 +453,9 @@ $er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 
 	<?php endif; ?>
 <?php
 	if ( er_ux2() ) {
-		echo (string) ob_get_clean() . er_ux2_short_home( $er_mid ); // phpcs:ignore WordPress.Security.EscapeOutput -- this template's own escaped output, reordered
+		$er_rail = (string) ob_get_clean();
+		// Proposal 4: no "Moments we'd book again" (the chapters carry the trips); the quote stays, the hotels go by place.
+		echo $er_story ? er_world_short_home( $er_mid ) : $er_rail . er_ux2_short_home( $er_mid ); // phpcs:ignore WordPress.Security.EscapeOutput -- this template's own escaped output, reordered
 	}
 	?>
 

@@ -234,3 +234,18 @@
 .p4w .wmore .mini {
   background: rgb(255 255 255 / 0.96);
 }
+
+/* Phones: the site's dock sits at the bottom, so the capsule rides just above it (as the old booking bar), clear of
+   the assistant button. */
+@media (max-width: 900px) {
+  .p4w .capsule {
+    position: fixed !important;
+    z-index: var(--z-dock, 60);
+    inset-inline: 0.75rem 4.75rem;
+    bottom: calc(0.75rem + env(safe-area-inset-bottom) + 4.6rem) !important;
+    margin: 0 !important;
+    border-radius: 999px !important;
+    border-width: 1px !important;
+    padding: 6px 6px 6px 16px !important;
+  }
+}

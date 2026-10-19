@@ -1,0 +1,349 @@
+/* ---------- Proposal 4, the archives' tops and the Travel Guide cards (inc/world-archives.php) ----------
+   Values from the prototype (docs/prototypes/journey-v4): .phero--img (Trips & tours), .pl-hero (Places), .gi-hero
+   (Travel Guide), the sticky .filters / .gi-bar and .gi-card. */
+
+.p4hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  background: var(--ink, #101820);
+  color: var(--white);
+  padding-top: var(--nav-h, 72px);
+}
+.p4hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.p4hero .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.p4hero h1 {
+  margin: 0;
+  font: 500 56px/1 var(--font-serif);
+  letter-spacing: -0.01em;
+  color: var(--white);
+  text-wrap: balance;
+}
+.p4hero h1 i {
+  font-style: italic;
+}
+.p4hero p {
+  max-width: 640px;
+  margin: 14px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+.p4hero__eyebrow {
+  margin: 0 0 8px !important;
+  font: 600 11.5px var(--font-sans);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 1 !important;
+}
+/* Trips & tours: the photo at 35% over ink */
+.p4hero--trips > img {
+  opacity: 0.35;
+}
+.p4hero--trips .container {
+  padding-block: 44px 40px;
+}
+.p4hero__crumbs {
+  margin-bottom: 12px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+.p4hero__crumbs .breadcrumbs,
+.p4hero__crumbs nav {
+  margin: 0;
+}
+.p4hero__crumbs a {
+  color: inherit;
+}
+/* Places: the photo under a dark gradient */
+.p4hero--places {
+  min-height: 340px;
+}
+.p4hero--places::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(16 24 32 / 0.35), rgb(16 24 32 / 0.85));
+}
+.p4hero--places .container {
+  padding-block: 110px 36px;
+}
+/* Travel Guide: the photo at 55% over ink */
+.p4hero--guides {
+  min-height: 360px;
+}
+.p4hero--guides > img {
+  opacity: 0.55;
+}
+.p4hero--guides .container {
+  padding-block: 120px 34px;
+}
+.p4hero--guides p {
+  font-size: 16.5px;
+  opacity: 0.9;
+}
+
+/* The sticky filter bars */
+.p4filters,
+.gi-bar {
+  position: sticky;
+  top: var(--nav-h, 72px);
+  z-index: 20;
+  background: rgb(248 245 237 / 0.97);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  color: var(--charcoal);
+}
+.p4filters__in {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 26px;
+  padding-block: 14px;
+}
+.p4filters .fgroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.p4filters .fgroup > span,
+.gi-bar__in > span {
+  margin-inline-end: 2px;
+  font: 600 12px var(--font-sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.p4filters .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.p4filters .chip,
+.gi-bar .chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 14px;
+  border: 1px solid var(--line-strong, rgb(16 24 32 / 0.2));
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--charcoal);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.p4filters .chip[aria-pressed="true"],
+.gi-bar .chip[aria-pressed="true"] {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--white);
+}
+.p4filters .toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--charcoal);
+  text-decoration: none;
+}
+.toggle__box {
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid var(--text-muted);
+  border-radius: 3px;
+  background: var(--white);
+}
+.toggle[aria-checked="true"] .toggle__box {
+  background: var(--charcoal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") center/12px no-repeat;
+  border-color: var(--charcoal);
+}
+.p4filters .count {
+  margin: 0 0 0 auto;
+  margin-inline-start: auto;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.gi-bar__in {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-block: 12px;
+  scrollbar-width: none;
+}
+.gi-bar__in::-webkit-scrollbar {
+  display: none;
+}
+.gi-bar .chip {
+  flex: none;
+  min-height: 40px;
+}
+.p4body {
+  padding-top: 30px;
+}
+
+/* The Travel Guide's cards */
+.gi-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 70px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.gi-card > a {
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  color: var(--charcoal);
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.gi-card > a:hover,
+.gi-card > a:focus-visible {
+  box-shadow: 0 14px 34px rgb(16 24 32 / 0.1);
+  transform: translateY(-2px);
+  outline: none;
+}
+.gi-card > a:focus-visible {
+  box-shadow: 0 0 0 2px var(--gold);
+}
+.gi-card img,
+.gi-card .media__empty {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.gi-card div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px 18px;
+}
+.gi-card small {
+  font: 600 11px var(--font-sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-deep, #a8871f);
+}
+.gi-card b {
+  font: 600 20px/1.25 var(--font-serif);
+  color: var(--charcoal);
+}
+.gi-card p {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+.gi-card em {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 13px;
+  font-style: normal;
+  color: var(--text-muted);
+}
+
+/* Places: the heart on each place's photo */
+.pcard {
+  position: relative;
+}
+.pcard__save {
+  position: absolute;
+  top: 12px;
+  inset-inline-end: 12px;
+  z-index: 3;
+}
+
+@media (max-width: 900px) {
+  .gi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .p4hero h1 {
+    font-size: 38px;
+  }
+  .p4hero--places .container,
+  .p4hero--guides .container {
+    padding-block: 96px 26px;
+  }
+}
+@media (max-width: 600px) {
+  .gi-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .p4hero h1 {
+    font-size: 36px;
+  }
+  .p4filters__in {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px 16px;
+    padding-block: 10px;
+    scrollbar-width: none;
+  }
+  .p4filters__in::-webkit-scrollbar {
+    display: none;
+  }
+  .p4filters__in > *,
+  .p4filters .chips {
+    flex: none;
+    flex-wrap: nowrap;
+  }
+  .gi-bar .chip,
+  .p4filters .chip {
+    min-height: 44px;
+  }
+}
+
+/* Trips & tours: the place banners at the prototype's height (#groups .gbanner: 132px; 34px name, italic tagline) */
+.p4body--experience .tbanner {
+  min-height: 132px;
+  height: 132px;
+  padding: 18px 22px;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+.p4body--experience .tbanner h2 {
+  font-size: 34px;
+}
+@media (max-width: 600px) {
+  .p4body--experience .tbanner {
+    height: 128px;
+    min-height: 128px;
+    padding: 14px 16px;
+  }
+  .p4body--experience .tbanner h2 {
+    font-size: 26px;
+  }
+}
+.p4body--experience .tbanner p{font-size:16px;margin-top:2px}
+.p4body--experience .tbanner__go{font-size:13.5px;border-bottom:0}

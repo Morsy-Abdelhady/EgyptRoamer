@@ -324,7 +324,7 @@ function er_world_chapter_trips( int $n ): array {
 }
 
 /** A trip as a small card: photo, name, length, how many options, and its heart (prototype mini + lcf). */
-function er_world_mini( int $id ): string {
+function er_world_mini( int $id, bool $heart = true ): string {
 	$offers = function_exists( 'er_offers_for_post' ) ? er_offers_for_post( $id, 10 ) : [];
 	$len    = er_trip_length( $id, $offers );
 	$n      = count( $offers );
@@ -333,7 +333,7 @@ function er_world_mini( int $id ): string {
 	return '<div class="lcfw"><a class="mini" href="' . esc_url( get_permalink( $id ) ) . '">'
 		. ( '' !== $thumb ? '<img src="' . esc_url( $thumb ) . '" alt="" loading="lazy" width="76" height="76" />' : '<span class="mini__ph" aria-hidden="true"></span>' )
 		. '<span class="mini__b"><b>' . esc_html( get_the_title( $id ) ) . '</b><span>' . esc_html( $len ) . ( '' !== $len && '' !== $opts ? ' · ' : '' ) . ( '' !== $opts ? '<em>' . esc_html( $opts ) . '</em>' : '' ) . '</span></span></a>'
-		. er_save_button( er_trip_save_data( $id, $len ) ) . '</div>';
+		. ( $heart ? er_save_button( er_trip_save_data( $id, $len ) ) : '' ) . '</div>';
 }
 
 add_action( 'wp_enqueue_scripts', static function (): void {
@@ -440,13 +440,13 @@ function er_world_place_cards( array $ids ): void {
 		$best   = (string) get_post_meta( $dest, '_er_best_time', true );
 		echo '<article class="pcard"><a class="pcard__img" href="' . esc_url( $url ) . '" tabindex="-1" aria-hidden="true">' . $img; // phpcs:ignore WordPress.Security.EscapeOutput
 		echo '' !== $region ? '<span class="pcard__region">' . esc_html( $region ) . '</span>' : '';
-		echo '</a><div class="pcard__b"><h2><a href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a></h2>';
+		echo '</a>' . er_save_button( [ 'id' => 'place:' . $dest, 'title' => $name, 'image' => $photo ? (string) wp_get_attachment_image_url( $photo, 'medium' ) : $stock, 'meta' => implode( ' · ', array_filter( [ $region, '' !== $best ? er_t( 'Best time' ) . ' ' . $best : '' ] ) ), 'url' => $url ], 'lcf pcard__save' ) . '<div class="pcard__b"><h2><a href="' . esc_url( $url ) . '">' . esc_html( $name ) . '</a></h2>';
 		echo '' !== $tag ? '<p class="pcard__tag">' . esc_html( $tag ) . '</p>' : '';
 		echo '' !== $best ? '<p class="pcard__best">' . esc_html( er_t( 'Best time' ) . ' ' . $best ) . '</p>' : '';
 		if ( $trips ) {
 			echo '<div class="pcard__trips">';
 			foreach ( $trips as $t ) {
-				echo er_world_mini( $t ); // phpcs:ignore WordPress.Security.EscapeOutput
+				echo er_world_mini( $t, false ); // phpcs:ignore WordPress.Security.EscapeOutput -- the prototype's place rows have no heart
 			}
 			echo '</div>';
 		}
@@ -663,8 +663,8 @@ function er_world_scene_trips( int $n ): void {
 	}
 	$place = er_world_chapter_place( $n );
 	$url   = $place ? er_ux2_trip_url( [ 'destination' => $place, 'len' => '', 'private' => false, 'pickup' => false ] ) : (string) get_post_type_archive_link( 'er_experience' );
-	echo '<section class="scene__pick scene__trips" aria-label="' . esc_attr( er_t( 'Trips in this chapter' ) ) . '"><div class="scene__trips-h"><p>' . esc_html( er_t( 'Trips in this chapter' ) ) . '</p><strong>' . esc_html( 1 === count( $ids ) ? er_t( '1 trip' ) : er_t( '{n} trips', [ 'n' => (string) count( $ids ) ] ) ) . '</strong>'
-		. '<a href="' . esc_url( $url ) . '">' . esc_html( $place ? er_t( 'See all trips in {place}', [ 'place' => get_the_title( $place ) ] ) : er_t( 'See all trips' ) ) . ' <span aria-hidden="true">→</span></a></div><div class="scene__trips-list">';
+	echo '<section class="scene__pick scene__trips" aria-label="' . esc_attr( er_t( 'Trips in this chapter' ) ) . '"><div class="scene__trips-h"><p>' . esc_html( er_t( 'Trips in this chapter' ) ) . '</p><strong>' . esc_html( er_t( '{n} trips to book', [ 'n' => (string) count( $ids ) ] ) ) . '</strong>'
+		. '<a href="' . esc_url( $url ) . '">' . esc_html( (string) er_home( "scene{$n}_cta" ) ) . ' <span aria-hidden="true">→</span></a></div><div class="scene__trips-list" style="--n:' . (int) count( $ids ) . '">';
 	foreach ( $ids as $id ) {
 		echo er_world_mini( $id ); // phpcs:ignore WordPress.Security.EscapeOutput
 	}
@@ -686,3 +686,57 @@ add_filter( 'body_class', static function ( array $c ): array {
 	}
 	return $c;
 } );
+
+/*
+ * Proposal 4, the homepage's hotels (prototype stayHTML, "expert review, 17 Oct"): a card per place with its photo and
+ * its Trip.com areas, each one a tracked partner link. Replaces the old "compared in one place" hotels box.
+ */
+function er_world_stay_section(): string {
+	if ( ! function_exists( 'er_hotel_offers_for_post' ) ) {
+		return '';
+	}
+	$places = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'numberposts' => 30, 'fields' => 'ids', 'orderby' => 'menu_order', 'order' => 'ASC', 'suppress_filters' => false ] );
+	$cards  = '';
+	$source = (int) get_option( 'page_on_front' );
+	$en     = 'en' === er_lang();
+	foreach ( $places as $dest ) {
+		$dest   = (int) $dest;
+		$hotels = er_hotel_offers_for_post( $dest, 10 );
+		if ( ! $hotels ) {
+			continue;
+		}
+		$photo = (int) get_post_thumbnail_id( $dest );
+		$stock = er_stock_id_for( $dest );
+		$img   = $photo ? er_img( $photo, 'large', [ 'alt' => '', 'sizes' => '(max-width: 600px) 100vw, 300px', 'loading' => 'lazy' ] ) : ( '' !== $stock ? er_stock_img( $stock, '', [ 'loading' => 'lazy', 'sizes' => '(max-width: 600px) 100vw, 300px' ], [ 400, 640, 900 ], 0.625 ) : '' );
+		$rows  = '';
+		foreach ( $hotels as $h ) {
+			$o    = er_offer_data( (int) $h, 'home-stay', $source );
+			$area = (string) $o['title'];
+			if ( $en ) {
+				$area = (string) preg_replace( '/^Hotels (in|on|near) (the )?/', '', $area );
+				$area = mb_strtoupper( mb_substr( $area, 0, 1 ) ) . mb_substr( $area, 1 );
+			}
+			$rows .= '<li>' . er_offer_cta_html( (int) $h, [ 'placement' => 'home-stay', 'source' => $source, 'class' => 'stay2__a', 'label' => $area, 'icon' => '<em>' . esc_html( (string) $o['provider'] ) . ' ↗</em>' ] ) . '</li>';
+		}
+		$cards .= '<article class="stay2__c">' . $img . '<div><h3>' . esc_html( get_the_title( $dest ) ) . '</h3><ul>' . $rows . '</ul></div></article>';
+	}
+	if ( '' === $cards ) {
+		return '';
+	}
+	return '<section class="stay2" id="stay" aria-labelledby="stay2-t"><div class="container"><p class="eyebrow">' . esc_html( er_t( 'Where to stay' ) ) . '</p><h2 id="stay2-t">' . wp_kses( er_t( 'Hotels near your trips, <em>place by place.</em>' ), [ 'em' => [] ] ) . '</h2><p class="stay2__intro">' . esc_html( er_t( 'Our hotel partner is Trip.com. Pick an area to see its hotels; you choose, book and pay on Trip.com.' ) ) . '</p><div class="stay2__g">' . $cards . '</div><p class="stay2__note">' . esc_html( er_t( 'Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.' ) ) . '</p></div></section>';
+}
+
+/** The homepage between the scenes and the Trip Builder, as the prototype: the quote and facts, the moods, the map, the hotels by place. */
+function er_world_short_home( string $html ): string {
+	foreach ( [ '<section class="section destinations"', '<section class="section partners"' ] as $start ) {
+		$a = strpos( $html, $start );
+		if ( false === $a ) {
+			continue;
+		}
+		$e = strpos( $html, '</section>', $a );
+		if ( false !== $e ) {
+			$html = substr( $html, 0, $a ) . ( false !== strpos( $start, 'partners' ) ? er_world_stay_section() : '' ) . substr( $html, $e + strlen( '</section>' ) );
+		}
+	}
+	return $html;
+}

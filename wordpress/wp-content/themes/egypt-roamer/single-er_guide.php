@@ -12,6 +12,13 @@ get_header();
 while ( have_posts() ) :
 	the_post();
 	$er_id   = get_the_ID();
+	// Proposal 4: the guide exactly as the prototype draws it (template-parts/guide-p4.php).
+	if ( 'er_guide' === get_post_type() && function_exists( 'er_world_on' ) && er_world_on() ) {
+		$er_gbody         = er_body();
+		$er_gbody['html'] = er_world_guide_photos( (string) $er_gbody['html'], (int) $er_id );
+		get_template_part( 'template-parts/guide-p4', null, [ 'body' => $er_gbody ] );
+		continue;
+	}
 	$er_type = get_post_type();
 	$er_tax  = 'er_guide' === $er_type ? get_the_terms( $er_id, 'er_guide_topic' ) : get_the_category();
 	$er_meta = sprintf(

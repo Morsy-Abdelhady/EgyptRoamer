@@ -281,6 +281,8 @@ add_action( 'wp_footer', static function (): void {
 			'len'       => function_exists( 'er_ux2_offer_length' ) ? er_ux2_offer_length( $offers ) : '',
 			'n'         => count( $offers ),
 			'private'   => $t['private'],
+			// Proposal 4: "✓ Free cancellation" when every option's partner page states it (Core offer-facts "cancel").
+			'cancel'    => $offers && function_exists( 'er_offer_facts' ) && ! array_filter( $offers, static fn ( $o ) => empty( er_offer_facts( (int) $o )['cancel'] ) ),
 			'interests' => ER_UX2_TRIP_INTERESTS[ $slug ] ?? [],
 		];
 	}
@@ -301,6 +303,7 @@ add_action( 'wp_footer', static function (): void {
 			'opt1'      => er_t( '1 option' ),
 			'optn'      => er_t( '{n} options' ),
 			'privopt'   => er_t( 'Private option' ),
+			'cancel'    => er_t( 'Free cancellation' ),
 			'see'       => er_t( 'See options' ),
 			'save'      => er_t( 'Save this plan' ),
 			'saved'     => er_t( 'Plan saved' ),
