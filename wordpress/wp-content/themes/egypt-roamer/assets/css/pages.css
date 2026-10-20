@@ -593,6 +593,14 @@
 .footer__legal a {
   color: inherit;
 }
+/* The operating company (owner, 20 Oct): its own line under the copyright and the legal links. */
+.footer__company {
+  order: 3;
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
 
 /* ---------- Homepage: server-rendered fallbacks the scripts replace ---------- */
 .dest__btn {

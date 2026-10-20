@@ -31,8 +31,9 @@ LANGS = {"ar": "ar", "de": "de_DE", "fr": "fr_FR", "it": "it_IT", "es": "es_ES",
 SLUGS = {"privacy": "privacy-policy", "cookies": "cookies", "disclosure": "affiliate-disclosure", "contact": "contact"}
 EN_URL = {"privacy": "/privacy-policy/", "cookies": "/cookies/", "disclosure": "/affiliate-disclosure/", "contact": "/contact/"}
 
-NAME = '<span lang="ar" dir="rtl">شركة يوزين لخدمات الإنترنت والتسوق (ش. ذ. م. م.)</span>'
-ADDRESS = '<span lang="ar" dir="rtl">شارع متفرع من شارع القسم - أمام مدرسة الحسن ابن الهيثم - العامرية أول - الإسكندرية</span>'
+# Operator (owner, 2026-10-20): LIORIVE LTD, Companies House no. 17531200, public registered office.
+NAME = 'LIORIVE LTD'
+ADDRESS = '128 City Road, London EC1V 2NX'
 EMAIL = '<a href="mailto:info@egyptroamer.com">info@egyptroamer.com</a>'
 PHONE = '<a href="tel:+201060494260" dir="ltr">+20 10 6049 4260</a>'
 
@@ -154,10 +155,10 @@ def build() -> dict:
     files["en/contact.html"] = en_new + "\n"
     # sha1 of the English Contact content published on 2026-09-30 (git cf01c79:content/legal/en/contact.html, trimmed).
     index["en_updates"]["contact"] = {"file": "en/contact.html", "replaces_sha1": "f3a53c653c371213f9cb2ea16f6ff0d4c0698009"}
-    # English Privacy Policy (2026-10-15: first-party page-view totals), replacing exactly the version
-    # published on 2026-09-30 (git a8079a1:content/legal/en/privacy-policy.html, trimmed).
+    # English Privacy Policy (2026-10-20: operated by LIORIVE LTD), replacing exactly the version shipped on
+    # 2026-10-15 (first-party page-view totals; git c235be1:content/legal/en/privacy-policy.html, trimmed).
     files["en/privacy-policy.html"] = (SRC / "en" / "privacy-policy.html").read_text(encoding="utf-8")
-    index["en_updates"]["privacy-policy"] = {"file": "en/privacy-policy.html", "replaces_sha1": "2f80a433b2fe959867b1ad3c02b1f458147f6297"}
+    index["en_updates"]["privacy-policy"] = {"file": "en/privacy-policy.html", "replaces_sha1": "49eb19afe1bd04d70a314eb13d8abc6299cd9139"}
     files["index.json"] = json.dumps(index, ensure_ascii=False, indent=1) + "\n"
     return files
 

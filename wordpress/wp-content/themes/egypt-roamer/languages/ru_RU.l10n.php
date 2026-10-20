@@ -247,6 +247,7 @@ return [
 		'Egypt Roamer' => 'Egypt Roamer',
 		'Egypt Roamer film' => 'Фильм Egypt Roamer',
 		'Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.' => 'Egypt Roamer — независимый проект. Когда вы бронируете по нашим партнёрским ссылкам, мы можем получить небольшую комиссию — без доплаты с вашей стороны.',
+		'Egypt Roamer is operated by LIORIVE LTD, a company registered in England and Wales (no. {number}). Registered office: {address}.' => 'Сайтом Egypt Roamer управляет LIORIVE LTD — компания, зарегистрированная в Англии и Уэльсе (№ {number}). Зарегистрированный адрес: {address}.',
 		'Egypt Roamer team' => 'Команда Egypt Roamer',
 		'Egypt Roamer — More than a destination' => 'Egypt Roamer — Больше, чем направление',
 		'Egypt Roamer — home' => 'Egypt Roamer — главная',

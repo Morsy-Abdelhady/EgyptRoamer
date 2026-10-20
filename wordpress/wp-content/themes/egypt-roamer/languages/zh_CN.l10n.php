@@ -247,6 +247,7 @@ return [
 		'Egypt Roamer' => 'Egypt Roamer',
 		'Egypt Roamer film' => 'Egypt Roamer 影片',
 		'Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.' => 'Egypt Roamer 是独立网站。您通过我们的合作伙伴链接预订时，我们可能获得少量佣金，您无需支付任何额外费用。',
+		'Egypt Roamer is operated by LIORIVE LTD, a company registered in England and Wales (no. {number}). Registered office: {address}.' => 'Egypt Roamer 由 LIORIVE LTD 运营，该公司在英格兰和威尔士注册（编号 {number}）。注册地址：{address}。',
 		'Egypt Roamer team' => 'Egypt Roamer 团队',
 		'Egypt Roamer — More than a destination' => 'Egypt Roamer — 不止是一个目的地',
 		'Egypt Roamer — home' => 'Egypt Roamer — 首页',

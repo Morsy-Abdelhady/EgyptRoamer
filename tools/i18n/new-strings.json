@@ -6436,6 +6436,15 @@
    "Вы отписаны, ваш адрес удалён.",
    "您已退订，您的地址已删除。",
    "تم إلغاء اشتراكك وحذف عنوانك."
+  ],
+  "Egypt Roamer is operated by LIORIVE LTD, a company registered in England and Wales (no. {number}). Registered office: {address}.": [
+   "Egypt Roamer wird betrieben von LIORIVE LTD, einer in England und Wales eingetragenen Gesellschaft (Nr. {number}). Eingetragener Sitz: {address}.",
+   "Egypt Roamer est exploité par LIORIVE LTD, société immatriculée en Angleterre et au pays de Galles (n° {number}). Siège social : {address}.",
+   "Egypt Roamer è gestito da LIORIVE LTD, società registrata in Inghilterra e Galles (n. {number}). Sede legale: {address}.",
+   "Egypt Roamer está operado por LIORIVE LTD, empresa registrada en Inglaterra y Gales (n.º {number}). Domicilio social: {address}.",
+   "Сайтом Egypt Roamer управляет LIORIVE LTD — компания, зарегистрированная в Англии и Уэльсе (№ {number}). Зарегистрированный адрес: {address}.",
+   "Egypt Roamer 由 LIORIVE LTD 运营，该公司在英格兰和威尔士注册（编号 {number}）。注册地址：{address}。",
+   "يدير موقع Egypt Roamer شركة LIORIVE LTD، المسجلة في إنجلترا وويلز (رقم {number}). المقر المسجل: {address}."
   ]
  }
 }

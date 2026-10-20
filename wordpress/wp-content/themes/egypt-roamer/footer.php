@@ -71,6 +71,7 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 
 		<div class="footer__bottom">
 			<p><?php echo esc_html( er_t( '© {year} Egypt Roamer. Independent travel discovery. All rights reserved.', [ 'year' => wp_date( 'Y' ) ] ) ); ?></p>
+			<p class="footer__company"><?php echo esc_html( er_t( 'Egypt Roamer is operated by LIORIVE LTD, a company registered in England and Wales (no. {number}). Registered office: {address}.', [ 'number' => '17531200', 'address' => '128 City Road, London EC1V 2NX, United Kingdom' ] ) ); ?></p>
 			<?php
 			$er_legal = er_legal_links( (string) ( $er_footer_links ?? '' ) );
 			if ( $er_legal ) {
