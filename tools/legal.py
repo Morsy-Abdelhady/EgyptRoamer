@@ -33,7 +33,7 @@ EN_URL = {"privacy": "/privacy-policy/", "cookies": "/cookies/", "disclosure": "
 
 # Operator (owner, 2026-10-20): LIORIVE LTD, Companies House no. 17531200, public registered office.
 NAME = 'LIORIVE LTD'
-ADDRESS = '128 City Road, London EC1V 2NX'
+ADDRESS = '<bdi>128 City Road, London EC1V 2NX</bdi>'  # isolated: inside Arabic text its words showed out of order
 EMAIL = '<a href="mailto:info@egyptroamer.com">info@egyptroamer.com</a>'
 PHONE = '<a href="tel:+201060494260" dir="ltr">+20 10 6049 4260</a>'
 

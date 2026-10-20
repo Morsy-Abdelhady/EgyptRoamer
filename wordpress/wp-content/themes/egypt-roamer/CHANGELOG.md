@@ -2,6 +2,9 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.13 — 2026-10-20: company address in Arabic (with Core 1.2.64)
+- **Footer and Privacy Policy, right-to-left:** the English registered-office address (and the company number) are isolated with `<bdi>`; in Arabic the address's words showed out of order ("City Road, London EC1V 128 … 2NX").
+
 ## 1.3.12 — 2026-10-20: operated by LIORIVE LTD (with Core 1.2.63)
 - **Operator (owner, 20 Oct):** the Privacy Policy in 8 languages and the draft Terms now name LIORIVE LTD, a private limited company registered in England and Wales (Companies House no. 17531200; registered office 128 City Road, London EC1V 2NX), in place of the Egyptian company. "May process data outside Egypt" becomes "outside the United Kingdom". Email and phone unchanged. Applied on the server by Egypt Roamer → Legal pages (the English page only if it was not edited in WordPress).
 - **Footer:** one line under the copyright naming the operator, its number and registered office, in 8 languages (translations not yet reviewed by native speakers).
