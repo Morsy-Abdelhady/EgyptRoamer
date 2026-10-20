@@ -269,3 +269,36 @@
 /* Tablets (601-900px, 20 Oct): the booking box drops below the article there, so a reader had no booking button
    until the end. The phone's booking bar now shows on tablets too, in place of the dock. */
 @media (min-width:601px) and (max-width:900px){.gd .mbar{display:flex;align-items:center;gap:12px;position:fixed;left:0;right:0;bottom:calc(0.75rem + env(safe-area-inset-bottom));z-index:61;margin:0 auto;max-width:560px;padding:10px 14px 10px 18px;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:16px;box-shadow:0 -8px 24px rgba(16,24,32,.08);transform:translateY(160%);transition:transform .25s}.gd .mbar.is-on{transform:none}.gd .mbar div{flex:1;min-width:0;line-height:1.3}.gd .mbar small{display:block;font-size:11.5px;color:#145c4c;font-weight:600}.gd .mbar b{display:block;font:600 15px var(--serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gd .mbar .btn{flex:none;padding:11px 16px}html.has-p4bar .dock{transform:translateY(140%)}}
+.gd .prose .er-subgrid + .tcard{margin-top:18px}
+/* "See the place": larger photos, the first one wide (owner, 20 Oct, #13: "the photos are the heart of the article"),
+   each opening the viewer (#12). */
+.gd .prose .gplace figure{cursor:zoom-in}
+.gd .prose .gplace figure:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.gd .prose .gplace figure img{transition:transform .35s}
+.gd .prose .gplace figure:hover img{transform:scale(1.04)}
+.gd .prose .gplace figcaption span{display:block;color:#fff;font-weight:600;font-size:13px;margin-bottom:2px}
+.gd .prose .gplace figcaption small{color:#f1ece2}
+@media (min-width:601px){
+  .gd .prose .gplace__g{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .gd .prose .gplace--1 .gplace__g{grid-template-columns:1fr}
+  .gd .prose .gplace--3 figure:first-child{grid-column:1 / -1;aspect-ratio:16/9}
+  .gd .prose .gplace--1 figure img{height:auto;aspect-ratio:16/9}
+}
+.glb{position:fixed;inset:0;z-index:1000;background:rgba(10,12,14,.94);display:flex;align-items:center;justify-content:center;padding:56px 84px 40px}
+.glb[hidden]{display:none}
+.glb figure{margin:0;max-width:min(1400px,100%);max-height:100%;display:flex;flex-direction:column;align-items:center}
+.glb img{max-width:100%;max-height:calc(100vh - 150px);max-height:calc(100svh - 150px);border-radius:10px;object-fit:contain;background:#111}
+.glb figcaption{margin-top:12px;color:#e9e1cf;font-size:14px;text-align:center}
+.glb figcaption b{display:block;font-weight:600}
+.glb figcaption small{display:block;color:#a9a294;font-size:12px;margin-top:3px}
+.glb button{position:absolute;display:grid;place-items:center;width:48px;height:48px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:24px;line-height:1;cursor:pointer}
+.glb button:hover{background:rgba(255,255,255,.2)}
+.glb .glb__x{top:16px;inset-inline-end:18px;font-size:18px}
+.glb .glb__p{inset-inline-start:18px;top:50%;transform:translateY(-50%)}
+.glb .glb__n{inset-inline-end:18px;top:50%;transform:translateY(-50%)}
+.glb--one .glb__p,.glb--one .glb__n{display:none}
+html.glb-open{overflow:hidden}
+@media (max-width:600px){.glb{padding:56px 10px 84px}.glb .glb__p,.glb .glb__n{top:auto;bottom:18px;transform:none}.glb .glb__p{inset-inline-start:calc(50% - 58px)}.glb .glb__n{inset-inline-end:calc(50% - 58px)}}
+/* Phones and tablets: when the trip bar steps aside (opener, "Ready to go?") it leaves the screen completely; 110%
+   of its own height left it peeking above the dock. */
+@media (max-width:900px){.gd .mbar:not(.is-on){transform:translateY(calc(100% + 8rem))}}

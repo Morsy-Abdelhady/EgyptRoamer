@@ -8050,6 +8050,41 @@ display: inline;
 fill: currentColor;
 color: var(--clay);
 }
+.er-ux2 .footer__bottom {
+padding-bottom: 0 !important;
+}
+.er-ux2 .footer {
+padding-bottom: 1.6rem;
+}
+@media (max-width: 900px) {
+.er-ux2 .footer {
+padding-bottom: 6.5rem;
+}
+}
+.assistant.is-starting .assistant__log,
+.assistant.is-starting .assistant__try,
+.assistant.is-starting [data-assistant-note],
+.assistant.is-starting .assistant__form {
+display: none !important;
+}
+.assistant.is-starting .assistant__foot {
+flex: 1;
+overflow-y: auto;
+display: block;
+}
+.assistant.is-starting .assistant__start {
+display: grid;
+gap: 12px;
+align-content: start;
+}
+.assistant.is-starting .assistant__start-actions {
+display: flex;
+gap: 10px;
+align-items: center;
+}
+.assistant [hidden] {
+display: none !important;
+}
 .grid-cards:has(> .tcard) {
 gap: 26px;
 }
@@ -8369,4 +8404,18 @@ align-items: center;
 padding-block: 11px;
 margin-block: -11px;
 }
+}
+.p4filters,
+.gi-bar,
+.gd .secbar,
+.gd .abox > .bk {
+transition: top 0.6s var(--ease-out, ease);
+}
+body:has(.nav.is-hidden) .p4filters,
+body:has(.nav.is-hidden) .gi-bar,
+body:has(.nav.is-hidden) .gd .secbar {
+top: var(--wp-admin--admin-bar--height, 0px) !important;
+}
+body:has(.nav.is-hidden) .gd .abox > .bk {
+top: calc(var(--wp-admin--admin-bar--height, 0px) + 80px);
 }

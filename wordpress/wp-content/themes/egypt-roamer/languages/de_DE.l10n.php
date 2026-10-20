@@ -11,6 +11,7 @@ return [
 		'1 trip' => '1 Ausflug',
 		'1 trip inside' => '1 Tour im Guide',
 		'1 trip mentioned here' => '1 hier erwähnte Tour',
+		'1 trip you can book' => '1 buchbare Tour',
 		'2 adults' => '2 Erwachsene',
 		'2 adults, 1 child' => '2 Erwachsene, 1 Kind',
 		'2 adults, 2 children' => '2 Erwachsene, 2 Kinder',

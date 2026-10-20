@@ -118,7 +118,8 @@ add_action( 'pre_get_posts', static function ( WP_Query $q ) {
 		// Whitelisted filters only (these URLs are noindex via Egypt Roamer Core).
 		// phpcs:disable WordPress.Security.NonceVerification.Recommended
 		$dest = isset( $_GET['destination'] ) ? absint( $_GET['destination'] ) : 0;
-		if ( $dest && ! $q->is_post_type_archive( 'er_destination' ) ) {
+		$er_all_trips = $q->is_post_type_archive( 'er_experience' ) && function_exists( 'er_ux2' ) && er_ux2() && function_exists( 'er_world_on' ) && er_world_on();
+		if ( $dest && ! $q->is_post_type_archive( 'er_destination' ) && ! $er_all_trips ) {
 			$q->set( 'meta_query', [ [ 'key' => '_er_destination', 'value' => er_translation_group( $dest ), 'compare' => 'IN', 'type' => 'NUMERIC' ] ] );
 		}
 		$style = isset( $_GET['style'] ) ? sanitize_key( wp_unslash( $_GET['style'] ) ) : '';

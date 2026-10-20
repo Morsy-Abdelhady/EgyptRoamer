@@ -320,3 +320,88 @@
     min-height: max(560px, 100svh);
   }
 }
+
+/* The opener fills the screen (owner, 20 Oct, #6: "at least 90% of the page"); it was 80% minus the header, so the
+   next section's photo showed under it and the page looked cut in two. */
+.p4w .wopen {
+  min-height: max(560px, 100vh) !important;
+  min-height: max(560px, 100svh) !important;
+}
+@media (max-width: 600px) {
+  .p4w .wopen {
+    min-height: max(560px, 92svh) !important;
+  }
+}
+
+/* Wide screens: no section leaves half the row empty (owner, 20 Oct, #7-#10). */
+@media (min-width: 901px) {
+  /* Who it suits / Combine it with, beside their photo */
+  .p4w .papy__in--media {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 56px;
+    align-items: stretch;
+  }
+  .p4w .papy__txt {
+    display: grid;
+    align-content: center;
+    gap: 34px;
+  }
+  .p4w .papy__media {
+    display: grid;
+    gap: 14px;
+  }
+  .p4w .papy__media .papy__vid {
+    margin: 0;
+    height: 100%;
+    min-height: 340px;
+    aspect-ratio: auto;
+  }
+  /* Questions: the title on the left, the questions beside it at the container's width */
+  .p4w .wfaq__in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr);
+    column-gap: 64px;
+    max-width: calc(var(--max) - 2 * var(--gutter));
+    align-items: start;
+  }
+  .p4w .wfaq__in > .eyebrow {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .p4w .wfaq__in > h2 {
+    grid-column: 1;
+    grid-row: 2 / span 12;
+    margin-top: 8px;
+  }
+  .p4w .wfaq__in > details {
+    grid-column: 2;
+  }
+  .p4w .wfaq__in > details:first-of-type {
+    grid-row: 1 / span 2;
+  }
+}
+
+/* Desktop: the floating booking capsule covered text at the right of every section (FAQ answers, "Choose your way
+   in"). The header already carries "Book this trip ↓", so on trip pages the header stays on screen with that button
+   in gold, and the capsule is kept for phones only (owner, 20 Oct, #7-#10). */
+@media (min-width: 901px) {
+  body:has(.p4w) .nav.is-hidden {
+    transform: none;
+  }
+  body:has(.p4w) .nav .nav__cta.btn--primary {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink, #101820);
+  }
+  body:has(.p4w) .nav .nav__cta.btn--primary:hover {
+    background: var(--gold-hi, #e6c35a);
+    border-color: var(--gold-hi, #e6c35a);
+  }
+  .p4w .capsule {
+    display: none !important;
+  }
+  /* The journey's title and its stop list sit below the header that now stays on screen */
+  .p4w .jhead {
+    top: calc(var(--nav-h, 84px) + 24px);
+  }
+}

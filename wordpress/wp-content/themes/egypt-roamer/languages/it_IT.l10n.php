@@ -11,6 +11,7 @@ return [
 		'1 trip' => '1 escursione',
 		'1 trip inside' => '1 escursione all’interno',
 		'1 trip mentioned here' => '1 escursione citata qui',
+		'1 trip you can book' => '1 escursione prenotabile',
 		'2 adults' => '2 adulti',
 		'2 adults, 1 child' => '2 adulti, 1 bambino',
 		'2 adults, 2 children' => '2 adulti, 2 bambini',

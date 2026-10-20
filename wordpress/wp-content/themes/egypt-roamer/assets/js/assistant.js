@@ -428,7 +428,11 @@
     }
 
     /* ---------- starting ---------- */
+    // While the "talk to our team" form is open it is the only thing in the panel: the answers above it and the
+    // suggestions were still showing behind it, squeezed into a strip (owner, 20 Oct, #11).
+    const starting = (on) => document.getElementById("assistant")?.classList.toggle("is-starting", on);
     function openForm(prefill) {
+      starting(true);
       entry.hidden = true;
       startForm.hidden = false;
       form.hidden = true;
@@ -438,6 +442,7 @@
       startForm.elements.name.focus();
     }
     function closeForm() {
+      starting(false);
       startForm.hidden = true;
       form.hidden = false;
       entry.hidden = false;
@@ -461,6 +466,7 @@
         conv = { id: data.id, token: data.token };
         store.set(conv);
         startForm.reset();
+        starting(false);
         startForm.hidden = true;
         form.hidden = false;
         chatMode(true);

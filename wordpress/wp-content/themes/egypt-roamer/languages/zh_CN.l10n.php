@@ -11,6 +11,7 @@ return [
 		'1 trip' => '1 个行程',
 		'1 trip inside' => '内含1个行程',
 		'1 trip mentioned here' => '这里提到的1个行程',
+		'1 trip you can book' => '1个可预订行程',
 		'2 adults' => '2 位成人',
 		'2 adults, 1 child' => '2 位成人，1 名儿童',
 		'2 adults, 2 children' => '2 位成人，2 名儿童',

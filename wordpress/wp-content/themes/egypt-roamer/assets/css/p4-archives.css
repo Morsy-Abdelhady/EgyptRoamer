@@ -409,3 +409,102 @@
     margin-top: 2px;
   }
 }
+
+/* Places: the trip rows inside a place card had no side padding, so each photo touched the row's border
+   (owner, 20 Oct, #2). Same inner spacing as the prototype's .mini (8px). */
+.pcard .mini {
+  grid-template-columns: 52px minmax(0, 1fr);
+  padding: 7px;
+  border-radius: 10px;
+}
+.pcard .mini img,
+.pcard .mini__ph {
+  width: 52px;
+  height: 52px;
+  border-radius: 7px;
+}
+
+/* Trips filter (owner, 20 Oct, #5): "Where" on the first row, "Length", the two options and the count on the
+   second, instead of one row that wrapped anywhere. On phones each row scrolls sideways on its own. */
+.p4filters__in {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+.p4filters .frow {
+  flex-wrap: nowrap;
+  gap: 10px 14px;
+}
+.p4filters .frow > span {
+  flex: none;
+  min-width: 64px;
+}
+.p4filters .ftogs {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-inline-start: 14px;
+  padding-inline-start: 18px;
+  border-inline-start: 1px solid var(--line);
+}
+.p4filters .frow .count {
+  margin-inline-start: auto;
+  white-space: nowrap;
+}
+.p4filters .toggle {
+  cursor: pointer;
+}
+.tgroup[hidden],
+.tcard[hidden] {
+  display: none !important;
+}
+@media (max-width: 900px) {
+  .p4filters__in {
+    overflow: visible;
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding-block: 8px;
+  }
+  .p4filters .frow {
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+  }
+  .p4filters .frow::-webkit-scrollbar {
+    display: none;
+  }
+  .p4filters .frow > *,
+  .p4filters .ftogs {
+    flex: none;
+  }
+}
+
+/* Phones: each place's trips scroll sideways under its banner, so the eleven trips no longer make the page eleven
+   screens long; the next card peeks in to show there is more. */
+@media (max-width: 600px) {
+  .p4body--experience .tgroup > .grid-cards {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    padding-bottom: 4px;
+  }
+  .p4body--experience .tgroup > .grid-cards::-webkit-scrollbar {
+    display: none;
+  }
+  .p4body--experience .tgroup > .grid-cards > .tcard {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+  }
+  .p4body--experience .tgroup > .grid-cards > .tcard:only-child,
+  .p4body--experience .tgroup > .grid-cards:not(:has(> .tcard:not([hidden]) ~ .tcard:not([hidden]))) > .tcard {
+    flex-basis: 100%;
+  }
+  .p4body--experience .tgroups {
+    gap: 34px;
+  }
+}

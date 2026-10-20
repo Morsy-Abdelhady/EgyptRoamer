@@ -39,4 +39,58 @@
     new IntersectionObserver(function (es) { s.hero = es[0].isIntersecting; paint(); }).observe(hero);
     if (end) new IntersectionObserver(function (es) { s.end = es[0].isIntersecting; paint(); }).observe(end);
   }
+
+  // The photos open a viewer, one after another through the whole guide, as the prototype's strip (owner, 20 Oct,
+  // #12): arrows, the keyboard (← → Esc) and a swipe on phones.
+  var figs = [].slice.call(gd.querySelectorAll(".gplace figure"));
+  if (figs.length) {
+    var lb = document.createElement("div");
+    lb.className = "glb";
+    lb.hidden = true;
+    lb.setAttribute("role", "dialog");
+    lb.setAttribute("aria-modal", "true");
+    lb.innerHTML = '<button type="button" class="glb__x" aria-label="' + gd.dataset.lbClose + '">✕</button>' +
+      '<button type="button" class="glb__p" aria-label="' + gd.dataset.lbPrev + '">‹</button>' +
+      '<figure><img alt=""><figcaption></figcaption></figure>' +
+      '<button type="button" class="glb__n" aria-label="' + gd.dataset.lbNext + '">›</button>';
+    document.body.appendChild(lb);
+    var at = 0, back = null, img = lb.querySelector("img"), cap = lb.querySelector("figcaption");
+    var show = function (i) {
+      at = (i + figs.length) % figs.length;
+      var f = figs[at], src = f.querySelector("img");
+      img.src = f.dataset.full || src.currentSrc || src.src;
+      img.alt = src.alt;
+      var t = f.querySelector("figcaption span"), c = f.querySelector("figcaption small");
+      cap.innerHTML = "";
+      if (t) { var b = document.createElement("b"); b.textContent = t.textContent; cap.appendChild(b); }
+      var sm = document.createElement("small");
+      sm.textContent = (c ? c.textContent + " · " : "") + (at + 1) + " / " + figs.length;
+      cap.appendChild(sm);
+      lb.classList.toggle("glb--one", figs.length < 2);
+    };
+    var open = function (i) { back = document.activeElement; show(i); lb.hidden = false; document.documentElement.classList.add("glb-open"); lb.querySelector(".glb__x").focus(); };
+    var close = function () { lb.hidden = true; document.documentElement.classList.remove("glb-open"); if (back) back.focus(); };
+    figs.forEach(function (f, i) {
+      f.addEventListener("click", function () { open(i); });
+      f.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(i); } });
+    });
+    lb.addEventListener("click", function (e) {
+      if (e.target.closest(".glb__x") || e.target === lb) close();
+      else if (e.target.closest(".glb__p")) show(at - 1);
+      else if (e.target.closest(".glb__n")) show(at + 1);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (lb.hidden) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") show(at + (document.dir === "rtl" ? 1 : -1));
+      else if (e.key === "ArrowRight") show(at + (document.dir === "rtl" ? -1 : 1));
+    });
+    var x0 = null;
+    lb.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) show(at + (dx < 0 ? 1 : -1) * (document.dir === "rtl" ? -1 : 1));
+    });
+  }
 })();

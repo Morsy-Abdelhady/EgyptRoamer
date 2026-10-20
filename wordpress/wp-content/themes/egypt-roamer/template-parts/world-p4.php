@@ -66,6 +66,12 @@ $er_pimg = static function ( ?array $m, string $class = '', string $sizes = '100
 	return '<img' . ( '' !== $class ? ' class="' . esc_attr( $class ) . '"' : '' ) . ' src="' . esc_url( $er_src( $m, 1400 ) ) . '" srcset="' . esc_attr( $srcset ) . '" sizes="' . esc_attr( $sizes ) . '" alt="" ' . ( $eager ? 'fetchpriority="high"' : 'loading="lazy"' ) . ' decoding="async" />';
 };
 $er_photo  = (array) $W['photo'];
+// The opener and the journey's first stop showed the same photo, one under the other (food: the koshari plate,
+// owner 20 Oct, #6). The opener takes the trip's own card photo instead (the prototype's food photo).
+$er_open_alt = [ 'food' => [ 'u' => '1661994215679-cde7c2c5c060' ] ];
+if ( isset( $er_open_alt[ $W['key'] ] ) && wp_json_encode( $er_photo ) === wp_json_encode( $W['steps'][0]['img'] ?? null ) ) {
+	$er_photo = $er_open_alt[ $W['key'] ];
+}
 $er_poster = $er_src( $er_photo, 1400 );
 $er_save   = er_trip_save_data( $er_id, $er_len );
 $er_glyphs = static fn ( string $g ): string => esc_html( $g );
@@ -151,19 +157,26 @@ $er_ep     = explode( ' · ', (string) $W['eyebrow'] );
 		</div>
 	</section>
 
+	<?php
+	// "Who it suits" and "Combine it with": with a photo, both texts stand on one side and the photo beside them at
+	// their full height; the short text no longer sits over an empty half (owner, 20 Oct, #8).
+	$er_pmedia = '';
+	$er_ptxt   = '';
+	foreach ( $W['papy'] as [ $e, $h, $p, $m ] ) {
+		$er_ptxt .= '<div><p class="eyebrow">' . esc_html( $e ) . '</p><h2>' . esc_html( $h ) . '</h2><p>' . esc_html( $p ) . '</p></div>';
+		if ( $m && ! empty( $m['img'] ) ) {
+			$er_pmedia .= '<div class="papy__vid">' . $er_pimg( $m['img'], 'papy__img', '(max-width: 900px) 100vw, 640px' ) . ( '' !== $m['cap'] ? '<small class="papy__cap">' . esc_html( $m['cap'] ) . '</small>' : '' ) . '</div>';
+		} elseif ( $m && ! empty( $m['video'] ) ) {
+			$er_pmedia .= '<div class="papy__vid">' . $er_pimg( $er_photo, 'papy__img', '(max-width: 900px) 100vw, 640px' ) . er_world_video( (string) $m['video'], 'wvid', $er_poster ) . '<small class="papy__cap">' . esc_html( er_t( 'Karnak Temple, Luxor' ) . ' · ' . er_t( 'Video: {name}, Pexels', [ 'name' => (string) ( er_world_video_creators()[ $m['video'] ] ?? '' ) ] ) ) . '</small></div>';
+		}
+	}
+	?>
 	<section class="papy">
-		<div class="papy__in">
-			<?php foreach ( $W['papy'] as [ $e, $h, $p, $m ] ) : ?>
-				<div>
-					<p class="eyebrow"><?php echo esc_html( $e ); ?></p><h2><?php echo esc_html( $h ); ?></h2><p><?php echo esc_html( $p ); ?></p>
-					<?php if ( $m && ! empty( $m['img'] ) ) : ?>
-						<div class="papy__vid"><?php echo $er_pimg( $m['img'], 'papy__img', '(max-width: 900px) 100vw, 540px' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><?php if ( '' !== $m['cap'] ) : ?><small class="papy__cap"><?php echo esc_html( $m['cap'] ); ?></small><?php endif; ?></div>
-					<?php elseif ( $m && ! empty( $m['video'] ) ) : ?>
-						<div class="papy__vid"><?php echo $er_pimg( $er_photo, 'papy__img', '(max-width: 900px) 100vw, 540px' ) . er_world_video( (string) $m['video'], 'wvid', $er_poster ); // phpcs:ignore WordPress.Security.EscapeOutput ?><small class="papy__cap"><?php echo esc_html( er_t( 'Karnak Temple, Luxor' ) . ' · ' . er_t( 'Video: {name}, Pexels', [ 'name' => (string) ( er_world_video_creators()[ $m['video'] ] ?? '' ) ] ) ); ?></small></div>
-					<?php endif; ?>
-				</div>
-			<?php endforeach; ?>
-		</div>
+		<?php if ( '' !== $er_pmedia ) : ?>
+			<div class="papy__in papy__in--media"><div class="papy__txt"><?php echo $er_ptxt; // phpcs:ignore WordPress.Security.EscapeOutput ?></div><div class="papy__media"><?php echo $er_pmedia; // phpcs:ignore WordPress.Security.EscapeOutput ?></div></div>
+		<?php else : ?>
+			<div class="papy__in"><?php echo $er_ptxt; // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+		<?php endif; ?>
 	</section>
 
 	<?php if ( $W['faq'] ) : ?>

@@ -389,9 +389,13 @@ function er_world_trip_groups( array $ids ): void {
 	}
 	$order = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'numberposts' => 30, 'fields' => 'ids', 'orderby' => 'menu_order', 'order' => 'ASC', 'suppress_filters' => false ] );
 	$keys  = array_merge( array_values( array_intersect( array_map( 'intval', $order ), array_keys( $groups ) ) ), array_diff( array_keys( $groups ), array_map( 'intval', $order ) ) );
-	echo '<div class="tgroups">';
+	$f     = er_ux2_trip_filters();
+	$shown = er_world_trips_shown( $ids );
+	$fdest = $f['destination'] && function_exists( 'er_translated_post_id' ) ? (int) er_translated_post_id( $f['destination'] ) : $f['destination'];
+	echo '<div class="tgroups" data-trip-groups>';
 	foreach ( $keys as $dest ) {
-		echo '<section class="tgroup" aria-labelledby="tg-' . (int) $dest . '">';
+		$er_vis = array_intersect( $groups[ $dest ], $shown ) && ( ! $fdest || $fdest === (int) $dest );
+		echo '<section class="tgroup" aria-labelledby="tg-' . (int) $dest . '" data-dest="' . (int) $dest . '"' . ( $er_vis ? '' : ' hidden' ) . '>';
 		if ( $dest && 'publish' === get_post_status( $dest ) ) {
 			$photo = (int) get_post_thumbnail_id( $dest );
 			$stock = er_stock_id_for( $dest );
@@ -407,10 +411,36 @@ function er_world_trip_groups( array $ids ): void {
 		} else {
 			echo '<h2 class="t-h3 tgroup__h" id="tg-0">' . esc_html( er_t( 'More trips' ) ) . '</h2>';
 		}
-		er_card_grid( $groups[ $dest ], 'archive-experience', 'h3' );
+		$er_cards = '';
+		foreach ( $groups[ $dest ] as $er_id ) {
+			$t     = er_ux2_trip_traits( (int) $er_id );
+			$attrs = ' data-len="' . esc_attr( implode( ' ', $t['len'] ) ) . '" data-private="' . ( $t['private'] ? '1' : '0' ) . '" data-pickup="' . ( $t['pickup'] ? '1' : '0' ) . '" data-trip="' . (int) $er_id . '"' . ( in_array( (int) $er_id, $shown, true ) ? '' : ' hidden' );
+			$er_cards .= (string) preg_replace( '#^(\s*<li class="tcard\b[^"]*")#', '$1' . $attrs, er_card( (int) $er_id, 'archive-experience', 'h3' ), 1 );
+		}
+		echo '<ul class="grid-cards">' . $er_cards . '</ul>'; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside er_card
 		echo '</section>';
 	}
 	echo '</div>';
+	echo '<div data-trip-empty' . ( $shown ? ' hidden' : '' ) . '>';
+	er_ux2_trip_empty();
+	echo '</div>';
+}
+
+/** The trips the URL's filters keep (place, length, private, pickup); the rest stay on the page, hidden. */
+function er_world_trips_shown( array $ids ): array {
+	$f   = er_ux2_trip_filters();
+	$ids = er_ux2_filter_trips( array_map( 'intval', $ids ) );
+	if ( ! $f['destination'] || ! function_exists( 'er_translation_group' ) ) {
+		return $ids;
+	}
+	$group = array_map( 'intval', er_translation_group( $f['destination'] ) );
+	return array_values( array_filter( $ids, static function ( $id ) use ( $group ): bool {
+		$d = array_map( 'intval', (array) get_post_meta( $id, '_er_destination', false ) );
+		foreach ( $d ? [] : er_translation_group( $id ) as $copy ) {
+			$d = $d ?: array_map( 'intval', (array) get_post_meta( (int) $copy, '_er_destination', false ) );
+		}
+		return (bool) array_intersect( $d, $group ) || (bool) array_intersect( array_map( static fn ( $x ) => function_exists( 'er_translated_post_id' ) ? (int) er_translated_post_id( $x ) : $x, $d ), $group );
+	} ) );
 }
 
 add_action( 'wp_enqueue_scripts', static function (): void {
@@ -594,10 +624,26 @@ function er_world_guide_photos( string $html, int $post_id ): string {
 		if ( false === $pos ) {
 			continue;
 		}
+		// That paragraph can sit inside a box of the section's two-column grid (er-subgrid); the photos then shrank to
+		// the box (Grand Egyptian Museum, owner 20 Oct, #13). They go before the grid instead, at the article's width.
+		$grid = strrpos( substr( $html, 0, $pos ), '<div class="er-subgrid' );
+		if ( false !== $grid && $grid > $at && preg_match_all( '#<div' . chr( 92 ) . 'b|</div>#', $html, $er_tags, PREG_OFFSET_CAPTURE, $grid ) ) {
+			$depth = 0;
+			foreach ( $er_tags[0] as [ $er_tag, $er_pos ] ) {
+				$depth += '</div>' === $er_tag ? -1 : 1;
+				if ( 0 === $depth ) {
+					if ( $er_pos > $pos ) {
+						$pos = $grid;
+					}
+					break;
+				}
+			}
+		}
 		$row = '<div class="gplace gplace--' . min( 3, count( $photos ) ) . '"><p class="gplace__t">' . esc_html( er_t( 'See the place' ) ) . '</p><div class="gplace__g">';
 		foreach ( $photos as [ $id, $caption, $who ] ) {
 			$base = 'https://images.unsplash.com/photo-' . $id . '?auto=format&fit=crop&q=72';
-			$row .= '<figure><img src="' . esc_url( $base . '&w=900&h=600' ) . '" srcset="' . esc_attr( $base . '&w=600&h=400 600w, ' . $base . '&w=900&h=600 900w, ' . $base . '&w=1200&h=800 1200w' ) . '" sizes="(max-width: 700px) 90vw, 400px" alt="' . esc_attr( $english ? $caption : '' ) . '" loading="lazy" decoding="async" width="900" height="600" />'
+			// Each photo opens the guide's photo viewer (assets/js/p4-guide.js), as in the prototype (owner, 20 Oct, #12).
+			$row .= '<figure tabindex="0" role="button" data-full="' . esc_url( $base . '&w=1800' ) . '"><img src="' . esc_url( $base . '&w=1200&h=800' ) . '" srcset="' . esc_attr( $base . '&w=600&h=400 600w, ' . $base . '&w=900&h=600 900w, ' . $base . '&w=1200&h=800 1200w, ' . $base . '&w=1600&h=1067 1600w' ) . '" sizes="(max-width: 700px) 90vw, 860px" alt="' . esc_attr( $english ? $caption : '' ) . '" loading="lazy" decoding="async" width="900" height="600" />'
 				. '<figcaption>' . ( $english ? '<span>' . esc_html( $caption ) . '</span>' : '' ) . '<small>' . esc_html( 'Photo: ' . ( '' !== $who ? $who . ', ' : '' ) . 'Unsplash' ) . '</small></figcaption></figure>';
 		}
 		$row .= '</div></div>';

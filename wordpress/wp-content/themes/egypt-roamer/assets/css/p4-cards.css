@@ -338,3 +338,20 @@
     margin-block: -11px;
   }
 }
+
+/* The header slides away while reading down; the bars that stick under it (section menu, filters, the guide's
+   trip box) now move up with it instead of leaving an empty strip above them (owner, 20 Oct, #3). */
+.p4filters,
+.gi-bar,
+.gd .secbar,
+.gd .abox > .bk {
+  transition: top 0.6s var(--ease-out, ease);
+}
+body:has(.nav.is-hidden) .p4filters,
+body:has(.nav.is-hidden) .gi-bar,
+body:has(.nav.is-hidden) .gd .secbar {
+  top: var(--wp-admin--admin-bar--height, 0px) !important;
+}
+body:has(.nav.is-hidden) .gd .abox > .bk {
+  top: calc(var(--wp-admin--admin-bar--height, 0px) + 80px);
+}

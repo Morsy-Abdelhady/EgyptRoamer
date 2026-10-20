@@ -29,7 +29,8 @@ $er_f_topic = isset( $_GET['topic'] ) ? sanitize_key( wp_unslash( $_GET['topic']
 // A filter over an empty archive offers nothing to choose from; it stays once a filter is active.
 $er_ux2_trips = er_ux2_trips_page(); // New journey preview: place buttons and length / private / pickup filters (inc/ux2-trips.php).
 $er_ids       = have_posts() ? wp_list_pluck( $GLOBALS['wp_query']->posts, 'ID' ) : [];
-if ( $er_ux2_trips ) {
+$er_trip_world = $er_ux2_trips && function_exists( 'er_world_on' ) && er_world_on();
+if ( $er_ux2_trips && ! $er_trip_world ) {
 	$er_ids = er_ux2_filter_trips( $er_ids );
 }
 $er_filterable = in_array( $er_type, [ 'er_tour', 'er_experience', 'er_activity', 'er_guide' ], true ) && ( have_posts() || $er_f_dest || $er_f_style || $er_f_topic );
@@ -40,7 +41,7 @@ $er_p4 = function_exists( 'er_world_on' ) && er_world_on() && in_array( $er_type
 if ( $er_p4 ) {
 	er_world_archive_hero( $er_type, $er_title, $er_intro );
 	if ( $er_ux2_trips ) {
-		er_world_trip_filter_bar( count( $er_ids ) );
+		er_world_trip_filter_bar( count( er_world_trips_shown( $er_ids ) ) );
 	} elseif ( 'er_guide' === $er_type ) {
 		er_world_guide_bar();
 	}
@@ -85,7 +86,7 @@ if ( $er_p4 ) {
 		</form>
 	<?php endif; ?>
 
-	<?php if ( $er_ux2_trips && ! $er_ids ) : er_ux2_trip_empty(); elseif ( have_posts() ) : ?>
+	<?php if ( $er_ux2_trips && ! $er_ids && ! $er_trip_world ) : er_ux2_trip_empty(); elseif ( have_posts() ) : ?>
 		<?php if ( $er_ux2_trips && function_exists( 'er_world_on' ) && er_world_on() ) : er_world_trip_groups( $er_ids ); elseif ( 'er_destination' === $er_type && function_exists( 'er_world_on' ) && er_world_on() ) : er_world_place_cards( $er_ids ); else : // proposal 4: trips by place under each place's banner; places with their trips ?>
 		<?php if ( $er_p4 && 'er_guide' === $er_type ) : echo '<ul class="gi-grid">' . implode( '', array_map( 'er_world_guide_card', er_world_guide_order( $er_ids ) ) ) . '</ul>'; else : er_card_grid( $er_ids, 'archive-' . str_replace( 'er_', '', $er_type ?: 'list' ), 'h2' ); endif; // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		<?php endif; ?>

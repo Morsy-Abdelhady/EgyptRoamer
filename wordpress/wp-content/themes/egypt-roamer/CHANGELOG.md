@@ -2,6 +2,19 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.4 — 2026-10-20: the owner's 13 desktop notes, and phones
+- **#1 Footer:** the 100px empty band under the legal row (room kept for the old floating assistant button) is gone.
+- **#2 Places:** the trip rows inside a place card have inner padding; the photo no longer touches the border.
+- **#3 Sticky bars:** when the header slides away, the section menu, the trip filters and the guide's trip box move up with it (no empty strip above them).
+- **#4 Place pages (Hurghada):** a trip card named inside a two-column box was squeezed into one column; it now follows the box at full width.
+- **#5 Trips filter:** "Where" on one row, "Length", the two options and the count on the second. The filters work on the page itself: no reload, the count and the address update (the view can be shared); without JavaScript they stay links. A place filter now also finds translated trips whose own copy has no place.
+- **#6 Trip opener:** fills the screen (it was 80% minus the header). The food trip's opener showed the same koshari photo as its first stop; it now uses the trip's own card photo.
+- **#7–#10 Trip sections on wide screens:** "Who it suits" and "Combine it with" stand beside their photo at its full height; the questions sit beside their title at the container's width. The floating booking capsule covered text on the right of sections: on desktop the header now stays on trip pages with "Book this trip" in gold, and the capsule is for phones only.
+- **#11 Trip assistant:** "Chat with Egypt Roamer" shows its form alone in the panel; the answers and suggestions no longer show behind it. Cancel brings them back.
+- **#12 Guide photos** open a viewer: arrows, ← → and Esc, a swipe on phones, caption and "2 / 5" (as the prototype's strip).
+- **#13 Guide photos are larger:** the first of three is wide, the others two per row; photos named in a section of boxes go above the boxes instead of inside the first box.
+- **Also found:** "1 trips you can book" on place pages ("1 trip you can book", 7 languages); on phones the guide's trip bar peeked above the dock when it should have stepped aside; the trips list on phones scrolls sideways per place (the page was 13 screens long, now about 8).
+
 ## 1.3.3 — 2026-10-20: booking bar on tablets
 - **Guides and place pages, 601–900px:** the booking box moves below the article there, so a reader on a tablet saw no booking button until the end. The phone's booking bar ("See 3 options") now shows on tablets too, in place of the dock.
 

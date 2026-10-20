@@ -11,6 +11,7 @@ return [
 		'1 trip' => '1 поездка',
 		'1 trip inside' => '1 поездка внутри',
 		'1 trip mentioned here' => '1 поездка в этом путеводителе',
+		'1 trip you can book' => 'Можно забронировать: 1',
 		'2 adults' => '2 взрослых',
 		'2 adults, 1 child' => '2 взрослых, 1 ребёнок',
 		'2 adults, 2 children' => '2 взрослых, 2 ребёнка',

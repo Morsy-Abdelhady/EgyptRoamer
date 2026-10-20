@@ -11,6 +11,7 @@ return [
 		'1 trip' => 'رحلة واحدة',
 		'1 trip inside' => 'رحلة واحدة بالداخل',
 		'1 trip mentioned here' => 'رحلة واحدة مذكورة هنا',
+		'1 trip you can book' => 'رحلة واحدة يمكنك حجزها',
 		'2 adults' => 'شخصان بالغان',
 		'2 adults, 1 child' => 'بالغان وطفل',
 		'2 adults, 2 children' => 'بالغان وطفلان',

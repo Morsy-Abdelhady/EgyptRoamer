@@ -34,23 +34,27 @@ function er_world_archive_hero( string $type, string $title, string $intro ): vo
 /** Trips & tours' filters as the prototype's sticky bar: Where, Length, the two toggles and the count (links, as before). */
 function er_world_trip_filter_bar( int $shown ): void {
 	$f     = er_ux2_trip_filters();
+	// A link may name the place in another language (the English place's ID): the chips use this language's copy.
+	$f['destination'] = $f['destination'] && function_exists( 'er_translated_post_id' ) ? (int) er_translated_post_id( $f['destination'] ) : $f['destination'];
 	$dests = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'numberposts' => 50, 'orderby' => 'menu_order', 'order' => 'ASC', 'suppress_filters' => false ] );
-	$chip  = static fn ( string $label, string $url, bool $on ): string => '<a class="chip" href="' . esc_url( $url ) . '" aria-pressed="' . ( $on ? 'true' : 'false' ) . '">' . esc_html( $label ) . '</a>';
-	$tog   = static fn ( string $label, string $url, bool $on ): string => '<a class="toggle" href="' . esc_url( $url ) . '" role="checkbox" aria-checked="' . ( $on ? 'true' : 'false' ) . '"><span class="toggle__box" aria-hidden="true"></span>' . esc_html( $label ) . '</a>';
+	// Each button is a link (works without JavaScript); assets/js/p4-trips.js filters the page in place instead.
+	$chip  = static fn ( string $label, string $url, bool $on, string $k, string $v ): string => '<a class="chip" href="' . esc_url( $url ) . '" aria-pressed="' . ( $on ? 'true' : 'false' ) . '" data-f="' . esc_attr( $k ) . '" data-v="' . esc_attr( $v ) . '">' . esc_html( $label ) . '</a>';
+	$tog   = static fn ( string $label, string $url, bool $on, string $k ): string => '<a class="toggle" href="' . esc_url( $url ) . '" role="checkbox" aria-checked="' . ( $on ? 'true' : 'false' ) . '" data-f="' . esc_attr( $k ) . '"><span class="toggle__box" aria-hidden="true"></span>' . esc_html( $label ) . '</a>';
 	$lens  = [ '' => er_t( 'Any' ), 'short' => er_t( 'Up to 5 hours' ), 'full' => er_t( 'Full day' ), 'multi' => er_t( '2+ days' ) ];
-	echo '<nav class="p4filters" aria-label="' . esc_attr( er_t( 'Filter' ) ) . '"><div class="container p4filters__in"><div class="fgroup"><span>' . esc_html( er_t( 'Where' ) ) . '</span><div class="chips">';
-	echo $chip( er_t( 'All' ), er_ux2_trip_url( array_merge( $f, [ 'destination' => 0 ] ) ), ! $f['destination'] ); // phpcs:ignore WordPress.Security.EscapeOutput
+	echo '<nav class="p4filters" aria-label="' . esc_attr( er_t( 'Filter' ) ) . '" data-trip-filters data-dest-now="' . (int) $f['destination'] . '" data-base="' . esc_url( (string) get_post_type_archive_link( 'er_experience' ) ) . '" data-one="' . esc_attr( er_t( '1 trip' ) ) . '" data-many="' . esc_attr( er_t( '{n} trips', [ 'n' => '{n}' ] ) ) . '"><div class="container p4filters__in">';
+	echo '<div class="fgroup frow"><span>' . esc_html( er_t( 'Where' ) ) . '</span><div class="chips">';
+	echo $chip( er_t( 'All' ), er_ux2_trip_url( array_merge( $f, [ 'destination' => 0 ] ) ), ! $f['destination'], 'destination', '0' ); // phpcs:ignore WordPress.Security.EscapeOutput
 	foreach ( $dests as $d ) {
-		echo $chip( get_the_title( $d ), er_ux2_trip_url( array_merge( $f, [ 'destination' => (int) $d->ID ] ) ), (int) $d->ID === $f['destination'] ); // phpcs:ignore WordPress.Security.EscapeOutput
+		echo $chip( get_the_title( $d ), er_ux2_trip_url( array_merge( $f, [ 'destination' => (int) $d->ID ] ) ), (int) $d->ID === $f['destination'], 'destination', (string) (int) $d->ID ); // phpcs:ignore WordPress.Security.EscapeOutput
 	}
-	echo '</div></div><div class="fgroup"><span>' . esc_html( er_t( 'Length' ) ) . '</span><div class="chips">';
+	echo '</div></div><div class="fgroup frow"><span>' . esc_html( er_t( 'Length' ) ) . '</span><div class="chips">';
 	foreach ( $lens as $v => $label ) {
-		echo $chip( $label, er_ux2_trip_url( array_merge( $f, [ 'len' => $v ] ) ), $v === $f['len'] ); // phpcs:ignore WordPress.Security.EscapeOutput
+		echo $chip( $label, er_ux2_trip_url( array_merge( $f, [ 'len' => $v ] ) ), $v === $f['len'], 'len', (string) $v ); // phpcs:ignore WordPress.Security.EscapeOutput
 	}
-	echo '</div></div>';
-	echo $tog( er_t( 'Private option' ), er_ux2_trip_url( array_merge( $f, [ 'private' => ! $f['private'] ] ) ), $f['private'] ); // phpcs:ignore WordPress.Security.EscapeOutput
-	echo $tog( er_t( 'Hotel pickup' ), er_ux2_trip_url( array_merge( $f, [ 'pickup' => ! $f['pickup'] ] ) ), $f['pickup'] ); // phpcs:ignore WordPress.Security.EscapeOutput
-	echo '<p class="count" role="status">' . esc_html( 1 === $shown ? er_t( '1 trip' ) : er_t( '{n} trips', [ 'n' => (string) $shown ] ) ) . '</p></div></nav>';
+	echo '</div><div class="ftogs">';
+	echo $tog( er_t( 'Private option' ), er_ux2_trip_url( array_merge( $f, [ 'private' => ! $f['private'] ] ) ), $f['private'], 'private' ); // phpcs:ignore WordPress.Security.EscapeOutput
+	echo $tog( er_t( 'Hotel pickup' ), er_ux2_trip_url( array_merge( $f, [ 'pickup' => ! $f['pickup'] ] ) ), $f['pickup'], 'pickup' ); // phpcs:ignore WordPress.Security.EscapeOutput
+	echo '</div><p class="count" role="status" data-count>' . esc_html( 1 === $shown ? er_t( '1 trip' ) : er_t( '{n} trips', [ 'n' => (string) $shown ] ) ) . '</p></div></div></nav>';
 }
 
 /** The Travel Guide's "Where" chips (the archive filters guides by ?destination=). */
@@ -128,6 +132,9 @@ add_action( 'wp_enqueue_scripts', static function (): void {
 	}
 	if ( er_world_on() && ( is_post_type_archive( [ 'er_experience', 'er_destination', 'er_guide' ] ) ) ) {
 		wp_enqueue_style( 'er-p4-archives', ER_THEME_URI . '/assets/css/p4-archives.css', [ 'er-pages' ], er_asset_ver( 'assets/css/p4-archives.css' ) );
+	}
+	if ( er_world_on() && function_exists( 'er_ux2_trips_page' ) && er_ux2_trips_page() ) {
+		wp_enqueue_script( 'er-p4-trips', ER_THEME_URI . '/assets/js/p4-trips.js', [], er_asset_ver( 'assets/js/p4-trips.js' ), [ 'in_footer' => true, 'strategy' => 'defer' ] );
 	}
 }, 21 );
 

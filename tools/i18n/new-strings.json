@@ -6103,6 +6103,15 @@
    "Можно забронировать: {n}",
    "{n}个可预订行程",
    "{n} رحلات يمكنك حجزها"
+  ],
+  "1 trip you can book": [
+   "1 buchbare Tour",
+   "1 excursion à réserver",
+   "1 escursione prenotabile",
+   "1 excursión que puedes reservar",
+   "Можно забронировать: 1",
+   "1个可预订行程",
+   "رحلة واحدة يمكنك حجزها"
   ]
  }
 }
