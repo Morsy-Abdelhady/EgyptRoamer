@@ -5568,49 +5568,8 @@ transition-delay: 0.16s;
 transition-delay: 0.2s;
 }
 @media (min-width: 901px) {
-html[dir="rtl"] .hero::before {
-background: linear-gradient(
-100deg,
-color-mix(in srgb, var(--charcoal) 58%, transparent) 0%,
-color-mix(in srgb, var(--charcoal) 22%, transparent) 42%,
-transparent 65%
-),
-linear-gradient(to top, color-mix(in srgb, var(--charcoal) 50%, transparent) 0%, transparent 35%);
-}
-html[dir="rtl"] .hero__content {
-grid-template-columns: minmax(0, max-content);
-justify-content: end;
-padding-left: clamp(4.5rem, 10vw, 10rem);
-padding-right: var(--gutter);
-}
-html[dir="rtl"] .hero__note {
-left: auto;
-right: var(--edge);
-text-align: right;
-transform: rotate(-4deg);
-}
-html[dir="rtl"] .scene--pyramids .scene__shade {
-background: linear-gradient(
-90deg,
-color-mix(in srgb, var(--charcoal) 62%, transparent) 0%,
-color-mix(in srgb, var(--charcoal) 22%, transparent) 45%,
-transparent 70%
-),
-linear-gradient(to top, color-mix(in srgb, var(--charcoal) 55%, transparent), transparent 40%);
-}
-html[dir="rtl"] .scene--pyramids .scene__content {
-grid-template-columns: minmax(0, max-content);
-justify-content: end;
-padding-left: clamp(4.5rem, 10vw, 10rem);
-padding-right: var(--gutter);
-}
-html[dir="rtl"] .scene--pyramids .scene__pick {
-left: auto;
-right: var(--edge);
-}
-html[dir="rtl"] .scene--pyramids .scene__coords {
-right: auto;
-left: calc(var(--edge) + clamp(4.5rem, 10vw, 10rem) - var(--gutter));
+html:lang(ar) .scene__title {
+font-size: clamp(3.4rem, min(9.5vw, 17vh), 9rem);
 }
 }
 @media (max-width: 400px) {

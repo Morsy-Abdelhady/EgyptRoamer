@@ -2,6 +2,11 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.14 — 2026-10-20: Arabic homepage opening and chapters (owner's note)
+- **Opening scene, Arabic, wide screens:** the text block was kept on the photo's left (an older composition rule) and sat under proposal 4's chapter card, which rtl.css mirrors to the left: the copy and the place chips were cut ("كل ذلك", "أسوان") and "Watch the film" hidden. The scene now mirrors like the others: text, buttons and chips on the right, chapter card on the left.
+- **Chapter word, Arabic:** "النيل" was taller than the English word (Arabic line height) and pushed the chapter line behind the trips bar; on wide screens it is sized by screen height too.
+- **Chapters with a trips bar (every language, ≥ 901px):** the text sits just above the bar instead of being centred; at 1280×650 the line touched the bar in English too. Checked 6 slides × ar/en × 1280×650, 1536×730, 1920×960: no text under a card or the header, nothing clipped.
+
 ## 1.3.13 — 2026-10-20: company address in Arabic (with Core 1.2.64)
 - **Footer and Privacy Policy, right-to-left:** the English registered-office address (and the company number) are isolated with `<bdi>`; in Arabic the address's words showed out of order ("City Road, London EC1V 128 … 2NX").
 

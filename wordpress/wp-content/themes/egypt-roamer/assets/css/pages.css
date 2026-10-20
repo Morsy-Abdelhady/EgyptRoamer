@@ -1805,58 +1805,17 @@ p.assistant__msg--ai {
   transition-delay: 0.2s;
 }
 
-/* ---------- Arabic (RTL) opening scene composition ----------
-   rtl.css mirrors the layout (text, its shade, the note, the pick card) but a photo cannot be mirrored
-   honestly: the Great Pyramid is on the photo's right and the sun on its left, so the mirrored text sat
-   on the pyramid and the bare sun glared under the note. Instead of flipping the real landmark, the
-   opening scene keeps the photo's own composition on wide screens: the Arabic text block (still
-   right-aligned and read right to left) sits on the open sky on the left, under the shade, and the note
-   and pick card stay on the right as in the photo's design. Phones (≤ 900 px) stack the text at the
-   bottom under a full-width shade, so they need no change. `html` outweighs rtl.css, which loads later. */
+/* ---------- Arabic (RTL) opening scene and chapters (owner, 20 Oct) ----------
+   The opening scene used to keep the photo's composition (Arabic text block pushed to the left, on the sky).
+   With proposal 4's chapter card mirrored to the left by rtl.css, the text sat under that card: the copy and
+   the place chips were cut and "Watch the film" hidden. The opening scene now mirrors like every other
+   scene (rtl.css): text on the right, its shade on the right, the chapter card on the left.
+   The Arabic chapter word is taller than the English one (line height 1.2 and room for the dots, rtl.css),
+   so on wide screens it pushed the chapter line under the trips bar ("النيل"): it is sized by the screen
+   height as well, and keeps about the English word's height. */
 @media (min-width: 901px) {
-  html[dir="rtl"] .hero::before {
-    background: linear-gradient(
-        100deg,
-        color-mix(in srgb, var(--charcoal) 58%, transparent) 0%,
-        color-mix(in srgb, var(--charcoal) 22%, transparent) 42%,
-        transparent 65%
-      ),
-      linear-gradient(to top, color-mix(in srgb, var(--charcoal) 50%, transparent) 0%, transparent 35%);
-  }
-  html[dir="rtl"] .hero__content {
-    grid-template-columns: minmax(0, max-content);
-    justify-content: end;
-    padding-left: clamp(4.5rem, 10vw, 10rem);
-    padding-right: var(--gutter);
-  }
-  html[dir="rtl"] .hero__note {
-    left: auto;
-    right: var(--edge);
-    text-align: right;
-    transform: rotate(-4deg);
-  }
-  html[dir="rtl"] .scene--pyramids .scene__shade {
-    background: linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--charcoal) 62%, transparent) 0%,
-        color-mix(in srgb, var(--charcoal) 22%, transparent) 45%,
-        transparent 70%
-      ),
-      linear-gradient(to top, color-mix(in srgb, var(--charcoal) 55%, transparent), transparent 40%);
-  }
-  html[dir="rtl"] .scene--pyramids .scene__content {
-    grid-template-columns: minmax(0, max-content);
-    justify-content: end;
-    padding-left: clamp(4.5rem, 10vw, 10rem);
-    padding-right: var(--gutter);
-  }
-  html[dir="rtl"] .scene--pyramids .scene__pick {
-    left: auto;
-    right: var(--edge);
-  }
-  html[dir="rtl"] .scene--pyramids .scene__coords {
-    right: auto;
-    left: calc(var(--edge) + clamp(4.5rem, 10vw, 10rem) - var(--gutter));
+  html:lang(ar) .scene__title {
+    font-size: clamp(3.4rem, min(9.5vw, 17vh), 9rem);
   }
 }
 

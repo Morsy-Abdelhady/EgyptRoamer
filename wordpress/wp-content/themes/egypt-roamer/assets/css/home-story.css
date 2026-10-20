@@ -33,6 +33,12 @@ html[dir="rtl"] .story-index{right:auto;left:var(--edge)}
 .scene__trips .mini em{font-style:normal;color:var(--gold-deep,#a8871f);font-weight:600}
 html[dir="rtl"] .scene__trips-h a > span[aria-hidden]{display:inline-block;transform:scaleX(-1)}
 html[dir="rtl"] .scene__pick.scene__trips{left:var(--edge);right:calc(var(--edge) + clamp(4.5rem, 10vw, 10rem) - var(--gutter))}
+/* Wide screens: a chapter with its trips bar sets its text just above the bar instead of centring it, so the
+   chapter line never runs under the bar (20 Oct: "النيل" at 1536×730, every language at 1280×650). */
+@media (min-width:901px){
+  .scene:has(.scene__trips){align-items:flex-end}
+  .scene:has(.scene__trips) .scene__content{padding-bottom:calc(4.4rem + 172px)}
+}
 
 /* As the prototype (.ch__trips): the label column beside the trips down to 900px; the slide's own button is in it */
 .er-story .scene__content .btn{display:none}
