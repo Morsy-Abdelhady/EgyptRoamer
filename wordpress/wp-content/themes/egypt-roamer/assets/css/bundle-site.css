@@ -8469,3 +8469,31 @@ font-weight: 700;
 .tcard__rate > span:not(.visually-hidden) {
 color: var(--text-muted);
 }
+body.admin-bar .p4filters,
+body.admin-bar .gi-bar,
+body.admin-bar .gd .secbar {
+top: calc(var(--nav-h, 72px) + 32px) !important;
+}
+body.admin-bar .gd .abox > .bk {
+top: calc(var(--nav-h, 72px) + 32px + 80px);
+}
+body.admin-bar:has(.nav.is-hidden) .p4filters,
+body.admin-bar:has(.nav.is-hidden) .gi-bar,
+body.admin-bar:has(.nav.is-hidden) .gd .secbar {
+top: 32px !important;
+}
+body.admin-bar:has(.nav.is-hidden) .gd .abox > .bk {
+top: calc(32px + 80px);
+}
+@media (max-width: 782px) {
+body.admin-bar .p4filters,
+body.admin-bar .gi-bar,
+body.admin-bar .gd .secbar {
+top: calc(var(--nav-h, 64px) + 46px) !important;
+}
+body.admin-bar:has(.nav.is-hidden) .p4filters,
+body.admin-bar:has(.nav.is-hidden) .gi-bar,
+body.admin-bar:has(.nav.is-hidden) .gd .secbar {
+top: 46px !important;
+}
+}

@@ -379,3 +379,34 @@ body:has(.nav.is-hidden) .gd .abox > .bk {
 .tcard__rate > span:not(.visually-hidden) {
   color: var(--text-muted);
 }
+
+/* Logged-in editors (owner, 20 Oct): the WordPress toolbar pushes the header down 32px (46px on small screens), so
+   the sticky bars sit below both; scrolling back up hid the section menu behind the header. */
+body.admin-bar .p4filters,
+body.admin-bar .gi-bar,
+body.admin-bar .gd .secbar {
+  top: calc(var(--nav-h, 72px) + 32px) !important;
+}
+body.admin-bar .gd .abox > .bk {
+  top: calc(var(--nav-h, 72px) + 32px + 80px);
+}
+body.admin-bar:has(.nav.is-hidden) .p4filters,
+body.admin-bar:has(.nav.is-hidden) .gi-bar,
+body.admin-bar:has(.nav.is-hidden) .gd .secbar {
+  top: 32px !important;
+}
+body.admin-bar:has(.nav.is-hidden) .gd .abox > .bk {
+  top: calc(32px + 80px);
+}
+@media (max-width: 782px) {
+  body.admin-bar .p4filters,
+  body.admin-bar .gi-bar,
+  body.admin-bar .gd .secbar {
+    top: calc(var(--nav-h, 64px) + 46px) !important;
+  }
+  body.admin-bar:has(.nav.is-hidden) .p4filters,
+  body.admin-bar:has(.nav.is-hidden) .gi-bar,
+  body.admin-bar:has(.nav.is-hidden) .gd .secbar {
+    top: 46px !important;
+  }
+}

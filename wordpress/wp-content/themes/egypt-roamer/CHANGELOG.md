@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.10 — 2026-10-20: owner's notes
+- **Sticky bars with the WordPress toolbar (logged-in editors):** scrolling back up hid the section menu and the trip filters behind the header (the toolbar pushes the header down 32px); they now sit right under it in both states.
+- **Trip opener:** the buttons sat on the screen's bottom edge; the text now ends 56–110px above it, and the opener counts the toolbar.
+
 ## 1.3.9 — 2026-10-20: newsletter and share images (with Core 1.2.62)
 - **Newsletter (Core 1.2.62, `includes/newsletter.php`):** a sign-up now gets one email in the visitor's language with a link to confirm (double opt-in; nothing else goes to an address that did not confirm). Confirming sends a welcome email with the 7-, 10- and 14-day routes, the Trip builder and Trips & tours, and an unsubscribe link that deletes the address. Arabic emails are right-to-left. Mail goes through the host's wp_mail. The table gets `token` and `confirmed_at` (DB version 4). New notices: "Subscription confirmed…", "You are unsubscribed…". Strings in 7 languages.
 - **Share images:** a shared trip, guide or place page (WhatsApp, Facebook, Pinterest) shows its own photo (1200×630) instead of the brand image.

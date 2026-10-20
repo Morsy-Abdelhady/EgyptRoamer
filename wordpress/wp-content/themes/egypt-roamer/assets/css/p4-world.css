@@ -418,3 +418,19 @@
     scroll-margin-top: calc(min(100vw - 36px, 560px) * 0.44 + 56px);
   }
 }
+
+/* Trip opener (owner, 20 Oct): the buttons sat on the screen's bottom edge; the text now ends well above it, and
+   the opener counts the WordPress toolbar for logged-in editors. */
+@media (min-width: 601px) {
+  .p4w .wtxt {
+    padding-bottom: clamp(56px, 10vh, 110px) !important;
+  }
+}
+@media (max-width: 600px) {
+  .p4w .wtxt {
+    padding-bottom: 44px !important;
+  }
+}
+body.admin-bar .p4w .wopen {
+  min-height: max(560px, calc(100svh - 32px)) !important;
+}
