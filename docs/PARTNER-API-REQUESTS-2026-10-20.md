@@ -47,3 +47,14 @@ Subject: Hotel API / data feed for egyptroamer.com (Allianceid 11023279)
 ## Status
 - [x] **GetYourGuide: sent 20 Oct** through partner.getyourguide.com → Help → Contact (topic Integration & Tech → API Integration). **Ticket 22892318.** Reply comes to the account's email.
 - [x] **Trip.com: sent by the owner on 20 Oct** by email to affiliation@trip.com (from the registered address, with Allianceid 11023279).
+
+## GetYourGuide's reply (received 20 Oct)
+- **Basic (Teaser) API:** descriptions, images, ratings and prices. It needs at least **100,000 visits a month** and
+  a technical team able to integrate.
+- **Reading API:** full descriptions, options and availability. It needs 1 million visits a month and 300 bookings
+  a month.
+- **Where we stand:** about 285 page views in 16–19 Oct, so the site does not qualify yet.
+- **Decision:** no reply sent. Ask again when Visits shows 100,000 a month.
+- **Until then:** GetYourGuide options keep the partner's facts from its product pages (length, private or group,
+  pickup, free cancellation), with no price or rating. Source:
+  https://partner.getyourguide.support/hc/en-us/articles/13981133907613-API-integration-and-requirements

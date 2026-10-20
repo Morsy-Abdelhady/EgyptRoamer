@@ -35,7 +35,7 @@ German, Russian and Chinese first: the target markets. A reviewer can work strai
 `tools/i18n/new-strings.json` and `content/editorial/<lang>/`.
 
 ## 6. Waiting for partners' replies
-- **GetYourGuide API:** ticket 22892318.
+- **GetYourGuide API:** replied 20 Oct: needs 100,000 visits a month; the site does not qualify yet.
 - **Trip.com API:** your email of 20 Oct.
 
 When either replies with access: you enter the key in wp-admin, and I add their prices and ratings as with Viator.
