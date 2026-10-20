@@ -302,3 +302,6 @@ html.glb-open{overflow:hidden}
 /* Phones and tablets: when the trip bar steps aside (opener, "Ready to go?") it leaves the screen completely; 110%
    of its own height left it peeking above the dock. */
 @media (max-width:900px){.gd .mbar:not(.is-on){transform:translateY(calc(100% + 8rem))}}
+/* Desktop: the sticky trip box can be taller than a short screen (690px at 125% zoom); its hotels at the bottom were
+   out of reach. It now scrolls within the screen's height. */
+@media (min-width:901px){.gd .abox > .bk{max-height:calc(100vh - var(--nav-h,72px) - 96px);overflow-y:auto;scrollbar-width:thin;overscroll-behavior:contain}body:has(.nav.is-hidden) .gd .abox > .bk{max-height:calc(100vh - 100px)}}

@@ -8085,6 +8085,34 @@ align-items: center;
 .assistant [hidden] {
 display: none !important;
 }
+.er-ux2 .assistant__human {
+display: flex;
+flex-wrap: nowrap;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+}
+.er-ux2 .assistant__human p {
+flex: 1;
+min-width: 0;
+margin: 0;
+font-size: 13px;
+line-height: 1.35;
+}
+.er-ux2 .assistant__human p span {
+display: block;
+}
+.er-ux2 .assistant__human .btn {
+flex: none;
+}
+.er-ux2 .assistant:has(.assistant__log > :nth-child(2)) .assistant__label {
+position: absolute;
+width: 1px;
+height: 1px;
+overflow: hidden;
+clip: rect(0 0 0 0);
+white-space: nowrap;
+}
 .grid-cards:has(> .tcard) {
 gap: 26px;
 }

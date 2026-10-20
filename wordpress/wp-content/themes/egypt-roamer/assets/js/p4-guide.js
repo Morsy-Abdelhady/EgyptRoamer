@@ -37,7 +37,12 @@
     var s = { hero: true, end: false };
     var paint = function () { var on = !s.hero && !s.end; m.classList.toggle("is-on", on); document.documentElement.classList.toggle("has-p4bar", on && window.matchMedia("(max-width: 900px)").matches); };
     new IntersectionObserver(function (es) { s.hero = es[0].isIntersecting; paint(); }).observe(hero);
-    if (end) new IntersectionObserver(function (es) { s.end = es[0].isIntersecting; paint(); }).observe(end);
+    // From "Ready to go?" to the end of the page (the footer too) the bar stays aside.
+    if (end) {
+      var tick = false, check = function () { tick = false; var e = end.getBoundingClientRect().top < window.innerHeight; if (e !== s.end) { s.end = e; paint(); } };
+      window.addEventListener("scroll", function () { if (!tick) { tick = true; requestAnimationFrame(check); } }, { passive: true });
+      check();
+    }
   }
 
   // The photos open a viewer, one after another through the whole guide, as the prototype's strip (owner, 20 Oct,

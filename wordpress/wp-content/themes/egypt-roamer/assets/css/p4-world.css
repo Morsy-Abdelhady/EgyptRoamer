@@ -405,3 +405,9 @@
     top: calc(var(--nav-h, 84px) + 24px);
   }
 }
+/* Phones: each stop's card ends above the booking bar (it covered the card's last lines and photo credit). */
+@media (max-width: 600px) {
+  .p4w .jstep {
+    padding-bottom: 150px !important;
+  }
+}

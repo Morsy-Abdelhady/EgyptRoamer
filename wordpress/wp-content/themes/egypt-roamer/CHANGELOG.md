@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.5 — 2026-10-20: phones and the trip assistant
+- **Phones, trip pages:** each stop's card ends above the booking bar (it covered the last lines and the photo credit); the bar steps aside over the footer.
+- **Phones, guides:** the trip bar stays aside from "Ready to go?" to the end of the page (it came back over the footer).
+- **Guides and place pages, short desktop screens:** the sticky trip box was taller than a 690px screen, so its hotels were out of reach; it now scrolls within the screen.
+- **Trip assistant:** the answers get more of the panel ("Need personal help?" on one line beside its button; the field's label hides after the first question); "browse" names the menu's sections, Places and Trips & tours.
+
 ## 1.3.4 — 2026-10-20: the owner's 13 desktop notes, and phones
 - **#1 Footer:** the 100px empty band under the legal row (room kept for the old floating assistant button) is gone.
 - **#2 Places:** the trip rows inside a place card have inner padding; the photo no longer touches the border.

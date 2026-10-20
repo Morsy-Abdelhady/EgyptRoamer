@@ -142,8 +142,9 @@ if ( 'off' !== $er_assistant ) :
 			'none'     => er_t( 'Nothing on Egypt Roamer matches that yet. Try a place or an experience, or browse:' ),
 			'busy'     => er_t( 'Searching…' ),
 			'retry'    => er_t( 'Please try again in a few minutes.' ),
-			'er_destination' => er_t( 'Destinations' ),
-			'er_experience'  => er_t( 'Experiences' ),
+			// The menu's names in the new journey (the old ones read "Destinations", "Experiences").
+			'er_destination' => er_ux2() ? er_t( 'Places' ) : er_t( 'Destinations' ),
+			'er_experience'  => er_ux2() ? er_t( 'Trips & tours' ) : er_t( 'Experiences' ),
 		],
 	];
 	// Chat with the team (Core includes/chat.php): same drawer, its own endpoints. Strings for the script.
