@@ -138,3 +138,18 @@ add_action( 'pre_get_posts', static function ( WP_Query $q ) {
 		$q->set( 'posts_per_page', 12 );
 	}
 } );
+
+/*
+ * Speed (owner, 20 Oct: "measure the speed and raise it as far as possible"). The host's Site Designer plugin prints
+ * about 48 KB of inline CSS into every page's head for block themes ("wp-site-designer-contrast-fallback", its shared
+ * pattern classes and logo rules). This classic theme uses none of their selectors (checked on the live pages, 20 Oct),
+ * so they are removed: the head shrinks by about 48 KB on every page, which the browser had to parse before showing
+ * anything. WordPress's own "global-styles" stay (the guides' group blocks use its layout classes).
+ */
+add_action( 'wp_head', static function (): void {
+	ob_start();
+}, 0 );
+add_action( 'wp_head', static function (): void {
+	$head = (string) ob_get_clean();
+	echo preg_replace( '#<style id="(?:wp-site-designer-contrast-fallback|site-designer-shared-pattern-classes-inline-css|site-designer-logo-constraints)"[^>]*>.*?</style>\s*#s', '', $head ); // phpcs:ignore WordPress.Security.EscapeOutput -- WordPress's own head output, minus three style blocks
+}, PHP_INT_MAX );

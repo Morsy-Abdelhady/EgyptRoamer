@@ -122,7 +122,7 @@ $er_hero = [
 ][ $er_slug ] ?? null;
 $er_thumb = (int) get_post_thumbnail_id( $er_id );
 $er_stock = ! $er_isplace && function_exists( 'er_ux2_guide_photo' ) && '' !== er_ux2_guide_photo( $er_id ) ? er_ux2_guide_photo( $er_id ) : er_stock_id_for( $er_id );
-$er_himg  = $er_hero ? er_stock_img( $er_hero[1], '', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw' ], [ 960, 1400, 2000 ] ) : ( $er_thumb ? er_img( $er_thumb, 'er-hero', [ 'alt' => '', 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw' ] ) : ( '' !== $er_stock ? er_stock_img( $er_stock, '', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw' ], [ 960, 1400, 2000 ] ) : '' ) );
+$er_himg  = $er_hero ? er_stock_img( $er_hero[1], '', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw' ], [ 720, 960, 1400, 2000 ] ) : ( $er_thumb ? er_img( $er_thumb, 'er-hero', [ 'alt' => '', 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw' ] ) : ( '' !== $er_stock ? er_stock_img( $er_stock, '', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw' ], [ 720, 960, 1400, 2000 ] ) : '' ) );
 $er_gidx  = (string) get_post_type_archive_link( $er_isplace ? 'er_destination' : 'er_guide' );
 $er_pidx  = ! $er_isplace && 1 === count( $er_dests ) ? add_query_arg( 'destination', (int) $er_dests[0]->ID, $er_gidx ) : $er_gidx;
 $er_src   = (int) get_queried_object_id();

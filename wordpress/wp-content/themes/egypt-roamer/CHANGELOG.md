@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.6 — 2026-10-20: Trip Builder live data, speed
+- **Trip Builder (owner: "make sure it works", earlier "link it to Viator"):** tested as a visitor (nights, interests, places, private only, save, reopen a saved plan); it works. Each trip on the route now shows the partner's live rating and lowest price, as the trip cards ("★ 4.9 (834) · From US$28.53 on Viator"). A saved plan's link no longer carries the old preview parameter.
+- **Speed:** the host's Site Designer plugin printed 48 KB of block-theme CSS into every page's head (unused by this theme); it is removed. Videos start downloading only after the page has loaded (the homepage's 0.5 MB opener video competed with the first photo on phones) and stay as photos on 3G or slower. Guide openers get a 720px photo for phones (was 960px).
+
 ## 1.3.5 — 2026-10-20: phones and the trip assistant
 - **Phones, trip pages:** each stop's card ends above the booking bar (it covered the last lines and the photo credit); the bar steps aside over the footer.
 - **Phones, guides:** the trip bar stays aside from "Ready to go?" to the end of the page (it came back over the footer).

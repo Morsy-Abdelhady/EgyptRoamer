@@ -151,7 +151,8 @@ export function initPlanner() {
           .map((tr) => {
             const m = match(tr);
             const meta = [tr.places, tr.len, tr.n ? (tr.n === 1 ? T.opt1 : T.optn.replace("{n}", tr.n)) : "", tr.private ? T.privopt : ""].filter(Boolean).join(" · ");
-            return `<li><a class="ux2-pb__card" href="${escapeHtml(tr.url)}"><img src="${img(tr.image, 160)}" alt="" loading="lazy" /><span><b>${escapeHtml(tr.title)}</b><small>${escapeHtml(meta)}</small>${tr.cancel && T.cancel ? `<i class="ux2-pb__fc">✓ ${escapeHtml(T.cancel)}</i>` : ""}${m.length ? `<em>${escapeHtml(m.map(labelOf).join(" · "))}</em>` : ""}</span></a></li>`;
+            const live = [tr.rating, tr.price].filter(Boolean).join(" · ");
+            return `<li><a class="ux2-pb__card" href="${escapeHtml(tr.url)}"><img src="${img(tr.image, 160)}" alt="" loading="lazy" /><span><b>${escapeHtml(tr.title)}</b><small>${escapeHtml(meta)}</small>${live ? `<span class="ux2-pb__live">${escapeHtml(live)}</span>` : ""}${tr.cancel && T.cancel ? `<i class="ux2-pb__fc">✓ ${escapeHtml(T.cancel)}</i>` : ""}${m.length ? `<em>${escapeHtml(m.map(labelOf).join(" · "))}</em>` : ""}</span></a></li>`;
           })
           .join("");
         h += "</ul>";
@@ -165,7 +166,7 @@ export function initPlanner() {
         if (places.length) h += `<p class="ux2-pb__more">${escapeHtml(T.more.replace("{interest}", labelOf(i)))} ${places.map((d) => `<button type="button" data-ux2-dest="${escapeHtml(d)}">+ ${escapeHtml(nameOf(d))}</button>`).join("")}</p>`;
       });
       // Save this plan: kept with the hearts, with a link that reopens it here.
-      const q = new URLSearchParams({ ux: "2", plan: chosen.join(","), n: String(n), i: ints.join(",") });
+      const q = new URLSearchParams({ plan: chosen.join(","), n: String(n), i: ints.join(",") });
       const item = { id: "plan:" + chosen.join("-") + "-" + n, title: title.textContent, meta: T.planmeta.replace("{n}", String(trips.length)), image: (UX2P.trips.find((tr) => tr.dests.includes(onRoute[0])) || {}).image || "", url: location.pathname + "?" + q.toString() + "#planner" };
       h += `<p class="ux2-pb__save"><button class="save-btn ux2-pb__savebtn" type="button" data-save='${escapeHtml(JSON.stringify(item))}' aria-pressed="false">${icon("i-heart")}<span class="ux2-pb__off">${escapeHtml(T.save)}</span><span class="ux2-pb__on">${escapeHtml(T.saved)}</span></button></p>`;
       h += "</div>";

@@ -71,3 +71,5 @@ html[dir="rtl"] .scene__pick.scene__trips{left:var(--edge);right:calc(var(--edge
 
 /* Trip Builder: "✓ Free cancellation" on a trip whose every option states it (prototype planner) */
 .ux2-pb__fc{display:inline-block;margin:4px 6px 0 0;font:600 .7rem/1.5 var(--font-sans);font-style:normal;color:#7fd1c7}
+/* Trip builder: each trip's rating and lowest price from the partner (Viator API) */
+.ux2-pb__card .ux2-pb__live{display:block;margin-top:3px;font:600 .74rem/1.4 var(--font-sans);color:#ffd77a}

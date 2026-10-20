@@ -6,6 +6,12 @@
 (function () {
   var mq = window.matchMedia ? matchMedia("(prefers-reduced-motion: reduce)") : null;
   var still = (mq && mq.matches) || !!(navigator.connection && navigator.connection.saveData);
+  // Speed (20 Oct): on a slow connection (3G or less) the videos stay as their photo until the reader presses play,
+  // and no video starts downloading before the page has finished loading, so it never competes with the first photo
+  // and the text (the opener's 0.5 MB video loaded alongside them on phones).
+  var ect = navigator.connection && navigator.connection.effectiveType;
+  if (ect && /(^|-)2g$|^3g$/.test(ect)) still = true;
+  var ready = false;
   var L = window.erVideoLabels || { pause: "Pause video", play: "Play video", credit: "Video credit" };
   var scopeOf = function (el) { return el.closest(".tbanner, .papy__vid, section") || document.body; };
   // "1": the reader paused it; "0": the reader pressed play; unset: plays unless Data Saver / reduced motion.
@@ -13,7 +19,7 @@
   var seen = new WeakMap();
 
   var wanted = function (v) {
-    if (!seen.get(v)) return false;
+    if (!ready || !seen.get(v)) return false;
     if (v.hasAttribute("data-vstep") && !v.classList.contains("on")) return false;
     if (v.hasAttribute("data-vmood") && !v.classList.contains("is-on")) return false;
     return !paused(scopeOf(v));
@@ -103,4 +109,10 @@
     paintCtl(scope);
     scope.querySelectorAll("video[data-src]").forEach(sync);
   });
+  var go = function () {
+    ready = true;
+    document.querySelectorAll("video").forEach(function (v) { if (seen.has(v)) sync(v); });
+  };
+  var later = function () { setTimeout(function () { (window.requestIdleCallback || function (f) { f(); })(go, { timeout: 1500 }); }, 600); };
+  if (document.readyState === "complete") later(); else window.addEventListener("load", later);
 })();

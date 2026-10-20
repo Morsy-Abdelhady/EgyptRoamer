@@ -272,7 +272,22 @@ add_action( 'wp_footer', static function (): void {
 		$from_id   = $from_post && function_exists( 'pll_get_post' ) ? ( (int) pll_get_post( $from_post->ID ) ?: $from_post->ID ) : ( $from_post ? $from_post->ID : 0 );
 		$from_name = $from_id ? get_the_title( $from_id ) : '';
 		$from      = $from_name ? $from : '';
+		// The partners' live data (Viator API, theme 1.3.0): the lowest price and the best-reviewed rating among the
+		// trip's options, as on the trip cards; the planner showed none (owner, 20 Oct: "link it to Viator").
+		$er_low = null;
+		$er_top = null;
+		foreach ( $offers as $er_o ) {
+			$er_l = function_exists( 'er_offer_live' ) ? er_offer_live( (int) $er_o ) : [];
+			if ( isset( $er_l['price'] ) && ( null === $er_low || $er_l['price'] < $er_low[0] ) ) {
+				$er_low = [ $er_l['price'], $er_l['currency'], (string) er_offer_data( (int) $er_o )['provider'] ];
+			}
+			if ( isset( $er_l['rating'] ) && ( null === $er_top || $er_l['reviews'] > $er_top[1] ) ) {
+				$er_top = [ (float) $er_l['rating'], (int) $er_l['reviews'] ];
+			}
+		}
 		$trips[] = [
+			'price'     => $er_low ? er_t( 'From {price} on {partner}', [ 'price' => er_money( $er_low[0], $er_low[1] ), 'partner' => $er_low[2] ] ) : '',
+			'rating'    => $er_top ? '★ ' . number_format_i18n( $er_top[0], 1 ) . ' (' . number_format_i18n( $er_top[1] ) . ')' : '',
 			'title'     => er_payload_title( $id ),
 			'url'       => (string) get_permalink( $id ),
 			'image'     => er_post_image_payload( $id ),
