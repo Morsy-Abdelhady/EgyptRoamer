@@ -46,4 +46,4 @@ Subject: Hotel API / data feed for egyptroamer.com (Allianceid 11023279)
 
 ## Status
 - [x] **GetYourGuide: sent 20 Oct** through partner.getyourguide.com → Help → Contact (topic Integration & Tech → API Integration). **Ticket 22892318.** Reply comes to the account's email.
-- [ ] **Trip.com: to send by the owner.** The portal has no contact form; its FAQ says: "contact affiliation@trip.com from your registered email address and include your account ID". The message above is ready (account ID = Allianceid 11023279).
+- [x] **Trip.com: sent by the owner on 20 Oct** by email to affiliation@trip.com (from the registered address, with Allianceid 11023279).
