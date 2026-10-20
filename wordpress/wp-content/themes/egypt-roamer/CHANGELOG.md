@@ -2,6 +2,9 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.3 — 2026-10-20: booking bar on tablets
+- **Guides and place pages, 601–900px:** the booking box moves below the article there, so a reader on a tablet saw no booking button until the end. The phone's booking bar ("See 3 options") now shows on tablets too, in place of the dock.
+
 ## 1.3.2 — 2026-10-20: UI audit on real screens (owner: "many UI problems remain")
 - **Trip pages on wide screens:** every section hugged the left edge (about 56px) while the header and footer sit in the centred container; at 1920px the right third was empty. Sections now line up with the container and use its full width; the booking capsule lines up with the header's right edge.
 - **Trip opener photo** stopped about 60px short of the right edge (the site's `img{max-width:100%}` capped its 106% zoom width).

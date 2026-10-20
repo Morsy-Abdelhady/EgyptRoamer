@@ -35,7 +35,7 @@
   var m = gd.querySelector("[data-mbar]"), hero = gd.querySelector(".ahero"), end = gd.querySelector(".aend");
   if (m && hero && "IntersectionObserver" in window) {
     var s = { hero: true, end: false };
-    var paint = function () { var on = !s.hero && !s.end; m.classList.toggle("is-on", on); document.documentElement.classList.toggle("has-p4bar", on && window.matchMedia("(max-width: 600px)").matches); };
+    var paint = function () { var on = !s.hero && !s.end; m.classList.toggle("is-on", on); document.documentElement.classList.toggle("has-p4bar", on && window.matchMedia("(max-width: 900px)").matches); };
     new IntersectionObserver(function (es) { s.hero = es[0].isIntersecting; paint(); }).observe(hero);
     if (end) new IntersectionObserver(function (es) { s.end = es[0].isIntersecting; paint(); }).observe(end);
   }
