@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.9 — 2026-10-20: newsletter and share images (with Core 1.2.62)
+- **Newsletter (Core 1.2.62, `includes/newsletter.php`):** a sign-up now gets one email in the visitor's language with a link to confirm (double opt-in; nothing else goes to an address that did not confirm). Confirming sends a welcome email with the 7-, 10- and 14-day routes, the Trip builder and Trips & tours, and an unsubscribe link that deletes the address. Arabic emails are right-to-left. Mail goes through the host's wp_mail. The table gets `token` and `confirmed_at` (DB version 4). New notices: "Subscription confirmed…", "You are unsubscribed…". Strings in 7 languages.
+- **Share images:** a shared trip, guide or place page (WhatsApp, Facebook, Pinterest) shows its own photo (1200×630) instead of the brand image.
+
 ## 1.3.8 — 2026-10-20: phone test in the browser (with Core 1.2.61)
 - Owner: "test the phone yourself, actively in the browser". Every flow tapped through on a 390px phone, English and Arabic: homepage story, moods, How it works, routes, Trip builder, save; Trips & tours filters, sort, hearts, recently viewed; the trip page opener, journey, questions, compare, options, booking bar; places and Hurghada; guides, photos and the viewer; the assistant, the team form and search. No JS errors and no broken links.
 - **Phones, trip pages:** "Book this trip" landed on the options with the trip photo cut into a strip above; it now lands with the whole photo.

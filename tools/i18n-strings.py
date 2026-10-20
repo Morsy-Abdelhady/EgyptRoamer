@@ -43,5 +43,8 @@ plugin_strings += [unq(m) for m in re.findall(r"=>\s*__\(\s*" + lit, meta[meta.i
 cli = (plugin / "includes/cli.php").read_text()
 cli = cli[cli.index("private function menus("):cli.index("set_theme_mod( 'nav_menu_locations', $locations );")]
 theme_strings += [unq(m) for m in re.findall(r"\[\s*" + lit + r"\s*,\s*\$home", cli)]
+# The newsletter's confirmation and welcome emails (includes/newsletter.php), in the subscriber's language.
+nl = (plugin / "includes/newsletter.php").read_text(encoding="utf-8")
+plugin_strings += [unq(m) for m in re.findall(r"(?:esc_html__|__)\(\s*" + lit, nl)]
 out = {"theme": sorted(set(theme_strings)), "plugin": sorted(set(plugin_strings))}
 json.dump(out, sys.stdout, ensure_ascii=False, indent=1)

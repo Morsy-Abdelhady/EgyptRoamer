@@ -6292,6 +6292,150 @@
    "Начать с этого маршрута",
    "从这条路线开始",
    "ابدأ من هذا المسار"
+  ],
+  "Please confirm your subscription": [
+   "Bitte bestätigen Sie Ihr Abonnement",
+   "Merci de confirmer votre inscription",
+   "Conferma la tua iscrizione",
+   "Confirma tu suscripción",
+   "Пожалуйста, подтвердите подписку",
+   "请确认您的订阅",
+   "يرجى تأكيد اشتراكك"
+  ],
+  "Someone, hopefully you, asked to receive the Egypt Roamer letter at this address. Press the button to confirm.": [
+   "Jemand, hoffentlich Sie, möchte den Egypt-Roamer-Brief an diese Adresse erhalten. Drücken Sie zur Bestätigung den Button.",
+   "Quelqu’un, vous sans doute, a demandé à recevoir la lettre d’Egypt Roamer à cette adresse. Appuyez sur le bouton pour confirmer.",
+   "Qualcuno, speriamo tu, ha chiesto di ricevere la lettera di Egypt Roamer a questo indirizzo. Premi il pulsante per confermare.",
+   "Alguien, esperamos que tú, pidió recibir la carta de Egypt Roamer en esta dirección. Pulsa el botón para confirmar.",
+   "Кто-то (надеемся, вы) попросил присылать письма Egypt Roamer на этот адрес. Нажмите кнопку, чтобы подтвердить.",
+   "有人（希望是您）申请在此地址接收 Egypt Roamer 来信。请点击按钮确认。",
+   "طلب شخص، نأمل أن تكون أنت، استلام رسالة Egypt Roamer على هذا العنوان. اضغط الزر للتأكيد."
+  ],
+  "If it was not you, ignore this email: nothing more will be sent.": [
+   "Falls nicht Sie es waren, ignorieren Sie diese E-Mail: Es wird nichts weiter gesendet.",
+   "Si ce n’était pas vous, ignorez cet e-mail : rien d’autre ne sera envoyé.",
+   "Se non sei stato tu, ignora questa email: non verrà inviato altro.",
+   "Si no fuiste tú, ignora este correo: no se enviará nada más.",
+   "Если это были не вы, просто проигнорируйте письмо: больше ничего не придёт.",
+   "如果不是您本人，请忽略此邮件：我们不会再发送任何内容。",
+   "إن لم تكن أنت، تجاهل هذه الرسالة: لن يُرسل أي شيء آخر."
+  ],
+  "Confirm my subscription": [
+   "Abonnement bestätigen",
+   "Confirmer mon inscription",
+   "Conferma la mia iscrizione",
+   "Confirmar mi suscripción",
+   "Подтвердить подписку",
+   "确认订阅",
+   "تأكيد اشتراكي"
+  ],
+  "Egypt Roamer is an independent travel publication about Egypt.": [
+   "Egypt Roamer ist ein unabhängiges Reisemagazin über Ägypten.",
+   "Egypt Roamer est une publication de voyage indépendante consacrée à l’Égypte.",
+   "Egypt Roamer è una pubblicazione di viaggio indipendente sull’Egitto.",
+   "Egypt Roamer es una publicación de viajes independiente sobre Egipto.",
+   "Egypt Roamer — независимое издание о путешествиях по Египту.",
+   "Egypt Roamer 是一家关于埃及的独立旅行刊物。",
+   "Egypt Roamer منشور سفر مستقل عن مصر."
+  ],
+  "Confirm your Egypt Roamer subscription": [
+   "Bestätigen Sie Ihr Egypt-Roamer-Abonnement",
+   "Confirmez votre inscription à Egypt Roamer",
+   "Conferma la tua iscrizione a Egypt Roamer",
+   "Confirma tu suscripción a Egypt Roamer",
+   "Подтвердите подписку на Egypt Roamer",
+   "确认您的 Egypt Roamer 订阅",
+   "أكّد اشتراكك في Egypt Roamer"
+  ],
+  "Plan your route in the Trip builder": [
+   "Planen Sie Ihre Route im Reiseplaner",
+   "Préparez votre itinéraire avec le planificateur",
+   "Pianifica il percorso con il pianificatore",
+   "Planifica tu ruta en el planificador",
+   "Спланируйте маршрут в конструкторе поездки",
+   "在行程规划器中规划路线",
+   "خطّط مسارك في مخطط الرحلات"
+  ],
+  "Compare the trips you can book": [
+   "Buchbare Touren vergleichen",
+   "Comparez les excursions à réserver",
+   "Confronta le escursioni prenotabili",
+   "Compara las excursiones que puedes reservar",
+   "Сравните поездки, которые можно забронировать",
+   "比较可预订的行程",
+   "قارن الرحلات التي يمكنك حجزها"
+  ],
+  "Welcome to Egypt Roamer": [
+   "Willkommen bei Egypt Roamer",
+   "Bienvenue sur Egypt Roamer",
+   "Benvenuto su Egypt Roamer",
+   "Bienvenido a Egypt Roamer",
+   "Добро пожаловать в Egypt Roamer",
+   "欢迎来到 Egypt Roamer",
+   "مرحبًا بك في Egypt Roamer"
+  ],
+  "Thank you for confirming. We write only when there is something worth reading: new guides and new trips.": [
+   "Danke für die Bestätigung. Wir schreiben nur, wenn es etwas Lesenswertes gibt: neue Reiseführer und neue Touren.",
+   "Merci d’avoir confirmé. Nous n’écrivons que lorsqu’il y a quelque chose à lire : nouveaux guides et nouvelles excursions.",
+   "Grazie per la conferma. Scriviamo solo quando c’è qualcosa da leggere: nuove guide e nuove escursioni.",
+   "Gracias por confirmar. Solo escribimos cuando hay algo que merece la pena: nuevas guías y nuevas excursiones.",
+   "Спасибо за подтверждение. Мы пишем, только когда есть что почитать: новые путеводители и новые поездки.",
+   "感谢您的确认。我们只在有值得一读的内容时才来信：新指南和新行程。",
+   "شكرًا على التأكيد. نكتب فقط عندما يكون هناك ما يستحق القراءة: أدلة جديدة ورحلات جديدة."
+  ],
+  "To start, three ready-made routes: one week, ten days or two weeks, each with the trips you can book on the way.": [
+   "Zum Start drei fertige Routen: eine Woche, zehn Tage oder zwei Wochen, jeweils mit den buchbaren Touren unterwegs.",
+   "Pour commencer, trois itinéraires tout prêts : une semaine, dix jours ou deux semaines, chacun avec les excursions à réserver en route.",
+   "Per iniziare, tre itinerari pronti: una settimana, dieci giorni o due settimane, ciascuno con le escursioni prenotabili lungo il percorso.",
+   "Para empezar, tres rutas listas: una semana, diez días o dos semanas, cada una con las excursiones que puedes reservar por el camino.",
+   "Для начала — три готовых маршрута: неделя, десять дней или две недели, с поездками, которые можно забронировать по пути.",
+   "先从三条现成路线开始：一周、十天或两周，每条都附有沿途可预订的行程。",
+   "للبداية، ثلاثة مسارات جاهزة: أسبوع أو عشرة أيام أو أسبوعان، مع الرحلات التي يمكنك حجزها على الطريق."
+  ],
+  "You receive this because you confirmed your subscription on egyptroamer.com.": [
+   "Sie erhalten diese E-Mail, weil Sie Ihr Abonnement auf egyptroamer.com bestätigt haben.",
+   "Vous recevez cet e-mail car vous avez confirmé votre inscription sur egyptroamer.com.",
+   "Ricevi questa email perché hai confermato l’iscrizione su egyptroamer.com.",
+   "Recibes este correo porque confirmaste tu suscripción en egyptroamer.com.",
+   "Вы получили это письмо, потому что подтвердили подписку на egyptroamer.com.",
+   "您收到此邮件，是因为您在 egyptroamer.com 确认了订阅。",
+   "تصلك هذه الرسالة لأنك أكدت اشتراكك على egyptroamer.com."
+  ],
+  "Unsubscribe": [
+   "Abmelden",
+   "Se désinscrire",
+   "Annulla l’iscrizione",
+   "Darse de baja",
+   "Отписаться",
+   "退订",
+   "إلغاء الاشتراك"
+  ],
+  "Welcome to Egypt Roamer: three routes to start": [
+   "Willkommen bei Egypt Roamer: drei Routen zum Start",
+   "Bienvenue sur Egypt Roamer : trois itinéraires pour commencer",
+   "Benvenuto su Egypt Roamer: tre itinerari per iniziare",
+   "Bienvenido a Egypt Roamer: tres rutas para empezar",
+   "Добро пожаловать в Egypt Roamer: три маршрута для начала",
+   "欢迎来到 Egypt Roamer：三条入门路线",
+   "مرحبًا بك في Egypt Roamer: ثلاثة مسارات للبداية"
+  ],
+  "Subscription confirmed. A welcome email with three ready-made routes is on its way.": [
+   "Abonnement bestätigt. Eine Willkommens-E-Mail mit drei fertigen Routen ist unterwegs.",
+   "Inscription confirmée. Un e-mail de bienvenue avec trois itinéraires tout prêts est en route.",
+   "Iscrizione confermata. Un’email di benvenuto con tre itinerari pronti è in arrivo.",
+   "Suscripción confirmada. Te llega un correo de bienvenida con tres rutas listas.",
+   "Подписка подтверждена. Приветственное письмо с тремя готовыми маршрутами уже в пути.",
+   "订阅已确认。附有三条现成路线的欢迎邮件正在发送。",
+   "تم تأكيد الاشتراك. رسالة ترحيب بثلاثة مسارات جاهزة في الطريق إليك."
+  ],
+  "You are unsubscribed, and your address is deleted.": [
+   "Sie sind abgemeldet, und Ihre Adresse ist gelöscht.",
+   "Vous êtes désinscrit et votre adresse est supprimée.",
+   "Sei disiscritto e il tuo indirizzo è stato cancellato.",
+   "Te has dado de baja y tu dirección se ha borrado.",
+   "Вы отписаны, ваш адрес удалён.",
+   "您已退订，您的地址已删除。",
+   "تم إلغاء اشتراكك وحذف عنوانك."
   ]
  }
 }

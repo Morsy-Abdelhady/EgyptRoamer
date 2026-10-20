@@ -156,7 +156,20 @@ add_action( 'wp_head', static function () {
 add_action( 'wp_head', static fn () => print( '<meta name="theme-color" content="#101820" />' . "\n" ), 4 );
 
 /** Default share image for pages without a featured image (used by the Core fallback; set Rank Math's default to the same file). */
-add_filter( 'er_default_share_image', static fn () => er_brand_url( 'og-image.jpg' ) );
+// Shared links (WhatsApp, Facebook, Pinterest) show the page's own photo: the trip's, the guide's or the place's, as
+// the page shows it (20 Oct; every page shared the brand image). The brand image stays for the other pages.
+add_filter( 'er_default_share_image', static function (): string {
+	if ( is_singular( [ 'er_experience', 'er_guide', 'er_destination' ] ) ) {
+		$id    = (int) get_queried_object_id();
+		$photo = function_exists( 'er_ux2_guide_photo' ) && 'er_guide' === get_post_type( $id ) ? (string) er_ux2_guide_photo( $id ) : '';
+		$photo = '' !== $photo ? $photo : ( function_exists( 'er_stock_id_for' ) ? (string) er_stock_id_for( $id ) : '' );
+		$photo = (string) preg_replace( '/:.*$/', '', $photo );
+		if ( '' !== $photo ) {
+			return er_stock_url( $photo, 1200, 0.525 );
+		}
+	}
+	return er_brand_url( 'og-image.jpg' );
+} );
 
 /** The country's name in structured data, in the page's language (Core's TouristDestination). */
 add_filter( 'er_country_name', static fn () => er_t( 'Egypt' ) );
