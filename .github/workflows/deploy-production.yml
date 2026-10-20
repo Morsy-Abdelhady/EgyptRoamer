@@ -184,10 +184,12 @@ jobs:
           case "$U" in git_deployer_*) echo "::error::PROD_SSH_USER must be the normal SSH account, not a GoDaddy CI/CD deploy user"; exit 1;; esac
           command -v sshpass >/dev/null || { sudo apt-get update -qq && sudo apt-get install -y -qq sshpass >/dev/null; }
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
-          ssh-keyscan -T 30 -t ed25519 "$SSH_HOST" > ~/.ssh/known_hosts_prod 2>/dev/null || true
-          got=$(ssh-keygen -lf ~/.ssh/known_hosts_prod 2>/dev/null | awk '{print $2}' | head -1)
+          # The scan can print the same key more than once (one line per address answered); duplicates and
+          # comments are dropped, and every remaining line must carry the pinned fingerprint.
+          ssh-keyscan -T 30 -t ed25519 "$SSH_HOST" 2>/dev/null | grep -v '^#' | sort -u > ~/.ssh/known_hosts_prod || true
+          got=$(ssh-keygen -lf ~/.ssh/known_hosts_prod 2>/dev/null | awk '{print $2}' | sort -u)
           [ "$got" = "$HOST_FP" ] || { echo "::error::Production host key is '${got:-unreachable}', expected $HOST_FP. Nothing was sent."; exit 1; }
-          [ "$(wc -l < ~/.ssh/known_hosts_prod)" -eq 1 ] || { echo "::error::Unexpected host key file"; exit 1; }
+          [ "$(wc -l < ~/.ssh/known_hosts_prod)" -ge 1 ] || { echo "::error::Unexpected host key file"; exit 1; }
           echo "Host key pinned: $HOST_FP"
 
       # Read-only. Verifies the login and that both targets are real directories inside

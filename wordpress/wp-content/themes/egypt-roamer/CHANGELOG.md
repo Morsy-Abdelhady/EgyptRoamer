@@ -4,6 +4,7 @@ Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.ph
 
 ## 1.3.11 — 2026-10-20: one stylesheet request per page
 - **Speed:** the template stylesheets after the bundle (home-story, videos, world, p4-world, p4-guide, p4-archives, guide-story, trips-story) are printed inside the page in the same order instead of linked. Each page now waits for one stylesheet instead of 3–5. PageSpeed on the homepage (phone) had counted 1.7 s of render-blocking requests and a 2.4 s wait before the hero word painted. Computed styles checked identical on 7 pages × desktop and phone, English and Arabic.
+- **Deploy:** the host-key check no longer fails when the scan prints the pinned key twice (first 1.3.11 run stopped there; nothing was sent).
 
 ## 1.3.10 — 2026-10-20: owner's notes
 - **Sticky bars with the WordPress toolbar (logged-in editors):** scrolling back up hid the section menu and the trip filters behind the header (the toolbar pushes the header down 32px); they now sit right under it in both states.
