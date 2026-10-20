@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.8 — 2026-10-20: phone test in the browser (with Core 1.2.61)
+- Owner: "test the phone yourself, actively in the browser". Every flow tapped through on a 390px phone, English and Arabic: homepage story, moods, How it works, routes, Trip builder, save; Trips & tours filters, sort, hearts, recently viewed; the trip page opener, journey, questions, compare, options, booking bar; places and Hurghada; guides, photos and the viewer; the assistant, the team form and search. No JS errors and no broken links.
+- **Phones, trip pages:** "Book this trip" landed on the options with the trip photo cut into a strip above; it now lands with the whole photo.
+- **Photo viewer:** solid background; the page and its booking bar showed through it on phones.
+- **Core 1.2.61, Trip assistant:** the offers' button labels ("Check Availability") are in the visitor's language; the answer ran in English. The plugin's own translation file is loaded, since `switch_to_locale()` needs a WordPress language pack.
+
 ## 1.3.7 — 2026-10-20: ideas from other travel sites (owner: "make the experience unique and complete, like the global sites"; egyroam.com reviewed)
 - **Ratings on the trip cards:** the best-reviewed option's rating sits on the photo ("★ 4.9 (2,528)"), from the partner (Viator API), as on tour marketplaces.
 - **"Top rated" sort** on Trips & tours (beside the filters): every shown trip in one list by the partner's rating and number of reviews; "By place" keeps the place groups. In place, no reload; the address keeps it (`?sort=rated`).
