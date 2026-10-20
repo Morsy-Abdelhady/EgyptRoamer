@@ -411,3 +411,10 @@
     padding-bottom: 150px !important;
   }
 }
+/* Phones: "Book this trip" landed on the options' title with the trip photo cut into a strip above it; it now lands
+   with the whole photo in view (20 Oct, phone test). */
+@media (max-width: 600px) {
+  .p4w #book {
+    scroll-margin-top: calc(min(100vw - 36px, 560px) * 0.44 + 56px);
+  }
+}

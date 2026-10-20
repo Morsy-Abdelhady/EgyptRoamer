@@ -61,6 +61,16 @@ function er_assistant_rest( WP_REST_Request $request ) {
 	if ( $langs && ! in_array( $lang, $langs, true ) ) {
 		$lang = function_exists( 'pll_default_language' ) ? (string) pll_default_language() : '';
 	}
+	// The answer's labels (the offers' "Check Availability") in the visitor's language: a REST request runs in the
+	// site's default locale, so Arabic answers showed English buttons (phone test, 20 Oct).
+	// switch_to_locale() refuses locales without a WordPress language pack, so the plugin's own file is loaded.
+	if ( $lang && function_exists( 'PLL' ) && PLL()->model->get_language( $lang ) ) {
+		$er_mo = __DIR__ . '/../languages/egypt-roamer-core-' . PLL()->model->get_language( $lang )->locale . '.mo';
+		if ( file_exists( substr( $er_mo, 0, -3 ) . '.l10n.php' ) ) {
+			unload_textdomain( 'egypt-roamer-core' );
+			load_textdomain( 'egypt-roamer-core', $er_mo );
+		}
+	}
 	$items  = er_assistant_find( $q, $lang );
 	$answer = null;
 	$mode   = er_assistant_mode();
