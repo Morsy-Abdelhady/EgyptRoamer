@@ -265,3 +265,58 @@
     bottom: calc(0.75rem + env(safe-area-inset-bottom)) !important;
   }
 }
+
+/* Wide screens: the trip page's sections line up with the header and footer (the site container), instead of
+   hugging the left edge with empty space on the right (found at 1920px, 20 Oct). */
+@media (min-width: 901px) {
+  .p4w .wsec,
+  .p4w .papy,
+  .p4w .choose2,
+  .p4w .wfaq,
+  .p4w .wmore,
+  .p4w .wguides,
+  .p4w .wprose,
+  .p4w .jstep {
+    padding-inline: var(--edge);
+  }
+  .p4w .wtxt {
+    padding-inline: var(--edge) 56px !important;
+    max-width: calc(var(--edge) + 720px) !important;
+  }
+  .p4w .jhead,
+  .p4w .path {
+    inset-inline-start: var(--edge);
+  }
+  .p4w .capsule {
+    margin-inline-end: var(--edge);
+  }
+  .p4w .wsec__in,
+  .p4w .papy__in,
+  .p4w .choose2__grid,
+  .p4w .wmore__row,
+  .p4w .wguides__row {
+    max-width: calc(var(--max) - 2 * var(--gutter));
+  }
+}
+/* The opener photo is 106% wide for its slow zoom; the site's img max-width:100% cut it short, leaving a dark strip
+   on the right. */
+.p4w .wopen > img,
+.p4w .wopen .lit img {
+  max-width: none;
+}
+
+/* Phones: the journey's photo filled only 640px (the prototype's phone frame), so on a real phone a black band showed
+   under it while each stop scrolled by. It now fills the screen. */
+@media (max-width: 600px) {
+  .p4w .jstage {
+    height: 100vh;
+    height: 100svh;
+    min-height: 560px;
+  }
+  .p4w .jsteps {
+    margin-top: calc(-1 * max(560px, 100svh));
+  }
+  .p4w .jstep {
+    min-height: max(560px, 100svh);
+  }
+}

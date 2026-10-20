@@ -363,6 +363,16 @@ function er_world_trip_groups( array $ids ): void {
 		// A trip in two places (the Nile cruise: Aswan and Luxor; Red Sea diving: Hurghada and Sharm) is shown under
 		// each, as in the prototype.
 		$dests = array_values( array_unique( array_filter( array_map( 'intval', (array) get_post_meta( (int) $id, '_er_destination', false ) ) ) ) );
+		// A translated trip whose own copy lost its place (Arabic Nile cruise, Alexandria and Ras Mohammed, 20 Oct)
+		// takes the place of another language's copy, so it is not left under "More trips".
+		if ( ! $dests && function_exists( 'er_translation_group' ) ) {
+			foreach ( er_translation_group( (int) $id ) as $er_copy ) {
+				$dests = array_values( array_unique( array_filter( array_map( 'intval', (array) get_post_meta( (int) $er_copy, '_er_destination', false ) ) ) ) );
+				if ( $dests ) {
+					break;
+				}
+			}
+		}
 		if ( ! $dests && 'exp-safari' === preg_replace( '/-(ar|de|fr|it|es|ru|zh)$/', '', (string) get_post_meta( (int) $id, '_er_seed_id', true ) ) ) {
 			$dests = [ (int) er_world_chapter_place( 3 ) ];
 		}

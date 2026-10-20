@@ -361,3 +361,51 @@
 /* The Hotels page: the section header is the page header */
 .p4hotels .stay2 > .container > .eyebrow,.p4hotels .stay2 > .container > h2,.p4hotels .stay2__intro{display:none}
 .p4hotels .stay2{padding-top:40px}
+
+/* Wide screens (20 Oct): a place has at most three trips, so a full-width banner over a four-column grid left half
+   of each row empty. From 1200px the banner stands as the first column, a tall photo with the place's name, and the
+   trips fill the three columns beside it: one row per place. Narrower screens keep the prototype's layout. */
+@media (min-width: 1200px) {
+  .p4body--experience .tgroup {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    gap: 26px;
+    align-items: stretch;
+  }
+  .p4body--experience .tbanner {
+    height: auto;
+    min-height: 320px;
+    margin-bottom: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+  .p4body--experience .tbanner p small {
+    display: block;
+    margin-top: 6px;
+  }
+  .p4body--experience .tbanner__go {
+    white-space: normal;
+  }
+  .p4body--experience .tgroup > .grid-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-content: start;
+  }
+  .p4body--experience .tgroup > :not(.tbanner):not(.grid-cards) {
+    grid-column: 1 / -1;
+  }
+  /* A group without a place (More trips) keeps the full-width four-column grid. */
+  .p4body--experience .tgroup:not(:has(> .tbanner)) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .p4body--experience .tgroup:not(:has(> .tbanner)) > .grid-cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+/* Phones: "Best time Oct – Apr" on its own line instead of breaking in the middle of the months. */
+@media (max-width: 600px) {
+  .p4body--experience .tbanner p small {
+    display: block;
+    margin-top: 2px;
+  }
+}

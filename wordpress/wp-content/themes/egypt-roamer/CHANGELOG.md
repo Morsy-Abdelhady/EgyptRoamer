@@ -2,6 +2,14 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.2 — 2026-10-20: UI audit on real screens (owner: "many UI problems remain")
+- **Trip pages on wide screens:** every section hugged the left edge (about 56px) while the header and footer sit in the centred container; at 1920px the right third was empty. Sections now line up with the container and use its full width; the booking capsule lines up with the header's right edge.
+- **Trip opener photo** stopped about 60px short of the right edge (the site's `img{max-width:100%}` capped its 106% zoom width).
+- **Phones:** the journey photo was 640px tall (the prototype's phone frame), leaving a black band under it on a real phone; it now fills the screen.
+- **Trips & tours, 1200px and up:** each place's banner stands as a tall first column with its trips beside it (one row per place) instead of a full-width banner over a half-empty four-column row. Phones: "Best time" on its own line.
+- **Arabic Trips & tours:** the Nile cruise, the Alexandria day trip and Ras Mohammed fell under "More trips" (their Arabic copies have no place) and Alexandria had no group; a trip without a place now takes the place of another language's copy.
+- **Touch screens:** breadcrumb links, the filter toggles, "Read the … guide", "About {place}", the journey's stop names, "Skip to booking", "Compare side by side" and "All … trips" get a 44px hit area.
+
 ## 1.3.1 — 2026-10-20: place pages, QA fixes
 - **Place pages:** the opener has "See all {n} trips →" to the trips and hotels box.
 - **Alexandria in the 7 translations** showed no trips (the translated trip doesn't name the place); the place now takes the English place's trips, each in its language.

@@ -9247,3 +9247,19 @@ padding: 16px 0 4px;
 border-top: 1px solid var(--line);
 margin-top: 8px;
 }
+@media (pointer: coarse) {
+.crumbs a,
+.crumb a,
+.p4filters .toggle,
+.tbanner__go,
+.pcard__about,
+.p4w .jhead .skip,
+.p4w .path button,
+.p4w .wcmp,
+.p4w .wmore__all {
+display: inline-flex;
+align-items: center;
+padding-block: 11px;
+margin-block: -11px;
+}
+}
