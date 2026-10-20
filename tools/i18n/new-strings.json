@@ -6112,6 +6112,186 @@
    "Можно забронировать: 1",
    "1个可预订行程",
    "رحلة واحدة يمكنك حجزها"
+  ],
+  "Rated {r} out of 5 by {n} travellers on {partner}": [
+   "Bewertet mit {r} von 5 von {n} Reisenden auf {partner}",
+   "Noté {r} sur 5 par {n} voyageurs sur {partner}",
+   "Valutato {r} su 5 da {n} viaggiatori su {partner}",
+   "Valorado con {r} de 5 por {n} viajeros en {partner}",
+   "Оценка {r} из 5 от {n} путешественников на {partner}",
+   "{partner} 上 {n} 位旅行者评分 {r}/5",
+   "تقييم {r} من 5 من {n} مسافر على {partner}"
+  ],
+  "Sort": [
+   "Sortieren",
+   "Trier",
+   "Ordina",
+   "Ordenar",
+   "Сортировка",
+   "排序",
+   "الترتيب"
+  ],
+  "By place": [
+   "Nach Ort",
+   "Par lieu",
+   "Per luogo",
+   "Por lugar",
+   "По месту",
+   "按地点",
+   "حسب المكان"
+  ],
+  "Top rated": [
+   "Bestbewertet",
+   "Les mieux notées",
+   "Più votate",
+   "Mejor valoradas",
+   "Лучшие по оценкам",
+   "评分最高",
+   "الأعلى تقييمًا"
+  ],
+  "Recently viewed": [
+   "Zuletzt angesehen",
+   "Vus récemment",
+   "Visti di recente",
+   "Vistos recientemente",
+   "Вы недавно смотрели",
+   "最近浏览",
+   "شاهدتها مؤخرًا"
+  ],
+  "Clear": [
+   "Löschen",
+   "Effacer",
+   "Cancella",
+   "Borrar",
+   "Очистить",
+   "清除",
+   "مسح"
+  ],
+  "How Egypt Roamer works": [
+   "So funktioniert Egypt Roamer",
+   "Comment fonctionne Egypt Roamer",
+   "Come funziona Egypt Roamer",
+   "Cómo funciona Egypt Roamer",
+   "Как работает Egypt Roamer",
+   "Egypt Roamer 如何运作",
+   "كيف يعمل Egypt Roamer"
+  ],
+  "From an idea to a booked day, in four steps": [
+   "Von der Idee zum gebuchten Tag, in vier Schritten",
+   "D’une idée à une journée réservée, en quatre étapes",
+   "Da un’idea a una giornata prenotata, in quattro passi",
+   "De una idea a un día reservado, en cuatro pasos",
+   "От идеи до забронированного дня — за четыре шага",
+   "从想法到预订好的一天，只需四步",
+   "من فكرة إلى يوم محجوز، في أربع خطوات"
+  ],
+  "Choose a place or a trip": [
+   "Wählen Sie einen Ort oder eine Tour",
+   "Choisissez un lieu ou une excursion",
+   "Scegli un luogo o un’escursione",
+   "Elige un lugar o una excursión",
+   "Выберите место или поездку",
+   "选择一个地点或行程",
+   "اختر مكانًا أو رحلة"
+  ],
+  "Seven places, each with the trips you can book there, and guides written from published sources.": [
+   "Sieben Orte, jeweils mit den buchbaren Touren, und Reiseführer auf Grundlage veröffentlichter Quellen.",
+   "Sept lieux, chacun avec les excursions à réserver sur place, et des guides rédigés à partir de sources publiées.",
+   "Sette luoghi, ciascuno con le escursioni prenotabili e guide scritte da fonti pubblicate.",
+   "Siete lugares, cada uno con las excursiones que puedes reservar y guías escritas a partir de fuentes publicadas.",
+   "Семь мест, в каждом — поездки, которые можно забронировать, и путеводители по опубликованным источникам.",
+   "七个地点，每个都有可预订的行程，以及依据公开资料撰写的指南。",
+   "سبعة أماكن، لكل منها الرحلات التي يمكنك حجزها هناك، وأدلة مكتوبة من مصادر منشورة."
+  ],
+  "Compare the options": [
+   "Optionen vergleichen",
+   "Comparez les options",
+   "Confronta le opzioni",
+   "Compara las opciones",
+   "Сравните варианты",
+   "比较选项",
+   "قارن الخيارات"
+  ],
+  "Every trip page puts its partners’ options side by side: length, private or group, pickup, and the partner’s rating and price.": [
+   "Jede Tourseite stellt die Optionen der Partner nebeneinander: Dauer, privat oder Gruppe, Abholung sowie Bewertung und Preis des Partners.",
+   "Chaque page d’excursion présente côte à côte les options des partenaires : durée, privé ou en groupe, prise en charge, ainsi que la note et le prix du partenaire.",
+   "Ogni pagina di escursione mette a confronto le opzioni dei partner: durata, privata o di gruppo, prelievo, valutazione e prezzo del partner.",
+   "Cada página de excursión muestra lado a lado las opciones de los socios: duración, privada o en grupo, recogida, y la valoración y el precio del socio.",
+   "На каждой странице поездки варианты партнёров стоят рядом: длительность, индивидуально или в группе, трансфер, а также оценка и цена партнёра.",
+   "每个行程页面都会并排列出合作伙伴的选项：时长、私人或团体、接送，以及合作伙伴的评分和价格。",
+   "كل صفحة رحلة تضع خيارات الشركاء جنبًا إلى جنب: المدة، خاصة أو جماعية، التوصيل، وتقييم الشريك وسعره."
+  ],
+  "Book on the partner’s site": [
+   "Beim Partner buchen",
+   "Réservez sur le site du partenaire",
+   "Prenota sul sito del partner",
+   "Reserva en el sitio del socio",
+   "Бронируйте на сайте партнёра",
+   "在合作伙伴网站预订",
+   "احجز على موقع الشريك"
+  ],
+  "You book and pay on Viator, GetYourGuide or Trip.com. Free cancellation is shown when the partner offers it.": [
+   "Sie buchen und bezahlen bei Viator, GetYourGuide oder Trip.com. Kostenlose Stornierung wird angezeigt, wenn der Partner sie anbietet.",
+   "Vous réservez et payez sur Viator, GetYourGuide ou Trip.com. L’annulation gratuite est indiquée lorsque le partenaire la propose.",
+   "Prenoti e paghi su Viator, GetYourGuide o Trip.com. La cancellazione gratuita è indicata quando il partner la offre.",
+   "Reservas y pagas en Viator, GetYourGuide o Trip.com. La cancelación gratuita se indica cuando el socio la ofrece.",
+   "Вы бронируете и оплачиваете на Viator, GetYourGuide или Trip.com. Бесплатная отмена указана, если её предлагает партнёр.",
+   "您在 Viator、GetYourGuide 或 Trip.com 上预订并付款。合作伙伴提供免费取消时会注明。",
+   "تحجز وتدفع على Viator أو GetYourGuide أو Trip.com. يظهر الإلغاء المجاني عندما يقدمه الشريك."
+  ],
+  "Keep your plan": [
+   "Ihren Plan behalten",
+   "Gardez votre plan",
+   "Conserva il tuo piano",
+   "Guarda tu plan",
+   "Сохраните свой план",
+   "保存您的计划",
+   "احتفظ بخطتك"
+  ],
+  "Save trips and plans with the heart, and share your list with the people you travel with.": [
+   "Speichern Sie Touren und Pläne mit dem Herz und teilen Sie Ihre Liste mit Ihren Mitreisenden.",
+   "Enregistrez excursions et plans avec le cœur, et partagez votre liste avec vos compagnons de voyage.",
+   "Salva escursioni e piani con il cuore e condividi la tua lista con chi viaggia con te.",
+   "Guarda excursiones y planes con el corazón y comparte tu lista con quienes viajan contigo.",
+   "Сохраняйте поездки и планы сердечком и делитесь списком с попутчиками.",
+   "用爱心保存行程和计划，并与同行者分享您的清单。",
+   "احفظ الرحلات والخطط بالقلب، وشارك قائمتك مع من يسافرون معك."
+  ],
+  "Ready-made routes": [
+   "Fertige Routen",
+   "Itinéraires tout prêts",
+   "Itinerari pronti",
+   "Rutas listas",
+   "Готовые маршруты",
+   "现成路线",
+   "مسارات جاهزة"
+  ],
+  "One week, ten days or two weeks": [
+   "Eine Woche, zehn Tage oder zwei Wochen",
+   "Une semaine, dix jours ou deux semaines",
+   "Una settimana, dieci giorni o due settimane",
+   "Una semana, diez días o dos semanas",
+   "Неделя, десять дней или две недели",
+   "一周、十天或两周",
+   "أسبوع، أو عشرة أيام، أو أسبوعان"
+  ],
+  "Read the route": [
+   "Route lesen",
+   "Lire l’itinéraire",
+   "Leggi l’itinerario",
+   "Leer la ruta",
+   "Читать маршрут",
+   "阅读路线",
+   "اقرأ المسار"
+  ],
+  "Start from this route": [
+   "Mit dieser Route beginnen",
+   "Partir de cet itinéraire",
+   "Parti da questo itinerario",
+   "Empezar con esta ruta",
+   "Начать с этого маршрута",
+   "从这条路线开始",
+   "ابدأ من هذا المسار"
   ]
  }
 }

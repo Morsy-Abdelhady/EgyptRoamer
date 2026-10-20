@@ -658,6 +658,15 @@ function er_trip_card( int $post_id, array $offers, string $heading = 'h3' ): st
 			$er_low = [ $er_l['price'], $er_l['currency'], (string) er_offer_data( (int) $er_o )['provider'] ];
 		}
 	}
+	// The best-reviewed option's rating (the partner's own average and count), as tour marketplaces show it on the
+	// photo; it also orders the "Top rated" sort of Trips & tours (assets/js/p4-trips.js).
+	$er_top = null;
+	foreach ( $offers as $er_o ) {
+		$er_l = er_offer_live( (int) $er_o );
+		if ( isset( $er_l['rating'] ) && ( null === $er_top || $er_l['reviews'] > $er_top[1] ) ) {
+			$er_top = [ (float) $er_l['rating'], (int) $er_l['reviews'], (string) er_offer_data( (int) $er_o )['provider'] ];
+		}
+	}
 	$n       = count( $offers );
 	$stock   = function_exists( 'er_stock_id_for' ) ? er_stock_id_for( $post_id ) : '';
 	$thumb   = (int) get_post_thumbnail_id( $post_id );
@@ -667,8 +676,11 @@ function er_trip_card( int $post_id, array $offers, string $heading = 'h3' ): st
 	$heading = in_array( $heading, [ 'h2', 'h3' ], true ) ? $heading : 'h3';
 	ob_start();
 	?>
-	<li class="tcard" data-reveal>
+	<li class="tcard" data-reveal<?php echo $er_top ? ' data-rating="' . esc_attr( (string) $er_top[0] ) . '" data-reviews="' . (int) $er_top[1] . '"' : ''; ?>>
 		<span class="tcard__img"><?php echo $image ?: '<span class="media__empty"></span>'; // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
+		<?php if ( $er_top ) : ?>
+			<span class="tcard__rate" title="<?php echo esc_attr( er_t( 'Rated {r} out of 5 by {n} travellers on {partner}', [ 'r' => number_format_i18n( $er_top[0], 1 ), 'n' => number_format_i18n( $er_top[1] ), 'partner' => $er_top[2] ] ) ); ?>"><b>★ <?php echo esc_html( number_format_i18n( $er_top[0], 1 ) ); ?></b> <span>(<?php echo esc_html( number_format_i18n( $er_top[1] ) ); ?>)</span><span class="visually-hidden"> <?php echo esc_html( er_t( 'Rated {r} out of 5 by {n} travellers on {partner}', [ 'r' => number_format_i18n( $er_top[0], 1 ), 'n' => number_format_i18n( $er_top[1] ), 'partner' => $er_top[2] ] ) ); ?></span></span>
+		<?php endif; ?>
 		<button type="button" class="tcard__save" data-save="<?php echo esc_attr( (string) wp_json_encode( $save ) ); ?>" aria-pressed="false" aria-label="<?php echo esc_attr( er_t( 'Save {title}', [ 'title' => $title ] ) ); ?>"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.8 3.5 4.5 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg></button>
 		<div class="tcard__b">
 			<?php if ( $location ) : ?>

@@ -187,6 +187,21 @@ export function initPlanner() {
     }
   }
 
+  // "Start from this route" (homepage, Ready-made routes): fills the builder in place with that route.
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("[data-route-plan]");
+    if (!a) return;
+    const u = new URL(a.href, location.href);
+    const ps = (u.searchParams.get("plan") || "").split(",");
+    if (!ps[0]) return;
+    e.preventDefault();
+    $$("input[name=dest]", dests).forEach((c) => (c.checked = ps.includes(c.value)));
+    const nn = Number(u.searchParams.get("n"));
+    if (nn >= Number(days.min) && nn <= Number(days.max)) days.value = nn;
+    update();
+    scrollToTarget($("#planner"));
+  });
+
   const segInk = $("i", seg);
   const placeSeg = () => {
     const radios = $$("input", seg);

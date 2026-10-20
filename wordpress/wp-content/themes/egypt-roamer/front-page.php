@@ -479,6 +479,7 @@ $er_story      = function_exists( 'er_world_on' ) && er_world_on(); // proposal 
 		</section>
 	<?php endif; ?>
 
+	<?php echo function_exists( 'er_world_on' ) && er_world_on() ? er_world_routes_section() : ''; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped inside ?>
 	<?php if ( $er_planner_on && $er_data['destinations'] ) : ?>
 		<?php
 		$er_plan_link = (int) er_home( 'planner_link' );

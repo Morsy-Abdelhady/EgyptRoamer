@@ -111,4 +111,17 @@
       }
     })(performance.now());
   });
+
+  // Recently viewed (20 Oct, as the big travel sites): this trip is remembered in this browser only, and Trips & tours
+  // offers it again at the top ("Recently viewed", assets/js/p4-trips.js). Nothing leaves the browser.
+  try {
+    var me = host.querySelector(".wopen [data-save]");
+    if (me) {
+      var item = JSON.parse(me.getAttribute("data-save"));
+      var list = JSON.parse(localStorage.getItem("er:recent") || "[]").filter(function (x) { return x && x.id !== item.id; });
+      list.unshift({ id: item.id, title: item.title, image: item.image, meta: item.meta, url: item.url || location.pathname });
+      localStorage.setItem("er:recent", JSON.stringify(list.slice(0, 8)));
+    }
+  } catch (e) {}
 })();
+

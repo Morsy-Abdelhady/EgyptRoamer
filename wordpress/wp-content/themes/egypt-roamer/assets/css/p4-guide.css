@@ -305,3 +305,5 @@ html.glb-open{overflow:hidden}
 /* Desktop: the sticky trip box can be taller than a short screen (690px at 125% zoom); its hotels at the bottom were
    out of reach. It now scrolls within the screen's height. */
 @media (min-width:901px){.gd .abox > .bk{max-height:calc(100vh - var(--nav-h,72px) - 96px);overflow-y:auto;scrollbar-width:thin;overscroll-behavior:contain}body:has(.nav.is-hidden) .gd .abox > .bk{max-height:calc(100vh - 100px)}}
+/* Phones: the place photos take most of the screen's width (88%), the next one peeking in */
+@media (max-width:600px){.gd .prose .gplace figure{flex:0 0 88%}.gd .prose .gplace--1 figure{flex-basis:100%}}

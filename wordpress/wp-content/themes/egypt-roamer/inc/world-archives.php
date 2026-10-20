@@ -41,7 +41,7 @@ function er_world_trip_filter_bar( int $shown ): void {
 	$chip  = static fn ( string $label, string $url, bool $on, string $k, string $v ): string => '<a class="chip" href="' . esc_url( $url ) . '" aria-pressed="' . ( $on ? 'true' : 'false' ) . '" data-f="' . esc_attr( $k ) . '" data-v="' . esc_attr( $v ) . '">' . esc_html( $label ) . '</a>';
 	$tog   = static fn ( string $label, string $url, bool $on, string $k ): string => '<a class="toggle" href="' . esc_url( $url ) . '" role="checkbox" aria-checked="' . ( $on ? 'true' : 'false' ) . '" data-f="' . esc_attr( $k ) . '"><span class="toggle__box" aria-hidden="true"></span>' . esc_html( $label ) . '</a>';
 	$lens  = [ '' => er_t( 'Any' ), 'short' => er_t( 'Up to 5 hours' ), 'full' => er_t( 'Full day' ), 'multi' => er_t( '2+ days' ) ];
-	echo '<nav class="p4filters" aria-label="' . esc_attr( er_t( 'Filter' ) ) . '" data-trip-filters data-dest-now="' . (int) $f['destination'] . '" data-base="' . esc_url( (string) get_post_type_archive_link( 'er_experience' ) ) . '" data-one="' . esc_attr( er_t( '1 trip' ) ) . '" data-many="' . esc_attr( er_t( '{n} trips', [ 'n' => '{n}' ] ) ) . '"><div class="container p4filters__in">';
+	echo '<nav class="p4filters" aria-label="' . esc_attr( er_t( 'Filter' ) ) . '" data-trip-filters data-l-recent="' . esc_attr( er_t( 'Recently viewed' ) ) . '" data-l-clear="' . esc_attr( er_t( 'Clear' ) ) . '" data-dest-now="' . (int) $f['destination'] . '" data-base="' . esc_url( (string) get_post_type_archive_link( 'er_experience' ) ) . '" data-one="' . esc_attr( er_t( '1 trip' ) ) . '" data-many="' . esc_attr( er_t( '{n} trips', [ 'n' => '{n}' ] ) ) . '"><div class="container p4filters__in">';
 	echo '<div class="fgroup frow"><span>' . esc_html( er_t( 'Where' ) ) . '</span><div class="chips">';
 	echo $chip( er_t( 'All' ), er_ux2_trip_url( array_merge( $f, [ 'destination' => 0 ] ) ), ! $f['destination'], 'destination', '0' ); // phpcs:ignore WordPress.Security.EscapeOutput
 	foreach ( $dests as $d ) {
@@ -54,7 +54,12 @@ function er_world_trip_filter_bar( int $shown ): void {
 	echo '</div><div class="ftogs">';
 	echo $tog( er_t( 'Private option' ), er_ux2_trip_url( array_merge( $f, [ 'private' => ! $f['private'] ] ) ), $f['private'], 'private' ); // phpcs:ignore WordPress.Security.EscapeOutput
 	echo $tog( er_t( 'Hotel pickup' ), er_ux2_trip_url( array_merge( $f, [ 'pickup' => ! $f['pickup'] ] ) ), $f['pickup'], 'pickup' ); // phpcs:ignore WordPress.Security.EscapeOutput
-	echo '</div><p class="count" role="status" data-count>' . esc_html( 1 === $shown ? er_t( '1 trip' ) : er_t( '{n} trips', [ 'n' => (string) $shown ] ) ) . '</p></div></div></nav>';
+	// Sort (20 Oct, as tour marketplaces): the places' order, or every trip by the partner's rating.
+	$er_sort = isset( $_GET['sort'] ) && 'rated' === $_GET['sort']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only
+	echo '</div><div class="fsort"><span>' . esc_html( er_t( 'Sort' ) ) . '</span><div class="chips">';
+	echo $chip( er_t( 'By place' ), add_query_arg( 'sort', false, er_ux2_trip_url( $f ) ), ! $er_sort, 'sort', '' ); // phpcs:ignore WordPress.Security.EscapeOutput
+	echo $chip( er_t( 'Top rated' ), add_query_arg( 'sort', 'rated', er_ux2_trip_url( $f ) ), $er_sort, 'sort', 'rated' ); // phpcs:ignore WordPress.Security.EscapeOutput
+	echo '</div></div><p class="count" role="status" data-count>' . esc_html( 1 === $shown ? er_t( '1 trip' ) : er_t( '{n} trips', [ 'n' => (string) $shown ] ) ) . '</p></div></div></nav>';
 }
 
 /** The Travel Guide's "Where" chips (the archive filters guides by ?destination=). */

@@ -13,7 +13,32 @@
     len: q.get("len") || "",
     private: !!q.get("private"),
     pickup: !!q.get("pickup"),
+    sort: q.get("sort") === "rated" ? "rated" : "",
   };
+  // "Top rated": every shown trip in one list, by the partner's rating, then its number of reviews (a copy of each
+  // card; the place groups stay as they are for "By place").
+  var flat = document.createElement("ul");
+  flat.className = "grid-cards tflat";
+  flat.hidden = true;
+  groups.parentNode.insertBefore(flat, groups);
+
+  // Recently viewed: the trips this browser opened lately (assets/js/world.js), one tap away (20 Oct).
+  try {
+    var seenTrips = JSON.parse(localStorage.getItem("er:recent") || "[]").filter(function (x) { return x && x.url && x.title; });
+    if (seenTrips.length) {
+      var esc = function (t) { var d = document.createElement("div"); d.textContent = t == null ? "" : String(t); return d.innerHTML; };
+      var pic = function (im) { return /^https?:/.test(im || "") ? im : im ? "https://images.unsplash.com/photo-" + im + "?auto=format&fit=crop&w=160&h=160&q=70" : ""; };
+      var box = document.createElement("section");
+      box.className = "trecent";
+      box.setAttribute("aria-label", bar.dataset.lRecent);
+      box.innerHTML = '<div class="trecent__h"><h2>' + esc(bar.dataset.lRecent) + '</h2><button type="button" class="trecent__x">' + esc(bar.dataset.lClear) + "</button></div>" +
+        '<div class="trecent__row">' + seenTrips.slice(0, 6).map(function (x) {
+          return '<a class="mini" href="' + esc(x.url) + '">' + (pic(x.image) ? '<img src="' + esc(pic(x.image)) + '" alt="" loading="lazy" width="76" height="76">' : '<span class="mini__ph"></span>') + '<span class="mini__b"><b>' + esc(x.title) + "</b><span>" + esc(x.meta) + "</span></span></a>";
+        }).join("") + "</div>";
+      groups.parentNode.insertBefore(box, flat);
+      box.querySelector(".trecent__x").addEventListener("click", function () { try { localStorage.removeItem("er:recent"); } catch (e) {} box.remove(); });
+    }
+  } catch (e) {}
 
   var paint = function () {
     bar.querySelectorAll(".chip[data-f]").forEach(function (c) {
@@ -38,13 +63,24 @@
       g.hidden = !any;
     });
     var n = Object.keys(seen).length;
+    if (state.sort === "rated") {
+      var pick = {};
+      groups.querySelectorAll(".tcard[data-trip]:not([hidden])").forEach(function (c) { pick[c.dataset.trip] = pick[c.dataset.trip] || c; });
+      var list = Object.keys(pick).map(function (k) { return pick[k]; });
+      list.sort(function (a, b) { return (+b.dataset.rating || 0) - (+a.dataset.rating || 0) || (+b.dataset.reviews || 0) - (+a.dataset.reviews || 0); });
+      flat.innerHTML = "";
+      list.forEach(function (c) { var d = c.cloneNode(true); d.classList.add("is-in"); flat.appendChild(d); });
+    }
+    flat.hidden = state.sort !== "rated" || !n;
+    groups.hidden = state.sort === "rated";
     if (count) count.textContent = n === 1 ? bar.dataset.one : bar.dataset.many.replace("{n}", n);
     if (empty) empty.hidden = n > 0;
   };
 
   var address = function () {
     var p = new URLSearchParams(location.search);
-    ["destination", "len", "private", "pickup"].forEach(function (k) { p.delete(k); });
+    ["destination", "len", "private", "pickup", "sort"].forEach(function (k) { p.delete(k); });
+    if (state.sort) p.set("sort", state.sort);
     if (state.destination !== "0") p.set("destination", state.destination);
     if (state.len) p.set("len", state.len);
     if (state.private) p.set("private", "1");
@@ -55,7 +91,7 @@
 
   var keepInView = function () {
     // After a change the list starts right under the bar, not somewhere further down the old, longer list.
-    var top = groups.getBoundingClientRect().top + window.scrollY - bar.offsetHeight - 90;
+    var top = (state.sort === "rated" ? flat : groups).getBoundingClientRect().top + window.scrollY - bar.offsetHeight - 90;
     if (window.scrollY > top) window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   };
 
@@ -65,6 +101,7 @@
     e.preventDefault();
     var k = b.dataset.f;
     if (k === "private" || k === "pickup") state[k] = !state[k];
+    else if (k === "sort") state.sort = b.dataset.v;
     else state[k] = b.dataset.v;
     paint();
     address();
@@ -74,7 +111,7 @@
     empty.addEventListener("click", function (e) {
       if (!e.target.closest("a")) return;
       e.preventDefault();
-      state = { destination: "0", len: "", private: false, pickup: false };
+      state = { destination: "0", len: "", private: false, pickup: false, sort: state.sort };
       paint();
       address();
       keepInView();

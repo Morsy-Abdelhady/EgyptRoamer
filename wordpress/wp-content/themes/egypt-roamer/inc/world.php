@@ -791,7 +791,8 @@ function er_world_short_home( string $html ): string {
 		}
 		$e = strpos( $html, '</section>', $a );
 		if ( false !== $e ) {
-			$html = substr( $html, 0, $a ) . ( false !== strpos( $start, 'partners' ) ? er_world_stay_section() : '' ) . substr( $html, $e + strlen( '</section>' ) );
+			// The places section (shown again in the story) gives way to "How Egypt Roamer works"; the partners to the hotels.
+			$html = substr( $html, 0, $a ) . ( false !== strpos( $start, 'partners' ) ? er_world_stay_section() : er_world_how_section() ) . substr( $html, $e + strlen( '</section>' ) );
 		}
 	}
 	return $html;
@@ -819,4 +820,56 @@ function er_world_place_trips_any( int $dest ): array {
 		}
 	}
 	return array_values( array_unique( $out ) );
+}
+
+/**
+ * "How Egypt Roamer works" (20 Oct, ideas from egyroam.com and the big travel sites): four steps that say plainly
+ * what the site does and where the booking happens. Only what is true of every page: places with their trips, the
+ * options side by side, booking on the partner's site, the hearts.
+ */
+function er_world_how_section(): string {
+	$steps = [
+		[ er_t( 'Choose a place or a trip' ), er_t( 'Seven places, each with the trips you can book there, and guides written from published sources.' ) ],
+		[ er_t( 'Compare the options' ), er_t( 'Every trip page puts its partners’ options side by side: length, private or group, pickup, and the partner’s rating and price.' ) ],
+		[ er_t( 'Book on the partner’s site' ), er_t( 'You book and pay on Viator, GetYourGuide or Trip.com. Free cancellation is shown when the partner offers it.' ) ],
+		[ er_t( 'Keep your plan' ), er_t( 'Save trips and plans with the heart, and share your list with the people you travel with.' ) ],
+	];
+	$h  = '<section class="how" aria-labelledby="how-t"><div class="container"><p class="how__eyebrow">' . esc_html( er_t( 'How Egypt Roamer works' ) ) . '</p><h2 id="how-t">' . esc_html( er_t( 'From an idea to a booked day, in four steps' ) ) . '</h2><ol class="how__steps">';
+	foreach ( $steps as $i => [ $t, $p ] ) {
+		$h .= '<li><span class="how__n">' . sprintf( '%02d', $i + 1 ) . '</span><h3>' . esc_html( $t ) . '</h3><p>' . esc_html( $p ) . '</p></li>';
+	}
+	return $h . '</ol><p class="how__note">' . esc_html( er_t( 'Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.' ) ) . '</p></div></section>';
+}
+
+/**
+ * "Ready-made routes": the three itinerary guides, each with "Read the route" and "Start from this route", which opens
+ * the Trip builder with that route's places (as the guide's own summary names them) and nights.
+ */
+function er_world_routes_section(): string {
+	$routes = [
+		'7-days-in-egypt-itinerary'  => [ 'cairo,luxor,aswan', 6 ],
+		'10-days-in-egypt-itinerary' => [ 'cairo,luxor,aswan,hurghada', 9 ],
+		'14-days-in-egypt-itinerary' => [ 'cairo,alexandria,luxor,aswan,hurghada', 13 ],
+	];
+	$cards = '';
+	foreach ( $routes as $slug => [ $places, $nights ] ) {
+		$en = get_page_by_path( $slug, OBJECT, 'er_guide' );
+		if ( ! $en && function_exists( 'pll_get_post' ) ) {
+			$found = get_posts( [ 'post_type' => 'er_guide', 'name' => $slug, 'lang' => 'en', 'numberposts' => 1 ] );
+			$en    = $found ? $found[0] : null;
+		}
+		$id = $en && function_exists( 'pll_get_post' ) ? (int) pll_get_post( $en->ID ) : ( $en ? (int) $en->ID : 0 );
+		if ( ! $id || 'publish' !== get_post_status( $id ) ) {
+			continue;
+		}
+		$thumb = (int) get_post_thumbnail_id( $id );
+		$stock = er_stock_id_for( $id );
+		$img   = $thumb ? er_img( $thumb, 'er-card', [ 'alt' => '', 'sizes' => '(max-width: 700px) 90vw, 400px', 'loading' => 'lazy' ] ) : ( '' !== $stock ? er_stock_img( $stock, '', [ 'sizes' => '(max-width: 700px) 90vw, 400px' ], [ 400, 640, 900 ], 0.6 ) : '' );
+		$plan  = add_query_arg( [ 'plan' => $places, 'n' => $nights ], home_url( '/' ) ) . '#planner';
+		$cards .= '<li class="route"><a class="route__img" href="' . esc_url( get_permalink( $id ) ) . '" tabindex="-1" aria-hidden="true">' . $img . '</a><div class="route__b"><h3><a href="' . esc_url( get_permalink( $id ) ) . '">' . esc_html( get_the_title( $id ) ) . '</a></h3><p>' . esc_html( wp_trim_words( get_the_excerpt( $id ), 30, '…' ) ) . '</p><div class="route__acts"><a class="btn btn--primary btn--sm" href="' . esc_url( get_permalink( $id ) ) . '">' . esc_html( er_t( 'Read the route' ) ) . '</a><a class="route__plan" href="' . esc_url( $plan ) . '" data-route-plan>' . esc_html( er_t( 'Start from this route' ) ) . ' →</a></div></div></li>';
+	}
+	if ( '' === $cards ) {
+		return '';
+	}
+	return '<section class="routes" aria-labelledby="routes-t"><div class="container"><p class="how__eyebrow">' . esc_html( er_t( 'Ready-made routes' ) ) . '</p><h2 id="routes-t">' . esc_html( er_t( 'One week, ten days or two weeks' ) ) . '</h2><ul class="routes__g">' . $cards . '</ul></div></section>';
 }

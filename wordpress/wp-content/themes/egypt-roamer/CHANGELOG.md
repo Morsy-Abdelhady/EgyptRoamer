@@ -2,6 +2,15 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.7 — 2026-10-20: ideas from other travel sites (owner: "make the experience unique and complete, like the global sites"; egyroam.com reviewed)
+- **Ratings on the trip cards:** the best-reviewed option's rating sits on the photo ("★ 4.9 (2,528)"), from the partner (Viator API), as on tour marketplaces.
+- **"Top rated" sort** on Trips & tours (beside the filters): every shown trip in one list by the partner's rating and number of reviews; "By place" keeps the place groups. In place, no reload; the address keeps it (`?sort=rated`).
+- **Recently viewed:** Trips & tours shows the trips this browser opened lately, one tap away, with "Clear". Kept in this browser only.
+- **Homepage, "How Egypt Roamer works":** four plain steps (choose, compare, book on the partner's site, keep your plan) and the independence note, in place of the second places section.
+- **Homepage, "Ready-made routes":** the 7-, 10- and 14-day itinerary guides, each with "Read the route" and "Start from this route", which fills the Trip builder with that route's places and nights (in place).
+- **Phones:** guide place photos take 88% of the width (were 76%).
+- New UI strings in 7 languages.
+
 ## 1.3.6 — 2026-10-20: Trip Builder live data, speed
 - **Trip Builder (owner: "make sure it works", earlier "link it to Viator"):** tested as a visitor (nights, interests, places, private only, save, reopen a saved plan); it works. Each trip on the route now shows the partner's live rating and lowest price, as the trip cards ("★ 4.9 (834) · From US$28.53 on Viator"). A saved plan's link no longer carries the old preview parameter.
 - **Speed:** the host's Site Designer plugin printed 48 KB of block-theme CSS into every page's head (unused by this theme); it is removed. Videos start downloading only after the page has loaded (the homepage's 0.5 MB opener video competed with the first photo on phones) and stay as photos on 3G or slower. Guide openers get a 720px photo for phones (was 960px).
