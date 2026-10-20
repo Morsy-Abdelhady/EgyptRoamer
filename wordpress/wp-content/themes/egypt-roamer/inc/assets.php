@@ -218,6 +218,32 @@ add_action( 'wp_enqueue_scripts', static function () {
 	}
 }, 100 );
 
+/*
+ * The template stylesheets after the bundle (home-story, videos, world, p4-*: 2-30 KB each) are printed inside
+ * the page, in the same place, instead of linked. On a phone each was one more render-blocking request:
+ * PageSpeed (20 Oct, homepage) counted 3 stylesheets and 1.7 s of blocking, with the hero word's paint waiting
+ * 2.4 s. Same rules, same order; only the bundle stays a file (cached across pages). Comments and runs of
+ * white space are dropped; none of these files has a relative url().
+ */
+add_filter( 'style_loader_tag', static function ( string $tag, string $handle ): string {
+	if ( 'er-pages' === $handle || 0 !== strpos( $handle, 'er-' ) || ! preg_match( '#/assets/css/([a-z0-9-]+)\.css#', $tag, $m ) ) {
+		return $tag;
+	}
+	if ( ! file_exists( ER_THEME_DIR . '/assets/css/bundle-site.css' ) || preg_match( "#media=['\"](?!all)#", $tag ) ) {
+		return $tag;
+	}
+	$file = ER_THEME_DIR . '/assets/css/' . $m[1] . '.css';
+	if ( ! is_readable( $file ) || filesize( $file ) > 40000 ) {
+		return $tag;
+	}
+	$css = (string) file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+	if ( false !== stripos( $css, '</style' ) || false !== strpos( $css, 'url(.' ) ) {
+		return $tag;
+	}
+	$css = trim( (string) preg_replace( [ '#/\*.*?\*/#s', '#\s+#' ], [ '', ' ' ], $css ) );
+	return sprintf( "<style id=\"%s-css\">%s</style>\n", esc_attr( $handle ), $css );
+}, 10, 2 );
+
 /**
  * Homepage scripts on phones run after the first paint (launch gate, 2026-10-02).
  * The homepage bundle and its libraries (GSAP, ScrollTrigger, Lenis, the language file) were deferred
