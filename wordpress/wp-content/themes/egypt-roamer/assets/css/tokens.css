@@ -16,7 +16,7 @@
   --white: #ffffff;
 
   /* Derived tones (mixes of brand colours only) */
-  --gold-deep: color-mix(in srgb, var(--gold) 82%, var(--charcoal));
+  --gold-deep: color-mix(in srgb, var(--gold) 60%, var(--charcoal)); /* 4.8:1 on stone: small gold text (was 82%, 3.1:1; PageSpeed/axe 22 Oct) */
   --gold-soft: color-mix(in srgb, var(--gold) 55%, var(--stone));
   --ink: color-mix(in srgb, var(--charcoal) 92%, var(--nile));
   --ink-2: color-mix(in srgb, var(--charcoal) 80%, var(--nile));

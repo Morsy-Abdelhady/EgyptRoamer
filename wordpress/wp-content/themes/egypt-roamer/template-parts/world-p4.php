@@ -195,7 +195,7 @@ $er_ep     = explode( ' · ', (string) $W['eyebrow'] );
 		<section class="choose2" id="wchoose" aria-labelledby="wchoose-t">
 			<div class="choose2__grid">
 				<div class="choose2__photo"><?php echo $er_pimg( $er_photo, '', '(max-width: 900px) 100vw, 45vw' ); // phpcs:ignore WordPress.Security.EscapeOutput ?><span class="choose2__cap"><?php echo esc_html( $er_title ); ?></span></div>
-				<div class="choose2__b" id="book" role="region" aria-labelledby="wchoose-t">
+				<div class="choose2__b" id="book">
 					<p class="eyebrow"><?php er_e( 'Book this trip' ); ?></p>
 					<h2 id="wchoose-t"><?php er_e( 'Choose your way in' ); ?></h2>
 					<?php if ( $er_sum ) : ?><div class="wsum"><?php foreach ( $er_sum as $c ) { echo '<span>' . esc_html( $c ) . '</span>'; } ?></div><?php endif; ?>

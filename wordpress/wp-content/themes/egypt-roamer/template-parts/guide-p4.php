@@ -110,8 +110,8 @@ foreach ( $er_all as $T ) {
 		}
 	}
 	$card = $M && $T['id'] === $M['id']
-		? '<a class="tcard tcard--slim" href="' . esc_url( $T['url'] ) . '"><div><small>' . esc_html( er_t( 'The trip in this guide' ) ) . '</small><h4>' . esc_html( $T['title'] ) . '</h4></div><span class="btn btn--gold btn--sm">' . esc_html( er_t( 'See the {n} options', [ 'n' => $T['n'] ] ) ) . ' →</span></a>'
-		: '<a class="tcard" href="' . esc_url( $T['url'] ) . '">' . ( '' !== $T['img'] ? '<img src="' . esc_url( $T['img'] ) . '" alt="" loading="lazy" />' : '' ) . '<div><small>' . esc_html( er_t( 'The trip · {place}', [ 'place' => $T['place'] ] ) ) . '</small><h4>' . esc_html( $T['title'] ) . '</h4>' . $er_chips( $T ) . '<span class="go">' . esc_html( er_t( 'See the {n} options', [ 'n' => $T['n'] ] ) ) . ' →</span></div></a>';
+		? '<a class="tcard tcard--slim" href="' . esc_url( $T['url'] ) . '"><div><small>' . esc_html( er_t( 'The trip in this guide' ) ) . '</small><h3>' . esc_html( $T['title'] ) . '</h3></div><span class="btn btn--gold btn--sm">' . esc_html( er_t( 'See the {n} options', [ 'n' => $T['n'] ] ) ) . ' →</span></a>'
+		: '<a class="tcard" href="' . esc_url( $T['url'] ) . '">' . ( '' !== $T['img'] ? '<img src="' . esc_url( $T['img'] ) . '" alt="" loading="lazy" />' : '' ) . '<div><small>' . esc_html( er_t( 'The trip · {place}', [ 'place' => $T['place'] ] ) ) . '</small><h3>' . esc_html( $T['title'] ) . '</h3>' . $er_chips( $T ) . '<span class="go">' . esc_html( er_t( 'See the {n} options', [ 'n' => $T['n'] ] ) ) . ' →</span></div></a>';
 	$er_html = substr_replace( $er_html, $card, $end, 0 );
 }
 
@@ -137,11 +137,11 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 		<div class="wrap">
 			<div class="visually-hidden"><?php er_breadcrumbs(); ?></div>
 			<?php if ( $er_isplace ) : ?>
-				<p class="crumb" aria-hidden="true"><a href="<?php echo esc_url( $er_gidx ); ?>"><?php er_e( 'Places' ); ?></a><span>›</span><span><?php echo esc_html( $er_pname ); ?></span></p>
+				<p class="crumb"><a href="<?php echo esc_url( $er_gidx ); ?>"><?php er_e( 'Places' ); ?></a><span>›</span><span><?php echo esc_html( $er_pname ); ?></span></p>
 				<?php $er_reg = (string) get_post_meta( $er_id, '_er_region_label', true ); ?>
 				<?php if ( '' !== $er_reg ) : ?><p class="eyebrow"><?php echo esc_html( $er_reg ); ?></p><?php endif; ?>
 			<?php else : ?>
-				<p class="crumb" aria-hidden="true"><a href="<?php echo esc_url( $er_gidx ); ?>"><?php er_e( 'Travel Guide' ); ?></a><span>›</span><a href="<?php echo esc_url( $er_pidx ); ?>"><?php echo esc_html( $er_place ); ?></a></p>
+				<p class="crumb"><a href="<?php echo esc_url( $er_gidx ); ?>"><?php er_e( 'Travel Guide' ); ?></a><span>›</span><a href="<?php echo esc_url( $er_pidx ); ?>"><?php echo esc_html( $er_place ); ?></a></p>
 				<?php if ( '' !== $er_topic ) : ?><p class="eyebrow"><?php echo esc_html( er_t( '{topic} guide', [ 'topic' => $er_topic ] ) ); ?></p><?php endif; ?>
 			<?php endif; ?>
 			<h1><?php the_title(); ?></h1>

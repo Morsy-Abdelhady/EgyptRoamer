@@ -50,6 +50,22 @@ Fill in one row every Monday (UTC), for the 7 days that end on Sunday. One quest
 
 The first queries with impressions were "اسوان", "أسوان", "great sand sea", "best 7 days in egypt" and "سيوة فين في مصر".
 
+### Week 1, 16–22 Oct 2026 (review of 22 Oct)
+
+| Metric | Value | Notes |
+|---|---|---|
+| Search impressions (GSC, domain property) | 271 (28 days); the 7-day view shows the same total, so nearly all came this week | 20 Oct check: 109. Baseline 15 Oct: 37 (URL-prefix property). GSC data reaches 19 Oct |
+| Search clicks (GSC) | 2 (28 days), CTR 0.7%, average position 61.2 | Both clicks on guides: DE inside the pyramids (pos 21.7), ES Siwa or the White Desert (31.5) |
+| Queries | 126 with impressions; 7 in the top 30: "great sand sea" (8.0), "egypt red sea" (10), "snorkelling" (10), "اين يقع بحر الرمال العظيم" (12), "abu simbel trip from aswan" (15), "sokar pyramiden" (28), "the red sea" (30) | Most impressions are itinerary and snorkelling queries at positions 65–100 |
+| Pages indexed (GSC Page indexing, URL-prefix property) | 30 indexed, 162 not indexed (142 "noindex", validation still **Started**; 20 "Discovered – not indexed") | The report's data has not moved since about 8 Oct; the domain property says "Processing data" |
+| Indexing checks | `/guides/abu-simbel-from-aswan/` and `/guides/day-trips-from-cairo/` (requested 15 Oct): **indexed** | — |
+| Page views (Visits) | 430 | 241 entrances, 2 from search engines (google.com), 0 from AI assistants. Mostly `/experiences/` in 8 languages and `/` |
+| Partner-link taps | 0 | — |
+| `/go/` redirects | 53 | With 0 taps on the page and 1 Viator visitor, these are mostly not people (crawlers following `/go/`, or tests). Worth checking which user agents hit `/go/` |
+| Viator (last 30 days) | 1 visitor, 0 bookings, $0 commission | Payout details still not entered (owner) |
+| Content | 384 pages (232 guides): 5 new guides in 8 languages published 22 Oct | Google indexing requested for the 5 English guides |
+| Release gate | all ok, 384 pages | theme 1.3.15, Core 1.2.65 |
+
 ## Speed (PageSpeed Insights, mobile), 15 Oct
 
 | Page | Performance | LCP | CLS | TBT | Accessibility / Best practices / SEO |

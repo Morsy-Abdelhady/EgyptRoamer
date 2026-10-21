@@ -1,6 +1,6 @@
 /* Proposal 4, the trip "world" (inc/world.php, template-parts/world.php), ported from docs/prototypes/journey-v4
    (v4-worlds.css and its later patches). Scoped to .world: nothing here reaches other pages. */
-.world{--tomb:#0c0a07;--papyrus:#efe2c4;--gold-hi:#e6c35a;--glyph:"Noto Sans Egyptian Hieroglyphs",serif;--serif:var(--font-serif);--sans:var(--font-sans);--gold-deep:#a8871f}
+.world{--tomb:#0c0a07;--papyrus:#efe2c4;--gold-hi:#e6c35a;--glyph:"Noto Sans Egyptian Hieroglyphs",serif;--serif:var(--font-serif);--sans:var(--font-sans);--gold-deep:#7f6b24}
 .world .btn--gold{background:var(--gold);color:var(--charcoal)}
 .world .btn--gold:hover{background:#d4ae35}
 .world .btn--line{background:transparent;border:1.5px solid var(--gold);color:var(--charcoal)}

@@ -95,6 +95,10 @@
     if (window.scrollY > top) window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   };
 
+  // The chips are links (they work without JS) that act as toggle buttons here: Space presses them too.
+  bar.addEventListener("keydown", function (e) {
+    if (e.key === " " && e.target.closest(".chip[data-f]")) { e.preventDefault(); e.target.closest(".chip[data-f]").click(); }
+  });
   bar.addEventListener("click", function (e) {
     var b = e.target.closest("[data-f]");
     if (!b || e.metaKey || e.ctrlKey || e.shiftKey) return;

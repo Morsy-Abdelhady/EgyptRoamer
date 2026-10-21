@@ -149,7 +149,7 @@
   white-space: nowrap;
 }
 .p4filters .chip[aria-pressed="true"],
-.gi-bar .chip[aria-pressed="true"] {
+.gi-bar .chip[aria-current="page"] {
   background: var(--charcoal);
   border-color: var(--charcoal);
   color: var(--white);

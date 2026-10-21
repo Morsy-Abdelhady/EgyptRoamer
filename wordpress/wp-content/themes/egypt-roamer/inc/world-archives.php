@@ -38,7 +38,7 @@ function er_world_trip_filter_bar( int $shown ): void {
 	$f['destination'] = $f['destination'] && function_exists( 'er_translated_post_id' ) ? (int) er_translated_post_id( $f['destination'] ) : $f['destination'];
 	$dests = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'numberposts' => 50, 'orderby' => 'menu_order', 'order' => 'ASC', 'suppress_filters' => false ] );
 	// Each button is a link (works without JavaScript); assets/js/p4-trips.js filters the page in place instead.
-	$chip  = static fn ( string $label, string $url, bool $on, string $k, string $v ): string => '<a class="chip" href="' . esc_url( $url ) . '" aria-pressed="' . ( $on ? 'true' : 'false' ) . '" data-f="' . esc_attr( $k ) . '" data-v="' . esc_attr( $v ) . '">' . esc_html( $label ) . '</a>';
+	$chip  = static fn ( string $label, string $url, bool $on, string $k, string $v ): string => '<a class="chip" href="' . esc_url( $url ) . '" role="button" aria-pressed="' . ( $on ? 'true' : 'false' ) . '" data-f="' . esc_attr( $k ) . '" data-v="' . esc_attr( $v ) . '">' . esc_html( $label ) . '</a>';
 	$tog   = static fn ( string $label, string $url, bool $on, string $k ): string => '<a class="toggle" href="' . esc_url( $url ) . '" role="checkbox" aria-checked="' . ( $on ? 'true' : 'false' ) . '" data-f="' . esc_attr( $k ) . '"><span class="toggle__box" aria-hidden="true"></span>' . esc_html( $label ) . '</a>';
 	$lens  = [ '' => er_t( 'Any' ), 'short' => er_t( 'Up to 5 hours' ), 'full' => er_t( 'Full day' ), 'multi' => er_t( '2+ days' ) ];
 	echo '<nav class="p4filters" aria-label="' . esc_attr( er_t( 'Filter' ) ) . '" data-trip-filters data-l-recent="' . esc_attr( er_t( 'Recently viewed' ) ) . '" data-l-clear="' . esc_attr( er_t( 'Clear' ) ) . '" data-dest-now="' . (int) $f['destination'] . '" data-base="' . esc_url( (string) get_post_type_archive_link( 'er_experience' ) ) . '" data-one="' . esc_attr( er_t( '1 trip' ) ) . '" data-many="' . esc_attr( er_t( '{n} trips', [ 'n' => '{n}' ] ) ) . '"><div class="container p4filters__in">';
@@ -68,9 +68,9 @@ function er_world_guide_bar(): void {
 	$base  = (string) get_post_type_archive_link( 'er_guide' );
 	$dests = get_posts( [ 'post_type' => 'er_destination', 'post_status' => 'publish', 'numberposts' => 50, 'orderby' => 'menu_order', 'order' => 'ASC', 'suppress_filters' => false ] );
 	echo '<nav class="gi-bar" aria-label="' . esc_attr( er_t( 'Filter' ) ) . '"><div class="container gi-bar__in"><span>' . esc_html( er_t( 'Where' ) ) . '</span>';
-	echo '<a class="chip" href="' . esc_url( $base ) . '" aria-pressed="' . ( $on ? 'false' : 'true' ) . '">' . esc_html( er_t( 'All' ) ) . '</a>';
+	echo '<a class="chip" href="' . esc_url( $base ) . '"' . ( $on ? '' : ' aria-current="page"' ) . '>' . esc_html( er_t( 'All' ) ) . '</a>';
 	foreach ( $dests as $d ) {
-		echo '<a class="chip" href="' . esc_url( add_query_arg( 'destination', (int) $d->ID, $base ) ) . '" aria-pressed="' . ( (int) $d->ID === $on ? 'true' : 'false' ) . '">' . esc_html( get_the_title( $d ) ) . '</a>';
+		echo '<a class="chip" href="' . esc_url( add_query_arg( 'destination', (int) $d->ID, $base ) ) . '"' . ( (int) $d->ID === $on ? ' aria-current="page"' : '' ) . '>' . esc_html( get_the_title( $d ) ) . '</a>';
 	}
 	echo '</div></nav>';
 }

@@ -83,11 +83,11 @@ html[dir="rtl"] .scene__pick.scene__trips{left:var(--edge);right:calc(var(--edge
 /* How Egypt Roamer works, and the ready-made routes (inc/world.php, 20 Oct) */
 .how,.routes{padding:84px 0;background:var(--stone,#f8f5ed);color:var(--charcoal)}
 .routes{background:var(--white,#fff);padding-top:72px}
-.how__eyebrow{margin:0 0 8px;font:600 12px var(--font-sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep,#a8871f)}
+.how__eyebrow{margin:0 0 8px;font:600 12px var(--font-sans);letter-spacing:.2em;text-transform:uppercase;color:#7d6311}
 .how h2,.routes h2{margin:0 0 34px;font:500 clamp(30px,3.4vw,44px)/1.1 var(--font-serif);max-width:22ch}
 .how__steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;counter-reset:none}
 .how__steps li{position:relative;background:var(--white,#fff);border:1px solid var(--line);border-radius:16px;padding:24px 22px 22px}
-.how__n{display:block;font:500 34px/1 var(--font-serif);color:var(--gold,#c9a227);margin-bottom:14px}
+.how__n{display:block;font:500 34px/1 var(--font-serif);color:var(--gold-deep,#a8871f);margin-bottom:14px}
 .how__steps h3{margin:0 0 8px;font:600 17px/1.3 var(--font-sans)}
 .how__steps p{margin:0;font-size:14.5px;line-height:1.6;color:var(--text-muted)}
 .how__note{margin:22px 0 0;font-size:13px;color:var(--text-muted)}

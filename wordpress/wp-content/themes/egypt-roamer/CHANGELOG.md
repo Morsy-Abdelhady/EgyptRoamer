@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.16 — 2026-10-22: accessibility from the PageSpeed review (with Core 1.2.66)
+- **Contrast:** small gold text met 3.1:1; the `--gold-deep` token is now 60% gold (4.8:1 on stone), also in the guide and trip pages' local copies. The "How it works" numbers use it too (large text). The footer company line goes to 4.5:1, the papyrus labels to a darker clay (5.4:1), and Viator's chip text in the option rows is white.
+- **Semantics:** trip filter chips are links acting as toggles: `role="button"`, and Space presses them. The Travel Guide's place chips use `aria-current`. The guide breadcrumb is no longer `aria-hidden`; the guide's trip card title is an `h3`; the trip page's booking box no longer repeats its section's landmark label.
+- axe-core: 0 violations on home, Trips & tours, a trip, Places, Travel Guide, a guide and the Arabic home.
+- **Core 1.2.66:** the Arabic Great Sand Sea guide's title now answers the query it ranks for ("أين يقع", position 12).
+
 ## 1.3.15 — 2026-10-22: five new guides (with Core 1.2.65)
 - **New guides in 8 languages:** a hot-air balloon over Luxor, Cairo's three museums, Islamic Cairo, Dendera and Abydos, and El Gouna. Facts from the sources listed in `docs/CONTENT-SOURCES.md` (21 Oct) and in Core `data/sources.json`. Created on the server by Egypt Roamer → Guide translations.
 - **Guide photos:** each has its own free Unsplash photo with an exact location tag (`ER_UX2_GUIDE_PHOTOS`, Core `seed.json`); the Egyptian Museum and Dendera photos are recorded in `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5 (22 Oct). The five come first on the Travel Guide page.
