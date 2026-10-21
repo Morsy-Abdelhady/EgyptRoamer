@@ -476,6 +476,205 @@
    "checked": "2026-10-15"
   },
   {
+   "claim": "Luxor balloons: flights over the West Bank from sunrise; the Civil Aviation Authority and the Egyptian Airports Company paused commercial flights from 1 June to 30 August 2026 at the request of all operators, first time in 38 years, citing summer heat, described as annual; flights resumed in September; baskets in eight models for 2 to 32 passengers",
+   "guides": [
+    "g-luxor-balloon"
+   ],
+   "links": [
+    {
+     "name": "egypttoday.com",
+     "url": "https://www.egypttoday.com/Article/1/149489/Hot-air-balloon-flights-resume-in-Luxor-after-a-3"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "Luxor balloons: on 13 March 2026 the Civil Aviation Authority cancelled West Bank flights after warnings of strong winds and unstable early-morning weather",
+   "guides": [
+    "g-luxor-balloon"
+   ],
+   "links": [
+    {
+     "name": "egypttoday.com",
+     "url": "https://www.egypttoday.com/Article/1/145603/Hot-air-balloon-flights-over-Luxor-cancelled-due-to-bad"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "2013 Luxor balloon crash: 26 Feb 2013, fire on landing, 19 of 21 on board died; Civil Aviation Authority report (7 Jan 2014) blamed a leak in an ageing fuel line; after a 2009 crash flights were grounded six months, pilot training increased and a designated launch site given",
+   "guides": [
+    "g-luxor-balloon"
+   ],
+   "links": [
+    {
+     "name": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/2013_Luxor_hot_air_balloon_crash"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "Egyptian Museum, Tahrir: opened 15 Nov 1902, architect Marcel Dourgnon; largest collection of Egyptian antiquities; highlights Narmer Palette, statues of Djoser, Khafre, Menkaure, Hatshepsut, Merneptah Stele, Akhenaten bust and Amarna collection, Yuya and Thuya on the upper floor since the 2018 reorganisation, treasures of Tanis; Tutankhamun's objects moved to the Grand Egyptian Museum; 22 royal mummies moved to the NMEC on 3 Apr 2021",
+   "guides": [
+    "g-cairo-museums"
+   ],
+   "links": [
+    {
+     "name": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Egyptian_Museum"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "National Museum of Egyptian Civilization: Fustat, Old Cairo, by Ain el-Sira lake; partly opened 2017, inaugurated 3 Apr 2021 with the Pharaohs' Golden Parade (22 mummies: 18 kings, 4 queens incl. Ramesses II and Hatshepsut, from the Egyptian Museum); about 50,000 artefacts, prehistory to modern; themes incl. the Nile, writing, state and society, beliefs; Royal Mummies hall; textile gallery about 600 pieces; nearest metro Mar Girgis, Line 1",
+   "guides": [
+    "g-cairo-museums"
+   ],
+   "links": [
+    {
+     "name": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/National_Museum_of_Egyptian_Civilization"
+    },
+    {
+     "name": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Pharaohs%27_Golden_Parade"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "Historic Cairo: World Heritage 1979; founded 969 as the Fatimid capital; gates Bab Zuwayla (south), Bab al-Futuh and Bab al-Nasr (north); Ayyubid Citadel as seat of government; Mamluk era 1250–1517 the largest, most complex Islamic city of its time; Ottomans kept and added; 19th-c. new Cairo left it intact; Al-Azhar a leading centre of learning since its foundation in 970; significant Fatimid mosques Al-Azhar, Al-Hakim, Al-Aqmar; Ibn Tulun (876–879) with spiral minaret and vast court",
+   "guides": [
+    "g-islamic-cairo"
+   ],
+   "links": [
+    {
+     "name": "UNESCO World Heritage Centre",
+     "url": "https://whc.unesco.org/en/list/89/"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "Al-Muizz Street: about 1 km from Bab al-Futuh to Bab Zuwayla; named after the Fatimid caliph al-Mu'izz li-Din Allah; restored by the government from 1997; Qalawun complex 1285, al-Aqmar 1125, al-Hakim 1013, Bayt al-Suhaymi 1648–1796, Bayn al-Qasrayn, al-Ghuri complex 1505 south of Al-Azhar Street",
+   "guides": [
+    "g-islamic-cairo"
+   ],
+   "links": [
+    {
+     "name": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Muizz_Street"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "Khan el-Khalili: first khan built 1382–1389 by Jaharkas al-Khalili, master of the stables of Sultan Barquq; the name now covers the whole market district between al-Muizz Street and the al-Hussein Mosque; El-Fishawy café established 1773",
+   "guides": [
+    "g-islamic-cairo"
+   ],
+   "links": [
+    {
+     "name": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Khan_el-Khalili"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "Sultan Hassan: mosque-madrasa built 1356–1363 under an-Nasir Hasan, Bahri Mamluk, near the Citadel; taught the four Sunni schools; Al-Rifa'i Mosque beside it, 1869–1912, neo-Mamluk",
+   "guides": [
+    "g-islamic-cairo"
+   ],
+   "links": [
+    {
+     "name": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Mosque-Madrasa_of_Sultan_Hasan"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "Cairo Citadel: begun by Saladin 1176–1183 on a promontory of the Mokattam hills; seat of government until Khedive Ismail moved to Abdeen Palace in 1874; dominates the skyline; Mosque of Muhammad Ali 1830–1848; Mosque of al-Nasir Muhammad 1318",
+   "guides": [
+    "g-islamic-cairo"
+   ],
+   "links": [
+    {
+     "name": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Cairo_Citadel"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "Dendera: west bank of the Nile, Qena governorate; capital of the 6th nome; city of Hathor; temple one of the best preserved; Ptolemaic, completed under Tiberius, on foundations back to Khufu; hypostyle hall of 18 Hathor-headed columns, ceiling with astronomical scenes; roof chapels of Osiris where the zodiac (now in Paris) was found; small temple of Isis, sacred lake, two birth houses and a Christian church",
+   "guides": [
+    "g-dendera-abydos"
+   ],
+   "links": [
+    {
+     "name": "Britannica",
+     "url": "https://www.britannica.com/place/Dandarah"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "Dendera zodiac removed in 1820 and replaced with a copy, original in the Louvre; twelve crypts with reliefs; relief of Cleopatra VII and Caesarion on the rear outer wall; mammisi of Nectanebo II and a Roman mammisi",
+   "guides": [
+    "g-dendera-abydos"
+   ],
+   "links": [
+    {
+     "name": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Dendera_Temple_complex"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "Abydos: low desert west of the Nile near Al-Balyana; cemetery of the earliest kings (Umm al-Qa'ab); centre of the cult of Osiris, pilgrimage and burial near his tomb; temple of Seti I with seven sanctuaries through two hypostyle halls; King List of 76 predecessors from Menes; reliefs of particular delicacy; Osireion 8 m behind, underground hall with 10 pillars and a water channel, thought Seti's cenotaph",
+   "guides": [
+    "g-dendera-abydos"
+   ],
+   "links": [
+    {
+     "name": "Britannica",
+     "url": "https://www.britannica.com/place/Abydos-ancient-city-Egypt"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "Temple of Seti I: continued by Ramesses II; part of the Osireion floods; the \"helicopter\" hieroglyphs are a Seti I inscription plastered over and re-carved under Ramesses II",
+   "guides": [
+    "g-dendera-abydos"
+   ],
+   "links": [
+    {
+     "name": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Temple_of_Seti_I_(Abydos"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
+   "claim": "El Gouna: Red Sea Governorate, 20 km north of Hurghada, 25 km from Hurghada International Airport; founded 1990 by Samih Sawiris, developed by Orascom Development; 20 islands surrounded by lagoons, 10 km of coastline; Downtown, Abu Tig Marina, Tamr Henna Square; water sports; El Gouna Film Festival since 2017",
+   "guides": [
+    "g-el-gouna"
+   ],
+   "links": [
+    {
+     "name": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/El_Gouna"
+    }
+   ],
+   "checked": "2026-10-21"
+  },
+  {
    "claim": "Abu Simbel sun alignment on or around 22 February and 22 October; temples relocated in the 1960s",
    "guides": [],
    "links": [

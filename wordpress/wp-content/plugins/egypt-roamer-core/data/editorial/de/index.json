@@ -155,6 +155,13 @@
   "review": "approved",
   "current": true
  },
+ "g-cairo-museums": {
+  "type": "er_guide",
+  "title": "Die drei großen Museen Kairos: Welches sollten Sie besuchen?",
+  "excerpt": "Das Ägyptische Museum am Tahrir-Platz, das Nationalmuseum der ägyptischen Zivilisation mit den Königsmumien und das Grand Egyptian Museum in Gizeh: was jedes Museum seit den großen Umzügen von 2021 und 2025 zeigt, und wie Sie wählen.",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-night": {
   "type": "er_guide",
   "title": "Kairo bei Nacht: Nilfahrten, Streetfood und die Altstadt",
@@ -183,6 +190,13 @@
   "review": "approved",
   "current": true
  },
+ "g-dendera-abydos": {
+  "type": "er_guide",
+  "title": "Dendera und Abydos: die Tempel nördlich von Luxor",
+  "excerpt": "Zwei der schönsten Tempel Ägyptens nördlich von Luxor: der Hathor-Tempel von Dendera mit seinen Hathor-Säulen, der astronomischen Decke und dem Relief der Kleopatra, und der Tempel Sethos' I. in Abydos mit der Königsliste und dem Osireion. Was Sie sehen und wie Sie den Tag planen.",
+  "review": "approved",
+  "current": true
+ },
  "g-desert-choice": {
   "type": "er_guide",
   "title": "Siwa oder die Weiße Wüste? Die passende Wüstentour wählen",
@@ -194,6 +208,13 @@
   "type": "er_guide",
   "title": "Karnak und der Luxor-Tempel: das Ostufer von Luxor",
   "excerpt": "Ein Ratgeber zu den Tempeln am Ostufer von Luxor: der große Amun-Re-Tempel von Karnak mit seinem Säulensaal aus 134 Säulen, der Luxor-Tempel und seine Kolonnade, die Sphingenallee dazwischen und wie Sie den Tag planen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-el-gouna": {
+  "type": "er_guide",
+  "title": "El Gouna: die Lagunenstadt nördlich von Hurghada",
+  "excerpt": "El Gouna am Roten Meer: eine Stadt aus Inseln und Lagunen, 1990 gegründet, 20 km nördlich von Hurghada. Ihre Viertel, der Wassersport, das Filmfestival, ihr Platz auf einer Reise ans Rote Meer und wie Sie sie mit Tauchen und Luxor verbinden.",
   "review": "approved",
   "current": true
  },
@@ -222,6 +243,20 @@
   "type": "er_guide",
   "title": "Im Inneren der Pyramiden von Gizeh: Lohnt sich der Einstieg?",
   "excerpt": "Wie es im Inneren der Pyramiden von Gizeh ist: die Gänge der Cheops-Pyramide, die Große Galerie und die Königskammer, was Sie sehen und was nicht, wer besser draußen bleibt und wie Sie den Besuch des Plateaus planen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-islamic-cairo": {
+  "type": "er_guide",
+  "title": "Das islamische Kairo: Al-Muizz-Straße, Al-Azhar und die Zitadelle",
+  "excerpt": "Ein Ratgeber zum historischen Kairo, der UNESCO-Welterbestadt, die die Fatimiden 969 gründeten: ein Spaziergang über die Al-Muizz-Straße vom Bab al-Futuh zum Bab Zuwayla, Khan el-Khalili, Al-Azhar, Sultan Hassan, die Zitadelle und Ibn Tulun.",
+  "review": "approved",
+  "current": true
+ },
+ "g-luxor-balloon": {
+  "type": "er_guide",
+  "title": "Ballonfahrt über Luxor: Was Sie vor der Buchung wissen sollten",
+  "excerpt": "Eine Ballonfahrt bei Sonnenaufgang über Luxors Westufer: was Sie aus dem Korb sehen, wer die Fahrten überwacht, warum manche Morgen abgesagt werden, die Sommerpause, Sicherheit und wie Sie die Fahrt in Ihre Tage in Luxor einplanen.",
   "review": "approved",
   "current": true
  },

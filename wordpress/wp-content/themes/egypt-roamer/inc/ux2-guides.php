@@ -16,6 +16,11 @@ defined( 'ABSPATH' ) || exit;
 
 /** A distinct photo per guide (default-language slug → Unsplash photo id). */
 const ER_UX2_GUIDE_PHOTOS = [
+	'luxor-hot-air-balloon' => '1669521762357-966bfdcbde1d', // Temple of Hatshepsut, Kurna, Hongbin
+	'cairo-museums-which-to-visit' => '1553835568-c48d3b90ed70', // Museum of Egypt, Cairo, Spencer Davis
+	'islamic-cairo-guide' => '1595979904086-471704dc0e81', // Al-Rifa'i Mosque, Cairo, Omar Adel
+	'dendera-and-abydos-temples' => '1723997326348-d4953661a61a', // Dandarah, Qena, dleonard1210
+	'el-gouna-guide' => '1511371241697-fbcaef9dd576', // El Gouna, Levi Morsy
 	'luxor-west-bank-temples-and-tombs'     => '1623417765161-c71d6c83cfee',
 	'mount-sinai-saint-catherine'           => '1603889947015-f3305fc399ea',
 	'saqqara-and-dahshur-pyramids'          => '1678038592327-c5730737f867',

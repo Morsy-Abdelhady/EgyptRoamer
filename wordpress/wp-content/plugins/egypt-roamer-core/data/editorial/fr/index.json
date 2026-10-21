@@ -155,6 +155,13 @@
   "review": "approved",
   "current": true
  },
+ "g-cairo-museums": {
+  "type": "er_guide",
+  "title": "Les trois grands musées du Caire : lequel visiter ?",
+  "excerpt": "Le Musée égyptien de Tahrir, le Musée national de la civilisation égyptienne et ses momies royales, et le Grand Musée égyptien de Gizeh : ce que présente chaque musée depuis les grands déménagements de 2021 et 2025, et comment choisir.",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-night": {
   "type": "er_guide",
   "title": "Le Caire la nuit : croisières sur le Nil, cuisine de rue et vieille ville",
@@ -183,6 +190,13 @@
   "review": "approved",
   "current": true
  },
+ "g-dendera-abydos": {
+  "type": "er_guide",
+  "title": "Dendérah et Abydos : les temples au nord de Louxor",
+  "excerpt": "Deux des plus beaux temples d’Égypte au nord de Louxor : le temple d’Hathor à Dendérah, avec ses colonnes hathoriques, son plafond astronomique et le relief de Cléopâtre, et le temple de Séthi Ier à Abydos, avec la liste royale et l’Osiréion. Que voir et comment organiser la journée.",
+  "review": "approved",
+  "current": true
+ },
  "g-desert-choice": {
   "type": "er_guide",
   "title": "Siwa ou le Désert blanc ? Choisir son excursion dans le désert",
@@ -194,6 +208,13 @@
   "type": "er_guide",
   "title": "Karnak et le temple de Louxor : guide de la rive est",
   "excerpt": "Un guide des temples de la rive est de Louxor : le grand temple d’Amon-Rê à Karnak et sa salle hypostyle de 134 colonnes, le temple de Louxor et sa colonnade, l’allée des Sphinx qui les relie, et comment organiser la journée.",
+  "review": "approved",
+  "current": true
+ },
+ "g-el-gouna": {
+  "type": "er_guide",
+  "title": "El Gouna : la ville des lagunes au nord d’Hurghada",
+  "excerpt": "El Gouna sur la mer Rouge : une ville d’îles et de lagunes fondée en 1990, à 20 km au nord d’Hurghada. Ses quartiers, les sports nautiques, le festival du film, sa place dans un voyage en mer Rouge et comment la combiner avec la plongée et Louxor.",
   "review": "approved",
   "current": true
  },
@@ -222,6 +243,20 @@
   "type": "er_guide",
   "title": "À l’intérieur des pyramides de Gizeh : faut-il y entrer ?",
   "excerpt": "À quoi ressemble l’intérieur des pyramides de Gizeh : les couloirs de la Grande Pyramide, la Grande Galerie et la chambre du Roi, ce que vous verrez et ne verrez pas, qui ferait mieux de s’abstenir, et comment organiser la visite du plateau.",
+  "review": "approved",
+  "current": true
+ },
+ "g-islamic-cairo": {
+  "type": "er_guide",
+  "title": "Le Caire islamique : la rue al-Muizz, al-Azhar et la Citadelle",
+  "excerpt": "Un guide du Caire historique, ville inscrite au patrimoine mondial et fondée par les Fatimides en 969 : une promenade dans la rue al-Muizz de Bab al-Futuh à Bab Zuwayla, Khan el-Khalili, al-Azhar, le sultan Hassan, la Citadelle et Ibn Touloun.",
+  "review": "approved",
+  "current": true
+ },
+ "g-luxor-balloon": {
+  "type": "er_guide",
+  "title": "Montgolfière au-dessus de Louxor : ce qu’il faut savoir avant de réserver",
+  "excerpt": "Un vol en montgolfière au lever du soleil au-dessus de la rive ouest de Louxor : ce que vous voyez depuis la nacelle, qui surveille les vols, pourquoi certains matins sont annulés, la pause d’été, la sécurité et comment intégrer le vol à vos journées à Louxor.",
   "review": "approved",
   "current": true
  },

@@ -136,6 +136,15 @@
   "destination": "cairo, luxor, aswan, hurghada, sharm, siwa, alexandria",
   "related": "exp-abu, exp-safari"
  },
+ "g-cairo-museums": {
+  "type": "er_guide",
+  "title": "Cairo's Three Great Museums: Which One to Visit",
+  "excerpt": "The Egyptian Museum in Tahrir, the National Museum of Egyptian Civilization with the royal mummies, and the Grand Egyptian Museum in Giza: what each one holds since the big moves of 2021 and 2025, and how to choose.",
+  "slug": "cairo-museums-which-to-visit",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-giza"
+ },
  "g-cairo-night": {
   "type": "er_guide",
   "title": "Cairo at Night: Nile Cruises, Street Food and the Old City",
@@ -169,6 +178,15 @@
   "destination": "cairo, alexandria",
   "related": "exp-giza, exp-alexandria, exp-safari"
  },
+ "g-dendera-abydos": {
+  "type": "er_guide",
+  "title": "Dendera and Abydos: The Temples North of Luxor",
+  "excerpt": "Two of Egypt's finest temples north of Luxor: the Temple of Hathor at Dendera, with its Hathor columns, astronomical ceiling and the relief of Cleopatra, and the Temple of Seti I at Abydos, with the King List and the Osireion. What to see and how to plan the day.",
+  "slug": "dendera-and-abydos-temples",
+  "topic": "Planning",
+  "destination": "luxor",
+  "related": "exp-valley"
+ },
  "g-desert-choice": {
   "type": "er_guide",
   "title": "Siwa or the White Desert? Choosing Your Desert Trip",
@@ -186,6 +204,15 @@
   "topic": "Planning",
   "destination": "luxor",
   "related": "exp-valley"
+ },
+ "g-el-gouna": {
+  "type": "er_guide",
+  "title": "El Gouna: The Lagoon Town North of Hurghada",
+  "excerpt": "El Gouna on the Red Sea: a town of islands and lagoons founded in 1990, 20 km north of Hurghada. Its areas, the water sports, the film festival, where it fits in a Red Sea trip, and how to combine it with diving and Luxor.",
+  "slug": "el-gouna-guide",
+  "topic": "Planning",
+  "destination": "hurghada",
+  "related": "exp-dive"
  },
  "g-gem": {
   "type": "er_guide",
@@ -219,6 +246,24 @@
   "topic": "Planning",
   "destination": "cairo",
   "related": "exp-giza"
+ },
+ "g-islamic-cairo": {
+  "type": "er_guide",
+  "title": "Islamic Cairo: Al-Muizz Street, Al-Azhar and the Citadel",
+  "excerpt": "A guide to Historic Cairo, the UNESCO World Heritage city founded by the Fatimids in 969: a walk down Al-Muizz Street from Bab al-Futuh to Bab Zuwayla, Khan el-Khalili, Al-Azhar, Sultan Hassan, the Citadel and Ibn Tulun.",
+  "slug": "islamic-cairo-guide",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-food"
+ },
+ "g-luxor-balloon": {
+  "type": "er_guide",
+  "title": "A Hot-Air Balloon over Luxor: What to Know Before You Book",
+  "excerpt": "A sunrise balloon flight over Luxor's West Bank: what you see from the basket, who supervises the flights, why mornings get cancelled, the summer pause, safety, and how to fit a flight into your days in Luxor.",
+  "slug": "luxor-hot-air-balloon",
+  "topic": "Planning",
+  "destination": "luxor",
+  "related": "exp-cruise, exp-valley"
  },
  "g-nile-cruise": {
   "type": "er_guide",

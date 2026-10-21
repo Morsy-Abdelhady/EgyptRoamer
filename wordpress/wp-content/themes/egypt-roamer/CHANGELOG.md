@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.15 — 2026-10-22: five new guides (with Core 1.2.65)
+- **New guides in 8 languages:** a hot-air balloon over Luxor, Cairo's three museums, Islamic Cairo, Dendera and Abydos, and El Gouna. Facts from the sources listed in `docs/CONTENT-SOURCES.md` (21 Oct) and in Core `data/sources.json`. Created on the server by Egypt Roamer → Guide translations.
+- **Guide photos:** each has its own free Unsplash photo with an exact location tag (`ER_UX2_GUIDE_PHOTOS`, Core `seed.json`); the Egyptian Museum and Dendera photos are recorded in `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5 (22 Oct). The five come first on the Travel Guide page.
+
 ## 1.3.14 — 2026-10-20: Arabic homepage opening and chapters (owner's note)
 - **Opening scene, Arabic, wide screens:** the text block was kept on the photo's left (an older composition rule) and sat under proposal 4's chapter card, which rtl.css mirrors to the left: the copy and the place chips were cut ("كل ذلك", "أسوان") and "Watch the film" hidden. The scene now mirrors like the others: text, buttons and chips on the right, chapter card on the left.
 - **Chapter word, Arabic:** "النيل" was taller than the English word (Arabic line height) and pushed the chapter line behind the trips bar; on wide screens it is sized by screen height too.

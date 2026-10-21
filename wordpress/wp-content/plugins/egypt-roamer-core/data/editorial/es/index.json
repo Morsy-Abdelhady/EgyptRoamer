@@ -155,6 +155,13 @@
   "review": "approved",
   "current": true
  },
+ "g-cairo-museums": {
+  "type": "er_guide",
+  "title": "Los tres grandes museos de El Cairo: cuál visitar",
+  "excerpt": "El Museo Egipcio de Tahrir, el Museo Nacional de la Civilización Egipcia con las momias reales y el Gran Museo Egipcio de Guiza: qué expone cada uno tras los grandes traslados de 2021 y 2025, y cómo elegir.",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-night": {
   "type": "er_guide",
   "title": "El Cairo de noche: cruceros por el Nilo, comida callejera y ciudad antigua",
@@ -183,6 +190,13 @@
   "review": "approved",
   "current": true
  },
+ "g-dendera-abydos": {
+  "type": "er_guide",
+  "title": "Dendera y Abidos: los templos al norte de Luxor",
+  "excerpt": "Dos de los templos más bellos de Egipto al norte de Luxor: el templo de Hathor en Dendera, con sus columnas hathóricas, su techo astronómico y el relieve de Cleopatra, y el templo de Seti I en Abidos, con la Lista Real y el Osireion. Qué ver y cómo planificar el día.",
+  "review": "approved",
+  "current": true
+ },
  "g-desert-choice": {
   "type": "er_guide",
   "title": "¿Siwa o el Desierto Blanco? Cómo elegir tu viaje al desierto",
@@ -194,6 +208,13 @@
   "type": "er_guide",
   "title": "Karnak y el templo de Luxor: guía de la orilla este",
   "excerpt": "Una guía de los templos de la orilla este de Luxor: el gran templo de Amón-Ra en Karnak y su sala hipóstila de 134 columnas, el templo de Luxor y su columnata, la avenida de las Esfinges que los une y cómo organizar el día.",
+  "review": "approved",
+  "current": true
+ },
+ "g-el-gouna": {
+  "type": "er_guide",
+  "title": "El Gouna: la ciudad de las lagunas al norte de Hurghada",
+  "excerpt": "El Gouna, en el mar Rojo: una ciudad de islas y lagunas fundada en 1990, 20 km al norte de Hurghada. Sus zonas, los deportes acuáticos, el festival de cine, su lugar en un viaje por el mar Rojo y cómo combinarla con el buceo y Luxor.",
   "review": "approved",
   "current": true
  },
@@ -222,6 +243,20 @@
   "type": "er_guide",
   "title": "Dentro de las pirámides de Guiza: ¿merece la pena entrar?",
   "excerpt": "Cómo es el interior de las pirámides de Guiza: los corredores de la Gran Pirámide, la Gran Galería y la Cámara del Rey, qué verás y qué no, quién debería evitarlo y cómo organizar la visita a la meseta.",
+  "review": "approved",
+  "current": true
+ },
+ "g-islamic-cairo": {
+  "type": "er_guide",
+  "title": "El Cairo islámico: la calle al-Muizz, al-Azhar y la Ciudadela",
+  "excerpt": "Una guía de El Cairo histórico, ciudad Patrimonio de la Humanidad fundada por los fatimíes en 969: un paseo por la calle al-Muizz de Bab al-Futuh a Bab Zuwayla, Jan el-Jalili, al-Azhar, el sultán Hasán, la Ciudadela e Ibn Tulun.",
+  "review": "approved",
+  "current": true
+ },
+ "g-luxor-balloon": {
+  "type": "er_guide",
+  "title": "Globo aerostático sobre Luxor: lo que debe saber antes de reservar",
+  "excerpt": "Un vuelo en globo al amanecer sobre la orilla oeste de Luxor: qué se ve desde la cesta, quién supervisa los vuelos, por qué se cancelan algunas mañanas, la pausa de verano, la seguridad y cómo encajar el vuelo en sus días en Luxor.",
   "review": "approved",
   "current": true
  },

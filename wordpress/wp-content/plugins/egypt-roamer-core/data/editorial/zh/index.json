@@ -155,6 +155,13 @@
   "review": "approved",
   "current": true
  },
+ "g-cairo-museums": {
+  "type": "er_guide",
+  "title": "开罗三大博物馆：该去哪一座",
+  "excerpt": "解放广场的埃及博物馆、陈列皇家木乃伊的埃及国家文明博物馆，以及吉萨的大埃及博物馆：经过 2021 年和 2025 年的大规模搬迁后，每座博物馆现在展出什么，以及如何选择。",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-night": {
   "type": "er_guide",
   "title": "开罗之夜：尼罗河游船、街头美食和老城",
@@ -183,6 +190,13 @@
   "review": "approved",
   "current": true
  },
+ "g-dendera-abydos": {
+  "type": "er_guide",
+  "title": "丹德拉与阿拜多斯：卢克索以北的神庙",
+  "excerpt": "卢克索以北的两座埃及最美神庙：丹德拉的哈索尔神庙，有哈索尔柱、天文天花板和克娄巴特拉浮雕；阿拜多斯的塞提一世神庙，有国王名表和奥西里翁。看点介绍及一日行程安排。",
+  "review": "approved",
+  "current": true
+ },
  "g-desert-choice": {
   "type": "er_guide",
   "title": "锡瓦还是白沙漠？如何选择你的沙漠之旅",
@@ -194,6 +208,13 @@
   "type": "er_guide",
   "title": "卡纳克与卢克索神庙：卢克索东岸指南",
   "excerpt": "卢克索东岸神庙指南：卡纳克的阿蒙-拉大神庙及其拥有134根柱子的多柱厅、卢克索神庙及其柱廊、连接两者的狮身人面像大道，以及如何安排这一天。",
+  "review": "approved",
+  "current": true
+ },
+ "g-el-gouna": {
+  "type": "er_guide",
+  "title": "古纳：赫尔格达以北的潟湖小城",
+  "excerpt": "红海边的古纳：一座由岛屿和潟湖组成的小城，建于 1990 年，位于赫尔格达以北 20 公里。介绍它的城区、水上运动、电影节、在红海行程中的位置，以及如何与潜水和卢克索结合。",
   "review": "approved",
   "current": true
  },
@@ -222,6 +243,20 @@
   "type": "er_guide",
   "title": "走进吉萨金字塔：值得进去吗？",
   "excerpt": "吉萨金字塔内部是什么样的：大金字塔的通道、大走廊和国王墓室，你能看到和看不到什么，哪些人最好别进去，以及如何安排金字塔高原的参观。",
+  "review": "approved",
+  "current": true
+ },
+ "g-islamic-cairo": {
+  "type": "er_guide",
+  "title": "伊斯兰开罗：穆伊兹街、爱资哈尔与城堡",
+  "excerpt": "开罗历史城区指南——这座世界遗产城市由法蒂玛王朝于 969 年建立：沿穆伊兹街从胜利门走到祖韦拉门，还有汗哈利利市场、爱资哈尔、苏丹哈桑清真寺、城堡和伊本·图伦清真寺。",
+  "review": "approved",
+  "current": true
+ },
+ "g-luxor-balloon": {
+  "type": "er_guide",
+  "title": "卢克索热气球：预订前需要了解的事",
+  "excerpt": "日出时分乘热气球飞越卢克索西岸：从吊篮里能看到什么、谁在监管飞行、为什么有些早晨会取消、夏季停飞、安全问题，以及如何把这次飞行安排进你在卢克索的行程。",
   "review": "approved",
   "current": true
  },
