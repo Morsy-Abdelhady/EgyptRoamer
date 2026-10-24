@@ -42,7 +42,24 @@ function er_is_bot_request(): bool {
 	}
 	$purpose = strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_SEC_PURPOSE'] ?? $_SERVER['HTTP_PURPOSE'] ?? '' ) ) );
 	$method  = strtoupper( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_METHOD'] ?? 'GET' ) ) );
-	return str_contains( $purpose, 'prefetch' ) || 'GET' !== $method; // only real navigations count as clicks
+	if ( str_contains( $purpose, 'prefetch' ) || 'GET' !== $method ) {
+		return true; // only real navigations count as clicks
+	}
+	return ! er_is_click_from_page();
+}
+
+/**
+ * A person clicked the link on one of our pages. Browsers send Sec-Fetch-Site and Sec-Fetch-User on a
+ * clicked link (kept through our own /go/ → handler hop); crawlers that open /go/ URLs directly send
+ * "none" or no user flag. Browsers without Sec-Fetch headers fall back to an own-site referrer.
+ */
+function er_is_click_from_page(): bool {
+	$site = strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_SEC_FETCH_SITE'] ?? '' ) ) );
+	if ( '' !== $site ) {
+		return 'same-origin' === $site && '?1' === sanitize_text_field( wp_unslash( $_SERVER['HTTP_SEC_FETCH_USER'] ?? '' ) );
+	}
+	$ref = isset( $_SERVER['HTTP_REFERER'] ) ? esc_url_raw( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) : '';
+	return '' !== $ref && wp_parse_url( $ref, PHP_URL_HOST ) === wp_parse_url( home_url(), PHP_URL_HOST );
 }
 
 /** First non-empty relation, falling back through the linked tour/experience/activity. */

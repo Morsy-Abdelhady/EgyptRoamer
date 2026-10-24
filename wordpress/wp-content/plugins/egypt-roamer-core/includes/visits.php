@@ -12,8 +12,9 @@
  *
  * Not counted: logged-in users (and browsers where an editor has been logged in), Do Not
  * Track / Global Privacy Control, prerenders, automated browsers (navigator.webdriver),
- * and requests whose user agent looks like a bot. Bots that run JavaScript and pretend to be
- * browsers can still slip through; the report says so.
+ * requests whose user agent looks like a bot, and (from Core 1.2.67) pages nobody interacted
+ * with: a view is sent on the first scroll, tap, click, key or pointer move. A bot that fakes
+ * interaction can still slip through; the report says so.
  *
  * Events: view (page view), cta (click on an affiliate CTA, before the /go/ hop; the /go/
  * handler's own click log stays the authoritative count), go_error (a /go/ link that could
@@ -297,6 +298,7 @@ function er_render_visits_page(): void {
 
 	echo '<div class="wrap er-wrap"><h1>' . esc_html__( 'Visits', 'egypt-roamer-core' ) . '</h1>';
 	echo '<p class="description">' . esc_html__( 'Page views counted by the site itself: daily totals only, with no cookies, no visitor IDs and no IP addresses. A person who views five pages counts five times; unique visitors are not counted. Logged-in editors, browsers that send Do Not Track or Global Privacy Control, and identifiable bots are left out.', 'egypt-roamer-core' ) . '</p>';
+	echo '<p class="description">' . esc_html__( 'Since 24 Oct 2026, a page view counts only after the visitor scrolls, taps, clicks, types or moves the pointer, and a /go/ redirect counts only when someone clicked the link on one of our pages. Earlier days include bots that loaded pages without using them.', 'egypt-roamer-core' ) . '</p>';
 	if ( $since ) {
 		/* translators: %s: date */
 		echo '<p><strong>' . esc_html( sprintf( __( 'Measuring since %s (UTC). There is no visit data for earlier dates.', 'egypt-roamer-core' ), $since ) ) . '</strong></p>';

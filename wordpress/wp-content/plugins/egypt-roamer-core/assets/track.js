@@ -55,8 +55,22 @@
       }
     };
   })();
+  // A view counts only once a person scrolls, taps, clicks, types or moves the pointer. Bots that load a
+  // page (and run its scripts) but never interact are left out; most people interact within seconds.
   var sendView = function () {
-    hit("view", {});
+    var kinds = ["scroll", "wheel", "pointerdown", "pointermove", "touchstart", "keydown"];
+    var done = false;
+    var onUse = function () {
+      if (done) return;
+      done = true;
+      kinds.forEach(function (k) {
+        window.removeEventListener(k, onUse, true);
+      });
+      hit("view", {});
+    };
+    kinds.forEach(function (k) {
+      window.addEventListener(k, onUse, { capture: true, passive: true });
+    });
   };
   if (document.prerendering) document.addEventListener("prerenderingchange", sendView, { once: true });
   else if (document.visibilityState === "hidden") {
