@@ -58,7 +58,7 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
 - `C:\Users\morsy\er`: WordPress 7.1.2 on SQLite, plus Polylang.
 - Run `python proxy.py` to serve it at :8080 (login admin/admin).
 - `./wp.sh` wraps WP-CLI, and `./reset.sh ml` rebuilds the site the same way production is built.
-- The QA scripts in `tools/qa/*.mjs` need Playwright with the system Chrome (Node 16, so use playwright@1.40).
+- The QA scripts in `tools/qa/*.mjs` need Playwright with the system Chrome. Since 2026-10-24: Node 24 LTS and Playwright 1.64, installed with `npm i --no-save playwright axe-core` in `tools/qa` (kept out of git by `.git/info/exclude`).
 - Before reporting any UX or release as done, run `BASE=https://egyptroamer.com node tools/qa/page-coverage.mjs` after the deploy. It checks every page in every language; sample pages are not enough.
   - Also look at the changed pages in a browser, on desktop and on a phone, in English and Arabic.
   - The QA does not cover the `?ux=2` preview or the hotel boxes.
