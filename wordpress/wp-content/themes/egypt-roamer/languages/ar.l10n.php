@@ -815,7 +815,7 @@ return [
 		'You' => 'أنت',
 		'You <em>Feel</em> It' => '<em>تشعر</em> بها',
 		'You are unsubscribed, and your address is deleted.' => 'تم إلغاء اشتراكك وحذف عنوانك.',
-		'You book and pay on Viator, GetYourGuide or Trip.com. Free cancellation is shown when the partner offers it.' => 'تحجز وتدفع على Viator أو GetYourGuide أو Trip.com. يظهر الإلغاء المجاني عندما يقدمه الشريك.',
+		'You book and pay on Viator, GetYourGuide, Klook or Trip.com. Free cancellation is shown when the partner offers it.' => 'تحجز وتدفع على Viator أو GetYourGuide أو Klook أو Trip.com. يظهر الإلغاء المجاني عندما يقدمه الشريك.',
 		'You book directly with our partners' => 'تحجز مباشرةً لدى شركائنا',
 		'You can do a try-dive (introductory dive) with an instructor at shallow depth after a briefing. It’s a good way to find out whether diving is for you.' => 'يمكنك القيام بـ«غطسة تجريبية» (غطسة تعريفية) مع مدرّب على عمق ضحل بعد الشرح التمهيدي، وهي طريقة جيدة لتعرف إن كان الغوص يناسبك.',
 		'You may prefer something else if' => 'قد تفضّل خيارًا آخر إذا',

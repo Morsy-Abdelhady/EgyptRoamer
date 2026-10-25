@@ -815,7 +815,7 @@ return [
 		'You' => 'Sie',
 		'You <em>Feel</em> It' => 'Man <em>fühlt</em> es',
 		'You are unsubscribed, and your address is deleted.' => 'Sie sind abgemeldet, und Ihre Adresse ist gelöscht.',
-		'You book and pay on Viator, GetYourGuide or Trip.com. Free cancellation is shown when the partner offers it.' => 'Sie buchen und bezahlen bei Viator, GetYourGuide oder Trip.com. Kostenlose Stornierung wird angezeigt, wenn der Partner sie anbietet.',
+		'You book and pay on Viator, GetYourGuide, Klook or Trip.com. Free cancellation is shown when the partner offers it.' => 'Sie buchen und bezahlen bei Viator, GetYourGuide, Klook oder Trip.com. Kostenlose Stornierung wird angezeigt, wenn der Partner sie anbietet.',
 		'You book directly with our partners' => 'Sie buchen direkt bei unseren Partnern',
 		'You can do a try-dive (introductory dive) with an instructor at shallow depth after a briefing. It’s a good way to find out whether diving is for you.' => 'Sie können nach einem Briefing einen Schnuppertauchgang (Einführungstauchgang) mit einem Tauchlehrer in geringer Tiefe machen. So finden Sie gut heraus, ob Tauchen etwas für Sie ist.',
 		'You may prefer something else if' => 'Eher etwas anderes, wenn',

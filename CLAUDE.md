@@ -7,7 +7,8 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
 - **Live partners:**
   - Viator (tours, 17 offers);
   - GetYourGuide (tours, 9 offers);
-  - Trip.com (hotels, 13 offers).
+  - Trip.com (hotels, 13 offers);
+  - Klook (tours, 2 offers; AID 140689; `docs/KLOOK-OFFERS-2026-10-25.md`).
   - Details: `docs/PARTNER-OPTIONS-2026-10-16.md`.
 
 ## Layout

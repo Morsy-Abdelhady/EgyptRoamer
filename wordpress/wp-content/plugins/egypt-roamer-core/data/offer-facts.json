@@ -308,5 +308,22 @@
   "stock": "1778402153163-fc9a5fd0131a",
   "cancel": true
  },
- "_note_cancel": "cancel: free cancellation up to 24 hours before, as each partner's own product page states it (26 offers read 16 Oct, docs/prototypes/journey-v4/README.md; the 3 Nile cruise offers read 17 Oct, docs/NILE-CRUISE-OFFERS-2026-10-17.md)."
+ "klook-cairo-nile-dinner-cruise-with-pickup": {
+  "duration": {
+   "n": "2",
+   "unit": "hours"
+  },
+  "pickup": true,
+  "cancel": true
+ },
+ "klook-2-day-white-and-black-desert-camp-from-cairo": {
+  "group": "small",
+  "duration": {
+   "n": "2",
+   "unit": "days"
+  },
+  "pickup": true,
+  "cancel": true
+ },
+ "_note_cancel": "cancel: free cancellation up to 24 hours before, as each partner's own product page states it (26 offers read 16 Oct, docs/prototypes/journey-v4/README.md; the 3 Nile cruise offers read 17 Oct, docs/NILE-CRUISE-OFFERS-2026-10-17.md). The 2 Klook offers read 25 Oct on klook.com (\"Free cancellation (24 hours notice)\")."
 }

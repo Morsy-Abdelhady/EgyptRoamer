@@ -2,6 +2,12 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.17 — 2026-10-25: Klook, the third trips partner (with Core 1.2.68)
+- **Partner list:** "How it works" on the homepage names Klook with Viator, GetYourGuide and Trip.com, in 8 languages.
+- **Core 1.2.68:**
+  - Facts and card text in 8 languages for the first two Klook offers: the Nile dinner cruise and the 2-day White and Black Desert camp. Facts were read on klook.com on 25 Oct. No prices, ratings or photos are copied.
+  - A one-time migration adds Klook to the About page's "How we work" in each language, replacing only the partner list.
+
 ## 1.3.16 — 2026-10-22: accessibility from the PageSpeed review (with Core 1.2.66)
 - **Contrast:** small gold text met 3.1:1; the `--gold-deep` token is now 60% gold (4.8:1 on stone), also in the guide and trip pages' local copies. The "How it works" numbers use it too (large text). The footer company line goes to 4.5:1, the papyrus labels to a darker clay (5.4:1), and Viator's chip text in the option rows is white.
 - **Semantics:** trip filter chips are links acting as toggles: `role="button"`, and Space presses them. The Travel Guide's place chips use `aria-current`. The guide breadcrumb is no longer `aria-hidden`; the guide's trip card title is an `h3`; the trip page's booking box no longer repeats its section's landmark label.

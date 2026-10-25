@@ -93,4 +93,31 @@ add_action( 'admin_init', static function (): void {
 		$done['trust-pages-3'] = gmdate( 'c' );
 		update_option( 'er_migrations', $done, false );
 	}
+	// 25 Oct (owner): Klook joins the partners named in the About page's "How we work", in each language. Only the
+	// partner list is replaced, so the rest of a page an editor has changed is kept.
+	if ( empty( $done['about-partners-klook'] ) ) {
+		$trust = (array) get_option( 'er_trust_pages', [] );
+		$about = (int) ( $trust['about'] ?? 0 );
+		if ( $about ) {
+			$swap = [
+				'Viator, GetYourGuide or Trip.com'     => 'Viator, GetYourGuide, Klook or Trip.com',
+				'Viator, GetYourGuide oder Trip.com'   => 'Viator, GetYourGuide, Klook oder Trip.com',
+				'Viator, GetYourGuide ou Trip.com'     => 'Viator, GetYourGuide, Klook ou Trip.com',
+				'Viator, GetYourGuide o Trip.com'      => 'Viator, GetYourGuide, Klook o Trip.com',
+				'Viator, GetYourGuide или Trip.com'    => 'Viator, GetYourGuide, Klook или Trip.com',
+				'Viator、GetYourGuide 或 Trip.com'     => 'Viator、GetYourGuide、Klook 或 Trip.com',
+				'Viator أو GetYourGuide أو Trip.com'   => 'Viator أو GetYourGuide أو Klook أو Trip.com',
+			];
+			$ids  = function_exists( 'pll_get_post_translations' ) ? (array) pll_get_post_translations( $about ) : [ $about ];
+			foreach ( array_unique( array_map( 'intval', array_merge( [ $about ], array_values( $ids ) ) ) ) as $id ) {
+				$content = (string) get_post_field( 'post_content', $id );
+				$new     = strtr( $content, $swap );
+				if ( $new !== $content ) {
+					wp_update_post( wp_slash( [ 'ID' => $id, 'post_content' => $new ] ) );
+				}
+			}
+			$done['about-partners-klook'] = gmdate( 'c' );
+			update_option( 'er_migrations', $done, false );
+		}
+	}
 } );

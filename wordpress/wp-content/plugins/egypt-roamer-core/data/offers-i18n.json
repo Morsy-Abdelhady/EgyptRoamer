@@ -1229,5 +1229,65 @@
    "title": "从阿斯旺出发：4天尼罗河游船前往卢克索（含阿布辛贝和热气球）",
    "location": "从阿斯旺到卢克索"
   }
+ },
+ "klook-cairo-nile-dinner-cruise-with-pickup": {
+  "ar": {
+   "title": "القاهرة: رحلة عشاء نيلية مع التوصيل من الفندق",
+   "location": "القاهرة"
+  },
+  "de": {
+   "title": "Kairo: Dinner-Kreuzfahrt auf dem Nil mit Hotelabholung",
+   "location": "Kairo"
+  },
+  "fr": {
+   "title": "Le Caire : dîner-croisière sur le Nil avec prise en charge à l’hôtel",
+   "location": "Le Caire"
+  },
+  "it": {
+   "title": "Il Cairo: crociera con cena sul Nilo con prelievo in hotel",
+   "location": "Il Cairo"
+  },
+  "es": {
+   "title": "El Cairo: crucero con cena por el Nilo con recogida en el hotel",
+   "location": "El Cairo"
+  },
+  "ru": {
+   "title": "Каир: ужин-круиз по Нилу с трансфером из отеля",
+   "location": "Каир"
+  },
+  "zh": {
+   "title": "开罗：尼罗河晚餐游船（含酒店接送）",
+   "location": "开罗"
+  }
+ },
+ "klook-2-day-white-and-black-desert-camp-from-cairo": {
+  "ar": {
+   "title": "من القاهرة: تخييم يومين في الصحراء السوداء والبيضاء مع مشاهدة النجوم",
+   "location": "الصحراء السوداء والبيضاء"
+  },
+  "de": {
+   "title": "Ab Kairo: 2-tägiges Camp in der Schwarzen und Weißen Wüste mit Sternenbeobachtung",
+   "location": "Schwarze und Weiße Wüste"
+  },
+  "fr": {
+   "title": "Depuis Le Caire : camp de 2 jours dans le Désert noir et le Désert blanc, sous les étoiles",
+   "location": "Désert noir et Désert blanc"
+  },
+  "it": {
+   "title": "Dal Cairo: campo di 2 giorni nel Deserto Nero e nel Deserto Bianco sotto le stelle",
+   "location": "Deserto Nero e Deserto Bianco"
+  },
+  "es": {
+   "title": "Desde El Cairo: campamento de 2 días en el Desierto Negro y el Desierto Blanco bajo las estrellas",
+   "location": "Desierto Negro y Desierto Blanco"
+  },
+  "ru": {
+   "title": "Из Каира: 2-дневный лагерь в Чёрной и Белой пустыне с наблюдением за звёздами",
+   "location": "Чёрная и Белая пустыня"
+  },
+  "zh": {
+   "title": "开罗出发：黑白沙漠两日露营观星",
+   "location": "黑沙漠与白沙漠"
+  }
  }
 }
