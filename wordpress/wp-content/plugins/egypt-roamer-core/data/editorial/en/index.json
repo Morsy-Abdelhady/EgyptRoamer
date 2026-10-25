@@ -271,7 +271,7 @@
   "slug": "luxor-hot-air-balloon",
   "topic": "Planning",
   "destination": "luxor",
-  "related": "exp-cruise, exp-valley"
+  "related": "exp-balloon, exp-cruise, exp-valley"
  },
  "g-nile-cruise": {
   "type": "er_guide",

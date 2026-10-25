@@ -16,6 +16,7 @@
 |---|---|---|---|
 | `klook-cairo-nile-dinner-cruise-with-pickup` | `exp-dinner` | Cairo Nile River Dinner Cruise Experience with pickup, https://www.klook.com/en-US/activity/118903-private-dinner-cruise-on-the-nile-river-in-cairo-with-pickup/ | Join-in or private groups (so no group fact), cruise 2 hours, hotel pickup in Cairo or Giza, free cancellation (24 hours notice) |
 | `klook-2-day-white-and-black-desert-camp-from-cairo` | `exp-safari` | Cairo 2 Days Black and White Desert Camp Star Watching, 4WD w/ BBQ, https://www.klook.com/en-US/activity/135009-cairo-2-days-black-and-white-desert-camp-star-watching-4wd-w-bbq/ | Small group (1-20), 2 days, hotel pickup in Cairo or Giza, free cancellation (24 hours notice) |
+| `klook-luxor-sunrise-hot-air-balloon` | `exp-balloon` (new trip, below) | Sunrise Hot Air Balloon Ride Experience in Luxor, https://www.klook.com/en-US/activity/124011-sunrise-hot-air-balloon-ride-experience-in-luxor-with-pickup/ | Join-in group (so no group fact), 3 hours, hotel pickup in Luxor, free cancellation (24 hours notice) |
 
 - No prices, ratings, review counts or photos were copied.
 - Each offer uses its trip's own approved photo.
@@ -26,7 +27,6 @@
 | Klook product | Why it is not linked yet |
 |---|---|
 | The Grand Egyptian Museum Ticket (activity 179694) | There is no trip page for it to sit on. In proposal 4, places show trips and hotels only, and guides show offers only through their trips. The ticket also has **no cancellation**, while the site says "Free cancellation on every trip". |
-| Sunrise Hot Air Balloon Ride Experience in Luxor (activity 124011): join-in group, 3 hours, hotel pickup, free cancellation (24 hours notice) | There is no trip page for it. It needs a new balloon trip page in 8 languages, linked from the Luxor balloon guide. |
 
 ## Live on 25 Oct (Theme 1.3.17, Core 1.2.68, commit `fc40934`)
 - **Live records:** provider **Klook #953**; offers **#955** (Nile dinner cruise) and **#957** (desert camp).
@@ -36,3 +36,21 @@
   - `/go/` leads to the Klook product with `?aid=140689`.
   - `page-coverage.mjs`: all ok, 384 pages.
 - **QA note:** one test request to `/go/klook-cairo-nile-dinner-cruise-with-pickup/` (placement `experience-offers`) on 25 Oct may show as a click in Visits. Discount it.
+
+## Balloon trip live on 25 Oct (Theme 1.3.18, Core 1.2.69, commit `2e3bd00`)
+- **New trip:** `exp-balloon`, "Hot-Air Balloon over Luxor at Sunrise".
+  - English #959, translations #960–966, created by Egypt Roamer → Guide translations.
+  - Translations are `review: pending`.
+- **The sync also "updated" 6 English guides:** `g-cairo-museums`, `g-east-bank`, `g-great-sand-sea`, `g-red-sea-dives`, `g-sinai` and `g-west-bank`.
+  - Their live bodies already matched the files, character for character.
+  - The "update" comes from a curly apostrophe in each title (`get_the_title()` gives `’`, the file has `'`), so every run rewrites the same title and content.
+  - Nothing a visitor sees changes, but it shows as a pending update on every run.
+- **Offer:** Klook **#967**, `klook-luxor-sunrise-hot-air-balloon`, on trip #959, with destination Luxor.
+- **Guide:** `g-luxor-balloon` (#907) is related to the trip.
+  - The meta was set through the REST API, so the body was not re-saved and stays syncable.
+  - The source file has the same relation.
+- **Live check, all passed:**
+  - All 8 languages return 200 with the translated title and the Klook option (3 hours · pickup · free cancellation). No English is left in the translated worlds.
+  - The guide, the Luxor place page and Trips & tours link to the trip.
+  - EN desktop and AR phone were viewed in a browser: no overflow, RTL correct.
+  - `page-coverage.mjs`: all ok, 392 pages.

@@ -5,7 +5,7 @@ slug: luxor-hot-air-balloon
 topic: Planning
 excerpt: A sunrise balloon flight over Luxor's West Bank: what you see from the basket, who supervises the flights, why mornings get cancelled, the summer pause, safety, and how to fit a flight into your days in Luxor.
 destination: luxor
-related: exp-cruise, exp-valley
+related: exp-balloon, exp-cruise, exp-valley
 ---
 [[toc]]
 
