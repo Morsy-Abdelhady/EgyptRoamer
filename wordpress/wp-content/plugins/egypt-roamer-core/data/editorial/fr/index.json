@@ -55,6 +55,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-balloon": {
+  "type": "er_experience",
+  "title": "Montgolfière au lever du soleil au-dessus de Louxor",
+  "excerpt": "Un vol en montgolfière au lever du soleil au-dessus de la rive ouest de Louxor : le départ très matinal, ce que l’on voit depuis la nacelle, pourquoi certaines matinées sont annulées, la pause d’été et comment associer le vol aux tombes et aux temples.",
+  "location": "Louxor",
+  "review": "pending",
+  "current": true
+ },
  "exp-cruise": {
   "type": "er_experience",
   "title": "Croisière sur le Nil d’Assouan à Louxor",

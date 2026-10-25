@@ -325,5 +325,13 @@
   "pickup": true,
   "cancel": true
  },
- "_note_cancel": "cancel: free cancellation up to 24 hours before, as each partner's own product page states it (26 offers read 16 Oct, docs/prototypes/journey-v4/README.md; the 3 Nile cruise offers read 17 Oct, docs/NILE-CRUISE-OFFERS-2026-10-17.md). The 2 Klook offers read 25 Oct on klook.com (\"Free cancellation (24 hours notice)\")."
+ "klook-luxor-sunrise-hot-air-balloon": {
+  "duration": {
+   "n": "3",
+   "unit": "hours"
+  },
+  "pickup": true,
+  "cancel": true
+ },
+ "_note_cancel": "cancel: free cancellation up to 24 hours before, as each partner's own product page states it (26 offers read 16 Oct, docs/prototypes/journey-v4/README.md; the 3 Nile cruise offers read 17 Oct, docs/NILE-CRUISE-OFFERS-2026-10-17.md). The 3 Klook offers read 25 Oct on klook.com (\"Free cancellation (24 hours notice)\")."
 }

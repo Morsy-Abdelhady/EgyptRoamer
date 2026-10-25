@@ -2,6 +2,19 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.18 — 2026-10-25: a balloon trip over Luxor (with Core 1.2.69)
+- **New trip in 8 languages: "Hot-Air Balloon over Luxor at Sunrise"** (`exp-balloon`), with a world of its own.
+  - Opener, three steps (before dawn, over the fields, the West Bank below), "The weather decides", who it suits, combine it with, and four questions.
+  - Every fact comes from the sources already used for the balloon guide (`docs/CONTENT-SOURCES.md`).
+  - The world was added to the prototype data and generated with `tools/world/gen.py`. Its 32 new lines are translated in `new-strings.json`; the translations are not yet reviewed.
+- **Photos:**
+  - The opener is the guide's approved photo.
+  - Three new free Unsplash photos are tagged at the balloon port in Gurna or in Luxor, recorded in `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5.
+- **Core 1.2.69:**
+  - The trip's bodies in `data/editorial/<lang>/`; the server sync (Egypt Roamer → Guide translations) creates them.
+  - Facts and card text for the Klook balloon offer (3 hours, hotel pickup, free cancellation 24 hours before).
+  - The card photo in the seed.
+
 ## 1.3.17 — 2026-10-25: Klook, the third trips partner (with Core 1.2.68)
 - **Partner list:** "How it works" on the homepage names Klook with Viator, GetYourGuide and Trip.com, in 8 languages.
 - **Core 1.2.68:**

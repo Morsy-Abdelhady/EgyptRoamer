@@ -55,6 +55,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-balloon": {
+  "type": "er_experience",
+  "title": "日出时分乘热气球飞越卢克索",
+  "excerpt": "日出时分乘热气球飞越卢克索西岸：很早出发、从吊篮里能看到什么、为什么有些早晨会取消、夏季停飞，以及如何把飞行和陵墓、神庙安排在一起。",
+  "location": "卢克索",
+  "review": "pending",
+  "current": true
+ },
  "exp-cruise": {
   "type": "er_experience",
   "title": "从阿斯旺到卢克索的尼罗河游船",

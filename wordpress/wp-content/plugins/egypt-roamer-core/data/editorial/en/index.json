@@ -39,6 +39,14 @@
   "location": "Alexandria",
   "destination": "alexandria"
  },
+ "exp-balloon": {
+  "type": "er_experience",
+  "title": "Hot-Air Balloon over Luxor at Sunrise",
+  "excerpt": "A sunrise hot-air balloon flight over Luxor's West Bank: the early start, what you see from the basket, why some mornings are cancelled, the summer pause, and how to combine the flight with the tombs and temples.",
+  "slug": "luxor-hot-air-balloon-flight",
+  "location": "Luxor",
+  "destination": "luxor"
+ },
  "exp-cruise": {
   "type": "er_experience",
   "title": "Nile Cruise from Aswan to Luxor",

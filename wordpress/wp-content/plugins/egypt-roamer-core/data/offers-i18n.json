@@ -1289,5 +1289,35 @@
    "title": "开罗出发：黑白沙漠两日露营观星",
    "location": "黑沙漠与白沙漠"
   }
+ },
+ "klook-luxor-sunrise-hot-air-balloon": {
+  "ar": {
+   "title": "الأقصر: رحلة منطاد عند الشروق مع التوصيل من الفندق",
+   "location": "الأقصر"
+  },
+  "de": {
+   "title": "Luxor: Ballonfahrt bei Sonnenaufgang mit Hotelabholung",
+   "location": "Luxor"
+  },
+  "fr": {
+   "title": "Louxor : vol en montgolfière au lever du soleil avec prise en charge à l’hôtel",
+   "location": "Louxor"
+  },
+  "it": {
+   "title": "Luxor: volo in mongolfiera all’alba con prelievo in hotel",
+   "location": "Luxor"
+  },
+  "es": {
+   "title": "Luxor: vuelo en globo al amanecer con recogida en el hotel",
+   "location": "Luxor"
+  },
+  "ru": {
+   "title": "Луксор: полёт на воздушном шаре на рассвете с трансфером из отеля",
+   "location": "Луксор"
+  },
+  "zh": {
+   "title": "卢克索：日出热气球飞行（含酒店接送）",
+   "location": "卢克索"
+  }
  }
 }

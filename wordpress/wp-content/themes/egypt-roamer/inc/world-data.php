@@ -520,6 +520,52 @@ function er_world_data( string $seed ): array {
 				'stay'     => er_t( 'Before or after the cruise' ),
 				'pick_why' => er_t( 'Abu Simbel and the balloon flight included' ),
 			];
+		case 'exp-balloon':
+			return [
+				'key'      => 'balloon',
+				'cls'      => 'w-desert',
+				'fx'       => 'desert',
+				'photo'    => [ 'u' => '1669521762357-966bfdcbde1d' ],
+				'video'    => '',
+				'eyebrow' => er_t( 'Luxor · The West Bank · At sunrise' ),
+				'lead' => er_t( 'At dawn, balloons rise over the West Bank of Luxor, above the fields, the temples and the cliffs of the Theban hills. They take off from a launch site on the West Bank and fly in the early morning, from sunrise into the first hours after it.' ),
+				'quote' => er_t( 'For many visitors, the most memorable hour of the trip.' ),
+				'go' => er_t( 'Rise with the sun' ),
+				'j_eyebrow' => er_t( 'The morning, step by step' ),
+				'j_title'   => er_t( 'Up with the dawn' ),
+				'steps'    => [
+					[ 't' => er_t( 'Before dawn' ), 'p' => er_t( 'Pick-ups are well before sunrise, because the flight is timed to the dawn. The balloons take off from a launch site on the West Bank.' ), 'why' => '', 'img' => [ 'u' => '1759211316311-64deca1dea7f' ], 'video' => '', 'credit' => '', 'wall' => false, 'tone' => 'dark' ],
+					[ 't' => er_t( 'Over the fields' ), 'p' => er_t( 'From the basket you look over the farmland along the Nile as the sun comes up.' ), 'why' => '', 'img' => [ 'u' => '1703902770170-7cc56c8c3067' ], 'video' => '', 'credit' => '', 'wall' => false, 'tone' => 'warm' ],
+					[ 't' => er_t( 'The West Bank below' ), 'p' => er_t( 'Below you lie the archaeological sites of the West Bank, with the river and the East Bank behind them.' ), 'why' => er_t( 'After landing you are already on the West Bank.' ), 'img' => [ 'u' => '1759212369677-cbd24ca4e7f8' ], 'video' => '', 'credit' => '', 'wall' => false, 'tone' => 'dark' ],
+				],
+				'sec'      => [
+					'eyebrow' => er_t( 'Before you book' ),
+					'title'   => er_t( 'The weather decides' ),
+					'ps'      => [ er_t( 'Flights take place under the supervision of the Egyptian Civil Aviation Authority, and each morning depends on the weather: on 13 March 2026, for example, the Authority cancelled the West Bank flights after warnings of strong winds. Book the flight early in your stay in Luxor, so a cancelled morning can still be moved. Check what is included on the partner’s page before you book.' ) ],
+					'tabs'    => [
+						[ '𓇳', er_t( 'Early starts' ), er_t( 'Pick-ups are well before sunrise.' ) ],
+						[ '𓈗', er_t( 'Summer pause' ), er_t( 'In 2026, flights paused from 1 June to 30 August because of the summer heat.' ) ],
+						[ '𓂻', er_t( 'Follow the crew' ), er_t( 'Listen to the briefing, especially the landing position, and keep to it.' ) ],
+					],
+					'night'   => false,
+					'wall'    => false,
+				],
+				'papy'     => [
+					[ er_t( 'Who it suits' ), er_t( 'The West Bank from above' ), er_t( 'Choose a flight if you want to see the West Bank from above at dawn and don’t mind a very early start. Ballooning carries real risks: there have been fatal accidents, the worst in 2013.' ), null ],
+					[ er_t( 'Combine it with' ), er_t( 'The tombs and temples' ), er_t( 'After landing you are already on the West Bank: combine the flight with the Valley of the Kings and Hatshepsut’s temple on our West Bank tour.' ), null ],
+				],
+				'faq'      => [
+					[ er_t( 'Where do the balloons fly?' ), er_t( 'Over Luxor’s West Bank: the fields along the Nile and the archaeological sites, with the river and the East Bank in view.' ) ],
+					[ er_t( 'Can a flight be cancelled?' ), er_t( 'Yes. The Civil Aviation Authority can cancel flights for wind or unstable weather, as it did on 13 March 2026. Keep a spare morning.' ) ],
+					[ er_t( 'Do balloons fly in summer?' ), er_t( 'In 2026, commercial flights paused from 1 June to 30 August at the operators’ request, because of the summer heat. Check before you travel in those months.' ) ],
+					[ er_t( 'Is a balloon flight safe?' ), er_t( 'Flights are supervised by the Egyptian Civil Aviation Authority, but there have been fatal accidents, the worst in 2013. Follow the crew’s instructions and accept weather cancellations.' ) ],
+				],
+				'chips'    => [ '{length}', '{options}', '{pickup}' ],
+				'sum'      => [ er_t( 'Luxor' ), '{length}', '{pickup}', '{cancel}' ],
+				'place'    => er_t( 'Luxor' ),
+				'stay'     => er_t( 'Staying in Luxor?' ),
+				'pick_why' => '',
+			];
 	}
 	return [];
 }

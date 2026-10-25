@@ -55,6 +55,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-balloon": {
+  "type": "er_experience",
+  "title": "Ballonfahrt bei Sonnenaufgang über Luxor",
+  "excerpt": "Eine Ballonfahrt bei Sonnenaufgang über Luxors Westufer: der frühe Start, was Sie aus dem Korb sehen, warum manche Morgen abgesagt werden, die Sommerpause und wie Sie die Fahrt mit Gräbern und Tempeln verbinden.",
+  "location": "Luxor",
+  "review": "pending",
+  "current": true
+ },
  "exp-cruise": {
   "type": "er_experience",
   "title": "Nilkreuzfahrt von Assuan nach Luxor",

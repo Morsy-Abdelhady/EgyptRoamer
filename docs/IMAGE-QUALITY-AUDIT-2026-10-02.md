@@ -164,6 +164,10 @@ Hot-linked from Commons, credited under each photo with a link to its file page.
 | White Desert, the White Desert | File:White Desert, Rock formations in desert landscape, Egypt.jpg | Vyacheslav Argenberg | CC BY 4.0 |
 
 | 2026-10-17 | Experience `exp-cruise` (seed extraStock) and GetYourGuide offer `gyg-nile-cruise-aswan-luxor-abu-simbel-balloon` | 1778402153163-fc9a5fd0131a | free Unsplash photo by Kuan L, location tag "Aswan" read on the photo page on 17 Oct (also used in `g-nile-cruise`, prototype `guide-photos.py`) | "Aswan" | Unsplash (free) | A cruise ship on the Nile at Aswan |
+| 2026-10-25 | Trip `exp-balloon`: opener and card (seed extraStock) | 1669521762357-966bfdcbde1d | already approved for `g-luxor-balloon` (Hongbin) | "Temple of Hatshepsut, Kurna" | Unsplash (free) | A balloon over Hatshepsut’s temple |
+| 2026-10-25 | Trip `exp-balloon`, step 1 "Before dawn" | 1759211316311-64deca1dea7f | https://unsplash.com/photos/zRwHJL24LrY (Sebastiano Musmeci), location tag read on the photo page on 25 Oct | "Porto delle Mongolfiere, Tarik Al Sheikh Agwa, Gurna, Luxor, Egitto" | Unsplash License (free) | Balloons being prepared at the launch site. Hot-linked |
+| 2026-10-25 | Trip `exp-balloon`, step 2 "Over the fields" | 1703902770170-7cc56c8c3067 | https://unsplash.com/photos/DWd6P-g12aE (Hongbin), location tag read on 25 Oct | "Luxor, Luxor City, Luxor, Egypt" | Unsplash License (free) | A balloon over the green fields, the Theban hills behind. Hot-linked |
+| 2026-10-25 | Trip `exp-balloon`, step 3 "The West Bank below" | 1759212369677-cbd24ca4e7f8 | https://unsplash.com/photos/oAy_xXe8NeM (Sebastiano Musmeci), location tag read on 25 Oct | "Porto delle Mongolfiere, Tarik Al Sheikh Agwa, Gurna, Luxor, Egitto" | Unsplash License (free) | A balloon over the West Bank desert and ruins. Hot-linked |
 
 ## 7. Proposal 4 on the live site (18 Oct 2026, owner: "apply everything")
 

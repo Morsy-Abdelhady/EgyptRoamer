@@ -55,6 +55,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-balloon": {
+  "type": "er_experience",
+  "title": "Globo aerostático al amanecer sobre Luxor",
+  "excerpt": "Un vuelo en globo al amanecer sobre la orilla oeste de Luxor: la salida muy temprana, lo que se ve desde la cesta, por qué se cancelan algunas mañanas, la pausa de verano y cómo combinar el vuelo con las tumbas y los templos.",
+  "location": "Luxor",
+  "review": "pending",
+  "current": true
+ },
  "exp-cruise": {
   "type": "er_experience",
   "title": "Crucero por el Nilo de Asuán a Luxor",

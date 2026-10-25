@@ -250,6 +250,7 @@ const ER_UX2_TRIP_INTERESTS = [
 	'cairo-street-food-tour-by-night'        => [ 'food', 'culture' ],
 	'nile-dinner-cruise-with-live-show'      => [ 'culture' ],
 	'nile-cruise-aswan-to-luxor'             => [ 'ancient', 'luxury' ],
+	'luxor-hot-air-balloon-flight'           => [ 'adventure' ],
 ];
 
 /** Trips without a place: where every option leaves from (partner pages: "2 days from Cairo", "Cairo: 2-Day…"). */

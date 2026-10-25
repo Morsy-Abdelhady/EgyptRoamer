@@ -1685,6 +1685,126 @@
      "Yes. On all three options an Egyptologist guide leads the visits."
     ]
    ]
+  },
+  "balloon": {
+   "cls": "w-desert",
+   "fx": "desert",
+   "photo": "balloon_l",
+   "url": "luxor-hot-air-balloon-flight",
+   "place": "Luxor",
+   "eyebrow": "Luxor · The West Bank · At sunrise",
+   "title": "Hot-Air Balloon over Luxor at Sunrise",
+   "lead": "At dawn, balloons rise over the West Bank of Luxor, above the fields, the temples and the cliffs of the Theban hills. They take off from a launch site on the West Bank and fly in the early morning, from sunrise into the first hours after it.",
+   "quote": "For many visitors, the most memorable hour of the trip.",
+   "chips": [
+    "3 hours",
+    "1 options",
+    "Pickup offered"
+   ],
+   "go": "Rise with the sun",
+   "jEyebrow": "The morning, step by step",
+   "jTitle": "Up with the dawn",
+   "steps": [
+    {
+     "img": "balloon_launch",
+     "t": "Before dawn",
+     "p": "Pick-ups are well before sunrise, because the flight is timed to the dawn. The balloons take off from a launch site on the West Bank.",
+     "tone": "dark"
+    },
+    {
+     "img": "balloon_fields",
+     "t": "Over the fields",
+     "p": "From the basket you look over the farmland along the Nile as the sun comes up.",
+     "tone": "warm"
+    },
+    {
+     "img": "balloon_westbank",
+     "t": "The West Bank below",
+     "p": "Below you lie the archaeological sites of the West Bank, with the river and the East Bank behind them.",
+     "why": "After landing you are already on the West Bank.",
+     "tone": "dark"
+    }
+   ],
+   "sec": {
+    "eyebrow": "Before you book",
+    "title": "The weather decides",
+    "ps": [
+     "Flights take place under the supervision of the Egyptian Civil Aviation Authority, and each morning depends on the weather: on 13 March 2026, for example, the Authority cancelled the West Bank flights after warnings of strong winds. Book the flight early in your stay in Luxor, so a cancelled morning can still be moved. Check what is included on the partner’s page before you book."
+    ],
+    "tabs": [
+     [
+      "𓇳",
+      "Early starts",
+      "Pick-ups are well before sunrise."
+     ],
+     [
+      "𓈗",
+      "Summer pause",
+      "In 2026, flights paused from 1 June to 30 August because of the summer heat."
+     ],
+     [
+      "𓂻",
+      "Follow the crew",
+      "Listen to the briefing, especially the landing position, and keep to it."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "The West Bank from above",
+     "Choose a flight if you want to see the West Bank from above at dawn and don’t mind a very early start. Ballooning carries real risks: there have been fatal accidents, the worst in 2013."
+    ],
+    [
+     "Combine it with",
+     "The tombs and temples",
+     "After landing you are already on the West Bank: combine the flight with the Valley of the Kings and Hatshepsut’s temple on our West Bank tour."
+    ]
+   ],
+   "faq": [
+    [
+     "Where do the balloons fly?",
+     "Over Luxor’s West Bank: the fields along the Nile and the archaeological sites, with the river and the East Bank in view."
+    ],
+    [
+     "Can a flight be cancelled?",
+     "Yes. The Civil Aviation Authority can cancel flights for wind or unstable weather, as it did on 13 March 2026. Keep a spare morning."
+    ],
+    [
+     "Do balloons fly in summer?",
+     "In 2026, commercial flights paused from 1 June to 30 August at the operators’ request, because of the summer heat. Check before you travel in those months."
+    ],
+    [
+     "Is a balloon flight safe?",
+     "Flights are supervised by the Egyptian Civil Aviation Authority, but there have been fatal accidents, the worst in 2013. Follow the crew’s instructions and accept weather cancellations."
+    ]
+   ],
+   "sum": [
+    "Luxor",
+    "3 hours",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "stay": {
+    "title": "Staying in Luxor?",
+    "rows": [
+     [
+      "Hotels in Luxor",
+      "Luxor"
+     ]
+    ]
+   },
+   "opts": [
+    {
+     "n": "Sunrise Hot Air Balloon Ride Experience in Luxor",
+     "p": "Klook",
+     "f": [
+      "3 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation (24 hours notice)"
+    }
+   ]
   }
  },
  "TRIPS": [
@@ -1996,7 +2116,11 @@
   "w_siwa_spring": "img/w_siwa_spring.jpg",
   "w_siwa_sunset": "img/w_siwa_sunset.jpg",
   "w_hurg_marina": "img/w_hurg_marina.jpg",
-  "w_komombo": "img/w_komombo.jpg"
+  "w_komombo": "img/w_komombo.jpg",
+  "balloon_l": "img/1669521762357-966bfdcbde1d.jpg",
+  "balloon_launch": "img/1759211316311-64deca1dea7f.jpg",
+  "balloon_fields": "img/1703902770170-7cc56c8c3067.jpg",
+  "balloon_westbank": "img/1759212369677-cbd24ca4e7f8.jpg"
  },
  "GUIDES": [
   {
@@ -5752,6 +5876,9 @@
   ],
   "cruise": [
    "aswan",
+   "luxor"
+  ],
+  "balloon": [
    "luxor"
   ]
  },

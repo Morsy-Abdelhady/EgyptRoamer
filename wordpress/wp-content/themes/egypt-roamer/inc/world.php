@@ -50,6 +50,7 @@ function er_world_style( int $post_id ): array {
 		'exp-siwa'         => [ 'w-desert', 'desert' ],
 		'exp-dinner'       => [ 'w-nile', 'nile' ],
 		'exp-cruise'       => [ 'w-nile', 'nile' ],
+		'exp-balloon'      => [ 'w-desert', 'desert' ],
 		'exp-alexandria'   => [ 'w-nile w-city', 'nile' ],
 		'exp-food'         => [ 'w-nile w-city', 'nile' ],
 	];

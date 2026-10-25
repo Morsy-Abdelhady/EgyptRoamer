@@ -55,6 +55,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-balloon": {
+  "type": "er_experience",
+  "title": "Mongolfiera all’alba sopra Luxor",
+  "excerpt": "Un volo in mongolfiera all’alba sopra la riva occidentale di Luxor: la partenza molto presto, che cosa si vede dalla cesta, perché alcune mattine vengono annullate, la pausa estiva e come abbinare il volo a tombe e templi.",
+  "location": "Luxor",
+  "review": "pending",
+  "current": true
+ },
  "exp-cruise": {
   "type": "er_experience",
   "title": "Crociera sul Nilo da Assuan a Luxor",

@@ -16,7 +16,7 @@ ED = os.path.join(ROOT, 'wordpress/wp-content/plugins/egypt-roamer-core/data/edi
 LANGS = ['de', 'fr', 'it', 'es', 'ru', 'zh', 'ar']
 SEEDS = {'valley': 'exp-valley', 'redsea': 'exp-dive', 'white': 'exp-safari', 'nile': 'exp-dinner', 'giza': 'exp-giza',
          'abu': 'exp-abu', 'alex': 'exp-alexandria', 'ras': 'exp-ras-mohammed', 'siwa': 'exp-siwa', 'food': 'exp-food',
-         'cruise': 'exp-cruise'}
+         'cruise': 'exp-cruise', 'balloon': 'exp-balloon'}
 
 
 def text(h):
