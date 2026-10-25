@@ -27,3 +27,12 @@
 |---|---|
 | The Grand Egyptian Museum Ticket (activity 179694) | There is no trip page for it to sit on. In proposal 4, places show trips and hotels only, and guides show offers only through their trips. The ticket also has **no cancellation**, while the site says "Free cancellation on every trip". |
 | Sunrise Hot Air Balloon Ride Experience in Luxor (activity 124011): join-in group, 3 hours, hotel pickup, free cancellation (24 hours notice) | There is no trip page for it. It needs a new balloon trip page in 8 languages, linked from the Luxor balloon guide. |
+
+## Live on 25 Oct (Theme 1.3.17, Core 1.2.68, commit `fc40934`)
+- **Live records:** provider **Klook #953**; offers **#955** (Nile dinner cruise) and **#957** (desert camp).
+- **Live check, all passed:**
+  - Both trip pages show the Klook option in EN, DE, AR and ZH.
+  - The About page names Klook in all 8 languages, after the migration ran.
+  - `/go/` leads to the Klook product with `?aid=140689`.
+  - `page-coverage.mjs`: all ok, 384 pages.
+- **QA note:** one test request to `/go/klook-cairo-nile-dinner-cruise-with-pickup/` (placement `experience-offers`) on 25 Oct may show as a click in Visits. Discount it.
