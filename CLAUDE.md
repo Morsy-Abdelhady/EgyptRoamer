@@ -3,7 +3,7 @@
 An affiliate-first travel publication about Egypt, built on WordPress and live at https://egyptroamer.com (GoDaddy Managed WordPress). The site takes no bookings and no payments.
 
 ## Current state: read this first
-- **Latest handoff:** `docs/HANDOFF-2026-10-18.md`. Proposal 4 is live for every visitor (Settings → Proposal 4 design, option `er_world`; theme 1.2.93). **Next:** make every card and section match the prototype, listed in `docs/PROTOTYPE-PARITY-2026-10-18.md` (the owner's open complaint). Compare with side-by-side screenshots (`tools/qa/parity/`) before calling anything done.
+- **Latest handoff:** `docs/HANDOFF-2026-10-25.md`. Live versions: Theme 1.3.18 / Core 1.2.69. The balloon trip is live in 8 languages with Klook offer #967; page-coverage passed on 392 pages on 25 Oct. First follow-up: fix guide-sync title comparison so six unchanged English guides stop appearing as updates. The prototype parity review (`docs/PROTOTYPE-PARITY-2026-10-18.md`) records the main screens as compared on 19 Oct; see the handoff for remaining differences and SEO follow-up dates.
 - **Live partners:**
   - Viator (tours, 17 offers);
   - GetYourGuide (tours, 9 offers);
