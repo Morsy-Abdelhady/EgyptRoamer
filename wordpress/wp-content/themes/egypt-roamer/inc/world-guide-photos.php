@@ -20,6 +20,13 @@ return [
 		'what-it-is' => [ [ 'commons:The whales fossils at Wadi El-Hitan, Egypt 2017.jpg', 'A fossil whale skeleton at sunset', '' ], [ 'commons:Dorudon atrox fossil at Wadi El-Hitan, Egypt, March 2008.jpg', 'The fossil of a Dorudon whale', '' ] ],
 		'wadi-el-rayan' => [ [ 'commons:Fennec FOX - Valley of the Whales - Wadi al Hitan 2.jpg', 'A fennec fox at Wadi Al-Hitan', '' ] ],
 	],
+	'kom-ombo-temple' => [
+		'design' => [ [ 'commons:Temple of Sobek and Haroeris.jpg', 'The double entrance: Sobek on the right, Horus on the left', '' ], [ 'commons:Temple of Kom Ombo, Egypt.jpg', 'Columns and capitals of the temple', '' ] ],
+	],
+	'philae-temple-of-isis' => [
+		'isis' => [ [ 'commons:27138- Philae.jpg', 'The temple of Isis, Philae', '' ] ],
+		'what-you-will-see' => [ [ 'commons:Agilkia Trajankiosk 01.JPG', 'Trajan’s Kiosk on Agilkia island', '' ] ],
+	],
 	'wadi-el-gemal-national-park' => [
 		'what-you-will-see' => [ [ 'commons:WadiElGimal3.jpg', 'An acacia tree in Wadi El-Gemal', '' ], [ 'commons:Sooty Gull in Ras Baghdadi - Wadi El-Gemal National Park, Red Sea 7.jpg', 'A sooty gull on the coast of the park', '' ] ],
 	],
@@ -55,7 +62,7 @@ return [
 		'what-you-will-see' => [ [ '1767938072548-112727a13266', 'Tutankhamun’s golden mask', 'Suzi Kim' ], [ '1777189978576-08b21689fcc9', 'A colossal statue in the museum’s hall', 'Aleksei Filimonov' ] ],
 	],
 	'karnak-and-luxor-temple' => [
-		'karnak' => [ [ '1662655558673-4e628102f545', 'The ram-headed sphinxes, Karnak', '2H Media' ], [ '1581248708422-db978024f382', 'Karnak from the sacred lake', 'Kristina' ] ],
+		'karnak' => [ [ '1662655558673-4e628102f545', 'The ram-headed sphinxes, Karnak', '2H Media' ], [ '1581248708422-db978024f382', 'Karnak from the sacred lake', 'Kristina' ], [ 'commons:134 Säulen in 16 Reihen geordnet trugen das Dach der Halle. 12.jpg', 'The Great Hypostyle Hall of Karnak', '' ] ],
 		'luxor-temple' => [ [ '1693654547147-24d94b4ed4ea', 'A colossal statue, Luxor Temple', 'Hongbin' ], [ '1610331800877-462a21600420', 'The colonnade at sunset', 'Artem Bryzgalov' ], [ '1596130535979-eedea4278d29', 'The pylon and obelisk', 'Artem Bryzgalov' ] ],
 	],
 	'14-days-in-egypt-itinerary' => [
@@ -66,6 +73,7 @@ return [
 		'siwa' => [ [ '1758720944577-559b852e8493', 'The mud-brick old town, Siwa', 'kai muro' ], [ '1584114130913-0852aeb8fe8c', 'Sunset over the old town', 'Flo P' ], [ '1612442494156-a5fd9a1c3602', 'A lake at Siwa Oasis', 'Omar Mohamed' ] ],
 	],
 	'valley-of-the-kings-tombs-and-tickets' => [
+		'what-it-is' => [ [ 'commons:King valley.jpg', 'The East Valley of the Kings', '' ] ],
 		'west-bank' => [ [ '1683891043389-31a5ca0692f8', 'Hatshepsut’s temple, Deir el-Bahari', 'Mahmoud Refaat' ], [ '1622962522220-0d9e0d29d62d', 'Medinet Habu, the painted gateway', 'Siddhesh Mangela' ], [ '1762858279425-ed77c08d7a1c', 'Medinet Habu, the carved columns', 'Fatih Beki' ] ],
 	],
 	'cairo-at-night' => [

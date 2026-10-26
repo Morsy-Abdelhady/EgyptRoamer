@@ -222,7 +222,7 @@
  "g-east-bank": {
   "type": "er_guide",
   "title": "Karnak and Luxor Temple: A Guide to Luxor's East Bank",
-  "excerpt": "A guide to Luxor's East Bank temples: Karnak's great temple of Amun-Ra and its hypostyle hall of 134 columns, Luxor Temple and its colonnade, the avenue of sphinxes between them, and how to plan the day.",
+  "excerpt": "A guide to Luxor's East Bank temples: Karnak, the temple of Amun with its hypostyle hall of 134 columns and Hatshepsut's obelisk, Luxor Temple and its colonnade, the avenue of sphinxes between them, and how to plan the day.",
   "slug": "karnak-and-luxor-temple",
   "topic": "Planning",
   "destination": "luxor",
@@ -297,6 +297,15 @@
   "destination": "cairo",
   "related": "exp-food"
  },
+ "g-kom-ombo": {
+  "type": "er_guide",
+  "title": "Kom Ombo Temple: The Double Temple of Sobek and Horus",
+  "excerpt": "Kom Ombo, the temple north of Aswan dedicated to two gods at once: the crocodile god Sobek and Horus the Elder, its two axes and two sanctuaries, the calendars and the scene believed to show surgical instruments, and how to visit it on a cruise or by road.",
+  "slug": "kom-ombo-temple",
+  "topic": "Planning",
+  "destination": "aswan",
+  "related": "exp-cruise"
+ },
  "g-luxor-balloon": {
   "type": "er_guide",
   "title": "A Hot-Air Balloon over Luxor: What to Know Before You Book",
@@ -314,6 +323,15 @@
   "topic": "Planning",
   "destination": "luxor, aswan",
   "related": "exp-valley, exp-abu"
+ },
+ "g-philae": {
+  "type": "er_guide",
+  "title": "Philae: Visiting the Temple of Isis in Aswan",
+  "excerpt": "Philae, the island temple of Isis in Aswan: one of the last ancient Egyptian temples to stay active, the last dated hieroglyphic inscription, the temple of Hathor and Trajan's Kiosk, how the whole complex was moved to Agilkia island, and how to visit by boat.",
+  "slug": "philae-temple-of-isis",
+  "topic": "Planning",
+  "destination": "aswan",
+  "related": "exp-abu, exp-cruise"
  },
  "g-red-sea-dives": {
   "type": "er_guide",

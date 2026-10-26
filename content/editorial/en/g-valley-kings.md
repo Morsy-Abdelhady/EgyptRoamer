@@ -13,7 +13,14 @@ The Valley of the Kings, on Luxor's West Bank, is where the pharaohs of Egypt's 
 
 ## What the valley is {#what-it-is}
 
-The valley was the burial site of almost all the kings of the 18th, 19th and 20th dynasties, from about 1539 to 1075 BC. To protect their rich burials, they hid their tombs in a lonely valley in the hills behind Deir el-Bahari. There are 62 known tombs. Most follow the same idea: a corridor descending into the rock, chambers along the way, and a burial chamber at the end, with walls painted with scenes of the king among the gods of the underworld. UNESCO lists the valley as part of *Ancient Thebes with its Necropolis*, inscribed in 1979.
+The kings of the 18th, 19th and 20th dynasties, the rulers of Egypt's New Kingdom (about 1550–1069 BC), were buried in this dry, desolate valley across the river from ancient Thebes. The name is not quite exact: some members of the royal family were buried here too, and a few non-royal officials of very high rank.
+
+The valley has two branches, the East Valley and the West Valley. The East Valley is the famous one; the West Valley holds only a handful of tombs. In all there are more than sixty tombs, plus about twenty unfinished ones that are little more than pits. Most follow the same idea: a corridor descending into the rock, chambers along the way, and a burial chamber at the end, with walls painted with scenes of the king among the gods of the underworld. UNESCO lists the valley as part of *Ancient Thebes with its Necropolis*, inscribed in 1979.
+
+### Why here
+- **The west bank:** the sun god set, or died, in the west to be reborn in the east, so the west was the land of the dead, and most Egyptian cemeteries lie on the west bank of the Nile.
+- **The natural pyramid:** a pyramid-shaped peak rises over the valley. The pyramid was a symbol of rebirth, and the area and its peak were sacred to Hathor, "Mistress of the West".
+- **Secrecy:** the Egyptians had seen the older pyramids robbed, so they chose hidden tombs in a remote valley. The first king known for certain to have been buried here is Thutmose I (about 1504–1492 BC). The official who dug his tomb, Ineni, wrote that he did it "in privacy; none seeing, none hearing."
 
 ## How tickets work {#tickets}
 

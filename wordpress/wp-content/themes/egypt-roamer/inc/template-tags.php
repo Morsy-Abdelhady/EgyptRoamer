@@ -113,6 +113,14 @@ function er_commons_credit( string $photo_id ): array {
 		'Sooty_Gull_in_Ras_Baghdadi_-_Wadi_El-Gemal_National_Park,_Red_Sea_7.jpg'                   => [ 'Mohammad Chawki', 'CC BY-SA 4.0' ],
 		'Wadi_El_Hitan_Rockforms.jpg'                                                               => [ 'Tom Horton', 'CC BY-SA 2.0' ],
 		'Waterfalls_of_Wadi_El_Rayan,_Fayoum,_Egypt.jpg'                                            => [ 'Ibrahim El-Mezayen', 'CC BY-SA 4.0' ],
+		'At_the_Temple_of_Kom_Ombo.jpg'                                                             => [ 'Masgalal', 'CC BY-SA 4.0' ],
+		'Temple_of_Sobek_and_Haroeris.jpg'                                                          => [ 'Ahmed Yousry Mahfouz', 'CC BY-SA 4.0' ],
+		'Temple_of_Kom_Ombo,_Egypt.jpg'                                                             => [ 'Carole Raddato', 'CC BY-SA 2.0' ],
+		'27133-_approach_to_the_island_of_Agilkia.jpg'                                              => [ 'Panegyrics of Granovetter', 'CC BY-SA 2.0' ],
+		'Agilkia_Trajankiosk_01.JPG'                                                                => [ 'Olaf Tausch', 'CC BY 3.0' ],
+		'27138-_Philae.jpg'                                                                         => [ 'Panegyrics of Granovetter', 'CC BY-SA 2.0' ],
+		'134_Säulen_in_16_Reihen_geordnet_trugen_das_Dach_der_Halle._12.jpg'                        => [ 'Holger Uwe Schmitt', 'CC BY-SA 4.0' ],
+		'King_valley.jpg'                                                                           => [ 'Dmitri tissot', 'CC BY-SA 4.0' ],
 		'WadiElGimal2.jpg'                                                                          => [ 'Roland Unger', 'CC BY-SA 4.0' ],
 	];
 	$file = str_replace( ' ', '_', substr( $photo_id, 8 ) );

@@ -163,3 +163,12 @@ New trips `exp-hitan` (Wadi Al-Hitan and Wadi El-Rayan from Cairo) and `exp-gema
 14 body translations and 62 trip-page strings (`tools/i18n/new-strings.json`), plus the card titles of the two Klook
 offers (`data/offers-i18n.json`), translated and reviewed by Claude against the English, with the same reviewer line.
 The owner asked for both trips in 8 languages on 26 Oct.
+
+## Addendum, 27 Oct: Kom Ombo, Philae, Karnak and Valley of the Kings
+
+New guides `g-kom-ombo` and `g-philae` in 7 languages, and the sections of `g-east-bank` (Karnak, avenue of sphinxes,
+excerpt) and `g-valley-kings` (what the valley is) that were rewritten from the Ministry's pages, translated and
+reviewed by Claude against the English, sentence by sentence, with the same reviewer line (not a native-speaker review).
+Names follow the existing translations: UNESCO site names and the Kadesh sentence as already used in each language;
+Russian "Филэ" as in the Aswan temples guide; Chinese 康翁布 for Kom Ombo. The owner asked for this batch on 27 Oct.
+

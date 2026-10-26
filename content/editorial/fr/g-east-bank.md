@@ -1,11 +1,11 @@
 ---
 type: er_guide
 title: Karnak et le temple de Louxor : guide de la rive est
-excerpt: Un guide des temples de la rive est de Louxor : le grand temple d’Amon-Rê à Karnak et sa salle hypostyle de 134 colonnes, le temple de Louxor et sa colonnade, l’allée des Sphinx qui les relie, et comment organiser la journée.
-source: 9824be6de3a5
+excerpt: Un guide des temples de la rive est de Louxor : Karnak, le temple d’Amon avec sa salle hypostyle de 134 colonnes et l’obélisque d’Hatchepsout, le temple de Louxor et sa colonnade, l’allée des sphinx qui les relie, et comment organiser la journée.
+source: fccf51723251
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -13,10 +13,18 @@ Louxor occupe le site de l’antique Thèbes. Les anciens Égyptiens bâtissaien
 
 ## Karnak {#karnak}
 
-Karnak est l’un des plus grands complexes de temples au monde. En son cœur se trouve le grand temple du dieu d’État Amon-Rê, flanqué des enceintes de la déesse Mout et du dieu de la guerre Montou. Bâti et rebâti au fil des siècles, il n’obéit à aucun plan unique. On l’a qualifié de grand document historique de pierre.
+Les anciens Égyptiens appelaient Karnak *Ipet-Sout*, « le plus sélect des lieux ». C’était l’un des sites les plus importants du pays : dans le grand temple d’Amon se déroulait le culte d’Amon de Thèbes, et son clergé était riche et politiquement puissant. Les travaux s’y poursuivirent depuis les plus anciens témoignages, sous Antef II (vers 2112–2063 av. J.-C.), jusqu’à l’époque ptolémaïque, avec quelques ajouts à l’époque romaine. Presque chaque roi du Nouvel Empire (vers 1550–1069 av. J.-C.) y a laissé sa marque.
+
+Karnak est en réalité un ensemble de temples. La plus grande partie est le domaine d’Amon, avec le domaine de son épouse Mout au sud, le domaine de Montou au nord, et le temple d’Akhenaton dédié à Aton à l’est.
 
 ### La salle hypostyle
-L’élément le plus saisissant de Karnak est la grande salle hypostyle, entre le deuxième et le troisième pylône, décorée sous Séthi Iᵉʳ et Ramsès II. Douze colonnes énormes, d’environ 24 mètres de haut, bordent la nef centrale, et avec les bas-côtés la salle compte 134 colonnes. Les reliefs de ses murs extérieurs montrent les victoires de Séthi Iᵉʳ, et Ramsès II à la bataille de Qadesh.
+Le monument le plus célèbre de Karnak est la grande salle hypostyle du temple d’Amon, une forêt de 134 colonnes. La plupart mesurent 15 mètres de haut, et les douze colonnes plus grandes du centre atteignent 21 mètres. La salle fut peut-être commencée par Amenhotep III, mais l’essentiel de la construction et la totalité du décor datent de Séthi Iᵉʳ et de son fils Ramsès II. Les reliefs de ses murs extérieurs montrent les victoires de Séthi Iᵉʳ, et Ramsès II à la bataille de Qadesh.
+
+### À voir aussi
+- **L’obélisque d’Hatchepsout :** le plus grand des deux obélisques proches de la salle, haut de près de 30 mètres et pesant plus de 300 tonnes.
+- **L’Akh-menou :** à l’extrémité est, un temple de Thoutmôsis III consacré aux cultes de plusieurs dieux, de ses prédécesseurs royaux et de lui-même.
+- **Les temples de Khonsou et d’Opet :** à l’intérieur de l’enceinte d’Amon, dans son angle sud-ouest.
+- **Le lac sacré,** où les prêtres se purifiaient avant les rites du temple.
 
 > **À Karnak**
 > Venez tôt le matin. Le site est immense et exposé, avec peu d’ombre.
@@ -25,9 +33,9 @@ L’élément le plus saisissant de Karnak est la grande salle hypostyle, entre 
 
 Au cœur de la ville moderne, le temple de Louxor était dédié à Amon, à son épouse Mout et à leur fils Khonsou. Commandé par Amenhotep III, achevé sous Toutânkhamon et Horemheb, il a été agrandi par Ramsès II, qui y ajouta une cour, un pylône et des obélisques. Son élément le plus saisissant est une colonnade de 14 colonnes d’environ 16 mètres de haut.
 
-## L’allée des Sphinx {#avenue}
+## L’allée des sphinx {#avenue}
 
-Dans l’Antiquité, une allée de sphinx reliait le temple de Louxor au temple d’Amon à Karnak. En parcourir une partie entre les deux temples donne son unité à la visite.
+Fait inhabituel, le temple d’Amon à Karnak possède un second axe, nord-sud, tourné vers le temple de Louxor. Une allée bordée de sphinx reliait les deux temples, et elle servait lors de l’une des grandes fêtes de l’année égyptienne ancienne, la fête d’Opet. En parcourir une partie entre les deux temples relie la visite.
 
 ## Organiser la journée {#planning}
 

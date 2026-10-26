@@ -2,10 +2,10 @@
 type: er_guide
 title: El Valle de los Reyes: tumbas, entradas y consejos
 excerpt: Cómo visitar el Valle de los Reyes en Luxor: qué son las tumbas reales, cómo funcionan las entradas, Tutankamón y Seti I, qué más ver en la orilla oeste, y consejos prácticos para un valle caluroso y concurrido.
-source: 0be746eb5a5f
+source: 11ebcda4fe54
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -13,7 +13,14 @@ El Valle de los Reyes, en la orilla oeste de Luxor, es donde se enterró a los f
 
 ## Qué es el valle {#what-it-is}
 
-El valle fue el lugar de enterramiento de casi todos los reyes de las dinastías XVIII, XIX y XX, entre aproximadamente el 1539 y el 1075 a. C. Para proteger sus ricos enterramientos, escondieron sus tumbas en un valle solitario de las colinas detrás de Deir el-Bahari. Se conocen 62 tumbas. La mayoría sigue la misma idea: un corredor que desciende en la roca, salas por el camino y una cámara funeraria al final, con paredes pintadas con escenas del rey entre los dioses del inframundo. La UNESCO incluye el valle en el sitio *Antigua Tebas y su necrópolis*, inscrito en 1979.
+Los reyes de las dinastías XVIII, XIX y XX, los soberanos del Imperio Nuevo egipcio (hacia 1550–1069 a. C.), fueron enterrados en este valle seco y desolado, frente a la antigua Tebas, al otro lado del río. El nombre no es del todo exacto: aquí también se enterró a algunos miembros de la familia real y a unos pocos altos funcionarios que no eran de sangre real.
+
+El valle tiene dos ramales, el Valle Oriental y el Valle Occidental. El Oriental es el famoso; el Occidental solo contiene un puñado de tumbas. En total hay más de sesenta tumbas, además de unas veinte inacabadas que apenas son pozos. La mayoría sigue la misma idea: un corredor que desciende en la roca, cámaras a lo largo del camino y, al final, una cámara funeraria, con muros pintados con escenas del rey entre los dioses del inframundo. La UNESCO incluye el valle en el sitio *Antigua Tebas y su necrópolis*, inscrito en 1979.
+
+### Por qué aquí
+- **La orilla oeste:** el dios sol se ponía, es decir, moría, por el oeste para renacer por el este; por eso el oeste se convirtió en la tierra de los muertos, y la mayoría de los cementerios egipcios están en la orilla oeste del Nilo.
+- **La pirámide natural:** sobre el valle se alza una cumbre con forma de pirámide. La pirámide era un símbolo de renacimiento, y la zona y su cumbre estaban consagradas a Hathor, «Señora del Occidente».
+- **El secreto:** los egipcios habían visto saquear las pirámides más antiguas, así que eligieron tumbas ocultas en un valle apartado. El primer rey enterrado aquí con certeza es Tutmosis I (hacia 1504–1492 a. C.). El funcionario que hizo excavar su tumba, Ineni, escribió que lo hizo «en secreto; sin que nadie viera, sin que nadie oyera».
 
 ## Cómo funcionan las entradas {#tickets}
 

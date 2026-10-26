@@ -3,7 +3,7 @@ type: er_guide
 title: Karnak and Luxor Temple: A Guide to Luxor's East Bank
 slug: karnak-and-luxor-temple
 topic: Planning
-excerpt: A guide to Luxor's East Bank temples: Karnak's great temple of Amun-Ra and its hypostyle hall of 134 columns, Luxor Temple and its colonnade, the avenue of sphinxes between them, and how to plan the day.
+excerpt: A guide to Luxor's East Bank temples: Karnak, the temple of Amun with its hypostyle hall of 134 columns and Hatshepsut's obelisk, Luxor Temple and its colonnade, the avenue of sphinxes between them, and how to plan the day.
 destination: luxor
 related: exp-valley
 ---
@@ -13,10 +13,18 @@ Luxor stands on the site of ancient Thebes. The ancient Egyptians built their gr
 
 ## Karnak {#karnak}
 
-Karnak is one of the largest temple complexes in the world. At its heart is the great temple of the state god Amun-Ra, flanked by the precincts of the goddess Mut and the war god Montu. Built and rebuilt over many centuries, it has no single plan. It has been called a great historical document in stone.
+The ancient Egyptians called Karnak *Ipet-Sut*, "the Most Select of Places". It was one of the most important sites in the country: in its Great Temple of Amun, the cult of Amun of Thebes was performed, and its priesthood was rich and politically powerful. Work on the temple went on from the earliest evidence, under Intef II (about 2112–2063 BC), into the Ptolemaic period, with some additions under Rome. Nearly every king of the New Kingdom (about 1550–1069 BC) left his mark here.
+
+Karnak is really a complex of temples. The largest part is the precinct of Amun, with the precinct of his wife Mut to the south, the precinct of Montu to the north, and Akhenaten's temple to the Aten to the east.
 
 ### The hypostyle hall
-Karnak's most striking feature is the hypostyle hall, built between the second and third pylons and decorated under Seti I and Ramesses II. Twelve enormous columns, about 24 metres high, line the central nave, and with the side aisles the hall holds 134 columns. Reliefs on its outer walls show the victories of Seti I, and Ramesses II at the Battle of Kadesh.
+Karnak's most famous sight is the Great Hypostyle Hall of the temple of Amun, a forest of 134 columns. Most are 15 metres high, and the twelve larger columns of the centre stand 21 metres tall. The hall may have been begun by Amenhotep III, but most of the building and all of its decoration date from Seti I and his son Ramesses II. Reliefs on its outer walls show the victories of Seti I, and Ramesses II at the Battle of Kadesh.
+
+### More to see
+- **Hatshepsut's obelisk:** the larger of two obelisks near the hall, almost 30 metres high and weighing over 300 tonnes.
+- **The Akh-menu:** at the eastern end, a temple of Thutmose III for the cults of several gods, of his royal predecessors and of himself.
+- **The temples of Khonsu and Opet:** inside the walls of the Amun precinct, in its southwestern corner.
+- **The sacred lake,** where priests purified themselves before the temple rituals.
 
 > **At Karnak**
 > Go early in the morning. The complex is huge and exposed, with little shade.
@@ -27,7 +35,7 @@ In the centre of the modern town, Luxor Temple was dedicated to Amun, his consor
 
 ## The avenue of sphinxes {#avenue}
 
-In ancient times, an avenue of sphinxes linked Luxor Temple with the temple of Amun at Karnak. Walking part of it between the two temples connects the visit.
+Unusually, the temple of Amun at Karnak has a second, north–south axis, pointing to Luxor Temple. An avenue lined with sphinxes linked the two temples, and it was used in one of the great celebrations of the ancient Egyptian year, the Opet Festival. Walking part of it between the two temples connects the visit.
 
 ## Planning the day {#planning}
 

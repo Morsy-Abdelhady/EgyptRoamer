@@ -330,6 +330,14 @@ standard thumbnail width. Author and licence were read from each file's Commons 
 | `g-wadi-gemal` | hero | 27057-_Wadi_el_Gemal_landscape.jpg | Panegyrics of Granovetter | CC BY-SA 2.0 |
 | `g-wadi-gemal` | what-you-will-see | WadiElGimal3.jpg | Roland Unger | CC BY-SA 4.0 |
 | `g-wadi-gemal` | what-you-will-see | Sooty_Gull_in_Ras_Baghdadi_-_Wadi_El-Gemal_National_Park,_Red_Sea_7.jpg | Mohammad Chawki | CC BY-SA 4.0 |
+| `g-kom-ombo` (27 Oct) | hero | At_the_Temple_of_Kom_Ombo.jpg | Masgalal | CC BY-SA 4.0 |
+| `g-kom-ombo` | design | Temple_of_Sobek_and_Haroeris.jpg | Ahmed Yousry Mahfouz | CC BY-SA 4.0 |
+| `g-kom-ombo` | design | Temple_of_Kom_Ombo,_Egypt.jpg | Carole Raddato | CC BY-SA 2.0 |
+| `g-philae` (27 Oct) | hero | 27133-_approach_to_the_island_of_Agilkia.jpg | Panegyrics of Granovetter | CC BY-SA 2.0 |
+| `g-philae` | isis | 27138-_Philae.jpg | Panegyrics of Granovetter | CC BY-SA 2.0 |
+| `g-philae` | what-you-will-see | Agilkia_Trajankiosk_01.JPG | Olaf Tausch | CC BY 3.0 |
+| `g-east-bank` (27 Oct, added to the existing Unsplash photos) | karnak | 134_Säulen_in_16_Reihen_geordnet_trugen_das_Dach_der_Halle._12.jpg | Holger Uwe Schmitt | CC BY-SA 4.0 |
+| `g-valley-kings` (27 Oct) | what-it-is | King_valley.jpg | Dmitri tissot | CC BY-SA 4.0 |
 
 Guide cards elsewhere (lists, related guides) show the hero photo without a credit line; the credit is on the page itself.
 

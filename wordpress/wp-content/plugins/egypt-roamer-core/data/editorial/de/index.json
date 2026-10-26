@@ -231,7 +231,7 @@
  "g-east-bank": {
   "type": "er_guide",
   "title": "Karnak und der Luxor-Tempel: das Ostufer von Luxor",
-  "excerpt": "Ein Ratgeber zu den Tempeln am Ostufer von Luxor: der große Amun-Re-Tempel von Karnak mit seinem Säulensaal aus 134 Säulen, der Luxor-Tempel und seine Kolonnade, die Sphingenallee dazwischen und wie Sie den Tag planen.",
+  "excerpt": "Ein Ratgeber zu den Tempeln am Ostufer von Luxor: Karnak, der Amun-Tempel mit seinem Säulensaal aus 134 Säulen und dem Obelisken der Hatschepsut, der Luxor-Tempel und seine Kolonnade, die Sphingenallee dazwischen und wie Sie den Tag planen.",
   "review": "approved",
   "current": true
  },
@@ -291,6 +291,13 @@
   "review": "approved",
   "current": true
  },
+ "g-kom-ombo": {
+  "type": "er_guide",
+  "title": "Der Tempel von Kom Ombo: Doppeltempel für Sobek und Horus",
+  "excerpt": "Kom Ombo, der Tempel nördlich von Assuan, der zwei Göttern zugleich geweiht ist: dem Krokodilgott Sobek und Horus dem Älteren, seine zwei Achsen und zwei Heiligtümer, die Kalender und die Szene, die vermutlich chirurgische Instrumente zeigt, und wie Sie ihn per Kreuzfahrt oder auf der Straße besuchen.",
+  "review": "approved",
+  "current": true
+ },
  "g-luxor-balloon": {
   "type": "er_guide",
   "title": "Ballonfahrt über Luxor: Was Sie vor der Buchung wissen sollten",
@@ -302,6 +309,13 @@
   "type": "er_guide",
   "title": "Nilkreuzfahrt oder Hotels? Von Luxor nach Assuan",
   "excerpt": "Luxor und Assuan per Nilkreuzfahrt oder mit Hotelaufenthalten? Wie eine Kreuzfahrt ist, die Tempel von Edfu und Kom Ombo unterwegs, das Abwägen zwischen Zeit und Freiheit, kleinere Segelschiffe und wie Sie sich entscheiden.",
+  "review": "approved",
+  "current": true
+ },
+ "g-philae": {
+  "type": "er_guide",
+  "title": "Philae: Besuch im Isis-Tempel in Assuan",
+  "excerpt": "Philae, der Inseltempel der Isis in Assuan: einer der letzten altägyptischen Tempel, die in Betrieb blieben, die letzte datierte Hieroglypheninschrift, der Hathor-Tempel und der Trajan-Kiosk, wie die ganze Anlage auf die Insel Agilkia versetzt wurde und wie Sie sie per Boot besuchen.",
   "review": "approved",
   "current": true
  },

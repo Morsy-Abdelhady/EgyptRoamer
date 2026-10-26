@@ -1,11 +1,11 @@
 ---
 type: er_guide
 title: Karnak e il Tempio di Luxor: guida alla riva est
-excerpt: Una guida ai templi della riva est di Luxor: il grande tempio di Amon-Ra a Karnak e la sua sala ipostila di 134 colonne, il Tempio di Luxor e il suo colonnato, il Viale delle Sfingi che li unisce e come organizzare la giornata.
-source: 9824be6de3a5
+excerpt: Una guida ai templi della riva est di Luxor: Karnak, il tempio di Amon con la sala ipostila di 134 colonne e l’obelisco di Hatshepsut, il tempio di Luxor e il suo colonnato, il viale delle sfingi che li unisce, e come organizzare la giornata.
+source: fccf51723251
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -13,21 +13,29 @@ Luxor sorge sul sito dell’antica Tebe. Gli antichi Egizi costruivano i grandi 
 
 ## Karnak {#karnak}
 
-Karnak è uno dei più grandi complessi templari del mondo. Al suo centro si trova il grande tempio del dio di Stato Amon-Ra, affiancato dai recinti della dea Mut e del dio della guerra Montu. Costruito e ricostruito nel corso di molti secoli, non segue un unico progetto. È stato definito un grande documento storico in pietra.
+Gli antichi egizi chiamavano Karnak *Ipet-Sut*, «il più eletto dei luoghi». Era uno dei siti più importanti del paese: nel grande tempio di Amon si svolgeva il culto di Amon di Tebe, e il suo clero era ricco e politicamente potente. I lavori proseguirono dalle prime testimonianze, sotto Antef II (circa 2112–2063 a.C.), fino all’epoca tolemaica, con alcune aggiunte in epoca romana. Quasi ogni re del Nuovo Regno (circa 1550–1069 a.C.) vi lasciò il proprio segno.
+
+Karnak è in realtà un complesso di templi. La parte più grande è il recinto di Amon, con il recinto della moglie Mut a sud, il recinto di Montu a nord e il tempio di Akhenaton dedicato ad Aton a est.
 
 ### La sala ipostila
-L’elemento più impressionante di Karnak è la grande sala ipostila, tra il secondo e il terzo pilone, decorata sotto Seti I e Ramses II. Dodici enormi colonne, alte circa 24 metri, fiancheggiano la navata centrale, e con le navate laterali la sala conta 134 colonne. I rilievi sulle pareti esterne mostrano le vittorie di Seti I e la battaglia di Qadesh di Ramses II.
+Il monumento più famoso di Karnak è la grande sala ipostila del tempio di Amon, una foresta di 134 colonne. La maggior parte è alta 15 metri, e le dodici colonne più grandi al centro raggiungono i 21 metri. La sala fu forse iniziata da Amenofi III, ma gran parte della costruzione e tutta la decorazione risalgono a Seti I e a suo figlio Ramses II. I rilievi sulle pareti esterne mostrano le vittorie di Seti I e la battaglia di Qadesh di Ramses II.
+
+### Altro da vedere
+- **L’obelisco di Hatshepsut:** il più grande dei due obelischi vicino alla sala, alto quasi 30 metri e pesante oltre 300 tonnellate.
+- **L’Akh-menu:** all’estremità orientale, un tempio di Thutmose III dedicato al culto di diversi dèi, dei suoi predecessori e di sé stesso.
+- **I templi di Khonsu e di Opet:** all’interno delle mura del recinto di Amon, nell’angolo sud-occidentale.
+- **Il lago sacro,** dove i sacerdoti si purificavano prima dei riti del tempio.
 
 > **A Karnak**
-> Vai al mattino presto. Il complesso è enorme ed esposto, con poca ombra.
+> Andate al mattino presto. Il complesso è enorme ed esposto, con poca ombra.
 
 ## Il Tempio di Luxor {#luxor-temple}
 
 Nel centro della città moderna, il Tempio di Luxor era dedicato ad Amon, alla sua sposa Mut e al loro figlio Khonsu. Commissionato da Amenofi III, fu completato sotto Tutankhamon e Horemheb e ampliato da Ramses II, che aggiunse un cortile, un pilone e obelischi. Il suo elemento più impressionante è un colonnato di 14 colonne alte circa 16 metri.
 
-## Il Viale delle Sfingi {#avenue}
+## Il viale delle sfingi {#avenue}
 
-Nell’antichità un viale di sfingi collegava il Tempio di Luxor al tempio di Amon a Karnak. Percorrerne un tratto tra i due templi dà unità alla visita.
+Caso insolito, il tempio di Amon a Karnak ha un secondo asse, nord-sud, rivolto verso il tempio di Luxor. Un viale fiancheggiato da sfingi univa i due templi, ed era usato in una delle grandi feste dell’anno egizio, la Festa di Opet. Percorrerne un tratto tra i due templi collega la visita.
 
 ## Organizzare la giornata {#planning}
 

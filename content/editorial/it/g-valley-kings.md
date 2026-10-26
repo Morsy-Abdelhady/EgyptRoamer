@@ -2,18 +2,25 @@
 type: er_guide
 title: La Valle dei Re: tombe, biglietti e consigli
 excerpt: Come visitare la Valle dei Re a Luxor: cosa sono le tombe reali, come funzionano i biglietti, Tutankhamon e Seti I, cos’altro vedere sulla riva ovest, e consigli pratici per una valle calda e affollata.
-source: 0be746eb5a5f
+source: 11ebcda4fe54
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
 La Valle dei Re, sulla riva ovest di Luxor, è il luogo dove furono sepolti i faraoni del Nuovo Regno. Scendere lungo un corridoio scavato nel cuore della montagna, con le pareti ancora dipinte di dèi e testi, è una delle grandi esperienze dell’Egitto. Questa guida spiega come funziona la visita.
 
-## Cos’è la valle {#what-it-is}
+## Che cos’è la valle {#what-it-is}
 
-La valle fu il luogo di sepoltura di quasi tutti i re della XVIII, XIX e XX dinastia, dal 1539 al 1075 a.C. circa. Per proteggere le loro ricche sepolture, nascosero le tombe in una valle isolata tra le colline dietro Deir el-Bahari. Si conoscono 62 tombe. La maggior parte segue lo stesso schema: un corridoio che scende nella roccia, ambienti lungo il percorso e una camera funeraria in fondo, con pareti dipinte con scene del re tra gli dèi dell’oltretomba. L’UNESCO include la valle nel sito dell’antica Tebe e della sua necropoli, iscritto nel 1979.
+I re della XVIII, XIX e XX dinastia, i sovrani del Nuovo Regno egizio (circa 1550–1069 a.C.), furono sepolti in questa valle arida e desolata, di fronte all’antica Tebe, sull’altra riva del fiume. Il nome non è del tutto esatto: qui furono sepolti anche alcuni membri della famiglia reale e qualche alto funzionario non di sangue reale.
+
+La valle ha due rami, la Valle Orientale e la Valle Occidentale. La Valle Orientale è quella famosa; quella Occidentale contiene solo una manciata di tombe. In tutto ci sono più di sessanta tombe, più una ventina di tombe incompiute che sono poco più che fosse. La maggior parte segue la stessa idea: un corridoio che scende nella roccia, camere lungo il percorso e, in fondo, una camera funeraria, con le pareti dipinte con scene del re tra gli dèi dell’oltretomba. L’UNESCO include la valle nel sito dell’antica Tebe e della sua necropoli, iscritto nel 1979.
+
+### Perché qui
+- **La riva ovest:** il dio sole tramontava, cioè moriva, a ovest per rinascere a est; per questo l’ovest divenne la terra dei morti, e la maggior parte dei cimiteri egizi si trova sulla riva occidentale del Nilo.
+- **La piramide naturale:** sopra la valle si innalza una vetta a forma di piramide. La piramide era simbolo di rinascita, e la zona con la sua vetta era sacra ad Hathor, «Signora dell’Occidente».
+- **La segretezza:** gli egizi avevano visto saccheggiare le piramidi più antiche, perciò scelsero tombe nascoste in una valle isolata. Il primo re sicuramente sepolto qui è Thutmose I (circa 1504–1492 a.C.). Il funzionario che fece scavare la sua tomba, Ineni, scrisse di averlo fatto «in segreto; nessuno vedeva, nessuno udiva».
 
 ## Come funzionano i biglietti {#tickets}
 

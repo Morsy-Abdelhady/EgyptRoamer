@@ -231,7 +231,7 @@
  "g-east-bank": {
   "type": "er_guide",
   "title": "Karnak y el templo de Luxor: guía de la orilla este",
-  "excerpt": "Una guía de los templos de la orilla este de Luxor: el gran templo de Amón-Ra en Karnak y su sala hipóstila de 134 columnas, el templo de Luxor y su columnata, la avenida de las Esfinges que los une y cómo organizar el día.",
+  "excerpt": "Una guía de los templos de la orilla este de Luxor: Karnak, el templo de Amón con su sala hipóstila de 134 columnas y el obelisco de Hatshepsut, el templo de Luxor y su columnata, la avenida de las esfinges que los une, y cómo organizar el día.",
   "review": "approved",
   "current": true
  },
@@ -291,6 +291,13 @@
   "review": "approved",
   "current": true
  },
+ "g-kom-ombo": {
+  "type": "er_guide",
+  "title": "El templo de Kom Ombo: el templo doble de Sobek y Horus",
+  "excerpt": "Kom Ombo, el templo al norte de Asuán dedicado a dos dioses a la vez: el dios cocodrilo Sobek y Horus el Viejo, sus dos ejes y dos santuarios, los calendarios y la escena que mostraría instrumentos quirúrgicos, y cómo visitarlo en crucero o por carretera.",
+  "review": "approved",
+  "current": true
+ },
  "g-luxor-balloon": {
   "type": "er_guide",
   "title": "Globo aerostático sobre Luxor: lo que debe saber antes de reservar",
@@ -302,6 +309,13 @@
   "type": "er_guide",
   "title": "¿Crucero por el Nilo u hoteles? De Luxor a Asuán",
   "excerpt": "¿Luxor y Asuán en crucero por el Nilo o alojándote en hoteles? Cómo es un crucero, los templos de Edfu y Kom Ombo en el camino, el equilibrio entre tiempo y libertad, los barcos más pequeños y cómo elegir.",
+  "review": "approved",
+  "current": true
+ },
+ "g-philae": {
+  "type": "er_guide",
+  "title": "Philae: visitar el templo de Isis en Asuán",
+  "excerpt": "Philae, el templo de Isis en una isla de Asuán: uno de los últimos templos egipcios que siguieron activos, la última inscripción jeroglífica fechada, el templo de Hathor y el quiosco de Trajano, el traslado de todo el conjunto a la isla de Agilkia, y cómo visitarlo en barco.",
   "review": "approved",
   "current": true
  },

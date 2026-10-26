@@ -231,7 +231,7 @@
  "g-east-bank": {
   "type": "er_guide",
   "title": "Karnak e il Tempio di Luxor: guida alla riva est",
-  "excerpt": "Una guida ai templi della riva est di Luxor: il grande tempio di Amon-Ra a Karnak e la sua sala ipostila di 134 colonne, il Tempio di Luxor e il suo colonnato, il Viale delle Sfingi che li unisce e come organizzare la giornata.",
+  "excerpt": "Una guida ai templi della riva est di Luxor: Karnak, il tempio di Amon con la sala ipostila di 134 colonne e l’obelisco di Hatshepsut, il tempio di Luxor e il suo colonnato, il viale delle sfingi che li unisce, e come organizzare la giornata.",
   "review": "approved",
   "current": true
  },
@@ -291,6 +291,13 @@
   "review": "approved",
   "current": true
  },
+ "g-kom-ombo": {
+  "type": "er_guide",
+  "title": "Il tempio di Kom Ombo: il doppio tempio di Sobek e Horus",
+  "excerpt": "Kom Ombo, il tempio a nord di Assuan dedicato a due dèi insieme: il dio coccodrillo Sobek e Horus il Vecchio, i suoi due assi e i due santuari, i calendari e la scena che mostrerebbe strumenti chirurgici, e come visitarlo in crociera o su strada.",
+  "review": "approved",
+  "current": true
+ },
  "g-luxor-balloon": {
   "type": "er_guide",
   "title": "In mongolfiera su Luxor: cosa sapere prima di prenotare",
@@ -302,6 +309,13 @@
   "type": "er_guide",
   "title": "Crociera sul Nilo o hotel? Da Luxor ad Assuan",
   "excerpt": "Luxor e Assuan in crociera sul Nilo o soggiornando in hotel? Com’è una crociera, i templi di Edfu e Kom Ombo lungo il percorso, il compromesso tra tempo e libertà, le barche più piccole e come scegliere.",
+  "review": "approved",
+  "current": true
+ },
+ "g-philae": {
+  "type": "er_guide",
+  "title": "Philae: visitare il tempio di Iside ad Assuan",
+  "excerpt": "Philae, il tempio di Iside sull’isola ad Assuan: uno degli ultimi templi egizi rimasti in funzione, l’ultima iscrizione geroglifica datata, il tempio di Hathor e il chiosco di Traiano, lo spostamento dell’intero complesso sull’isola di Agilkia, e come visitarlo in barca.",
   "review": "approved",
   "current": true
  },

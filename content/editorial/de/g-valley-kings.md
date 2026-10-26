@@ -2,10 +2,10 @@
 type: er_guide
 title: Das Tal der Könige: Gräber, Tickets und Tipps
 excerpt: So besuchen Sie das Tal der Könige in Luxor: was die Königsgräber sind, wie die Tickets funktionieren, Tutanchamun und Sethos I., was es am Westufer noch zu sehen gibt, und praktische Tipps für ein heißes, volles Tal.
-source: 0be746eb5a5f
+source: 11ebcda4fe54
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -13,7 +13,14 @@ Im Tal der Könige am Westufer von Luxor wurden die Pharaonen des Neuen Reichs b
 
 ## Was das Tal ist {#what-it-is}
 
-Das Tal war die Grabstätte fast aller Könige der 18., 19. und 20. Dynastie, von etwa 1539 bis 1075 v. Chr. Um ihre reichen Bestattungen zu schützen, verbargen sie ihre Gräber in einem einsamen Tal in den Hügeln hinter Deir el-Bahari. Es gibt 62 bekannte Gräber. Die meisten folgen demselben Prinzip: ein Gang, der in den Fels hinabführt, Kammern auf dem Weg und am Ende eine Grabkammer, mit Wänden voller Szenen des Königs unter den Göttern der Unterwelt. Die UNESCO führt das Tal als Teil der Welterbestätte *Antikes Theben mit seiner Nekropole*, eingetragen 1979.
+Die Könige der 18., 19. und 20. Dynastie, die Herrscher des ägyptischen Neuen Reiches (etwa 1550–1069 v. Chr.), wurden in diesem trockenen, öden Tal gegenüber dem alten Theben bestattet. Der Name ist nicht ganz genau: Auch einige Mitglieder der königlichen Familie wurden hier beigesetzt, und einige nichtkönigliche Beamte von sehr hohem Rang.
+
+Das Tal hat zwei Arme, das Osttal und das Westtal. Das Osttal ist das berühmte; das Westtal enthält nur eine Handvoll Gräber. Insgesamt gibt es mehr als sechzig Gräber, dazu etwa zwanzig unvollendete, die kaum mehr als Gruben sind. Die meisten folgen derselben Idee: ein Korridor, der in den Fels hinabführt, Kammern auf dem Weg und am Ende eine Grabkammer, deren Wände mit Szenen des Königs unter den Göttern der Unterwelt bemalt sind. Die UNESCO führt das Tal als Teil von *Antikes Theben mit seiner Nekropole*, eingetragen 1979.
+
+### Warum hier
+- **Das Westufer:** Der Sonnengott ging im Westen unter, starb also, um im Osten wiedergeboren zu werden; so wurde der Westen zum Land der Toten, und die meisten ägyptischen Friedhöfe liegen am Westufer des Nils.
+- **Die natürliche Pyramide:** Über dem Tal erhebt sich ein pyramidenförmiger Gipfel. Die Pyramide war ein Symbol der Wiedergeburt, und das Gebiet mit seinem Gipfel war Hathor heilig, der „Herrin des Westens“.
+- **Geheimhaltung:** Die Ägypter hatten gesehen, wie die älteren Pyramiden ausgeraubt wurden, und wählten daher verborgene Gräber in einem abgelegenen Tal. Der erste König, der sicher hier bestattet wurde, ist Thutmosis I. (etwa 1504–1492 v. Chr.). Der Beamte, der sein Grab anlegen ließ, Ineni, schrieb, er habe es „im Verborgenen getan; niemand sah es, niemand hörte es“.
 
 ## Wie die Tickets funktionieren {#tickets}
 

@@ -231,7 +231,7 @@
  "g-east-bank": {
   "type": "er_guide",
   "title": "Karnak et le temple de Louxor : guide de la rive est",
-  "excerpt": "Un guide des temples de la rive est de Louxor : le grand temple d’Amon-Rê à Karnak et sa salle hypostyle de 134 colonnes, le temple de Louxor et sa colonnade, l’allée des Sphinx qui les relie, et comment organiser la journée.",
+  "excerpt": "Un guide des temples de la rive est de Louxor : Karnak, le temple d’Amon avec sa salle hypostyle de 134 colonnes et l’obélisque d’Hatchepsout, le temple de Louxor et sa colonnade, l’allée des sphinx qui les relie, et comment organiser la journée.",
   "review": "approved",
   "current": true
  },
@@ -291,6 +291,13 @@
   "review": "approved",
   "current": true
  },
+ "g-kom-ombo": {
+  "type": "er_guide",
+  "title": "Le temple de Kom Ombo : le double temple de Sobek et d’Horus",
+  "excerpt": "Kom Ombo, le temple au nord d’Assouan dédié à deux dieux à la fois : le dieu crocodile Sobek et Horus l’Ancien, ses deux axes et ses deux sanctuaires, les calendriers et la scène qui montrerait des instruments chirurgicaux, et comment le visiter en croisière ou par la route.",
+  "review": "approved",
+  "current": true
+ },
  "g-luxor-balloon": {
   "type": "er_guide",
   "title": "Montgolfière au-dessus de Louxor : ce qu’il faut savoir avant de réserver",
@@ -302,6 +309,13 @@
   "type": "er_guide",
   "title": "Croisière sur le Nil ou hôtels ? De Louxor à Assouan",
   "excerpt": "Louxor et Assouan en croisière sur le Nil ou en séjournant à l’hôtel ? À quoi ressemble une croisière, les temples d’Edfou et de Kom Ombo sur le trajet, le compromis entre temps et liberté, les bateaux plus petits, et comment choisir.",
+  "review": "approved",
+  "current": true
+ },
+ "g-philae": {
+  "type": "er_guide",
+  "title": "Philae : visiter le temple d’Isis à Assouan",
+  "excerpt": "Philae, le temple insulaire d’Isis à Assouan : l’un des derniers temples égyptiens restés actifs, la dernière inscription hiéroglyphique datée, le temple d’Hathor et le kiosque de Trajan, le déplacement de tout l’ensemble sur l’île d’Agilkia, et la visite en bateau.",
   "review": "approved",
   "current": true
  },

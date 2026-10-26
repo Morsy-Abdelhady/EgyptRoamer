@@ -1,11 +1,11 @@
 ---
 type: er_guide
 title: Karnak und der Luxor-Tempel: das Ostufer von Luxor
-excerpt: Ein Ratgeber zu den Tempeln am Ostufer von Luxor: der große Amun-Re-Tempel von Karnak mit seinem Säulensaal aus 134 Säulen, der Luxor-Tempel und seine Kolonnade, die Sphingenallee dazwischen und wie Sie den Tag planen.
-source: 9824be6de3a5
+excerpt: Ein Ratgeber zu den Tempeln am Ostufer von Luxor: Karnak, der Amun-Tempel mit seinem Säulensaal aus 134 Säulen und dem Obelisken der Hatschepsut, der Luxor-Tempel und seine Kolonnade, die Sphingenallee dazwischen und wie Sie den Tag planen.
+source: fccf51723251
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -13,10 +13,18 @@ Luxor steht an der Stelle des antiken Theben. Die alten Ägypter bauten ihre gro
 
 ## Karnak {#karnak}
 
-Karnak ist einer der größten Tempelkomplexe der Welt. In seinem Zentrum liegt der große Tempel des Staatsgottes Amun-Re, flankiert von den Bezirken der Göttin Mut und des Kriegsgottes Month. Über viele Jahrhunderte gebaut und umgebaut, folgt er keinem einheitlichen Plan. Man hat ihn ein großes Geschichtsdokument aus Stein genannt.
+Die alten Ägypter nannten Karnak *Ipet-Sut*, „der auserlesenste der Orte“. Es war eine der wichtigsten Stätten des Landes: Im Großen Tempel des Amun wurde der Kult des Amun von Theben vollzogen, und seine Priesterschaft war reich und politisch mächtig. Am Tempel wurde vom frühesten Zeugnis unter Antef II. (etwa 2112–2063 v. Chr.) bis in die ptolemäische Zeit gebaut, mit einigen Ergänzungen unter Rom. Fast jeder König des Neuen Reiches (etwa 1550–1069 v. Chr.) hinterließ hier seine Spuren.
+
+Karnak ist in Wahrheit ein Tempelkomplex. Der größte Teil ist der Bezirk des Amun, mit dem Bezirk seiner Frau Mut im Süden, dem Bezirk des Month im Norden und Echnatons Tempel für Aton im Osten.
 
 ### Der Säulensaal
-Das eindrucksvollste Bauwerk in Karnak ist der große Säulensaal zwischen dem zweiten und dritten Pylon, ausgeschmückt unter Sethos I. und Ramses II. Zwölf gewaltige Säulen von etwa 24 Metern Höhe säumen das Mittelschiff, mit den Seitenschiffen zählt der Saal 134 Säulen. Reliefs an seinen Außenwänden zeigen die Siege Sethos’ I. sowie Ramses II. in der Schlacht bei Kadesch.
+Karnaks berühmteste Sehenswürdigkeit ist der Große Säulensaal des Amun-Tempels, ein Wald aus 134 Säulen. Die meisten sind 15 Meter hoch, die zwölf größeren Säulen der Mitte 21 Meter. Der Saal wurde vielleicht von Amenophis III. begonnen, doch der größte Teil des Baus und die gesamte Dekoration stammen von Sethos I. und seinem Sohn Ramses II. Reliefs an seinen Außenwänden zeigen die Siege Sethos’ I. und Ramses II. in der Schlacht bei Kadesch.
+
+### Mehr zu sehen
+- **Der Obelisk der Hatschepsut:** der größere von zwei Obelisken nahe dem Saal, fast 30 Meter hoch und über 300 Tonnen schwer.
+- **Das Achmenu:** am Ostende ein Tempel Thutmosis’ III. für die Kulte mehrerer Götter, seiner königlichen Vorgänger und seiner selbst.
+- **Die Tempel des Chons und der Opet:** innerhalb der Mauern des Amun-Bezirks, in seiner Südwestecke.
+- **Der heilige See,** in dem sich die Priester vor den Tempelritualen reinigten.
 
 > **In Karnak**
 > Gehen Sie früh am Morgen. Die Anlage ist riesig und offen, mit wenig Schatten.
@@ -27,7 +35,7 @@ Mitten in der heutigen Stadt war der Luxor-Tempel Amun, seiner Gemahlin Mut und 
 
 ## Die Sphingenallee {#avenue}
 
-In der Antike verband eine Sphingenallee den Luxor-Tempel mit dem Amun-Tempel von Karnak. Ein Stück davon zwischen den beiden Tempeln zu gehen, verbindet den Besuch.
+Ungewöhnlicherweise hat der Amun-Tempel von Karnak eine zweite, nord-südliche Achse, die zum Luxor-Tempel weist. Eine von Sphingen gesäumte Allee verband die beiden Tempel, und sie wurde bei einem der großen Feste des altägyptischen Jahres genutzt, dem Opet-Fest. Wer einen Teil davon zwischen den beiden Tempeln entlanggeht, verbindet den Besuch.
 
 ## Den Tag planen {#planning}
 
