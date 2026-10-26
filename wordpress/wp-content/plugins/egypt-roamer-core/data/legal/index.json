@@ -129,7 +129,11 @@
   },
   "privacy-policy": {
    "file": "en/privacy-policy.html",
-   "replaces_sha1": "49eb19afe1bd04d70a314eb13d8abc6299cd9139"
+   "replaces_sha1": "3ea6f42ed4a0415a515de12f2d4d61200fd6fbf7"
+  },
+  "affiliate-disclosure": {
+   "file": "en/affiliate-disclosure.html",
+   "replaces_sha1": "bb5563aa20dc7f2b7a81142e299e49564c213813"
   }
  }
 }

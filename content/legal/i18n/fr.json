@@ -1,7 +1,7 @@
 {
  "privacy": {
   "title": "Politique de confidentialité",
-  "updated": "Dernière mise à jour : 20 octobre 2026",
+  "updated": "Dernière mise à jour : 26 octobre 2026",
   "intro": "Cette page explique quelles informations Egypt Roamer traite lorsque vous utilisez ce site, pourquoi, et ce que vous pouvez nous demander à leur sujet.",
   "note": "Cette page est une traduction de l’original en anglais : [version anglaise](en).",
   "h_who": "Qui sommes-nous",
@@ -19,7 +19,7 @@
   "li_godaddy": "**GoDaddy** héberge le site et sa base de données.",
   "li_cloudflare": "**Cloudflare** diffuse le site et le protège contre les attaques et les abus automatisés ; il dépose le cookie de sécurité décrit dans la politique relative aux cookies.",
   "li_unsplash": "**Unsplash** fournit certaines photos de ce site : votre navigateur se connecte donc aux serveurs d’Unsplash lorsque ces photos se chargent.",
-  "li_partners": "**Nos partenaires** (actuellement Viator) : lorsque vous suivez un lien partenaire, vous quittez notre site. Ce que vous y faites, y compris une réservation, relève du partenaire et de sa propre politique de confidentialité.",
+  "li_partners": "**Nos partenaires** (actuellement Viator, GetYourGuide et Klook pour les visites et activités, et Trip.com pour les hôtels) : lorsque vous suivez un lien partenaire, vous quittez notre site. Ce que vous y faites, y compris une réservation, relève du partenaire et de sa propre politique de confidentialité.",
   "services_after": "Lorsque votre navigateur demande une page, les serveurs de GoDaddy et de Cloudflare reçoivent votre adresse IP et les informations sur votre navigateur, comme pour tout site web ; ils les utilisent pour fournir et protéger le site et peuvent les conserver dans leurs journaux techniques. Ces services peuvent traiter des données en dehors du Royaume-Uni.",
   "h_long": "Combien de temps nous les conservons",
   "li_long_contact": "Messages de contact : aussi longtemps que nécessaire pour vous répondre et assurer le suivi, ou jusqu’à ce que vous nous demandiez de les supprimer.",
@@ -62,7 +62,7 @@
   "intro": "Egypt Roamer est une publication de voyage indépendante consacrée à l’Égypte. Certains liens de ce site sont des liens affiliés : lorsque vous réservez par l’un d’eux, le partenaire de réservation peut nous verser une commission. Vous payez le même prix qu’en réservant directement auprès du partenaire.",
   "note": "Cette page est une traduction de l’original en anglais : [version anglaise](en).",
   "h_partners": "Nos partenaires",
-  "partners": "Nous participons actuellement au programme d’affiliation de **Viator**. Nous mettons cette page à jour lorsque nos partenaires changent.",
+  "partners": "Nous participons actuellement aux programmes d’affiliation de **Viator**, **GetYourGuide** et **Klook** (visites et activités) et de **Trip.com** (hôtels). Nous mettons cette page à jour lorsque nos partenaires changent.",
   "h_how": "Comment fonctionnent nos liens affiliés",
   "li_offers": "Les offres partenaires apparaissent à côté de nos articles, sous le titre « {book} », avec une courte mention de la commission.",
   "li_go": "Tous les liens affiliés passent par une adresse de notre propre site commençant par `/go/`, puis vous mènent au site du partenaire. Nous comptons le clic (quelle offre, sur quelle page, dans quelle langue) mais pas qui vous êtes : nous n’enregistrons pas votre adresse IP et ne déposons aucun cookie pour cela.",

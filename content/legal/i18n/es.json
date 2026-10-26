@@ -1,7 +1,7 @@
 {
  "privacy": {
   "title": "Política de privacidad",
-  "updated": "Última actualización: 20 de octubre de 2026",
+  "updated": "Última actualización: 26 de octubre de 2026",
   "intro": "Esta página explica qué información trata Egypt Roamer cuando usas este sitio, por qué, y qué puedes pedirnos al respecto.",
   "note": "Esta página es una traducción del original en inglés: [versión en inglés](en).",
   "h_who": "Quiénes somos",
@@ -19,7 +19,7 @@
   "li_godaddy": "**GoDaddy** aloja el sitio y su base de datos.",
   "li_cloudflare": "**Cloudflare** sirve el sitio y lo protege contra ataques y abusos automatizados; instala la cookie de seguridad descrita en la política de cookies.",
   "li_unsplash": "**Unsplash** sirve algunas de las fotos de este sitio, así que tu navegador se conecta a los servidores de Unsplash cuando esas fotos se cargan.",
-  "li_partners": "**Nuestros socios** (actualmente Viator): cuando sigues un enlace de un socio, sales de nuestro sitio. Lo que hagas allí, incluida cualquier reserva, lo gestiona el socio según su propia política de privacidad.",
+  "li_partners": "**Nuestros socios** (actualmente Viator, GetYourGuide y Klook para tours y actividades, y Trip.com para hoteles): cuando sigues un enlace de un socio, sales de nuestro sitio. Lo que hagas allí, incluida cualquier reserva, lo gestiona el socio según su propia política de privacidad.",
   "services_after": "Cuando tu navegador solicita una página, los servidores de GoDaddy y Cloudflare reciben tu dirección IP y los datos de tu navegador, como ocurre con cualquier sitio web; los usan para servir y proteger el sitio y pueden conservarlos en sus registros técnicos. Estos servicios pueden tratar datos fuera del Reino Unido.",
   "h_long": "Cuánto tiempo lo conservamos",
   "li_long_contact": "Mensajes de contacto: el tiempo necesario para responderte y resolver cualquier seguimiento, o hasta que nos pidas eliminarlos.",
@@ -62,7 +62,7 @@
   "intro": "Egypt Roamer es una publicación de viajes independiente sobre Egipto. Algunos enlaces de este sitio son enlaces de afiliado: cuando reservas a través de uno de ellos, el socio de reservas puede pagarnos una comisión. Tú pagas el mismo precio que si reservaras directamente con el socio.",
   "note": "Esta página es una traducción del original en inglés: [versión en inglés](en).",
   "h_partners": "Nuestros socios",
-  "partners": "Actualmente participamos en el programa de afiliados de **Viator**. Actualizamos esta página cuando cambian nuestros socios.",
+  "partners": "Actualmente participamos en los programas de afiliados de **Viator**, **GetYourGuide** y **Klook** (tours y actividades) y de **Trip.com** (hoteles). Actualizamos esta página cuando cambian nuestros socios.",
   "h_how": "Cómo funcionan aquí los enlaces de afiliado",
   "li_offers": "Las ofertas de los socios aparecen junto a nuestros artículos, bajo el título «{book}», con un breve aviso sobre la comisión.",
   "li_go": "Todos los enlaces de afiliado pasan por una dirección de nuestro propio sitio que empieza por `/go/` y luego te llevan al sitio del socio. Contamos el clic (qué oferta, en qué página y en qué idioma), pero no quién eres: no registramos tu dirección IP ni instalamos una cookie para ello.",

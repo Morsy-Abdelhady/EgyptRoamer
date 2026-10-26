@@ -155,10 +155,12 @@ def build() -> dict:
     files["en/contact.html"] = en_new + "\n"
     # sha1 of the English Contact content published on 2026-09-30 (git cf01c79:content/legal/en/contact.html, trimmed).
     index["en_updates"]["contact"] = {"file": "en/contact.html", "replaces_sha1": "f3a53c653c371213f9cb2ea16f6ff0d4c0698009"}
-    # English Privacy Policy (2026-10-20: operated by LIORIVE LTD), replacing exactly the version shipped on
-    # 2026-10-15 (first-party page-view totals; git c235be1:content/legal/en/privacy-policy.html, trimmed).
+    # English Privacy Policy and Affiliate Disclosure (2026-10-26: four partners), each replacing exactly the version
+    # shipped before (git 0fb4650:content/legal/en/<slug>.html, trimmed). A page edited in WordPress is kept.
     files["en/privacy-policy.html"] = (SRC / "en" / "privacy-policy.html").read_text(encoding="utf-8")
-    index["en_updates"]["privacy-policy"] = {"file": "en/privacy-policy.html", "replaces_sha1": "49eb19afe1bd04d70a314eb13d8abc6299cd9139"}
+    index["en_updates"]["privacy-policy"] = {"file": "en/privacy-policy.html", "replaces_sha1": "3ea6f42ed4a0415a515de12f2d4d61200fd6fbf7"}
+    files["en/affiliate-disclosure.html"] = (SRC / "en" / "affiliate-disclosure.html").read_text(encoding="utf-8")
+    index["en_updates"]["affiliate-disclosure"] = {"file": "en/affiliate-disclosure.html", "replaces_sha1": "bb5563aa20dc7f2b7a81142e299e49564c213813"}
     files["index.json"] = json.dumps(index, ensure_ascii=False, indent=1) + "\n"
     return files
 
