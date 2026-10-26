@@ -1,0 +1,13 @@
+{
+ "_note": "Bodies that `wp egypt-roamer editorial` may replace although they are no longer seed text: the plain-text sha1 (tags stripped, entities decoded, whitespace collapsed) of earlier shipped versions, per seed id and language. A live body that matches was imported unchanged; any edit in WordPress changes the hash and keeps the editor's body. dest-siwa: every version before the 26 Oct 2026 source revision.",
+ "dest-siwa": {
+  "en": ["95b2da29210ac3a4d1f9032ed3c0a6195b071f2d"],
+  "ar": ["71ebaac9c4ab40352bafb4aa1af70b03fc3a5135", "e25ceb68c13bf0f6ae7d96cbe2e04eee6187208c"],
+  "de": ["15c0ed92c59780eafeecb86f982bd6569de173af"],
+  "fr": ["97fa52b8708df9c60b9f1f983722846883985c35"],
+  "it": ["6a588d8ef6b58d2ce4313746eadd82b46d415395"],
+  "es": ["761c390de03eae36faf6e7e8bac896757af161f4"],
+  "ru": ["a6fa930938cb473d7033a69028e792c139a7d791"],
+  "zh": ["eb07bb2d88fa34cc939420046945a9dd9fe1af1d", "df4a63700cded7319c5c5efc4002abcbb754084b"]
+ }
+}

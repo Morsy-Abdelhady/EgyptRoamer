@@ -684,7 +684,9 @@ class ER_CLI {
 			$plain = trim( html_entity_decode( wp_strip_all_tags( $value ), ENT_QUOTES, 'UTF-8' ) );
 			return '' === $plain || ( ! empty( $seed[ $seed_id ] ) && trim( $seed[ $seed_id ] ) === $plain );
 		};
-		$counts = [ 'body' => 0, 'excerpt' => 0, 'link' => 0, 'kept' => 0, 'missing' => 0, 'unreviewed' => 0, 'guide' => 0, 'relinked' => 0, 'unlinked' => 0 ];
+		// Earlier shipped versions that may be replaced (data/editorial/replaces.json): plain-text hashes per seed id and language.
+		$replaces = json_decode( (string) @file_get_contents( ER_CORE_DIR . 'data/editorial/replaces.json' ), true ) ?: []; // phpcs:ignore WordPress.WP.AlternativeFunctions, WordPress.PHP.NoSilencedErrors
+		$counts   = [ 'body' => 0, 'excerpt' => 0, 'link' => 0, 'kept' => 0, 'missing' => 0, 'unreviewed' => 0, 'guide' => 0, 'relinked' => 0, 'unlinked' => 0 ];
 		foreach ( $index as $seed_id => $item ) {
 			$seed_id = (string) $seed_id;
 			if ( $is_tr && 'er_guide' === $item['type'] ) {
@@ -724,7 +726,9 @@ class ER_CLI {
 			// rewritten since, so the new links can be added. Any change to the wording keeps the editor's body.
 			$plain    = static fn ( string $h ): string => trim( (string) preg_replace( '/\s+/u', ' ', html_entity_decode( wp_strip_all_tags( $h ), ENT_QUOTES, 'UTF-8' ) ) );
 			$same_txt = $new_body && $plain( (string) $post->post_content ) === $plain( $new_body ) && (string) $post->post_content !== $new_body;
-			if ( $body && ( $is_seed_text( (string) $post->post_content, $seed_id ) || $same_txt ) ) {
+			// An earlier shipped version, imported and never edited since (its plain-text hash is listed).
+			$old_ship = in_array( sha1( $plain( (string) $post->post_content ) ), (array) ( $replaces[ $seed_id ][ $is_tr ? $lang : 'en' ] ?? [] ), true );
+			if ( $body && ( $is_seed_text( (string) $post->post_content, $seed_id ) || $same_txt || $old_ship ) ) {
 				$update['post_content'] = $new_body;
 				++$counts['body'];
 			} elseif ( $body ) {
