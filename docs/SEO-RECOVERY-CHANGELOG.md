@@ -198,3 +198,10 @@ was blocked (browser not connected). Both done by hand today, in the owner's bro
 | Theme 1.3.29 (`b876647`): Philae's Isis-section photo replaced (the first pick showed Trajan's Kiosk) | Theme | Live HTML | — | — |
 | Release gate | — | page-coverage: **456 pages, all ok**; Kom Ombo EN desktop and AR phone, Philae EN desktop checked in the browser | — | — |
 
+## 2026-10-27: snorkelling guide answers the searches it appears for
+
+| Change | Where | Verified | Expected effect | Check on |
+|---|---|---|---|---|
+| Search Console (28 days): 790 impressions, 3 clicks, average position 64; non-English pages and niche topics already reach page 1 (Great Sand Sea ar/fr/de 9–10, best time ar 7, zh 11); the snorkelling guide had the most impressions (EN 81, DE 51) at positions 72–82 for "best time to snorkel in hurghada", "beste schnorchelplätze hurghada" | Search Console | Read in Edge | — | — |
+| Core 1.2.83 (`efd0a76`): `g-snorkelling` gains "When to snorkel" and "The best snorkelling spots" (Ras Mohammed, Nabq, Abu Galum from the EEAA; Giftun; Wadi El-Gemal) and two FAQ answers, in 8 languages (the editorial check refuses outdated translations with different sections) | Core, wp-admin | Sync: 8 updated, then up to date (287); DE page checked; page-coverage **456 all ok** | Better positions for snorkelling queries in EN/DE | Search Console, 2–3 weeks |
+
