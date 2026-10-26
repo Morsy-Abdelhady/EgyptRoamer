@@ -66,6 +66,35 @@ The first queries with impressions were "اسوان", "أسوان", "great sand 
 | Content | 384 pages (232 guides): 5 new guides in 8 languages published 22 Oct | Google indexing requested for the 5 English guides |
 | Release gate | all ok, 384 pages | theme 1.3.15, Core 1.2.65 |
 
+### Week 2, 19–25 Oct 2026 (read 26 Oct)
+
+> **Counter change on 24 Oct (Core 1.2.67):** from then on a page view counts only after the visitor interacts, and a
+> `/go/` redirect only when someone clicked the link on our page. 19–23 Oct still include bots; compare only 24 Oct on.
+> Logged-in users were excluded from `/go/` only from 26 Oct (Core 1.2.70), so 24–25 Oct redirects can include our own
+> QA clicks (the Klook release was tested on 25 Oct).
+
+| Metric | Value | Notes |
+|---|---|---|
+| Search impressions (GSC, domain property, 19–25 Oct) | 664 | Week 1: 271 (28-day view). 283 queries with impressions |
+| Search clicks (GSC) | 2, CTR 0.3%, average position 66 | 28 days to 24 Oct: 3 clicks, 790 impressions, position 64.1 |
+| Top queries (week) | "aswan to luxor cruise" 20, "egypt itinerary" 13, "egypt trip itinerary" 11, "snorkeling in hurghada" 10, "great sand sea" 9, "croisière assouan louxor" 9; all 0 clicks | Itinerary, Nile cruise and snorkelling demand; French cruise query appears |
+| Top pages (28 days) | EN snorkelling guide 81 impressions; EN inside the pyramids 73; DE snorkelling 51; EN 14 days 37; EN Mount Sinai 32; AR Great Sand Sea 25; Nile cruise trip 25 | Clicks: DE inside the pyramids 1, ES Siwa or White Desert 1, EN Nile cruise or hotels 1 |
+| Bing | 0 clicks, 0 impressions (17–24 Oct); Site Explorer 0 indexed URLs | Homes submitted 24 Oct; check 31 Oct |
+| Page views (Visits, 19–25 Oct) | 278; 132 entrances; 2 from search (google.com); 0 from AI | Mostly the 8 `/experiences/` archives and "tablet" before 24 Oct: bots |
+| Page views, cleaned counter only (24–25 Oct) | **21**; 13 entrances; 0 from search or AI | Mobile 16, tablet 3, desktop 2. Landing pages: experience archives (ES, AR, DE), balloon trip (EN, AR), Nile dinner cruise (AR), Abu Simbel and snorkelling guides |
+| Partner-link taps | 0 | — |
+| `/go/` redirects | 77 (19–25 Oct); 17 on 24–25 Oct | 24–25 Oct likely include our own logged-in QA |
+| Viator (last 30 days) | 1 visitor, 0 bookings, $0 | The dashboard still shows "Enter your payout details" on 26 Oct |
+| GetYourGuide (last 30 complete days) | 3 visitors, 0 bookings, $0 | — |
+| Klook (last 7 days) | 1 click, 0 tickets, $0 | Live since 25 Oct |
+| Trip.com (18–25 Oct) | 3 clicks, 3 unique visitors, 0 bookings | — |
+| Content | 392 pages (232 guides, 96 experiences, 56 destinations, 8 homes) | Balloon trip added 25 Oct |
+| Release gate | all ok, 392 pages (25 Oct and 26 Oct) | Theme 1.3.19, Core 1.2.70 on 26 Oct |
+
+**Read:** impressions grew (664 in one week vs 271 in the first), but the average position (66) still gives almost no
+clicks. Real visitors are about 10 page views a day. No partner has a booking yet. Growth plan checkpoint for
+Jan 2027: 10,000 sessions a month (stretch) or 5,000 (safer).
+
 ## Speed (PageSpeed Insights, mobile), 15 Oct
 
 | Page | Performance | LCP | CLS | TBT | Accessibility / Best practices / SEO |
