@@ -630,6 +630,7 @@ return [
 		'See all {n} trips' => 'Voir les {n} excursions',
 		'See hotels' => 'Voir les hôtels',
 		'See options' => 'Voir les options',
+		'See the option' => 'Voir l’option',
 		'See the place' => 'Le lieu en images',
 		'See the trip' => 'Voir l\'excursion',
 		'See the trips' => 'Voir les excursions',

@@ -630,6 +630,7 @@ return [
 		'See all {n} trips' => 'Все поездки ({n})',
 		'See hotels' => 'Смотреть отели',
 		'See options' => 'Смотреть варианты',
+		'See the option' => 'Смотреть вариант',
 		'See the place' => 'Как выглядит место',
 		'See the trip' => 'Смотреть поездку',
 		'See the trips' => 'Смотреть поездки',

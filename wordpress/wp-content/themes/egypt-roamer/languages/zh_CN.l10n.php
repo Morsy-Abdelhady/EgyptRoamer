@@ -630,6 +630,7 @@ return [
 		'See all {n} trips' => '查看全部 {n} 个行程',
 		'See hotels' => '查看酒店',
 		'See options' => '查看选项',
+		'See the option' => '查看选项',
 		'See the place' => '看看这个地方',
 		'See the trip' => '查看行程',
 		'See the trips' => '查看行程',

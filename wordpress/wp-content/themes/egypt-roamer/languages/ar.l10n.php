@@ -630,6 +630,7 @@ return [
 		'See all {n} trips' => 'شاهد كل الرحلات ({n})',
 		'See hotels' => 'شوف الفنادق',
 		'See options' => 'شاهد الخيارات',
+		'See the option' => 'شاهد الخيار',
 		'See the place' => 'شاهد المكان',
 		'See the trip' => 'شاهد الرحلة',
 		'See the trips' => 'شاهد الرحلات',

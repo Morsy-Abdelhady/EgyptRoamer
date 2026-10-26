@@ -67,6 +67,8 @@ $er_chips = static function ( array $T ): string {
 	return $h . ( $T['cancel'] ? '<li class="fc">✓ ' . esc_html( er_t( 'Free cancellation' ) ) . '</li>' : '' ) . '</ul>';
 };
 $er_opts = static fn ( array $T ): string => 1 === $T['n'] ? er_t( '1 option' ) : er_t( '{n} options', [ 'n' => $T['n'] ] );
+// "See the 1 options" read wrongly on a trip with one option (balloon, Wadi Al-Hitan, owner 26 Oct): one option, or none, gets its own words.
+$er_see = static fn ( array $T, bool $the = true ): string => (int) $T['n'] < 1 ? er_t( 'See the trip' ) : ( 1 === (int) $T['n'] ? er_t( 'See the option' ) : ( $the ? er_t( 'See the {n} options', [ 'n' => $T['n'] ] ) : er_t( 'See {n} options', [ 'n' => $T['n'] ] ) ) );
 $M       = $er_main ? $er_trip( $er_main ) : null;
 $er_all  = array_map( $er_trip, $er_trips );
 
@@ -110,8 +112,8 @@ foreach ( $er_all as $T ) {
 		}
 	}
 	$card = $M && $T['id'] === $M['id']
-		? '<a class="tcard tcard--slim" href="' . esc_url( $T['url'] ) . '"><div><small>' . esc_html( er_t( 'The trip in this guide' ) ) . '</small><h3>' . esc_html( $T['title'] ) . '</h3></div><span class="btn btn--gold btn--sm">' . esc_html( er_t( 'See the {n} options', [ 'n' => $T['n'] ] ) ) . ' →</span></a>'
-		: '<a class="tcard" href="' . esc_url( $T['url'] ) . '">' . ( '' !== $T['img'] ? '<img src="' . esc_url( $T['img'] ) . '" alt="" loading="lazy" />' : '' ) . '<div><small>' . esc_html( er_t( 'The trip · {place}', [ 'place' => $T['place'] ] ) ) . '</small><h3>' . esc_html( $T['title'] ) . '</h3>' . $er_chips( $T ) . '<span class="go">' . esc_html( er_t( 'See the {n} options', [ 'n' => $T['n'] ] ) ) . ' →</span></div></a>';
+		? '<a class="tcard tcard--slim" href="' . esc_url( $T['url'] ) . '"><div><small>' . esc_html( er_t( 'The trip in this guide' ) ) . '</small><h3>' . esc_html( $T['title'] ) . '</h3></div><span class="btn btn--gold btn--sm">' . esc_html( $er_see( $T ) ) . ' →</span></a>'
+		: '<a class="tcard" href="' . esc_url( $T['url'] ) . '">' . ( '' !== $T['img'] ? '<img src="' . esc_url( $T['img'] ) . '" alt="" loading="lazy" />' : '' ) . '<div><small>' . esc_html( er_t( 'The trip · {place}', [ 'place' => $T['place'] ] ) ) . '</small><h3>' . esc_html( $T['title'] ) . '</h3>' . $er_chips( $T ) . '<span class="go">' . esc_html( $er_see( $T ) ) . ' →</span></div></a>';
 	$er_html = substr_replace( $er_html, $card, $end, 0 );
 }
 
@@ -206,7 +208,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 						<small><?php echo esc_html( $M['place'] ); ?></small>
 						<h3><?php echo esc_html( $M['title'] ); ?></h3>
 						<?php echo $er_chips( $M ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-						<a class="btn btn--gold" href="<?php echo esc_url( $M['url'] . '#book' ); ?>"><?php echo esc_html( er_t( 'See the {n} options', [ 'n' => $M['n'] ] ) ); ?> →</a>
+						<a class="btn btn--gold" href="<?php echo esc_url( $M['url'] . '#book' ); ?>"><?php echo esc_html( $er_see( $M ) ); ?> →</a>
 						<div class="bk__save"><?php echo er_save_button( er_trip_save_data( $M['id'], $M['len'] ), 'lcf', true ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
 						<?php if ( $M['partners'] ) : ?><p class="bk__p"><?php echo esc_html( er_t( 'From {partners}', [ 'partners' => implode( ' · ', $M['partners'] ) ] ) ); ?></p><?php endif; ?>
 					</div>
@@ -308,7 +310,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 	<?php endif; ?>
 
 	<?php if ( $M ) : ?>
-		<div class="mbar" data-mbar data-bookbar><div><?php if ( ! empty( $M['cancel'] ) ) : ?><small>✓ <?php er_e( 'Free cancellation' ); ?></small><?php endif; ?><b><?php echo esc_html( $M['title'] ); ?></b></div><a class="btn btn--gold btn--sm" href="<?php echo esc_url( $M['url'] . '#book' ); ?>"><?php echo esc_html( er_t( 'See {n} options', [ 'n' => $M['n'] ] ) ); ?></a></div>
+		<div class="mbar" data-mbar data-bookbar><div><?php if ( ! empty( $M['cancel'] ) ) : ?><small>✓ <?php er_e( 'Free cancellation' ); ?></small><?php endif; ?><b><?php echo esc_html( $M['title'] ); ?></b></div><a class="btn btn--gold btn--sm" href="<?php echo esc_url( $M['url'] . '#book' ); ?>"><?php echo esc_html( $er_see( $M, false ) ); ?></a></div>
 	<?php elseif ( $er_route && $er_all ) : ?>
 		<div class="mbar" data-mbar data-bookbar><div><b><?php echo esc_html( $er_isplace ? er_t( 'Trips in {place}', [ 'place' => $er_pname ] ) : er_t( '{n} trips on this route', [ 'n' => count( $er_all ) ] ) ); ?></b></div><a class="btn btn--gold btn--sm" href="#book"><?php er_e( 'See the trips' ); ?></a></div>
 	<?php endif; ?>
