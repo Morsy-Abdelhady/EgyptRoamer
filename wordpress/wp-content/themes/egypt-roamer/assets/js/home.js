@@ -259,6 +259,12 @@
       return fit ? id.sizes[fit] : id.src;
     }
     if (isUrl(id)) return id;
+    // "commons:File name.jpg" (owner, 26 Oct): a Wikimedia Commons photo. PHP builds the thumbnail path from the
+    // file name's md5; here Commons' own redirect gives the same thumbnail at the nearest standard width.
+    if (String(id).startsWith("commons:")) {
+      const width = [500, 960, 1280, 1920].find((x) => w <= x) || 1920;
+      return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(String(id).slice(8).replace(/ /g, "_"))}?width=${width}`;
+    }
     // "id:top" keeps that edge when cropping (as er_stock_url() in PHP); only Unsplash's own crop positions.
     const [pid, pos] = String(id).split(":");
     const crop = ["top", "bottom", "left", "right", "faces", "entropy"].includes(pos) ? `&crop=${pos}` : "";
