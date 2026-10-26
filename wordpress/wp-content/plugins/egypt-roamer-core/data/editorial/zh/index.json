@@ -219,6 +219,13 @@
   "review": "approved",
   "current": true
  },
+ "g-edfu": {
+  "type": "er_guide",
+  "title": "埃德富神庙：参观荷鲁斯神庙",
+  "excerpt": "埃德富的荷鲁斯神庙是古埃及保存最完整的神庙之一：它如何历时180年建成、又如何被废墟掩埋而得以保存，从塔门到圣殿你将看到什么，以及如何在阿斯旺和卢克索之间参观。",
+  "review": "approved",
+  "current": true
+ },
  "g-el-gouna": {
   "type": "er_guide",
   "title": "古纳：赫尔格达以北的潟湖小城",
@@ -244,6 +251,13 @@
   "type": "er_guide",
   "title": "大沙海：埃及的沙丘海洋",
   "excerpt": "大沙海是什么、与锡瓦绿洲有什么关系，以及选择沙漠行程前需要确认哪些事项。",
+  "review": "approved",
+  "current": true
+ },
+ "g-hatshepsut": {
+  "type": "er_guide",
+  "title": "代尔拜赫里的哈特谢普苏特神庙",
+  "excerpt": "卢克索西岸代尔拜赫里的哈特谢普苏特神庙：成为法老的女王、悬崖下的三层台地、远征蓬特和她神圣诞生的浮雕，以及如何把它安排进西岸一日游。",
   "review": "approved",
   "current": true
  },
@@ -307,6 +321,20 @@
   "type": "er_guide",
   "title": "帝王谷：陵墓、门票与参观建议",
   "excerpt": "如何参观卢克索的帝王谷：王室陵墓是什么样的，门票怎么用，图坦卡蒙和塞提一世，西岸还有什么可看，以及应对这片炎热、拥挤山谷的实用建议。",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-gemal": {
+  "type": "er_guide",
+  "title": "红海南部的瓦迪杰迈勒国家公园",
+  "excerpt": "埃及红海南部沿岸的瓦迪杰迈勒国家公园：东部沙漠最大的山谷之一、哈马塔山、红树林、埃及保存最原始的一些珊瑚礁，以及海龟筑巢的海滩，另附负责任游览的建议。",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-hitan": {
+  "type": "er_guide",
+  "title": "鲸鱼谷（瓦迪希坦）：埃及的化石沙漠",
+  "excerpt": "法尤姆沙漠中的鲸鱼谷（瓦迪希坦）：鲸鱼还长着后肢时代的化石、联合国教科文组织为何把它列为世界遗产、瓦迪拉扬保护区还有什么，以及如何从开罗安排行程。",
   "review": "approved",
   "current": true
  },

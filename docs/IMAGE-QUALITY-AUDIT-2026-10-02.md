@@ -306,3 +306,29 @@ The trip pages now use the prototype's own photos for the opener, each step and 
 | exp-cruise | step 2 (Kom Ombo) | Commons Kom_Ombo_Portal_03.JPG | Photo: Olaf Tausch, Wikimedia Commons, CC BY 3.0 |
 | exp-cruise | step 3 (Edfu) | Unsplash 1660705630675-d66d60fdca46 | prototype photo (journey-v4 imgs, approved 18 Oct) |
 | exp-cruise | step 4 (Luxor) | Unsplash 1610331800877-462a21600420 | prototype photo (journey-v4 imgs, approved 18 Oct) |
+
+## 9. Wikimedia Commons photos on the place pages (owner, 26 Oct 2026: "الصور خدها من ويكيبيديا"; theme 1.3.20)
+
+Free-licensed Commons photos only (CC BY, CC BY-SA, public domain), hot-linked from `upload.wikimedia.org` at a
+standard thumbnail width. Author and licence were read from each file's Commons metadata on 26 Oct; the credit
+"Photo: author, Wikimedia Commons, licence" sits under every photo (hero: linked to the file page). Theme:
+`er_stock_url()` and `er_commons_credit()` in `inc/template-tags.php`; heroes are `commons:` entries in Core
+`data/seed.json` extraStock; section photos in `inc/world-guide-photos.php`.
+
+| Page | Place | Commons file | Author | Licence |
+|---|---|---|---|---|
+| `g-edfu` | hero | Temple_of_Edfu,_Pylon,_Egypt.jpg | Vyacheslav Argenberg | CC BY 4.0 |
+| `g-edfu` | what-you-will-see | Edfu_Temple_pylon_from_inner_court.jpg | Matthias Kabel | CC BY-SA 3.0 |
+| `g-edfu` | what-you-will-see | Edfu-Relief.jpg | Steven C. Price | CC BY-SA 4.0 |
+| `g-hatshepsut` | hero | Templo_funerario_de_Hatshepsut,_Luxor,_Egipto,_2022-04-03,_DD_13.jpg | Diego Delso | CC BY-SA 4.0 |
+| `g-hatshepsut` | what-you-will-see | Thebes,_Luxor,_Egypt,_Temple_of_Hatshepsut,_Deir_el-Bahari.jpg | Vyacheslav Argenberg | CC BY 4.0 |
+| `g-hatshepsut` | what-you-will-see | Cavetto_and_Osiris_statue,_Mortuary_Temple_of_Hatshepsut,_Deir_el-Bahari,_Egypt_-_20110516.jpg | Alexander Baranov | CC BY 2.0 |
+| `g-wadi-hitan` | hero | Wadi_Hitan_Sunset.jpg | Medomadrex | CC BY-SA 4.0 |
+| `g-wadi-hitan` | what-it-is | The_whales_fossils_at_Wadi_El-Hitan,_Egypt_2017.jpg | AhmedMosaad | CC BY-SA 4.0 |
+| `g-wadi-hitan` | what-it-is | Dorudon_atrox_fossil_at_Wadi_El-Hitan,_Egypt,_March_2008.jpg | Christoph Rohner | CC BY-SA 3.0 |
+| `g-wadi-hitan` | wadi-el-rayan | Fennec_FOX_-_Valley_of_the_Whales_-_Wadi_al_Hitan_2.jpg | Khaled Mokhtar | CC BY-SA 4.0 |
+| `g-wadi-gemal` | hero | 27057-_Wadi_el_Gemal_landscape.jpg | Panegyrics of Granovetter | CC BY-SA 2.0 |
+| `g-wadi-gemal` | what-you-will-see | WadiElGimal3.jpg | Roland Unger | CC BY-SA 4.0 |
+| `g-wadi-gemal` | what-you-will-see | Sooty_Gull_in_Ras_Baghdadi_-_Wadi_El-Gemal_National_Park,_Red_Sea_7.jpg | Mohammad Chawki | CC BY-SA 4.0 |
+
+Guide cards elsewhere (lists, related guides) show the hero photo without a credit line; the credit is on the page itself.

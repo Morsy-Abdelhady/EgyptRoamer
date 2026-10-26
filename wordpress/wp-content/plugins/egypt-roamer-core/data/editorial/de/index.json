@@ -219,6 +219,13 @@
   "review": "approved",
   "current": true
  },
+ "g-edfu": {
+  "type": "er_guide",
+  "title": "Der Tempel von Edfu: Besuch im Horustempel",
+  "excerpt": "Der Horustempel von Edfu, einer der vollständigsten Tempel des alten Ägypten: wie er in 180 Jahren erbaut und vom Schutt bewahrt wurde, was Sie vom Pylon bis zum Allerheiligsten sehen und wie Sie ihn zwischen Assuan und Luxor besuchen.",
+  "review": "approved",
+  "current": true
+ },
  "g-el-gouna": {
   "type": "er_guide",
   "title": "El Gouna: die Lagunenstadt nördlich von Hurghada",
@@ -244,6 +251,13 @@
   "type": "er_guide",
   "title": "Das Große Sandmeer: Ägyptens Ozean aus Dünen",
   "excerpt": "Was das Große Sandmeer ist, wie es mit der Oase Siwa zusammenhängt und was Sie prüfen sollten, bevor Sie einen Wüstenausflug wählen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-hatshepsut": {
+  "type": "er_guide",
+  "title": "Der Tempel der Hatschepsut in Deir el-Bahari",
+  "excerpt": "Der Tempel der Hatschepsut in Deir el-Bahari am Westufer von Luxor: die Königin, die Pharao wurde, die drei Terrassen unter der Felswand, die Reliefs der Expedition nach Punt und ihrer göttlichen Geburt und wie Sie ihn in einen Tag am Westufer einplanen.",
   "review": "approved",
   "current": true
  },
@@ -307,6 +321,20 @@
   "type": "er_guide",
   "title": "Das Tal der Könige: Gräber, Tickets und Tipps",
   "excerpt": "So besuchen Sie das Tal der Könige in Luxor: was die Königsgräber sind, wie die Tickets funktionieren, Tutanchamun und Sethos I., was es am Westufer noch zu sehen gibt, und praktische Tipps für ein heißes, volles Tal.",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-gemal": {
+  "type": "er_guide",
+  "title": "Nationalpark Wadi el-Gemal am südlichen Roten Meer",
+  "excerpt": "Der Nationalpark Wadi el-Gemal an Ägyptens südlicher Rotmeerküste: eines der größten Täler der Ostwüste, der Gebel Hamata, Mangroven, einige der besten unberührten Riffe des Landes und die Strände, an denen Meeresschildkröten nisten, mit Tipps für einen verantwortungsvollen Besuch.",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-hitan": {
+  "type": "er_guide",
+  "title": "Wadi al-Hitan, das Tal der Wale: Ägyptens Fossilienwüste",
+  "excerpt": "Wadi al-Hitan, das Tal der Wale, in der Wüste des Fayum: fossile Wale aus der Zeit, als sie noch Hinterbeine hatten, warum die UNESCO es als Welterbe führt, was das Schutzgebiet Wadi el-Rayan noch bietet und wie Sie den Ausflug von Kairo planen.",
   "review": "approved",
   "current": true
  },

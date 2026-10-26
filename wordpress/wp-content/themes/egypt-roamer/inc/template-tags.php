@@ -67,6 +67,18 @@ function er_stock_img( string $photo_id, string $alt, array $attrs = [], array $
  * shows, instead of a wide file of which a third is visible, stretched (a phone hero was upscaled 3×).
  */
 function er_stock_url( string $photo_id, int $w, float $ratio = 0.0, float $max_ratio = 0.0 ): string {
+	// "commons:File name.jpg" (owner, 26 Oct): a Wikimedia Commons photo, hot-linked at the nearest standard thumbnail
+	// width. Commons does not crop; the CSS (object-fit: cover) frames it.
+	if ( 0 === strpos( $photo_id, 'commons:' ) ) {
+		$file = str_replace( ' ', '_', substr( $photo_id, 8 ) );
+		$hash = md5( $file );
+		foreach ( [ 500, 960, 1280, 1920 ] as $size ) {
+			if ( $w <= $size ) {
+				break;
+			}
+		}
+		return 'https://upload.wikimedia.org/wikipedia/commons/thumb/' . $hash[0] . '/' . substr( $hash, 0, 2 ) . '/' . rawurlencode( $file ) . '/' . $size . 'px-' . rawurlencode( $file );
+	}
 	// $max_ratio caps the height only (imgix max-h): a taller photo is cropped to it, centred; a wider one is
 	// left whole, so its sides are never cut.
 	$h = $ratio > 0 ? '&h=' . (int) round( $w * $ratio ) : ( $max_ratio > 0 ? '&max-h=' . (int) round( $w * $max_ratio ) : '' );
@@ -78,6 +90,31 @@ function er_stock_url( string $photo_id, int $w, float $ratio = 0.0, float $max_
 		$crop = in_array( $pos, [ 'top', 'bottom', 'left', 'right', 'faces', 'entropy' ], true ) ? '&crop=' . $pos : '';
 	}
 	return 'https://images.unsplash.com/photo-' . rawurlencode( $photo_id ) . '?auto=format&fit=crop' . $crop . '&w=' . $w . $h . '&q=76';
+}
+
+/**
+ * A Commons photo's credit, which its licence requires next to it: [ 'Photo: author, Wikimedia Commons, licence', file page ].
+ * Authors and licences as read on each file page on 26 Oct (docs/IMAGE-QUALITY-AUDIT-2026-10-02.md §8).
+ */
+function er_commons_credit( string $photo_id ): array {
+	$credits = [
+		'Temple_of_Edfu,_Pylon,_Egypt.jpg'                                                          => [ 'Vyacheslav Argenberg', 'CC BY 4.0' ],
+		'Edfu_Temple_pylon_from_inner_court.jpg'                                                    => [ 'Matthias Kabel', 'CC BY-SA 3.0' ],
+		'Edfu-Relief.jpg'                                                                           => [ 'Steven C. Price', 'CC BY-SA 4.0' ],
+		'Templo_funerario_de_Hatshepsut,_Luxor,_Egipto,_2022-04-03,_DD_13.jpg'                      => [ 'Diego Delso', 'CC BY-SA 4.0' ],
+		'Thebes,_Luxor,_Egypt,_Temple_of_Hatshepsut,_Deir_el-Bahari.jpg'                            => [ 'Vyacheslav Argenberg', 'CC BY 4.0' ],
+		'Cavetto_and_Osiris_statue,_Mortuary_Temple_of_Hatshepsut,_Deir_el-Bahari,_Egypt_-_20110516.jpg' => [ 'Alexander Baranov', 'CC BY 2.0' ],
+		'Wadi_Hitan_Sunset.jpg'                                                                     => [ 'Medomadrex', 'CC BY-SA 4.0' ],
+		'The_whales_fossils_at_Wadi_El-Hitan,_Egypt_2017.jpg'                                       => [ 'AhmedMosaad', 'CC BY-SA 4.0' ],
+		'Dorudon_atrox_fossil_at_Wadi_El-Hitan,_Egypt,_March_2008.jpg'                              => [ 'Christoph Rohner', 'CC BY-SA 3.0' ],
+		'Fennec_FOX_-_Valley_of_the_Whales_-_Wadi_al_Hitan_2.jpg'                                   => [ 'Khaled Mokhtar', 'CC BY-SA 4.0' ],
+		'27057-_Wadi_el_Gemal_landscape.jpg'                                                        => [ 'Panegyrics of Granovetter', 'CC BY-SA 2.0' ],
+		'WadiElGimal3.jpg'                                                                          => [ 'Roland Unger', 'CC BY-SA 4.0' ],
+		'Sooty_Gull_in_Ras_Baghdadi_-_Wadi_El-Gemal_National_Park,_Red_Sea_7.jpg'                   => [ 'Mohammad Chawki', 'CC BY-SA 4.0' ],
+	];
+	$file = str_replace( ' ', '_', substr( $photo_id, 8 ) );
+	[ $who, $licence ] = $credits[ $file ] ?? [ '', '' ];
+	return [ 'Photo: ' . ( '' !== $who ? $who . ', ' : '' ) . 'Wikimedia Commons' . ( '' !== $licence ? ', ' . $licence : '' ), 'https://commons.wikimedia.org/wiki/File:' . rawurlencode( $file ) ];
 }
 
 function er_stock_srcset( string $photo_id, array $widths, float $ratio = 0.0, float $max_ratio = 0.0 ): string {

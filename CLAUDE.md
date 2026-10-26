@@ -3,7 +3,7 @@
 An affiliate-first travel publication about Egypt, built on WordPress and live at https://egyptroamer.com (GoDaddy Managed WordPress). The site takes no bookings and no payments.
 
 ## Current state: read this first
-- **Latest handoff:** `docs/HANDOFF-2026-10-25.md`. Live versions: Theme 1.3.19 / Core 1.2.74. The balloon trip is live in 8 languages with Klook offer #967; page-coverage passed on 392 pages on 25 Oct. First follow-up: fix guide-sync title comparison so six unchanged English guides stop appearing as updates. The prototype parity review (`docs/PROTOTYPE-PARITY-2026-10-18.md`) records the main screens as compared on 19 Oct; see the handoff for remaining differences and SEO follow-up dates.
+- **Latest handoff:** `docs/HANDOFF-2026-10-25.md`. Live versions: Theme 1.3.20 / Core 1.2.75. The balloon trip is live in 8 languages with Klook offer #967; page-coverage passed on 392 pages on 25 Oct. First follow-up: fix guide-sync title comparison so six unchanged English guides stop appearing as updates. The prototype parity review (`docs/PROTOTYPE-PARITY-2026-10-18.md`) records the main screens as compared on 19 Oct; see the handoff for remaining differences and SEO follow-up dates.
 - **Growth plan (owner-approved 2026-10-26):** `docs/GROWTH-PLAN-INTENSIVE-2026-10-26.md`. Goal: 1,000,000 GA4 sessions a month, stretch target December 2027 (very limited ad budget), safer target late 2028; checkpoints in its §4. Its §5 is the current week's work; its §3 lists the six owner decisions applied below.
 - **Live partners:**
   - Viator (tours, 17 offers);
@@ -35,6 +35,7 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
 - **Photography:** only brand assets are owned. Allowed photos:
   - the prototype's Unsplash photos, approved 2026-09-28 as hot-linked stand-ins;
   - new **free** Unsplash photos whose **location tag names the exact Egyptian place** (owner, 2026-10-03). Record each in `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5.
+  - **Wikimedia Commons** photos of the exact place (owner, 2026-10-26: "take the photos from Wikipedia"), free licences only (CC BY, CC BY-SA, public domain). Each shows "Photo: author, Wikimedia Commons, licence" under it: add the file to `er_commons_credit()` in the theme's `inc/template-tags.php` and record it in the audit's §9. Use a `commons:File name.jpg` id in extraStock or `inc/world-guide-photos.php`.
 
   Rules:
   - **Media Library** (owner, 2026-10-26): the main hero photos may be copied into the Media Library and served from our domain for speed, using only the allowed Unsplash photos above, with their credit kept. Anything else still needs asking first.

@@ -147,3 +147,12 @@ Sankt Katharina/Sainte-Catherine, etc.), and stamped them with the new English h
 | `g-14-days` | Kom Ombo (Sobek and Horus the Elder) and Edfu (Horus, west bank) named in the day 7–9 line |
 
 After compiling, `python tools/editorial.py status` lists all 336 translations as `approved current`.
+
+## Addendum, 26 Oct 2026 (evening): four place pages
+
+New English pages `g-edfu`, `g-hatshepsut`, `g-wadi-hitan` and `g-wadi-gemal`, written from Ministry of Tourism and
+Antiquities, EEAA and UNESCO pages (`docs/CONTENT-SOURCES.md`). Claude translated each into ar, de, fr, it, es, ru and
+zh (28 files) and reviewed them against the English sentence by sentence, using each language's usual names
+(Hatschepsut/Hatchepsout, Edfou, Fayyum/Fayoum, the local names of the gazelles and foxes). Stamped with the English
+hash and the reviewer line `Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26`.
+The owner approved the look on the local site on 26 Oct and asked for all 8 languages to be published.

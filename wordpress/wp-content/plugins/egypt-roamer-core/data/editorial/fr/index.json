@@ -219,6 +219,13 @@
   "review": "approved",
   "current": true
  },
+ "g-edfu": {
+  "type": "er_guide",
+  "title": "Le temple d’Edfou : visiter le temple d’Horus",
+  "excerpt": "Le temple d’Horus à Edfou, l’un des temples les plus complets de l’Égypte ancienne : comment il a été bâti en 180 ans et préservé sous les décombres, ce que vous verrez du pylône au sanctuaire, et comment le visiter entre Assouan et Louxor.",
+  "review": "approved",
+  "current": true
+ },
  "g-el-gouna": {
   "type": "er_guide",
   "title": "El Gouna : la ville des lagunes au nord d’Hurghada",
@@ -244,6 +251,13 @@
   "type": "er_guide",
   "title": "La Grande mer de sable : l’océan de dunes de l’Égypte",
   "excerpt": "Ce qu’est la Grande mer de sable, son lien avec l’oasis de Siwa et ce qu’il faut vérifier avant de choisir une excursion dans le désert.",
+  "review": "approved",
+  "current": true
+ },
+ "g-hatshepsut": {
+  "type": "er_guide",
+  "title": "Le temple d’Hatchepsout à Deir el-Bahari",
+  "excerpt": "Le temple d’Hatchepsout à Deir el-Bahari, sur la rive ouest de Louxor : la reine devenue pharaon, les trois terrasses au pied de la falaise, les reliefs de l’expédition au pays de Pount et de sa naissance divine, et comment l’inclure dans une journée sur la rive ouest.",
   "review": "approved",
   "current": true
  },
@@ -307,6 +321,20 @@
   "type": "er_guide",
   "title": "La Vallée des Rois : tombes, billets et conseils",
   "excerpt": "Comment visiter la Vallée des Rois à Louxor : ce que sont les tombes royales, comment fonctionnent les billets, Toutânkhamon et Séthi Iᵉʳ, que voir d’autre sur la rive ouest, et des conseils pratiques pour une vallée chaude et fréquentée.",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-gemal": {
+  "type": "er_guide",
+  "title": "Le parc national de Wadi el-Gemal, sur la mer Rouge du Sud",
+  "excerpt": "Le parc national de Wadi el-Gemal, sur la côte sud de la mer Rouge égyptienne : l’une des plus grandes vallées du désert oriental, le Gebel Hamata, des mangroves, certains des plus beaux récifs intacts du pays et les plages où pondent les tortues marines, avec des conseils pour une visite responsable.",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-hitan": {
+  "type": "er_guide",
+  "title": "Wadi al-Hitan, la vallée des Baleines : le désert fossile de l’Égypte",
+  "excerpt": "Wadi al-Hitan, la vallée des Baleines, dans le désert du Fayoum : des baleines fossiles de l’époque où elles avaient encore des pattes arrière, pourquoi l’UNESCO l’inscrit au patrimoine mondial, ce que l’aire protégée de Wadi el-Rayan offre d’autre, et comment organiser l’excursion depuis Le Caire.",
   "review": "approved",
   "current": true
  },

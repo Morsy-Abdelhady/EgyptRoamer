@@ -643,9 +643,16 @@ function er_world_guide_photos( string $html, int $post_id ): string {
 		$row = '<div class="gplace gplace--' . min( 3, count( $photos ) ) . '"><p class="gplace__t">' . esc_html( er_t( 'See the place' ) ) . '</p><div class="gplace__g">';
 		foreach ( $photos as [ $id, $caption, $who ] ) {
 			$base = 'https://images.unsplash.com/photo-' . $id . '?auto=format&fit=crop&q=72';
+			$url  = static fn ( int $w ) => $base . '&w=' . $w . '&h=' . (int) round( $w * 2 / 3 );
+			$who  = 'Photo: ' . ( '' !== $who ? $who . ', ' : '' ) . 'Unsplash';
+			if ( 0 === strpos( $id, 'commons:' ) ) {
+				// A Wikimedia Commons photo (er_stock_url), with the credit and licence it requires.
+				$url = static fn ( int $w ) => er_stock_url( $id, $w );
+				$who = er_commons_credit( $id )[0];
+			}
 			// Each photo opens the guide's photo viewer (assets/js/p4-guide.js), as in the prototype (owner, 20 Oct, #12).
-			$row .= '<figure tabindex="0" role="button" data-full="' . esc_url( $base . '&w=1800' ) . '"><img src="' . esc_url( $base . '&w=1200&h=800' ) . '" srcset="' . esc_attr( $base . '&w=600&h=400 600w, ' . $base . '&w=900&h=600 900w, ' . $base . '&w=1200&h=800 1200w, ' . $base . '&w=1600&h=1067 1600w' ) . '" sizes="(max-width: 700px) 90vw, 860px" alt="' . esc_attr( $english ? $caption : '' ) . '" loading="lazy" decoding="async" width="900" height="600" />'
-				. '<figcaption>' . ( $english ? '<span>' . esc_html( $caption ) . '</span>' : '' ) . '<small>' . esc_html( 'Photo: ' . ( '' !== $who ? $who . ', ' : '' ) . 'Unsplash' ) . '</small></figcaption></figure>';
+			$row .= '<figure tabindex="0" role="button" data-full="' . esc_url( 0 === strpos( $id, 'commons:' ) ? er_stock_url( $id, 1920 ) : $base . '&w=1800' ) . '"><img src="' . esc_url( $url( 1200 ) ) . '" srcset="' . esc_attr( $url( 600 ) . ' 600w, ' . $url( 900 ) . ' 900w, ' . $url( 1200 ) . ' 1200w, ' . $url( 1600 ) . ' 1600w' ) . '" sizes="(max-width: 700px) 90vw, 860px" alt="' . esc_attr( $english ? $caption : '' ) . '" loading="lazy" decoding="async" width="900" height="600" />'
+				. '<figcaption>' . ( $english ? '<span>' . esc_html( $caption ) . '</span>' : '' ) . '<small>' . esc_html( $who ) . '</small></figcaption></figure>';
 		}
 		$row .= '</div></div>';
 		$html = substr_replace( $html, $row, $pos, 0 );

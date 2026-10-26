@@ -219,6 +219,13 @@
   "review": "approved",
   "current": true
  },
+ "g-edfu": {
+  "type": "er_guide",
+  "title": "El templo de Edfu: visitar el templo de Horus",
+  "excerpt": "El templo de Horus en Edfu, uno de los templos más completos del antiguo Egipto: cómo se construyó en 180 años y se conservó bajo los escombros, qué verás del pilono al santuario y cómo visitarlo entre Asuán y Lúxor.",
+  "review": "approved",
+  "current": true
+ },
  "g-el-gouna": {
   "type": "er_guide",
   "title": "El Gouna: la ciudad de las lagunas al norte de Hurghada",
@@ -244,6 +251,13 @@
   "type": "er_guide",
   "title": "El Gran Mar de Arena: el océano de dunas de Egipto",
   "excerpt": "Qué es el Gran Mar de Arena, qué relación tiene con el oasis de Siwa y qué comprobar antes de elegir una excursión por el desierto.",
+  "review": "approved",
+  "current": true
+ },
+ "g-hatshepsut": {
+  "type": "er_guide",
+  "title": "El templo de Hatshepsut en Deir el-Bahari",
+  "excerpt": "El templo de Hatshepsut en Deir el-Bahari, en la orilla oeste de Lúxor: la reina que se convirtió en faraón, las tres terrazas bajo el acantilado, los relieves de la expedición al país de Punt y de su nacimiento divino, y cómo incluirlo en un día en la orilla oeste.",
   "review": "approved",
   "current": true
  },
@@ -307,6 +321,20 @@
   "type": "er_guide",
   "title": "El Valle de los Reyes: tumbas, entradas y consejos",
   "excerpt": "Cómo visitar el Valle de los Reyes en Luxor: qué son las tumbas reales, cómo funcionan las entradas, Tutankamón y Seti I, qué más ver en la orilla oeste, y consejos prácticos para un valle caluroso y concurrido.",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-gemal": {
+  "type": "er_guide",
+  "title": "El parque nacional de Wadi el-Gemal, en el sur del mar Rojo",
+  "excerpt": "El parque nacional de Wadi el-Gemal, en la costa sur del mar Rojo egipcio: uno de los valles más grandes del desierto oriental, el Gebel Hamata, manglares, algunos de los mejores arrecifes intactos del país y las playas donde anidan las tortugas marinas, con consejos para una visita responsable.",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-hitan": {
+  "type": "er_guide",
+  "title": "Wadi al-Hitan, el Valle de las Ballenas: el desierto fósil de Egipto",
+  "excerpt": "Wadi al-Hitan, el Valle de las Ballenas, en el desierto de El Fayum: ballenas fósiles de cuando aún tenían patas traseras, por qué la UNESCO lo incluye en el patrimonio mundial, qué más ofrece el área protegida de Wadi el-Rayan y cómo planificar la excursión desde El Cairo.",
   "review": "approved",
   "current": true
  },

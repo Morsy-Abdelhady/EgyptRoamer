@@ -80,7 +80,8 @@
   {
    "claim": "Edfu: temple of Horus, begun under Ptolemy III in 237 BC, completed in 57 BC; its plan along one main axis is the classic example of an Egyptian temple",
    "guides": [
-    "g-nile-cruise"
+    "g-nile-cruise",
+    "g-edfu"
    ],
    "links": [
     {
@@ -119,7 +120,8 @@
   {
    "claim": "Wadi Al-Hitan: inscribed 2005; fossils of the earliest whales (Archaeoceti), the youngest in the last stages of losing their hind limbs",
    "guides": [
-    "g-day-trips-cairo"
+    "g-day-trips-cairo",
+    "g-wadi-hitan"
    ],
    "links": [
     {
@@ -216,6 +218,45 @@
    "checked": "2026-10-15"
   },
   {
+   "claim": "Giza (official, 2026-10-26 review): 4th Dynasty; Great Pyramid built for Khufu (c. 2589–2566 BC), the other two for Khafre and Menkaure, his son and grandson; Khufu's oldest and largest; original height 146.5 m; no taller building for about 3,800 years; the plateau (area) ticket does not cover the Great Pyramid, Khafre or Menkaure, each a separate ticket. Replaces \"completed early 25th century BC\" in `g-inside-pyramids`. Prices and hours on the page are not used",
+   "guides": [
+    "g-inside-pyramids"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/archaeological-sites/giza-plateau"
+    }
+   ],
+   "checked": "2026-10-26"
+  },
+  {
+   "claim": "Great Pyramid interior (official): three chambers, one cut into the bedrock underneath and two high up in the masonry; the King's Chamber the upper, with the sarcophagus; the Grand Gallery a corbelled ascending passage; original height 146.5 m",
+   "guides": [
+    "g-inside-pyramids"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/monuments/the-great-pyramid/"
+    }
+   ],
+   "checked": "2026-10-26"
+  },
+  {
+   "claim": "Ras Mohammed National Park: declared in 1983; coral reefs and other marine habitats are protected",
+   "guides": [
+    "g-snorkelling"
+   ],
+   "links": [
+    {
+     "name": "eeaa.gov.eg",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-25"
+  },
+  {
    "claim": "Karnak: one of the largest temple complexes; great temple of Amun-Ra with the precincts of Mut and Montu; built over many centuries without a single plan; Great Hypostyle Hall between the 2nd and 3rd pylons, decorated under Seti I and Ramesses II, 12 central columns about 24 m, 134 columns in all; outer-wall reliefs of Seti I's victories and Ramesses II at Kadesh",
    "guides": [
     "g-east-bank"
@@ -242,22 +283,44 @@
    "checked": "2026-10-15"
   },
   {
-   "claim": "Great Sand Sea: an erg in the Western Desert reaching from western Egypt into eastern Libya, mostly covered by dunes; Siwa on its eastern side",
+   "claim": "Great Sand Sea is a dune landscape reached from the Siwa area; the Egyptian Ministry of Tourism and Antiquities highlights sandboarding there",
    "guides": [
     "g-great-sand-sea"
    ],
    "links": [
     {
-     "name": "Wikipedia",
-     "url": "https://en.wikipedia.org/wiki/Great_Sand_Sea"
+     "name": "experienceegypt.eg",
+     "url": "https://www.experienceegypt.eg/en/City/15/siwa-oasis"
+    },
+    {
+     "name": "experienceegypt.eg",
+     "url": "https://www.experienceegypt.eg/files/Deserts%20and%20Oases-Eng.pdf"
+    },
+    {
+     "name": "UNESCO World Heritage Centre",
+     "url": "https://whc.unesco.org/en/tentativelists/1812/"
     }
    ],
-   "checked": "2026-10-15"
+   "checked": "2026-10-25"
+  },
+  {
+   "claim": "Siwa Protected Area: declared 2002; official description lists safari and desert tourism among the area's tourism activities",
+   "guides": [
+    "g-great-sand-sea"
+   ],
+   "links": [
+    {
+     "name": "eeaa.gov.eg",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-25"
   },
   {
    "claim": "Deir el-Bahari: bay in the cliffs east of the Valley of the Kings; name \"northern monastery\" (7th-c. monastery); Hatshepsut's terraced temple c. 1470 BC, uncovered 1894–96, partly restored, famous use of its site; Mentuhotep II temple c. 1970 BC; Thutmose III temple found by the Polish mission that began restoring the third terrace in 1968",
    "guides": [
-    "g-west-bank"
+    "g-west-bank",
+    "g-hatshepsut"
    ],
    "links": [
     {
@@ -424,6 +487,128 @@
    "checked": "2026-10-15"
   },
   {
+   "claim": "Saint Catherine's Monastery (official, 2026-10-26 review): built on the order of Justinian I (527–565) in 548–565 AD; full name \"Sacred Monastery of the God-Trodden Mount Sinai\"; Saint Catherine of Alexandria martyred in the early 4th century, her body found by the monks on nearby Mount Saint Catherine in the 9th century; the Church of the Transfiguration contains nine smaller churches, one the Church of the Burning Bush; a Fatimid mosque from the 12th century; a library of about 6,000 manuscripts. Replaces \"by tradition the monks built a small mosque\" and \"church of the Virgin Mary\" in `g-sinai`. Opening hours on the page are not used",
+   "guides": [
+    "g-sinai"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/archaeological-sites/saint-catherine-s-monastery"
+    }
+   ],
+   "checked": "2026-10-26"
+  },
+  {
+   "claim": "Saint Katherine Protectorate: South Sinai; declared 1988; landscape protectorate; Egypt's highest peaks, among them Mount Katherine and Mount Moses; includes the monastery. Area not used: EEAA pages give 4,250, 4,350 and 4,412 km²",
+   "guides": [
+    "g-sinai"
+   ],
+   "links": [
+    {
+     "name": "eeaa.gov.eg",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-26"
+  },
+  {
+   "claim": "Kom Ombo: temple of the crocodile god Sobek and the falcon god Har wer (Horus the Elder), present structure Graeco-Roman; Edfu: temple of Horus on the western bank of the Nile, built from Ptolemy III to Ptolemy XII",
+   "guides": [
+    "g-14-days",
+    "g-edfu"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/monuments/kom-ombo-temple/"
+    },
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/monuments/temple-of-edfu/"
+    }
+   ],
+   "checked": "2026-10-26"
+  },
+  {
+   "claim": "Edfu Temple: one of the most striking and complete Egyptian temples; dedicated to Horus; western bank of the Nile; begun under Ptolemy III in 237 BC, completed under Ptolemy XII in 57 BC, 180 years later; buried under settlement debris, hence well preserved; uncovered and partly restored by Auguste Mariette in 1860; two pylons with Ptolemy XII smiting enemies and worshipping deities; two granite falcon statues of Horus; peristyle court with floral capitals; first hypostyle hall: foundation of the temple, king worshipping; second: Horus' journey in a sacred bark with Hathor; transverse hall, then sanctuary. Hours and ticket prices on the page not used",
+   "guides": [
+    "g-edfu"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/monuments/temple-of-edfu"
+    }
+   ],
+   "checked": "2026-10-26"
+  },
+  {
+   "claim": "Hatshepsut's temple: queen who became pharaoh, c. 1473–1458 BC; Deir al-Bahari, west bank of Luxor, directly across the Nile from Karnak; *Djeser-djeseru* \"Holy of Holies\", designed by Senenmut, chief steward of Amun; three levels, each with a colonnade at its far end; open court beyond the portico on the upper level, Osiride statues of Hatshepsut against its pillars; mortuary temple, also cults of Thutmose I, Hathor, Anubis; open-air altar of Ra-Horakhty; Amun's sanctuary cut into the rock on the central axis; reliefs of rituals, festivals, transport of obelisks to Karnak; middle portico: Punt expedition (left, Punt thought near modern Eritrea), divine birth and claim to the throne (right)",
+   "guides": [
+    "g-hatshepsut"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/monuments/hatshepsut-temple"
+    }
+   ],
+   "checked": "2026-10-26"
+  },
+  {
+   "claim": "Deir al-Bahari: three man-made terraces rising to the cliff; site sacred to Hathor, stelae show her as a cow emerging from the mountain; Valley of the Kings on the other side of the hills; Nebhepetre Mentuhotep (c. 2055–2004 BC) chose the site for his tomb and temple 600 years before Hatshepsut; statues of Amun, Mut and Khonsu crossed the Nile each year to visit the royal mortuary temples, Hatshepsut's one of the most important stops. Name, 1894–96 excavation and Polish restoration from 1968: Britannica row above",
+   "guides": [
+    "g-hatshepsut"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/archaeological-sites/deir-al-bahari"
+    }
+   ],
+   "checked": "2026-10-26"
+  },
+  {
+   "claim": "Wadi Al-Hitan: Western Desert, Faiyum Governorate; inscribed 2005; fossils of the earliest, extinct suborder of whales, Archaeoceti; emergence of the whale from land animal to ocean-going mammal; most important site in the world for this stage; number, concentration and quality of fossils unique, as are their accessibility and setting in a protected landscape; youngest archaeocetes, in the last stages of losing their hind limbs; part of the Wadi El-Rayan Protected Area; footpaths guide visitors to key localities, vehicles kept out of the property",
+   "guides": [
+    "g-wadi-hitan"
+   ],
+   "links": [
+    {
+     "name": "UNESCO World Heritage Centre",
+     "url": "https://whc.unesco.org/en/list/1186/"
+    }
+   ],
+   "checked": "2026-10-26"
+  },
+  {
+   "claim": "Wadi El-Rayan Protected Area (Fayoum): declared 1989; waterfalls formed by agricultural drainage water; Ain El-Rayan: moving dunes with four natural sulphur springs; Gebel El-Rayan: deep gorges, favourite panorama point; Wadi Al-Hitan in its northwest: fossils about 40 million years old of primitive whales, shark teeth, shells and other marine animals, an open-air museum, fossilised mangrove in soft rock; threatened slender-horned (white) and Dorcas gazelles, fennec and sand fox, rare migratory birds of prey. Distance from Cairo not used",
+   "guides": [
+    "g-wadi-hitan"
+   ],
+   "links": [
+    {
+     "name": "eeaa.gov.eg",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-26"
+  },
+  {
+   "claim": "Wadi El-Gemal – Hamata Protected Area: declared 2003; 7,636.7 km²; national park; south of the Red Sea governorate; about 60 km of coast, on average about 50 km into the Eastern Desert mountains and about 10 km into the sea; Wadi El-Gemal one of the largest and richest Eastern Desert valleys, rare and endangered species; Gebel Hamata one of the highest Eastern Desert mountains; some of Egypt's largest and most important mangroves, rare and very sensitive; some of Egypt's best pristine reefs, internationally famous, along the shore and as submerged islands; important seagrass meadows; islands of international importance for breeding birds and sea turtles; Egypt's most important sea turtle nesting beaches. Distance from Cairo not used",
+   "guides": [
+    "g-wadi-gemal"
+   ],
+   "links": [
+    {
+     "name": "eeaa.gov.eg",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-26"
+  },
+  {
    "claim": "Hanging Church: built over the ruins of Old Cairo's Roman fort; three rows of marble columns, four wings; ceiling like Noah's Ark; 11th-c. marble pulpit on ten columns; icons from the 15th c. (oldest) and late 18th c.",
    "guides": [
     "g-coptic-cairo"
@@ -478,7 +663,8 @@
   {
    "claim": "Luxor balloons: flights over the West Bank from sunrise; the Civil Aviation Authority and the Egyptian Airports Company paused commercial flights from 1 June to 30 August 2026 at the request of all operators, first time in 38 years, citing summer heat, described as annual; flights resumed in September; baskets in eight models for 2 to 32 passengers",
    "guides": [
-    "g-luxor-balloon"
+    "g-luxor-balloon",
+    "exp-balloon"
    ],
    "links": [
     {
@@ -491,7 +677,8 @@
   {
    "claim": "Luxor balloons: on 13 March 2026 the Civil Aviation Authority cancelled West Bank flights after warnings of strong winds and unstable early-morning weather",
    "guides": [
-    "g-luxor-balloon"
+    "g-luxor-balloon",
+    "exp-balloon"
    ],
    "links": [
     {
@@ -504,7 +691,8 @@
   {
    "claim": "2013 Luxor balloon crash: 26 Feb 2013, fire on landing, 19 of 21 on board died; Civil Aviation Authority report (7 Jan 2014) blamed a leak in an ageing fuel line; after a 2009 crash flights were grounded six months, pilot training increased and a designated launch site given",
    "guides": [
-    "g-luxor-balloon"
+    "g-luxor-balloon",
+    "exp-balloon"
    ],
    "links": [
     {

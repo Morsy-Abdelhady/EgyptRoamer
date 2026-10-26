@@ -9,6 +9,20 @@
 defined( 'ABSPATH' ) || exit;
 
 return [
+	// Place pages (26 Oct): Wikimedia Commons photos (owner, 26 Oct), credited by er_commons_credit().
+	'temple-of-edfu' => [
+		'what-you-will-see' => [ [ 'commons:Edfu Temple pylon from inner court.jpg', 'The court and the pylon, from inside the temple', '' ], [ 'commons:Edfu-Relief.jpg', 'A relief in the temple of Horus', '' ] ],
+	],
+	'temple-of-hatshepsut-deir-el-bahari' => [
+		'what-you-will-see' => [ [ 'commons:Thebes, Luxor, Egypt, Temple of Hatshepsut, Deir el-Bahari.jpg', 'The temple under the cliffs of Deir el-Bahari', '' ], [ 'commons:Cavetto and Osiris statue, Mortuary Temple of Hatshepsut, Deir el-Bahari, Egypt - 20110516.jpg', 'A statue of Hatshepsut as Osiris', '' ] ],
+	],
+	'wadi-al-hitan-whale-valley' => [
+		'what-it-is' => [ [ 'commons:The whales fossils at Wadi El-Hitan, Egypt 2017.jpg', 'A fossil whale skeleton at sunset', '' ], [ 'commons:Dorudon atrox fossil at Wadi El-Hitan, Egypt, March 2008.jpg', 'The fossil of a Dorudon whale', '' ] ],
+		'wadi-el-rayan' => [ [ 'commons:Fennec FOX - Valley of the Whales - Wadi al Hitan 2.jpg', 'A fennec fox at Wadi Al-Hitan', '' ] ],
+	],
+	'wadi-el-gemal-national-park' => [
+		'what-you-will-see' => [ [ 'commons:WadiElGimal3.jpg', 'An acacia tree in Wadi El-Gemal', '' ], [ 'commons:Sooty Gull in Ras Baghdadi - Wadi El-Gemal National Park, Red Sea 7.jpg', 'A sooty gull on the coast of the park', '' ] ],
+	],
 	'luxor-west-bank-temples-and-tombs' => [
 		'deir-el-bahari' => [ [ '1669521762357-966bfdcbde1d', 'A balloon over Hatshepsut’s temple, Deir el-Bahari', 'Hongbin' ], [ '1683891043389-31a5ca0692f8', 'Hatshepsut’s temple, the statue terrace', 'Mahmoud Refaat' ] ],
 		'medinet-habu' => [ [ '1622962522220-0d9e0d29d62d', 'Medinet Habu, the painted gateway', 'Siddhesh Mangela' ], [ '1762858279425-ed77c08d7a1c', 'Medinet Habu, the carved columns', 'Fatih Beki' ] ],

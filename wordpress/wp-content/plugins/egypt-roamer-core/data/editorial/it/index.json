@@ -219,6 +219,13 @@
   "review": "approved",
   "current": true
  },
+ "g-edfu": {
+  "type": "er_guide",
+  "title": "Il tempio di Edfu: visitare il tempio di Horus",
+  "excerpt": "Il tempio di Horus a Edfu, uno dei templi più completi dell’antico Egitto: come fu costruito in 180 anni e conservato sotto i detriti, cosa vedrete dal pilone al santuario e come visitarlo tra Assuan e Luxor.",
+  "review": "approved",
+  "current": true
+ },
  "g-el-gouna": {
   "type": "er_guide",
   "title": "El Gouna: la città delle lagune a nord di Hurghada",
@@ -244,6 +251,13 @@
   "type": "er_guide",
   "title": "Il Grande Mare di Sabbia: l’oceano di dune dell’Egitto",
   "excerpt": "Che cos’è il Grande Mare di Sabbia, che rapporto ha con l’oasi di Siwa e cosa verificare prima di scegliere un’escursione nel deserto.",
+  "review": "approved",
+  "current": true
+ },
+ "g-hatshepsut": {
+  "type": "er_guide",
+  "title": "Il tempio di Hatshepsut a Deir el-Bahari",
+  "excerpt": "Il tempio di Hatshepsut a Deir el-Bahari, sulla riva occidentale di Luxor: la regina che divenne faraone, le tre terrazze sotto la parete rocciosa, i rilievi della spedizione nel paese di Punt e della sua nascita divina, e come inserirlo in una giornata sulla riva occidentale.",
   "review": "approved",
   "current": true
  },
@@ -307,6 +321,20 @@
   "type": "er_guide",
   "title": "La Valle dei Re: tombe, biglietti e consigli",
   "excerpt": "Come visitare la Valle dei Re a Luxor: cosa sono le tombe reali, come funzionano i biglietti, Tutankhamon e Seti I, cos’altro vedere sulla riva ovest, e consigli pratici per una valle calda e affollata.",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-gemal": {
+  "type": "er_guide",
+  "title": "Il parco nazionale di Wadi el-Gemal sul Mar Rosso meridionale",
+  "excerpt": "Il parco nazionale di Wadi el-Gemal, sulla costa meridionale del Mar Rosso egiziano: una delle valli più grandi del Deserto Orientale, il Gebel Hamata, le mangrovie, alcune delle migliori barriere coralline intatte del paese e le spiagge dove nidificano le tartarughe marine, con consigli per una visita responsabile.",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-hitan": {
+  "type": "er_guide",
+  "title": "Wadi al-Hitan, la Valle delle Balene: il deserto fossile d’Egitto",
+  "excerpt": "Wadi al-Hitan, la Valle delle Balene, nel deserto del Fayyum: balene fossili dell’epoca in cui avevano ancora le zampe posteriori, perché l’UNESCO la elenca come patrimonio mondiale, cos’altro offre l’area protetta di Wadi el-Rayan e come organizzare la gita dal Cairo.",
   "review": "approved",
   "current": true
  },

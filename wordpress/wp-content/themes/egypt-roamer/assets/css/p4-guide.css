@@ -309,3 +309,5 @@ html.glb-open{overflow:hidden}
 @media (max-width:600px){.gd .prose .gplace figure{flex:0 0 88%}.gd .prose .gplace--1 figure{flex-basis:100%}}
 /* Small gold labels on the light page: a darker gold for 4.5:1 contrast (PageSpeed / axe, 22 Oct). */
 .gd .prose h2 small,.gd .strip__t,.gd .tcard small,.gd .gcard small,.gd .gplace__t{color:#7d6311}
+/* Arabic: no drop cap. ::first-letter cut the first letter off its word ("ت" + "حت") and floated it to the wrong side (26 Oct). */
+[dir="rtl"] .gd .prose > p:first-child::first-letter,[dir="rtl"] .gd .prose > p.wp-block-paragraph:first-child::first-letter{float:none;font:inherit;color:inherit;margin:0}

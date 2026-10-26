@@ -213,6 +213,15 @@
   "destination": "luxor",
   "related": "exp-valley"
  },
+ "g-edfu": {
+  "type": "er_guide",
+  "title": "The Temple of Edfu: Visiting the Temple of Horus",
+  "excerpt": "The Temple of Horus at Edfu, one of the most complete temples of ancient Egypt: how it was built over 180 years and kept under the sand, what you see from the pylon to the sanctuary, and how to visit it between Aswan and Luxor.",
+  "slug": "temple-of-edfu",
+  "topic": "Planning",
+  "destination": "aswan, luxor",
+  "related": "exp-cruise"
+ },
  "g-el-gouna": {
   "type": "er_guide",
   "title": "El Gouna: The Lagoon Town North of Hurghada",
@@ -245,6 +254,15 @@
   "topic": "Planning",
   "destination": "siwa",
   "related": "exp-siwa"
+ },
+ "g-hatshepsut": {
+  "type": "er_guide",
+  "title": "The Temple of Hatshepsut at Deir el-Bahari",
+  "excerpt": "The Temple of Hatshepsut at Deir el-Bahari on Luxor's West Bank: the queen who became pharaoh, the three terraces under the cliff, the reliefs of the expedition to Punt and of her divine birth, and how to fit it into a West Bank day.",
+  "slug": "temple-of-hatshepsut-deir-el-bahari",
+  "topic": "Planning",
+  "destination": "luxor",
+  "related": "exp-valley"
  },
  "g-inside-pyramids": {
   "type": "er_guide",
@@ -326,6 +344,21 @@
   "topic": "Planning",
   "destination": "luxor",
   "related": "exp-valley"
+ },
+ "g-wadi-gemal": {
+  "type": "er_guide",
+  "title": "Wadi El-Gemal National Park on the Southern Red Sea",
+  "excerpt": "Wadi El-Gemal National Park on Egypt's southern Red Sea coast: one of the largest valleys of the Eastern Desert, Gebel Hamata, mangroves, some of the country's best untouched reefs, and the beaches where sea turtles nest, with tips for a responsible visit.",
+  "slug": "wadi-el-gemal-national-park",
+  "topic": "Planning"
+ },
+ "g-wadi-hitan": {
+  "type": "er_guide",
+  "title": "Wadi Al-Hitan, Whale Valley: Egypt's Fossil Desert",
+  "excerpt": "Wadi Al-Hitan, Whale Valley, in the Fayoum desert: fossil whales from the time they still had hind legs, why UNESCO lists it as a World Heritage site, what else the Wadi El-Rayan Protected Area holds, and how to plan the trip from Cairo.",
+  "slug": "wadi-al-hitan-whale-valley",
+  "topic": "Planning",
+  "destination": "cairo"
  },
  "g-west-bank": {
   "type": "er_guide",

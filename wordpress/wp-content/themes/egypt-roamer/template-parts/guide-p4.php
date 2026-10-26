@@ -123,6 +123,8 @@ $er_hero = [
 $er_thumb = (int) get_post_thumbnail_id( $er_id );
 $er_stock = ! $er_isplace && function_exists( 'er_ux2_guide_photo' ) && '' !== er_ux2_guide_photo( $er_id ) ? er_ux2_guide_photo( $er_id ) : er_stock_id_for( $er_id );
 $er_himg  = $er_hero ? er_stock_img( $er_hero[1], '', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw' ], [ 720, 960, 1400, 2000 ] ) : ( $er_thumb ? er_img( $er_thumb, 'er-hero', [ 'alt' => '', 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw' ] ) : ( '' !== $er_stock ? er_stock_img( $er_stock, '', [ 'loading' => 'eager', 'fetchpriority' => 'high', 'sizes' => '100vw' ], [ 720, 960, 1400, 2000 ] ) : '' ) );
+// A Wikimedia Commons photo carries the credit and licence it requires (er_commons_credit).
+$er_hcred = ! $er_hero && ! $er_thumb && 0 === strpos( $er_stock, 'commons:' ) ? er_commons_credit( $er_stock ) : null;
 $er_gidx  = (string) get_post_type_archive_link( $er_isplace ? 'er_destination' : 'er_guide' );
 $er_pidx  = ! $er_isplace && 1 === count( $er_dests ) ? add_query_arg( 'destination', (int) $er_dests[0]->ID, $er_gidx ) : $er_gidx;
 $er_src   = (int) get_queried_object_id();
@@ -161,6 +163,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 			<?php endif; ?>
 		</div>
 		<?php if ( $er_hero && '' !== $er_hero[2] ) : ?><span class="credit"><?php echo esc_html( $er_hero[2] ); ?></span><?php endif; ?>
+		<?php if ( $er_hcred ) : ?><a class="credit" href="<?php echo esc_url( $er_hcred[1] ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $er_hcred[0] ); ?></a><?php endif; ?>
 	</section>
 
 	<?php if ( $er_links ) : ?>
