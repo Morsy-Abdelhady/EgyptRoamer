@@ -110,7 +110,8 @@ function er_guide_create_english( string $default, bool $dry, array &$lines, arr
 			$hash     = (string) get_post_meta( $id, '_er_guide_tr_hash', true );
 			$post     = get_post( $id );
 			$pristine = $hash ? sha1( $content ) === $hash : ( $post && $post->post_modified_gmt === $post->post_date_gmt );
-			if ( $content === $body && get_the_title( $id ) === (string) $item['title'] ) {
+			// The stored title: get_the_title() texturizes it (Egypt's -> Egypt&#8217;s), so it never matched the file.
+			if ( $content === $body && (string) get_post_field( 'post_title', $id, 'raw' ) === (string) $item['title'] ) {
 				continue;
 			}
 			if ( ! $pristine ) {
@@ -223,7 +224,7 @@ function er_guide_translations_sync( bool $dry = true ): array {
 			if ( $tr && pll_get_post_language( $tr ) === $lang ) {
 				$content = trim( (string) get_post_field( 'post_content', $tr ) );
 				$hash    = (string) get_post_meta( $tr, '_er_guide_tr_hash', true );
-				if ( $content === trim( $body ) && get_the_title( $tr ) === $title ) {
+				if ( $content === trim( $body ) && (string) get_post_field( 'post_title', $tr, 'raw' ) === $title ) {
 					++$counts['current'];
 				} elseif ( $hash && sha1( $content ) === $hash ) {
 					if ( ! $dry ) {
