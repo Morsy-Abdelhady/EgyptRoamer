@@ -24,7 +24,7 @@ return [
 		'design' => [ [ 'commons:Temple of Sobek and Haroeris.jpg', 'The double entrance: Sobek on the right, Horus on the left', '' ], [ 'commons:Temple of Kom Ombo, Egypt.jpg', 'Columns and capitals of the temple', '' ] ],
 	],
 	'philae-temple-of-isis' => [
-		'isis' => [ [ 'commons:27138- Philae.jpg', 'The temple of Isis, Philae', '' ] ],
+		'isis' => [ [ 'commons:Agilkia Isis-Tempel 44.jpg', 'The pylons of the temple of Isis on Agilkia', '' ] ],
 		'what-you-will-see' => [ [ 'commons:Agilkia Trajankiosk 01.JPG', 'Trajan’s Kiosk on Agilkia island', '' ] ],
 	],
 	'wadi-el-gemal-national-park' => [

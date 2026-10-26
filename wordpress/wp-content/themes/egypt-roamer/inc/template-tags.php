@@ -118,7 +118,7 @@ function er_commons_credit( string $photo_id ): array {
 		'Temple_of_Kom_Ombo,_Egypt.jpg'                                                             => [ 'Carole Raddato', 'CC BY-SA 2.0' ],
 		'27133-_approach_to_the_island_of_Agilkia.jpg'                                              => [ 'Panegyrics of Granovetter', 'CC BY-SA 2.0' ],
 		'Agilkia_Trajankiosk_01.JPG'                                                                => [ 'Olaf Tausch', 'CC BY 3.0' ],
-		'27138-_Philae.jpg'                                                                         => [ 'Panegyrics of Granovetter', 'CC BY-SA 2.0' ],
+		'Agilkia_Isis-Tempel_44.jpg'                                                                         => [ 'Olaf Tausch', 'CC BY 3.0' ],
 		'134_Säulen_in_16_Reihen_geordnet_trugen_das_Dach_der_Halle._12.jpg'                        => [ 'Holger Uwe Schmitt', 'CC BY-SA 4.0' ],
 		'King_valley.jpg'                                                                           => [ 'Dmitri tissot', 'CC BY-SA 4.0' ],
 		'WadiElGimal2.jpg'                                                                          => [ 'Roland Unger', 'CC BY-SA 4.0' ],

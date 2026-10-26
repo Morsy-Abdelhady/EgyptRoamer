@@ -334,7 +334,7 @@ standard thumbnail width. Author and licence were read from each file's Commons 
 | `g-kom-ombo` | design | Temple_of_Sobek_and_Haroeris.jpg | Ahmed Yousry Mahfouz | CC BY-SA 4.0 |
 | `g-kom-ombo` | design | Temple_of_Kom_Ombo,_Egypt.jpg | Carole Raddato | CC BY-SA 2.0 |
 | `g-philae` (27 Oct) | hero | 27133-_approach_to_the_island_of_Agilkia.jpg | Panegyrics of Granovetter | CC BY-SA 2.0 |
-| `g-philae` | isis | 27138-_Philae.jpg | Panegyrics of Granovetter | CC BY-SA 2.0 |
+| `g-philae` | isis | Agilkia_Isis-Tempel_44.jpg | Olaf Tausch | CC BY 3.0 |
 | `g-philae` | what-you-will-see | Agilkia_Trajankiosk_01.JPG | Olaf Tausch | CC BY 3.0 |
 | `g-east-bank` (27 Oct, added to the existing Unsplash photos) | karnak | 134_Säulen_in_16_Reihen_geordnet_trugen_das_Dach_der_Halle._12.jpg | Holger Uwe Schmitt | CC BY-SA 4.0 |
 | `g-valley-kings` (27 Oct) | what-it-is | King_valley.jpg | Dmitri tissot | CC BY-SA 4.0 |
