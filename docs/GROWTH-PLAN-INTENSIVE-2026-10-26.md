@@ -45,9 +45,10 @@ traffic or revenue per visit are available. Targets are revised after the first 
 - **Place pages from official lists.** One page per monument or museum on the Ministry's site (`egymonuments.gov.eg`)
   and per protected area on the EEAA site (`eeaa.gov.eg`), using only facts on those pages (plus UNESCO where it
   applies). **[Estimate]** about 150 monuments and museums and about 30 protected areas: about 180 topics × 8 languages,
-  about 1,400 pages. Pace: 20 places a week.
-- **Guides from real demand:** 5 a week, chosen from Search Console queries and real questions (best time, visas,
-  getting around, comparisons).
+  about 1,400 pages. Pace: 3–4 places a week (24–32 pages across 8 languages).
+- **Guides from real demand:** 2 a week (16 pages across 8 languages), chosen from Search Console queries and real
+  questions (best time, visas, getting around, comparisons).
+- **Total pace: 40–50 new pages a week**, counting each language version as a page (5–6 topics × 8 languages).
 - **Source review of existing pages:** check the 48 current topics against Ministry and EEAA pages, starting with the
   pages with most impressions: snorkelling, inside the pyramids, 14 days, Mount Sinai, Great Sand Sea. Record every
   source in `CONTENT-SOURCES.md`.
@@ -86,17 +87,37 @@ traffic or revenue per visit are available. Targets are revised after the first 
 | 5 | Google/GTM terms and Complianz attestations go through Edge, each with the owner's OK, after the settings make them true | §2.1 |
 | 6 | The pending changes are tested and released together first | Week 1 |
 
-## 4. Milestones [Estimate]
+## 4. Targets and checkpoints [Estimate]
 
-| Milestone | Sessions a month | Target |
+**Owner decision (26 Oct 2026, later the same day):** aim for **1,000,000 sessions a month by December 2027** with a
+very limited ad budget. This is a stretch target with a low likelihood, stated plainly to the owner. **Late 2028 stays
+the safer target.** Estimated earliest dates discussed: about February 2027 with unlimited ad spend (roughly
+$50,000–300,000 a month, illustrative only); about late 2027 with a moderate budget plus content; about May 2028 with
+no ads, if everything works.
+
+**What the stretch target needs:**
+1. **Content at 40–50 pages a week** (each language version counted) from official sources, Arabic first (§2.2):
+   about 2,000 pages by mid-2027 (392 today). Quality rules unchanged: each page sourced, no padding, no
+   literal-translation filler. Raise the pace only if quality holds.
+2. **At least one free channel growing fast:** Pinterest, Arabic Facebook groups, or short video if the owner can film
+   in Egypt.
+3. **Earned links:** about 50 referring sites by mid-2027 (§2.3).
+4. **Small ad budget only on what already works:** boost pages and posts that already convert; reinvest any commission
+   into ads.
+
+**Checkpoints (sessions a month, GA4):**
+
+| Date | Stretch path (Dec 2027) | Safer path (late 2028) |
 |---|---|---|
-| M1 | 10,000 | Feb 2027 |
-| M2 | 100,000 | Sep 2027 (GetYourGuide API threshold) |
-| M3 | 300,000 | Mar 2028 |
-| M4 | 1,000,000 | late 2028 |
+| Jan 2027 | 10,000 | 5,000 |
+| Apr 2027 | 50,000 | 20,000 |
+| Jul 2027 | 200,000 | 60,000 |
+| Oct 2027 | 500,000 | 150,000 |
+| Dec 2027 | 1,000,000 | 250,000 |
+| late 2028 | — | 1,000,000 |
 
-Even at this pace, 1M before 2028 is not realistic without heavy paid spend. If a milestone slips by more than three
-months: double down on the content clusters that earned impressions, and drop the rest.
+At each checkpoint: if the stretch number is missed by a wide margin, say so, move the target to the safer path, and put
+the effort into the content clusters and channels that earned the most sessions; drop the rest.
 
 ## 5. Week 1 (26 Oct – 1 Nov 2026)
 
@@ -106,7 +127,7 @@ months: double down on the content clusters that earned impressions, and drop th
 3. Privacy Policy in 8 languages: four partners, consent-based analytics.
 4. Complianz and GA4 (Basic consent), with the Edge acceptances in §2.1.
 5. Source review of the five pages with most impressions against Ministry/EEAA pages.
-6. First 20 place pages from the official lists: drafts, sources recorded.
+6. First place pages from the official lists (3–4 places in 8 languages), sources recorded, published after the gate.
 7. 31 Oct: Bing and Visits check (scheduled task).
 
 ## 6. What we will not do
