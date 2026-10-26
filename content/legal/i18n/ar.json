@@ -64,10 +64,10 @@
   "td_cmplz_duration": "365 يومًا",
   "td_ga_setby": "Google Analytics، فقط إذا قبلت ملفات تعريف الارتباط الإحصائية",
   "td_ga_purpose": "إحصاءات: يميّز بين الزيارات من متصفحات مختلفة.",
-  "td_ga_duration": "سنتان",
+  "td_ga_duration": "حتى سنتين",
   "td_gas_setby": "Google Analytics، فقط إذا قبلت ملفات تعريف الارتباط الإحصائية",
   "td_gas_purpose": "إحصاءات: يتتبّع الزيارة الحالية.",
-  "td_gas_duration": "سنتان"
+  "td_gas_duration": "حتى سنتين"
  },
  "disclosure": {
   "title": "الإفصاح عن الروابط التابعة",

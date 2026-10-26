@@ -64,10 +64,10 @@
   "td_cmplz_duration": "365 días",
   "td_ga_setby": "Google Analytics, solo si aceptas las cookies de estadísticas",
   "td_ga_purpose": "Estadísticas: distingue las visitas de distintos navegadores.",
-  "td_ga_duration": "2 años",
+  "td_ga_duration": "hasta 2 años",
   "td_gas_setby": "Google Analytics, solo si aceptas las cookies de estadísticas",
   "td_gas_purpose": "Estadísticas: sigue la visita en curso.",
-  "td_gas_duration": "2 años"
+  "td_gas_duration": "hasta 2 años"
  },
  "disclosure": {
   "title": "Divulgación de afiliados",

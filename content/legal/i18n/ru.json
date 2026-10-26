@@ -64,10 +64,10 @@
   "td_cmplz_duration": "365 дней",
   "td_ga_setby": "Google Analytics, только если вы принимаете статистические cookie",
   "td_ga_purpose": "Статистика: различает посещения из разных браузеров.",
-  "td_ga_duration": "2 года",
+  "td_ga_duration": "до 2 лет",
   "td_gas_setby": "Google Analytics, только если вы принимаете статистические cookie",
   "td_gas_purpose": "Статистика: отслеживает текущее посещение.",
-  "td_gas_duration": "2 года"
+  "td_gas_duration": "до 2 лет"
  },
  "disclosure": {
   "title": "Раскрытие информации о партнёрских ссылках",

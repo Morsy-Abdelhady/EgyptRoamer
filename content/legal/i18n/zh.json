@@ -64,10 +64,10 @@
   "td_cmplz_duration": "365 天",
   "td_ga_setby": "Google Analytics，仅在你接受统计 Cookie 后设置",
   "td_ga_purpose": "统计：区分来自不同浏览器的访问。",
-  "td_ga_duration": "2 年",
+  "td_ga_duration": "最长 2 年",
   "td_gas_setby": "Google Analytics，仅在你接受统计 Cookie 后设置",
   "td_gas_purpose": "统计：记录当前这次访问。",
-  "td_gas_duration": "2 年"
+  "td_gas_duration": "最长 2 年"
  },
  "disclosure": {
   "title": "联盟链接披露",

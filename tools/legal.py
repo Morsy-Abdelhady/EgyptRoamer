@@ -169,7 +169,8 @@ def build() -> dict:
     # (git 2de86bd), the Cookie Policy the 30 Sep one (git 2de86bd:content/legal/en/cookies.html), both trimmed.
     index["en_updates"]["privacy-policy"]["replaces_sha1"] = "f66f7d8a77b6c895170b33348c595728750f851a"
     files["en/cookies.html"] = (SRC / "en" / "cookies.html").read_text(encoding="utf-8")
-    index["en_updates"]["cookies"] = {"file": "en/cookies.html", "replaces_sha1": "5ea36db1f9defb967dafa2000029729abb020e47"}
+    # Later the same day: "_ga" lasts "up to 2 years" (Chrome caps cookies at 400 days); replaces the 1.2.77 version (git 9eb3f14).
+    index["en_updates"]["cookies"] = {"file": "en/cookies.html", "replaces_sha1": "71cbb9a73a2e27ab556b48790ea0c221b803d0c1"}
     files["index.json"] = json.dumps(index, ensure_ascii=False, indent=1) + "\n"
     return files
 
