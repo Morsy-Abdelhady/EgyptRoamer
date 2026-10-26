@@ -2,10 +2,10 @@
 type: er_guide
 title: Der Berg Sinai und das Katharinenkloster
 excerpt: Der Berg Sinai und das Katharinenkloster im Süden des Sinai: warum das Gebiet drei Religionen heilig ist, das Kloster aus dem 6. Jahrhundert mit seinen Ikonen und Handschriften, der Pfad des Mose zum Gipfel, und wie Sie einen Besuch ab Sharm El-Sheikh planen.
-source: 7d16f0e9f304
+source: ff073870d42a
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -15,13 +15,15 @@ In den Bergen des Südsinai, am Fuß des Berges, auf dem Mose nach dem Alten Tes
 
 Der Berg heißt Sinai, Horeb und auf Arabisch Dschebel Musa, Berg des Mose. Auch Muslime verehren ihn. Der Pfad des Mose (*Sikket Sayidna Musa*) führt zum Gipfel, vorbei an zwei steinernen Bögen, dem Stephanstor und dem Tor des Gesetzes, und an Resten von Kapellen. Auf dem Gipfel stehen eine Moschee und eine Kapelle.
 
+Die Berge ringsum bilden das 1988 ausgewiesene Schutzgebiet Sankt Katharina mit den höchsten Gipfeln Ägyptens, darunter dem Katharinenberg und dem Mosesberg.
+
 ## Das Katharinenkloster {#monastery}
 
-Das griechisch-orthodoxe Kloster wurde im 6. Jahrhundert unter dem byzantinischen Kaiser Justinian I. gegründet, an der überlieferten Stelle des brennenden Dornbuschs, den Mose sah. Die UNESCO nennt es das älteste christliche Kloster, das noch seinem ursprünglichen Zweck dient.
+Das griechisch-orthodoxe Kloster wurde zwischen 548 und 565 n. Chr. auf Anordnung des byzantinischen Kaisers Justinian I. erbaut, an der überlieferten Stelle des brennenden Dornbuschs, den Mose sah. Sein voller Name lautet „Heiliges Kloster des von Gott betretenen Berges Sinai“. Benannt ist es nach der heiligen Katharina von Alexandria, die im frühen 4. Jahrhundert den Märtyrertod starb und deren Leichnam die Mönche im 9. Jahrhundert auf dem nahen Katharinenberg fanden. Die UNESCO nennt es das älteste christliche Kloster, das noch seinem ursprünglichen Zweck dient.
 
-- **Mauern und Kirche:** Die ursprünglichen Granitmauern stehen noch, ebenso die gleichzeitig erbaute Kirche der Jungfrau Maria. In ihrer Apsis befindet sich ein Mosaik der Verklärung aus frühbyzantinischer Zeit.
-- **Eine Moschee innerhalb der Mauern:** Der Überlieferung nach bauten die Mönche innerhalb der Mauern eine kleine Moschee, in der Beduinen der Gegend noch heute beten. Die Beduinen, die nahe dem Kloster leben, sind seit Langem seine Wächter.
-- **Ikonen und Handschriften:** die größten Schätze des Klosters. Einige Ikonen entstanden vor dem 8. Jahrhundert. Die Bibliothek bewahrt Handschriften vor allem in Griechisch und Arabisch, darunter den Codex Syriacus, einen syrischen Evangelientext aus der Zeit um 400.
+- **Mauern und Kirche:** Die ursprünglichen Granitmauern stehen noch. Die Hauptkirche, die Verklärungskirche, umfasst selbst neun kleinere Kirchen, darunter die Kirche des brennenden Dornbuschs. In ihrer Apsis befindet sich ein Mosaik der Verklärung aus frühbyzantinischer Zeit.
+- **Eine Moschee innerhalb der Mauern:** Innerhalb der Mauern steht eine fatimidische Moschee aus dem 12. Jahrhundert, in der Beduinen der Gegend noch heute beten. Die Beduinen, die nahe dem Kloster leben, sind seit Langem seine Wächter.
+- **Ikonen und Handschriften:** die größten Schätze des Klosters. Einige Ikonen entstanden vor dem 8. Jahrhundert. Die Bibliothek bewahrt rund 6.000 Handschriften, vor allem in Griechisch und Arabisch, darunter den Codex Syriacus, einen syrischen Evangelientext aus der Zeit um 400.
 
 > **Der Codex Sinaiticus**
 > Eine nahezu vollständige griechische Bibel aus dem 4. Jahrhundert, die einst dem Kloster gehörte, befindet sich heute in London. 1975 fanden Arbeiter fehlende Teile davon, zusammen mit Tausenden weiteren Handschriften, hinter einer Wand im Kloster.

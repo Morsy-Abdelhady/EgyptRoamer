@@ -2,10 +2,10 @@
 type: er_guide
 title: À l’intérieur des pyramides de Gizeh : faut-il y entrer ?
 excerpt: À quoi ressemble l’intérieur des pyramides de Gizeh : les couloirs de la Grande Pyramide, la Grande Galerie et la chambre du Roi, ce que vous verrez et ne verrez pas, qui ferait mieux de s’abstenir, et comment organiser la visite du plateau.
-source: efa41304bdd1
+source: d8de2eb691fe
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -13,11 +13,11 @@ Se tenir au pied de la Grande Pyramide est inoubliable. Y entrer est une autre e
 
 ## Les pyramides de Gizeh {#the-pyramids}
 
-Trois pyramides de la IVᵉ dynastie se dressent sur le plateau de Gizeh, bâties pour les rois Khéops, Khéphren et Mykérinos. La plus ancienne et la plus grande, bâtie pour Khéops, est la Grande Pyramide, achevée au début du XXVᵉ siècle av. J.-C. Ensemble, elles figuraient parmi les Sept Merveilles du monde antique, et ce sont les seules encore debout. Tout près se trouve le Grand Sphinx, que la plupart des spécialistes datent du règne de Khéphren.
+Trois pyramides de la IVᵉ dynastie se dressent sur le plateau de Gizeh. La Grande Pyramide a été bâtie pour le roi Khéops (vers 2589–2566 av. J.-C.), les deux autres pour Khéphren et Mykérinos, son fils et son petit-fils. Celle de Khéops est la plus ancienne et la plus grande des trois : sa hauteur d’origine était de 146,5 mètres, et aucun édifice ne l’a dépassée pendant environ 3 800 ans. Ensemble, les pyramides figuraient parmi les Sept Merveilles du monde antique, et ce sont les seules encore debout. Tout près se trouve le Grand Sphinx, que la plupart des spécialistes datent du règne de Khéphren.
 
 ## À l’intérieur de la Grande Pyramide {#great-pyramid}
 
-Malgré sa taille, la Grande Pyramide offre très peu d’espace libre à l’intérieur. L’entrée se trouve sur la face nord. De là :
+Malgré sa taille, la Grande Pyramide offre très peu d’espace libre à l’intérieur : trois chambres, l’une creusée dans la roche en dessous et deux en hauteur dans la maçonnerie. L’entrée se trouve sur la face nord. De là :
 
 - **Un couloir descendant** traverse la maçonnerie jusque dans la roche, vers une chambre souterraine inachevée.
 - **Un couloir ascendant** s’en détache vers la chambre de la Reine et la **Grande Galerie**, un haut passage en encorbellement d’environ 46 mètres de long.
@@ -35,7 +35,7 @@ Au-dessus de la chambre du Roi se trouvent cinq compartiments séparés par d’
 
 ## Organiser la visite {#planning}
 
-- L’entrée à l’intérieur fait en général l’objet d’un billet séparé de celui du plateau, et les pyramides ouvertes peuvent changer. Vérifiez sur place.
+- Le billet du plateau ne couvre pas l’intérieur des pyramides de Khéops, Khéphren ou Mykérinos : chacune a son propre billet, et les pyramides ouvertes peuvent changer. Vérifiez sur place.
 - Venez tôt, avant la chaleur et la foule.
 - Certains circuits incluent l’entrée dans l’une des pyramides. Voyez notre [visite des pyramides de Gizeh](/experiences/pyramids-of-giza-sphinx-private-tour/).
 - Associez le plateau au [Grand Musée égyptien](/guides/grand-egyptian-museum-visit/) l’après-midi.

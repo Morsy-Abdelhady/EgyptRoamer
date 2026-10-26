@@ -2,10 +2,10 @@
 type: er_guide
 title: Dentro de las pirámides de Guiza: ¿merece la pena entrar?
 excerpt: Cómo es el interior de las pirámides de Guiza: los corredores de la Gran Pirámide, la Gran Galería y la Cámara del Rey, qué verás y qué no, quién debería evitarlo y cómo organizar la visita a la meseta.
-source: efa41304bdd1
+source: d8de2eb691fe
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -13,11 +13,11 @@ Estar al pie de la Gran Pirámide es inolvidable. Entrar es otra experiencia: es
 
 ## Las pirámides de Guiza {#the-pyramids}
 
-En la meseta de Guiza se alzan tres pirámides de la IV dinastía, construidas para los reyes Keops, Kefrén y Micerino. La más antigua y grande, construida para Keops, es la Gran Pirámide, terminada a principios del siglo XXV a. C. Juntas figuraban entre las Siete Maravillas del mundo antiguo, y son la única que sigue en pie. Cerca está la Gran Esfinge, que la mayoría de los especialistas fecha en el reinado de Kefrén.
+En la meseta de Guiza se alzan tres pirámides de la IV dinastía. La Gran Pirámide se construyó para el rey Keops (h. 2589–2566 a. C.), y las otras dos para Kefrén y Micerino, su hijo y su nieto. La de Keops es la más antigua y grande de las tres: su altura original era de 146,5 metros, y durante unos 3800 años ningún edificio la superó. Juntas, las pirámides figuraban entre las Siete Maravillas del mundo antiguo, y son la única que sigue en pie. Cerca está la Gran Esfinge, que la mayoría de los especialistas fecha en el reinado de Kefrén.
 
 ## Dentro de la Gran Pirámide {#great-pyramid}
 
-Pese a su tamaño, la Gran Pirámide tiene muy poco espacio libre en su interior. La entrada está en la cara norte. Desde allí:
+Pese a su tamaño, la Gran Pirámide tiene muy poco espacio libre en su interior: tres cámaras, una excavada en la roca bajo ella y dos en lo alto de la mampostería. La entrada está en la cara norte. Desde allí:
 
 - **Un corredor descendente** baja a través de la mampostería hasta la roca, hacia una cámara subterránea inacabada.
 - **Un corredor ascendente** se desvía hacia la Cámara de la Reina y la **Gran Galería**, un alto pasillo en voladizo de unos 46 metros de largo.
@@ -35,7 +35,7 @@ Sobre la Cámara del Rey hay cinco compartimentos separados por enormes losas de
 
 ## Organizar la visita {#planning}
 
-- La entrada al interior suele tener una entrada aparte de la de la meseta, y las pirámides abiertas pueden cambiar. Compruébalo el mismo día.
+- La entrada a la meseta no incluye el interior de las pirámides de Keops, Kefrén o Micerino: cada una tiene su propia entrada, y las pirámides abiertas pueden cambiar. Compruébalo el mismo día.
 - Ve temprano, antes del calor y de la gente.
 - Algunos tours incluyen entrar en una de las pirámides. Mira nuestro [tour a las pirámides de Guiza](/experiences/pyramids-of-giza-sphinx-private-tour/).
 - Combina la meseta con el [Gran Museo Egipcio](/guides/grand-egyptian-museum-visit/) por la tarde.

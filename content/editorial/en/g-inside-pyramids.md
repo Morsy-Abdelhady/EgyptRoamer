@@ -13,11 +13,11 @@ Standing at the foot of the Great Pyramid is unforgettable. Going inside is a di
 
 ## The pyramids of Giza {#the-pyramids}
 
-Three pyramids of the 4th dynasty stand on the Giza plateau, built for the kings Khufu, Khafre and Menkaure. The oldest and largest, built for Khufu, is the Great Pyramid, completed in the early 25th century BC. Together they were counted among the Seven Wonders of the ancient world, and they are the only one of the wonders still standing. Nearby lies the Great Sphinx, which most scholars date to the reign of Khafre.
+Three pyramids of the 4th dynasty stand on the Giza plateau. The Great Pyramid was built for King Khufu (c. 2589–2566 BC), the other two for Khafre and Menkaure, his son and grandson. Khufu's is the oldest and largest of the three: its original height was 146.5 metres, and no building was taller for about 3,800 years. Together the pyramids were counted among the Seven Wonders of the ancient world, and they are the only one of the wonders still standing. Nearby lies the Great Sphinx, which most scholars date to the reign of Khafre.
 
 ## Inside the Great Pyramid {#great-pyramid}
 
-For all its size, the Great Pyramid has very little open space inside. The entrance is on the north side. From there:
+For all its size, the Great Pyramid has very little open space inside: three chambers, one cut into the bedrock below and two high up in the masonry. The entrance is on the north side. From there:
 
 - **A descending corridor** runs down through the masonry into the rock below, to an unfinished underground chamber.
 - **An ascending passage** branches off it towards the Queen's Chamber and the **Grand Gallery**, a tall corbelled passage about 46 metres long.
@@ -35,7 +35,7 @@ Above the King's Chamber are five compartments separated by huge granite slabs, 
 
 ## Planning your visit {#planning}
 
-- Going inside is usually ticketed separately from the plateau, and which pyramids are open can change. Check on the day.
+- The plateau ticket does not cover going inside the pyramids of Khufu, Khafre or Menkaure: each needs its own ticket, and which pyramids are open can change. Check on the day.
 - Go early, before the heat and the crowds.
 - Some tours include entering one of the pyramids. See our [pyramids of Giza tour](/experiences/pyramids-of-giza-sphinx-private-tour/).
 - Combine the plateau with the [Grand Egyptian Museum](/guides/grand-egyptian-museum-visit/) in the afternoon.

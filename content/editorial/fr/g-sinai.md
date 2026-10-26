@@ -2,10 +2,10 @@
 type: er_guide
 title: Le mont Sinaï et le monastère Sainte-Catherine
 excerpt: Le mont Sinaï et le monastère Sainte-Catherine, dans le Sud-Sinaï : pourquoi la région est sacrée pour trois religions, le monastère du VIe siècle, ses icônes et ses manuscrits, le chemin de Moïse vers le sommet, et comment organiser une visite depuis Charm el-Cheikh.
-source: 7d16f0e9f304
+source: ff073870d42a
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -15,13 +15,15 @@ Dans les montagnes du Sud-Sinaï, au pied de la montagne où, selon l’Ancien T
 
 La montagne est appelée mont Sinaï, mont Horeb et, en arabe, Djebel Moussa, la montagne de Moïse. Les musulmans la vénèrent aussi. Le chemin de Moïse (*Sikket Sayidna Musa*) mène au sommet en passant par deux arches de pierre, la porte d’Étienne et la porte de la Loi, et par des vestiges de chapelles. Au sommet se trouvent une mosquée et une chapelle.
 
+Les montagnes alentour forment l’aire protégée de Sainte-Catherine, créée en 1988, qui englobe les plus hauts sommets d’Égypte, dont le mont Sainte-Catherine et le mont Moïse.
+
 ## Le monastère Sainte-Catherine {#monastery}
 
-Ce monastère grec-orthodoxe a été fondé au VIe siècle sous l’empereur byzantin Justinien Ier, à l’emplacement traditionnel du buisson ardent vu par Moïse. L’UNESCO le présente comme le plus ancien monastère chrétien encore utilisé pour sa fonction d’origine.
+Ce monastère grec-orthodoxe a été bâti sur ordre de l’empereur byzantin Justinien Ier entre 548 et 565 apr. J.-C., à l’emplacement traditionnel du buisson ardent vu par Moïse. Son nom complet est « Monastère sacré du mont Sinaï foulé par Dieu ». Il porte le nom de sainte Catherine d’Alexandrie, martyrisée au début du IVe siècle, dont les moines retrouvèrent le corps sur le mont Sainte-Catherine voisin au IXe siècle. L’UNESCO le présente comme le plus ancien monastère chrétien encore utilisé pour sa fonction d’origine.
 
-- **Les murs et l’église :** les murailles de granit d’origine sont toujours debout, de même que l’église de la Vierge Marie, bâtie à la même époque. Son abside abrite une mosaïque de la Transfiguration du début de l’époque byzantine.
-- **Une mosquée dans l’enceinte :** selon la tradition, les moines ont bâti dans l’enceinte une petite mosquée où prient encore des Bédouins de la région. Les Bédouins qui vivent près du monastère en sont depuis longtemps les gardiens.
-- **Icônes et manuscrits :** les plus grands trésors du monastère. Certaines icônes ont été peintes avant le VIIIe siècle. La bibliothèque conserve des manuscrits surtout en grec et en arabe, dont le Codex Syriacus, un texte syriaque des Évangiles écrit vers l’an 400.
+- **Les murs et l’église :** les murailles de granit d’origine sont toujours debout. L’église principale, l’église de la Transfiguration, renferme elle-même neuf églises plus petites, dont l’église du Buisson ardent. Son abside abrite une mosaïque de la Transfiguration du début de l’époque byzantine.
+- **Une mosquée dans l’enceinte :** une mosquée fatimide du XIIe siècle se dresse dans l’enceinte, où prient encore des Bédouins de la région. Les Bédouins qui vivent près du monastère en sont depuis longtemps les gardiens.
+- **Icônes et manuscrits :** les plus grands trésors du monastère. Certaines icônes ont été peintes avant le VIIIe siècle. La bibliothèque conserve environ 6 000 manuscrits, surtout en grec et en arabe, dont le Codex Syriacus, un texte syriaque des Évangiles écrit vers l’an 400.
 
 > **Le Codex Sinaiticus**
 > Une Bible grecque presque complète du IVe siècle, qui appartenait autrefois au monastère, se trouve aujourd’hui à Londres. En 1975, des ouvriers en ont découvert des parties manquantes, avec des milliers d’autres manuscrits, derrière un mur du monastère.

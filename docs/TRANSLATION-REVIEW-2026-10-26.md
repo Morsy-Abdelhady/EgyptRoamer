@@ -132,3 +132,18 @@ reviewed: 2026-10-26
 - These are content and data changes in Core `data/editorial/`. Releasing them needs a Core version bump, a commit and a push, after the 25 Oct release gate in `docs/HANDOFF-2026-10-25.md`.
 - On the server, `wp egypt-roamer editorial` fills only empty or untouched seed text. Live pages that editors changed keep their text.
 - Another session may still change the English sources after a Ministry of Tourism and EEAA review. If it does, `tools/editorial.py status` will show these files as OUTDATED again, and they need the same pass.
+
+## Addendum, 26 Oct 2026 (afternoon): official-source review of three guides
+
+The English of `g-inside-pyramids`, `g-sinai` and `g-14-days` was revised against Ministry of Tourism and Antiquities
+and EEAA pages (`docs/CONTENT-SOURCES.md`, rows checked 2026-10-26). Claude updated the 21 translations (3 guides × ar,
+de, fr, it, es, ru, zh) sentence by sentence to match, keeping each language's established names (Cheops/Khéops/Keops,
+Sankt Katharina/Sainte-Catherine, etc.), and stamped them with the new English hash and the same reviewer line.
+
+| Guide | What changed in every language |
+|---|---|
+| `g-inside-pyramids` | Khufu c. 2589–2566 BC, Khafre and Menkaure his son and grandson, original height 146.5 m, about 3,800 years the tallest (replaces "completed early 25th century BC"); three chambers; the plateau ticket does not cover entering the three pyramids (replaces "usually ticketed separately") |
+| `g-sinai` | New paragraph: Saint Katherine Protectorate, 1988, Egypt's highest peaks; monastery built by order of Justinian I in 548–565 AD; full name; Saint Catherine of Alexandria and the 9th-century finding; main church = Church of the Transfiguration with nine smaller churches incl. the Burning Bush (replaces "church of the Virgin Mary"); Fatimid mosque of the 12th century (replaces "by tradition the monks built a small mosque"); about 6,000 manuscripts |
+| `g-14-days` | Kom Ombo (Sobek and Horus the Elder) and Edfu (Horus, west bank) named in the day 7–9 line |
+
+After compiling, `python tools/editorial.py status` lists all 336 translations as `approved current`.

@@ -2,10 +2,10 @@
 type: er_guide
 title: 14 Tage in Ägypten: die komplette Reiseroute
 excerpt: Eine Zwei-Wochen-Route für Ägypten: Kairo und Alexandria, Nilkreuzfahrt oder Hotels zwischen Luxor und Assuan mit Abu Simbel, und zum Abschluss das Rote Meer oder die Westliche Wüste, mit der Reise zwischen den Orten.
-source: 3f8c5f3598f9
+source: 5f9539de4768
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -26,7 +26,7 @@ Zwei Wochen reichen, um Ägypten ohne Eile zu sehen: die großen Stätten von Ka
 + **Tag 4 — Alexandria** Ein Tagesausflug in die Mittelmeerstadt. Siehe unseren [Tagesausflug nach Alexandria](/experiences/alexandria-day-trip-from-cairo/).
 + **Tag 5 — Flug nach Assuan** Am Nachmittag Philae, bei Sonnenuntergang eine Feluke.
 + **Tag 6 — Abu Simbel** Start vor der Morgendämmerung nach [Abu Simbel](/experiences/abu-simbel-day-trip-from-aswan/).
-+ **Tag 7–9 — Auf dem Nil** Eine Kreuzfahrt von Assuan nach Luxor mit Halt in Kom Ombo und Edfu, oder die Reise auf der Straße mit Hotels. Lesen Sie [Nilkreuzfahrt oder Hotels?](/guides/nile-cruise-or-hotels-luxor-aswan/)
++ **Tag 7–9 — Auf dem Nil** Eine Kreuzfahrt von Assuan nach Luxor mit Halt in Kom Ombo, dem Tempel des Krokodilgottes Sobek und des älteren Horus, und in Edfu, dem Horustempel am Westufer, oder die Reise auf der Straße mit Hotels. Lesen Sie [Nilkreuzfahrt oder Hotels?](/guides/nile-cruise-or-hotels-luxor-aswan/)
 + **Tag 10 — Luxor** [Das Tal der Könige](/experiences/valley-of-the-kings-hatshepsut-temple/) am Westufer und [Karnak und der Luxor-Tempel](/guides/karnak-and-luxor-temple/) am Ostufer.
 + **Tag 11 — Ans Rote Meer** Auf der Straße von Luxor nach Hurghada.
 + **Tag 12–13 — Die Riffe** Schnorcheln an den Giftun-Inseln oder ein [Tauchausflug](/experiences/red-sea-diving-two-reef-dives/).

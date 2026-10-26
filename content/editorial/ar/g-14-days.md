@@ -2,10 +2,10 @@
 type: er_guide
 title: أربعة عشر يومًا في مصر: البرنامج الكامل
 excerpt: برنامج أسبوعين في مصر: القاهرة والإسكندرية، ورحلة نيلية أو فنادق بين الأقصر وأسوان مع أبو سمبل، ثم البحر الأحمر أو الصحراء الغربية للختام، مع طرق التنقل بينها.
-source: 3f8c5f3598f9
+source: 5f9539de4768
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -26,7 +26,7 @@ reviewed: 2026-10-15
 + **اليوم 4 — الإسكندرية** رحلة يوم إلى مدينة البحر المتوسط. اطّلع على [رحلة اليوم إلى الإسكندرية](/experiences/alexandria-day-trip-from-cairo/).
 + **اليوم 5 — السفر جوًّا إلى أسوان** فيلة بعد الظهر وفلوكة عند الغروب.
 + **اليوم 6 — أبو سمبل** انطلاق قبل الفجر إلى [أبو سمبل](/experiences/abu-simbel-day-trip-from-aswan/).
-+ **الأيام 7–9 — مع مجرى النيل** رحلة نيلية من أسوان إلى الأقصر مع التوقف في كوم أمبو وإدفو، أو السفر برًّا والإقامة في الفنادق. اقرأ [رحلة نيلية أم فنادق؟](/guides/nile-cruise-or-hotels-luxor-aswan/)
++ **الأيام 7–9 — مع مجرى النيل** رحلة نيلية من أسوان إلى الأقصر مع التوقف في كوم أمبو، معبد الإله التمساح سوبك وحورس الأكبر، وفي إدفو، معبد حورس على الضفة الغربية، أو السفر برًّا والإقامة في الفنادق. اقرأ [رحلة نيلية أم فنادق؟](/guides/nile-cruise-or-hotels-luxor-aswan/)
 + **اليوم 10 — الأقصر** [وادي الملوك](/experiences/valley-of-the-kings-hatshepsut-temple/) على البر الغربي، و[الكرنك ومعبد الأقصر](/guides/karnak-and-luxor-temple/) على البر الشرقي.
 + **اليوم 11 — إلى البحر الأحمر** اعبر برًّا من الأقصر إلى الغردقة.
 + **اليومان 12–13 — الشعاب** غطس سطحي عند جزر الجفتون، أو [رحلة غوص](/experiences/red-sea-diving-two-reef-dives/).

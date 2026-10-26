@@ -2,10 +2,10 @@
 type: er_guide
 title: 14 jours en Égypte : l’itinéraire complet
 excerpt: Un itinéraire de deux semaines en Égypte : Le Caire et Alexandrie, une croisière sur le Nil ou des hôtels entre Louxor et Assouan avec Abou Simbel, puis la mer Rouge ou le désert Occidental pour finir, avec les trajets entre les étapes.
-source: 3f8c5f3598f9
+source: 5f9539de4768
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -26,7 +26,7 @@ Deux semaines suffisent pour voir l’Égypte sans se presser : les grands sites
 + **Jour 4 — Alexandrie** Une excursion dans la ville méditerranéenne. Voyez notre [excursion à Alexandrie](/experiences/alexandria-day-trip-from-cairo/).
 + **Jour 5 — Vol pour Assouan** Philae l’après-midi et une felouque au coucher du soleil.
 + **Jour 6 — Abou Simbel** Départ avant l’aube pour [Abou Simbel](/experiences/abu-simbel-day-trip-from-aswan/).
-+ **Jours 7 à 9 — Au fil du Nil** Une croisière d’Assouan à Louxor, avec escales à Kom Ombo et Edfou, ou la route avec des nuits à l’hôtel. Lisez [Croisière sur le Nil ou hôtels ?](/guides/nile-cruise-or-hotels-luxor-aswan/)
++ **Jours 7 à 9 — Au fil du Nil** Une croisière d’Assouan à Louxor, avec escales à Kom Ombo, le temple du dieu crocodile Sobek et d’Horus l’Ancien, et à Edfou, le temple d’Horus sur la rive ouest, ou la route avec des nuits à l’hôtel. Lisez [Croisière sur le Nil ou hôtels ?](/guides/nile-cruise-or-hotels-luxor-aswan/)
 + **Jour 10 — Louxor** [La Vallée des Rois](/experiences/valley-of-the-kings-hatshepsut-temple/) sur la rive ouest, et [Karnak et le temple de Louxor](/guides/karnak-and-luxor-temple/) sur la rive est.
 + **Jour 11 — Vers la mer Rouge** Route de Louxor à Hurghada.
 + **Jours 12 et 13 — Les récifs** Snorkeling aux îles Giftun, ou une [sortie plongée](/experiences/red-sea-diving-two-reef-dives/).

@@ -2,10 +2,10 @@
 type: er_guide
 title: El monte Sinaí y el monasterio de Santa Catalina
 excerpt: El monte Sinaí y el monasterio de Santa Catalina, en el sur del Sinaí: por qué la zona es sagrada para tres religiones, el monasterio del siglo VI con sus iconos y manuscritos, el camino de Moisés hasta la cumbre, y cómo organizar la visita desde Sharm el-Sheij.
-source: 7d16f0e9f304
+source: ff073870d42a
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -15,13 +15,15 @@ En las montañas del sur del Sinaí, al pie del monte donde, según el Antiguo T
 
 El monte se conoce como Sinaí, Horeb y, en árabe, Yebel Musa, el monte de Moisés. Los musulmanes también lo veneran. El camino de Moisés (*Sikket Sayidna Musa*) sube a la cumbre pasando por dos arcos de piedra, la puerta de Esteban y la puerta de la Ley, y por restos de capillas. En la cumbre hay una mezquita y una capilla.
 
+Las montañas que lo rodean forman el área protegida de Santa Catalina, declarada en 1988, que abarca los picos más altos de Egipto, entre ellos el monte Catalina y el monte Moisés.
+
 ## El monasterio de Santa Catalina {#monastery}
 
-El monasterio ortodoxo griego se fundó en el siglo VI bajo el emperador bizantino Justiniano I, en el lugar tradicional de la zarza ardiente que vio Moisés. La UNESCO lo describe como el monasterio cristiano más antiguo que sigue cumpliendo su función original.
+El monasterio ortodoxo griego se construyó por orden del emperador bizantino Justiniano I entre los años 548 y 565, en el lugar tradicional de la zarza ardiente que vio Moisés. Su nombre completo es «Sagrado Monasterio del Monte Sinaí Pisado por Dios». Lleva el nombre de santa Catalina de Alejandría, martirizada a comienzos del siglo IV, cuyo cuerpo hallaron los monjes en el cercano monte Catalina en el siglo IX. La UNESCO lo describe como el monasterio cristiano más antiguo que sigue cumpliendo su función original.
 
-- **Las murallas y la iglesia:** las murallas originales de granito siguen en pie, igual que la iglesia de la Virgen María, construida al mismo tiempo. En su ábside hay un mosaico de la Transfiguración de comienzos de la época bizantina.
-- **Una mezquita dentro de las murallas:** según la tradición, los monjes construyeron dentro de las murallas una pequeña mezquita donde todavía rezan beduinos de la zona. Los beduinos que viven cerca del monasterio son desde hace mucho sus guardianes.
-- **Iconos y manuscritos:** los mayores tesoros del monasterio. Algunos iconos se pintaron antes del siglo VIII. La biblioteca guarda manuscritos sobre todo en griego y en árabe, entre ellos el Codex Syriacus, un texto siríaco de los Evangelios escrito hacia el año 400.
+- **Las murallas y la iglesia:** las murallas originales de granito siguen en pie. La iglesia principal, la de la Transfiguración, contiene a su vez nueve iglesias más pequeñas, entre ellas la de la Zarza Ardiente. En su ábside hay un mosaico de la Transfiguración de comienzos de la época bizantina.
+- **Una mezquita dentro de las murallas:** dentro de las murallas se alza una mezquita fatimí del siglo XII, donde todavía rezan beduinos de la zona. Los beduinos que viven cerca del monasterio son desde hace mucho sus guardianes.
+- **Iconos y manuscritos:** los mayores tesoros del monasterio. Algunos iconos se pintaron antes del siglo VIII. La biblioteca guarda unos 6000 manuscritos, sobre todo en griego y en árabe, entre ellos el Codex Syriacus, un texto siríaco de los Evangelios escrito hacia el año 400.
 
 > **El Codex Sinaiticus**
 > Una Biblia griega casi completa del siglo IV que perteneció al monasterio está hoy en Londres. En 1975, unos obreros encontraron partes que faltaban, junto con miles de otros manuscritos, detrás de un muro del monasterio.

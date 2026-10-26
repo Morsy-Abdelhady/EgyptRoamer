@@ -2,10 +2,10 @@
 type: er_guide
 title: Il monte Sinai e il monastero di Santa Caterina
 excerpt: Il monte Sinai e il monastero di Santa Caterina, nel Sinai meridionale: perché l’area è sacra a tre religioni, il monastero del VI secolo con le sue icone e i suoi manoscritti, il sentiero di Mosè verso la vetta, e come organizzare la visita da Sharm el-Sheikh.
-source: 7d16f0e9f304
+source: ff073870d42a
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -15,13 +15,15 @@ Tra le montagne del Sinai meridionale, ai piedi del monte dove, secondo l’Anti
 
 Il monte è chiamato Sinai, Oreb e, in arabo, Gebel Musa, il monte di Mosè. Lo venerano anche i musulmani. Il sentiero di Mosè (*Sikket Sayidna Musa*) sale alla vetta passando per due archi di pietra, la porta di Stefano e la porta della Legge, e per i resti di cappelle. In vetta sorgono una moschea e una cappella.
 
+Le montagne intorno formano l’area protetta di Santa Caterina, istituita nel 1988, che comprende le vette più alte dell’Egitto, tra cui il monte Caterina e il monte Mosè.
+
 ## Il monastero di Santa Caterina {#monastery}
 
-Il monastero greco-ortodosso fu fondato nel VI secolo sotto l’imperatore bizantino Giustiniano I, nel luogo tradizionale del roveto ardente visto da Mosè. L’UNESCO lo definisce il più antico monastero cristiano ancora usato per la sua funzione originaria.
+Il monastero greco-ortodosso fu costruito per ordine dell’imperatore bizantino Giustiniano I tra il 548 e il 565 d.C., nel luogo tradizionale del roveto ardente visto da Mosè. Il suo nome completo è «Sacro Monastero del Monte Sinai calcato da Dio». Prende il nome da santa Caterina d’Alessandria, martirizzata all’inizio del IV secolo, il cui corpo i monaci ritrovarono nel IX secolo sul vicino monte Caterina. L’UNESCO lo definisce il più antico monastero cristiano ancora usato per la sua funzione originaria.
 
-- **Le mura e la chiesa:** le mura originali in granito sono ancora in piedi, come la chiesa della Vergine Maria, costruita nello stesso periodo. Nell’abside si trova un mosaico della Trasfigurazione del primo periodo bizantino.
-- **Una moschea dentro le mura:** secondo la tradizione, i monaci costruirono dentro le mura una piccola moschea dove pregano ancora i beduini del luogo. I beduini che vivono vicino al monastero ne sono da tempo i custodi.
-- **Icone e manoscritti:** i più grandi tesori del monastero. Alcune icone furono dipinte prima dell’VIII secolo. La biblioteca conserva manoscritti soprattutto in greco e in arabo, tra cui il Codex Syriacus, un testo siriaco dei Vangeli scritto intorno all’anno 400.
+- **Le mura e la chiesa:** le mura originali in granito sono ancora in piedi. La chiesa principale, la chiesa della Trasfigurazione, racchiude a sua volta nove chiese più piccole, tra cui la chiesa del Roveto ardente. Nell’abside si trova un mosaico della Trasfigurazione del primo periodo bizantino.
+- **Una moschea dentro le mura:** dentro le mura sorge una moschea fatimide del XII secolo, dove pregano ancora i beduini del luogo. I beduini che vivono vicino al monastero ne sono da tempo i custodi.
+- **Icone e manoscritti:** i più grandi tesori del monastero. Alcune icone furono dipinte prima dell’VIII secolo. La biblioteca conserva circa 6.000 manoscritti, soprattutto in greco e in arabo, tra cui il Codex Syriacus, un testo siriaco dei Vangeli scritto intorno all’anno 400.
 
 > **Il Codex Sinaiticus**
 > Una Bibbia greca quasi completa del IV secolo, un tempo appartenuta al monastero, si trova oggi a Londra. Nel 1975 alcuni operai ne trovarono parti mancanti, insieme a migliaia di altri manoscritti, dietro un muro del monastero.

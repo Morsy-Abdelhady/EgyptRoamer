@@ -2,10 +2,10 @@
 type: er_guide
 title: 14 giorni in Egitto: l’itinerario completo
 excerpt: Un itinerario di due settimane in Egitto: Il Cairo e Alessandria, crociera sul Nilo o hotel tra Luxor e Assuan con Abu Simbel, e per finire il Mar Rosso o il Deserto Occidentale, con gli spostamenti tra le tappe.
-source: 3f8c5f3598f9
+source: 5f9539de4768
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -26,7 +26,7 @@ Due settimane bastano per vedere l’Egitto senza fretta: i grandi siti del Cair
 + **Giorno 4 — Alessandria** Una gita nella città mediterranea. Vedi la nostra [gita ad Alessandria](/experiences/alexandria-day-trip-from-cairo/).
 + **Giorno 5 — Volo ad Assuan** Philae nel pomeriggio e una feluca al tramonto.
 + **Giorno 6 — Abu Simbel** Partenza prima dell’alba per [Abu Simbel](/experiences/abu-simbel-day-trip-from-aswan/).
-+ **Giorni 7–9 — Lungo il Nilo** Una crociera da Assuan a Luxor, con soste a Kom Ombo ed Edfu, oppure il viaggio in auto con gli hotel. Leggi [Crociera sul Nilo o hotel?](/guides/nile-cruise-or-hotels-luxor-aswan/)
++ **Giorni 7–9 — Lungo il Nilo** Una crociera da Assuan a Luxor, con soste a Kom Ombo, il tempio del dio coccodrillo Sobek e di Horus il Vecchio, e a Edfu, il tempio di Horus sulla riva occidentale, oppure il viaggio in auto con gli hotel. Leggi [Crociera sul Nilo o hotel?](/guides/nile-cruise-or-hotels-luxor-aswan/)
 + **Giorno 10 — Luxor** [La Valle dei Re](/experiences/valley-of-the-kings-hatshepsut-temple/) sulla riva ovest e [Karnak e il Tempio di Luxor](/guides/karnak-and-luxor-temple/) sulla riva est.
 + **Giorno 11 — Verso il Mar Rosso** In auto da Luxor a Hurghada.
 + **Giorni 12–13 — Le barriere** Snorkeling alle isole Giftun, oppure una [giornata di immersioni](/experiences/red-sea-diving-two-reef-dives/).

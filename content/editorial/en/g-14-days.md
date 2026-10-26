@@ -26,7 +26,7 @@ Two weeks is enough to see Egypt without rushing: the great sites of Cairo and t
 + **Day 4 — Alexandria** A day trip to the Mediterranean city. See our [Alexandria day trip](/experiences/alexandria-day-trip-from-cairo/).
 + **Day 5 — Fly to Aswan** Philae in the afternoon and a felucca at sunset.
 + **Day 6 — Abu Simbel** A pre-dawn start for [Abu Simbel](/experiences/abu-simbel-day-trip-from-aswan/).
-+ **Days 7–9 — Down the Nile** A cruise from Aswan to Luxor, with stops at Kom Ombo and Edfu. Or travel by road and stay in hotels. Read [Nile cruise or hotels?](/guides/nile-cruise-or-hotels-luxor-aswan/)
++ **Days 7–9 — Down the Nile** A cruise from Aswan to Luxor, with stops at Kom Ombo, the temple of the crocodile god Sobek and of Horus the Elder, and Edfu, the temple of Horus on the west bank. Or travel by road and stay in hotels. Read [Nile cruise or hotels?](/guides/nile-cruise-or-hotels-luxor-aswan/)
 + **Day 10 — Luxor** [The Valley of the Kings](/experiences/valley-of-the-kings-hatshepsut-temple/) on the West Bank, and [Karnak and Luxor Temple](/guides/karnak-and-luxor-temple/) on the East Bank.
 + **Day 11 — To the Red Sea** Cross from Luxor to Hurghada by road.
 + **Days 12–13 — The reefs** Snorkelling at the Giftun Islands, or a [dive trip](/experiences/red-sea-diving-two-reef-dives/).

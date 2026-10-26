@@ -2,10 +2,10 @@
 type: er_guide
 title: 埃及14日游：完整行程
 excerpt: 埃及两周行程：开罗和亚历山大，卢克索与阿斯旺之间坐尼罗河游船或住酒店并游览阿布辛贝，最后以红海或西部沙漠收尾，并介绍各地之间的交通方式。
-source: 3f8c5f3598f9
+source: 5f9539de4768
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -26,7 +26,7 @@ reviewed: 2026-10-15
 + **第4天 — 亚历山大** 前往这座地中海城市一日游。请看我们的[亚历山大一日游](/experiences/alexandria-day-trip-from-cairo/)。
 + **第5天 — 飞往阿斯旺** 下午参观菲莱神庙，日落时乘三桅帆船。
 + **第6天 — 阿布辛贝** 黎明前出发前往[阿布辛贝](/experiences/abu-simbel-day-trip-from-aswan/)。
-+ **第7–9天 — 顺尼罗河而下** 乘游船从阿斯旺前往卢克索，途经康翁波和埃德富；或走陆路并住酒店。请看[尼罗河游船还是酒店？](/guides/nile-cruise-or-hotels-luxor-aswan/)
++ **第7–9天 — 顺尼罗河而下** 乘游船从阿斯旺前往卢克索，途经康翁波（供奉鳄鱼神索贝克和老荷鲁斯的神庙）和埃德富（位于尼罗河西岸的荷鲁斯神庙）；或走陆路并住酒店。请看[尼罗河游船还是酒店？](/guides/nile-cruise-or-hotels-luxor-aswan/)
 + **第10天 — 卢克索** 西岸的[帝王谷](/experiences/valley-of-the-kings-hatshepsut-temple/)，以及东岸的[卡纳克与卢克索神庙](/guides/karnak-and-luxor-temple/)。
 + **第11天 — 前往红海** 从卢克索走陆路到赫尔格达。
 + **第12–13天 — 珊瑚礁** 在吉夫顿岛浮潜，或参加一次[潜水之旅](/experiences/red-sea-diving-two-reef-dives/)。

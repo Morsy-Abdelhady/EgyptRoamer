@@ -15,13 +15,15 @@ In the mountains of South Sinai, at the foot of the mountain where, the Old Test
 
 The mountain is known as Mount Sinai, Mount Horeb and, in Arabic, Jebel Musa, the Mountain of Moses. Muslims revere it too. The Path of Moses (*Sikket Sayidna Musa*) leads to the summit, passing two stone arches, the Gate of Stephen and the Gate of the Law, and the remains of chapels. On the summit stand a mosque and a chapel.
 
+The mountains around it form the Saint Katherine Protectorate, declared in 1988, which takes in Egypt's highest peaks, among them Mount Catherine and Mount Moses.
+
 ## Saint Catherine's Monastery {#monastery}
 
-The Greek Orthodox monastery was founded in the 6th century under the Byzantine emperor Justinian I, on the traditional site of the burning bush seen by Moses. UNESCO calls it the oldest Christian monastery still used for its original purpose.
+The Greek Orthodox monastery was built on the order of the Byzantine emperor Justinian I between 548 and 565 AD, on the traditional site of the burning bush seen by Moses. Its full name is the Sacred Monastery of the God-Trodden Mount Sinai. It is named after Saint Catherine of Alexandria, martyred in the early 4th century, whose body the monks found on nearby Mount Catherine in the 9th century. UNESCO calls it the oldest Christian monastery still used for its original purpose.
 
-- **The walls and the church:** the original granite walls still stand, and so does the church of the Virgin Mary, built at the same time. In its apse is a mosaic of the Transfiguration from the early Byzantine period.
-- **A mosque within the walls:** by tradition the monks built a small mosque inside the walls, where local Bedouin still pray. The Bedouin who live near the monastery have long acted as its guards.
-- **Icons and manuscripts:** the monastery's greatest treasures. Some icons were painted before the 8th century. The library holds manuscripts mainly in Greek and Arabic, among them the Codex Syriacus, a Syriac text of the Gospels written around the year 400.
+- **The walls and the church:** the original granite walls still stand. The main church, the Church of the Transfiguration, itself contains nine smaller churches, one of them the Church of the Burning Bush. In its apse is a mosaic of the Transfiguration from the early Byzantine period.
+- **A mosque within the walls:** a Fatimid mosque from the 12th century stands inside the walls, where local Bedouin still pray. The Bedouin who live near the monastery have long acted as its guards.
+- **Icons and manuscripts:** the monastery's greatest treasures. Some icons were painted before the 8th century. The library holds about 6,000 manuscripts, mainly in Greek and Arabic, among them the Codex Syriacus, a Syriac text of the Gospels written around the year 400.
 
 > **The Codex Sinaiticus**
 > A nearly complete 4th-century Greek Bible that once belonged to the monastery is now in London. In 1975, workers found missing parts of it, with thousands of other manuscripts, behind a wall in the monastery.

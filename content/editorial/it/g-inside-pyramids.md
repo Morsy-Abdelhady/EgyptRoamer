@@ -2,10 +2,10 @@
 type: er_guide
 title: Dentro le piramidi di Giza: vale la pena entrare?
 excerpt: Com’è l’interno delle piramidi di Giza: i corridoi della Grande Piramide, la Grande Galleria e la Camera del Re, cosa vedrai e cosa no, chi farebbe meglio a rinunciare e come organizzare la visita all’altopiano.
-source: efa41304bdd1
+source: d8de2eb691fe
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -13,11 +13,11 @@ Trovarsi ai piedi della Grande Piramide è indimenticabile. Entrarci è un’esp
 
 ## Le piramidi di Giza {#the-pyramids}
 
-Sull’altopiano di Giza sorgono tre piramidi della IV dinastia, costruite per i re Cheope, Chefren e Micerino. La più antica e la più grande, costruita per Cheope, è la Grande Piramide, completata all’inizio del XXV secolo a.C. Insieme erano annoverate tra le Sette Meraviglie del mondo antico, e sono l’unica ancora in piedi. Lì vicino si trova la Grande Sfinge, che la maggior parte degli studiosi data al regno di Chefren.
+Sull’altopiano di Giza sorgono tre piramidi della IV dinastia. La Grande Piramide fu costruita per il re Cheope (circa 2589–2566 a.C.), le altre due per Chefren e Micerino, suo figlio e suo nipote. Quella di Cheope è la più antica e la più grande delle tre: la sua altezza originaria era di 146,5 metri, e per circa 3.800 anni nessun edificio fu più alto. Insieme le piramidi erano annoverate tra le Sette Meraviglie del mondo antico, e sono l’unica ancora in piedi. Lì vicino si trova la Grande Sfinge, che la maggior parte degli studiosi data al regno di Chefren.
 
 ## Dentro la Grande Piramide {#great-pyramid}
 
-Nonostante le sue dimensioni, la Grande Piramide ha pochissimo spazio libero all’interno. L’ingresso è sul lato nord. Da lì:
+Nonostante le sue dimensioni, la Grande Piramide ha pochissimo spazio libero all’interno: tre camere, una scavata nella roccia sottostante e due in alto nella muratura. L’ingresso è sul lato nord. Da lì:
 
 - **Un corridoio discendente** scende attraverso la muratura fin dentro la roccia, verso una camera sotterranea incompiuta.
 - **Un corridoio ascendente** se ne stacca verso la Camera della Regina e la **Grande Galleria**, un alto passaggio a mensole lungo circa 46 metri.
@@ -35,7 +35,7 @@ Sopra la Camera del Re ci sono cinque vani separati da enormi lastre di granito,
 
 ## Organizzare la visita {#planning}
 
-- L’ingresso all’interno ha di solito un biglietto separato da quello dell’altopiano, e le piramidi aperte possono cambiare. Verifica sul posto.
+- Il biglietto dell’altopiano non comprende l’ingresso alle piramidi di Cheope, Chefren o Micerino: ognuna ha un biglietto a parte, e le piramidi aperte possono cambiare. Verifica sul posto.
 - Vai presto, prima del caldo e della folla.
 - Alcuni tour includono l’ingresso in una delle piramidi. Vedi il nostro [tour alle piramidi di Giza](/experiences/pyramids-of-giza-sphinx-private-tour/).
 - Abbina l’altopiano al [Grande Museo Egizio](/guides/grand-egyptian-museum-visit/) nel pomeriggio.
