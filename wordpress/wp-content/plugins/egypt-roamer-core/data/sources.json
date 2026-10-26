@@ -257,6 +257,19 @@
    "checked": "2026-10-25"
   },
   {
+   "claim": "Red Sea protected reefs (official, 2026-10-27): Ras Mohammed, South Sinai, declared 1983, 778.2 km², national park, at the meeting of the Gulf of Suez and the Gulf of Aqaba; eastern edge a rock wall with the gulf's coral reefs; mangrove channel about 250 m separating the Ras Mohammed peninsula from Al-Baira island; colourful fish, endangered sea turtles; reefs surround it on all its sea sides. Nabq, South Sinai, declared 1992, 518 km², sustainable-use protected area; coral reefs, dense mangrove forests, desert, mountain and valley ecosystems; an attraction for diving, safari and birdwatching. Abu Galum, South Sinai, declared 1992, 425.7 km², sustainable-use protected area; mountains close to the shore; coral reefs, seagrass, lagoons; underwater cave system to more than 100 m, unstable and extremely dangerous",
+   "guides": [
+    "g-snorkelling"
+   ],
+   "links": [
+    {
+     "name": "eeaa.gov.eg",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-27"
+  },
+  {
    "claim": "Karnak: one of the largest temple complexes; great temple of Amun-Ra with the precincts of Mut and Montu; built over many centuries without a single plan; Great Hypostyle Hall between the 2nd and 3rd pylons, decorated under Seti I and Ramesses II, 12 central columns about 24 m, 134 columns in all; outer-wall reliefs of Seti I's victories and Ramesses II at Kadesh",
    "guides": [
     "g-east-bank"

@@ -3,7 +3,7 @@ type: er_guide
 title: Snorkelling in Egypt: Hurghada or Sharm El Sheikh?
 slug: snorkelling-hurghada-or-sharm
 topic: Planning
-excerpt: Snorkelling in the Red Sea: Hurghada or Sharm El Sheikh? The Giftun Islands and Ras Mohammed National Park compared, boat or shore, trips for beginners, reef etiquette and how to choose a responsible operator.
+excerpt: Snorkelling in the Red Sea: Hurghada or Sharm El Sheikh? The best time to snorkel, the best spots from the Giftun Islands to Ras Mohammed, Nabq and Abu Galum, boat or shore, trips for beginners, reef etiquette and how to choose a responsible operator.
 destination: hurghada, sharm
 related: exp-ras-mohammed, exp-dive
 ---
@@ -17,7 +17,28 @@ From [Hurghada](/destinations/hurghada/), the classic trip is a boat to the **Gi
 
 ## Sharm El Sheikh: Ras Mohammed and Tiran {#sharm}
 
-From [Sharm El Sheikh](/destinations/sharm/), a well-known option is **Ras Mohammed National Park**, declared in 1983 and known for its coral reefs. The reefs of the **Straits of Tiran** are another day-boat option; conditions vary by site, so ask the operator about that day's route and sea conditions. See our [Ras Mohammed snorkelling trip](/experiences/ras-mohammed-snorkelling-from-sharm/).
+From [Sharm El Sheikh](/destinations/sharm/), a well-known option is **Ras Mohammed National Park**, declared in 1983 and known for its coral reefs (more on it below). The reefs of the **Straits of Tiran** are another day-boat option; conditions vary by site, so ask the operator about that day's route and sea conditions. See our [Ras Mohammed snorkelling trip](/experiences/ras-mohammed-snorkelling-from-sharm/).
+
+## When to snorkel {#best-time}
+
+You can snorkel in the Red Sea all year, and the right time depends on what you want.
+
+- **Late summer and autumn** bring the warmest sea.
+- **Spring and autumn** give warm water without the summer heat on land, which makes them the most comfortable time for a whole day on a boat.
+- **Winter** is milder on land, with cooler water and more wind. Ask the operator about a wetsuit or rash vest for your dates.
+- **On any day,** wind and waves decide which reefs a boat can reach, so operators may change the route. Ask about that day's sea conditions before you book.
+
+For the wider picture, season by season, read [the best time to visit Egypt](/guides/best-time-to-visit-egypt/).
+
+## The best snorkelling spots {#where}
+
+The best-known reefs lie in protected areas run by Egypt's Environmental Affairs Agency (EEAA), so park rules apply on every trip.
+
+- **Ras Mohammed National Park (Sharm El Sheikh):** declared in 1983, about 778 km², where the Gulf of Suez meets the Gulf of Aqaba. Coral reefs surround it on all its sea sides; its eastern edge is a rock wall dropping into the gulf, and a mangrove channel about 250 m long separates the Ras Mohammed peninsula from Al-Baira island. The EEAA notes its colourful fish and endangered sea turtles.
+- **Nabq Protected Area (South Sinai):** declared in 1992, about 518 km², with coral reefs, dense mangrove forests, and desert and mountain landscapes; the EEAA names diving, safari and birdwatching among its attractions.
+- **Abu Galum Protected Area (South Sinai):** declared in 1992, about 426 km², where the mountains come close to the shore, with coral reefs, seagrass and lagoons. Its underwater cave system reaches depths of more than 100 m and, in the EEAA's words, is unstable and extremely dangerous: snorkel only where your guide takes you.
+- **The Giftun Islands (Hurghada):** protected islands offshore with sandy beaches and fringing reefs, the classic boat trip from Hurghada.
+- **Wadi El-Gemal National Park (Marsa Alam):** further south, with some of Egypt's best untouched reefs. See our [Wadi El-Gemal guide](/guides/wadi-el-gemal-national-park/).
 
 ## Boat or shore {#boat-or-shore}
 
@@ -42,8 +63,11 @@ You don't need to be a strong swimmer. Most boats provide life jackets or snorke
 
 ## Frequently asked questions {#faq}
 
-?? Can I snorkel all year?
-Snorkelling trips are offered in different seasons, but water and sea conditions vary. Ask your accommodation or operator about current conditions and suitable clothing for your dates.
+?? What is the best time to snorkel in Hurghada and Sharm El Sheikh?
+Late summer and autumn bring the warmest sea, and spring and autumn are the most comfortable for a day on a boat. You can snorkel all year: in winter the water is cooler and the wind stronger, so ask about a wetsuit.
+
+?? Where is the best snorkelling in the Red Sea?
+The best-known reefs are in protected areas: Ras Mohammed, Nabq and Abu Galum near Sharm El Sheikh, the Giftun Islands off Hurghada, and Wadi El-Gemal near Marsa Alam.
 
 ?? Do I need my own equipment?
 No. Masks, snorkels and fins are usually provided. A mask that fits you well makes a difference, so bring yours if you have one.

@@ -172,3 +172,10 @@ reviewed by Claude against the English, sentence by sentence, with the same revi
 Names follow the existing translations: UNESCO site names and the Kadesh sentence as already used in each language;
 Russian "Филэ" as in the Aswan temples guide; Chinese 康翁布 for Kom Ombo. The owner asked for this batch on 27 Oct.
 
+
+## Addendum, 27 Oct: snorkelling guide expanded
+
+`g-snorkelling` gained two sections, "When to snorkel" and "The best snorkelling spots", plus two FAQ answers, written
+for the searches Search Console showed ("best time to snorkel in Hurghada", "beste Schnorchelplätze Hurghada"). The
+owner asked for English and German; the editorial check refuses outdated translations whose sections differ from the
+English, so the same sections were translated into all 7 languages and reviewed by Claude with the same reviewer line.

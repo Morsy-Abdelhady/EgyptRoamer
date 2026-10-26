@@ -1,11 +1,11 @@
 ---
 type: er_guide
 title: Le snorkeling en Égypte : Hurghada ou Charm el-Cheikh ?
-excerpt: Le snorkeling en mer Rouge : Hurghada ou Charm el-Cheikh ? Les îles Giftun et le parc national de Ras Mohammed comparés, bateau ou rivage, sorties pour débutants, bonnes pratiques sur le récif et comment choisir un opérateur responsable.
-source: 80b6ad39b256
+excerpt: Le snorkeling en mer Rouge : Hurghada ou Charm el-Cheikh ? La meilleure période pour faire du snorkeling, les meilleurs spots des îles Giftun à Ras Mohammed, Nabq et Abou Galoum, bateau ou rivage, sorties pour débutants, bonnes pratiques sur le récif et comment choisir un opérateur responsable.
+source: 9059c4c818aa
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -18,6 +18,27 @@ Depuis [Hurghada](/destinations/hurghada/), la sortie classique est un bateau ve
 ## Charm el-Cheikh : Ras Mohammed et Tiran {#sharm}
 
 Depuis [Charm el-Cheikh](/destinations/sharm/), une option bien connue est le **parc national de Ras Mohammed**, créé en 1983 et réputé pour ses récifs coralliens. Les récifs du **détroit de Tiran** sont une autre sortie possible en bateau à la journée ; les conditions varient selon les sites, alors demandez à l’opérateur l’itinéraire du jour et l’état de la mer. Voyez notre [sortie snorkeling à Ras Mohammed](/experiences/ras-mohammed-snorkelling-from-sharm/).
+
+## Quand faire du snorkeling {#best-time}
+
+On peut faire du snorkeling en mer Rouge toute l’année ; le bon moment dépend de ce que vous cherchez.
+
+- **La fin de l’été et l’automne** offrent la mer la plus chaude.
+- **Le printemps et l’automne** donnent une eau chaude sans la chaleur estivale à terre : c’est le moment le plus agréable pour une journée entière en bateau.
+- **L’hiver** est plus doux à terre, avec une eau plus fraîche et plus de vent. Demandez à l’opérateur une combinaison ou un lycra pour vos dates.
+- **Chaque jour,** le vent et les vagues décident des récifs qu’un bateau peut atteindre, et les opérateurs changent parfois d’itinéraire. Renseignez-vous sur l’état de la mer du jour avant de réserver.
+
+Pour la vue d’ensemble, saison par saison, lisez [La meilleure période pour visiter l’Égypte](/guides/best-time-to-visit-egypt/).
+
+## Les meilleurs spots de snorkeling {#where}
+
+Les récifs les plus connus se trouvent dans des aires protégées gérées par l’Agence égyptienne des affaires environnementales (EEAA) : les règles des parcs s’appliquent à chaque sortie.
+
+- **Parc national de Ras Mohammed (Charm el-Cheikh) :** créé en 1983, environ 778 km², à la rencontre du golfe de Suez et du golfe d’Aqaba. Des récifs coralliens l’entourent sur toutes ses façades maritimes ; son bord est est une paroi rocheuse plongeant dans le golfe, et un chenal de mangrove d’environ 250 m sépare la péninsule de Ras Mohammed de l’île d’Al-Baira. L’EEAA souligne ses poissons colorés et ses tortues marines menacées.
+- **Aire protégée de Nabq (Sud-Sinaï) :** créée en 1992, environ 518 km², avec des récifs coralliens, des forêts de mangrove denses et des paysages de désert et de montagne ; l’EEAA cite la plongée, les safaris et l’observation des oiseaux parmi ses attraits.
+- **Aire protégée d’Abou Galoum (Sud-Sinaï) :** créée en 1992, environ 426 km², là où les montagnes s’approchent du rivage, avec des récifs coralliens, des herbiers marins et des lagunes. Son réseau de grottes sous-marines descend à plus de 100 m et, selon l’EEAA, il est instable et extrêmement dangereux : ne faites du snorkeling que là où votre guide vous emmène.
+- **Les îles Giftun (Hurghada) :** des îles protégées au large, avec des plages de sable et des récifs frangeants, la sortie en bateau classique depuis Hurghada.
+- **Parc national de Wadi el-Gemal (Marsa Alam) :** plus au sud, avec certains des plus beaux récifs intacts d’Égypte. Voir notre [guide de Wadi el-Gemal](/guides/wadi-el-gemal-national-park/).
 
 ## Bateau ou rivage {#boat-or-shore}
 
@@ -42,8 +63,11 @@ Inutile d’être bon nageur. La plupart des bateaux fournissent gilets de sauve
 
 ## Questions fréquentes {#faq}
 
-?? Peut-on faire du snorkeling toute l’année ?
-Des sorties de snorkeling sont proposées à différentes saisons, mais les conditions de l’eau et de la mer varient. Renseignez-vous auprès de votre hébergement ou de l’opérateur sur les conditions actuelles et la tenue adaptée à vos dates.
+?? Quelle est la meilleure période pour faire du snorkeling à Hurghada et à Charm el-Cheikh ?
+La fin de l’été et l’automne offrent la mer la plus chaude, et le printemps et l’automne sont les plus agréables pour une journée en bateau. On peut en faire toute l’année : en hiver, l’eau est plus fraîche et le vent plus fort, demandez donc une combinaison.
+
+?? Où se trouvent les meilleurs spots de snorkeling en mer Rouge ?
+Les récifs les plus connus sont dans des aires protégées : Ras Mohammed, Nabq et Abou Galoum près de Charm el-Cheikh, les îles Giftun au large de Hurghada et Wadi el-Gemal près de Marsa Alam.
 
 ?? Faut-il son propre équipement ?
 Non. Masques, tubas et palmes sont en général fournis. Un masque bien ajusté fait toutefois la différence : apportez le vôtre si vous en avez un.

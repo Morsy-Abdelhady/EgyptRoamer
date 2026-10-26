@@ -1,11 +1,11 @@
 ---
 type: er_guide
 title: Esnórquel en Egipto: ¿Hurghada o Sharm el-Sheij?
-excerpt: Esnórquel en el mar Rojo: ¿Hurghada o Sharm el-Sheij? Las islas Giftun y el Parque Nacional de Ras Mohammed comparados, barco u orilla, excursiones para principiantes, buenas prácticas en el arrecife y cómo elegir un operador responsable.
-source: 80b6ad39b256
+excerpt: Esnórquel en el mar Rojo: ¿Hurghada o Sharm el-Sheij? La mejor época para hacer esnórquel, los mejores lugares desde las islas Giftun hasta Ras Mohammed, Nabq y Abu Galum, barco u orilla, excursiones para principiantes, buenas prácticas en el arrecife y cómo elegir un operador responsable.
+source: 9059c4c818aa
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -18,6 +18,27 @@ Desde [Hurghada](/destinations/hurghada/), la excursión clásica es un barco a 
 ## Sharm el-Sheij: Ras Mohammed y Tirán {#sharm}
 
 Desde [Sharm el-Sheij](/destinations/sharm/), una opción conocida es el **Parque Nacional de Ras Mohammed**, declarado en 1983 y célebre por sus arrecifes de coral. Los arrecifes del **estrecho de Tirán** son otra opción en barco de día; las condiciones varían según el punto, así que pregunta al operador por la ruta de ese día y el estado del mar. Mira nuestra [excursión de esnórquel a Ras Mohammed](/experiences/ras-mohammed-snorkelling-from-sharm/).
+
+## Cuándo hacer esnórquel {#best-time}
+
+En el mar Rojo se puede hacer esnórquel todo el año; el mejor momento depende de lo que busques.
+
+- **El final del verano y el otoño** traen el mar más cálido.
+- **La primavera y el otoño** ofrecen agua cálida sin el calor del verano en tierra, así que son la época más agradable para pasar un día entero en barco.
+- **El invierno** es más suave en tierra, con el agua más fresca y más viento. Pregunta al operador por un traje de neopreno o una camiseta de lycra para tus fechas.
+- **Cada día,** el viento y las olas deciden a qué arrecifes puede llegar un barco, y los operadores a veces cambian la ruta. Pregunta por el estado del mar ese día antes de reservar.
+
+Para el panorama general, estación por estación, lee [La mejor época para visitar Egipto](/guides/best-time-to-visit-egypt/).
+
+## Los mejores lugares para hacer esnórquel {#where}
+
+Los arrecifes más conocidos están en áreas protegidas gestionadas por la Agencia egipcia de Asuntos Ambientales (EEAA), así que en cada excursión rigen las normas de los parques.
+
+- **Parque Nacional de Ras Mohammed (Sharm el-Sheij):** declarado en 1983, unos 778 km², donde el golfo de Suez se une al golfo de Áqaba. Los arrecifes de coral lo rodean por todos sus lados marítimos; su borde oriental es una pared de roca que cae al golfo, y un canal de manglar de unos 250 m separa la península de Ras Mohammed de la isla de Al-Baira. La EEAA destaca sus peces de colores y sus tortugas marinas amenazadas.
+- **Área protegida de Nabq (Sinaí del Sur):** declarada en 1992, unos 518 km², con arrecifes de coral, densos bosques de manglar y paisajes de desierto y montaña; la EEAA cita el buceo, los safaris y la observación de aves entre sus atractivos.
+- **Área protegida de Abu Galum (Sinaí del Sur):** declarada en 1992, unos 426 km², donde las montañas se acercan a la costa, con arrecifes de coral, praderas marinas y lagunas. Su sistema de cuevas submarinas supera los 100 m de profundidad y, según la EEAA, es inestable y extremadamente peligroso: haz esnórquel solo donde te lleve tu guía.
+- **Las islas Giftun (Hurghada):** islas protegidas frente a la costa, con playas de arena y arrecifes costeros; la excursión en barco clásica desde Hurghada.
+- **Parque Nacional de Wadi el-Gemal (Marsa Alam):** más al sur, con algunos de los mejores arrecifes vírgenes de Egipto. Consulta nuestra [guía de Wadi el-Gemal](/guides/wadi-el-gemal-national-park/).
 
 ## Barco u orilla {#boat-or-shore}
 
@@ -42,8 +63,11 @@ No hace falta nadar bien. La mayoría de los barcos ofrecen chalecos salvavidas 
 
 ## Preguntas frecuentes {#faq}
 
-?? ¿Se puede hacer esnórquel todo el año?
-Hay excursiones de esnórquel en distintas épocas del año, pero las condiciones del agua y del mar varían. Pregunta a tu alojamiento o al operador por las condiciones actuales y la ropa adecuada para tus fechas.
+?? ¿Cuál es la mejor época para hacer esnórquel en Hurghada y Sharm el-Sheij?
+El final del verano y el otoño traen el mar más cálido, y la primavera y el otoño son las épocas más agradables para un día en barco. Se puede hacer todo el año: en invierno el agua está más fresca y el viento es más fuerte, así que pregunta por un neopreno.
+
+?? ¿Dónde están los mejores lugares para hacer esnórquel en el mar Rojo?
+Los arrecifes más conocidos están en áreas protegidas: Ras Mohammed, Nabq y Abu Galum cerca de Sharm el-Sheij, las islas Giftun frente a Hurghada y Wadi el-Gemal cerca de Marsa Alam.
 
 ?? ¿Necesito mi propio equipo?
 No. Gafas, tubos y aletas suelen estar incluidos. Pero unas gafas que te ajusten bien marcan la diferencia, así que trae las tuyas si las tienes.

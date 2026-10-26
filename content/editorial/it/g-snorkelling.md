@@ -1,11 +1,11 @@
 ---
 type: er_guide
 title: Snorkeling in Egitto: Hurghada o Sharm el-Sheikh?
-excerpt: Snorkeling nel Mar Rosso: Hurghada o Sharm el-Sheikh? Le isole Giftun e il Parco Nazionale di Ras Mohammed a confronto, barca o riva, escursioni per principianti, regole di comportamento sulla barriera e come scegliere un operatore responsabile.
-source: 80b6ad39b256
+excerpt: Snorkeling nel Mar Rosso: Hurghada o Sharm el-Sheikh? Il periodo migliore per fare snorkeling, i posti migliori dalle isole Giftun a Ras Mohammed, Nabq e Abu Galum, barca o riva, escursioni per principianti, regole di comportamento sulla barriera e come scegliere un operatore responsabile.
+source: 9059c4c818aa
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -18,6 +18,27 @@ Da [Hurghada](/destinations/hurghada/), l’escursione classica è una barca ver
 ## Sharm el-Sheikh: Ras Mohammed e Tiran {#sharm}
 
 Da [Sharm el-Sheikh](/destinations/sharm/), un’opzione molto nota è il **Parco Nazionale di Ras Mohammed**, istituito nel 1983 e famoso per le sue barriere coralline. Le barriere dello **Stretto di Tiran** sono un’altra opzione in barca in giornata; le condizioni variano da sito a sito, quindi chiedi all’operatore il percorso del giorno e lo stato del mare. Vedi la nostra [escursione di snorkeling a Ras Mohammed](/experiences/ras-mohammed-snorkelling-from-sharm/).
+
+## Quando fare snorkeling {#best-time}
+
+Nel Mar Rosso si può fare snorkeling tutto l’anno; il momento giusto dipende da che cosa cercate.
+
+- **Fine estate e autunno** portano il mare più caldo.
+- **Primavera e autunno** offrono acqua calda senza il caldo estivo a terra, e sono quindi il periodo più piacevole per un’intera giornata in barca.
+- **L’inverno** è più mite a terra, con acqua più fresca e più vento. Chiedete all’operatore una muta o una maglia in lycra per le vostre date.
+- **Ogni giorno** vento e onde decidono quali barriere una barca può raggiungere, quindi gli operatori a volte cambiano rotta. Informatevi sulle condizioni del mare del giorno prima di prenotare.
+
+Per il quadro generale, stagione per stagione, leggete [Il periodo migliore per visitare l’Egitto](/guides/best-time-to-visit-egypt/).
+
+## I posti migliori per lo snorkeling {#where}
+
+Le barriere più note si trovano in aree protette gestite dall’Agenzia egiziana per gli affari ambientali (EEAA), quindi in ogni escursione valgono le regole dei parchi.
+
+- **Parco nazionale di Ras Mohammed (Sharm el-Sheikh):** istituito nel 1983, circa 778 km², dove il golfo di Suez incontra il golfo di Aqaba. Le barriere coralline lo circondano su tutti i lati sul mare; il suo margine orientale è una parete di roccia che scende nel golfo, e un canale di mangrovie lungo circa 250 m separa la penisola di Ras Mohammed dall’isola di Al-Baira. L’EEAA ne sottolinea i pesci colorati e le tartarughe marine minacciate.
+- **Area protetta di Nabq (Sinai meridionale):** istituita nel 1992, circa 518 km², con barriere coralline, fitte foreste di mangrovie e paesaggi di deserto e montagna; l’EEAA cita immersioni, safari e birdwatching tra le sue attrattive.
+- **Area protetta di Abu Galum (Sinai meridionale):** istituita nel 1992, circa 426 km², dove le montagne si avvicinano alla costa, con barriere coralline, praterie di fanerogame e lagune. Il suo sistema di grotte sottomarine scende a oltre 100 m e, secondo l’EEAA, è instabile ed estremamente pericoloso: fate snorkeling solo dove vi porta la guida.
+- **Le isole Giftun (Hurghada):** isole protette al largo con spiagge di sabbia e barriere frangenti, la classica gita in barca da Hurghada.
+- **Parco nazionale di Wadi el-Gemal (Marsa Alam):** più a sud, con alcune delle migliori barriere intatte d’Egitto. Vedi la nostra [guida a Wadi el-Gemal](/guides/wadi-el-gemal-national-park/).
 
 ## Barca o riva {#boat-or-shore}
 
@@ -42,8 +63,11 @@ Non serve essere un buon nuotatore. La maggior parte delle barche fornisce giubb
 
 ## Domande frequenti {#faq}
 
-?? Si può fare snorkeling tutto l’anno?
-Le escursioni di snorkeling si svolgono in diverse stagioni, ma le condizioni dell’acqua e del mare cambiano. Chiedi alla tua struttura o all’operatore le condizioni attuali e l’abbigliamento adatto per le tue date.
+?? Qual è il periodo migliore per fare snorkeling a Hurghada e Sharm el-Sheikh?
+Fine estate e autunno portano il mare più caldo, mentre primavera e autunno sono i più piacevoli per una giornata in barca. Si può fare tutto l’anno: d’inverno l’acqua è più fresca e il vento più forte, quindi chiedete una muta.
+
+?? Dove sono i posti migliori per lo snorkeling nel Mar Rosso?
+Le barriere più note sono in aree protette: Ras Mohammed, Nabq e Abu Galum vicino a Sharm el-Sheikh, le isole Giftun al largo di Hurghada e Wadi el-Gemal vicino a Marsa Alam.
 
 ?? Mi serve la mia attrezzatura?
 No. Maschere, boccagli e pinne sono di solito forniti. Una maschera che calza bene però fa la differenza: portala se ne hai una.
