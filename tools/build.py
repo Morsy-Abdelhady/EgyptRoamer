@@ -32,8 +32,8 @@ THEME_CSS = THEME / "assets" / "css"
 # and blank lines are removed: every rule, and its order, is kept. Language-only sheets (fonts-arabic.css,
 # rtl.css) stay separate and load after the bundle as before.
 CSS_BUNDLES = {
-    "bundle-home.css": ["fonts", "tokens", "base", "layout", "journey", "sections", "pages", "p4-cards"],
-    "bundle-site.css": ["fonts", "tokens", "base", "layout", "sections", "pages", "p4-cards"],
+    "bundle-home.css": ["fonts", "tokens", "base", "layout", "journey", "sections", "pages", "p4-cards", "consent"],
+    "bundle-site.css": ["fonts", "tokens", "base", "layout", "sections", "pages", "p4-cards", "consent"],
 }
 
 IMPORT_RE = re.compile(r'^import\s+(.+?)\s+from\s+"(.+?)";\s*$')

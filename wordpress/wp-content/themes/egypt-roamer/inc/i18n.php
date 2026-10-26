@@ -50,6 +50,18 @@ function er_lang(): string {
 }
 
 /**
+ * Complianz has no Chinese or Arabic language pack, so the one fixed label its cookie banner shows
+ * ("Always active", next to Functional) stays English there. The banner's own texts are translated
+ * in Polylang → Strings translations (group "complianz"); de/fr/it/es/ru get this label from Complianz.
+ */
+add_filter( 'gettext_complianz-gdpr', static function ( string $translation, string $text ): string {
+	if ( 'Always active' !== $text || $translation !== $text ) {
+		return $translation;
+	}
+	return [ 'zh' => '始终启用', 'ar' => 'مفعّلة دائمًا' ][ er_lang() ] ?? $translation;
+}, 10, 2 );
+
+/**
  * The current language's homepage (/, /de/, /ar/ …). Explicit rather than home_url( '/' ), which
  * Polylang localises only by matching the caller's file path against the theme folder.
  */
