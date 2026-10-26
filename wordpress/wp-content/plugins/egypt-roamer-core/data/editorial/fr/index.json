@@ -60,7 +60,7 @@
   "title": "Montgolfière au lever du soleil au-dessus de Louxor",
   "excerpt": "Un vol en montgolfière au lever du soleil au-dessus de la rive ouest de Louxor : le départ très matinal, ce que l’on voit depuis la nacelle, pourquoi certaines matinées sont annulées, la pause d’été et comment associer le vol aux tombes et aux temples.",
   "location": "Louxor",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "exp-cruise": {
@@ -68,7 +68,7 @@
   "title": "Croisière sur le Nil d’Assouan à Louxor",
   "excerpt": "Une croisière sur le Nil d’Assouan à Louxor : à quoi ressemblent les journées à bord, les temples de Kom Ombo et d’Edfou sur le trajet, ce que comprennent les options (Abou Simbel, un vol en montgolfière, les droits d’entrée) et à qui s’adresse une croisière.",
   "location": "D’Assouan à Louxor",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "exp-dinner": {
@@ -243,7 +243,7 @@
  "g-great-sand-sea": {
   "type": "er_guide",
   "title": "La Grande mer de sable : l’océan de dunes de l’Égypte",
-  "excerpt": "La Grande mer de sable du désert Occidental égyptien : où elle se trouve, comment la découvrir en 4×4 depuis l’oasis de Siwa, ce qu’implique un safari dans les dunes, sources et couchers de soleil dans le désert, sécurité et meilleure saison.",
+  "excerpt": "Ce qu’est la Grande mer de sable, son lien avec l’oasis de Siwa et ce qu’il faut vérifier avant de choisir une excursion dans le désert.",
   "review": "approved",
   "current": true
  },

@@ -60,7 +60,7 @@
   "title": "日出时分乘热气球飞越卢克索",
   "excerpt": "日出时分乘热气球飞越卢克索西岸：很早出发、从吊篮里能看到什么、为什么有些早晨会取消、夏季停飞，以及如何把飞行和陵墓、神庙安排在一起。",
   "location": "卢克索",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "exp-cruise": {
@@ -68,7 +68,7 @@
   "title": "从阿斯旺到卢克索的尼罗河游船",
   "excerpt": "从阿斯旺到卢克索的尼罗河游船：船上的日子是什么样的，沿途的康翁波神庙和埃德富神庙，各选项包含什么（阿布辛贝、热气球飞行、门票），以及游船适合哪些人。",
   "location": "从阿斯旺到卢克索",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "exp-dinner": {
@@ -243,7 +243,7 @@
  "g-great-sand-sea": {
   "type": "er_guide",
   "title": "大沙海：埃及的沙丘海洋",
-  "excerpt": "埃及西部沙漠的大沙海：位于哪里，如何从锡瓦绿洲乘四驱车前往，沙丘越野包括什么，沙漠泉水与日落，安全事项，以及最佳季节。",
+  "excerpt": "大沙海是什么、与锡瓦绿洲有什么关系，以及选择沙漠行程前需要确认哪些事项。",
   "review": "approved",
   "current": true
  },

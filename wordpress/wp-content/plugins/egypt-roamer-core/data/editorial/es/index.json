@@ -60,7 +60,7 @@
   "title": "Globo aerostático al amanecer sobre Luxor",
   "excerpt": "Un vuelo en globo al amanecer sobre la orilla oeste de Luxor: la salida muy temprana, lo que se ve desde la cesta, por qué se cancelan algunas mañanas, la pausa de verano y cómo combinar el vuelo con las tumbas y los templos.",
   "location": "Luxor",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "exp-cruise": {
@@ -68,7 +68,7 @@
   "title": "Crucero por el Nilo de Asuán a Luxor",
   "excerpt": "Un crucero por el Nilo de Asuán a Luxor: cómo son los días a bordo, los templos de Kom Ombo y Edfu en el camino, qué incluyen las opciones (Abu Simbel, un vuelo en globo, las entradas) y a quién le conviene un crucero.",
   "location": "De Asuán a Luxor",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "exp-dinner": {
@@ -243,7 +243,7 @@
  "g-great-sand-sea": {
   "type": "er_guide",
   "title": "El Gran Mar de Arena: el océano de dunas de Egipto",
-  "excerpt": "El Gran Mar de Arena del Desierto Occidental de Egipto: dónde está, cómo visitarlo en todoterreno desde el oasis de Siwa, qué supone un safari por las dunas, manantiales y atardeceres en el desierto, seguridad y mejor temporada.",
+  "excerpt": "Qué es el Gran Mar de Arena, qué relación tiene con el oasis de Siwa y qué comprobar antes de elegir una excursión por el desierto.",
   "review": "approved",
   "current": true
  },

@@ -60,7 +60,7 @@
   "title": "Ballonfahrt bei Sonnenaufgang über Luxor",
   "excerpt": "Eine Ballonfahrt bei Sonnenaufgang über Luxors Westufer: der frühe Start, was Sie aus dem Korb sehen, warum manche Morgen abgesagt werden, die Sommerpause und wie Sie die Fahrt mit Gräbern und Tempeln verbinden.",
   "location": "Luxor",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "exp-cruise": {
@@ -68,7 +68,7 @@
   "title": "Nilkreuzfahrt von Assuan nach Luxor",
   "excerpt": "Eine Nilkreuzfahrt von Assuan nach Luxor: wie die Tage an Bord sind, die Tempel von Kom Ombo und Edfu unterwegs, was die Optionen enthalten (Abu Simbel, eine Ballonfahrt, Eintrittsgelder) und für wen sich eine Kreuzfahrt eignet.",
   "location": "Von Assuan nach Luxor",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "exp-dinner": {
@@ -243,7 +243,7 @@
  "g-great-sand-sea": {
   "type": "er_guide",
   "title": "Das Große Sandmeer: Ägyptens Ozean aus Dünen",
-  "excerpt": "Das Große Sandmeer in Ägyptens Westlicher Wüste: wo es liegt, wie Sie es von der Oase Siwa im Geländewagen besuchen, was eine Dünensafari bedeutet, Quellen und Sonnenuntergänge in der Wüste, Sicherheit und die beste Reisezeit.",
+  "excerpt": "Was das Große Sandmeer ist, wie es mit der Oase Siwa zusammenhängt und was Sie prüfen sollten, bevor Sie einen Wüstenausflug wählen.",
   "review": "approved",
   "current": true
  },

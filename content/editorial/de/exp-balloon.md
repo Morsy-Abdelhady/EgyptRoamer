@@ -4,7 +4,9 @@ title: Ballonfahrt bei Sonnenaufgang über Luxor
 location: Luxor
 excerpt: Eine Ballonfahrt bei Sonnenaufgang über Luxors Westufer: der frühe Start, was Sie aus dem Korb sehen, warum manche Morgen abgesagt werden, die Sommerpause und wie Sie die Fahrt mit Gräbern und Tempeln verbinden.
 source: 0b1db4b2071c
-review: pending
+review: approved
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 ## Worum es geht {#what-it-is}
 
@@ -12,7 +14,7 @@ Im Morgengrauen steigen Ballone über dem Westufer von Luxor auf, über Feldern,
 
 ## Der Morgen {#the-morning}
 
-- **Vor der Morgendämmerung.** Die Abholung ist lange vor Sonnenaufgang, denn die Fahrt richtet sich nach der Morgendämmerung. Die Ballone starten von einem Startplatz am Westufer.
+- **Vor der Morgendämmerung.** Die Abholung erfolgt lange vor Sonnenaufgang, denn die Fahrt richtet sich nach der Morgendämmerung. Die Ballone starten von einem Startplatz am Westufer.
 - **Über den Feldern.** Aus dem Korb blicken Sie über das Ackerland am Nil, während die Sonne aufgeht.
 - **Das Westufer unter Ihnen.** Unter Ihnen liegen die archäologischen Stätten des Westufers, dahinter der Fluss und das Ostufer. Nach der Landung sind Sie bereits am Westufer.
 

@@ -4,7 +4,9 @@ title: 日出时分乘热气球飞越卢克索
 location: 卢克索
 excerpt: 日出时分乘热气球飞越卢克索西岸：很早出发、从吊篮里能看到什么、为什么有些早晨会取消、夏季停飞，以及如何把飞行和陵墓、神庙安排在一起。
 source: 0b1db4b2071c
-review: pending
+review: approved
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 ## 这是什么 {#what-it-is}
 

@@ -2,14 +2,14 @@
 type: er_guide
 title: Snorkeling in Egitto: Hurghada o Sharm el-Sheikh?
 excerpt: Snorkeling nel Mar Rosso: Hurghada o Sharm el-Sheikh? Le isole Giftun e il Parco Nazionale di Ras Mohammed a confronto, barca o riva, escursioni per principianti, regole di comportamento sulla barriera e come scegliere un operatore responsabile.
-source: dcc36ac3ee82
+source: 80b6ad39b256
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
-Il Mar Rosso è uno dei posti più facili al mondo per vedere una barriera corallina: acqua limpida e calda, e barriere a breve distanza in barca dalla costa. Le due grandi zone turistiche dell’Egitto, Hurghada e Sharm el-Sheikh, offrono entrambe uno snorkeling eccellente. Questa guida le mette a confronto e spiega come scegliere un’escursione.
+Scegliere tra Hurghada e Sharm el-Sheikh per lo snorkeling dipende dal tipo di giornata che desideri: soste sulle isole e una facile combinazione con Luxor, oppure le barriere intorno a Ras Mohammed e allo Stretto di Tiran. Questa guida mette a confronto le uscite in barca e da riva, spiega cosa i principianti possono chiedere a un operatore e come scegliere senza dare per scontato che tutte le escursioni siano uguali. Per un quadro dei siti di immersione, leggi la nostra guida ai [siti d’immersione famosi del Mar Rosso](/guides/red-sea-famous-dive-sites/).
 
 ## Hurghada: isole ed escursioni in barca facili {#hurghada}
 
@@ -17,7 +17,7 @@ Da [Hurghada](/destinations/hurghada/), l’escursione classica è una barca ver
 
 ## Sharm el-Sheikh: Ras Mohammed e Tiran {#sharm}
 
-Da [Sharm el-Sheikh](/destinations/sharm/), il punto forte è il **Parco Nazionale di Ras Mohammed**, istituito nel 1983 come primo parco nazionale d’Egitto, con pareti di corallo vicine alla superficie. Le barriere dello **Stretto di Tiran** sono un’altra escursione classica in barca, con correnti più forti. Vedi la nostra [escursione di snorkeling a Ras Mohammed](/experiences/ras-mohammed-snorkelling-from-sharm/).
+Da [Sharm el-Sheikh](/destinations/sharm/), un’opzione molto nota è il **Parco Nazionale di Ras Mohammed**, istituito nel 1983 e famoso per le sue barriere coralline. Le barriere dello **Stretto di Tiran** sono un’altra opzione in barca in giornata; le condizioni variano da sito a sito, quindi chiedi all’operatore il percorso del giorno e lo stato del mare. Vedi la nostra [escursione di snorkeling a Ras Mohammed](/experiences/ras-mohammed-snorkelling-from-sharm/).
 
 ## Barca o riva {#boat-or-shore}
 
@@ -43,7 +43,7 @@ Non serve essere un buon nuotatore. La maggior parte delle barche fornisce giubb
 ## Domande frequenti {#faq}
 
 ?? Si può fare snorkeling tutto l’anno?
-Sì. L’acqua è più calda da fine estate all’autunno e più fresca a fine inverno, quando una muta aiuta.
+Le escursioni di snorkeling si svolgono in diverse stagioni, ma le condizioni dell’acqua e del mare cambiano. Chiedi alla tua struttura o all’operatore le condizioni attuali e l’abbigliamento adatto per le tue date.
 
 ?? Mi serve la mia attrezzatura?
 No. Maschere, boccagli e pinne sono di solito forniti. Una maschera che calza bene però fa la differenza: portala se ne hai una.

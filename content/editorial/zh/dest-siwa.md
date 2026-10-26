@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: 锡瓦绿洲旅行指南：沙利古城、亚历山大大帝曾求问的阿蒙神谕神庙、盐湖与泉水、大沙海、当地习俗、最佳季节，以及如何安排漫长的旅途。
-source: d84e32620b01
+source: a42d126b8e56
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -32,7 +32,7 @@ reviewed: 2026-09-29
 
 ## 大沙海 {#great-sand-sea}
 
-绿洲以南便是大沙海的沙丘。乘四驱车深入沙丘是必不可少的体验：滑沙、沙漠中的冷热泉，以及沙丘上的日落。这些行程由持证的当地经营者组织，他们也会代办沙漠地区可能需要的许可。请看我们的[大沙海四驱越野与温泉](/experiences/great-sand-sea-4-4-hot-springs/)行程。
+锡瓦是前往大沙海沙丘的行程落脚点。埃及旅游和文物部在该地区的沙漠活动中重点介绍了滑沙。路线、停靠点、进入要求和包含的活动因行程而异，因此请查看当前的行程信息，并在预订前向其运营商确认详情。请阅读我们的[大沙海指南](/guides/great-sand-sea/)，并比较[现有行程](/experiences/great-sand-sea-4-4-hot-springs/)。
 
 ## 当地生活与习俗 {#customs}
 

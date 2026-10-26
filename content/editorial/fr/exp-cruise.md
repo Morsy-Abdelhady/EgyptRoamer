@@ -4,7 +4,9 @@ title: Croisière sur le Nil d’Assouan à Louxor
 location: D’Assouan à Louxor
 excerpt: Une croisière sur le Nil d’Assouan à Louxor : à quoi ressemblent les journées à bord, les temples de Kom Ombo et d’Edfou sur le trajet, ce que comprennent les options (Abou Simbel, un vol en montgolfière, les droits d’entrée) et à qui s’adresse une croisière.
 source: 4130530cf347
-review: pending
+review: approved
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 ## De quoi s’agit-il {#what-it-is}
 
@@ -13,7 +15,7 @@ Entre Assouan et Louxor, le Nil longe quelques-uns des temples les mieux conserv
 ## Sur le trajet {#on-the-way}
 
 - **Kom Ombo.** Un temple double des époques ptolémaïque et romaine, dans une courbe du fleuve, dédié à deux dieux à la fois : Sobek, le dieu crocodile, et Horus, le dieu à tête de faucon.
-- **Edfou.** Le temple d’Horus à Edfou est l’un des temples les mieux conservés d’Égypte. Commencé sous Ptolémée III en 237 av. J.-C. et achevé en 57 av. J.-C., son plan simple, le long d’un axe unique, est l’exemple classique du temple égyptien.
+- **Edfou.** Le temple d’Horus à Edfou est l’un des temples les mieux conservés d’Égypte. Commencé sous Ptolémée III en 237 av. J.-C. et achevé en 57 av. J.-C., il présente un plan simple, le long d’un axe unique, qui est l’exemple classique du temple égyptien.
 - **Louxor.** La croisière se termine à [Louxor](/destinations/luxor/), avec ses temples sur la rive est et les tombes royales sur la rive ouest.
 
 ## Avant de réserver {#before-you-book}
@@ -36,7 +38,7 @@ Beaucoup ajoutent une journée à Louxor avant ou après la croisière pour les 
 ## Questions fréquentes {#faq}
 
 ?? Vaut-il mieux commencer à Louxor ou à Assouan ?
-Les deux conviennent. Partir d’Assouan fait finir le voyage à Louxor, où il reste beaucoup à voir ensuite. Les options de cette page naviguent toutes d’Assouan à Louxor.
+Les deux conviennent. En partant d’Assouan, on termine à Louxor, où il reste beaucoup à voir ensuite. Les options de cette page naviguent toutes d’Assouan à Louxor.
 
 ?? La croisière inclut-elle Abou Simbel ?
 Pour certaines options, oui, sous forme d’excursion tôt le matin depuis Assouan. Pour d’autres, c’est un supplément. Chaque option l’indique.

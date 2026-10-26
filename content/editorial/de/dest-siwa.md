@@ -1,14 +1,14 @@
 ---
 type: er_destination
 excerpt: Reiseführer Oase Siwa: die Festung Shali, das Amun-Orakel, das Alexander der Große befragte, Salzseen und Quellen, das Große Sandmeer, lokale Sitten, die beste Reisezeit und wie Sie die lange Anreise planen.
-source: d84e32620b01
+source: a42d126b8e56
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
-Siwa ist Ägyptens abgelegenste Oase und einer seiner eigenwilligsten Orte. Sie liegt tief in der Westlichen Wüste nahe der libyschen Grenze, umgeben von Salzseen, Dattelpalmen und den Dünen des Großen Sandmeers. Die Menschen hier sind Amazigh (Berber) und sprechen neben Arabisch ihre eigene Sprache, Siwi. Die Anreise ist ein Entschluss, und genau darin liegt ein großer Teil des Reizes: Siwa ist langsam, still und anders als jeder andere Ort im Land.
+Siwa ist Ägyptens abgelegenste Oase und einer seiner unverwechselbarsten Orte. Sie liegt tief in der Westlichen Wüste nahe der libyschen Grenze, umgeben von Salzseen, Dattelpalmen und den Dünen des Großen Sandmeers. Die Menschen hier sind Amazigh (Berber) und sprechen neben Arabisch ihre eigene Sprache, Siwi. Die Anreise erfordert einigen Aufwand, und genau darin liegt ein großer Teil des Reizes: Siwa ist langsam, still und anders als jeder andere Ort im Land.
 
 ## Ist Siwa das Richtige für Sie? {#is-siwa-for-you}
 
@@ -32,7 +32,7 @@ Der Gebel al-Mawta ist ein Hügel, der von antiken Gräbern durchlöchert ist wi
 
 ## Das Große Sandmeer {#great-sand-sea}
 
-Südlich der Oase beginnen die Dünen des Großen Sandmeers. Ein Ausflug im Geländewagen in die Dünen ist ein Muss: Sandboarding, heiße und kalte Quellen mitten in der Wüste und Sonnenuntergang über den Dünen. Die Ausflüge werden von lizenzierten lokalen Anbietern durchgeführt, die sich auch um eventuell nötige Genehmigungen für die Wüstengebiete kümmern. Siehe unseren Ausflug [Großes Sandmeer im 4×4 & heiße Quellen](/experiences/great-sand-sea-4-4-hot-springs/).
+Siwa ist Ausgangspunkt für Ausflüge in die Dünen des Großen Sandmeers. Das ägyptische Ministerium für Tourismus und Altertümer hebt Sandboarding unter den Wüstenaktivitäten der Region hervor. Routen, Stopps, Zugangsvoraussetzungen und enthaltene Aktivitäten unterscheiden sich je nach Ausflug; prüfen Sie daher das aktuelle Angebot und klären Sie die Details vor der Buchung mit dem Veranstalter. Lesen Sie unseren [Ratgeber zum Großen Sandmeer](/guides/great-sand-sea/) und vergleichen Sie den [verfügbaren Ausflug](/experiences/great-sand-sea-4-4-hot-springs/).
 
 ## Alltag und Sitten {#customs}
 
@@ -49,7 +49,7 @@ Siwa ist eine konservative, eng verbundene Gemeinschaft.
 **Aufenthaltsdauer.** Planen Sie mindestens drei Nächte in der Oase, die Reisetage nicht mitgerechnet: einen Tag für den Ort, die Festung und das Orakel, einen für die Quellen und Seen und einen für das Große Sandmeer.
 
 **Reisezeit.**
-- **Oktober bis April** ist die Saison. Die Tage sind warm, die Nächte im Winter können überraschend kalt sein – packen Sie Schichten ein.
+- **Oktober bis April** ist die Saison. Die Tage sind warm, die Nächte im Winter können überraschend kalt sein – packen Sie mehrere Lagen Kleidung ein.
 - **Der Sommer** ist sehr heiß und besser zu meiden.
 
 ## Anreise und unterwegs {#getting-there}

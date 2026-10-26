@@ -60,7 +60,7 @@
   "title": "Mongolfiera all’alba sopra Luxor",
   "excerpt": "Un volo in mongolfiera all’alba sopra la riva occidentale di Luxor: la partenza molto presto, che cosa si vede dalla cesta, perché alcune mattine vengono annullate, la pausa estiva e come abbinare il volo a tombe e templi.",
   "location": "Luxor",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "exp-cruise": {
@@ -68,7 +68,7 @@
   "title": "Crociera sul Nilo da Assuan a Luxor",
   "excerpt": "Una crociera sul Nilo da Assuan a Luxor: com’è la vita a bordo, i templi di Kom Ombo ed Edfu lungo il percorso, cosa includono le opzioni (Abu Simbel, un volo in mongolfiera, i biglietti d’ingresso) e a chi è adatta una crociera.",
   "location": "Da Assuan a Luxor",
-  "review": "pending",
+  "review": "approved",
   "current": true
  },
  "exp-dinner": {
@@ -243,7 +243,7 @@
  "g-great-sand-sea": {
   "type": "er_guide",
   "title": "Il Grande Mare di Sabbia: l’oceano di dune dell’Egitto",
-  "excerpt": "Il Grande Mare di Sabbia del Deserto Occidentale egiziano: dove si trova, come visitarlo in fuoristrada dall’oasi di Siwa, cosa comporta un safari tra le dune, sorgenti e tramonti nel deserto, sicurezza e stagione migliore.",
+  "excerpt": "Che cos’è il Grande Mare di Sabbia, che rapporto ha con l’oasi di Siwa e cosa verificare prima di scegliere un’escursione nel deserto.",
   "review": "approved",
   "current": true
  },

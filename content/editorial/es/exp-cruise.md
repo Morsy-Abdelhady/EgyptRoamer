@@ -4,7 +4,9 @@ title: Crucero por el Nilo de Asuán a Luxor
 location: De Asuán a Luxor
 excerpt: Un crucero por el Nilo de Asuán a Luxor: cómo son los días a bordo, los templos de Kom Ombo y Edfu en el camino, qué incluyen las opciones (Abu Simbel, un vuelo en globo, las entradas) y a quién le conviene un crucero.
 source: 4130530cf347
-review: pending
+review: approved
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 ## Qué es {#what-it-is}
 

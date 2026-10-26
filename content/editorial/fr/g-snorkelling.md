@@ -2,14 +2,14 @@
 type: er_guide
 title: Le snorkeling en Égypte : Hurghada ou Charm el-Cheikh ?
 excerpt: Le snorkeling en mer Rouge : Hurghada ou Charm el-Cheikh ? Les îles Giftun et le parc national de Ras Mohammed comparés, bateau ou rivage, sorties pour débutants, bonnes pratiques sur le récif et comment choisir un opérateur responsable.
-source: dcc36ac3ee82
+source: 80b6ad39b256
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
-La mer Rouge est l’un des endroits du monde où il est le plus facile de voir un récif de corail : une eau claire et chaude, et des récifs à quelques minutes de bateau de la côte. Les deux grandes zones balnéaires d’Égypte, Hurghada et Charm el-Cheikh, offrent toutes deux un excellent snorkeling. Ce guide les compare et explique comment choisir une sortie.
+Choisir entre Hurghada et Charm el-Cheikh pour le snorkeling dépend du type de journée que vous souhaitez : des arrêts sur des îles et une combinaison facile avec Louxor, ou des récifs autour de Ras Mohammed et du détroit de Tiran. Ce guide compare les sorties en bateau et depuis le rivage, ce que les débutants peuvent demander à un opérateur, et comment choisir sans supposer que toutes les sorties se valent. Pour situer les sites de plongée, consultez notre guide des [sites de plongée célèbres de la mer Rouge](/guides/red-sea-famous-dive-sites/).
 
 ## Hurghada : des îles et des sorties en bateau faciles {#hurghada}
 
@@ -17,7 +17,7 @@ Depuis [Hurghada](/destinations/hurghada/), la sortie classique est un bateau ve
 
 ## Charm el-Cheikh : Ras Mohammed et Tiran {#sharm}
 
-Depuis [Charm el-Cheikh](/destinations/sharm/), le point fort est le **parc national de Ras Mohammed**, créé en 1983 comme premier parc national d’Égypte, avec des tombants coralliens tout près de la surface. Les récifs du **détroit de Tiran** sont une autre sortie classique en bateau, avec des courants plus forts. Voyez notre [sortie snorkeling à Ras Mohammed](/experiences/ras-mohammed-snorkelling-from-sharm/).
+Depuis [Charm el-Cheikh](/destinations/sharm/), une option bien connue est le **parc national de Ras Mohammed**, créé en 1983 et réputé pour ses récifs coralliens. Les récifs du **détroit de Tiran** sont une autre sortie possible en bateau à la journée ; les conditions varient selon les sites, alors demandez à l’opérateur l’itinéraire du jour et l’état de la mer. Voyez notre [sortie snorkeling à Ras Mohammed](/experiences/ras-mohammed-snorkelling-from-sharm/).
 
 ## Bateau ou rivage {#boat-or-shore}
 
@@ -43,7 +43,7 @@ Inutile d’être bon nageur. La plupart des bateaux fournissent gilets de sauve
 ## Questions fréquentes {#faq}
 
 ?? Peut-on faire du snorkeling toute l’année ?
-Oui. L’eau est la plus chaude de la fin de l’été à l’automne et la plus fraîche à la fin de l’hiver, où une combinaison est utile.
+Des sorties de snorkeling sont proposées à différentes saisons, mais les conditions de l’eau et de la mer varient. Renseignez-vous auprès de votre hébergement ou de l’opérateur sur les conditions actuelles et la tenue adaptée à vos dates.
 
 ?? Faut-il son propre équipement ?
 Non. Masques, tubas et palmes sont en général fournis. Un masque bien ajusté fait toutefois la différence : apportez le vôtre si vous en avez un.

@@ -28,7 +28,7 @@ Gebel al-Mawta is a hill honeycombed with ancient tombs. A few are painted, and 
 
 ## The Great Sand Sea {#great-sand-sea}
 
-South of the oasis, the dunes of the Great Sand Sea begin. A 4×4 excursion into the dunes is essential: sand-boarding, hot and cold springs in the desert, and sunset over the dunes. Excursions are run by licensed local operators, who also handle any permits the desert areas require. See our [Great Sand Sea 4×4 and hot springs](/experiences/great-sand-sea-4-4-hot-springs/) trip.
+Siwa is a base for excursions to the dunes of the Great Sand Sea. Egypt's Ministry of Tourism and Antiquities highlights sandboarding among the desert activities associated with the area. Routes, stops, access requirements and included activities vary by excursion, so check the current offer and confirm details with its operator before booking. Read our [Great Sand Sea guide](/guides/great-sand-sea/) and compare the [available excursion](/experiences/great-sand-sea-4-4-hot-springs/).
 
 ## Local life and customs {#customs}
 

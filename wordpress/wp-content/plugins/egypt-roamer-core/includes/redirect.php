@@ -34,8 +34,12 @@ add_filter( 'query_vars', static function ( $vars ) {
 	return $vars;
 } );
 
-/** Crawlers, link checkers and previews should not count as clicks. */
+/** Crawlers, link checkers, previews and authenticated editors should not count as clicks. */
 function er_is_bot_request(): bool {
+	// Keep editor and QA clicks out of partner totals, matching the Visits beacon's logged-in exclusion.
+	if ( is_user_logged_in() ) {
+		return true;
+	}
 	$ua = strtolower( isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '' );
 	if ( '' === $ua || preg_match( '/bot|crawl|spider|slurp|preview|facebookexternalhit|embedly|whatsapp|telegram|headless|lighthouse|pingdom|monitor|curl|wget|python-requests|httpclient|scrapy/', $ua ) ) {
 		return true;

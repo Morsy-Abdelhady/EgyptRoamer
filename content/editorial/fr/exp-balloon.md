@@ -4,7 +4,9 @@ title: Montgolfière au lever du soleil au-dessus de Louxor
 location: Louxor
 excerpt: Un vol en montgolfière au lever du soleil au-dessus de la rive ouest de Louxor : le départ très matinal, ce que l’on voit depuis la nacelle, pourquoi certaines matinées sont annulées, la pause d’été et comment associer le vol aux tombes et aux temples.
 source: 0b1db4b2071c
-review: pending
+review: approved
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 ## De quoi s’agit-il {#what-it-is}
 

@@ -4,7 +4,9 @@ title: 从阿斯旺到卢克索的尼罗河游船
 location: 从阿斯旺到卢克索
 excerpt: 从阿斯旺到卢克索的尼罗河游船：船上的日子是什么样的，沿途的康翁波神庙和埃德富神庙，各选项包含什么（阿布辛贝、热气球飞行、门票），以及游船适合哪些人。
 source: 4130530cf347
-review: pending
+review: approved
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 ## 这是什么 {#what-it-is}
 
@@ -27,7 +29,7 @@ review: pending
 
 ## 适合谁 {#who-it-suits}
 
-如果你想要一次轻松惬意、以尼罗河为主角的旅行，就选游船：只需打开一次行李，甲板上悠闲的日子是许多旅行者对埃及最美好的回忆。如果古迹是你的首要目标，并且喜欢按自己的节奏安排，住酒店可能更适合你。我们的指南[尼罗河游船还是酒店？](/guides/nile-cruise-or-hotels-luxor-aswan/)解释了两者的区别。
+如果你想要一次轻松惬意、以尼罗河为主角的旅行，就选游船：行李只需打开一次，甲板上悠闲的日子是许多旅行者对埃及最美好的回忆。如果古迹是你的首要目标，并且喜欢按自己的节奏安排，住酒店可能更适合你。我们的指南[尼罗河游船还是酒店？](/guides/nile-cruise-or-hotels-luxor-aswan/)解释了两者的区别。
 
 ## 搭配行程 {#combine}
 

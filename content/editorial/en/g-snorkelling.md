@@ -9,7 +9,7 @@ related: exp-ras-mohammed, exp-dive
 ---
 [[toc]]
 
-The Red Sea is one of the easiest places in the world to see a coral reef: clear, warm water and reefs a short boat ride from the coast. Egypt's two big resort areas, Hurghada and Sharm El Sheikh, both offer excellent snorkelling. This guide compares them and explains how to choose a trip.
+Choosing between Hurghada and Sharm El Sheikh for snorkelling comes down to the kind of day you want: island stops and an easy combination with Luxor, or reefs around Ras Mohammed and the Straits of Tiran. This guide compares boat and shore options, what beginners can ask an operator, and how to choose without assuming every trip is the same. For dive-site context, see our guide to [the Red Sea's famous dive sites](/guides/red-sea-famous-dive-sites/).
 
 ## Hurghada: islands and easy boat trips {#hurghada}
 
@@ -17,7 +17,7 @@ From [Hurghada](/destinations/hurghada/), the classic trip is a boat to the **Gi
 
 ## Sharm El Sheikh: Ras Mohammed and Tiran {#sharm}
 
-From [Sharm El Sheikh](/destinations/sharm/), the highlight is **Ras Mohammed National Park**, declared in 1983 as Egypt's first national park, with coral walls close to the surface. The reefs of the **Straits of Tiran** are another classic day-boat trip, with stronger currents. See our [Ras Mohammed snorkelling trip](/experiences/ras-mohammed-snorkelling-from-sharm/).
+From [Sharm El Sheikh](/destinations/sharm/), a well-known option is **Ras Mohammed National Park**, declared in 1983 and known for its coral reefs. The reefs of the **Straits of Tiran** are another day-boat option; conditions vary by site, so ask the operator about that day's route and sea conditions. See our [Ras Mohammed snorkelling trip](/experiences/ras-mohammed-snorkelling-from-sharm/).
 
 ## Boat or shore {#boat-or-shore}
 
@@ -43,7 +43,7 @@ You don't need to be a strong swimmer. Most boats provide life jackets or snorke
 ## Frequently asked questions {#faq}
 
 ?? Can I snorkel all year?
-Yes. The water is warmest from late summer into autumn and coolest in late winter, when a wetsuit helps.
+Snorkelling trips are offered in different seasons, but water and sea conditions vary. Ask your accommodation or operator about current conditions and suitable clothing for your dates.
 
 ?? Do I need my own equipment?
 No. Masks, snorkels and fins are usually provided. A mask that fits you well makes a difference, so bring yours if you have one.

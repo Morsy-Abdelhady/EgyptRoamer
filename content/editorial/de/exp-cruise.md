@@ -4,7 +4,9 @@ title: Nilkreuzfahrt von Assuan nach Luxor
 location: Von Assuan nach Luxor
 excerpt: Eine Nilkreuzfahrt von Assuan nach Luxor: wie die Tage an Bord sind, die Tempel von Kom Ombo und Edfu unterwegs, was die Optionen enthalten (Abu Simbel, eine Ballonfahrt, Eintrittsgelder) und für wen sich eine Kreuzfahrt eignet.
 source: 4130530cf347
-review: pending
+review: approved
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 ## Worum es geht {#what-it-is}
 
@@ -18,12 +20,12 @@ Zwischen Assuan und Luxor fließt der Nil an einigen der besterhaltenen Tempel �
 
 ## Vor der Buchung {#before-you-book}
 
-Die Optionen auf dieser Seite fahren von [Assuan](/destinations/aswan/) nach Luxor. Sie unterscheiden sich in den Extras: Manche enthalten einen Ausflug nach Abu Simbel und eine Ballonfahrt über Luxor, andere bieten beides gegen Aufpreis an, und die Eintrittsgelder sind bei manchen inklusive und bei anderen separat zu zahlen. Bei jeder Option unten steht, was enthalten ist. Prüfen Sie vor der Buchung auf der Seite des Partners, was enthalten ist.
+Die Optionen auf dieser Seite fahren von [Assuan](/destinations/aswan/) nach Luxor. Sie unterscheiden sich in den Extras: Manche enthalten einen Ausflug nach Abu Simbel und eine Ballonfahrt über Luxor, andere bieten beides als Extra an, und die Eintrittsgelder sind bei manchen inklusive und bei anderen separat zu zahlen. Bei jeder Option unten steht, was enthalten ist. Prüfen Sie vor der Buchung auf der Seite des Partners, was enthalten ist.
 
 > **Gut zu wissen**
 > - Abu Simbel und Ballonfahrten beginnen sehr früh am Morgen.
 > - Abu Simbel liegt weit südlich von Assuan und wird als eigener Ausflug von der Stadt aus besucht.
-> - Die Fotoregeln in den Tempeln können sich ändern. Folgen Sie den Wärtern.
+> - Die Fotoregeln in den Tempeln können sich ändern. Folgen Sie den Anweisungen der Wärter.
 
 ## Für wen {#who-it-suits}
 

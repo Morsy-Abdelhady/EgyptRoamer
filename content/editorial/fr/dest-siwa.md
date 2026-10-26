@@ -1,14 +1,14 @@
 ---
 type: er_destination
 excerpt: Guide de l’oasis de Siwa : la forteresse de Shali, l’oracle d’Amon consulté par Alexandre le Grand, les lacs salés et les sources, la Grande mer de sable, les usages locaux, la meilleure saison et l’organisation du long trajet.
-source: d84e32620b01
+source: a42d126b8e56
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
-Siwa est l’oasis la plus reculée d’Égypte et l’un de ses lieux les plus singuliers. Elle se trouve au cœur du désert occidental, près de la frontière libyenne, entourée de lacs salés, de palmeraies et des dunes de la Grande mer de sable. Ses habitants sont amazighs (berbères) et parlent leur propre langue, le siwi, en plus de l’arabe. S’y rendre demande un vrai engagement, et c’est là une grande partie de son charme : Siwa est lente, silencieuse et ne ressemble à aucun autre endroit du pays.
+Siwa est l’oasis la plus reculée d’Égypte et l’un de ses lieux les plus singuliers. Elle se trouve au cœur du désert Occidental, près de la frontière libyenne, entourée de lacs salés, de palmeraies et des dunes de la Grande mer de sable. Ses habitants sont amazighs (berbères) et parlent leur propre langue, le siwi, en plus de l’arabe. S’y rendre demande un vrai engagement, et c’est là une grande partie de son charme : Siwa est lente, silencieuse et ne ressemble à aucun autre endroit du pays.
 
 ## Siwa est-elle faite pour vous ? {#is-siwa-for-you}
 
@@ -32,7 +32,7 @@ Le Gebel al-Mawta est une colline criblée de tombes antiques, comme un rayon de
 
 ## La Grande mer de sable {#great-sand-sea}
 
-Au sud de l’oasis commencent les dunes de la Grande mer de sable. Une excursion en 4×4 dans les dunes est incontournable : sandboard, sources chaudes et froides en plein désert et coucher de soleil sur les dunes. Les sorties sont assurées par des opérateurs locaux agréés, qui se chargent aussi des éventuelles autorisations exigées pour les zones désertiques. Découvrez notre sortie [Grande mer de sable en 4×4 & sources chaudes](/experiences/great-sand-sea-4-4-hot-springs/).
+Siwa sert de base aux excursions vers les dunes de la Grande mer de sable. Le ministère égyptien du Tourisme et des Antiquités met en avant le sandboard parmi les activités du désert associées à la région. Les itinéraires, les arrêts, les conditions d’accès et les activités incluses varient selon les excursions : consultez l’offre actuelle et confirmez les détails avec son opérateur avant de réserver. Lisez notre [guide de la Grande mer de sable](/guides/great-sand-sea/) et comparez l’[excursion disponible](/experiences/great-sand-sea-4-4-hot-springs/).
 
 ## Vie locale et usages {#customs}
 
@@ -70,4 +70,4 @@ Trois nuits dans l’oasis sont un bon minimum, plus une journée de trajet à l
 Non. Les sorties dans le désert exigent un 4×4 et un chauffeur local agréé qui connaît le terrain et se charge des autorisations.
 
 ?? Avec quoi combiner Siwa ?
-[Alexandrie](/destinations/alexandria/) et la côte méditerranéenne se trouvent sur l’itinéraire naturel. Certains voyageurs poursuivent vers les oasis du désert occidental lors d’[un voyage plus long dans le désert](/experiences/white-desert-black-desert-safari/).
+[Alexandrie](/destinations/alexandria/) et la côte méditerranéenne se trouvent sur l’itinéraire naturel. Certains voyageurs poursuivent vers les oasis du désert Occidental lors d’[un voyage plus long dans le désert](/experiences/white-desert-black-desert-safari/).

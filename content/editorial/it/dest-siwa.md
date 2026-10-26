@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: Guida dell’oasi di Siwa: la fortezza di Shali, l’oracolo di Amon consultato da Alessandro Magno, laghi salati e sorgenti, il Grande Mare di Sabbia, le usanze locali, la stagione migliore e come organizzare il lungo viaggio.
-source: d84e32620b01
+source: a42d126b8e56
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -32,7 +32,7 @@ Il Gebel al-Mawta è una collina traforata di tombe antiche come un alveare. Alc
 
 ## Il Grande Mare di Sabbia {#great-sand-sea}
 
-A sud dell’oasi iniziano le dune del Grande Mare di Sabbia. Un’escursione in 4×4 tra le dune è imperdibile: sandboard, sorgenti calde e fredde in pieno deserto e il tramonto sulle dune. Le escursioni sono gestite da operatori locali autorizzati, che si occupano anche degli eventuali permessi richiesti per le aree desertiche. Scopri la nostra escursione [Grande Mare di Sabbia in 4×4 e sorgenti calde](/experiences/great-sand-sea-4-4-hot-springs/).
+Siwa è la base per le escursioni tra le dune del Grande Mare di Sabbia. Il Ministero egiziano del Turismo e delle Antichità mette in evidenza il sandboard tra le attività nel deserto legate alla zona. Percorsi, soste, requisiti di accesso e attività incluse variano da un’escursione all’altra, quindi controlla l’offerta attuale e conferma i dettagli con l’operatore prima di prenotare. Leggi la nostra [guida al Grande Mare di Sabbia](/guides/great-sand-sea/) e confronta l’[escursione disponibile](/experiences/great-sand-sea-4-4-hot-springs/).
 
 ## Vita locale e usanze {#customs}
 

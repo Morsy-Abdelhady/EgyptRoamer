@@ -1,7 +1,6 @@
-# Social posts ready to publish (Pinterest and Instagram), 20 Oct 2026
+# Social post drafts for Pinterest and Instagram (20 Oct 2026)
 
-The owner asked to apply every suggestion (20 Oct). Posting needs the owner's own Pinterest and Instagram accounts: I
-can't create accounts or sign in. Everything below is ready to copy and paste.
+These are drafts, not approved posts. Before publishing, verify each live destination URL, offer details and photo-location match. The owner needs to create and use the Pinterest and Instagram accounts.
 
 **Rules used:**
 - Only facts already on the site (trip pages, Core `data/offer-facts.json`).
@@ -23,7 +22,7 @@ can't create accounts or sign in. Everything below is ready to copy and paste.
 | # | Photo id | Title (Pinterest) | Text (both) | Link |
 |---|---|---|---|---|
 | 1 | 1678038592327-c5730737f867 | Private tour of the Pyramids of Giza and the Sphinx | Your own Egyptologist guide and driver: the three great pyramids, the panoramic viewpoint and the Sphinx, at your own pace. Compare the options side by side, then book on the partner's site. | /experiences/pyramids-of-giza-sphinx-private-tour/ |
-| 2 | 1623417765161-c71d6c83cfee | Valley of the Kings and Hatshepsut's temple, Luxor | The painted royal tombs of the West Bank, the terraced temple of Hatshepsut beneath the cliffs, and the Colossi of Memnon. Private options available, free cancellation on every option. | /experiences/valley-of-the-kings-hatshepsut-temple/ |
+| 2 | 1623417765161-c71d6c83cfee | Valley of the Kings and Hatshepsut's temple, Luxor | The painted royal tombs of the West Bank, the terraced temple of Hatshepsut beneath the cliffs, and the Colossi of Memnon. Private options are available; check each partner's page for its cancellation terms. | /experiences/valley-of-the-kings-hatshepsut-temple/ |
 | 3 | 1778402153163-fc9a5fd0131a | Nile cruise from Aswan to Luxor | About four days on the river, with the temples of Kom Ombo and Edfu on the way. Here is what the days on board are like and how the options compare. | /experiences/nile-cruise-aswan-to-luxor/ |
 | 4 | 1633163893862-4cdc62de7d82 | Abu Simbel day trip from Aswan | The great temples of Ramesses II and Nefertari, moved to save them from Lake Nasser. An early start and a full day; the trip page explains how the day works. | /experiences/abu-simbel-day-trip-from-aswan/ |
 | 5 | 1691591403777-128b9a842b8b | Two days in the White Desert and Black Desert | Chalk formations, the Crystal Mountain and a night under the stars, from Cairo. What to expect, and the options side by side. | /experiences/white-desert-black-desert-safari/ |

@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: Guía del oasis de Siwa: la fortaleza de Shali, el oráculo de Amón que consultó Alejandro Magno, lagos salados y manantiales, el Gran Mar de Arena, las costumbres locales, la mejor época y cómo planificar el largo viaje.
-source: d84e32620b01
+source: a42d126b8e56
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
+reviewed: 2026-10-26
 ---
 [[toc]]
 
@@ -32,7 +32,7 @@ El Gebel al-Mawta es una colina horadada de tumbas antiguas, como un panal. Algu
 
 ## El Gran Mar de Arena {#great-sand-sea}
 
-Al sur del oasis empiezan las dunas del Gran Mar de Arena. Una excursión en 4×4 por las dunas es imprescindible: sandboard, fuentes termales y frías en pleno desierto y el atardecer sobre las dunas. Las organizan operadores locales con licencia, que también gestionan los permisos que puedan exigir las zonas desérticas. Consulta nuestra excursión [Gran Mar de Arena en 4×4 y fuentes termales](/experiences/great-sand-sea-4-4-hot-springs/).
+Siwa es la base de las excursiones a las dunas del Gran Mar de Arena. El Ministerio de Turismo y Antigüedades de Egipto destaca el sandboard entre las actividades del desierto asociadas a la zona. Las rutas, las paradas, los requisitos de acceso y las actividades incluidas varían según la excursión, así que revisa la oferta actual y confirma los detalles con su operador antes de reservar. Lee nuestra [guía del Gran Mar de Arena](/guides/great-sand-sea/) y compara la [excursión disponible](/experiences/great-sand-sea-4-4-hot-springs/).
 
 ## Vida local y costumbres {#customs}
 
