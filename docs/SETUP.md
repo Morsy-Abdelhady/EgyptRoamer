@@ -69,9 +69,9 @@ winget install --id Google.Chrome --source winget --exact
 
 - PHP has no `php.ini`: copy `php.ini-development` to `php.ini` in its folder, set `extension_dir = "ext"`, enable
   `curl fileinfo gd intl mbstring openssl pdo_sqlite sqlite3 zip`, and set `memory_limit = 512M`.
-- PHP's SSL does not trust this PC's connection (antivirus HTTPS scanning, see below). Add `curl.cainfo` and
-  `openssl.cafile` pointing at `cacert.pem` from https://curl.se/ca/ (check it against `cacert.pem.sha256`). WP-CLI
-  downloads still fail, so download with PowerShell `curl.exe`, as in step 2.
+- Add `curl.cainfo` and `openssl.cafile` pointing at `cacert.pem` from https://curl.se/ca/ (check it against
+  `cacert.pem.sha256`). While Avast's HTTPS scanning is on, PHP, WP-CLI and Git Bash still fail on SSL (see "Avast"
+  below); then download with PowerShell `curl.exe`, as in step 2.
 
 **2. WordPress** (Git Bash; `C:\Users\morsy\er` must not exist or be empty):
 
@@ -113,7 +113,22 @@ python proxy.py                    # http://127.0.0.1:8080, 6 PHP workers on 808
 - **Offers:** local trips have no offers (they live in the production database). Test booking parts on production.
 - **QA scripts:** `npm i --no-save playwright axe-core` in `tools/qa`. Against the local site, leave `BASE` unset.
 
-**Known issue (26 Oct 2026):** about 1 request in 20 is cut off at 64 KB, on PHP pages and static files alike.
-It happens straight from a `php -S` worker too, and with a Python or a Node front. Avast Antivirus (Web Shield) is
-active on this PC and inspects HTTP, so it is the likely cause, but this is not proven. `proxy.py` retries GET
-requests on another worker. Antivirus settings stay with the owner.
+**Avast: the cause of dropped local requests and SSL errors (confirmed 26 Oct 2026).** Avast Antivirus on this PC
+inspects traffic in two ways:
+- **Web Shield** inspects HTTP, local connections included: about 1 request in 20 was cut off at 64 KB, and a static
+  file took about 1.4 s instead of 0.01 s.
+- **HTTPS scanning** replaces sites' certificates with Avast's own. PHP (curl), WP-CLI and Git Bash `curl` don't trust
+  it, so they fail with "unable to get local issuer certificate". PowerShell `curl.exe` and browsers use Windows'
+  certificate store and work.
+
+With Avast switched off, all three problems went away: 0 drops in 100 requests, all 273 local sitemap pages returned 200
+twice with 8 parallel requests, and PHP, WP-CLI and Git Bash reached wordpress.org over HTTPS.
+
+**Fix** (owner: antivirus settings are the owner's; don't leave Avast switched off):
+- **Dropped local requests:** in Avast, add an exception for the local site (`127.0.0.1` / `http://127.0.0.1:8080/*`),
+  or turn off Web Shield while testing locally.
+- **SSL errors:** in Avast's Web Shield settings, turn off "Enable HTTPS scanning", or add exceptions for
+  `wordpress.org`, `downloads.wordpress.org`, `api.wordpress.org` and `raw.githubusercontent.com`.
+- The exceptions themselves have not been tested yet: after setting them, rerun 40 requests to a static file and
+  `./wp.sh core check-update`.
+- `proxy.py` also retries a dropped GET on another worker, which hides most drops if Web Shield stays on.

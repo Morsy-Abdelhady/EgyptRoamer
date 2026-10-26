@@ -65,7 +65,7 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
   - The QA does not cover the `?ux=2` preview or the hotel boxes.
 - **Windows quirks:**
   - Build with `PYTHONUTF8=1`, or `tools/build.py` and `tools/build-translations.mjs` crash on Arabic.
-  - Git Bash `curl` fails with SSL errors; use PowerShell `curl.exe` or `node -e "fetch(...)"`.
+  - **Avast** (confirmed 26 Oct 2026): its HTTPS scanning makes Git Bash `curl`, PHP and WP-CLI fail with SSL errors, and its Web Shield cuts about 1 local request in 20 at 64 KB (pages and files on :8080). While it is on, use PowerShell `curl.exe` or `node -e "fetch(...)"`. The fix is the owner's (Avast exceptions or HTTPS scanning off): `docs/SETUP.md` §4. Never change antivirus settings yourself.
   - `.ps1` scripts are blocked by the execution policy; don't change it.
 - **UI strings** must be literal `er_t( '…' )` calls, or they are never collected for translation. Add them to `tools/i18n/new-strings.json`, then run `node tools/build-translations.mjs`.
 
