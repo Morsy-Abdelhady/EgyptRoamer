@@ -189,3 +189,12 @@ was blocked (browser not connected). Both done by hand today, in the owner's bro
 | Instagram bio: typed and submitted, but **not saved**: the public profile shows no bio and the Edge session was logged out afterwards. The website link can only be set in the Instagram phone app | Instagram | Public profile | — | Owner logs back in |
 | Theme 1.3.27 (`187f822`): the JS image helper understands `commons:` ids (the Wadi Al-Hitan trip card in the homepage plan had no photo; owner report) | Theme | Live: the photo loads (500px) | — | — |
 | Core 1.2.81 (`5e20a80`): guide sync compares the stored title instead of `get_the_title()` (texturized "Egypt's" never matched), so unchanged guides no longer show as updates | Core | Live preview: "Everything is up to date", 0 updated / 273 current | Real updates stand out | — |
+
+## 2026-10-27: place pages, batch 2 (Kom Ombo, Philae; Karnak and Valley of the Kings updated)
+
+| Change | Where | Verified | Expected effect | Check on |
+|---|---|---|---|---|
+| Core 1.2.82 / Theme 1.3.28 (`40a443d`): new guides `g-kom-ombo` (/guides/kom-ombo-temple/) and `g-philae` (/guides/philae-temple-of-isis/) in 8 languages from the Ministry's pages, Commons photos credited. Karnak and Valley of the Kings already had guides, so (owner's choice) no duplicate pages: `g-east-bank` (Karnak, avenue) and `g-valley-kings` (what the valley is) rewritten from the Ministry's pages in 8 languages, correcting Britannica figures (central columns 21 m, not 24; 1550–1069 BC, not 1539–1075; over 60 tombs plus 20 unfinished, not 62) | Core, Theme, wp-admin | Guide sync: 16 created, 16 updated, then 7 Kom Ombo link refreshes; preview "Everything is up to date" (287) | New entry pages for Kom Ombo and Philae searches | Search Console, 2 weeks |
+| Theme 1.3.29 (`b876647`): Philae's Isis-section photo replaced (the first pick showed Trajan's Kiosk) | Theme | Live HTML | — | — |
+| Release gate | — | page-coverage: **456 pages, all ok**; Kom Ombo EN desktop and AR phone, Philae EN desktop checked in the browser | — | — |
+
