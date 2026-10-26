@@ -51,3 +51,69 @@ python3 tools/build.py theme      # src/js → assets/js/home.js, site.js, local
 node tools/export-seed.mjs        # prototype data → plugin data/seed.json (drops fake data)
 node tools/build-translations.mjs # locale files + new strings → languages/*.l10n.php
 ```
+
+## 4. Local test site (Windows)
+
+A copy of the site on this PC, at `http://127.0.0.1:8080` (login `admin` / `admin`, local only). WordPress 7.1.2 on
+SQLite with Polylang, in `C:\Users\morsy\er`. The theme and Core are linked to this repo, so local edits show at once.
+The scripts live in `tools/local/`; copy them into `C:\Users\morsy\er`. That folder holds only downloads and the local
+database, so it can be rebuilt from these steps.
+
+**1. Tools** (PowerShell, from the winget source):
+
+```
+winget install --id PHP.PHP.8.3 --source winget --exact
+winget install --id OpenJS.NodeJS.LTS --source winget --exact
+winget install --id Google.Chrome --source winget --exact
+```
+
+- PHP has no `php.ini`: copy `php.ini-development` to `php.ini` in its folder, set `extension_dir = "ext"`, enable
+  `curl fileinfo gd intl mbstring openssl pdo_sqlite sqlite3 zip`, and set `memory_limit = 512M`.
+- PHP's SSL does not trust this PC's connection (antivirus HTTPS scanning, see below). Add `curl.cainfo` and
+  `openssl.cafile` pointing at `cacert.pem` from https://curl.se/ca/ (check it against `cacert.pem.sha256`). WP-CLI
+  downloads still fail, so download with PowerShell `curl.exe`, as in step 2.
+
+**2. WordPress** (Git Bash; `C:\Users\morsy\er` must not exist or be empty):
+
+```
+mkdir -p /c/Users/morsy/er/dl && cd /c/Users/morsy/er
+cp /c/Users/morsy/Desktop/EgyptRoamer/tools/local/{proxy.py,serve.php,wp.sh,reset.sh} .
+powershell.exe -NoProfile -Command "curl.exe -sSL -o wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar; curl.exe -sSL -o dl/wp.zip https://wordpress.org/wordpress-7.1.2.zip; curl.exe -sSL -o dl/sqlite.zip https://downloads.wordpress.org/plugin/sqlite-database-integration.zip; curl.exe -sSL -o dl/polylang.zip https://downloads.wordpress.org/plugin/polylang.zip"
+unzip -q dl/wp.zip && unzip -q dl/sqlite.zip -d wordpress/wp-content/plugins && unzip -q dl/polylang.zip -d wordpress/wp-content/plugins
+```
+
+- Check the downloads: `wp-cli.phar.sha512` from the same WP-CLI address, and `wordpress-7.1.2.zip.sha1` from wordpress.org.
+- SQLite drop-in: copy `wordpress/wp-content/plugins/sqlite-database-integration/db.copy` to `wordpress/wp-content/db.php`.
+  Replace `{SQLITE_IMPLEMENTATION_FOLDER_PATH}` with `' . WP_CONTENT_DIR . '/plugins/sqlite-database-integration` and
+  `{SQLITE_PLUGIN}` with `sqlite-database-integration/load.php`.
+- `wordpress/wp-config.php`:
+  - `DB_DIR` = `__DIR__ . '/wp-content/database/'`, `DB_FILE` = `.ht.sqlite`.
+  - `WP_HOME` and `WP_SITEURL` = `http://127.0.0.1:8080`, `WP_ENVIRONMENT_TYPE` = `local`, `DISABLE_WP_CRON` = true.
+  - `WP_DEBUG` and `WP_DEBUG_LOG` = true (errors go to `wp-content/debug.log`).
+  - New random salts. Never copy production's.
+- Link the repo's theme and Core (cmd):
+
+  ```
+  mklink /J C:\Users\morsy\er\wordpress\wp-content\themes\egypt-roamer C:\Users\morsy\Desktop\EgyptRoamer\wordpress\wp-content\themes\egypt-roamer
+  mklink /J C:\Users\morsy\er\wordpress\wp-content\plugins\egypt-roamer-core C:\Users\morsy\Desktop\EgyptRoamer\wordpress\wp-content\plugins\egypt-roamer-core
+  ```
+
+**3. Build and run:**
+
+```
+./reset.sh ml                      # build all 8 languages like production; backs up any existing database first
+./wp.sh option update timezone_string UTC
+python proxy.py                    # http://127.0.0.1:8080, 6 PHP workers on 8081-8086; Ctrl+C stops all
+```
+
+- **Timezone:** use a named timezone. With the default "+00:00", destination pages crash: PHP intl rejects it in
+  `er_local_date()`.
+- **Guides:** `reset.sh` keeps guides as the seed made them (drafts). To match production, publish locally only the
+  guides that are live, then run the guide sync: `./wp.sh eval 'er_guide_translations_sync( false );'`.
+- **Offers:** local trips have no offers (they live in the production database). Test booking parts on production.
+- **QA scripts:** `npm i --no-save playwright axe-core` in `tools/qa`. Against the local site, leave `BASE` unset.
+
+**Known issue (26 Oct 2026):** about 1 request in 20 is cut off at 64 KB, on PHP pages and static files alike.
+It happens straight from a `php -S` worker too, and with a Python or a Node front. Avast Antivirus (Web Shield) is
+active on this PC and inspects HTTP, so it is the likely cause, but this is not proven. `proxy.py` retries GET
+requests on another worker. Antivirus settings stay with the owner.
