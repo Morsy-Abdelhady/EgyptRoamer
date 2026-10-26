@@ -6733,6 +6733,564 @@
    "Полёты проходят под надзором Управления гражданской авиации Египта, но смертельные аварии случались, самая тяжёлая — в 2013 году. Следуйте указаниям экипажа и принимайте отмены из-за погоды.",
    "飞行受埃及民航局监管，但曾发生过致命事故，最严重的一次在 2013 年。请听从机组人员的指示，并接受因天气造成的取消。",
    "تتم الرحلات تحت إشراف سلطة الطيران المدني المصرية، لكن وقعت حوادث مميتة، أسوأها في 2013. اتبع تعليمات الطاقم وتقبّل الإلغاء بسبب الطقس."
+  ],
+  "Fayoum · Whale Valley · From Cairo": [
+   "Fayum · Tal der Wale · Ab Kairo",
+   "Fayoum · Vallée des Baleines · Au départ du Caire",
+   "Fayyum · Valle delle Balene · Dal Cairo",
+   "El Fayum · Valle de las Ballenas · Desde El Cairo",
+   "Файюм · Долина китов · Из Каира",
+   "法尤姆 · 鲸鱼谷 · 开罗出发",
+   "الفيوم · وادي الحيتان · من القاهرة"
+  ],
+  "A full day from Cairo into the desert of the Fayoum, to Wadi Al-Hitan, the Whale Valley. Its fossils show the earliest whales in the last stages of losing their hind legs, and UNESCO inscribed it as a World Heritage site in 2005.": [
+   "Ein ganzer Tag ab Kairo in die Wüste des Fayum, zum Wadi al-Hitan, dem Tal der Wale. Seine Fossilien zeigen die frühesten Wale in den letzten Stadien des Verlusts ihrer Hinterbeine, und die UNESCO nahm es 2005 in die Welterbeliste auf.",
+   "Une journée entière au départ du Caire dans le désert du Fayoum, jusqu’à Wadi al-Hitan, la vallée des Baleines. Ses fossiles montrent les premières baleines aux derniers stades de la perte de leurs pattes arrière, et l’UNESCO l’a inscrite au patrimoine mondial en 2005.",
+   "Un’intera giornata dal Cairo nel deserto del Fayyum, fino a Wadi al-Hitan, la Valle delle Balene. I suoi fossili mostrano le prime balene negli ultimi stadi della perdita delle zampe posteriori, e l’UNESCO l’ha iscritta nel patrimonio mondiale nel 2005.",
+   "Un día entero desde El Cairo en el desierto de El Fayum, hasta Wadi al-Hitan, el Valle de las Ballenas. Sus fósiles muestran las primeras ballenas en las últimas fases de la pérdida de sus patas traseras, y la UNESCO lo inscribió como patrimonio mundial en 2005.",
+   "Целый день из Каира в пустыню Файюма, в Вади-аль-Хитан, Долину китов. Её окаменелости показывают древнейших китов на последних стадиях утраты задних конечностей, и ЮНЕСКО включила долину в список всемирного наследия в 2005 году.",
+   "从开罗出发，用一整天深入法尤姆沙漠，前往鲸鱼谷（瓦迪希坦）。这里的化石展示了处于后肢退化最后阶段的最早鲸类，联合国教科文组织于2005年将其列入世界遗产。",
+   "يوم كامل من القاهرة إلى صحراء الفيوم، حيث وادي الحيتان. تُظهر حفرياته أقدم الحيتان في المراحل الأخيرة من فقدان أرجلها الخلفية، وقد أدرجته اليونسكو موقعًا للتراث العالمي عام 2005."
+  ],
+  "The most important site in the world for this stage of the whale’s evolution, says UNESCO.": [
+   "Laut UNESCO der weltweit wichtigste Ort für diese Stufe der Evolution der Wale.",
+   "Le site le plus important au monde pour cette étape de l’évolution des baleines, selon l’UNESCO.",
+   "Il sito più importante al mondo per questa fase dell’evoluzione delle balene, secondo l’UNESCO.",
+   "El sitio más importante del mundo para esta etapa de la evolución de las ballenas, según la UNESCO.",
+   "Важнейшее в мире место для этого этапа эволюции китов, по словам ЮНЕСКО.",
+   "联合国教科文组织称，这里是展示鲸类这一进化阶段的世界最重要地点。",
+   "أهم موقع في العالم لهذه المرحلة من تطور الحيتان، بحسب اليونسكو."
+  ],
+  "Into the Whale Valley": [
+   "Ins Tal der Wale",
+   "Dans la vallée des Baleines",
+   "Nella Valle delle Balene",
+   "Al Valle de las Ballenas",
+   "В Долину китов",
+   "走进鲸鱼谷",
+   "إلى وادي الحيتان"
+  ],
+  "The day, step by step": [
+   "Der Tag, Schritt für Schritt",
+   "La journée, étape par étape",
+   "La giornata, passo dopo passo",
+   "El día, paso a paso",
+   "День, шаг за шагом",
+   "一天的行程，一步步来",
+   "اليوم خطوة بخطوة"
+  ],
+  "From fossils to waterfalls": [
+   "Von Fossilien zu Wasserfällen",
+   "Des fossiles aux cascades",
+   "Dai fossili alle cascate",
+   "De los fósiles a las cascadas",
+   "От окаменелостей к водопадам",
+   "从化石到瀑布",
+   "من الحفريات إلى الشلالات"
+  ],
+  "Whale Valley": [
+   "Das Tal der Wale",
+   "La vallée des Baleines",
+   "La Valle delle Balene",
+   "El Valle de las Ballenas",
+   "Долина китов",
+   "鲸鱼谷",
+   "وادي الحيتان"
+  ],
+  "Footpaths lead to the fossil whale skeletons, about 40 million years old, lying in the open sand. Vehicles stay out of the site itself.": [
+   "Fußwege führen zu den fossilen Walskeletten, etwa 40 Millionen Jahre alt, die offen im Sand liegen. Fahrzeuge bleiben außerhalb des eigentlichen Geländes.",
+   "Des sentiers mènent aux squelettes fossiles de baleines, vieux d’environ 40 millions d’années, qui reposent à même le sable. Les véhicules restent en dehors du site lui-même.",
+   "Sentieri conducono agli scheletri fossili di balena, vecchi di circa 40 milioni di anni, che giacciono nella sabbia aperta. I veicoli restano fuori dal sito vero e proprio.",
+   "Unos senderos llevan a los esqueletos fósiles de ballena, de unos 40 millones de años, que yacen en la arena abierta. Los vehículos se quedan fuera del sitio en sí.",
+   "Тропы ведут к окаменелым скелетам китов возрастом около 40 миллионов лет, которые лежат прямо на песке. Машины на саму территорию не заезжают.",
+   "步道通往距今约4000万年的鲸鱼骨骼化石，它们就躺在开阔的沙地上。车辆不得进入遗址本身。",
+   "تقود ممرات المشاة إلى الهياكل المتحجرة للحيتان، التي يبلغ عمرها نحو 40 مليون عام، وهي ترقد في الرمال المكشوفة. ولا تدخل السيارات الموقع نفسه."
+  ],
+  "The valley": [
+   "Das Tal",
+   "La vallée",
+   "La valle",
+   "El valle",
+   "Долина",
+   "山谷",
+   "الوادي"
+  ],
+  "Around the fossils, rock formations and sand, with shark teeth and shells from the same ancient sea.": [
+   "Rund um die Fossilien Felsformationen und Sand, mit Haifischzähnen und Muscheln aus demselben urzeitlichen Meer.",
+   "Autour des fossiles, des formations rocheuses et du sable, avec des dents de requin et des coquillages de la même mer ancienne.",
+   "Intorno ai fossili, formazioni rocciose e sabbia, con denti di squalo e conchiglie dello stesso mare antico.",
+   "Alrededor de los fósiles, formaciones rocosas y arena, con dientes de tiburón y conchas del mismo mar antiguo.",
+   "Вокруг окаменелостей — скальные образования и песок, акульи зубы и раковины из того же древнего моря.",
+   "化石周围是岩石地貌和沙地，还有来自同一片远古海洋的鲨鱼牙齿和贝壳。",
+   "حول الحفريات تكوينات صخرية ورمال، وأسنان قروش وأصداف من البحر القديم نفسه."
+  ],
+  "Wadi El-Rayan": [
+   "Wadi el-Rayan",
+   "Wadi el-Rayan",
+   "Wadi el-Rayan",
+   "Wadi el-Rayan",
+   "Вади-эр-Райян",
+   "瓦迪拉扬",
+   "وادي الريان"
+  ],
+  "The lakes and waterfalls of Wadi El-Rayan, formed by drainage water from the farmland of the Fayoum.": [
+   "Die Seen und Wasserfälle von Wadi el-Rayan, entstanden aus dem Drainagewasser der Felder des Fayum.",
+   "Les lacs et les cascades de Wadi el-Rayan, formés par les eaux de drainage des terres agricoles du Fayoum.",
+   "I laghi e le cascate di Wadi el-Rayan, formati dalle acque di drenaggio dei campi del Fayyum.",
+   "Los lagos y las cascadas de Wadi el-Rayan, formados por el agua de drenaje de los campos de El Fayum.",
+   "Озёра и водопады Вади-эр-Райян, образованные дренажными водами с полей Файюма.",
+   "瓦迪拉扬的湖泊和瀑布，由法尤姆农田的排水汇聚而成。",
+   "بحيرات وشلالات وادي الريان، التي تكوّنت من مياه الصرف الزراعي لأراضي الفيوم."
+  ],
+  "The option on this page also stops at Tunis village and includes lunch in the Fayoum, according to the partner’s page.": [
+   "Die Option auf dieser Seite hält laut der Seite des Partners auch im Dorf Tunis und umfasst ein Mittagessen im Fayum.",
+   "L’option de cette page s’arrête aussi au village de Tounis et comprend le déjeuner dans le Fayoum, selon la page du partenaire.",
+   "L’opzione di questa pagina si ferma anche al villaggio di Tunis e comprende il pranzo nel Fayyum, secondo la pagina del partner.",
+   "La opción de esta página también para en el pueblo de Tunis e incluye el almuerzo en El Fayum, según la página del socio.",
+   "Вариант на этой странице, по данным страницы партнёра, включает также остановку в деревне Тунис и обед в Файюме.",
+   "根据合作伙伴页面，本页的选项还会停靠突尼斯村，并包含在法尤姆的午餐。",
+   "الخيار المعروض في هذه الصفحة يتوقف أيضًا في قرية تونس ويشمل الغداء في الفيوم، بحسب صفحة الشريك."
+  ],
+  "A long day in the open desert": [
+   "Ein langer Tag in der offenen Wüste",
+   "Une longue journée dans le désert ouvert",
+   "Una lunga giornata nel deserto aperto",
+   "Un día largo en el desierto abierto",
+   "Долгий день в открытой пустыне",
+   "在开阔沙漠中度过的漫长一天",
+   "يوم طويل في الصحراء المفتوحة"
+  ],
+  "Check what is included, and the entry fees, on the partner’s page before you book.": [
+   "Prüfen Sie vor der Buchung auf der Seite des Partners, was enthalten ist, auch die Eintrittsgelder.",
+   "Vérifiez ce qui est inclus, ainsi que les droits d’entrée, sur la page du partenaire avant de réserver.",
+   "Controllate cosa è incluso, e i biglietti d’ingresso, sulla pagina del partner prima di prenotare.",
+   "Comprueba qué incluye, y las entradas, en la página del socio antes de reservar.",
+   "Перед бронированием проверьте на странице партнёра, что входит в стоимость, в том числе входные билеты.",
+   "预订前请在合作伙伴页面上确认包含的内容以及门票费用。",
+   "راجِع ما تشمله الرحلة، ورسوم الدخول، في صفحة الشريك قبل الحجز."
+  ],
+  "Little shade": [
+   "Wenig Schatten",
+   "Peu d’ombre",
+   "Poca ombra",
+   "Poca sombra",
+   "Мало тени",
+   "几乎没有阴凉",
+   "ظل قليل"
+  ],
+  "Bring water, sun protection and good shoes.": [
+   "Nehmen Sie Wasser, Sonnenschutz und gute Schuhe mit.",
+   "Emportez de l’eau, une protection solaire et de bonnes chaussures.",
+   "Portate acqua, protezione solare e scarpe adatte.",
+   "Lleva agua, protección solar y buen calzado.",
+   "Возьмите воду, солнцезащитные средства и удобную обувь.",
+   "请带上水、防晒用品和合适的鞋。",
+   "أحضِر الماء وواقي الشمس وحذاءً مناسبًا."
+  ],
+  "On foot": [
+   "Zu Fuß",
+   "À pied",
+   "A piedi",
+   "A pie",
+   "Пешком",
+   "步行游览",
+   "سيرًا على الأقدام"
+  ],
+  "Footpaths lead to the fossils; vehicles stay out of the site.": [
+   "Fußwege führen zu den Fossilien; Fahrzeuge bleiben außerhalb des Geländes.",
+   "Des sentiers mènent aux fossiles ; les véhicules restent en dehors du site.",
+   "Sentieri conducono ai fossili; i veicoli restano fuori dal sito.",
+   "Unos senderos llevan a los fósiles; los vehículos se quedan fuera del sitio.",
+   "Тропы ведут к окаменелостям; машины на территорию не заезжают.",
+   "步道通往化石点；车辆不得进入遗址。",
+   "تقود ممرات المشاة إلى الحفريات، ولا تدخل السيارات الموقع."
+  ],
+  "Protect the fossils": [
+   "Schützen Sie die Fossilien",
+   "Protégez les fossiles",
+   "Proteggete i fossili",
+   "Protege los fósiles",
+   "Берегите окаменелости",
+   "保护化石",
+   "احمِ الحفريات"
+  ],
+  "Stay on the paths, and never touch or take a fossil.": [
+   "Bleiben Sie auf den Wegen und berühren oder entnehmen Sie niemals ein Fossil.",
+   "Restez sur les sentiers et ne touchez ni ne prenez jamais un fossile.",
+   "Restate sui sentieri e non toccate né prendete mai un fossile.",
+   "No te salgas de los senderos y nunca toques ni te lleves un fósil.",
+   "Не сходите с троп и никогда не трогайте и не уносите окаменелости.",
+   "请走步道，切勿触摸或带走任何化石。",
+   "التزم بالممرات، ولا تلمس أي حفرية أو تأخذها أبدًا."
+  ],
+  "A different Egypt": [
+   "Ein anderes Ägypten",
+   "Une autre Égypte",
+   "Un Egitto diverso",
+   "Un Egipto distinto",
+   "Другой Египет",
+   "不一样的埃及",
+   "مصر مختلفة"
+  ],
+  "Choose this day if you want to see a different Egypt, of deserts and fossils rather than temples, and don’t mind a long drive.": [
+   "Wählen Sie diesen Tag, wenn Sie ein anderes Ägypten sehen möchten, eines der Wüsten und Fossilien statt der Tempel, und eine lange Fahrt Sie nicht stört.",
+   "Choisissez cette journée si vous voulez voir une autre Égypte, celle des déserts et des fossiles plutôt que des temples, et si un long trajet ne vous dérange pas.",
+   "Scegliete questa giornata se volete vedere un Egitto diverso, di deserti e fossili invece che di templi, e non vi pesa un lungo viaggio in auto.",
+   "Elige este día si quieres ver un Egipto distinto, de desiertos y fósiles en lugar de templos, y no te importa un trayecto largo en coche.",
+   "Выберите этот день, если хотите увидеть другой Египет — пустыни и окаменелости вместо храмов — и вас не смущает долгая дорога.",
+   "如果你想看看不一样的埃及——沙漠与化石，而非神庙——并且不介意长途车程，就选这一天吧。",
+   "اختر هذا اليوم إذا أردت أن ترى مصر مختلفة، مصر الصحارى والحفريات لا المعابد، ولا تمانع رحلة طويلة بالسيارة."
+  ],
+  "Giza and the museum": [
+   "Gizeh und das Museum",
+   "Gizeh et le musée",
+   "Giza e il museo",
+   "Guiza y el museo",
+   "Гиза и музей",
+   "吉萨与博物馆",
+   "الجيزة والمتحف"
+  ],
+  "Keep the next day for Giza and the Grand Egyptian Museum.": [
+   "Planen Sie den nächsten Tag für Gizeh und das Grand Egyptian Museum ein.",
+   "Gardez le lendemain pour Gizeh et le Grand Musée égyptien.",
+   "Tenete il giorno dopo per Giza e il Grande Museo Egizio.",
+   "Reserva el día siguiente para Guiza y el Gran Museo Egipcio.",
+   "Оставьте следующий день для Гизы и Большого египетского музея.",
+   "第二天可以留给吉萨和大埃及博物馆。",
+   "خصّص اليوم التالي للجيزة والمتحف المصري الكبير."
+  ],
+  "Why is it called Whale Valley?": [
+   "Warum heißt es Tal der Wale?",
+   "Pourquoi l’appelle-t-on la vallée des Baleines ?",
+   "Perché si chiama Valle delle Balene?",
+   "¿Por qué se llama Valle de las Ballenas?",
+   "Почему она называется Долиной китов?",
+   "为什么叫鲸鱼谷？",
+   "لماذا يُسمّى وادي الحيتان؟"
+  ],
+  "Because of the fossil skeletons of early whales found there. Wadi Al-Hitan means “valley of the whales” in Arabic.": [
+   "Wegen der fossilen Skelette früher Wale, die dort gefunden wurden. Wadi al-Hitan bedeutet auf Arabisch „Tal der Wale“.",
+   "En raison des squelettes fossiles de baleines primitives qui y ont été trouvés. Wadi al-Hitan signifie « la vallée des baleines » en arabe.",
+   "Per gli scheletri fossili di balene primitive trovati lì. Wadi al-Hitan significa «valle delle balene» in arabo.",
+   "Por los esqueletos fósiles de ballenas primitivas hallados allí. Wadi al-Hitan significa «valle de las ballenas» en árabe.",
+   "Из-за найденных там окаменелых скелетов древних китов. Вади-аль-Хитан по-арабски означает «долина китов».",
+   "因为这里发现了早期鲸类的骨骼化石。瓦迪希坦在阿拉伯语中意为“鲸鱼谷”。",
+   "بسبب الهياكل المتحجرة للحيتان البدائية التي عُثر عليها فيه."
+  ],
+  "How old are the fossils?": [
+   "Wie alt sind die Fossilien?",
+   "Quel âge ont les fossiles ?",
+   "Quanti anni hanno i fossili?",
+   "¿Qué antigüedad tienen los fósiles?",
+   "Сколько лет окаменелостям?",
+   "化石有多少年历史？",
+   "كم عمر الحفريات؟"
+  ],
+  "About 40 million years old, according to Egypt’s Environmental Affairs Agency.": [
+   "Etwa 40 Millionen Jahre, nach Angaben der ägyptischen Umweltbehörde.",
+   "Environ 40 millions d’années, selon l’Agence égyptienne des affaires environnementales.",
+   "Circa 40 milioni di anni, secondo l’Agenzia egiziana per gli affari ambientali.",
+   "Unos 40 millones de años, según la Agencia Egipcia de Asuntos Ambientales.",
+   "Около 40 миллионов лет, по данным Агентства по охране окружающей среды Египта.",
+   "据埃及环境事务署介绍，约有4000万年。",
+   "نحو 40 مليون عام، بحسب جهاز شئون البيئة المصري."
+  ],
+  "Can I visit Wadi Al-Hitan in a day from Cairo?": [
+   "Kann ich Wadi al-Hitan an einem Tag von Kairo aus besuchen?",
+   "Peut-on visiter Wadi al-Hitan en une journée depuis Le Caire ?",
+   "Posso visitare Wadi al-Hitan in giornata dal Cairo?",
+   "¿Se puede visitar Wadi al-Hitan en un día desde El Cairo?",
+   "Можно ли посетить Вади-аль-Хитан за день из Каира?",
+   "可以从开罗一日往返鲸鱼谷吗？",
+   "هل يمكن زيارة وادي الحيتان في يوم من القاهرة؟"
+  ],
+  "Yes. It is a full day, and the option on this page picks you up at your hotel in Cairo or Giza.": [
+   "Ja. Es ist ein ganzer Tag, und die Option auf dieser Seite holt Sie in Ihrem Hotel in Kairo oder Gizeh ab.",
+   "Oui. C’est une journée entière, et l’option de cette page vient vous chercher à votre hôtel au Caire ou à Gizeh.",
+   "Sì. È un’intera giornata, e l’opzione di questa pagina vi viene a prendere in hotel al Cairo o a Giza.",
+   "Sí. Es un día entero, y la opción de esta página te recoge en tu hotel de El Cairo o Guiza.",
+   "Да. Это целый день, и вариант на этой странице включает трансфер из вашего отеля в Каире или Гизе.",
+   "可以。这是一整天的行程，本页的选项包含从你在开罗或吉萨的酒店接送。",
+   "نعم. إنه يوم كامل، والخيار المعروض في هذه الصفحة يشمل الاستقبال من فندقك في القاهرة أو الجيزة."
+  ],
+  "Is Wadi Al-Hitan a World Heritage site?": [
+   "Ist Wadi al-Hitan ein Welterbe?",
+   "Wadi al-Hitan est-il inscrit au patrimoine mondial ?",
+   "Wadi al-Hitan è patrimonio mondiale?",
+   "¿Es Wadi al-Hitan patrimonio mundial?",
+   "Вади-аль-Хитан — объект всемирного наследия?",
+   "鲸鱼谷是世界遗产吗？",
+   "هل وادي الحيتان موقع تراث عالمي؟"
+  ],
+  "Yes. UNESCO inscribed it in 2005, as Egypt’s natural World Heritage site.": [
+   "Ja. Die UNESCO nahm es 2005 als Ägyptens Weltnaturerbe auf.",
+   "Oui. L’UNESCO l’a inscrit en 2005, comme site naturel du patrimoine mondial de l’Égypte.",
+   "Sì. L’UNESCO lo ha iscritto nel 2005, come sito naturale del patrimonio mondiale dell’Egitto.",
+   "Sí. La UNESCO lo inscribió en 2005, como sitio natural del patrimonio mundial de Egipto.",
+   "Да. ЮНЕСКО включила её в список в 2005 году как природный объект всемирного наследия Египта.",
+   "是的。联合国教科文组织于2005年将其列入名录，它是埃及的自然世界遗产。",
+   "نعم. أدرجته اليونسكو عام 2005، وهو موقع التراث العالمي الطبيعي في مصر."
+  ],
+  "Fayoum": [
+   "Fayum",
+   "Fayoum",
+   "Fayyum",
+   "El Fayum",
+   "Файюм",
+   "法尤姆",
+   "الفيوم"
+  ],
+  "Marsa Alam · Eastern Desert · By 4×4": [
+   "Marsa Alam · Ostwüste · Im Geländewagen",
+   "Marsa Alam · Désert oriental · En 4×4",
+   "Marsa Alam · Deserto Orientale · In 4×4",
+   "Marsa Alam · Desierto oriental · En 4×4",
+   "Марса-Алам · Восточная пустыня · На внедорожнике",
+   "马萨阿拉姆 · 东部沙漠 · 四驱越野",
+   "مرسى علم · الصحراء الشرقية · بالدفع الرباعي"
+  ],
+  "A day by 4×4 from Marsa Alam into Wadi El-Gemal National Park, on Egypt’s southern Red Sea coast. Wadi El-Gemal is one of the largest and richest valleys of the Eastern Desert.": [
+   "Ein Tag im Geländewagen ab Marsa Alam in den Nationalpark Wadi el-Gemal an Ägyptens südlicher Rotmeerküste. Wadi el-Gemal ist eines der größten und reichsten Täler der Ostwüste.",
+   "Une journée en 4×4 au départ de Marsa Alam dans le parc national de Wadi el-Gemal, sur la côte sud de la mer Rouge égyptienne. Wadi el-Gemal est l’une des plus grandes et des plus riches vallées du désert oriental.",
+   "Una giornata in 4×4 da Marsa Alam nel parco nazionale di Wadi el-Gemal, sulla costa meridionale del Mar Rosso egiziano. Wadi el-Gemal è una delle valli più grandi e ricche del Deserto Orientale.",
+   "Un día en 4×4 desde Marsa Alam por el parque nacional de Wadi el-Gemal, en la costa sur del mar Rojo egipcio. Wadi el-Gemal es uno de los valles más grandes y ricos del desierto oriental.",
+   "День на внедорожнике из Марса-Алама в национальный парк Вади-эль-Гемаль на южном побережье Красного моря в Египте. Вади-эль-Гемаль — одна из крупнейших и богатейших долин Восточной пустыни.",
+   "从马萨阿拉姆乘四驱车深入埃及红海南部沿岸的瓦迪杰迈勒国家公园的一天。瓦迪杰迈勒是东部沙漠最大、最富饶的山谷之一。",
+   "يوم بسيارة دفع رباعي من مرسى علم إلى محمية وادي الجمال، على ساحل البحر الأحمر الجنوبي في مصر. ووادي الجمال أحد أكبر أودية الصحراء الشرقية وأغناها."
+  ],
+  "A national park since 2003, from the mountains to the reefs.": [
+   "Seit 2003 ein Nationalpark, von den Bergen bis zu den Riffen.",
+   "Un parc national depuis 2003, des montagnes aux récifs.",
+   "Un parco nazionale dal 2003, dalle montagne alle barriere coralline.",
+   "Un parque nacional desde 2003, de las montañas a los arrecifes.",
+   "Национальный парк с 2003 года — от гор до рифов.",
+   "自2003年起成为国家公园，从群山一直延伸到珊瑚礁。",
+   "متنزه وطني منذ عام 2003، من الجبال إلى الشعاب."
+  ],
+  "Into the valley": [
+   "Ins Tal",
+   "Dans la vallée",
+   "Nella valle",
+   "Al valle",
+   "В долину",
+   "走进山谷",
+   "إلى الوادي"
+  ],
+  "Behind the coast": [
+   "Hinter der Küste",
+   "Derrière le littoral",
+   "Dietro la costa",
+   "Detrás de la costa",
+   "За побережьем",
+   "海岸背后",
+   "خلف الساحل"
+  ],
+  "Into the mountains": [
+   "In die Berge",
+   "Vers les montagnes",
+   "Verso le montagne",
+   "Hacia las montañas",
+   "В горы",
+   "深入群山",
+   "إلى الجبال"
+  ],
+  "The park reaches about 50 km inland into the mountains of the Eastern Desert, with Gebel Hamata among the highest of them.": [
+   "Der Park reicht etwa 50 km landeinwärts in die Berge der Ostwüste, zu deren höchsten der Gebel Hamata gehört.",
+   "Le parc s’étend sur environ 50 km à l’intérieur des terres, dans les montagnes du désert oriental, dont le Gebel Hamata est l’une des plus hautes.",
+   "Il parco si estende per circa 50 km nell’entroterra, tra le montagne del Deserto Orientale, tra le più alte delle quali c’è il Gebel Hamata.",
+   "El parque se adentra unos 50 km tierra adentro, en las montañas del desierto oriental, entre las más altas de las cuales está el Gebel Hamata.",
+   "Парк уходит примерно на 50 км вглубь суши, в горы Восточной пустыни, среди высочайших из которых — Гебель-Хамата.",
+   "公园向内陆延伸约50公里，进入东部沙漠的群山，哈马塔山是其中最高的山峰之一。",
+   "تمتد المحمية نحو 50 كم إلى الداخل في جبال الصحراء الشرقية، ومن أعلاها جبل حماطة."
+  ],
+  "The valley’s flourishing plant life, which many creatures depend on.": [
+   "Die üppige Pflanzenwelt des Tals, von der viele Lebewesen abhängen.",
+   "La végétation florissante de la vallée, dont dépendent de nombreuses espèces.",
+   "La vegetazione rigogliosa della valle, da cui dipendono molte creature.",
+   "La vegetación floreciente del valle, de la que dependen muchas especies.",
+   "Пышная растительность долины, от которой зависят многие животные.",
+   "山谷里繁茂的植物，众多生物赖以生存。",
+   "نباتات الوادي المزدهرة، التي تعتمد عليها كائنات كثيرة."
+  ],
+  "Wildlife": [
+   "Tierwelt",
+   "La faune",
+   "La fauna",
+   "La fauna",
+   "Животный мир",
+   "野生动物",
+   "الحياة البرية"
+  ],
+  "The park is home to a great variety of plants and animals, and its coast and islands are important for nesting birds and sea turtles.": [
+   "Der Park ist Heimat einer großen Vielfalt an Pflanzen und Tieren, und seine Küste und Inseln sind wichtig für brütende Vögel und Meeresschildkröten.",
+   "Le parc abrite une grande diversité de plantes et d’animaux, et sa côte et ses îles sont importantes pour la nidification des oiseaux et des tortues marines.",
+   "Il parco ospita una grande varietà di piante e animali, e la sua costa e le sue isole sono importanti per la nidificazione di uccelli e tartarughe marine.",
+   "El parque alberga una gran variedad de plantas y animales, y su costa y sus islas son importantes para la cría de aves y tortugas marinas.",
+   "Парк — дом для большого разнообразия растений и животных, а его побережье и острова важны для гнездования птиц и морских черепах.",
+   "公园栖息着种类繁多的动植物，海岸和岛屿对鸟类和海龟繁殖十分重要。",
+   "تؤوي المحمية تنوعًا كبيرًا من النبات والحيوان، وساحلها وجزرها مهمة لتكاثر الطيور والسلاحف البحرية."
+  ],
+  "A protected area": [
+   "Ein Schutzgebiet",
+   "Une aire protégée",
+   "Un’area protetta",
+   "Un área protegida",
+   "Охраняемая территория",
+   "自然保护区",
+   "محمية طبيعية"
+  ],
+  "The option on this page picks you up at your hotel in Marsa Alam and drives into the park by 4×4, with a guide and lunch, according to the partner’s page. Check what is included on the partner’s page before you book.": [
+   "Die Option auf dieser Seite holt Sie laut der Seite des Partners in Ihrem Hotel in Marsa Alam ab und fährt im Geländewagen in den Park, mit Guide und Mittagessen. Prüfen Sie vor der Buchung auf der Seite des Partners, was enthalten ist.",
+   "L’option de cette page vient vous chercher à votre hôtel à Marsa Alam et entre dans le parc en 4×4, avec un guide et le déjeuner, selon la page du partenaire. Vérifiez ce qui est inclus sur la page du partenaire avant de réserver.",
+   "L’opzione di questa pagina vi viene a prendere in hotel a Marsa Alam ed entra nel parco in 4×4, con guida e pranzo, secondo la pagina del partner. Controllate cosa è incluso sulla pagina del partner prima di prenotare.",
+   "La opción de esta página te recoge en tu hotel de Marsa Alam y entra en el parque en 4×4, con guía y almuerzo, según la página del socio. Comprueba qué incluye en la página del socio antes de reservar.",
+   "Вариант на этой странице, по данным страницы партнёра, включает трансфер из вашего отеля в Марса-Аламе и поездку по парку на внедорожнике с гидом и обедом. Перед бронированием проверьте на странице партнёра, что входит в стоимость.",
+   "根据合作伙伴页面，本页的选项包含从你在马萨阿拉姆的酒店接送，乘四驱车进入公园，并配有导游和午餐。预订前请在合作伙伴页面上确认包含的内容。",
+   "الخيار المعروض في هذه الصفحة يشمل الاستقبال من فندقك في مرسى علم والدخول إلى المحمية بسيارة دفع رباعي، مع مرشد وغداء، بحسب صفحة الشريك. راجِع ما تشمله الرحلة في صفحة الشريك قبل الحجز."
+  ],
+  "Sun and heat": [
+   "Sonne und Hitze",
+   "Soleil et chaleur",
+   "Sole e caldo",
+   "Sol y calor",
+   "Солнце и жара",
+   "日晒与炎热",
+   "الشمس والحرارة"
+  ],
+  "Park rules": [
+   "Parkregeln",
+   "Les règles du parc",
+   "Le regole del parco",
+   "Las normas del parque",
+   "Правила парка",
+   "园区规定",
+   "قواعد المحمية"
+  ],
+  "Its rules protect habitats that are rare in Egypt, so follow them.": [
+   "Seine Regeln schützen Lebensräume, die in Ägypten selten sind, halten Sie sich deshalb daran.",
+   "Ses règles protègent des milieux rares en Égypte, alors respectez-les.",
+   "Le sue regole proteggono habitat rari in Egitto, quindi rispettatele.",
+   "Sus normas protegen hábitats raros en Egipto, así que respétalas.",
+   "Его правила защищают редкие для Египта среды обитания, поэтому соблюдайте их.",
+   "园区规定保护着埃及罕见的生境，请务必遵守。",
+   "قواعدها تحمي بيئات نادرة في مصر، فالتزم بها."
+  ],
+  "Leave no trace": [
+   "Keine Spuren hinterlassen",
+   "Ne laissez aucune trace",
+   "Non lasciate tracce",
+   "No dejes rastro",
+   "Не оставляйте следов",
+   "不留痕迹",
+   "لا تترك أثرًا"
+  ],
+  "Take all your rubbish with you.": [
+   "Nehmen Sie Ihren gesamten Abfall wieder mit.",
+   "Remportez tous vos déchets.",
+   "Riportate indietro tutti i rifiuti.",
+   "Llévate toda tu basura.",
+   "Забирайте весь мусор с собой.",
+   "请带走所有垃圾。",
+   "خذ كل مخلفاتك معك."
+  ],
+  "The desert behind the coast": [
+   "Die Wüste hinter der Küste",
+   "Le désert derrière le littoral",
+   "Il deserto dietro la costa",
+   "El desierto detrás de la costa",
+   "Пустыня за побережьем",
+   "海岸背后的沙漠",
+   "الصحراء خلف الساحل"
+  ],
+  "Choose this day if you are staying on the southern Red Sea and want to see the desert behind the coast.": [
+   "Wählen Sie diesen Tag, wenn Sie am südlichen Roten Meer wohnen und die Wüste hinter der Küste sehen möchten.",
+   "Choisissez cette journée si vous séjournez sur la côte sud de la mer Rouge et voulez voir le désert derrière le littoral.",
+   "Scegliete questa giornata se soggiornate sul Mar Rosso meridionale e volete vedere il deserto dietro la costa.",
+   "Elige este día si te alojas en el sur del mar Rojo y quieres ver el desierto que hay detrás de la costa.",
+   "Выберите этот день, если вы отдыхаете на юге Красного моря и хотите увидеть пустыню за побережьем.",
+   "如果你住在红海南部沿岸，想看看海岸背后的沙漠，就选这一天吧。",
+   "اختر هذا اليوم إذا كنت تقيم على ساحل البحر الأحمر الجنوبي وتريد أن ترى الصحراء خلف الساحل."
+  ],
+  "A day on the water": [
+   "Ein Tag auf dem Wasser",
+   "Une journée en mer",
+   "Un giorno in mare",
+   "Un día en el mar",
+   "День на воде",
+   "海上一日",
+   "يوم في البحر"
+  ],
+  "Spend another day on the water, on the reefs of the Red Sea.": [
+   "Verbringen Sie einen weiteren Tag auf dem Wasser, an den Riffen des Roten Meeres.",
+   "Passez une autre journée en mer, sur les récifs de la mer Rouge.",
+   "Trascorrete un altro giorno in mare, sulle barriere coralline del Mar Rosso.",
+   "Pasa otro día en el mar, en los arrecifes del mar Rojo.",
+   "Проведите ещё один день на воде, на рифах Красного моря.",
+   "再花一天到海上去，探访红海的珊瑚礁。",
+   "اقضِ يومًا آخر في البحر، عند شعاب البحر الأحمر."
+  ],
+  "Where is Wadi El-Gemal National Park?": [
+   "Wo liegt der Nationalpark Wadi el-Gemal?",
+   "Où se trouve le parc national de Wadi el-Gemal ?",
+   "Dove si trova il parco nazionale di Wadi el-Gemal?",
+   "¿Dónde está el parque nacional de Wadi el-Gemal?",
+   "Где находится национальный парк Вади-эль-Гемаль?",
+   "瓦迪杰迈勒国家公园在哪里？",
+   "أين تقع محمية وادي الجمال؟"
+  ],
+  "In the south of Egypt’s Red Sea governorate, between the mountains of the Eastern Desert and the sea.": [
+   "Im Süden des ägyptischen Gouvernements Rotes Meer, zwischen den Bergen der Ostwüste und dem Meer.",
+   "Dans le sud du gouvernorat égyptien de la mer Rouge, entre les montagnes du désert oriental et la mer.",
+   "Nel sud del governatorato egiziano del Mar Rosso, tra le montagne del Deserto Orientale e il mare.",
+   "En el sur de la gobernación egipcia del mar Rojo, entre las montañas del desierto oriental y el mar.",
+   "На юге египетской мухафазы Красное море, между горами Восточной пустыни и морем.",
+   "位于埃及红海省南部，介于东部沙漠的群山与大海之间。",
+   "في جنوب محافظة البحر الأحمر في مصر، بين جبال الصحراء الشرقية والبحر."
+  ],
+  "When was Wadi El-Gemal declared a protected area?": [
+   "Wann wurde Wadi el-Gemal unter Schutz gestellt?",
+   "Quand Wadi el-Gemal a-t-il été protégé ?",
+   "Quando è stato protetto Wadi el-Gemal?",
+   "¿Cuándo se protegió Wadi el-Gemal?",
+   "Когда Вади-эль-Гемаль стал охраняемой территорией?",
+   "瓦迪杰迈勒何时成为保护区？",
+   "متى أُعلن وادي الجمال محمية طبيعية؟"
+  ],
+  "In 2003, as a national park.": [
+   "2003, als Nationalpark.",
+   "En 2003, en tant que parc national.",
+   "Nel 2003, come parco nazionale.",
+   "En 2003, como parque nacional.",
+   "В 2003 году, как национальный парк.",
+   "2003年，被设为国家公园。",
+   "عام 2003، متنزهًا وطنيًا."
+  ],
+  "Is hotel pickup included?": [
+   "Ist die Abholung vom Hotel inbegriffen?",
+   "La prise en charge à l’hôtel est-elle incluse ?",
+   "Il prelievo in hotel è incluso?",
+   "¿Incluye la recogida en el hotel?",
+   "Входит ли трансфер из отеля?",
+   "包含酒店接送吗？",
+   "هل يشمل الحجز الاستقبال من الفندق؟"
+  ],
+  "On the option on this page, yes: pickup is offered from hotels in Marsa Alam. Check the details on the partner’s page.": [
+   "Bei der Option auf dieser Seite ja: Die Abholung wird ab Hotels in Marsa Alam angeboten. Prüfen Sie die Einzelheiten auf der Seite des Partners.",
+   "Pour l’option de cette page, oui : la prise en charge est proposée depuis les hôtels de Marsa Alam. Vérifiez les détails sur la page du partenaire.",
+   "Nell’opzione di questa pagina sì: il prelievo è offerto dagli hotel di Marsa Alam. Controllate i dettagli sulla pagina del partner.",
+   "En la opción de esta página, sí: se ofrece recogida en los hoteles de Marsa Alam. Comprueba los detalles en la página del socio.",
+   "В варианте на этой странице — да: трансфер предлагается из отелей Марса-Алама. Уточните детали на странице партнёра.",
+   "本页的选项包含：可从马萨阿拉姆的酒店接送。具体请查看合作伙伴页面。",
+   "في الخيار المعروض في هذه الصفحة، نعم: يُقدَّم الاستقبال من الفنادق في مرسى علم. راجِع التفاصيل في صفحة الشريك."
+  ],
+  "Marsa Alam": [
+   "Marsa Alam",
+   "Marsa Alam",
+   "Marsa Alam",
+   "Marsa Alam",
+   "Марса-Алам",
+   "马萨阿拉姆",
+   "مرسى علم"
   ]
  }
 }

@@ -5,6 +5,7 @@ slug: wadi-al-hitan-whale-valley
 topic: Planning
 excerpt: Wadi Al-Hitan, Whale Valley, in the Fayoum desert: fossil whales from the time they still had hind legs, why UNESCO lists it as a World Heritage site, what else the Wadi El-Rayan Protected Area holds, and how to plan the trip from Cairo.
 destination: cairo
+related: exp-hitan
 ---
 [[toc]]
 

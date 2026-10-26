@@ -18,7 +18,7 @@ IMGMAP = json.load(open(os.path.join(ROOT, 'tools/world/imgmap.json'), encoding=
 WPICK = json.load(open(os.path.join(ROOT, 'docs/prototypes/journey-v4/wpick.json'), encoding='utf-8'))
 SEEDS = {'valley': 'exp-valley', 'redsea': 'exp-dive', 'white': 'exp-safari', 'nile': 'exp-dinner', 'giza': 'exp-giza',
          'abu': 'exp-abu', 'alex': 'exp-alexandria', 'ras': 'exp-ras-mohammed', 'siwa': 'exp-siwa', 'food': 'exp-food',
-         'cruise': 'exp-cruise', 'balloon': 'exp-balloon'}
+         'cruise': 'exp-cruise', 'balloon': 'exp-balloon', 'hitan': 'exp-hitan', 'gemal': 'exp-gemal'}
 # The food photos are the Commons files already on the site (inc/ux2-trips.php ER_UX2_COMMONS_CARDS).
 COMMONS_FOOD = {
     'c_koshary': ('Egyptian_food_Koshary.jpg', 'Dina Said', 'CC BY-SA 4.0'),

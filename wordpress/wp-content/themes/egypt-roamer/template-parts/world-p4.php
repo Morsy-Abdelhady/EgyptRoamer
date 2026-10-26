@@ -92,6 +92,9 @@ $er_ep     = explode( ' · ', (string) $W['eyebrow'] );
 			<canvas data-fx="<?php echo esc_attr( $W['fx'] ); ?>" aria-hidden="true"></canvas>
 		<?php endif; ?>
 		<div class="wshade"></div>
+		<?php if ( ! empty( $er_photo['commons'] ) && '' === $W['video'] ) : $er_oc = er_commons_credit( 'commons:' . $er_photo['commons'] ); ?>
+			<a class="wocred" href="<?php echo esc_url( $er_oc[1] ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $er_oc[0] ); ?></a>
+		<?php endif; ?>
 		<?php if ( '' !== $W['video'] ) : ?>
 			<?php echo er_world_video_controls( er_t( 'Video: {name}, Pexels', [ 'name' => (string) ( er_world_video_creators()[ $W['video'] ] ?? '' ) ] ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		<?php endif; ?>

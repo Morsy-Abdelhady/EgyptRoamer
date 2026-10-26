@@ -4,6 +4,7 @@ title: Wadi El-Gemal National Park on the Southern Red Sea
 slug: wadi-el-gemal-national-park
 topic: Planning
 excerpt: Wadi El-Gemal National Park on Egypt's southern Red Sea coast: one of the largest valleys of the Eastern Desert, Gebel Hamata, mangroves, some of the country's best untouched reefs, and the beaches where sea turtles nest, with tips for a responsible visit.
+related: exp-gemal
 ---
 [[toc]]
 

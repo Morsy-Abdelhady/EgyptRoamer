@@ -54,3 +54,16 @@
   - The guide, the Luxor place page and Trips & tours link to the trip.
   - EN desktop and AR phone were viewed in a browser: no overflow, RTL correct.
   - `page-coverage.mjs`: all ok, 392 pages.
+
+## Two more trips (owner, 26 Oct 2026)
+
+Owner: "add the two Klook trips as new trips in 8 languages, without ratings, and link them to the Wadi Al-Hitan and
+Wadi El-Gemal pages". Facts read on klook.com on 26 Oct; no prices, ratings, reviews or photos copied.
+
+| Offer slug | Our trip | Klook product | Facts |
+|---|---|---|---|
+| `klook-wadi-el-hitan-and-wadi-el-rayan-from-cairo` | `exp-hitan` | Full-Day Tour to Wadi El Hitan & Wadi El Rayan from Cairo, https://www.klook.com/en-US/activity/124305-cario-tour-to-whales-valley-wadi-el-rayan-waterfalls-in-el-fayoum/ | Private group, 10 hours, hotel pickup in Cairo or Giza, free cancellation (24 hours notice). Itinerary: Wadi El Hitan, Wadi El Rayan waterfalls, Tunis village, lunch |
+| `klook-wadi-el-gemal-safari-from-marsa-alam` | `exp-gemal` | Discover the Beauty of Wadi El Gemal Tours, https://www.klook.com/en-US/activity/134012-discover-the-beauty-of-wadi-el-gemal-tours/ | Join-in group (so no group fact), hotel pickup in Marsa Alam, 4×4 jeep, guide and lunch, free cancellation (24 hours notice). **No duration:** the page states both "7hr" and "5 hour(s)" |
+
+- Guides: `g-wadi-hitan` → `exp-hitan`, `g-wadi-gemal` → `exp-gemal` (source files; the live meta is set once, as for the balloon).
+- API: on 26 Oct the owner sent Klook a request for the Activity Search API (contact form, 200-character limit), to show ratings and prices the way Viator's API does. Until Klook answers, Klook options show no ratings.

@@ -70,9 +70,24 @@
   "excerpt": "A Cairo street food tour by night: the dishes you'll taste, from koshari and ful to feteer and sweets, the neighbourhoods you walk through, dietary needs, and why a local guide helps.",
   "alternatives": "exp-dinner"
  },
+ "exp-gemal": {
+  "type": "er_experience",
+  "title": "Wadi El-Gemal 4×4 Safari from Marsa Alam",
+  "excerpt": "A 4×4 day into Wadi El-Gemal National Park from Marsa Alam: one of the largest and richest valleys of the Eastern Desert, its plants and wildlife, how the day works, and how to visit a protected area with care.",
+  "slug": "wadi-el-gemal-safari-from-marsa-alam",
+  "location": "Marsa Alam"
+ },
  "exp-giza": {
   "type": "er_experience",
   "excerpt": "What a private guided visit to the Giza pyramids and the Sphinx is like, who it suits, how to time it, what to watch out for on the plateau, and how to combine it with the Grand Egyptian Museum and Saqqara."
+ },
+ "exp-hitan": {
+  "type": "er_experience",
+  "title": "Wadi Al-Hitan and Wadi El-Rayan Day Trip from Cairo",
+  "excerpt": "A full day from Cairo to Wadi Al-Hitan, the Whale Valley World Heritage site in the Fayoum desert, and the waterfalls of Wadi El-Rayan in the same protected area: what you see, how the day works, and what to check before you book.",
+  "slug": "wadi-al-hitan-day-trip-from-cairo",
+  "location": "Fayoum",
+  "destination": "cairo"
  },
  "exp-ras-mohammed": {
   "type": "er_experience",
@@ -350,7 +365,8 @@
   "title": "Wadi El-Gemal National Park on the Southern Red Sea",
   "excerpt": "Wadi El-Gemal National Park on Egypt's southern Red Sea coast: one of the largest valleys of the Eastern Desert, Gebel Hamata, mangroves, some of the country's best untouched reefs, and the beaches where sea turtles nest, with tips for a responsible visit.",
   "slug": "wadi-el-gemal-national-park",
-  "topic": "Planning"
+  "topic": "Planning",
+  "related": "exp-gemal"
  },
  "g-wadi-hitan": {
   "type": "er_guide",
@@ -358,7 +374,8 @@
   "excerpt": "Wadi Al-Hitan, Whale Valley, in the Fayoum desert: fossil whales from the time they still had hind legs, why UNESCO lists it as a World Heritage site, what else the Wadi El-Rayan Protected Area holds, and how to plan the trip from Cairo.",
   "slug": "wadi-al-hitan-whale-valley",
   "topic": "Planning",
-  "destination": "cairo"
+  "destination": "cairo",
+  "related": "exp-hitan"
  },
  "g-west-bank": {
   "type": "er_guide",

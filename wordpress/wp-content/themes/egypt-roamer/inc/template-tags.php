@@ -111,6 +111,9 @@ function er_commons_credit( string $photo_id ): array {
 		'27057-_Wadi_el_Gemal_landscape.jpg'                                                        => [ 'Panegyrics of Granovetter', 'CC BY-SA 2.0' ],
 		'WadiElGimal3.jpg'                                                                          => [ 'Roland Unger', 'CC BY-SA 4.0' ],
 		'Sooty_Gull_in_Ras_Baghdadi_-_Wadi_El-Gemal_National_Park,_Red_Sea_7.jpg'                   => [ 'Mohammad Chawki', 'CC BY-SA 4.0' ],
+		'Wadi_El_Hitan_Rockforms.jpg'                                                               => [ 'Tom Horton', 'CC BY-SA 2.0' ],
+		'Waterfalls_of_Wadi_El_Rayan,_Fayoum,_Egypt.jpg'                                            => [ 'Ibrahim El-Mezayen', 'CC BY-SA 4.0' ],
+		'WadiElGimal2.jpg'                                                                          => [ 'Roland Unger', 'CC BY-SA 4.0' ],
 	];
 	$file = str_replace( ' ', '_', substr( $photo_id, 8 ) );
 	[ $who, $licence ] = $credits[ $file ] ?? [ '', '' ];

@@ -89,9 +89,25 @@
   "review": "approved",
   "current": true
  },
+ "exp-gemal": {
+  "type": "er_experience",
+  "title": "马萨阿拉姆出发：瓦迪杰迈勒四驱越野之旅",
+  "excerpt": "从马萨阿拉姆乘四驱车深入瓦迪杰迈勒国家公园的一天：东部沙漠最大、最富饶的山谷之一，那里的植物和野生动物、一天如何安排，以及如何用心游览自然保护区。",
+  "location": "马萨阿拉姆",
+  "review": "approved",
+  "current": true
+ },
  "exp-giza": {
   "type": "er_experience",
   "excerpt": "吉萨金字塔与狮身人面像私人导览是什么样的体验、适合谁、何时出发、在高原上要注意什么，以及如何与大埃及博物馆和萨卡拉搭配。",
+  "review": "approved",
+  "current": true
+ },
+ "exp-hitan": {
+  "type": "er_experience",
+  "title": "开罗出发：鲸鱼谷与瓦迪拉扬一日游",
+  "excerpt": "从开罗出发一整天，前往法尤姆沙漠中的世界遗产鲸鱼谷（瓦迪希坦），以及同一保护区内的瓦迪拉扬瀑布：你将看到什么、一天如何安排，以及预订前需要确认的事项。",
+  "location": "法尤姆",
   "review": "approved",
   "current": true
  },

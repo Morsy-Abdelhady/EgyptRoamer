@@ -566,6 +566,97 @@ function er_world_data( string $seed ): array {
 				'stay'     => er_t( 'Staying in Luxor?' ),
 				'pick_why' => '',
 			];
+		case 'exp-hitan':
+			return [
+				'key'      => 'hitan',
+				'cls'      => 'w-desert',
+				'fx'       => 'desert',
+				'photo'    => [ 'commons' => 'Wadi_Hitan_Sunset.jpg', 'page' => 'https://commons.wikimedia.org/wiki/File:Wadi_Hitan_Sunset.jpg' ],
+				'video'    => '',
+				'eyebrow' => er_t( 'Fayoum · Whale Valley · From Cairo' ),
+				'lead' => er_t( 'A full day from Cairo into the desert of the Fayoum, to Wadi Al-Hitan, the Whale Valley. Its fossils show the earliest whales in the last stages of losing their hind legs, and UNESCO inscribed it as a World Heritage site in 2005.' ),
+				'quote' => er_t( 'The most important site in the world for this stage of the whale’s evolution, says UNESCO.' ),
+				'go' => er_t( 'Into the Whale Valley' ),
+				'j_eyebrow' => er_t( 'The day, step by step' ),
+				'j_title'   => er_t( 'From fossils to waterfalls' ),
+				'steps'    => [
+					[ 't' => er_t( 'Whale Valley' ), 'p' => er_t( 'Footpaths lead to the fossil whale skeletons, about 40 million years old, lying in the open sand. Vehicles stay out of the site itself.' ), 'why' => '', 'img' => [ 'commons' => 'The_whales_fossils_at_Wadi_El-Hitan,_Egypt_2017.jpg', 'page' => 'https://commons.wikimedia.org/wiki/File:The_whales_fossils_at_Wadi_El-Hitan,_Egypt_2017.jpg' ], 'video' => '', 'credit' => 'Photo: AhmedMosaad, Wikimedia Commons, CC BY-SA 4.0', 'wall' => false, 'tone' => 'warm' ],
+					[ 't' => er_t( 'The valley' ), 'p' => er_t( 'Around the fossils, rock formations and sand, with shark teeth and shells from the same ancient sea.' ), 'why' => '', 'img' => [ 'commons' => 'Wadi_El_Hitan_Rockforms.jpg', 'page' => 'https://commons.wikimedia.org/wiki/File:Wadi_El_Hitan_Rockforms.jpg' ], 'video' => '', 'credit' => 'Photo: Tom Horton, Wikimedia Commons, CC BY-SA 2.0', 'wall' => false, 'tone' => 'dark' ],
+					[ 't' => er_t( 'Wadi El-Rayan' ), 'p' => er_t( 'The lakes and waterfalls of Wadi El-Rayan, formed by drainage water from the farmland of the Fayoum.' ), 'why' => er_t( 'The option on this page also stops at Tunis village and includes lunch in the Fayoum, according to the partner’s page.' ), 'img' => [ 'commons' => 'Waterfalls_of_Wadi_El_Rayan,_Fayoum,_Egypt.jpg', 'page' => 'https://commons.wikimedia.org/wiki/File:Waterfalls_of_Wadi_El_Rayan,_Fayoum,_Egypt.jpg' ], 'video' => '', 'credit' => 'Photo: Ibrahim El-Mezayen, Wikimedia Commons, CC BY-SA 4.0', 'wall' => false, 'tone' => 'warm' ],
+				],
+				'sec'      => [
+					'eyebrow' => er_t( 'Before you book' ),
+					'title'   => er_t( 'A long day in the open desert' ),
+					'ps'      => [ er_t( 'Check what is included, and the entry fees, on the partner’s page before you book.' ) ],
+					'tabs'    => [
+						[ '𓇳', er_t( 'Little shade' ), er_t( 'Bring water, sun protection and good shoes.' ) ],
+						[ '𓂻', er_t( 'On foot' ), er_t( 'Footpaths lead to the fossils; vehicles stay out of the site.' ) ],
+						[ '𓆛', er_t( 'Protect the fossils' ), er_t( 'Stay on the paths, and never touch or take a fossil.' ) ],
+					],
+					'night'   => false,
+					'wall'    => false,
+				],
+				'papy'     => [
+					[ er_t( 'Who it suits' ), er_t( 'A different Egypt' ), er_t( 'Choose this day if you want to see a different Egypt, of deserts and fossils rather than temples, and don’t mind a long drive.' ), null ],
+					[ er_t( 'Combine it with' ), er_t( 'Giza and the museum' ), er_t( 'Keep the next day for Giza and the Grand Egyptian Museum.' ), null ],
+				],
+				'faq'      => [
+					[ er_t( 'Why is it called Whale Valley?' ), er_t( 'Because of the fossil skeletons of early whales found there. Wadi Al-Hitan means “valley of the whales” in Arabic.' ) ],
+					[ er_t( 'How old are the fossils?' ), er_t( 'About 40 million years old, according to Egypt’s Environmental Affairs Agency.' ) ],
+					[ er_t( 'Can I visit Wadi Al-Hitan in a day from Cairo?' ), er_t( 'Yes. It is a full day, and the option on this page picks you up at your hotel in Cairo or Giza.' ) ],
+					[ er_t( 'Is Wadi Al-Hitan a World Heritage site?' ), er_t( 'Yes. UNESCO inscribed it in 2005, as Egypt’s natural World Heritage site.' ) ],
+				],
+				'chips'    => [ '{length}', '{options}', '{group}', '{pickup}' ],
+				'sum'      => [ er_t( 'Fayoum' ), '{length}', '{group}', '{pickup}', '{cancel}' ],
+				'place'    => er_t( 'Fayoum' ),
+				'stay'     => er_t( 'Staying in Cairo?' ),
+				'pick_why' => '',
+			];
+		case 'exp-gemal':
+			return [
+				'key'      => 'gemal',
+				'cls'      => 'w-desert',
+				'fx'       => 'desert',
+				'photo'    => [ 'commons' => '27057-_Wadi_el_Gemal_landscape.jpg', 'page' => 'https://commons.wikimedia.org/wiki/File:27057-_Wadi_el_Gemal_landscape.jpg' ],
+				'video'    => '',
+				'eyebrow' => er_t( 'Marsa Alam · Eastern Desert · By 4×4' ),
+				'lead' => er_t( 'A day by 4×4 from Marsa Alam into Wadi El-Gemal National Park, on Egypt’s southern Red Sea coast. Wadi El-Gemal is one of the largest and richest valleys of the Eastern Desert.' ),
+				'quote' => er_t( 'A national park since 2003, from the mountains to the reefs.' ),
+				'go' => er_t( 'Into the valley' ),
+				'j_eyebrow' => er_t( 'The day, step by step' ),
+				'j_title'   => er_t( 'Behind the coast' ),
+				'steps'    => [
+					[ 't' => er_t( 'Into the mountains' ), 'p' => er_t( 'The park reaches about 50 km inland into the mountains of the Eastern Desert, with Gebel Hamata among the highest of them.' ), 'why' => '', 'img' => [ 'commons' => 'WadiElGimal2.jpg', 'page' => 'https://commons.wikimedia.org/wiki/File:WadiElGimal2.jpg' ], 'video' => '', 'credit' => 'Photo: Roland Unger, Wikimedia Commons, CC BY-SA 4.0', 'wall' => false, 'tone' => 'warm' ],
+					[ 't' => er_t( 'The valley' ), 'p' => er_t( 'The valley’s flourishing plant life, which many creatures depend on.' ), 'why' => '', 'img' => [ 'commons' => 'WadiElGimal3.jpg', 'page' => 'https://commons.wikimedia.org/wiki/File:WadiElGimal3.jpg' ], 'video' => '', 'credit' => 'Photo: Roland Unger, Wikimedia Commons, CC BY-SA 4.0', 'wall' => false, 'tone' => 'dark' ],
+					[ 't' => er_t( 'Wildlife' ), 'p' => er_t( 'The park is home to a great variety of plants and animals, and its coast and islands are important for nesting birds and sea turtles.' ), 'why' => '', 'img' => [ 'commons' => 'Sooty_Gull_in_Ras_Baghdadi_-_Wadi_El-Gemal_National_Park,_Red_Sea_7.jpg', 'page' => 'https://commons.wikimedia.org/wiki/File:Sooty_Gull_in_Ras_Baghdadi_-_Wadi_El-Gemal_National_Park,_Red_Sea_7.jpg' ], 'video' => '', 'credit' => 'Photo: Mohammad Chawki, Wikimedia Commons, CC BY-SA 4.0', 'wall' => false, 'tone' => 'warm' ],
+				],
+				'sec'      => [
+					'eyebrow' => er_t( 'Before you book' ),
+					'title'   => er_t( 'A protected area' ),
+					'ps'      => [ er_t( 'The option on this page picks you up at your hotel in Marsa Alam and drives into the park by 4×4, with a guide and lunch, according to the partner’s page. Check what is included on the partner’s page before you book.' ) ],
+					'tabs'    => [
+						[ '𓇳', er_t( 'Sun and heat' ), er_t( 'Bring water, sun protection and good shoes.' ) ],
+						[ '𓆰', er_t( 'Park rules' ), er_t( 'Its rules protect habitats that are rare in Egypt, so follow them.' ) ],
+						[ '𓂻', er_t( 'Leave no trace' ), er_t( 'Take all your rubbish with you.' ) ],
+					],
+					'night'   => false,
+					'wall'    => false,
+				],
+				'papy'     => [
+					[ er_t( 'Who it suits' ), er_t( 'The desert behind the coast' ), er_t( 'Choose this day if you are staying on the southern Red Sea and want to see the desert behind the coast.' ), null ],
+					[ er_t( 'Combine it with' ), er_t( 'A day on the water' ), er_t( 'Spend another day on the water, on the reefs of the Red Sea.' ), null ],
+				],
+				'faq'      => [
+					[ er_t( 'Where is Wadi El-Gemal National Park?' ), er_t( 'In the south of Egypt’s Red Sea governorate, between the mountains of the Eastern Desert and the sea.' ) ],
+					[ er_t( 'When was Wadi El-Gemal declared a protected area?' ), er_t( 'In 2003, as a national park.' ) ],
+					[ er_t( 'Is hotel pickup included?' ), er_t( 'On the option on this page, yes: pickup is offered from hotels in Marsa Alam. Check the details on the partner’s page.' ) ],
+				],
+				'chips'    => [ '{options}', '{pickup}' ],
+				'sum'      => [ er_t( 'Marsa Alam' ), '{pickup}', '{cancel}' ],
+				'place'    => er_t( 'Marsa Alam' ),
+				'stay'     => '',
+				'pick_why' => '',
+			];
 	}
 	return [];
 }

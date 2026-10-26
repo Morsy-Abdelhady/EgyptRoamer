@@ -138,5 +138,85 @@
   "lic": "CC BY 3.0",
   "page": "https://commons.wikimedia.org/wiki/File:Kom_Ombo_Portal_03.JPG",
   "bytes": 549215
+ },
+ "w_hitan_sunset": {
+  "trip": "hitan",
+  "step": 0,
+  "file": "img/w_hitan_sunset.jpg",
+  "title": "File:Wadi Hitan Sunset.jpg",
+  "artist": "Medomadrex",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Wadi_Hitan_Sunset.jpg",
+  "bytes": 0
+ },
+ "w_hitan_fossils": {
+  "trip": "hitan",
+  "step": 1,
+  "file": "img/w_hitan_fossils.jpg",
+  "title": "File:The whales fossils at Wadi El-Hitan, Egypt 2017.jpg",
+  "artist": "AhmedMosaad",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:The_whales_fossils_at_Wadi_El-Hitan,_Egypt_2017.jpg",
+  "bytes": 0
+ },
+ "w_hitan_rocks": {
+  "trip": "hitan",
+  "step": 2,
+  "file": "img/w_hitan_rocks.jpg",
+  "title": "File:Wadi El Hitan Rockforms.jpg",
+  "artist": "Tom Horton",
+  "lic": "CC BY-SA 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Wadi_El_Hitan_Rockforms.jpg",
+  "bytes": 0
+ },
+ "w_rayan_falls": {
+  "trip": "hitan",
+  "step": 3,
+  "file": "img/w_rayan_falls.jpg",
+  "title": "File:Waterfalls of Wadi El Rayan, Fayoum, Egypt.jpg",
+  "artist": "Ibrahim El-Mezayen",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Waterfalls_of_Wadi_El_Rayan,_Fayoum,_Egypt.jpg",
+  "bytes": 0
+ },
+ "w_gemal_land": {
+  "trip": "gemal",
+  "step": 0,
+  "file": "img/w_gemal_land.jpg",
+  "title": "File:27057- Wadi el Gemal landscape.jpg",
+  "artist": "Panegyrics of Granovetter",
+  "lic": "CC BY-SA 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:27057-_Wadi_el_Gemal_landscape.jpg",
+  "bytes": 0
+ },
+ "w_gemal_mountains": {
+  "trip": "gemal",
+  "step": 1,
+  "file": "img/w_gemal_mountains.jpg",
+  "title": "File:WadiElGimal2.jpg",
+  "artist": "Roland Unger",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:WadiElGimal2.jpg",
+  "bytes": 0
+ },
+ "w_gemal_acacia": {
+  "trip": "gemal",
+  "step": 2,
+  "file": "img/w_gemal_acacia.jpg",
+  "title": "File:WadiElGimal3.jpg",
+  "artist": "Roland Unger",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:WadiElGimal3.jpg",
+  "bytes": 0
+ },
+ "w_gemal_gull": {
+  "trip": "gemal",
+  "step": 3,
+  "file": "img/w_gemal_gull.jpg",
+  "title": "File:Sooty Gull in Ras Baghdadi - Wadi El-Gemal National Park, Red Sea 7.jpg",
+  "artist": "Mohammad Chawki",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Sooty_Gull_in_Ras_Baghdadi_-_Wadi_El-Gemal_National_Park,_Red_Sea_7.jpg",
+  "bytes": 0
  }
 }

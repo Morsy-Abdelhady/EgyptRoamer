@@ -89,9 +89,25 @@
   "review": "approved",
   "current": true
  },
+ "exp-gemal": {
+  "type": "er_experience",
+  "title": "Jeep-Safari im Wadi el-Gemal ab Marsa Alam",
+  "excerpt": "Ein Tag im Geländewagen ab Marsa Alam in den Nationalpark Wadi el-Gemal: eines der größten und reichsten Täler der Ostwüste, seine Pflanzen und Tiere, wie der Tag abläuft und wie Sie ein Schutzgebiet achtsam besuchen.",
+  "location": "Marsa Alam",
+  "review": "approved",
+  "current": true
+ },
  "exp-giza": {
   "type": "er_experience",
   "excerpt": "Wie eine private, geführte Tour zu den Pyramiden von Gizeh und der Sphinx abläuft, für wen sie sich eignet, wann Sie starten sollten, worauf Sie auf dem Plateau achten müssen und wie Sie sie mit dem Grand Egyptian Museum und Sakkara verbinden.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-hitan": {
+  "type": "er_experience",
+  "title": "Tagesausflug zum Wadi al-Hitan und Wadi el-Rayan ab Kairo",
+  "excerpt": "Ein ganzer Tag ab Kairo zum Wadi al-Hitan, dem Welterbe Tal der Wale in der Wüste des Fayum, und zu den Wasserfällen von Wadi el-Rayan im selben Schutzgebiet: was Sie sehen, wie der Tag abläuft und was Sie vor der Buchung prüfen sollten.",
+  "location": "Fayum",
   "review": "approved",
   "current": true
  },

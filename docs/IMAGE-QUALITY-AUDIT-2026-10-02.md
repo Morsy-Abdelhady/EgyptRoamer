@@ -332,3 +332,17 @@ standard thumbnail width. Author and licence were read from each file's Commons 
 | `g-wadi-gemal` | what-you-will-see | Sooty_Gull_in_Ras_Baghdadi_-_Wadi_El-Gemal_National_Park,_Red_Sea_7.jpg | Mohammad Chawki | CC BY-SA 4.0 |
 
 Guide cards elsewhere (lists, related guides) show the hero photo without a credit line; the credit is on the page itself.
+
+Trip pages `exp-hitan` and `exp-gemal` (26 Oct, theme 1.3.21): Commons photos through `docs/prototypes/journey-v4/wpick.json`
+(world opener and steps; the opener now shows its credit, linked to the file page) and `commons:` card photos in Core extraStock.
+
+| Trip | Place | Commons file | Author | Licence |
+|---|---|---|---|---|
+| `exp-hitan` | opener | Wadi_Hitan_Sunset.jpg | Medomadrex | CC BY-SA 4.0 |
+| `exp-hitan` | step 1, card | The_whales_fossils_at_Wadi_El-Hitan,_Egypt_2017.jpg | AhmedMosaad | CC BY-SA 4.0 |
+| `exp-hitan` | step 2 | Wadi_El_Hitan_Rockforms.jpg | Tom Horton | CC BY-SA 2.0 |
+| `exp-hitan` | step 3 | Waterfalls_of_Wadi_El_Rayan,_Fayoum,_Egypt.jpg | Ibrahim El-Mezayen | CC BY-SA 4.0 |
+| `exp-gemal` | opener | 27057-_Wadi_el_Gemal_landscape.jpg | Panegyrics of Granovetter | CC BY-SA 2.0 |
+| `exp-gemal` | step 1 | WadiElGimal2.jpg | Roland Unger | CC BY-SA 4.0 |
+| `exp-gemal` | step 2, card | WadiElGimal3.jpg | Roland Unger | CC BY-SA 4.0 |
+| `exp-gemal` | step 3 | Sooty_Gull_in_Ras_Baghdadi_-_Wadi_El-Gemal_National_Park,_Red_Sea_7.jpg | Mohammad Chawki | CC BY-SA 4.0 |

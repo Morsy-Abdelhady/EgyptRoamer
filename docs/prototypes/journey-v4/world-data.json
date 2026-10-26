@@ -1805,6 +1805,239 @@
      "cancel": "Free cancellation (24 hours notice)"
     }
    ]
+  },
+  "hitan": {
+   "cls": "w-desert",
+   "fx": "desert",
+   "photo": "w_hitan_sunset",
+   "url": "wadi-al-hitan-day-trip-from-cairo",
+   "place": "Fayoum",
+   "eyebrow": "Fayoum · Whale Valley · From Cairo",
+   "title": "Wadi Al-Hitan and Wadi El-Rayan Day Trip from Cairo",
+   "lead": "A full day from Cairo into the desert of the Fayoum, to Wadi Al-Hitan, the Whale Valley. Its fossils show the earliest whales in the last stages of losing their hind legs, and UNESCO inscribed it as a World Heritage site in 2005.",
+   "quote": "The most important site in the world for this stage of the whale’s evolution, says UNESCO.",
+   "chips": [
+    "10 hours",
+    "1 options",
+    "Private",
+    "Pickup offered"
+   ],
+   "go": "Into the Whale Valley",
+   "jEyebrow": "The day, step by step",
+   "jTitle": "From fossils to waterfalls",
+   "steps": [
+    {
+     "img": "w_hitan_fossils",
+     "t": "Whale Valley",
+     "p": "Footpaths lead to the fossil whale skeletons, about 40 million years old, lying in the open sand. Vehicles stay out of the site itself.",
+     "tone": "warm",
+     "credit": "Photo: AhmedMosaad, Wikimedia Commons, CC BY-SA 4.0"
+    },
+    {
+     "img": "w_hitan_rocks",
+     "t": "The valley",
+     "p": "Around the fossils, rock formations and sand, with shark teeth and shells from the same ancient sea.",
+     "tone": "dark",
+     "credit": "Photo: Tom Horton, Wikimedia Commons, CC BY-SA 2.0"
+    },
+    {
+     "img": "w_rayan_falls",
+     "t": "Wadi El-Rayan",
+     "p": "The lakes and waterfalls of Wadi El-Rayan, formed by drainage water from the farmland of the Fayoum.",
+     "why": "The option on this page also stops at Tunis village and includes lunch in the Fayoum, according to the partner’s page.",
+     "tone": "warm",
+     "credit": "Photo: Ibrahim El-Mezayen, Wikimedia Commons, CC BY-SA 4.0"
+    }
+   ],
+   "sec": {
+    "eyebrow": "Before you book",
+    "title": "A long day in the open desert",
+    "ps": [
+     "Check what is included, and the entry fees, on the partner’s page before you book."
+    ],
+    "tabs": [
+     [
+      "𓇳",
+      "Little shade",
+      "Bring water, sun protection and good shoes."
+     ],
+     [
+      "𓂻",
+      "On foot",
+      "Footpaths lead to the fossils; vehicles stay out of the site."
+     ],
+     [
+      "𓆛",
+      "Protect the fossils",
+      "Stay on the paths, and never touch or take a fossil."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "A different Egypt",
+     "Choose this day if you want to see a different Egypt, of deserts and fossils rather than temples, and don’t mind a long drive."
+    ],
+    [
+     "Combine it with",
+     "Giza and the museum",
+     "Keep the next day for Giza and the Grand Egyptian Museum."
+    ]
+   ],
+   "faq": [
+    [
+     "Why is it called Whale Valley?",
+     "Because of the fossil skeletons of early whales found there. Wadi Al-Hitan means “valley of the whales” in Arabic."
+    ],
+    [
+     "How old are the fossils?",
+     "About 40 million years old, according to Egypt’s Environmental Affairs Agency."
+    ],
+    [
+     "Can I visit Wadi Al-Hitan in a day from Cairo?",
+     "Yes. It is a full day, and the option on this page picks you up at your hotel in Cairo or Giza."
+    ],
+    [
+     "Is Wadi Al-Hitan a World Heritage site?",
+     "Yes. UNESCO inscribed it in 2005, as Egypt’s natural World Heritage site."
+    ]
+   ],
+   "sum": [
+    "Fayoum",
+    "10 hours",
+    "Private",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "stay": {
+    "title": "Staying in Cairo?",
+    "rows": [
+     [
+      "Hotels in Cairo",
+      "Cairo"
+     ]
+    ]
+   },
+   "opts": [
+    {
+     "n": "Full-Day Tour to Wadi El Hitan & Wadi El Rayan from Cairo",
+     "p": "Klook",
+     "f": [
+      "10 hours",
+      "Private",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation (24 hours notice)"
+    }
+   ]
+  },
+  "gemal": {
+   "cls": "w-desert",
+   "fx": "desert",
+   "photo": "w_gemal_land",
+   "url": "wadi-el-gemal-safari-from-marsa-alam",
+   "place": "Marsa Alam",
+   "eyebrow": "Marsa Alam · Eastern Desert · By 4×4",
+   "title": "Wadi El-Gemal 4×4 Safari from Marsa Alam",
+   "lead": "A day by 4×4 from Marsa Alam into Wadi El-Gemal National Park, on Egypt’s southern Red Sea coast. Wadi El-Gemal is one of the largest and richest valleys of the Eastern Desert.",
+   "quote": "A national park since 2003, from the mountains to the reefs.",
+   "chips": [
+    "1 options",
+    "Pickup offered"
+   ],
+   "go": "Into the valley",
+   "jEyebrow": "The day, step by step",
+   "jTitle": "Behind the coast",
+   "steps": [
+    {
+     "img": "w_gemal_mountains",
+     "t": "Into the mountains",
+     "p": "The park reaches about 50 km inland into the mountains of the Eastern Desert, with Gebel Hamata among the highest of them.",
+     "tone": "warm",
+     "credit": "Photo: Roland Unger, Wikimedia Commons, CC BY-SA 4.0"
+    },
+    {
+     "img": "w_gemal_acacia",
+     "t": "The valley",
+     "p": "The valley’s flourishing plant life, which many creatures depend on.",
+     "tone": "dark",
+     "credit": "Photo: Roland Unger, Wikimedia Commons, CC BY-SA 4.0"
+    },
+    {
+     "img": "w_gemal_gull",
+     "t": "Wildlife",
+     "p": "The park is home to a great variety of plants and animals, and its coast and islands are important for nesting birds and sea turtles.",
+     "tone": "warm",
+     "credit": "Photo: Mohammad Chawki, Wikimedia Commons, CC BY-SA 4.0"
+    }
+   ],
+   "sec": {
+    "eyebrow": "Before you book",
+    "title": "A protected area",
+    "ps": [
+     "The option on this page picks you up at your hotel in Marsa Alam and drives into the park by 4×4, with a guide and lunch, according to the partner’s page. Check what is included on the partner’s page before you book."
+    ],
+    "tabs": [
+     [
+      "𓇳",
+      "Sun and heat",
+      "Bring water, sun protection and good shoes."
+     ],
+     [
+      "𓆰",
+      "Park rules",
+      "Its rules protect habitats that are rare in Egypt, so follow them."
+     ],
+     [
+      "𓂻",
+      "Leave no trace",
+      "Take all your rubbish with you."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "The desert behind the coast",
+     "Choose this day if you are staying on the southern Red Sea and want to see the desert behind the coast."
+    ],
+    [
+     "Combine it with",
+     "A day on the water",
+     "Spend another day on the water, on the reefs of the Red Sea."
+    ]
+   ],
+   "faq": [
+    [
+     "Where is Wadi El-Gemal National Park?",
+     "In the south of Egypt’s Red Sea governorate, between the mountains of the Eastern Desert and the sea."
+    ],
+    [
+     "When was Wadi El-Gemal declared a protected area?",
+     "In 2003, as a national park."
+    ],
+    [
+     "Is hotel pickup included?",
+     "On the option on this page, yes: pickup is offered from hotels in Marsa Alam. Check the details on the partner’s page."
+    ]
+   ],
+   "sum": [
+    "Marsa Alam",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "stay": null,
+   "opts": [
+    {
+     "n": "Discover the Beauty of Wadi El Gemal Tours",
+     "p": "Klook",
+     "f": [
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation (24 hours notice)"
+    }
+   ]
   }
  },
  "TRIPS": [
@@ -2120,7 +2353,15 @@
   "balloon_l": "img/1669521762357-966bfdcbde1d.jpg",
   "balloon_launch": "img/1759211316311-64deca1dea7f.jpg",
   "balloon_fields": "img/1703902770170-7cc56c8c3067.jpg",
-  "balloon_westbank": "img/1759212369677-cbd24ca4e7f8.jpg"
+  "balloon_westbank": "img/1759212369677-cbd24ca4e7f8.jpg",
+  "w_hitan_sunset": "img/w_hitan_sunset.jpg",
+  "w_hitan_fossils": "img/w_hitan_fossils.jpg",
+  "w_hitan_rocks": "img/w_hitan_rocks.jpg",
+  "w_rayan_falls": "img/w_rayan_falls.jpg",
+  "w_gemal_land": "img/w_gemal_land.jpg",
+  "w_gemal_mountains": "img/w_gemal_mountains.jpg",
+  "w_gemal_acacia": "img/w_gemal_acacia.jpg",
+  "w_gemal_gull": "img/w_gemal_gull.jpg"
  },
  "GUIDES": [
   {
@@ -5880,7 +6121,11 @@
   ],
   "balloon": [
    "luxor"
-  ]
+  ],
+  "hitan": [
+   "cairo"
+  ],
+  "gemal": []
  },
  "CHAPTERS": [
   {

@@ -89,9 +89,25 @@
   "review": "approved",
   "current": true
  },
+ "exp-gemal": {
+  "type": "er_experience",
+  "title": "Safari in 4×4 a Wadi el-Gemal da Marsa Alam",
+  "excerpt": "Una giornata in 4×4 da Marsa Alam nel parco nazionale di Wadi el-Gemal: una delle valli più grandi e ricche del Deserto Orientale, le sue piante e la sua fauna, come si svolge la giornata e come visitare un’area protetta con rispetto.",
+  "location": "Marsa Alam",
+  "review": "approved",
+  "current": true
+ },
  "exp-giza": {
   "type": "er_experience",
   "excerpt": "Com’è una visita guidata privata alle piramidi di Giza e alla Sfinge, a chi è adatta, quando farla, a cosa fare attenzione sull’altopiano e come abbinarla al Grand Egyptian Museum e a Saqqara.",
+  "review": "approved",
+  "current": true
+ },
+ "exp-hitan": {
+  "type": "er_experience",
+  "title": "Gita di un giorno a Wadi al-Hitan e Wadi el-Rayan dal Cairo",
+  "excerpt": "Un’intera giornata dal Cairo a Wadi al-Hitan, la Valle delle Balene patrimonio mondiale nel deserto del Fayyum, e alle cascate di Wadi el-Rayan nella stessa area protetta: cosa vedrete, come si svolge la giornata e cosa controllare prima di prenotare.",
+  "location": "Fayyum",
   "review": "approved",
   "current": true
  },

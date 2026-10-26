@@ -1319,5 +1319,65 @@
    "title": "卢克索：日出热气球飞行（含酒店接送）",
    "location": "卢克索"
   }
+ },
+ "klook-wadi-el-hitan-and-wadi-el-rayan-from-cairo": {
+  "ar": {
+   "title": "من القاهرة: رحلة يوم كامل إلى وادي الحيتان ووادي الريان",
+   "location": "الفيوم"
+  },
+  "de": {
+   "title": "Ab Kairo: Tagestour zum Wadi al-Hitan und Wadi el-Rayan",
+   "location": "Fayum"
+  },
+  "fr": {
+   "title": "Au départ du Caire : journée à Wadi al-Hitan et Wadi el-Rayan",
+   "location": "Fayoum"
+  },
+  "it": {
+   "title": "Dal Cairo: giornata a Wadi al-Hitan e Wadi el-Rayan",
+   "location": "Fayyum"
+  },
+  "es": {
+   "title": "Desde El Cairo: excursión de un día a Wadi al-Hitan y Wadi el-Rayan",
+   "location": "El Fayum"
+  },
+  "ru": {
+   "title": "Из Каира: однодневный тур в Вади-аль-Хитан и Вади-эр-Райян",
+   "location": "Файюм"
+  },
+  "zh": {
+   "title": "开罗出发：鲸鱼谷与瓦迪拉扬一日游",
+   "location": "法尤姆"
+  }
+ },
+ "klook-wadi-el-gemal-safari-from-marsa-alam": {
+  "ar": {
+   "title": "من مرسى علم: رحلة سفاري بالدفع الرباعي في وادي الجمال",
+   "location": "مرسى علم"
+  },
+  "de": {
+   "title": "Ab Marsa Alam: Jeep-Safari im Wadi el-Gemal",
+   "location": "Marsa Alam"
+  },
+  "fr": {
+   "title": "Au départ de Marsa Alam : safari en 4×4 à Wadi el-Gemal",
+   "location": "Marsa Alam"
+  },
+  "it": {
+   "title": "Da Marsa Alam: safari in 4×4 a Wadi el-Gemal",
+   "location": "Marsa Alam"
+  },
+  "es": {
+   "title": "Desde Marsa Alam: safari en 4×4 por Wadi el-Gemal",
+   "location": "Marsa Alam"
+  },
+  "ru": {
+   "title": "Из Марса-Алама: джип-сафари в Вади-эль-Гемаль",
+   "location": "Марса-Алам"
+  },
+  "zh": {
+   "title": "马萨阿拉姆出发：瓦迪杰迈勒四驱越野之旅",
+   "location": "马萨阿拉姆"
+  }
  }
 }

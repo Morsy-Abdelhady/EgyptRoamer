@@ -156,3 +156,10 @@ zh (28 files) and reviewed them against the English sentence by sentence, using 
 (Hatschepsut/Hatchepsout, Edfou, Fayyum/Fayoum, the local names of the gazelles and foxes). Stamped with the English
 hash and the reviewer line `Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26`.
 The owner approved the look on the local site on 26 Oct and asked for all 8 languages to be published.
+
+## Addendum, 26 Oct 2026 (night): two Klook trips
+
+New trips `exp-hitan` (Wadi Al-Hitan and Wadi El-Rayan from Cairo) and `exp-gemal` (Wadi El-Gemal from Marsa Alam):
+14 body translations and 62 trip-page strings (`tools/i18n/new-strings.json`), plus the card titles of the two Klook
+offers (`data/offers-i18n.json`), translated and reviewed by Claude against the English, with the same reviewer line.
+The owner asked for both trips in 8 languages on 26 Oct.

@@ -333,5 +333,18 @@
   "pickup": true,
   "cancel": true
  },
- "_note_cancel": "cancel: free cancellation up to 24 hours before, as each partner's own product page states it (26 offers read 16 Oct, docs/prototypes/journey-v4/README.md; the 3 Nile cruise offers read 17 Oct, docs/NILE-CRUISE-OFFERS-2026-10-17.md). The 3 Klook offers read 25 Oct on klook.com (\"Free cancellation (24 hours notice)\")."
+ "klook-wadi-el-hitan-and-wadi-el-rayan-from-cairo": {
+  "group": "private",
+  "duration": {
+   "n": "10",
+   "unit": "hours"
+  },
+  "pickup": true,
+  "cancel": true
+ },
+ "klook-wadi-el-gemal-safari-from-marsa-alam": {
+  "pickup": true,
+  "cancel": true
+ },
+ "_note_cancel": "cancel: free cancellation up to 24 hours before, as each partner's own product page states it (26 offers read 16 Oct, docs/prototypes/journey-v4/README.md; the 3 Nile cruise offers read 17 Oct, docs/NILE-CRUISE-OFFERS-2026-10-17.md). The 3 Klook offers read 25 Oct and the 2 Fayoum and Wadi El-Gemal Klook offers read 26 Oct on klook.com (\"Free cancellation (24 hours notice)\"). Wadi El-Gemal: no duration, because the Klook page states both 7 hours and 5 hours."
 }
