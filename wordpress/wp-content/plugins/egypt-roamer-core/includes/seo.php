@@ -394,8 +394,8 @@ add_action( 'wp_head', static function () {
 /*
  * Homepage (every language): the brand as an Organization and the site as a WebSite, until an SEO plugin
  * provides its own. Only facts that are true today: no contactPoint (the public mailbox has no MX record
- * yet), no SearchAction (Google retired the sitelinks search box). sameAs: the brand's own Instagram and Pinterest
- * profiles (owner, 26 Oct 2026), the same links as the theme's footer.
+ * yet), no SearchAction (Google retired the sitelinks search box). sameAs: the brand's own Instagram, Pinterest and
+ * Facebook profiles (owner, 26–27 Oct 2026), the same links as the theme's footer.
  */
 add_action( 'wp_head', static function () {
 	if ( er_seo_plugin_active() || ! is_front_page() || is_paged() ) {
@@ -408,7 +408,7 @@ add_action( 'wp_head', static function () {
 		'@id'    => $root . '#organization',
 		'name'   => get_bloginfo( 'name' ),
 		'url'    => $root,
-		'sameAs' => [ 'https://www.instagram.com/egyptroamer/', 'https://www.pinterest.com/egyptroamer/' ],
+		'sameAs' => [ 'https://www.instagram.com/egyptroamer/', 'https://www.pinterest.com/egyptroamer/', 'https://www.facebook.com/profile.php?id=61595813675400' ],
 	];
 	$logo = (string) apply_filters( 'er_brand_logo', '' );
 	if ( $logo ) {

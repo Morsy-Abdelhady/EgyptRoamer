@@ -270,6 +270,7 @@ return [
 		'Egypt Roamer film' => 'Film Egypt Roamer',
 		'Egypt Roamer is independent. When you book through our partner links we may earn a small commission, at no extra cost to you.' => 'Egypt Roamer est indépendant. Lorsque vous réservez via nos liens partenaires, nous pouvons toucher une petite commission, sans frais supplémentaires pour vous.',
 		'Egypt Roamer is operated by LIORIVE LTD, a company registered in England and Wales (no. {number}). Registered office: {address}.' => 'Egypt Roamer est exploité par LIORIVE LTD, société immatriculée en Angleterre et au pays de Galles (n° {number}). Siège social : {address}.',
+		'Egypt Roamer on Facebook' => 'Egypt Roamer sur Facebook',
 		'Egypt Roamer on Instagram' => 'Egypt Roamer sur Instagram',
 		'Egypt Roamer on Pinterest' => 'Egypt Roamer sur Pinterest',
 		'Egypt Roamer team' => 'Équipe Egypt Roamer',
