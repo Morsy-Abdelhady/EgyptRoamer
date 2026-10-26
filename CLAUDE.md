@@ -4,6 +4,7 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
 
 ## Current state: read this first
 - **Latest handoff:** `docs/HANDOFF-2026-10-25.md`. Live versions: Theme 1.3.18 / Core 1.2.69. The balloon trip is live in 8 languages with Klook offer #967; page-coverage passed on 392 pages on 25 Oct. First follow-up: fix guide-sync title comparison so six unchanged English guides stop appearing as updates. The prototype parity review (`docs/PROTOTYPE-PARITY-2026-10-18.md`) records the main screens as compared on 19 Oct; see the handoff for remaining differences and SEO follow-up dates.
+- **Growth plan (owner-approved 2026-10-26):** `docs/GROWTH-PLAN-INTENSIVE-2026-10-26.md`. Goal: 1,000,000 GA4 sessions a month. Its §5 is the current week's work; its §3 lists the six owner decisions applied below.
 - **Live partners:**
   - Viator (tours, 17 offers);
   - GetYourGuide (tours, 9 offers);
@@ -28,13 +29,15 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
   - English bodies are written in `content/editorial/en/*.md`, using only verifiable facts. Sources go in `docs/CONTENT-SOURCES.md`.
   - Run `python tools/editorial.py` to compile them into Core's `data/editorial/en/`.
   - On the server, `wp egypt-roamer editorial` fills only empty or untouched seed text.
-  - Guides stay drafts until the owner publishes them.
+  - **Official sources first** (owner, 2026-10-26): the Ministry of Tourism and Antiquities (`egymonuments.gov.eg`, `egypt.travel`) and the EEAA (`eeaa.gov.eg`), then UNESCO. Place pages are built from the Ministry's monument/museum pages and the EEAA's protected-area pages, with only the facts those pages state.
+  - **Publishing** (owner, 2026-10-26): Claude publishes guides and pages once they pass the release gate (local checks, then `page-coverage.mjs` on production). No separate owner approval per page.
+  - **Translations** (owner, 2026-10-26): Claude reviews each translation professionally against the English, sentence by sentence, and the owner's approval stands. Record it truthfully in the front matter: `reviewer: Claude (AI translation review, not a native speaker); approved by the owner on <date>`. Never claim a native-speaker review. Example log: `docs/TRANSLATION-REVIEW-2026-10-26.md`.
 - **Photography:** only brand assets are owned. Allowed photos:
   - the prototype's Unsplash photos, approved 2026-09-28 as hot-linked stand-ins;
   - new **free** Unsplash photos whose **location tag names the exact Egyptian place** (owner, 2026-10-03). Record each in `docs/IMAGE-QUALITY-AUDIT-2026-10-02.md` §5.
 
   Rules:
-  - Nothing is downloaded into the Media Library without asking.
+  - **Media Library** (owner, 2026-10-26): the main hero photos may be copied into the Media Library and served from our domain for speed, using only the allowed Unsplash photos above, with their credit kept. Anything else still needs asking first.
   - **Partner photos are never copied** from partner pages. GetYourGuide's T&Cs forbid it; Viator supplies photos only through its Partner API.
   - GetYourGuide offers use a free tagged Unsplash photo of the same subject (owner, 2026-10-16).
 - **Partner facts:** offer facts (private or group, duration, pickup) come only from the partner's own product page, in Core `data/offer-facts.json`. No prices, ratings or reviews. Every new offer needs its card text in `data/offers-i18n.json` before it is published.
