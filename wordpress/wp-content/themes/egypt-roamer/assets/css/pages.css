@@ -593,6 +593,32 @@
 .footer__legal a {
   color: inherit;
 }
+/* The brand's Instagram and Pinterest (owner, 26 Oct): two icons, 44px tap targets. */
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+}
+.footer__social span {
+  margin-inline-end: 0.35rem;
+}
+.footer__social a {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--on-dark);
+}
+.footer__social a:hover,
+.footer__social a:focus-visible {
+  color: var(--gold);
+}
+.footer__social .icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
 /* The operating company (owner, 20 Oct): its own line under the copyright and the legal links. */
 .footer__company {
   order: 3;

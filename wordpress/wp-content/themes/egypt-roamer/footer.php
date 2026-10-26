@@ -78,6 +78,16 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 			?>
 			<p class="footer__company"><?php echo $er_company; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above; two fixed <bdi> spans ?></p>
 			<?php
+			// The brand's own profiles (owner, 26 Oct 2026); the same addresses are the homepage schema's sameAs (Core seo.php).
+			$er_social = [
+				'i-instagram' => [ 'https://www.instagram.com/egyptroamer/', er_t( 'Egypt Roamer on Instagram' ) ],
+				'i-pinterest' => [ 'https://www.pinterest.com/egyptroamer/', er_t( 'Egypt Roamer on Pinterest' ) ],
+			];
+			echo '<p class="footer__social"><span>' . esc_html( er_t( 'Follow us' ) ) . '</span>';
+			foreach ( $er_social as $er_icon_id => [ $er_url, $er_label ] ) {
+				echo '<a href="' . esc_url( $er_url ) . '" rel="me noopener" aria-label="' . esc_attr( $er_label ) . '" title="' . esc_attr( $er_label ) . '">' . er_icon( $er_icon_id ) . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput -- er_icon escapes
+			}
+			echo '</p>';
 			$er_legal = er_legal_links( (string) ( $er_footer_links ?? '' ) );
 			if ( $er_legal ) {
 				echo '<p class="footer__legal">' . wp_kses_post( str_replace( [ '<li', '</li>' ], [ '<span', '</span>' ], $er_legal ) ) . '</p>';
