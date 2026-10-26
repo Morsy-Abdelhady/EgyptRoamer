@@ -129,11 +129,15 @@
   },
   "privacy-policy": {
    "file": "en/privacy-policy.html",
-   "replaces_sha1": "3ea6f42ed4a0415a515de12f2d4d61200fd6fbf7"
+   "replaces_sha1": "f66f7d8a77b6c895170b33348c595728750f851a"
   },
   "affiliate-disclosure": {
    "file": "en/affiliate-disclosure.html",
    "replaces_sha1": "bb5563aa20dc7f2b7a81142e299e49564c213813"
+  },
+  "cookies": {
+   "file": "en/cookies.html",
+   "replaces_sha1": "5ea36db1f9defb967dafa2000029729abb020e47"
   }
  }
 }

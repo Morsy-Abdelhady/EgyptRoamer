@@ -93,9 +93,9 @@ def privacy(t, note):
     return "\n\n".join([
         p(f"<em>{t('updated')}</em>"), p(t("intro")), note,
         h2(t("h_who"), "who-we-are"), p(t("who_1")), p(t("who_2")),
-        h2(t("h_what"), "what-we-handle"), ul([t(k) for k in ("li_contact", "li_newsletter", "li_clicks", "li_visits", "li_spam", "li_storage")]), p(t("what_after")),
-        h2(t("h_services"), "who-else"), ul([t(k) for k in ("li_godaddy", "li_cloudflare", "li_unsplash", "li_partners")]), p(t("services_after")),
-        h2(t("h_long"), "how-long"), ul([t(k) for k in ("li_long_contact", "li_long_news", "li_long_clicks", "li_long_visits", "li_long_spam")]),
+        h2(t("h_what"), "what-we-handle"), ul([t(k) for k in ("li_contact", "li_newsletter", "li_clicks", "li_visits", "li_ga", "li_spam", "li_storage")]), p(t("what_after")),
+        h2(t("h_services"), "who-else"), ul([t(k) for k in ("li_godaddy", "li_cloudflare", "li_google", "li_unsplash", "li_partners")]), p(t("services_after")),
+        h2(t("h_long"), "how-long"), ul([t(k) for k in ("li_long_contact", "li_long_news", "li_long_clicks", "li_long_visits", "li_long_ga", "li_long_spam")]),
         h2(t("h_choices"), "your-choices"), p(t("choices")),
         h2(t("h_children"), "children"), p(t("children")),
         h2(t("h_changes"), "changes"), p(t("changes")),
@@ -106,9 +106,13 @@ def cookies(t, note):
     table = (
         '<!-- wp:table -->\n<figure class="wp-block-table"><table><thead><tr>'
         + "".join(f"<th>{t(k)}</th>" for k in ("th_name", "th_setby", "th_purpose", "th_duration"))
-        + "</tr></thead><tbody><tr><td><code>__cf_bm</code></td>"
-        + "".join(f"<td>{t(k)}</td>" for k in ("td_setby", "td_purpose", "td_duration"))
-        + "</tr></tbody></table></figure>\n<!-- /wp:table -->"
+        + "</tr></thead><tbody>"
+        # Cloudflare's security cookie; since 26 Oct 2026 also the cookie banner's and, after consent, Google Analytics'.
+        + "".join(
+            f"<tr><td><code>{name}</code></td>" + "".join(f"<td>{t(pre + k)}</td>" for k in ("setby", "purpose", "duration")) + "</tr>"
+            for name, pre in (("__cf_bm", "td_"), ("cmplz_…", "td_cmplz_"), ("_ga", "td_ga_"), ("_ga_DFEC08WLQ6", "td_gas_"))
+        )
+        + "</tbody></table></figure>\n<!-- /wp:table -->"
     )
     return "\n\n".join([
         p(f"<em>{t('updated')}</em>"), p(t("intro")), note,
@@ -161,6 +165,11 @@ def build() -> dict:
     index["en_updates"]["privacy-policy"] = {"file": "en/privacy-policy.html", "replaces_sha1": "3ea6f42ed4a0415a515de12f2d4d61200fd6fbf7"}
     files["en/affiliate-disclosure.html"] = (SRC / "en" / "affiliate-disclosure.html").read_text(encoding="utf-8")
     index["en_updates"]["affiliate-disclosure"] = {"file": "en/affiliate-disclosure.html", "replaces_sha1": "bb5563aa20dc7f2b7a81142e299e49564c213813"}
+    # 2026-10-26 (evening): Google Analytics after consent (Complianz). The Privacy Policy replaces the 26 Oct version
+    # (git 2de86bd), the Cookie Policy the 30 Sep one (git 2de86bd:content/legal/en/cookies.html), both trimmed.
+    index["en_updates"]["privacy-policy"]["replaces_sha1"] = "f66f7d8a77b6c895170b33348c595728750f851a"
+    files["en/cookies.html"] = (SRC / "en" / "cookies.html").read_text(encoding="utf-8")
+    index["en_updates"]["cookies"] = {"file": "en/cookies.html", "replaces_sha1": "5ea36db1f9defb967dafa2000029729abb020e47"}
     files["index.json"] = json.dumps(index, ensure_ascii=False, indent=1) + "\n"
     return files
 
