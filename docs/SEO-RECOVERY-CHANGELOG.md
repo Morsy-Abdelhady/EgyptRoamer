@@ -133,3 +133,13 @@ was blocked (browser not connected). Both done by hand today, in the owner's bro
 | Guide translations sync in wp-admin: **35 updated** (EN snorkelling, Great Sand Sea; DE/FR/IT/ES/RU/ZH/AR snorkelling, Great Sand Sea, balloon trip, Nile cruise), 0 created, 0 skipped | Egypt Roamer → Guide translations | "Done", counts `{"updated":35}` | Live bodies match the reviewed sources | — |
 | **Not updated in the database:** the Siwa destination page (8 languages). The guide sync covers guides and newer experiences only, and `wp egypt-roamer editorial` fills only untouched seed text | — | — | Needs a manual edit in wp-admin, or an owner SSH run if the body is still seed text | Week 1 |
 | The guide sync preview still lists 6 English guides as updates after the run (Cairo museums, East Bank, Great Sand Sea, Red Sea, Sinai, West Bank): the known apostrophe comparison bug (handoff 25 Oct) | — | Preview after the sync | Fix in a later release | — |
+
+## 2026-10-26 (afternoon): week 1 items 2–3 and the Siwa page
+
+| Change | Where | Verified | Expected effect | Check on |
+|---|---|---|---|---|
+| KPI week 2 recorded | `KPI-WEEKLY.md` | GSC, Bing, Visits, Viator, GetYourGuide, Klook, Trip.com read in Edge | — | 2 Nov |
+| Core 1.2.71 (`6a1436a`): Privacy Policy and Affiliate Disclosure list all four partners in 8 languages; Privacy Policy dated 26 October 2026. Legal sync: **16 updated** (2 pages × 8 languages), next preview "Everything is up to date" | Egypt Roamer → Legal pages | Live: both pages name Viator, GetYourGuide, Klook and Trip.com in all 8 languages | Policy matches the live partners | When GA4 goes live, change the "no outside analytics" line in the same release |
+| Core 1.2.72 (`dc024b8`): `wp egypt-roamer editorial` may replace an earlier shipped body that was never edited (`data/editorial/replaces.json`); first use: the Siwa destination | Core | Tested locally: old body → would update; one word edited → kept. page-coverage 392 pages all ok | Siwa page gets the revised, sourced text | After the owner's SSH run |
+| Search Console email "Blocked by robots.txt": 1 URL, a `/go/` partner link | GSC Page indexing | URL list | Intentional (`Disallow: /go/`); no action | — |
+| GSC Page indexing (domain property): 262 indexed; "Excluded by noindex" 1,137, almost all trip-filter combinations (`/experiences/?destination=…&private=1&pickup=1&len=…`), some with a `nocache=` parameter | GSC Page indexing | Examples list | Noindex by design, but they use crawl time. Follow-up: stop crawlers following filter links and find where `nocache=` links come from | Next week |
