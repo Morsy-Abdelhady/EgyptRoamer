@@ -9,7 +9,7 @@ related: exp-giza, exp-alexandria, exp-valley, exp-abu, exp-dive
 ---
 [[toc]]
 
-Two weeks is enough to see Egypt without rushing: the great sites of Cairo and the Nile Valley, a day on the Mediterranean, and a few days by the sea or in the desert. It builds on our [7-day](/guides/7-days-in-egypt-itinerary/) and [10-day](/guides/10-days-in-egypt-itinerary/) itineraries.
+Two weeks is enough to see Egypt without rushing: the great sites of Cairo and the Nile Valley, a day on the Mediterranean, and a few days by the sea or in the desert. It builds on our [7-day](/guides/7-days-in-egypt-itinerary/) and [10-day](/guides/10-days-in-egypt-itinerary/) itineraries. To compare the 7, 10 and 14-day plans, see [how to plan your Egypt itinerary](/guides/egypt-itinerary/).
 
 ## The plan at a glance {#at-a-glance}
 

@@ -2,14 +2,14 @@
 type: er_guide
 title: 14 Tage in Ägypten: die komplette Reiseroute
 excerpt: Eine Zwei-Wochen-Route für Ägypten: Kairo und Alexandria, Nilkreuzfahrt oder Hotels zwischen Luxor und Assuan mit Abu Simbel, und zum Abschluss das Rote Meer oder die Westliche Wüste, mit der Reise zwischen den Orten.
-source: 5f9539de4768
+source: 47c0809dd9c0
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-Zwei Wochen reichen, um Ägypten ohne Eile zu sehen: die großen Stätten von Kairo und dem Niltal, einen Tag am Mittelmeer und ein paar Tage am Meer oder in der Wüste. Die Route baut auf unseren Routen für [7 Tage](/guides/7-days-in-egypt-itinerary/) und [10 Tage](/guides/10-days-in-egypt-itinerary/) auf.
+Zwei Wochen reichen, um Ägypten ohne Eile zu sehen: die großen Stätten von Kairo und dem Niltal, einen Tag am Mittelmeer und ein paar Tage am Meer oder in der Wüste. Die Route baut auf unseren Routen für [7 Tage](/guides/7-days-in-egypt-itinerary/) und [10 Tage](/guides/10-days-in-egypt-itinerary/) auf. Einen Vergleich der Pläne für 7, 10 und 14 Tage finden Sie in [So planen Sie Ihre Ägypten-Reiseroute](/guides/egypt-itinerary/).
 
 ## Die Route auf einen Blick {#at-a-glance}
 

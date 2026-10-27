@@ -2,14 +2,14 @@
 type: er_guide
 title: 10 Tage in Ägypten: Niltal und Rotes Meer
 excerpt: Eine 10-Tage-Reiseroute für Ägypten: Kairo und die Pyramiden, Luxor und Assuan mit Abu Simbel, dann drei Tage am Roten Meer in Hurghada, mit der Reise zwischen den Orten und was Sie ändern, wenn Sie lieber eine Nilkreuzfahrt machen.
-source: 577f12482d96
+source: 1cd711c015a8
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-Mit zehn Tagen kommt etwas hinzu, das die [Sieben-Tage-Route](/guides/7-days-in-egypt-itinerary/) weglassen muss: das Meer. Dieser Plan umfasst die großen Stätten des Niltals und endet mit drei Tagen am Roten Meer zum Ausruhen, Schnorcheln oder Tauchen.
+Mit zehn Tagen kommt etwas hinzu, das die [Sieben-Tage-Route](/guides/7-days-in-egypt-itinerary/) weglassen muss: das Meer. Dieser Plan umfasst die großen Stätten des Niltals und endet mit drei Tagen am Roten Meer zum Ausruhen, Schnorcheln oder Tauchen. Einen Vergleich der Pläne für 7, 10 und 14 Tage finden Sie in [So planen Sie Ihre Ägypten-Reiseroute](/guides/egypt-itinerary/).
 
 ## Die Route auf einen Blick {#at-a-glance}
 

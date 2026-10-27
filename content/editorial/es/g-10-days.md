@@ -2,14 +2,14 @@
 type: er_guide
 title: 10 días en Egipto: el valle del Nilo y el mar Rojo
 excerpt: Un itinerario de 10 días por Egipto: El Cairo y las pirámides, Luxor y Asuán con Abu Simbel, y después tres días en el mar Rojo en Hurghada, con cómo moverse entre ellos y qué cambiar si prefieres un crucero por el Nilo.
-source: 577f12482d96
+source: 1cd711c015a8
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-Diez días permiten añadir algo que el [itinerario de siete días](/guides/7-days-in-egypt-itinerary/) tiene que dejar fuera: el mar. Este plan recorre los grandes lugares del valle del Nilo y termina con tres días en el mar Rojo para descansar, hacer esnórquel o bucear.
+Diez días permiten añadir algo que el [itinerario de siete días](/guides/7-days-in-egypt-itinerary/) tiene que dejar fuera: el mar. Este plan recorre los grandes lugares del valle del Nilo y termina con tres días en el mar Rojo para descansar, hacer esnórquel o bucear. Para comparar los planes de 7, 10 y 14 días, consulta [cómo organizar tu itinerario por Egipto](/guides/egypt-itinerary/).
 
 ## El plan de un vistazo {#at-a-glance}
 

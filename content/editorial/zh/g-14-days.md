@@ -2,14 +2,14 @@
 type: er_guide
 title: 埃及14日游：完整行程
 excerpt: 埃及两周行程：开罗和亚历山大，卢克索与阿斯旺之间坐尼罗河游船或住酒店并游览阿布辛贝，最后以红海或西部沙漠收尾，并介绍各地之间的交通方式。
-source: 5f9539de4768
+source: 47c0809dd9c0
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-两周时间足以从容地游览埃及：开罗和尼罗河谷的主要景点、地中海边的一天，再加上几天海边或沙漠时光。这份行程是我们[7日](/guides/7-days-in-egypt-itinerary/)和[10日](/guides/10-days-in-egypt-itinerary/)行程的延伸。
+两周时间足以从容地游览埃及：开罗和尼罗河谷的主要景点、地中海边的一天，再加上几天海边或沙漠时光。这份行程是我们[7日](/guides/7-days-in-egypt-itinerary/)和[10日](/guides/10-days-in-egypt-itinerary/)行程的延伸。如需比较7天、10天和14天的行程，请参阅[如何安排埃及行程](/guides/egypt-itinerary/)。
 
 ## 行程一览 {#at-a-glance}
 

@@ -2,14 +2,14 @@
 type: er_guide
 title: 14 días en Egipto: el itinerario completo
 excerpt: Un itinerario de dos semanas por Egipto: El Cairo y Alejandría, un crucero por el Nilo u hoteles entre Luxor y Asuán con Abu Simbel, y para terminar el mar Rojo o el Desierto Occidental, con cómo moverse entre ellos.
-source: 5f9539de4768
+source: 47c0809dd9c0
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-Dos semanas bastan para ver Egipto sin prisas: los grandes lugares de El Cairo y el valle del Nilo, un día en el Mediterráneo y unos días de mar o de desierto. Este itinerario amplía nuestros planes de [7 días](/guides/7-days-in-egypt-itinerary/) y de [10 días](/guides/10-days-in-egypt-itinerary/).
+Dos semanas bastan para ver Egipto sin prisas: los grandes lugares de El Cairo y el valle del Nilo, un día en el Mediterráneo y unos días de mar o de desierto. Este itinerario amplía nuestros planes de [7 días](/guides/7-days-in-egypt-itinerary/) y de [10 días](/guides/10-days-in-egypt-itinerary/). Para comparar los planes de 7, 10 y 14 días, consulta [cómo organizar tu itinerario por Egipto](/guides/egypt-itinerary/).
 
 ## El plan de un vistazo {#at-a-glance}
 

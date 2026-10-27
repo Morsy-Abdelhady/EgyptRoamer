@@ -1097,6 +1097,19 @@
     }
    ],
    "checked": "2026-10-27"
+  },
+  {
+   "claim": "Egypt itinerary planner (2026-10-28): a hub that only restates the 7, 10 and 14-day itineraries (lengths, Cairo/Luxor/Aswan core, transport options, cruise or hotels, sea or desert, what to leave out); no new facts",
+   "guides": [
+    "g-itinerary"
+   ],
+   "links": [
+    {
+     "name": "Egypt Roamer 7, 10 and 14-day itineraries",
+     "url": "https://egyptroamer.com/guides/7-days-in-egypt-itinerary/"
+    }
+   ],
+   "checked": "2026-10-28"
   }
  ]
 }

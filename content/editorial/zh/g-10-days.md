@@ -2,14 +2,14 @@
 type: er_guide
 title: 埃及10日游：尼罗河谷与红海
 excerpt: 埃及10日行程：开罗和金字塔，卢克索、阿斯旺和阿布辛贝，然后在赫尔格达的红海边度过三天，介绍各地之间的交通方式，以及如果更想坐尼罗河游船该如何调整。
-source: 577f12482d96
+source: 1cd711c015a8
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-十天可以加上[七日行程](/guides/7-days-in-egypt-itinerary/)不得不舍去的部分：大海。这份行程涵盖尼罗河谷的主要景点，最后在红海边度过三天，休息、浮潜或潜水。
+十天可以加上[七日行程](/guides/7-days-in-egypt-itinerary/)不得不舍去的部分：大海。这份行程涵盖尼罗河谷的主要景点，最后在红海边度过三天，休息、浮潜或潜水。如需比较7天、10天和14天的行程，请参阅[如何安排埃及行程](/guides/egypt-itinerary/)。
 
 ## 行程一览 {#at-a-glance}
 

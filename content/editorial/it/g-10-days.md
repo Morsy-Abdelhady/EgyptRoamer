@@ -2,14 +2,14 @@
 type: er_guide
 title: 10 giorni in Egitto: la Valle del Nilo e il Mar Rosso
 excerpt: Un itinerario di 10 giorni in Egitto: Il Cairo e le piramidi, Luxor e Assuan con Abu Simbel, poi tre giorni sul Mar Rosso a Hurghada, con gli spostamenti tra le tappe e cosa cambiare se preferisci una crociera sul Nilo.
-source: 577f12482d96
+source: 1cd711c015a8
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-Dieci giorni permettono di aggiungere ciò che l’[itinerario di sette giorni](/guides/7-days-in-egypt-itinerary/) deve lasciare fuori: il mare. Questo programma copre i grandi siti della Valle del Nilo e si chiude con tre giorni sul Mar Rosso per riposare, fare snorkeling o immersioni.
+Dieci giorni permettono di aggiungere ciò che l’[itinerario di sette giorni](/guides/7-days-in-egypt-itinerary/) deve lasciare fuori: il mare. Questo programma copre i grandi siti della Valle del Nilo e si chiude con tre giorni sul Mar Rosso per riposare, fare snorkeling o immersioni. Per confrontare i programmi di 7, 10 e 14 giorni, leggete [come organizzare il vostro itinerario in Egitto](/guides/egypt-itinerary/).
 
 ## Il programma in breve {#at-a-glance}
 

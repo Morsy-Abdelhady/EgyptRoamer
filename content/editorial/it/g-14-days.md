@@ -2,14 +2,14 @@
 type: er_guide
 title: 14 giorni in Egitto: l’itinerario completo
 excerpt: Un itinerario di due settimane in Egitto: Il Cairo e Alessandria, crociera sul Nilo o hotel tra Luxor e Assuan con Abu Simbel, e per finire il Mar Rosso o il Deserto Occidentale, con gli spostamenti tra le tappe.
-source: 5f9539de4768
+source: 47c0809dd9c0
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-Due settimane bastano per vedere l’Egitto senza fretta: i grandi siti del Cairo e della Valle del Nilo, una giornata sul Mediterraneo e qualche giorno al mare o nel deserto. Questo itinerario amplia i nostri programmi di [7 giorni](/guides/7-days-in-egypt-itinerary/) e di [10 giorni](/guides/10-days-in-egypt-itinerary/).
+Due settimane bastano per vedere l’Egitto senza fretta: i grandi siti del Cairo e della Valle del Nilo, una giornata sul Mediterraneo e qualche giorno al mare o nel deserto. Questo itinerario amplia i nostri programmi di [7 giorni](/guides/7-days-in-egypt-itinerary/) e di [10 giorni](/guides/10-days-in-egypt-itinerary/). Per confrontare i programmi di 7, 10 e 14 giorni, leggete [come organizzare il vostro itinerario in Egitto](/guides/egypt-itinerary/).
 
 ## Il programma in breve {#at-a-glance}
 

@@ -2,14 +2,14 @@
 type: er_guide
 title: أربعة عشر يومًا في مصر: البرنامج الكامل
 excerpt: برنامج أسبوعين في مصر: القاهرة والإسكندرية، ورحلة نيلية أو فنادق بين الأقصر وأسوان مع أبو سمبل، ثم البحر الأحمر أو الصحراء الغربية للختام، مع طرق التنقل بينها.
-source: 5f9539de4768
+source: 47c0809dd9c0
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-أسبوعان يكفيان لرؤية مصر دون استعجال: أعظم مواقع القاهرة ووادي النيل، ويوم على البحر المتوسط، وبضعة أيام على البحر أو في الصحراء. وهذا البرنامج يكمل برنامجينا [سبعة أيام](/guides/7-days-in-egypt-itinerary/) و[عشرة أيام](/guides/10-days-in-egypt-itinerary/).
+أسبوعان يكفيان لرؤية مصر دون استعجال: أعظم مواقع القاهرة ووادي النيل، ويوم على البحر المتوسط، وبضعة أيام على البحر أو في الصحراء. وهذا البرنامج يكمل برنامجينا [سبعة أيام](/guides/7-days-in-egypt-itinerary/) و[عشرة أيام](/guides/10-days-in-egypt-itinerary/). وللمقارنة بين برامج 7 و10 و14 يومًا، اقرأ [كيف تخطّط لبرنامج رحلتك إلى مصر](/guides/egypt-itinerary/).
 
 ## البرنامج في لمحة {#at-a-glance}
 

@@ -2,14 +2,14 @@
 type: er_guide
 title: 14 jours en Égypte : l’itinéraire complet
 excerpt: Un itinéraire de deux semaines en Égypte : Le Caire et Alexandrie, une croisière sur le Nil ou des hôtels entre Louxor et Assouan avec Abou Simbel, puis la mer Rouge ou le désert Occidental pour finir, avec les trajets entre les étapes.
-source: 5f9539de4768
+source: 47c0809dd9c0
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-Deux semaines suffisent pour voir l’Égypte sans se presser : les grands sites du Caire et de la vallée du Nil, une journée sur la Méditerranée et quelques jours au bord de la mer ou dans le désert. Cet itinéraire prolonge nos programmes de [7 jours](/guides/7-days-in-egypt-itinerary/) et de [10 jours](/guides/10-days-in-egypt-itinerary/).
+Deux semaines suffisent pour voir l’Égypte sans se presser : les grands sites du Caire et de la vallée du Nil, une journée sur la Méditerranée et quelques jours au bord de la mer ou dans le désert. Cet itinéraire prolonge nos programmes de [7 jours](/guides/7-days-in-egypt-itinerary/) et de [10 jours](/guides/10-days-in-egypt-itinerary/). Pour comparer les programmes de 7, 10 et 14 jours, consultez [comment organiser votre itinéraire en Égypte](/guides/egypt-itinerary/).
 
 ## Le programme en bref {#at-a-glance}
 

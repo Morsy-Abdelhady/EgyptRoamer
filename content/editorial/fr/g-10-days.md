@@ -2,14 +2,14 @@
 type: er_guide
 title: 10 jours en Égypte : la vallée du Nil et la mer Rouge
 excerpt: Un itinéraire de 10 jours en Égypte : Le Caire et les pyramides, Louxor et Assouan avec Abou Simbel, puis trois jours sur la mer Rouge à Hurghada, avec les trajets entre les étapes et ce qui change si vous préférez une croisière sur le Nil.
-source: 577f12482d96
+source: 1cd711c015a8
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-Dix jours permettent d’ajouter ce que l’[itinéraire de sept jours](/guides/7-days-in-egypt-itinerary/) doit laisser de côté : la mer. Ce programme couvre les grands sites de la vallée du Nil, puis se termine par trois jours sur la mer Rouge pour se reposer, faire du snorkeling ou plonger.
+Dix jours permettent d’ajouter ce que l’[itinéraire de sept jours](/guides/7-days-in-egypt-itinerary/) doit laisser de côté : la mer. Ce programme couvre les grands sites de la vallée du Nil, puis se termine par trois jours sur la mer Rouge pour se reposer, faire du snorkeling ou plonger. Pour comparer les programmes de 7, 10 et 14 jours, consultez [comment organiser votre itinéraire en Égypte](/guides/egypt-itinerary/).
 
 ## Le programme en bref {#at-a-glance}
 

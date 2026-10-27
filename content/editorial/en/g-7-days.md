@@ -6,7 +6,7 @@ related: exp-giza, exp-valley, exp-abu
 ---
 [[toc]]
 
-Seven days is enough for a first taste of Egypt if you accept one rule: **stick to the Nile Valley.** Cairo, Luxor and Aswan hold most of the monuments people come to see, and they're connected by short flights, trains and the river. Adding the Red Sea, Alexandria or the desert to one week means spending more time in transit than at the sites. Most visitors also need a visa: see [our Egypt visa guide](/guides/egypt-visa-guide/).
+Seven days is enough for a first taste of Egypt if you accept one rule: **stick to the Nile Valley.** Cairo, Luxor and Aswan hold most of the monuments people come to see, and they're connected by short flights, trains and the river. Adding the Red Sea, Alexandria or the desert to one week means spending more time in transit than at the sites. Most visitors also need a visa: see [our Egypt visa guide](/guides/egypt-visa-guide/). To compare the 7, 10 and 14-day plans, see [how to plan your Egypt itinerary](/guides/egypt-itinerary/).
 
 ## The plan at a glance {#at-a-glance}
 

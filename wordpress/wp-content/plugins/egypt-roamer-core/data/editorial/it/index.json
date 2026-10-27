@@ -298,6 +298,13 @@
   "review": "approved",
   "current": true
  },
+ "g-itinerary": {
+  "type": "er_guide",
+  "title": "Itinerario in Egitto: come organizzare 7, 10 o 14 giorni",
+  "excerpt": "Come organizzare il vostro itinerario in Egitto: cosa copre un viaggio di 7, 10 o 14 giorni, Il Cairo, Luxor e Assuan come base comune a tutti i programmi, crociera sul Nilo o hotel, quando aggiungere il Mar Rosso, Alessandria o il deserto, e cosa lasciare per la prossima volta.",
+  "review": "approved",
+  "current": true
+ },
  "g-kom-ombo": {
   "type": "er_guide",
   "title": "Il tempio di Kom Ombo: il doppio tempio di Sobek e Horus",

@@ -2,14 +2,14 @@
 type: er_guide
 title: 7 días en Egipto: el itinerario perfecto para tu primera visita
 excerpt: Un itinerario realista de siete días para una primera visita a Egipto: El Cairo y las pirámides, los templos y tumbas de Luxor, y Asuán, con opciones para un crucero por el Nilo, el mar Rojo o Abu Simbel, y lo que conviene dejar fuera.
-source: 48bdbb81a06e
+source: 5ea8e957caef
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
-reviewed: 2026-10-27
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-Siete días bastan para un primer contacto con Egipto si aceptas una regla: **quédate en el valle del Nilo.** El Cairo, Luxor y Asuán reúnen la mayoría de los monumentos que la gente viene a ver, y están conectados por vuelos cortos, trenes y el río. Añadir el mar Rojo, Alejandría o el desierto a una sola semana significa pasar más tiempo en tránsito que en los sitios. La mayoría de los viajeros también necesita visado: consulta [nuestra guía del visado para Egipto](/guides/egypt-visa-guide/).
+Siete días bastan para un primer contacto con Egipto si aceptas una regla: **quédate en el valle del Nilo.** El Cairo, Luxor y Asuán reúnen la mayoría de los monumentos que la gente viene a ver, y están conectados por vuelos cortos, trenes y el río. Añadir el mar Rojo, Alejandría o el desierto a una sola semana significa pasar más tiempo en tránsito que en los sitios. La mayoría de los viajeros también necesita visado: consulta [nuestra guía del visado para Egipto](/guides/egypt-visa-guide/). Para comparar los planes de 7, 10 y 14 días, consulta [cómo organizar tu itinerario por Egipto](/guides/egypt-itinerary/).
 
 ## El plan de un vistazo {#at-a-glance}
 

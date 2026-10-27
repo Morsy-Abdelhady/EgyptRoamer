@@ -2,14 +2,14 @@
 type: er_guide
 title: 14 дней в Египте: полный маршрут
 excerpt: Маршрут по Египту на две недели: Каир и Александрия, круиз по Нилу или отели между Луксором и Асуаном с Абу-Симбелом, а в конце — Красное море или Западная пустыня, и как перемещаться между ними.
-source: 5f9539de4768
+source: 47c0809dd9c0
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-Двух недель хватит, чтобы увидеть Египет без спешки: главные места Каира и долины Нила, день на Средиземном море и несколько дней у моря или в пустыне. Маршрут продолжает наши планы на [7 дней](/guides/7-days-in-egypt-itinerary/) и [10 дней](/guides/10-days-in-egypt-itinerary/).
+Двух недель хватит, чтобы увидеть Египет без спешки: главные места Каира и долины Нила, день на Средиземном море и несколько дней у моря или в пустыне. Маршрут продолжает наши планы на [7 дней](/guides/7-days-in-egypt-itinerary/) и [10 дней](/guides/10-days-in-egypt-itinerary/). Чтобы сравнить программы на 7, 10 и 14 дней, читайте [как спланировать маршрут по Египту](/guides/egypt-itinerary/).
 
 ## Маршрут коротко {#at-a-glance}
 

@@ -178,3 +178,7 @@ Exception to the price rule above, approved by the owner with the plan on 2026-1
 | Mummification: about 70 days; 10 cm incision on the left side; canopic jars; natron from Wadi El Natron about 40 days; linen and amulets; animals (cats, dogs, crocodiles); Anubis; displays and gallery highlights (Maseharti, Anubis, Nephthys, ankh, ushabtis, unguent jars, crocodile, Nile perch); photography after ticket, no flash or tripods; bags over 40×40 cm to cloakroom | https://egymonuments.gov.eg/en/museums/mummification-museum (checked 2026-10-27) |
 | Alexandria National Museum: palace of Asaad Basili Pasha, Italianate; bought by the SCA 1996, opened 2003; prehistory to modern era; Abu Qir Bay sunken antiquities; coin hall; Islamic weapons; metals, ceramics, glass; jewellery of Muhammad Ali's family; mobile photos free, no flash or tripods; ramped entrance, elevator, parking, toilets, gift shop | https://egymonuments.gov.eg/en/museums/alexandria-national-museum (checked 2026-10-27) |
 | Left out: opening hours, evening hours and ticket prices on both pages; the truncated gallery caption about Isis and Osiris | — |
+
+## Egypt itinerary planner (`g-itinerary`, 2026-10-28)
+
+A hub page for the "egypt itinerary" searches (Search Console, 28 days to 25 Oct: 44 impressions at position 95-98, shown on the 14-day page). Every statement restates the site's own 7, 10 and 14-day itineraries (`g-7-days`, `g-10-days`, `g-14-days`): no new facts, prices or times. Hero: the 7-day guide's approved Unsplash photo.

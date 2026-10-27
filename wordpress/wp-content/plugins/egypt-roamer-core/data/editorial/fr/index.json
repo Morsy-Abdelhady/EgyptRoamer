@@ -298,6 +298,13 @@
   "review": "approved",
   "current": true
  },
+ "g-itinerary": {
+  "type": "er_guide",
+  "title": "Itinéraire en Égypte : comment organiser 7, 10 ou 14 jours",
+  "excerpt": "Comment organiser votre itinéraire en Égypte : ce que couvre un voyage de 7, 10 ou 14 jours, le trio Le Caire, Louxor et Assouan commun à tous les programmes, croisière sur le Nil ou hôtels, quand ajouter la mer Rouge, Alexandrie ou le désert, et ce qu’il vaut mieux garder pour la prochaine fois.",
+  "review": "approved",
+  "current": true
+ },
  "g-kom-ombo": {
   "type": "er_guide",
   "title": "Le temple de Kom Ombo : le double temple de Sobek et d’Horus",

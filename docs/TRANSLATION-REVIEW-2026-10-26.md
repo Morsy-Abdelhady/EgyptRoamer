@@ -199,3 +199,7 @@ existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefr
 ## Addendum, 27 Oct: Mummification Museum and Alexandria National Museum
 
 `g-mummification-museum` and `g-alexandria-museum` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Museum names follow the existing destination pages (Mumifizierungsmuseum, musée de la Momification, Museo della Mummificazione, Museo de la Momificación, Музей мумификации, 木乃伊博物馆, متحف التحنيط; Nationalmuseum von Alexandria, Musée national d’Alexandrie, Museo Nazionale di Alessandria, Museo Nacional de Alejandría, Национальный музей Александрии, 亚历山大国家博物馆, متحف الإسكندرية القومي); French uses Médinet Habou.
+
+## Addendum, 28 Oct: Egypt itinerary planner
+
+`g-itinerary` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Place and guide names follow the existing 7/10/14-day translations (e.g. Großen Sandmeer, Désert blanc, Grande mer de sable, Deserto Bianco, Desierto Blanco, templo de Filé, Великом песчаном море, 大沙海, بحر الرمال العظيم). One sentence linking to it was added to `g-7-days`, `g-10-days` and `g-14-days` in every language.

@@ -2,14 +2,14 @@
 type: er_guide
 title: 7 Tage in Ägypten: die perfekte erste Reiseroute
 excerpt: Eine realistische Route für sieben Tage beim ersten Ägypten-Besuch: Kairo und die Pyramiden, Luxors Tempel und Gräber und Assuan, mit Optionen für eine Nilkreuzfahrt, das Rote Meer oder Abu Simbel, und was Sie weglassen sollten.
-source: 48bdbb81a06e
+source: 5ea8e957caef
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
-reviewed: 2026-10-27
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-28
+reviewed: 2026-10-28
 ---
 [[toc]]
 
-Sieben Tage reichen für einen ersten Eindruck von Ägypten, wenn Sie eine Regel akzeptieren: **Bleiben Sie im Niltal.** Kairo, Luxor und Assuan bieten die meisten Monumente, für die Menschen kommen, und sie sind durch kurze Flüge, Züge und den Fluss verbunden. Wer in einer Woche noch das Rote Meer, Alexandria oder die Wüste unterbringt, verbringt mehr Zeit unterwegs als an den Stätten. Die meisten Reisenden brauchen außerdem ein Visum: Lesen Sie [unseren Guide zum Visum für Ägypten](/guides/egypt-visa-guide/).
+Sieben Tage reichen für einen ersten Eindruck von Ägypten, wenn Sie eine Regel akzeptieren: **Bleiben Sie im Niltal.** Kairo, Luxor und Assuan bieten die meisten Monumente, für die Menschen kommen, und sie sind durch kurze Flüge, Züge und den Fluss verbunden. Wer in einer Woche noch das Rote Meer, Alexandria oder die Wüste unterbringt, verbringt mehr Zeit unterwegs als an den Stätten. Die meisten Reisenden brauchen außerdem ein Visum: Lesen Sie [unseren Guide zum Visum für Ägypten](/guides/egypt-visa-guide/). Einen Vergleich der Pläne für 7, 10 und 14 Tage finden Sie in [So planen Sie Ihre Ägypten-Reiseroute](/guides/egypt-itinerary/).
 
 ## Der Plan auf einen Blick {#at-a-glance}
 

@@ -9,7 +9,7 @@ related: exp-giza, exp-valley, exp-abu, exp-dive
 ---
 [[toc]]
 
-Ten days lets you add something the [seven-day itinerary](/guides/7-days-in-egypt-itinerary/) has to leave out: the sea. This plan covers the great sites of the Nile Valley, then ends with three days on the Red Sea to rest, snorkel or dive.
+Ten days lets you add something the [seven-day itinerary](/guides/7-days-in-egypt-itinerary/) has to leave out: the sea. This plan covers the great sites of the Nile Valley, then ends with three days on the Red Sea to rest, snorkel or dive. To compare the 7, 10 and 14-day plans, see [how to plan your Egypt itinerary](/guides/egypt-itinerary/).
 
 ## The plan at a glance {#at-a-glance}
 
