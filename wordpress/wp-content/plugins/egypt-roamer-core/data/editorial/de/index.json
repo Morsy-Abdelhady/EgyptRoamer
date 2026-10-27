@@ -354,6 +354,13 @@
   "review": "approved",
   "current": true
  },
+ "g-visa": {
+  "type": "er_guide",
+  "title": "Visum für Ägypten: e-Visum, Visum bei Ankunft und was Sie mitbringen",
+  "excerpt": "So bekommen Sie ein Touristenvisum für Ägypten, nach den offiziellen Quellen: wer das e-Visum beantragen kann, die Gebühren für einfache und mehrfache Einreise, der Antrag Schritt für Schritt, das Visum bei Ankunft mit QR-Code und was Sie an der Grenze dabeihaben sollten.",
+  "review": "approved",
+  "current": true
+ },
  "g-wadi-gemal": {
   "type": "er_guide",
   "title": "Nationalpark Wadi el-Gemal am südlichen Roten Meer",

@@ -354,6 +354,13 @@
   "review": "approved",
   "current": true
  },
+ "g-visa": {
+  "type": "er_guide",
+  "title": "埃及签证：电子签证、落地签证和需要携带的材料",
+  "excerpt": "根据官方来源办理埃及旅游签证：哪些国籍可以申请电子签证、单次和多次入境的费用、分步申请流程、带二维码的落地签证，以及过境时需要携带的材料。",
+  "review": "approved",
+  "current": true
+ },
  "g-wadi-gemal": {
   "type": "er_guide",
   "title": "红海南部的瓦迪杰迈勒国家公园",

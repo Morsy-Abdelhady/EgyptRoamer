@@ -148,3 +148,14 @@ These are established and consistent across standard references. Re-check any th
 | Abu Simbel and a balloon flight included; entrance fees listed separately; 4 days (approx.); pickup offered | Viator 29896P3 https://www.viator.com/tours/Aswan/Nile-Cruise-3-nights-from-Aswan-to-Luxor/d796-29896P3 |
 | Private guide option; entrance fees included; Abu Simbel and the balloon optional; 4 days (approx.); pickup offered | Viator 57870P4 https://www.viator.com/tours/Aswan/4-Day-3-Night-Nile-Cruise-from-Aswan-to-Luxor-Private-Tour/d796-57870P4 |
 | Abu Simbel and a balloon flight included; entrance fees paid locally; 4 days; pickup included; Egyptologist guide | GetYourGuide 521042 https://www.getyourguide.com/aswan-l543/4days-3-nights-nile-cruise-including-abu-simbel-air-balloon-t521042/ |
+
+## Visa guide (`g-visa`, 2026-10-27)
+
+Exception to the price rule above, approved by the owner with the plan on 2026-10-27: the visa guide states the government's own e-Visa fees (US$30 single, US$65 multiple entry), because they come from the official portal, and the page shows the date they were checked. Re-check the portal every few months.
+
+| Claim | Source |
+|---|---|
+| A foreign citizen generally must first obtain an e-Visa; eligible nationalities listed; tourism single entry US$30, multiple US$65; pay by Visa, MasterCard or debit card; apply at least 7 days before departure; entry may be refused without explanation; the 9 application steps; on arrival: passport valid 6 months from arrival, e-Visa printout, itinerary, hotel bookings, supporting letter for business/family visits | https://visa2egypt.gov.eg/eVisa/FAQ ; https://visa2egypt.gov.eg/eVisa/HowDoIApply (Ministry of Interior, checked 2026-10-27) |
+| Visa on Arrival platform: website, self-service machine or app; payment; QR code by email or download; printable | https://apps.visaonarrival.gov.eg/ (checked 2026-10-27) |
+| From 1 September 2026 all Egyptian airports use an electronic QR code instead of visa-on-arrival stickers; nationals on the pre-approval list cannot get a visa on arrival | https://egyptembassy.net/consular-services/visas-travel/visa-requirements/ (Embassy of Egypt, Washington; checked 2026-10-27) |
+| Left out: a Sinai-only entry stamp (no official source found), visa-on-arrival fees (not stated in text), the embassy's in-person fees (for US passports at that embassy only) | — |

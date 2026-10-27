@@ -187,3 +187,7 @@ through `tools/i18n/new-strings.json`) and `g-inside-pyramids` (Khafre's and Men
 translated into 7 languages and reviewed by Claude with the same reviewer line. Names follow each translation's
 existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefrén/Micerino, Хафра/Менкаура,
 哈夫拉/孟卡拉, خفرع/منكاورع).
+
+## Addendum, 27 Oct: visa guide
+
+`g-visa` (new, slug `egypt-visa-guide`) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Portal and button names (Egypt e-Visa Portal, Apply Now) are kept in English because the portal shows them that way; fees keep the US-dollar amounts exactly.

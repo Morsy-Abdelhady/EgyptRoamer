@@ -354,6 +354,13 @@
   "review": "approved",
   "current": true
  },
+ "g-visa": {
+  "type": "er_guide",
+  "title": "Visa pour l’Égypte : e-Visa, visa à l’arrivée et documents à prévoir",
+  "excerpt": "Comment obtenir un visa touristique pour l’Égypte d’après les sources officielles : qui peut demander l’e-Visa, les frais pour une entrée simple ou multiple, la demande étape par étape, le visa à l’arrivée avec son code QR et ce qu’il faut avoir à la frontière.",
+  "review": "approved",
+  "current": true
+ },
  "g-wadi-gemal": {
   "type": "er_guide",
   "title": "Le parc national de Wadi el-Gemal, sur la mer Rouge du Sud",

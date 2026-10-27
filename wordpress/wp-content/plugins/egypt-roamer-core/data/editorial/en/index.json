@@ -378,6 +378,15 @@
   "destination": "luxor",
   "related": "exp-valley"
  },
+ "g-visa": {
+  "type": "er_guide",
+  "title": "Egypt Visa: e-Visa, Visa on Arrival and What to Bring",
+  "excerpt": "How to get a tourist visa for Egypt from the official sources: who can apply for the e-Visa, the single and multiple entry fees, how to apply step by step, the visa on arrival with its QR code, and what to carry at the border.",
+  "slug": "egypt-visa-guide",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-giza"
+ },
  "g-wadi-gemal": {
   "type": "er_guide",
   "title": "Wadi El-Gemal National Park on the Southern Red Sea",

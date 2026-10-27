@@ -1008,6 +1008,31 @@
     }
    ],
    "checked": "2026-09-29"
+  },
+  {
+   "claim": "Egypt visa (official, 2026-10-27): e-Visa Portal (Ministry of Interior): a foreign citizen generally must first obtain an e-Visa; list of eligible nationalities (includes UK, USA, Canada, Australia, New Zealand, all EU states, Russia, China, Japan, Korea (South), India, Brazil, Mexico); tourism single entry US$30, multiple entry US$65; pay by Visa, MasterCard or other debit card; apply at least 7 days before departure; download link by email; port authorities may refuse entry without explanation; 9 application steps; on arrival: passport valid at least 6 months from arrival, e-Visa printout, itinerary, hotel bookings, supporting letter for business/family. Visa on Arrival platform: website, SSM or app, payment, QR code by email or download, printable. Embassy of Egypt, Washington: from 1 September 2026 all Egyptian airports moved from visa-on-arrival stickers to an electronic QR code; pre-approval-list nationals cannot get a visa on arrival; others advised to get the visa in advance. No official source found for a Sinai-only entry stamp, so it is not mentioned",
+   "guides": [
+    "g-visa"
+   ],
+   "links": [
+    {
+     "name": "Egypt e-Visa Portal, Ministry of Interior",
+     "url": "https://visa2egypt.gov.eg/eVisa/FAQ"
+    },
+    {
+     "name": "Egypt e-Visa Portal, Ministry of Interior",
+     "url": "https://visa2egypt.gov.eg/eVisa/HowDoIApply"
+    },
+    {
+     "name": "Egypt Visa on Arrival",
+     "url": "https://apps.visaonarrival.gov.eg/"
+    },
+    {
+     "name": "Embassy of Egypt, Washington DC",
+     "url": "https://egyptembassy.net/consular-services/visas-travel/visa-requirements/"
+    }
+   ],
+   "checked": "2026-10-27"
   }
  ]
 }

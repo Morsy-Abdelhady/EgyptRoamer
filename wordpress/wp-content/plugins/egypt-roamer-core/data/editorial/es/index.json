@@ -354,6 +354,13 @@
   "review": "approved",
   "current": true
  },
+ "g-visa": {
+  "type": "er_guide",
+  "title": "Visado para Egipto: e-Visa, visado a la llegada y qué llevar",
+  "excerpt": "Cómo conseguir un visado de turista para Egipto según las fuentes oficiales: quién puede solicitar el e-Visa, las tasas de entrada única y múltiple, la solicitud paso a paso, el visado a la llegada con su código QR y qué llevar en la frontera.",
+  "review": "approved",
+  "current": true
+ },
  "g-wadi-gemal": {
   "type": "er_guide",
   "title": "El parque nacional de Wadi el-Gemal, en el sur del mar Rojo",
