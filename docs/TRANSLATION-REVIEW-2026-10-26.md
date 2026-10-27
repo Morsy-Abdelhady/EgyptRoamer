@@ -195,3 +195,7 @@ existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefr
 ## Addendum, 27 Oct: Medinet Habu and Qaitbay Citadel
 
 `g-medinet-habu` and `g-qaitbay` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Names follow the existing translations (Medinet Habu / Мединет-Абу / 哈布城 / مدينة هابو; Qaitbay / Кайт-бей / 盖贝依城堡 / قايتباي; Ramses III. / Ramsès III / Ramses III / Ramsés III / Рамсес III / 拉美西斯三世 / رمسيس الثالث).
+
+## Addendum, 27 Oct: Mummification Museum and Alexandria National Museum
+
+`g-mummification-museum` and `g-alexandria-museum` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Museum names follow the existing destination pages (Mumifizierungsmuseum, musée de la Momification, Museo della Mummificazione, Museo de la Momificación, Музей мумификации, 木乃伊博物馆, متحف التحنيط; Nationalmuseum von Alexandria, Musée national d’Alexandrie, Museo Nazionale di Alessandria, Museo Nacional de Alejandría, Национальный музей Александрии, 亚历山大国家博物馆, متحف الإسكندرية القومي); French uses Médinet Habou.

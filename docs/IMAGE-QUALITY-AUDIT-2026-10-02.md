@@ -342,6 +342,10 @@ standard thumbnail width. Author and licence were read from each file's Commons 
 | `g-medinet-habu` | reliefs | Thebes,_Medinet_Habu,_Egypt,_Temple_of_Ramesses_III,_Reliefs.jpg | Vyacheslav Argenberg | CC BY 4.0 |
 | `g-qaitbay` (27 Oct) | hero | Citadel_of_Qaitbay,_Alexandria,_Egypt.jpg | Argenberg | CC BY 2.0 |
 | `g-qaitbay` | what-you-will-see | A_view_of_Alexandria_from_the_Citadel_of_Qaitbay.jpg | Slyronit | CC BY-SA 4.0 |
+| `g-mummification-museum` (27 Oct) | hero | Musée_Momification_-_Louxor_(EG)_-_2025-12-10_-_1.jpg | Chabe01 | CC BY-SA 4.0 |
+| `g-mummification-museum` | what-you-will-see | Mummification_museum_Luxor.jpg | MoGamal11 | CC BY-SA 4.0 |
+| `g-alexandria-museum` (27 Oct) | hero | Musee_national_-_alexandrie_facade_vue_large.JPG | Papillus | CC BY-SA 3.0 |
+| `g-alexandria-museum` | what-you-will-see | EWUG_visit_to_Alexandria_National_Museum,_April_2025_-_007.jpg | Amr F.Nagy | Public domain |
 
 Guide cards elsewhere (lists, related guides) show the hero photo without a credit line; the credit is on the page itself.
 

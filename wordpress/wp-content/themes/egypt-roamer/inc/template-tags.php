@@ -126,6 +126,10 @@ function er_commons_credit( string $photo_id ): array {
 		'Thebes,_Medinet_Habu,_Egypt,_Temple_of_Ramesses_III,_Reliefs.jpg'                            => [ 'Vyacheslav Argenberg', 'CC BY 4.0' ],
 		'Citadel_of_Qaitbay,_Alexandria,_Egypt.jpg'                                                   => [ 'Argenberg', 'CC BY 2.0' ],
 		'A_view_of_Alexandria_from_the_Citadel_of_Qaitbay.jpg'                                        => [ 'Slyronit', 'CC BY-SA 4.0' ],
+		'Musée_Momification_-_Louxor_(EG)_-_2025-12-10_-_1.jpg'                                       => [ 'Chabe01', 'CC BY-SA 4.0' ],
+		'Mummification_museum_Luxor.jpg'                                                              => [ 'MoGamal11', 'CC BY-SA 4.0' ],
+		'Musee_national_-_alexandrie_facade_vue_large.JPG'                                            => [ 'Papillus', 'CC BY-SA 3.0' ],
+		'EWUG_visit_to_Alexandria_National_Museum,_April_2025_-_007.jpg'                              => [ 'Amr F.Nagy', 'Public domain' ],
 	];
 	$file = str_replace( ' ', '_', substr( $photo_id, 8 ) );
 	[ $who, $licence ] = $credits[ $file ] ?? [ '', '' ];

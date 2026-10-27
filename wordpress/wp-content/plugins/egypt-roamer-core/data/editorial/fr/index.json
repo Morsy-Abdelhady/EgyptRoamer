@@ -165,6 +165,13 @@
   "review": "approved",
   "current": true
  },
+ "g-alexandria-museum": {
+  "type": "er_guide",
+  "title": "Musée national d’Alexandrie : l’histoire de l’Égypte dans le palais d’un pacha",
+  "excerpt": "Le Musée national d’Alexandrie, dans le palais de style italien d’Asaad Basili Pacha : sa collection de la préhistoire à l’époque moderne, les antiquités englouties de la baie d’Aboukir, la salle des monnaies, les armes islamiques et les bijoux de la famille de Méhémet Ali, et ce qu’il faut savoir avant la visite.",
+  "review": "approved",
+  "current": true
+ },
  "g-aswan-temples": {
   "type": "er_guide",
   "title": "Les temples d’Assouan et du lac Nasser : lesquels voir",
@@ -309,6 +316,13 @@
   "type": "er_guide",
   "title": "Médinet Habou : le temple de Ramsès III à Louxor",
   "excerpt": "Médinet Habou, le temple funéraire de Ramsès III sur la rive ouest de Louxor : la Haute Porte, les pylônes, les cours et les piliers osiriaques, les reliefs des guerres contre les Libyens et les Peuples de la mer, le temple d’Hatchepsout et de Thoutmôsis III voisin, et comment le visiter.",
+  "review": "approved",
+  "current": true
+ },
+ "g-mummification-museum": {
+  "type": "er_guide",
+  "title": "Le musée de la Momification à Louxor : comment les anciens Égyptiens conservaient les morts",
+  "excerpt": "Le musée de la Momification à Louxor explique comment les anciens Égyptiens conservaient le corps : le processus de 70 jours, le natron du Ouadi Natroun, les vases canopes et les amulettes, les animaux momifiés, les pièces phares et ce qu’il faut savoir avant la visite.",
   "review": "approved",
   "current": true
  },

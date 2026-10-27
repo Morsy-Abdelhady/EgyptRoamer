@@ -165,6 +165,13 @@
   "review": "approved",
   "current": true
  },
+ "g-alexandria-museum": {
+  "type": "er_guide",
+  "title": "Museo Nacional de Alejandría: la historia de Egipto en el palacio de un pachá",
+  "excerpt": "El Museo Nacional de Alejandría, en el palacio de estilo italiano de Asaad Basili Pachá: su colección de la prehistoria a la época moderna, las antigüedades sumergidas de la bahía de Abukir, la sala de monedas, las armas islámicas y las joyas de la familia de Mehmet Alí, y qué saber antes de la visita.",
+  "review": "approved",
+  "current": true
+ },
  "g-aswan-temples": {
   "type": "er_guide",
   "title": "Los templos de Asuán y del lago Nasser: cuáles ver",
@@ -309,6 +316,13 @@
   "type": "er_guide",
   "title": "Medinet Habu: el templo de Ramsés III en Luxor",
   "excerpt": "Medinet Habu, el templo funerario de Ramsés III en la orilla oeste de Luxor: la Puerta Alta, los pilonos, los patios y los pilares osiríacos, los relieves de las guerras contra los libios y los Pueblos del Mar, el templo vecino de Hatshepsut y Tutmosis III y cómo visitarlo.",
+  "review": "approved",
+  "current": true
+ },
+ "g-mummification-museum": {
+  "type": "er_guide",
+  "title": "El Museo de la Momificación de Luxor: cómo conservaban a sus muertos los antiguos egipcios",
+  "excerpt": "El Museo de la Momificación de Luxor explica cómo los antiguos egipcios conservaban el cuerpo: el proceso de 70 días, el natrón del Wadi El Natrun, los vasos canopos y los amuletos, los animales momificados, las piezas destacadas y qué saber antes de la visita.",
   "review": "approved",
   "current": true
  },

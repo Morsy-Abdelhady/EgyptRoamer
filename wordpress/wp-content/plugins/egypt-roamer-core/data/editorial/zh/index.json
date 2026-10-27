@@ -165,6 +165,13 @@
   "review": "approved",
   "current": true
  },
+ "g-alexandria-museum": {
+  "type": "er_guide",
+  "title": "亚历山大国家博物馆：帕夏宫殿里的埃及历史",
+  "excerpt": "亚历山大国家博物馆位于阿萨德·巴西利帕夏的意大利风格宫殿中：从史前到近代的藏品、阿布基尔湾的水下文物、钱币厅、伊斯兰时期的兵器、穆罕默德·阿里家族的珠宝，以及参观前需要了解的事项。",
+  "review": "approved",
+  "current": true
+ },
  "g-aswan-temples": {
   "type": "er_guide",
   "title": "阿斯旺与纳赛尔湖的神庙：该看哪些",
@@ -309,6 +316,13 @@
   "type": "er_guide",
   "title": "哈布城：卢克索的拉美西斯三世神庙",
   "excerpt": "哈布城是拉美西斯三世在卢克索西岸的葬祭神庙：高门、塔门、庭院和奥西里斯柱，描绘与利比亚人和\"海上民族\"作战的浮雕，旁边的哈特谢普苏特与图特摩斯三世神庙，以及参观方式。",
+  "review": "approved",
+  "current": true
+ },
+ "g-mummification-museum": {
+  "type": "er_guide",
+  "title": "卢克索木乃伊博物馆：古埃及人如何保存逝者",
+  "excerpt": "卢克索木乃伊博物馆讲解古埃及人如何保存遗体：约70天的制作过程、来自纳特伦谷的泡碱、卡诺皮克罐和护身符、动物木乃伊、主要展品，以及参观前需要了解的事项。",
   "review": "approved",
   "current": true
  },

@@ -34,6 +34,12 @@ return [
 	'qaitbay-citadel-alexandria' => [
 		'what-you-will-see' => [ [ 'commons:A view of Alexandria from the Citadel of Qaitbay.jpg', 'Alexandria seen from the citadel', '' ] ],
 	],
+	'mummification-museum-luxor' => [
+		'what-you-will-see' => [ [ 'commons:Mummification museum Luxor.jpg', 'A model boat on display in the museum', '' ] ],
+	],
+	'alexandria-national-museum' => [
+		'what-you-will-see' => [ [ 'commons:EWUG visit to Alexandria National Museum, April 2025 - 007.jpg', 'Statues and sacred birds in a display case', '' ] ],
+	],
 	'wadi-el-gemal-national-park' => [
 		'what-you-will-see' => [ [ 'commons:WadiElGimal3.jpg', 'An acacia tree in Wadi El-Gemal', '' ], [ 'commons:Sooty Gull in Ras Baghdadi - Wadi El-Gemal National Park, Red Sea 7.jpg', 'A sooty gull on the coast of the park', '' ] ],
 	],

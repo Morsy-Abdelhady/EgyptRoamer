@@ -170,3 +170,11 @@ Exception to the price rule above, approved by the owner with the plan on 2026-1
 | Visitor centre: nine bilingual panels, French Center for Alexandrian Studies, film on the Lighthouse site | https://egymonuments.gov.eg/en/news/opening-of-the-qaitbay-citadel-visitor-center-in-alexandria (checked 2026-10-27) |
 | Sunken site: 150 m, 6–8 m deep, since 1994; Lighthouse debris; Saladin 1167; over 3,000 pieces, 36 at Kom el-Dikka; three wrecks; 3rd century BC–7th century AD | https://egymonuments.gov.eg/en/sunken-monuments/qaitbay-fort-site (checked 2026-10-27) |
 | Left out: Esna Temple (the Ministry has only news items, no monument page); the money and customs guide (figures only in a 2022 Ministry of Finance manual; egypt.travel unreachable on 27 Oct) | — |
+
+## Mummification Museum and Alexandria National Museum (`g-mummification-museum`, `g-alexandria-museum`, 2026-10-27)
+
+| Claim | Source |
+|---|---|
+| Mummification: about 70 days; 10 cm incision on the left side; canopic jars; natron from Wadi El Natron about 40 days; linen and amulets; animals (cats, dogs, crocodiles); Anubis; displays and gallery highlights (Maseharti, Anubis, Nephthys, ankh, ushabtis, unguent jars, crocodile, Nile perch); photography after ticket, no flash or tripods; bags over 40×40 cm to cloakroom | https://egymonuments.gov.eg/en/museums/mummification-museum (checked 2026-10-27) |
+| Alexandria National Museum: palace of Asaad Basili Pasha, Italianate; bought by the SCA 1996, opened 2003; prehistory to modern era; Abu Qir Bay sunken antiquities; coin hall; Islamic weapons; metals, ceramics, glass; jewellery of Muhammad Ali's family; mobile photos free, no flash or tripods; ramped entrance, elevator, parking, toilets, gift shop | https://egymonuments.gov.eg/en/museums/alexandria-national-museum (checked 2026-10-27) |
+| Left out: opening hours, evening hours and ticket prices on both pages; the truncated gallery caption about Isis and Osiris | — |

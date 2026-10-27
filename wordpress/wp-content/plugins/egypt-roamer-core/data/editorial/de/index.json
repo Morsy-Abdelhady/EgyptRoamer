@@ -165,6 +165,13 @@
   "review": "approved",
   "current": true
  },
+ "g-alexandria-museum": {
+  "type": "er_guide",
+  "title": "Nationalmuseum von Alexandria: Ägyptens Geschichte im Palast eines Paschas",
+  "excerpt": "Das Nationalmuseum von Alexandria im italienisch inspirierten Palast von Asaad Basili Pascha: die Sammlung von der Vorgeschichte bis zur Neuzeit, die versunkenen Altertümer aus der Bucht von Abukir, der Münzsaal, islamische Waffen und der Schmuck der Familie Muhammad Alis, und was Sie vor dem Besuch wissen sollten.",
+  "review": "approved",
+  "current": true
+ },
  "g-aswan-temples": {
   "type": "er_guide",
   "title": "Die Tempel von Assuan und am Nassersee: welche Sie sehen sollten",
@@ -309,6 +316,13 @@
   "type": "er_guide",
   "title": "Medinet Habu: Der Tempel Ramses’ III. in Luxor",
   "excerpt": "Medinet Habu, der Totentempel Ramses’ III. am Westufer von Luxor: das Hohe Tor, die Pylone, Höfe und Osirispfeiler, die Reliefs der Kriege gegen die Libyer und die Seevölker, der Tempel von Hatschepsut und Thutmosis III. daneben und wie Sie ihn besuchen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-mummification-museum": {
+  "type": "er_guide",
+  "title": "Das Mumifizierungsmuseum in Luxor: Wie die alten Ägypter ihre Toten bewahrten",
+  "excerpt": "Das Mumifizierungsmuseum in Luxor erklärt, wie die alten Ägypter den Körper bewahrten: der 70-tägige Vorgang, Natron aus dem Wadi El Natrun, Kanopenkrüge und Amulette, mumifizierte Tiere, die Höhepunkte der Ausstellung und was Sie vor dem Besuch wissen sollten.",
   "review": "approved",
   "current": true
  },

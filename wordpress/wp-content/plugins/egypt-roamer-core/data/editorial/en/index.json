@@ -144,6 +144,15 @@
   "destination": "aswan",
   "related": "exp-abu"
  },
+ "g-alexandria-museum": {
+  "type": "er_guide",
+  "title": "Alexandria National Museum: Egypt's History in a Pasha's Palace",
+  "excerpt": "The Alexandria National Museum, in the Italianate palace of Asaad Basili Pasha: its collection from prehistory to the modern era, the sunken antiquities of Abu Qir Bay, the coin hall, Islamic weapons and the jewellery of Muhammad Ali's family, and what to know before you visit.",
+  "slug": "alexandria-national-museum",
+  "topic": "Planning",
+  "destination": "alexandria",
+  "related": "exp-alexandria"
+ },
  "g-aswan-temples": {
   "type": "er_guide",
   "title": "The Temples of Aswan and Lake Nasser: Which to See",
@@ -320,6 +329,15 @@
   "title": "Medinet Habu: The Temple of Ramesses III in Luxor",
   "excerpt": "Medinet Habu, the mortuary temple of Ramesses III on Luxor's West Bank: the High Gate, the pylons, courtyards and Osiride columns, the reliefs of the wars against the Libyans and the Sea Peoples, the temple of Hatshepsut and Thutmose III beside it, and how to visit.",
   "slug": "medinet-habu-temple-of-ramesses-iii",
+  "topic": "Planning",
+  "destination": "luxor",
+  "related": "exp-valley"
+ },
+ "g-mummification-museum": {
+  "type": "er_guide",
+  "title": "The Mummification Museum in Luxor: How Ancient Egyptians Preserved the Dead",
+  "excerpt": "The Mummification Museum in Luxor explains how the ancient Egyptians preserved the body: the 70-day process, natron from Wadi El Natron, canopic jars and amulets, mummified animals, the highlights on display, and what to know before you visit.",
+  "slug": "mummification-museum-luxor",
   "topic": "Planning",
   "destination": "luxor",
   "related": "exp-valley"
