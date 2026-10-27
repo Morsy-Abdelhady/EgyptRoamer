@@ -286,3 +286,12 @@ Search Console (28 days to 25 Oct) showed the top pages already match their quer
 | 5 pins from the queue: best time to visit ("Egypt Travel Planning"), Valley of the Kings and inside the pyramids ("Ancient Egypt"), White Desert night ("Egypt's Nature"), Grand Egyptian Museum ("Egypt Travel Planning"); each links to its guide, "Photo: Unsplash" | Pinterest (Egypt Roamer account; the browser had LIORIVE active and was switched before pinning) | Profile shows 20 pins, drafts empty | Pinterest impressions and clicks | 10 Nov |
 
 PageSpeed Insights after Theme 1.3.34 (homepage, 28 Oct; pagespeed.web.dev, the API quota was exhausted): desktop 99 (FCP 0.5 s, LCP 0.8 s, TBT 0 ms, CLS 0.013); mobile 80 (FCP 2.6 s, LCP 4.1 s, TBT 0 ms, CLS 0.111). Mobile LCP and CLS (just over the 0.1 limit) are the next speed items.
+
+## 2026-10-28: Arabic text direction (Theme 1.3.35-1.3.37)
+
+The owner found two errors on Arabic pages that earlier checks missed (they looked at layout, overflow and errors, not at the reading direction of the text):
+
+| Change | Where | Check | Expected effect | Re-check |
+|---|---|---|---|---|
+| "Go on" arrows after labels pointed right in Arabic: `er_arrow()` gives ← on Arabic pages in 11 template spots and the assistant; 4 spans already mirrored by CSS keep → (1.3.36 fixed the double flip from 1.3.35) | `inc/i18n.php`, `template-parts/guide-p4.php`, `world-p4.php`, `inc/world.php`, `src/js/assistant.js` | New `tools/qa/rtl-direction.mjs`: 66 Arabic + 66 English pages, desktop and phone, all ok | Arabic links read naturally | Each release |
+| Number ranges ("4–10 ساعات", "4–7") showed reversed ("10–4"): wrapped in a left-to-right isolate on Arabic pages (server output) and in the homepage planner cards (JS) | `inc/i18n.php`, `src/js/components/planner.js` | Same script | Durations and ranges read correctly | Each release |
