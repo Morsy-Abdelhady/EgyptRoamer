@@ -2,14 +2,14 @@
 type: er_guide
 title: Guide du Caire : au-delà des pyramides
 excerpt: Le Caire au-delà des pyramides : un guide quartier par quartier du Caire islamique, du Caire copte, du centre-ville, de Zamalek et du Nil, avec un itinéraire à pied dans la vieille ville et des conseils pour le quotidien cairote.
-source: ad0da9b43958
+source: 7e6480b586d9
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
-La plupart des visiteurs découvrent Le Caire à travers [les pyramides](/experiences/pyramids-of-giza-sphinx-private-tour/) et le nouveau musée de Gizeh, puis repartent. Ce guide parle du reste de la ville : les quartiers où les Cairotes vivent, prient, font leurs courses et mangent. C’est là que Le Caire cesse d’être une simple escale pour devenir l’une des grandes villes du monde. Pour l’essentiel (les sites, où dormir, combien de jours), commencez par notre [guide de la destination Le Caire](/destinations/cairo/).
+La plupart des visiteurs découvrent Le Caire à travers [les pyramides](/experiences/pyramids-of-giza-sphinx-private-tour/) et le nouveau musée de Gizeh, puis repartent. Ce guide parle du reste de la ville : les quartiers où les Cairotes vivent, prient, font leurs courses et mangent. C’est là que Le Caire cesse d’être une simple escale pour devenir l’une des grandes villes du monde. Pour l’essentiel (les sites, où dormir, combien de jours), commencez par notre [guide de la destination Le Caire](/destinations/cairo/). La plupart des voyageurs ont aussi besoin d’un visa : consultez [notre guide du visa pour l’Égypte](/guides/egypt-visa-guide/).
 
 ## Une promenade dans la vieille ville {#old-city-walk}
 

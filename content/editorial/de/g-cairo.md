@@ -2,14 +2,14 @@
 type: er_guide
 title: Kairo-Reiseführer: mehr als die Pyramiden
 excerpt: Kairo jenseits der Pyramiden: ein Ratgeber Viertel für Viertel durch das islamische und das koptische Kairo, Downtown, Zamalek und den Nil, mit einem Rundgang durch die Altstadt und Tipps für den Alltag in Kairo.
-source: ad0da9b43958
+source: 7e6480b586d9
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
-Die meisten Besucher sehen Kairo durch [die Pyramiden](/experiences/pyramids-of-giza-sphinx-private-tour/) und das neue Museum in Gizeh und reisen dann ab. Dieser Ratgeber handelt vom Rest der Stadt: den Vierteln, in denen die Kairoer leben, beten, einkaufen und essen. Dort hört Kairo auf, ein Zwischenstopp zu sein, und wird zu einer der großen Städte der Welt. Für das Wesentliche (Sehenswürdigkeiten, Unterkünfte, wie viele Tage) beginnen Sie mit unserem [Kairo-Reiseziel-Ratgeber](/destinations/cairo/).
+Die meisten Besucher sehen Kairo durch [die Pyramiden](/experiences/pyramids-of-giza-sphinx-private-tour/) und das neue Museum in Gizeh und reisen dann ab. Dieser Ratgeber handelt vom Rest der Stadt: den Vierteln, in denen die Kairoer leben, beten, einkaufen und essen. Dort hört Kairo auf, ein Zwischenstopp zu sein, und wird zu einer der großen Städte der Welt. Für das Wesentliche (Sehenswürdigkeiten, Unterkünfte, wie viele Tage) beginnen Sie mit unserem [Kairo-Reiseziel-Ratgeber](/destinations/cairo/). Die meisten Reisenden brauchen außerdem ein Visum: Lesen Sie [unseren Guide zum Visum für Ägypten](/guides/egypt-visa-guide/).
 
 ## Ein Rundgang durch die Altstadt {#old-city-walk}
 

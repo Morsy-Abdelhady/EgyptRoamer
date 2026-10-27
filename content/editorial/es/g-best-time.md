@@ -2,14 +2,14 @@
 type: er_guide
 title: La mejor época para visitar Egipto, mes a mes
 excerpt: Cuándo visitar Egipto, estación por estación y región por región: el agradable invierno del valle del Nilo, la larga temporada de playa del mar Rojo, las noches frías del desierto y cómo el Ramadán y las fiestas cambian un viaje.
-source: b2a1409a6ab8
+source: d17d3fc2a55c
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
-No hay un único mes ideal para Egipto, porque el país abarca climas muy distintos. El valle del Nilo tiene desiertos calurosos a ambos lados. Las costas del mar Rojo tienen temporadas cálidas largas. La costa mediterránea es más suave y húmeda, y el desierto Occidental es extremo en ambos sentidos. El momento adecuado depende de lo que quieras hacer. Esta guía recorre cada región y después el calendario.
+No hay un único mes ideal para Egipto, porque el país abarca climas muy distintos. El valle del Nilo tiene desiertos calurosos a ambos lados. Las costas del mar Rojo tienen temporadas cálidas largas. La costa mediterránea es más suave y húmeda, y el desierto Occidental es extremo en ambos sentidos. El momento adecuado depende de lo que quieras hacer. Esta guía recorre cada región y después el calendario. La mayoría de los viajeros también necesita visado: consulta [nuestra guía del visado para Egipto](/guides/egypt-visa-guide/).
 
 ## La respuesta corta {#short-answer}
 

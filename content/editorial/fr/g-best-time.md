@@ -2,14 +2,14 @@
 type: er_guide
 title: La meilleure période pour visiter l’Égypte, mois par mois
 excerpt: Quand partir en Égypte, saison par saison et région par région : l’hiver agréable de la vallée du Nil, la longue saison balnéaire de la mer Rouge, les nuits froides du désert, et comment le ramadan et les fêtes changent un voyage.
-source: b2a1409a6ab8
+source: d17d3fc2a55c
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
-Il n’existe pas un seul meilleur mois pour l’Égypte, car le pays réunit des climats très différents. La vallée du Nil est bordée de déserts chauds des deux côtés. Les côtes de la mer Rouge connaissent de longues saisons chaudes. La côte méditerranéenne est plus douce et plus humide, et le désert occidental est extrême dans les deux sens. Le bon moment dépend de ce que vous prévoyez de faire. Ce guide passe en revue chaque région, puis le calendrier.
+Il n’existe pas un seul meilleur mois pour l’Égypte, car le pays réunit des climats très différents. La vallée du Nil est bordée de déserts chauds des deux côtés. Les côtes de la mer Rouge connaissent de longues saisons chaudes. La côte méditerranéenne est plus douce et plus humide, et le désert occidental est extrême dans les deux sens. Le bon moment dépend de ce que vous prévoyez de faire. Ce guide passe en revue chaque région, puis le calendrier. La plupart des voyageurs ont aussi besoin d’un visa : consultez [notre guide du visa pour l’Égypte](/guides/egypt-visa-guide/).
 
 ## La réponse courte {#short-answer}
 

@@ -6,7 +6,7 @@ related: exp-abu, exp-safari
 ---
 [[toc]]
 
-There is no single best month for Egypt, because the country covers very different climates. The Nile Valley has hot deserts on both sides. The Red Sea coasts have long, warm seasons. The Mediterranean coast is milder and wetter, and the Western Desert is extreme in both directions. The right time depends on what you plan to do. This guide goes region by region, then through the calendar.
+There is no single best month for Egypt, because the country covers very different climates. The Nile Valley has hot deserts on both sides. The Red Sea coasts have long, warm seasons. The Mediterranean coast is milder and wetter, and the Western Desert is extreme in both directions. The right time depends on what you plan to do. This guide goes region by region, then through the calendar. Most visitors also need a visa: see [our Egypt visa guide](/guides/egypt-visa-guide/).
 
 ## The short answer {#short-answer}
 

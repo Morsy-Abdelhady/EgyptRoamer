@@ -2,14 +2,14 @@
 type: er_guide
 title: 埃及最佳旅行时间：逐月指南
 excerpt: 何时去埃及，按季节、按地区细说：尼罗河谷舒适的冬季、红海漫长的海滩季、沙漠寒冷的夜晚，以及斋月和节假日会如何影响行程。
-source: b2a1409a6ab8
+source: d17d3fc2a55c
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
-埃及没有某一个“最佳月份”，因为这个国家涵盖了截然不同的气候。尼罗河谷两侧都是炎热的沙漠；红海沿岸的温暖季节很长；地中海沿岸更温和、也更湿润；而西部沙漠则冷热两极。合适的时间取决于你打算做什么。本指南先逐个地区介绍，再按月份梳理全年。
+埃及没有某一个“最佳月份”，因为这个国家涵盖了截然不同的气候。尼罗河谷两侧都是炎热的沙漠；红海沿岸的温暖季节很长；地中海沿岸更温和、也更湿润；而西部沙漠则冷热两极。合适的时间取决于你打算做什么。本指南先逐个地区介绍，再按月份梳理全年。大多数游客还需要签证：请参阅[我们的埃及签证指南](/guides/egypt-visa-guide/)。
 
 ## 简短回答 {#short-answer}
 

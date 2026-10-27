@@ -2,14 +2,14 @@
 type: er_guide
 title: Guida del Cairo: oltre le piramidi
 excerpt: Il Cairo oltre le piramidi: una guida quartiere per quartiere al Cairo islamico e copto, a Downtown, Zamalek e al Nilo, con un percorso a piedi nella città vecchia e consigli per la vita quotidiana al Cairo.
-source: ad0da9b43958
+source: 7e6480b586d9
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
-La maggior parte dei visitatori vede Il Cairo attraverso [le piramidi](/experiences/pyramids-of-giza-sphinx-private-tour/) e il nuovo museo di Giza, poi riparte. Questa guida parla del resto della città: i quartieri dove i cairoti vivono, pregano, fanno acquisti e mangiano. È lì che Il Cairo smette di essere una tappa di passaggio e diventa una delle grandi città del mondo. Per l’essenziale (i luoghi da vedere, dove dormire, quanti giorni), parti dalla nostra [guida alla destinazione Il Cairo](/destinations/cairo/).
+La maggior parte dei visitatori vede Il Cairo attraverso [le piramidi](/experiences/pyramids-of-giza-sphinx-private-tour/) e il nuovo museo di Giza, poi riparte. Questa guida parla del resto della città: i quartieri dove i cairoti vivono, pregano, fanno acquisti e mangiano. È lì che Il Cairo smette di essere una tappa di passaggio e diventa una delle grandi città del mondo. Per l’essenziale (i luoghi da vedere, dove dormire, quanti giorni), parti dalla nostra [guida alla destinazione Il Cairo](/destinations/cairo/). La maggior parte dei viaggiatori ha anche bisogno di un visto: leggete [la nostra guida al visto per l’Egitto](/guides/egypt-visa-guide/).
 
 ## Una passeggiata nella città vecchia {#old-city-walk}
 

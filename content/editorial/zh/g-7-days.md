@@ -2,14 +2,14 @@
 type: er_guide
 title: 埃及 7 日游：首次到访的完美行程
 excerpt: 一份切实可行的埃及首次七日行程：开罗与金字塔、卢克索的神庙与陵墓，以及阿斯旺，并提供尼罗河游船、红海或阿布辛拜勒的选择，以及哪些可以留到下次。
-source: 7235e4a9199d
+source: 48bdbb81a06e
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
-只要接受一条原则，七天就足以初尝埃及：**专注于尼罗河谷。** 开罗、卢克索和阿斯旺汇集了人们前来观看的大部分古迹，彼此之间有短途航班、火车和尼罗河相连。如果在一周之内再加上红海、亚历山大或沙漠，你花在路上的时间会比在景点的时间还多。
+只要接受一条原则，七天就足以初尝埃及：**专注于尼罗河谷。** 开罗、卢克索和阿斯旺汇集了人们前来观看的大部分古迹，彼此之间有短途航班、火车和尼罗河相连。如果在一周之内再加上红海、亚历山大或沙漠，你花在路上的时间会比在景点的时间还多。大多数游客还需要签证：请参阅[我们的埃及签证指南](/guides/egypt-visa-guide/)。
 
 ## 行程一览 {#at-a-glance}
 

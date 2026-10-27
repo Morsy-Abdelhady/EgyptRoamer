@@ -2,14 +2,14 @@
 type: er_guide
 title: 开罗旅行指南：金字塔之外
 excerpt: 金字塔之外的开罗：逐个街区介绍伊斯兰开罗、科普特开罗、市中心、扎马雷克和尼罗河，附老城步行路线和开罗日常生活小贴士。
-source: ad0da9b43958
+source: 7e6480b586d9
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
-大多数游客只通过[金字塔](/experiences/pyramids-of-giza-sphinx-private-tour/)和吉萨的新博物馆认识开罗，然后就离开了。本指南讲的是这座城市的其余部分：开罗人生活、礼拜、购物和吃饭的街区。正是在这里，开罗不再只是一个中转站，而成为世界上最伟大的城市之一。关于基本信息（景点、住宿、需要几天），请先看我们的[开罗目的地指南](/destinations/cairo/)。
+大多数游客只通过[金字塔](/experiences/pyramids-of-giza-sphinx-private-tour/)和吉萨的新博物馆认识开罗，然后就离开了。本指南讲的是这座城市的其余部分：开罗人生活、礼拜、购物和吃饭的街区。正是在这里，开罗不再只是一个中转站，而成为世界上最伟大的城市之一。关于基本信息（景点、住宿、需要几天），请先看我们的[开罗目的地指南](/destinations/cairo/)。大多数游客还需要签证：请参阅[我们的埃及签证指南](/guides/egypt-visa-guide/)。
 
 ## 老城漫步 {#old-city-walk}
 

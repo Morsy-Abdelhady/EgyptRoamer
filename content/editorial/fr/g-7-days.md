@@ -2,14 +2,14 @@
 type: er_guide
 title: 7 jours en Égypte : l’itinéraire idéal pour une première visite
 excerpt: Un itinéraire réaliste de sept jours pour une première visite en Égypte : Le Caire et les pyramides, les temples et tombeaux de Louxor, et Assouan, avec des options pour une croisière sur le Nil, la mer Rouge ou Abou Simbel, et ce qu’il vaut mieux laisser de côté.
-source: 7235e4a9199d
+source: 48bdbb81a06e
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
-Sept jours suffisent pour un premier aperçu de l’Égypte si vous acceptez une règle : **restez dans la vallée du Nil.** Le Caire, Louxor et Assouan rassemblent la plupart des monuments que l’on vient voir, et ils sont reliés par de courts vols, des trains et le fleuve. Ajouter la mer Rouge, Alexandrie ou le désert à une seule semaine, c’est passer plus de temps en transit que sur les sites.
+Sept jours suffisent pour un premier aperçu de l’Égypte si vous acceptez une règle : **restez dans la vallée du Nil.** Le Caire, Louxor et Assouan rassemblent la plupart des monuments que l’on vient voir, et ils sont reliés par de courts vols, des trains et le fleuve. Ajouter la mer Rouge, Alexandrie ou le désert à une seule semaine, c’est passer plus de temps en transit que sur les sites. La plupart des voyageurs ont aussi besoin d’un visa : consultez [notre guide du visa pour l’Égypte](/guides/egypt-visa-guide/).
 
 ## Le programme en un coup d’œil {#at-a-glance}
 

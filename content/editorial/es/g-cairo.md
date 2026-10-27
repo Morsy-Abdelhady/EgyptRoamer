@@ -2,14 +2,14 @@
 type: er_guide
 title: Guía de El Cairo: más allá de las pirámides
 excerpt: El Cairo más allá de las pirámides: una guía barrio por barrio de El Cairo islámico y copto, el centro, Zamalek y el Nilo, con una ruta a pie por la ciudad antigua y consejos para el día a día en El Cairo.
-source: ad0da9b43958
+source: 7e6480b586d9
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
-La mayoría de los visitantes ven El Cairo a través de [las pirámides](/experiences/pyramids-of-giza-sphinx-private-tour/) y el nuevo museo de Guiza, y luego se van. Esta guía trata del resto de la ciudad: los barrios donde los cairotas viven, rezan, compran y comen. Es ahí donde El Cairo deja de ser una escala y se convierte en una de las grandes ciudades del mundo. Para lo esencial (los lugares, dónde alojarse, cuántos días), empieza por nuestra [guía del destino El Cairo](/destinations/cairo/).
+La mayoría de los visitantes ven El Cairo a través de [las pirámides](/experiences/pyramids-of-giza-sphinx-private-tour/) y el nuevo museo de Guiza, y luego se van. Esta guía trata del resto de la ciudad: los barrios donde los cairotas viven, rezan, compran y comen. Es ahí donde El Cairo deja de ser una escala y se convierte en una de las grandes ciudades del mundo. Para lo esencial (los lugares, dónde alojarse, cuántos días), empieza por nuestra [guía del destino El Cairo](/destinations/cairo/). La mayoría de los viajeros también necesita visado: consulta [nuestra guía del visado para Egipto](/guides/egypt-visa-guide/).
 
 ## Un paseo por la ciudad antigua {#old-city-walk}
 
