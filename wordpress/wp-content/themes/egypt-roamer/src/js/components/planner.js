@@ -3,6 +3,8 @@
 import { t, tp, listJoin, isRTL } from "../i18n.js";
 import { $, $$, icon, escapeHtml, money, toast, on, emit, scrollToTarget, affAttrs } from "../utils.js";
 import { moods, destinations, routeOrder, nightWeights, legs, styleRates, img } from "../data.js";
+// A number range ("4–10 hours") keeps its order in Arabic text: a left-to-right isolate (as inc/i18n.php does).
+const RANGE = /(\d+\s?–\s?\d+)/g;
 
 const DEFAULT_DESTS = ["cairo", "luxor", "aswan"];
 const DEFAULT_INTERESTS = ["ancient", "culture"];
@@ -150,7 +152,7 @@ export function initPlanner() {
         h += trips
           .map((tr) => {
             const m = match(tr);
-            const meta = [tr.places, tr.len, tr.n ? (tr.n === 1 ? T.opt1 : T.optn.replace("{n}", tr.n)) : "", tr.private ? T.privopt : ""].filter(Boolean).join(" · ");
+            const meta = [tr.places, tr.len, tr.n ? (tr.n === 1 ? T.opt1 : T.optn.replace("{n}", tr.n)) : "", tr.private ? T.privopt : ""].filter(Boolean).join(" · ").replace(RANGE, document.dir === "rtl" ? "⁦$1⁩" : "$1");
             const live = [tr.rating, tr.price].filter(Boolean).join(" · ");
             return `<li><a class="ux2-pb__card" href="${escapeHtml(tr.url)}"><img src="${img(tr.image, 160)}" alt="" loading="lazy" /><span><b>${escapeHtml(tr.title)}</b><small>${escapeHtml(meta)}</small>${live ? `<span class="ux2-pb__live">${escapeHtml(live)}</span>` : ""}${tr.cancel && T.cancel ? `<i class="ux2-pb__fc">✓ ${escapeHtml(T.cancel)}</i>` : ""}${m.length ? `<em>${escapeHtml(m.map(labelOf).join(" · "))}</em>` : ""}</span></a></li>`;
           })
