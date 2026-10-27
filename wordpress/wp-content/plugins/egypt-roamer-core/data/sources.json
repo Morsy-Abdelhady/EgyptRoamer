@@ -244,6 +244,27 @@
    "checked": "2026-10-26"
   },
   {
+   "claim": "Khafre's pyramid complex (official, 2026-10-27): Khafre (c. 2558–2532 BC), Khefren to the Greeks, son of Khufu; second pyramid complex at Giza, on slightly higher ground so it appears as tall as his father's; 143.5 m; core of local limestone; top still keeps polished fine limestone casing quarried at Turah; mortuary and valley temples among the best preserved of the Old Kingdom; the Great Sphinx a unique feature of his complex, beside the valley temple. Menkaure's (official): Menkaure (c. 2532–2503 BC), Mykerinos, most likely Khafre's son; smallest of the three, original height 65 m, base less than a quarter of the others'; bottom quarter of the casing granite from Aswan, over 800 km away, the rest limestone; three smaller queens' pyramids beside it. Giza Plateau page: the area ticket does not cover the Great Pyramid, Khafre, Menkaure, the Tomb of Meresankh III or the Workers' Cemetery. Hours and prices not used",
+   "guides": [
+    "g-inside-pyramids"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/monuments/pyramid-of-khafra"
+    },
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/monuments/pyramid-of-menkaura"
+    },
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/archaeological-sites/giza-plateau"
+    }
+   ],
+   "checked": "2026-10-27"
+  },
+  {
    "claim": "Ras Mohammed National Park: declared in 1983; coral reefs and other marine habitats are protected",
    "guides": [
     "g-snorkelling"

@@ -1,11 +1,11 @@
 ---
 type: er_guide
 title: Dentro le piramidi di Giza: vale la pena entrare?
-excerpt: Com’è l’interno delle piramidi di Giza: i corridoi della Grande Piramide, la Grande Galleria e la Camera del Re, cosa vedrai e cosa no, chi farebbe meglio a rinunciare e come organizzare la visita all’altopiano.
-source: d8de2eb691fe
+excerpt: Com’è l’interno delle piramidi di Giza: i corridoi della Grande Piramide, la Grande Galleria e la Camera del Re, le piramidi di Chefren e Micerino, cosa vedrai e cosa no, chi farebbe meglio a rinunciare e come organizzare la visita all’altopiano.
+source: efa0ffb35a06
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -28,6 +28,13 @@ Sopra la Camera del Re ci sono cinque vani separati da enormi lastre di granito,
 > **Cosa non vedrai**
 > Né pareti dipinte né tesori. Le piramidi furono saccheggiate nell’antichità e nel Medioevo. L’esperienza è l’architettura: la salita, la Grande Galleria e il silenzio della camera di granito.
 
+## Le piramidi di Chefren e Micerino {#other-pyramids}
+
+- **La piramide di Chefren,** la seconda, apparteneva al figlio di Cheope, Chefren (circa 2558–2532 a.C.). Sorge su un terreno un po’ più alto e per questo sembra alta quanto quella del padre, ma con 143,5 metri è leggermente più bassa. La cima conserva ancora parte del rivestimento di calcare bianco levigato, estratto a Tura, che un tempo ne copriva la maggior parte. La Grande Sfinge fa parte del complesso piramidale di Chefren, accanto al suo tempio a valle.
+- **La piramide di Micerino,** la terza, è di gran lunga la più piccola: l’altezza originaria era di 65 metri, e la base è meno di un quarto di quella delle altre due. Il quarto inferiore del rivestimento è in granito di Assuan, a oltre 800 km; il resto era calcare. Tre piramidi più piccole accanto furono costruite per le sue regine.
+
+Ognuna delle tre piramidi ha il suo biglietto. Anche la tomba di Meresankh III e il cimitero degli operai sull’altopiano richiedono biglietti separati.
+
 ## Fa per te? {#for-you}
 
 - **Entra** se sei in forma e a tuo agio in spazi stretti, ripidi e caldi.
@@ -41,6 +48,9 @@ Sopra la Camera del Re ci sono cinque vani separati da enormi lastre di granito,
 - Abbina l’altopiano al [Grande Museo Egizio](/guides/grand-egyptian-museum-visit/) nel pomeriggio.
 
 ## Domande frequenti {#faq}
+
+?? Quanto sono alte le piramidi di Giza?
+La Grande Piramide di Cheope era alta in origine 146,5 metri, la piramide di Chefren è alta 143,5 metri e quella di Micerino era alta in origine 65 metri.
 
 ?? Posso entrare in tutte e tre le piramidi?
 Le aperture cambiano nel tempo e alcune piramidi possono essere chiuse. Verifica quali sono aperte al tuo arrivo.

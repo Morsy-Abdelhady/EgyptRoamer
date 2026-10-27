@@ -3,7 +3,7 @@ type: er_guide
 title: Inside the Pyramids of Giza: Is It Worth Going In?
 slug: inside-the-pyramids-of-giza
 topic: Planning
-excerpt: What it is like inside the Pyramids of Giza: the Great Pyramid's corridors, Grand Gallery and King's Chamber, what you will and won't see, who should skip it, and how to plan a visit to the plateau.
+excerpt: What it is like inside the Pyramids of Giza: the Great Pyramid's corridors, Grand Gallery and King's Chamber, the pyramids of Khafre and Menkaure, what you will and won't see, who should skip it, and how to plan a visit to the plateau.
 destination: cairo
 related: exp-giza
 ---
@@ -28,6 +28,13 @@ Above the King's Chamber are five compartments separated by huge granite slabs, 
 > **What you won't see**
 > There are no painted walls and no treasure. The pyramids were plundered in ancient and medieval times. The experience is the architecture: the climb, the Grand Gallery and the stillness of the granite chamber.
 
+## Khafre's and Menkaure's pyramids {#other-pyramids}
+
+- **Khafre's pyramid,** the second, belonged to Khufu's son Khafre (c. 2558–2532 BC). It stands on slightly higher ground, so it looks as tall as his father's, but at 143.5 metres it is a little shorter. Its top still keeps some of the polished white limestone casing, quarried at Turah, that once covered most of it. The Great Sphinx is part of Khafre's pyramid complex, beside his valley temple.
+- **Menkaure's pyramid,** the third, is by far the smallest: its original height was 65 metres, and its base covers less than a quarter of the other two. The lowest quarter of its casing is granite from Aswan, more than 800 km away; the rest was limestone. Three smaller pyramids beside it were built for his queens.
+
+Each of the three pyramids has its own ticket. The Tomb of Meresankh III and the Workers' Cemetery on the plateau need separate tickets too.
+
 ## Is it for you? {#for-you}
 
 - **Go in** if you are fit and comfortable in tight, steep and warm spaces.
@@ -41,6 +48,9 @@ Above the King's Chamber are five compartments separated by huge granite slabs, 
 - Combine the plateau with the [Grand Egyptian Museum](/guides/grand-egyptian-museum-visit/) in the afternoon.
 
 ## Frequently asked questions {#faq}
+
+?? How tall are the pyramids of Giza?
+The Great Pyramid of Khufu was originally 146.5 metres high, Khafre's pyramid is 143.5 metres, and Menkaure's was originally 65 metres.
 
 ?? Can I go inside all three pyramids?
 Openings change over time, and some pyramids may be closed. Check which are open when you arrive.

@@ -1,11 +1,11 @@
 ---
 type: er_guide
 title: Dentro de las pirámides de Guiza: ¿merece la pena entrar?
-excerpt: Cómo es el interior de las pirámides de Guiza: los corredores de la Gran Pirámide, la Gran Galería y la Cámara del Rey, qué verás y qué no, quién debería evitarlo y cómo organizar la visita a la meseta.
-source: d8de2eb691fe
+excerpt: Cómo es el interior de las pirámides de Guiza: los corredores de la Gran Pirámide, la Gran Galería y la Cámara del Rey, las pirámides de Kefrén y Micerino, qué verás y qué no, quién debería evitarlo y cómo organizar la visita a la meseta.
+source: efa0ffb35a06
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -28,6 +28,13 @@ Sobre la Cámara del Rey hay cinco compartimentos separados por enormes losas de
 > **Lo que no verás**
 > Ni paredes pintadas ni tesoros. Las pirámides fueron saqueadas en la Antigüedad y en la Edad Media. La experiencia es la arquitectura: la subida, la Gran Galería y la quietud de la cámara de granito.
 
+## Las pirámides de Kefrén y Micerino {#other-pyramids}
+
+- **La pirámide de Kefrén,** la segunda, perteneció a Kefrén, hijo de Keops (h. 2558–2532 a. C.). Se alza sobre un terreno algo más alto, por lo que parece tan alta como la de su padre, aunque con 143,5 metros es un poco más baja. Su cima aún conserva parte del revestimiento de caliza blanca pulida, extraída en Tura, que antes cubría la mayor parte de la pirámide. La Gran Esfinge forma parte del complejo funerario de Kefrén, junto a su templo del valle.
+- **La pirámide de Micerino,** la tercera, es con diferencia la más pequeña: su altura original era de 65 metros, y su base ocupa menos de una cuarta parte de la de las otras dos. La cuarta parte inferior de su revestimiento es de granito de Asuán, a más de 800 km; el resto era de caliza. Tres pirámides más pequeñas a su lado se construyeron para sus reinas.
+
+Cada una de las tres pirámides tiene su propia entrada. La tumba de Meresanj III y el cementerio de los obreros, en la meseta, también requieren entradas aparte.
+
 ## ¿Es para ti? {#for-you}
 
 - **Entra** si estás en forma y te sientes cómodo en espacios estrechos, empinados y calurosos.
@@ -41,6 +48,9 @@ Sobre la Cámara del Rey hay cinco compartimentos separados por enormes losas de
 - Combina la meseta con el [Gran Museo Egipcio](/guides/grand-egyptian-museum-visit/) por la tarde.
 
 ## Preguntas frecuentes {#faq}
+
+?? ¿Cuánto miden las pirámides de Guiza?
+La Gran Pirámide de Keops medía originalmente 146,5 metros, la pirámide de Kefrén mide 143,5 metros y la de Micerino medía originalmente 65 metros.
 
 ?? ¿Puedo entrar en las tres pirámides?
 Las aperturas cambian con el tiempo y algunas pirámides pueden estar cerradas. Comprueba cuáles están abiertas al llegar.

@@ -179,3 +179,11 @@ Russian "Филэ" as in the Aswan temples guide; Chinese 康翁布 for Kom Ombo
 for the searches Search Console showed ("best time to snorkel in Hurghada", "beste Schnorchelplätze Hurghada"). The
 owner asked for English and German; the editorial check refuses outdated translations whose sections differ from the
 English, so the same sections were translated into all 7 languages and reviewed by Claude with the same reviewer line.
+
+## Addendum, 27 Oct: Nile cruise and pyramids
+
+`exp-cruise` (route links, "How long it takes", two FAQ answers; the same two questions added to the trip page's FAQ
+through `tools/i18n/new-strings.json`) and `g-inside-pyramids` (Khafre's and Menkaure's pyramids, a height FAQ),
+translated into 7 languages and reviewed by Claude with the same reviewer line. Names follow each translation's
+existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefrén/Micerino, Хафра/Менкаура,
+哈夫拉/孟卡拉, خفرع/منكاورع).

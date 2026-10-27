@@ -1,11 +1,11 @@
 ---
 type: er_guide
 title: À l’intérieur des pyramides de Gizeh : faut-il y entrer ?
-excerpt: À quoi ressemble l’intérieur des pyramides de Gizeh : les couloirs de la Grande Pyramide, la Grande Galerie et la chambre du Roi, ce que vous verrez et ne verrez pas, qui ferait mieux de s’abstenir, et comment organiser la visite du plateau.
-source: d8de2eb691fe
+excerpt: À quoi ressemble l’intérieur des pyramides de Gizeh : les couloirs de la Grande Pyramide, la Grande Galerie et la chambre du Roi, les pyramides de Khéphren et de Mykérinos, ce que vous verrez et ne verrez pas, qui ferait mieux de s’abstenir, et comment organiser la visite du plateau.
+source: efa0ffb35a06
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -28,6 +28,13 @@ Au-dessus de la chambre du Roi se trouvent cinq compartiments séparés par d’
 > **Ce que vous ne verrez pas**
 > Ni murs peints ni trésors. Les pyramides ont été pillées dans l’Antiquité et au Moyen Âge. L’expérience, c’est l’architecture : la montée, la Grande Galerie et le silence de la chambre de granit.
 
+## Les pyramides de Khéphren et de Mykérinos {#other-pyramids}
+
+- **La pyramide de Khéphren,** la deuxième, appartenait au fils de Khéops, Khéphren (vers 2558–2532 av. J.-C.). Bâtie sur un terrain légèrement plus élevé, elle paraît aussi haute que celle de son père, mais avec 143,5 mètres elle est un peu moins haute. Son sommet conserve encore une partie du parement de calcaire blanc poli, extrait à Tourah, qui recouvrait autrefois la plus grande partie de l’édifice. Le Grand Sphinx fait partie du complexe funéraire de Khéphren, à côté de son temple de la vallée.
+- **La pyramide de Mykérinos,** la troisième, est de loin la plus petite : sa hauteur d’origine était de 65 mètres, et sa base couvre moins d’un quart de celle des deux autres. Le quart inférieur de son parement est en granit d’Assouan, à plus de 800 km ; le reste était en calcaire. Trois pyramides plus petites, à côté, furent construites pour ses reines.
+
+Chacune des trois pyramides a son propre billet. La tombe de Mérésânkh III et le cimetière des ouvriers, sur le plateau, demandent aussi des billets séparés.
+
 ## Est-ce pour vous ? {#for-you}
 
 - **Entrez** si vous êtes en forme et à l’aise dans des espaces étroits, raides et chauds.
@@ -41,6 +48,9 @@ Au-dessus de la chambre du Roi se trouvent cinq compartiments séparés par d’
 - Associez le plateau au [Grand Musée égyptien](/guides/grand-egyptian-museum-visit/) l’après-midi.
 
 ## Questions fréquentes {#faq}
+
+?? Quelle est la hauteur des pyramides de Gizeh ?
+La Grande Pyramide de Khéops mesurait à l’origine 146,5 mètres, la pyramide de Khéphren mesure 143,5 mètres et celle de Mykérinos mesurait à l’origine 65 mètres.
 
 ?? Peut-on entrer dans les trois pyramides ?
 Les ouvertures changent avec le temps, et certaines pyramides peuvent être fermées. Vérifiez lesquelles sont ouvertes à votre arrivée.

@@ -1,11 +1,11 @@
 ---
 type: er_guide
 title: Im Inneren der Pyramiden von Gizeh: Lohnt sich der Einstieg?
-excerpt: Wie es im Inneren der Pyramiden von Gizeh ist: die Gänge der Cheops-Pyramide, die Große Galerie und die Königskammer, was Sie sehen und was nicht, wer besser draußen bleibt und wie Sie den Besuch des Plateaus planen.
-source: d8de2eb691fe
+excerpt: Wie es im Inneren der Pyramiden von Gizeh ist: die Gänge der Cheops-Pyramide, die Große Galerie und die Königskammer, die Pyramiden von Chephren und Mykerinos, was Sie sehen und was nicht, wer besser draußen bleibt und wie Sie den Besuch des Plateaus planen.
+source: efa0ffb35a06
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -28,6 +28,13 @@ Trotz ihrer Größe hat die Große Pyramide im Inneren sehr wenig freien Raum: d
 > **Was Sie nicht sehen**
 > Keine bemalten Wände und keine Schätze. Die Pyramiden wurden in Antike und Mittelalter geplündert. Das Erlebnis ist die Architektur: der Aufstieg, die Große Galerie und die Stille der Granitkammer.
 
+## Die Pyramiden von Chephren und Mykerinos {#other-pyramids}
+
+- **Die Chephren-Pyramide,** die zweite, gehörte Cheops’ Sohn Chephren (um 2558–2532 v. Chr.). Sie steht auf etwas höherem Gelände und wirkt daher so hoch wie die seines Vaters, ist mit 143,5 Metern aber etwas niedriger. Ihre Spitze bewahrt noch einen Teil der polierten weißen Kalksteinverkleidung aus Tura, die einst den größten Teil bedeckte. Die Große Sphinx gehört zu Chephrens Pyramidenanlage, neben seinem Taltempel.
+- **Die Mykerinos-Pyramide,** die dritte, ist bei Weitem die kleinste: Ihre ursprüngliche Höhe betrug 65 Meter, und ihre Grundfläche ist kleiner als ein Viertel der beiden anderen. Das unterste Viertel ihrer Verkleidung ist Granit aus Assuan, mehr als 800 km entfernt; der Rest war Kalkstein. Drei kleinere Pyramiden daneben wurden für seine Königinnen errichtet.
+
+Jede der drei Pyramiden hat ihr eigenes Ticket. Auch das Grab der Meresanch III. und der Arbeiterfriedhof auf dem Plateau brauchen eigene Tickets.
+
 ## Ist es etwas für Sie? {#for-you}
 
 - **Gehen Sie hinein,** wenn Sie fit sind und sich in engen, steilen und warmen Räumen wohlfühlen.
@@ -41,6 +48,9 @@ Trotz ihrer Größe hat die Große Pyramide im Inneren sehr wenig freien Raum: d
 - Verbinden Sie das Plateau am Nachmittag mit dem [Grand Egyptian Museum](/guides/grand-egyptian-museum-visit/).
 
 ## Häufige Fragen {#faq}
+
+?? Wie hoch sind die Pyramiden von Gizeh?
+Die Cheops-Pyramide war ursprünglich 146,5 Meter hoch, die Chephren-Pyramide ist 143,5 Meter hoch, und die Mykerinos-Pyramide war ursprünglich 65 Meter hoch.
 
 ?? Kann ich in alle drei Pyramiden hinein?
 Die Öffnungen wechseln mit der Zeit, und manche Pyramiden können geschlossen sein. Prüfen Sie vor Ort, welche offen sind.
