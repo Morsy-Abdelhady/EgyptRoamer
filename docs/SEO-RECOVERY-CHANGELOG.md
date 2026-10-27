@@ -248,3 +248,17 @@ was blocked (browser not connected). Both done by hand today, in the owner's bro
 | Core 1.2.91 / Theme 1.3.33 (`60b597c`): new guides `g-mummification-museum` (`/guides/mummification-museum-luxor/`) and `g-alexandria-museum` (`/guides/alexandria-national-museum/`), 8 languages, only from the Ministry's museum pages (hours, evening hours and ticket prices on those pages left out); Commons hero and section photos with credits | Core, theme, wp-admin | Sync created 16; live EN/FR pages 200 with credits; all photos load (including the accented file name); AR phone checked by eye | Queries for "mummification museum luxor", "alexandria national museum" | Search Console, 2–3 weeks |
 | Instagram: Kom Ombo (credit Masgalal, CC BY-SA 4.0) and Philae (credit Panegyrics of Granovetter, CC BY-SA 2.0) posts, "Full guide: link in bio", at the owner's request | Instagram | Profile shows 6 posts | Referral visits | KPI week 3 |
 | page-coverage for the batch Core 1.2.89–1.2.91 / Theme 1.3.32–1.3.33 (Medinet Habu, Qaitbay, the links to them, the two museum guides): 496 pages, all ok | — | `page-coverage: all ok` | — | — |
+
+## 2026-10-27: two-week traffic experiment (owner-approved), until 10 Nov 2026
+
+Baseline, Search Console, last 28 days (data to 25 Oct): **3 clicks, 865 impressions, average position 64.6**; 328 queries, only 15 within position 30 (5 in 1–10, 5 in 11–20, 5 in 21–30), almost all with a single impression; the queries with volume rank far down (Aswan–Luxor cruise 61.8, Egypt itinerary 94–98, snorkelling 75–92; the snorkelling and cruise expansions of 27 Oct are not in this data yet). Pinterest baseline before the experiment: 10 pins, 0 followers.
+
+| Experiment | Target on 10 Nov | Stop rule |
+|---|---|---|
+| 1. Pinterest: 5 pins a day on the guides, keyword titles, credited photos | 10,000 impressions and 100 outbound clicks (Pinterest analytics) | under a quarter of that: stop |
+| 2. Strengthen pages Google already shows | Google clicks from 3 to at least 30 (28 days) | no rise: stop |
+
+| Change | Where | Check | Expected effect | Re-check |
+|---|---|---|---|---|
+| Day 1: 5 pins — Aswan–Luxor cruise, 7-day itinerary (board "Egypt Travel Planning"), Great Sand Sea ("Egypt's Nature"), Mummification Museum and Alexandria National Museum ("Ancient Egypt"), each linking to its page | Pinterest | Profile shows 15 pins | Pinterest impressions and clicks | 10 Nov |
+| Daily queue for the remaining 31 pages written to `C:\Users\morsy\.claude\scheduled-tasks\egypt-roamer-pinterest-daily\queue.json`; the scheduled task itself was refused by the automatic safety check, so the daily pins are run by hand from that queue | — | — | — | — |
