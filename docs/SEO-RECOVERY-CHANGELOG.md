@@ -231,3 +231,9 @@ was blocked (browser not connected). Both done by hand today, in the owner's bro
 | Theme 1.3.31 (`b4dba94`): the "Recently viewed" card on Trips & tours built Commons ids as Unsplash links, so the Wadi Al-Hitan trip showed no photo (owner's screenshot). `assets/js/p4-trips.js` now builds the Commons link as `src/js/data.js` does. The 27 Oct homepage fix (Theme 1.3.27) had not covered this card | Theme | Trip visited, then Trips & tours: the card's photo loads (500 px) | — | — |
 | Pinterest: visa pin (new board "Egypt Travel Planning: Visas, Itineraries and Tips", the guide's own Unsplash pyramids photo) and snorkelling pin (board "Egypt's Nature: Deserts and the Red Sea", the guide's Unsplash photo of the coast at Hurghada). Facebook page: visa guide link post, as the page, no boost | Pinterest, Facebook | Profile shows 8 pins; page shows the post | Referral visits | KPI week 3 |
 | page-coverage for the visa batch (Core 1.2.86–1.2.88, Theme 1.3.31): 464 pages, all ok | — | `page-coverage: all ok` | — | — |
+
+## 2026-10-27: Medinet Habu and Qaitbay Citadel guides
+
+| Change | Where | Check | Expected effect | Re-check |
+|---|---|---|---|---|
+| Core 1.2.89 / Theme 1.3.32 (`61c5df0`): new guides `g-medinet-habu` (`/guides/medinet-habu-temple-of-ramesses-iii/`) and `g-qaitbay` (`/guides/qaitbay-citadel-alexandria/`), 8 languages, only from the Ministry's pages; Commons hero and section photos with credits. The money/customs guide was not written: its figures appear only in a 2022 Ministry of Finance manual, and egypt.travel did not resolve. Esna Temple left out (no Ministry monument page) | Core, theme, wp-admin | Sync created 16 (#1222–#1237), then up to date (308); live EN/DE/AR pages 200 with credits; all photos load; AR phone checked by eye. page-coverage not run yet for this release | Queries for "medinet habu", "qaitbay citadel" in 8 languages | Search Console, 2–3 weeks |
