@@ -270,3 +270,11 @@ GTmetrix (desktop, Seattle, 26 Oct): grade D, performance 44%, LCP 3.7 s, TBT 54
 | Change | Where | Check | Expected effect | Re-check |
 |---|---|---|---|---|
 | Loader screen removed on every width; desktop gets the phones' CSS entrance | `header.php`, `src/js/components/hero.js`, `pages.css` | Desktop LCP 2.02 s → 0.94 s; mobile LCP 2.80 s → 2.74 s, TBT 820 → 582 ms; no page errors; hero checked desktop + phone, en + ar | Better desktop Core Web Vitals; GTmetrix LCP | GTmetrix + PageSpeed 28 Oct |
+
+## 2026-10-28: Egypt itinerary planner (Core 1.2.92)
+
+Search Console (28 days to 25 Oct) showed the top pages already match their queries (titles, sections, FAQs); their positions (60-98) point to the site's age and missing backlinks, not on-page gaps. One gap: the "egypt itinerary" cluster (egypt itinerary 16, egypt trip itinerary 15, egypt travel itinerary 13 impressions; positions 95-98) was served by the 14-day page.
+
+| Change | Where | Check | Expected effect | Re-check |
+|---|---|---|---|---|
+| New hub `/guides/egypt-itinerary/` in 8 languages (only restates the 7/10/14-day plans), linked from `g-7-days`, `g-10-days`, `g-14-days` in every language | Guide translations sync (8 created, 23 updated); Editorial updates (g-7-days en) | All 8 pages 200 with hreflang; 7/10/14 link to the hub; desktop + phone, en + ar, no errors | The hub takes over the "egypt itinerary" queries from the 14-day page | Search Console 10 Nov |
