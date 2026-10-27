@@ -305,6 +305,13 @@
   "review": "approved",
   "current": true
  },
+ "g-medinet-habu": {
+  "type": "er_guide",
+  "title": "Medinet Habu: el templo de Ramsés III en Luxor",
+  "excerpt": "Medinet Habu, el templo funerario de Ramsés III en la orilla oeste de Luxor: la Puerta Alta, los pilonos, los patios y los pilares osiríacos, los relieves de las guerras contra los libios y los Pueblos del Mar, el templo vecino de Hatshepsut y Tutmosis III y cómo visitarlo.",
+  "review": "approved",
+  "current": true
+ },
  "g-nile-cruise": {
   "type": "er_guide",
   "title": "¿Crucero por el Nilo u hoteles? De Luxor a Asuán",
@@ -316,6 +323,13 @@
   "type": "er_guide",
   "title": "Philae: visitar el templo de Isis en Asuán",
   "excerpt": "Philae, el templo de Isis en una isla de Asuán: uno de los últimos templos egipcios que siguieron activos, la última inscripción jeroglífica fechada, el templo de Hathor y el quiosco de Trajano, el traslado de todo el conjunto a la isla de Agilkia, y cómo visitarlo en barco.",
+  "review": "approved",
+  "current": true
+ },
+ "g-qaitbay": {
+  "type": "er_guide",
+  "title": "Ciudadela de Qaitbay: el fuerte de Alejandría sobre el Faro",
+  "excerpt": "La ciudadela de Qaitbay en Alejandría, construida en 1477–1479 sobre las ruinas del antiguo Faro: sus murallas, su patio y su torre principal, el centro de visitantes sobre el Faro y las defensas de la ciudad, las ruinas sumergidas frente a la costa y cómo visitarla.",
   "review": "approved",
   "current": true
  },

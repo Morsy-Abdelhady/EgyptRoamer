@@ -27,6 +27,13 @@ return [
 		'isis' => [ [ 'commons:Agilkia Isis-Tempel 44.jpg', 'The pylons of the temple of Isis on Agilkia', '' ] ],
 		'what-you-will-see' => [ [ 'commons:Agilkia Trajankiosk 01.JPG', 'Trajan’s Kiosk on Agilkia island', '' ] ],
 	],
+	'medinet-habu-temple-of-ramesses-iii' => [
+		'inside' => [ [ '1622962522220-0d9e0d29d62d', 'Medinet Habu, the painted gateway', 'Siddhesh Mangela' ], [ '1762858279425-ed77c08d7a1c', 'Medinet Habu, the carved columns', 'Fatih Beki' ] ],
+		'reliefs' => [ [ 'commons:Thebes, Medinet Habu, Egypt, Temple of Ramesses III, Reliefs.jpg', 'Reliefs of Ramesses III at Medinet Habu', '' ] ],
+	],
+	'qaitbay-citadel-alexandria' => [
+		'what-you-will-see' => [ [ 'commons:A view of Alexandria from the Citadel of Qaitbay.jpg', 'Alexandria seen from the citadel', '' ] ],
+	],
 	'wadi-el-gemal-national-park' => [
 		'what-you-will-see' => [ [ 'commons:WadiElGimal3.jpg', 'An acacia tree in Wadi El-Gemal', '' ], [ 'commons:Sooty Gull in Ras Baghdadi - Wadi El-Gemal National Park, Red Sea 7.jpg', 'A sooty gull on the coast of the park', '' ] ],
 	],

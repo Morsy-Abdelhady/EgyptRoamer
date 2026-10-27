@@ -315,6 +315,15 @@
   "destination": "luxor",
   "related": "exp-balloon, exp-cruise, exp-valley"
  },
+ "g-medinet-habu": {
+  "type": "er_guide",
+  "title": "Medinet Habu: The Temple of Ramesses III in Luxor",
+  "excerpt": "Medinet Habu, the mortuary temple of Ramesses III on Luxor's West Bank: the High Gate, the pylons, courtyards and Osiride columns, the reliefs of the wars against the Libyans and the Sea Peoples, the temple of Hatshepsut and Thutmose III beside it, and how to visit.",
+  "slug": "medinet-habu-temple-of-ramesses-iii",
+  "topic": "Planning",
+  "destination": "luxor",
+  "related": "exp-valley"
+ },
  "g-nile-cruise": {
   "type": "er_guide",
   "title": "Nile Cruise or Hotels? Luxor to Aswan Explained",
@@ -332,6 +341,15 @@
   "topic": "Planning",
   "destination": "aswan",
   "related": "exp-abu, exp-cruise"
+ },
+ "g-qaitbay": {
+  "type": "er_guide",
+  "title": "Qaitbay Citadel: Alexandria's Fort on the Site of the Lighthouse",
+  "excerpt": "The Citadel of Qaitbay in Alexandria, built in 1477–1479 over the ruins of the ancient Lighthouse: its walls, courtyard and main tower, the visitor centre on the Lighthouse and the city's defences, the sunken ruins just offshore, and how to visit.",
+  "slug": "qaitbay-citadel-alexandria",
+  "topic": "Planning",
+  "destination": "alexandria",
+  "related": "exp-alexandria"
  },
  "g-red-sea-dives": {
   "type": "er_guide",

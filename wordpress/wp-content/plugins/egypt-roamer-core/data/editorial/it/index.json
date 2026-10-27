@@ -305,6 +305,13 @@
   "review": "approved",
   "current": true
  },
+ "g-medinet-habu": {
+  "type": "er_guide",
+  "title": "Medinet Habu: il tempio di Ramses III a Luxor",
+  "excerpt": "Medinet Habu, il tempio funerario di Ramses III sulla riva occidentale di Luxor: la Porta Alta, i piloni, i cortili e i pilastri osiriaci, i rilievi delle guerre contro i Libici e i Popoli del mare, il vicino tempio di Hatshepsut e Thutmose III e come visitarlo.",
+  "review": "approved",
+  "current": true
+ },
  "g-nile-cruise": {
   "type": "er_guide",
   "title": "Crociera sul Nilo o hotel? Da Luxor ad Assuan",
@@ -316,6 +323,13 @@
   "type": "er_guide",
   "title": "Philae: visitare il tempio di Iside ad Assuan",
   "excerpt": "Philae, il tempio di Iside sull’isola ad Assuan: uno degli ultimi templi egizi rimasti in funzione, l’ultima iscrizione geroglifica datata, il tempio di Hathor e il chiosco di Traiano, lo spostamento dell’intero complesso sull’isola di Agilkia, e come visitarlo in barca.",
+  "review": "approved",
+  "current": true
+ },
+ "g-qaitbay": {
+  "type": "er_guide",
+  "title": "Cittadella di Qaitbay: il forte di Alessandria sul sito del Faro",
+  "excerpt": "La cittadella di Qaitbay ad Alessandria, costruita nel 1477–1479 sulle rovine dell’antico Faro: le mura, il cortile e la torre principale, il centro visitatori sul Faro e sulle difese della città, le rovine sommerse appena al largo e come visitarla.",
   "review": "approved",
   "current": true
  },

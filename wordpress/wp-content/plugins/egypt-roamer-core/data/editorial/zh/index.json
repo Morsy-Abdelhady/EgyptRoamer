@@ -305,6 +305,13 @@
   "review": "approved",
   "current": true
  },
+ "g-medinet-habu": {
+  "type": "er_guide",
+  "title": "哈布城：卢克索的拉美西斯三世神庙",
+  "excerpt": "哈布城是拉美西斯三世在卢克索西岸的葬祭神庙：高门、塔门、庭院和奥西里斯柱，描绘与利比亚人和\"海上民族\"作战的浮雕，旁边的哈特谢普苏特与图特摩斯三世神庙，以及参观方式。",
+  "review": "approved",
+  "current": true
+ },
  "g-nile-cruise": {
   "type": "er_guide",
   "title": "尼罗河游船还是酒店？从卢克索到阿斯旺",
@@ -316,6 +323,13 @@
   "type": "er_guide",
   "title": "菲莱：参观阿斯旺的伊西斯神庙",
   "excerpt": "菲莱，阿斯旺岛上的伊西斯神庙：最后仍在运作的古埃及神庙之一，最后一段有纪年的象形文字铭文，哈索尔神庙和图拉真亭，整座建筑群如何迁到阿吉勒基亚岛，以及乘船参观的方式。",
+  "review": "approved",
+  "current": true
+ },
+ "g-qaitbay": {
+  "type": "er_guide",
+  "title": "盖贝依城堡：建在灯塔遗址上的亚历山大要塞",
+  "excerpt": "亚历山大的盖贝依城堡建于1477—1479年，坐落在古代灯塔的废墟上：城墙、庭院和主塔，介绍灯塔和城市防御的游客中心，近岸的水下遗址，以及参观方式。",
   "review": "approved",
   "current": true
  },

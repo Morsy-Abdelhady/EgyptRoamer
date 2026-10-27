@@ -191,3 +191,7 @@ existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefr
 ## Addendum, 27 Oct: visa guide
 
 `g-visa` (new, slug `egypt-visa-guide`) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Portal and button names (Egypt e-Visa Portal, Apply Now) are kept in English because the portal shows them that way; fees keep the US-dollar amounts exactly.
+
+## Addendum, 27 Oct: Medinet Habu and Qaitbay Citadel
+
+`g-medinet-habu` and `g-qaitbay` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Names follow the existing translations (Medinet Habu / Мединет-Абу / 哈布城 / مدينة هابو; Qaitbay / Кайт-бей / 盖贝依城堡 / قايتباي; Ramses III. / Ramsès III / Ramses III / Ramsés III / Рамсес III / 拉美西斯三世 / رمسيس الثالث).

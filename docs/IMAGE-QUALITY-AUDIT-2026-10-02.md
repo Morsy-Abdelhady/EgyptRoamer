@@ -338,6 +338,10 @@ standard thumbnail width. Author and licence were read from each file's Commons 
 | `g-philae` | what-you-will-see | Agilkia_Trajankiosk_01.JPG | Olaf Tausch | CC BY 3.0 |
 | `g-east-bank` (27 Oct, added to the existing Unsplash photos) | karnak | 134_Säulen_in_16_Reihen_geordnet_trugen_das_Dach_der_Halle._12.jpg | Holger Uwe Schmitt | CC BY-SA 4.0 |
 | `g-valley-kings` (27 Oct) | what-it-is | King_valley.jpg | Dmitri tissot | CC BY-SA 4.0 |
+| `g-medinet-habu` (27 Oct) | hero | Thebes,_Medinet_Habu,_Egypt,_Temple_of_Ramesses_III,_First_Pylon.jpg | Vyacheslav Argenberg | CC BY 4.0 |
+| `g-medinet-habu` | reliefs | Thebes,_Medinet_Habu,_Egypt,_Temple_of_Ramesses_III,_Reliefs.jpg | Vyacheslav Argenberg | CC BY 4.0 |
+| `g-qaitbay` (27 Oct) | hero | Citadel_of_Qaitbay,_Alexandria,_Egypt.jpg | Argenberg | CC BY 2.0 |
+| `g-qaitbay` | what-you-will-see | A_view_of_Alexandria_from_the_Citadel_of_Qaitbay.jpg | Slyronit | CC BY-SA 4.0 |
 
 Guide cards elsewhere (lists, related guides) show the hero photo without a credit line; the credit is on the page itself.
 

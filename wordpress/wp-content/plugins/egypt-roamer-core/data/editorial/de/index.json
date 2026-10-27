@@ -305,6 +305,13 @@
   "review": "approved",
   "current": true
  },
+ "g-medinet-habu": {
+  "type": "er_guide",
+  "title": "Medinet Habu: Der Tempel Ramses’ III. in Luxor",
+  "excerpt": "Medinet Habu, der Totentempel Ramses’ III. am Westufer von Luxor: das Hohe Tor, die Pylone, Höfe und Osirispfeiler, die Reliefs der Kriege gegen die Libyer und die Seevölker, der Tempel von Hatschepsut und Thutmosis III. daneben und wie Sie ihn besuchen.",
+  "review": "approved",
+  "current": true
+ },
  "g-nile-cruise": {
   "type": "er_guide",
   "title": "Nilkreuzfahrt oder Hotels? Von Luxor nach Assuan",
@@ -316,6 +323,13 @@
   "type": "er_guide",
   "title": "Philae: Besuch im Isis-Tempel in Assuan",
   "excerpt": "Philae, der Inseltempel der Isis in Assuan: einer der letzten altägyptischen Tempel, die in Betrieb blieben, die letzte datierte Hieroglypheninschrift, der Hathor-Tempel und der Trajan-Kiosk, wie die ganze Anlage auf die Insel Agilkia versetzt wurde und wie Sie sie per Boot besuchen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-qaitbay": {
+  "type": "er_guide",
+  "title": "Zitadelle von Qaitbay: Alexandrias Festung an der Stelle des Leuchtturms",
+  "excerpt": "Die Zitadelle von Qaitbay in Alexandria, 1477–1479 über den Ruinen des antiken Leuchtturms erbaut: Mauern, Hof und Hauptturm, das Besucherzentrum zum Leuchtturm und zu den Verteidigungsanlagen der Stadt, die versunkenen Ruinen direkt vor der Küste und wie Sie sie besuchen.",
   "review": "approved",
   "current": true
  },

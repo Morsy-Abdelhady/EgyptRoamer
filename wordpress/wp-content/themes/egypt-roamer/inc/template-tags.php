@@ -122,6 +122,10 @@ function er_commons_credit( string $photo_id ): array {
 		'134_Säulen_in_16_Reihen_geordnet_trugen_das_Dach_der_Halle._12.jpg'                        => [ 'Holger Uwe Schmitt', 'CC BY-SA 4.0' ],
 		'King_valley.jpg'                                                                           => [ 'Dmitri tissot', 'CC BY-SA 4.0' ],
 		'WadiElGimal2.jpg'                                                                          => [ 'Roland Unger', 'CC BY-SA 4.0' ],
+		'Thebes,_Medinet_Habu,_Egypt,_Temple_of_Ramesses_III,_First_Pylon.jpg'                        => [ 'Vyacheslav Argenberg', 'CC BY 4.0' ],
+		'Thebes,_Medinet_Habu,_Egypt,_Temple_of_Ramesses_III,_Reliefs.jpg'                            => [ 'Vyacheslav Argenberg', 'CC BY 4.0' ],
+		'Citadel_of_Qaitbay,_Alexandria,_Egypt.jpg'                                                   => [ 'Argenberg', 'CC BY 2.0' ],
+		'A_view_of_Alexandria_from_the_Citadel_of_Qaitbay.jpg'                                        => [ 'Slyronit', 'CC BY-SA 4.0' ],
 	];
 	$file = str_replace( ' ', '_', substr( $photo_id, 8 ) );
 	[ $who, $licence ] = $credits[ $file ] ?? [ '', '' ];

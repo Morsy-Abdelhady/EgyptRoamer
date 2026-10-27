@@ -305,6 +305,13 @@
   "review": "approved",
   "current": true
  },
+ "g-medinet-habu": {
+  "type": "er_guide",
+  "title": "Medinet Habu : le temple de Ramsès III à Louxor",
+  "excerpt": "Medinet Habu, le temple funéraire de Ramsès III sur la rive ouest de Louxor : la Haute Porte, les pylônes, les cours et les piliers osiriaques, les reliefs des guerres contre les Libyens et les Peuples de la mer, le temple d’Hatchepsout et de Thoutmôsis III voisin, et comment le visiter.",
+  "review": "approved",
+  "current": true
+ },
  "g-nile-cruise": {
   "type": "er_guide",
   "title": "Croisière sur le Nil ou hôtels ? De Louxor à Assouan",
@@ -316,6 +323,13 @@
   "type": "er_guide",
   "title": "Philae : visiter le temple d’Isis à Assouan",
   "excerpt": "Philae, le temple insulaire d’Isis à Assouan : l’un des derniers temples égyptiens restés actifs, la dernière inscription hiéroglyphique datée, le temple d’Hathor et le kiosque de Trajan, le déplacement de tout l’ensemble sur l’île d’Agilkia, et la visite en bateau.",
+  "review": "approved",
+  "current": true
+ },
+ "g-qaitbay": {
+  "type": "er_guide",
+  "title": "Citadelle de Qaitbay : le fort d’Alexandrie sur le site du Phare",
+  "excerpt": "La citadelle de Qaitbay à Alexandrie, bâtie en 1477–1479 sur les ruines de l’ancien Phare : ses murs, sa cour et sa tour principale, le centre d’accueil consacré au Phare et aux défenses de la ville, les ruines englouties juste au large, et comment la visiter.",
   "review": "approved",
   "current": true
  },

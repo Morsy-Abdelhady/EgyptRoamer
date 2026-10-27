@@ -159,3 +159,14 @@ Exception to the price rule above, approved by the owner with the plan on 2026-1
 | Visa on Arrival platform: website, self-service machine or app; payment; QR code by email or download; printable | https://apps.visaonarrival.gov.eg/ (checked 2026-10-27) |
 | From 1 September 2026 all Egyptian airports use an electronic QR code instead of visa-on-arrival stickers; nationals on the pre-approval list cannot get a visa on arrival | https://egyptembassy.net/consular-services/visas-travel/visa-requirements/ (Embassy of Egypt, Washington; checked 2026-10-27) |
 | Left out: a Sinai-only entry stamp (no official source found), visa-on-arrival fees (not stated in text), the embassy's in-person fees (for US passports at that embassy only) | — |
+
+## Medinet Habu and Qaitbay Citadel (`g-medinet-habu`, `g-qaitbay`, 2026-10-27)
+
+| Claim | Source |
+|---|---|
+| Medinet Habu: Ramesses III's mortuary temple (c. 1184–1153 BC, 20th Dynasty), inspired by the Ramesseum; mud-brick enclosure and High Gate; pylons, courts, halls, sanctuary; palace, storehouses, stables; papyrus and Osiride columns; temple of Hatshepsut and Thutmose III; tombs of the Divine Wives of Amun-Ra; canal and dock; reliefs of the Libyan and Sea Peoples wars | https://egymonuments.gov.eg/en/monuments/the-temple-of-medinet-habu (checked 2026-10-27) |
+| Ancient Thebes with its Necropolis inscribed 1979 | https://egymonuments.gov.eg/en/world-heritage/ancient-thebes-and-its-necropolis/ (checked 2026-10-27) |
+| Qaitbay Citadel: built 1477–1479 by Sultan al-Ashraf Abu al-Nasr Qaitbay over the Lighthouse's ruins; limestone, about 17,550 m²; walls, barracks, storage, three-floor main tower, water tank; enlarged and conserved 2003 | https://egymonuments.gov.eg/en/monuments/qaitbay-fort/ (checked 2026-10-27) |
+| Visitor centre: nine bilingual panels, French Center for Alexandrian Studies, film on the Lighthouse site | https://egymonuments.gov.eg/en/news/opening-of-the-qaitbay-citadel-visitor-center-in-alexandria (checked 2026-10-27) |
+| Sunken site: 150 m, 6–8 m deep, since 1994; Lighthouse debris; Saladin 1167; over 3,000 pieces, 36 at Kom el-Dikka; three wrecks; 3rd century BC–7th century AD | https://egymonuments.gov.eg/en/sunken-monuments/qaitbay-fort-site (checked 2026-10-27) |
+| Left out: Esna Temple (the Ministry has only news items, no monument page); the money and customs guide (figures only in a 2022 Ministry of Finance manual; egypt.travel unreachable on 27 Oct) | — |
