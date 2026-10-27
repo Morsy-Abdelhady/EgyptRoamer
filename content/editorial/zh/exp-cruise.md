@@ -2,11 +2,11 @@
 type: er_experience
 title: 从阿斯旺到卢克索的尼罗河游船
 location: 从阿斯旺到卢克索
-excerpt: 从阿斯旺到卢克索的尼罗河游船：船上的日子是什么样的，沿途的康翁波神庙和埃德富神庙，各选项包含什么（阿布辛贝、热气球飞行、门票），以及游船适合哪些人。
-source: 4130530cf347
+excerpt: 从阿斯旺到卢克索的尼罗河游船：需要几天，船上的日子是什么样的，沿途的康翁波神庙和埃德富神庙，各选项包含什么（阿布辛贝、热气球飞行、门票），以及游船适合哪些人。
+source: 72e34d01f19c
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 ## 这是什么 {#what-it-is}
 
@@ -17,6 +17,12 @@ reviewed: 2026-10-26
 - **康翁波。** 一座托勒密和罗马时期的双神庙，坐落在河湾处，同时供奉两位神祇：鳄鱼神索贝克和鹰头神荷鲁斯。
 - **埃德富。** 埃德富的荷鲁斯神庙是埃及保存最完好的神庙之一。它始建于公元前237年托勒密三世时期，完工于公元前57年，沿一条主轴展开的简洁布局是埃及神庙的经典范例。
 - **卢克索。** 游船在[卢克索](/destinations/luxor/)结束，东岸有神庙，西岸有王室陵墓。
+
+请阅读我们关于沿途神庙的指南：[康翁布](/guides/kom-ombo-temple/)、[埃德富](/guides/temple-of-edfu/)、[卡纳克与卢克索神庙](/guides/karnak-and-luxor-temple/)和[帝王谷](/guides/valley-of-the-kings-tombs-and-tickets/)。在阿斯旺启航之前，还可以去看[菲莱的伊西斯神庙](/guides/philae-temple-of-isis/)。
+
+## 需要几天 {#how-long}
+
+本页的选项大约为期**4天3晚**，从阿斯旺顺流而下到卢克索，神庙参观分散在这几天里。有些选项包含清晨很早出发的日子，用于阿布辛贝或热气球飞行：下面每个选项都写明了包含哪些内容。
 
 ## 预订之前 {#before-you-book}
 
@@ -36,6 +42,12 @@ reviewed: 2026-10-26
 许多人会在游船前后在卢克索多留一天，去看游船行程匆匆带过的景点，例如[帝王谷](/experiences/valley-of-the-kings-hatshepsut-temple/)。
 
 ## 常见问题 {#faq}
+
+?? 从阿斯旺到卢克索的尼罗河游船需要几天？
+本页的选项大约为期4天3晚，从阿斯旺到卢克索。
+
+?? 从阿斯旺到卢克索的游船能看到哪些神庙？
+途中有康翁布和埃德富，最后是卢克索的神庙和陵墓。有些选项还会加上从阿斯旺清晨出发的阿布辛贝之行。
 
 ?? 从卢克索出发好还是从阿斯旺出发好？
 都可以。从阿斯旺出发，旅程在卢克索结束，之后还有很多可看。本页的选项都从阿斯旺驶往卢克索。

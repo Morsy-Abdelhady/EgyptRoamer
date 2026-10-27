@@ -510,6 +510,8 @@ function er_world_data( string $seed ): array {
 					[ er_t( 'Combine it with' ), er_t( 'An extra day in Luxor' ), er_t( 'Many people add an extra day in Luxor before or after for the sites the boat schedule rushes.' ), null ],
 				],
 				'faq'      => [
+					[ er_t( 'How many days is a Nile cruise from Aswan to Luxor?' ), er_t( 'The options on this page last about 4 days and 3 nights, from Aswan to Luxor.' ) ],
+					[ er_t( 'Which temples do you see on a cruise from Aswan to Luxor?' ), er_t( 'Kom Ombo and Edfu on the way, then the temples and tombs of Luxor at the end. Some options add Abu Simbel as an early trip from Aswan.' ) ],
 					[ er_t( 'Is it better to start in Luxor or in Aswan?' ), er_t( 'Both work. Starting in Aswan ends the trip in Luxor, which has more to see afterwards. Starting in Luxor ends it in Aswan’s calmer atmosphere. These three options all sail from Aswan to Luxor.' ) ],
 					[ er_t( 'Does the cruise include Abu Simbel?' ), er_t( 'On two of the three options, yes, as an early-morning trip from Aswan. On the private option it is an extra.' ) ],
 					[ er_t( 'Are the temple visits guided?' ), er_t( 'Yes. On all three options an Egyptologist guide leads the visits.' ) ],

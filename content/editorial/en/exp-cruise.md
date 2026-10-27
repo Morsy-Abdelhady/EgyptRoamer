@@ -3,7 +3,7 @@ type: er_experience
 title: Nile Cruise from Aswan to Luxor
 slug: nile-cruise-aswan-to-luxor
 location: Aswan to Luxor
-excerpt: A Nile cruise from Aswan to Luxor: what the days on board are like, the temples of Kom Ombo and Edfu on the way, what the options include (Abu Simbel, a balloon flight, entrance fees), and who a cruise suits.
+excerpt: A Nile cruise from Aswan to Luxor: how many days it takes, what the days on board are like, the temples of Kom Ombo and Edfu on the way, what the options include (Abu Simbel, a balloon flight, entrance fees), and who a cruise suits.
 destination: aswan, luxor
 ---
 ## What it is {#what-it-is}
@@ -15,6 +15,12 @@ Between Aswan and Luxor, the Nile passes some of the best-preserved temples in E
 - **Kom Ombo.** A double temple of the Ptolemaic and Roman periods on a bend of the river, dedicated to two gods at once: Sobek, the crocodile god, and Horus, the falcon-headed god.
 - **Edfu.** The Temple of Horus at Edfu is one of the best-preserved temples in Egypt. It was begun under Ptolemy III in 237 BC and completed in 57 BC, and its simple plan along one main axis is the classic example of an Egyptian temple.
 - **Luxor.** The cruise ends in [Luxor](/destinations/luxor/), with its temples on the East Bank and the royal tombs on the West Bank.
+
+Read our guides to the temples on the route: [Kom Ombo](/guides/kom-ombo-temple/), [Edfu](/guides/temple-of-edfu/), [Karnak and Luxor Temple](/guides/karnak-and-luxor-temple/) and [the Valley of the Kings](/guides/valley-of-the-kings-tombs-and-tickets/). In Aswan, before you sail, there is [Philae, the temple of Isis](/guides/philae-temple-of-isis/).
+
+## How long it takes {#how-long}
+
+The options on this page last about **4 days and 3 nights**, sailing downstream from Aswan to Luxor, with the temple visits spread over the days. Days that start very early, for Abu Simbel or a balloon flight, are part of some options: each option below says what it includes.
 
 ## Before you book {#before-you-book}
 
@@ -34,6 +40,12 @@ Choose a cruise if you want an easy, relaxed trip with the river as the highligh
 Many people add an extra day in Luxor before or after the cruise for the sites the boat schedule rushes, such as the [Valley of the Kings](/experiences/valley-of-the-kings-hatshepsut-temple/).
 
 ## Frequently asked questions {#faq}
+
+?? How many days is a Nile cruise from Aswan to Luxor?
+The options on this page last about 4 days and 3 nights, from Aswan to Luxor.
+
+?? Which temples do you see on a cruise from Aswan to Luxor?
+Kom Ombo and Edfu on the way, then the temples and tombs of Luxor at the end. Some options add Abu Simbel as an early trip from Aswan.
 
 ?? Is it better to start in Luxor or in Aswan?
 Both work. Starting in Aswan ends the trip in Luxor, which has more to see afterwards. The options on this page all sail from Aswan to Luxor.

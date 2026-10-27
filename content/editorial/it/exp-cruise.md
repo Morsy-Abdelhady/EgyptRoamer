@@ -2,11 +2,11 @@
 type: er_experience
 title: Crociera sul Nilo da Assuan a Luxor
 location: Da Assuan a Luxor
-excerpt: Una crociera sul Nilo da Assuan a Luxor: com’è la vita a bordo, i templi di Kom Ombo ed Edfu lungo il percorso, cosa includono le opzioni (Abu Simbel, un volo in mongolfiera, i biglietti d’ingresso) e a chi è adatta una crociera.
-source: 4130530cf347
+excerpt: Una crociera sul Nilo da Assuan a Luxor: quanti giorni dura, com’è la vita a bordo, i templi di Kom Ombo ed Edfu lungo il percorso, cosa includono le opzioni (Abu Simbel, un volo in mongolfiera, i biglietti d’ingresso) e a chi è adatta una crociera.
+source: 72e34d01f19c
 review: approved
-reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-26
-reviewed: 2026-10-26
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 ## Di cosa si tratta {#what-it-is}
 
@@ -17,6 +17,12 @@ Tra Assuan e Luxor il Nilo scorre accanto ad alcuni dei templi meglio conservati
 - **Kom Ombo.** Un tempio doppio di epoca tolemaica e romana su un’ansa del fiume, dedicato a due dèi insieme: Sobek, il dio coccodrillo, e Horus, il dio dalla testa di falco.
 - **Edfu.** Il Tempio di Horus a Edfu è uno dei templi meglio conservati d’Egitto. Fu iniziato sotto Tolomeo III nel 237 a.C. e completato nel 57 a.C., e la sua pianta semplice lungo un unico asse è l’esempio classico di tempio egizio.
 - **Luxor.** La crociera termina a [Luxor](/destinations/luxor/), con i templi sulla riva est e le tombe reali sulla riva ovest.
+
+Leggete le nostre guide ai templi del percorso: [Kom Ombo](/guides/kom-ombo-temple/), [Edfu](/guides/temple-of-edfu/), [Karnak e il tempio di Luxor](/guides/karnak-and-luxor-temple/) e [la Valle dei Re](/guides/valley-of-the-kings-tombs-and-tickets/). Ad Assuan, prima di salpare, c’è [Philae, il tempio di Iside](/guides/philae-temple-of-isis/).
+
+## Quanto dura {#how-long}
+
+Le opzioni di questa pagina durano circa **4 giorni e 3 notti** e scendono il fiume da Assuan a Luxor, con le visite ai templi distribuite nei giorni. Alcune opzioni comprendono giornate che iniziano molto presto, per Abu Simbel o un volo in mongolfiera: ogni opzione qui sotto indica che cosa include.
 
 ## Prima di prenotare {#before-you-book}
 
@@ -36,6 +42,12 @@ Scegli una crociera se vuoi un viaggio semplice e rilassato, con il fiume come m
 Molti aggiungono un giorno a Luxor prima o dopo la crociera per i siti che il programma della nave visita in fretta, come la [Valle dei Re](/experiences/valley-of-the-kings-hatshepsut-temple/).
 
 ## Domande frequenti {#faq}
+
+?? Quanti giorni dura una crociera sul Nilo da Assuan a Luxor?
+Le opzioni di questa pagina durano circa 4 giorni e 3 notti, da Assuan a Luxor.
+
+?? Quali templi si vedono in una crociera da Assuan a Luxor?
+Kom Ombo ed Edfu lungo il percorso, poi i templi e le tombe di Luxor all’arrivo. Alcune opzioni aggiungono Abu Simbel come escursione mattutina da Assuan.
 
 ?? Meglio partire da Luxor o da Assuan?
 Vanno bene entrambe. Partendo da Assuan il viaggio finisce a Luxor, dove dopo resta molto da vedere. Le opzioni di questa pagina navigano tutte da Assuan a Luxor.
