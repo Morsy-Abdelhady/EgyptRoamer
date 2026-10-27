@@ -284,3 +284,5 @@ Search Console (28 days to 25 Oct) showed the top pages already match their quer
 | Change | Where | Check | Expected effect | Re-check |
 |---|---|---|---|---|
 | 5 pins from the queue: best time to visit ("Egypt Travel Planning"), Valley of the Kings and inside the pyramids ("Ancient Egypt"), White Desert night ("Egypt's Nature"), Grand Egyptian Museum ("Egypt Travel Planning"); each links to its guide, "Photo: Unsplash" | Pinterest (Egypt Roamer account; the browser had LIORIVE active and was switched before pinning) | Profile shows 20 pins, drafts empty | Pinterest impressions and clicks | 10 Nov |
+
+PageSpeed Insights after Theme 1.3.34 (homepage, 28 Oct; pagespeed.web.dev, the API quota was exhausted): desktop 99 (FCP 0.5 s, LCP 0.8 s, TBT 0 ms, CLS 0.013); mobile 80 (FCP 2.6 s, LCP 4.1 s, TBT 0 ms, CLS 0.111). Mobile LCP and CLS (just over the 0.1 limit) are the next speed items.
