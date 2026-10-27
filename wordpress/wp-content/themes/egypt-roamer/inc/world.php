@@ -408,7 +408,7 @@ function er_world_trip_groups( array $ids ): void {
 			if ( '' !== $tag || '' !== $best ) {
 				echo '<p>' . esc_html( $tag ) . ( '' !== $best ? ' <small>· ' . esc_html( er_t( 'Best time' ) . ' ' . $best ) . '</small>' : '' ) . '</p>';
 			}
-			echo '</div><a class="tbanner__go" href="' . esc_url( get_permalink( $dest ) ) . '">' . esc_html( er_t( 'Read the {place} guide', [ 'place' => get_the_title( $dest ) ] ) ) . ' <span aria-hidden="true">→</span></a></div>';
+			echo '</div><a class="tbanner__go" href="' . esc_url( get_permalink( $dest ) ) . '">' . esc_html( er_t( 'Read the {place} guide', [ 'place' => get_the_title( $dest ) ] ) ) . ' <span aria-hidden="true">' . er_arrow() . '</span></a></div>';
 		} else {
 			echo '<h2 class="t-h3 tgroup__h" id="tg-0">' . esc_html( er_t( 'More trips' ) ) . '</h2>';
 		}
@@ -494,7 +494,7 @@ function er_world_place_cards( array $ids ): void {
 		echo '<div class="pcard__acts">';
 		if ( $n ) {
 			$go = 1 === $n ? get_permalink( $trips[0] ) : er_ux2_trip_url( [ 'destination' => $dest, 'len' => '', 'private' => false, 'pickup' => false ] );
-			echo '<a class="btn btn--primary btn--sm" href="' . esc_url( $go ) . '">' . esc_html( 1 === $n ? er_t( 'See the trip' ) : er_t( 'See all {n} trips', [ 'n' => (string) $n ] ) ) . ' <span aria-hidden="true">→</span></a>';
+			echo '<a class="btn btn--primary btn--sm" href="' . esc_url( $go ) . '">' . esc_html( 1 === $n ? er_t( 'See the trip' ) : er_t( 'See all {n} trips', [ 'n' => (string) $n ] ) ) . ' <span aria-hidden="true">' . er_arrow() . '</span></a>';
 		}
 		echo '<a class="pcard__about" href="' . esc_url( $url ) . '">' . esc_html( er_t( 'About {place}', [ 'place' => $name ] ) ) . '</a></div></div></article>';
 	}
@@ -728,7 +728,7 @@ function er_world_scene_trips( int $n ): void {
 	$place = er_world_chapter_place( $n );
 	$url   = $place ? er_ux2_trip_url( [ 'destination' => $place, 'len' => '', 'private' => false, 'pickup' => false ] ) : (string) get_post_type_archive_link( 'er_experience' );
 	echo '<section class="scene__pick scene__trips" aria-label="' . esc_attr( er_t( 'Trips in this chapter' ) ) . '"><div class="scene__trips-h"><p>' . esc_html( er_t( 'Trips in this chapter' ) ) . '</p><strong>' . esc_html( er_t( '{n} trips to book', [ 'n' => (string) count( $ids ) ] ) ) . '</strong>'
-		. '<a href="' . esc_url( $url ) . '">' . esc_html( (string) er_home( "scene{$n}_cta" ) ) . ' <span aria-hidden="true">→</span></a></div><div class="scene__trips-list" style="--n:' . (int) count( $ids ) . '">';
+		. '<a href="' . esc_url( $url ) . '">' . esc_html( (string) er_home( "scene{$n}_cta" ) ) . ' <span aria-hidden="true">' . er_arrow() . '</span></a></div><div class="scene__trips-list" style="--n:' . (int) count( $ids ) . '">';
 	foreach ( $ids as $id ) {
 		echo er_world_mini( $id ); // phpcs:ignore WordPress.Security.EscapeOutput
 	}
@@ -874,7 +874,7 @@ function er_world_routes_section(): string {
 		$stock = er_stock_id_for( $id );
 		$img   = $thumb ? er_img( $thumb, 'er-card', [ 'alt' => '', 'sizes' => '(max-width: 700px) 90vw, 400px', 'loading' => 'lazy' ] ) : ( '' !== $stock ? er_stock_img( $stock, '', [ 'sizes' => '(max-width: 700px) 90vw, 400px' ], [ 400, 640, 900 ], 0.6 ) : '' );
 		$plan  = add_query_arg( [ 'plan' => $places, 'n' => $nights ], home_url( '/' ) ) . '#planner';
-		$cards .= '<li class="route"><a class="route__img" href="' . esc_url( get_permalink( $id ) ) . '" tabindex="-1" aria-hidden="true">' . $img . '</a><div class="route__b"><h3><a href="' . esc_url( get_permalink( $id ) ) . '">' . esc_html( get_the_title( $id ) ) . '</a></h3><p>' . esc_html( wp_trim_words( get_the_excerpt( $id ), 30, '…' ) ) . '</p><div class="route__acts"><a class="btn btn--primary btn--sm" href="' . esc_url( get_permalink( $id ) ) . '">' . esc_html( er_t( 'Read the route' ) ) . '</a><a class="route__plan" href="' . esc_url( $plan ) . '" data-route-plan>' . esc_html( er_t( 'Start from this route' ) ) . ' →</a></div></div></li>';
+		$cards .= '<li class="route"><a class="route__img" href="' . esc_url( get_permalink( $id ) ) . '" tabindex="-1" aria-hidden="true">' . $img . '</a><div class="route__b"><h3><a href="' . esc_url( get_permalink( $id ) ) . '">' . esc_html( get_the_title( $id ) ) . '</a></h3><p>' . esc_html( wp_trim_words( get_the_excerpt( $id ), 30, '…' ) ) . '</p><div class="route__acts"><a class="btn btn--primary btn--sm" href="' . esc_url( get_permalink( $id ) ) . '">' . esc_html( er_t( 'Read the route' ) ) . '</a><a class="route__plan" href="' . esc_url( $plan ) . '" data-route-plan>' . esc_html( er_t( 'Start from this route' ) ) . ' ' . er_arrow() . '</a></div></div></li>';
 	}
 	if ( '' === $cards ) {
 		return '';

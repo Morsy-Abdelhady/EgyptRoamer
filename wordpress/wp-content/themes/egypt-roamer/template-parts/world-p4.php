@@ -300,7 +300,7 @@ $er_ep     = explode( ' · ', (string) $W['eyebrow'] );
 			<h2 id="wmore-t"><?php er_e( 'Not quite this one?' ); ?></h2>
 			<div class="wmore__row">
 				<?php foreach ( $er_more as $er_m ) { echo er_world_mini( (int) $er_m ); } // phpcs:ignore WordPress.Security.EscapeOutput ?>
-				<?php if ( $er_dest ) : ?><a href="<?php echo esc_url( function_exists( 'er_ux2_trip_url' ) ? er_ux2_trip_url( [ 'destination' => $er_dest, 'len' => '', 'private' => false, 'pickup' => false ] ) : get_post_type_archive_link( 'er_experience' ) ); ?>" class="wmore__all"><?php echo esc_html( er_t( 'All {place} trips', [ 'place' => (string) $W['place'] ] ) ); ?> →</a><?php endif; ?>
+				<?php if ( $er_dest ) : ?><a href="<?php echo esc_url( function_exists( 'er_ux2_trip_url' ) ? er_ux2_trip_url( [ 'destination' => $er_dest, 'len' => '', 'private' => false, 'pickup' => false ] ) : get_post_type_archive_link( 'er_experience' ) ); ?>" class="wmore__all"><?php echo esc_html( er_t( 'All {place} trips', [ 'place' => (string) $W['place'] ] ) ); ?> <?php echo er_arrow(); // phpcs:ignore WordPress.Security.EscapeOutput -- a fixed arrow character ?></a><?php endif; ?>
 			</div>
 		</section>
 	<?php endif; ?>

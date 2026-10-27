@@ -134,10 +134,10 @@ function init() {
     // A place named in the question: its trips, filtered on Trips & tours.
     const qn = q.toLowerCase();
     const place = (ux2.index || []).find((x) => x.k === "place" && x.trips && qn.includes(x.title.toLowerCase()));
-    if (place && own(place.trips)) box.append(el("a", { class: "ux2-days", href: own(place.trips) }, ux2.alltrips.replace("{place}", place.title) + " →"));
+    if (place && own(place.trips)) box.append(el("a", { class: "ux2-days", href: own(place.trips) }, ux2.alltrips.replace("{place}", place.title) + (document.dir === "rtl" ? " ←" : " →")));
     const m = q.match(DAYS);
     if (m && ux2.planner && own(ux2.planner)) {
-      const a = el("a", { class: "ux2-days", href: own(ux2.planner) }, ux2.days.replace("{n}", m[1]) + " →");
+      const a = el("a", { class: "ux2-days", href: own(ux2.planner) }, ux2.days.replace("{n}", m[1]) + (document.dir === "rtl" ? " ←" : " →"));
       box.append(a);
     }
   }

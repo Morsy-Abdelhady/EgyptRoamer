@@ -112,8 +112,8 @@ foreach ( $er_all as $T ) {
 		}
 	}
 	$card = $M && $T['id'] === $M['id']
-		? '<a class="tcard tcard--slim" href="' . esc_url( $T['url'] ) . '"><div><small>' . esc_html( er_t( 'The trip in this guide' ) ) . '</small><h3>' . esc_html( $T['title'] ) . '</h3></div><span class="btn btn--gold btn--sm">' . esc_html( $er_see( $T ) ) . ' →</span></a>'
-		: '<a class="tcard" href="' . esc_url( $T['url'] ) . '">' . ( '' !== $T['img'] ? '<img src="' . esc_url( $T['img'] ) . '" alt="" loading="lazy" />' : '' ) . '<div><small>' . esc_html( er_t( 'The trip · {place}', [ 'place' => $T['place'] ] ) ) . '</small><h3>' . esc_html( $T['title'] ) . '</h3>' . $er_chips( $T ) . '<span class="go">' . esc_html( $er_see( $T ) ) . ' →</span></div></a>';
+		? '<a class="tcard tcard--slim" href="' . esc_url( $T['url'] ) . '"><div><small>' . esc_html( er_t( 'The trip in this guide' ) ) . '</small><h3>' . esc_html( $T['title'] ) . '</h3></div><span class="btn btn--gold btn--sm">' . esc_html( $er_see( $T ) ) . ' ' . er_arrow() . '</span></a>'
+		: '<a class="tcard" href="' . esc_url( $T['url'] ) . '">' . ( '' !== $T['img'] ? '<img src="' . esc_url( $T['img'] ) . '" alt="" loading="lazy" />' : '' ) . '<div><small>' . esc_html( er_t( 'The trip · {place}', [ 'place' => $T['place'] ] ) ) . '</small><h3>' . esc_html( $T['title'] ) . '</h3>' . $er_chips( $T ) . '<span class="go">' . esc_html( $er_see( $T ) ) . ' ' . er_arrow() . '</span></div></a>';
 	$er_html = substr_replace( $er_html, $card, $end, 0 );
 }
 
@@ -161,7 +161,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 				<time class="visually-hidden" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( er_local_date() ); ?></time>
 			</div>
 			<?php if ( $er_isplace && $er_all ) : ?>
-				<div class="acts ahero__acts"><a class="btn btn--gold" href="#book"><?php echo esc_html( 1 === count( $er_all ) ? er_t( 'See the trip' ) : er_t( 'See all {n} trips', [ 'n' => (string) count( $er_all ) ] ) ); ?> →</a></div>
+				<div class="acts ahero__acts"><a class="btn btn--gold" href="#book"><?php echo esc_html( 1 === count( $er_all ) ? er_t( 'See the trip' ) : er_t( 'See all {n} trips', [ 'n' => (string) count( $er_all ) ] ) ); ?> <?php echo er_arrow(); // phpcs:ignore WordPress.Security.EscapeOutput -- a fixed arrow character ?></a></div>
 			<?php endif; ?>
 		</div>
 		<?php if ( $er_hero && '' !== $er_hero[2] ) : ?><span class="credit"><?php echo esc_html( $er_hero[2] ); ?></span><?php endif; ?>
@@ -183,11 +183,11 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 	<div class="abody">
 		<article class="prose">
 			<?php echo $er_html; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content output ?>
-			<p class="asrc"><?php er_e( 'Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.' ); ?><?php $er_sp = er_trust_page( 'sources' ); ?><?php if ( $er_sp ) : ?> <a href="<?php echo esc_url( $er_sp[0] ); ?>"><?php echo esc_html( $er_sp[1] ); ?> →</a><?php endif; ?></p>
+			<p class="asrc"><?php er_e( 'Facts in this guide come from official and published sources, listed in our sources page. Opening hours, tickets and rules change; check on the day.' ); ?><?php $er_sp = er_trust_page( 'sources' ); ?><?php if ( $er_sp ) : ?> <a href="<?php echo esc_url( $er_sp[0] ); ?>"><?php echo esc_html( $er_sp[1] ); ?> <?php echo er_arrow(); // phpcs:ignore WordPress.Security.EscapeOutput -- a fixed arrow character ?></a><?php endif; ?></p>
 			<?php if ( $M ) : ?>
 				<div class="gmore">
 					<?php foreach ( array_slice( $er_all, 1 ) as $T ) : ?>
-						<a class="bk__also" href="<?php echo esc_url( $T['url'] ); ?>"><small><?php er_e( 'Also in this guide' ); ?></small><b><?php echo esc_html( $T['title'] ); ?></b> →</a>
+						<a class="bk__also" href="<?php echo esc_url( $T['url'] ); ?>"><small><?php er_e( 'Also in this guide' ); ?></small><b><?php echo esc_html( $T['title'] ); ?></b> <?php echo er_arrow(); // phpcs:ignore WordPress.Security.EscapeOutput -- a fixed arrow character ?></a>
 					<?php endforeach; ?>
 					<?php
 					$er_h = $M['dest'] && function_exists( 'er_hotel_offers_for_post' ) ? er_hotel_offers_for_post( $M['dest'], 1 ) : [];
@@ -208,7 +208,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 						<small><?php echo esc_html( $M['place'] ); ?></small>
 						<h3><?php echo esc_html( $M['title'] ); ?></h3>
 						<?php echo $er_chips( $M ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-						<a class="btn btn--gold" href="<?php echo esc_url( $M['url'] . '#book' ); ?>"><?php echo esc_html( $er_see( $M ) ); ?> →</a>
+						<a class="btn btn--gold" href="<?php echo esc_url( $M['url'] . '#book' ); ?>"><?php echo esc_html( $er_see( $M ) ); ?> <?php echo er_arrow(); // phpcs:ignore WordPress.Security.EscapeOutput -- a fixed arrow character ?></a>
 						<div class="bk__save"><?php echo er_save_button( er_trip_save_data( $M['id'], $M['len'] ), 'lcf', true ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
 						<?php if ( $M['partners'] ) : ?><p class="bk__p"><?php echo esc_html( er_t( 'From {partners}', [ 'partners' => implode( ' · ', $M['partners'] ) ] ) ); ?></p><?php endif; ?>
 					</div>
@@ -219,7 +219,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 						<small><?php echo esc_html( $er_isplace ? er_t( 'Trips in {place}', [ 'place' => $er_pname ] ) : ( $er_plan ? er_t( 'Trips on this route' ) : er_t( 'Trips in this guide' ) ) ); ?></small>
 						<h3><?php echo esc_html( $er_isplace ? ( 1 === count( $er_all ) ? er_t( '1 trip you can book' ) : er_t( '{n} trips you can book', [ 'n' => count( $er_all ) ] ) ) : ( $er_plan ? er_t( '{n} trips for this plan', [ 'n' => count( $er_all ) ] ) : ( 1 === count( $er_all ) ? er_t( '1 trip mentioned here' ) : er_t( '{n} trips mentioned here', [ 'n' => count( $er_all ) ] ) ) ) ); ?></h3>
 						<ul class="rtl"><?php foreach ( $er_all as $T ) { echo er_world_guide_rcard( $T ); } // phpcs:ignore WordPress.Security.EscapeOutput ?></ul>
-						<a class="btn btn--gold" href="<?php echo esc_url( $er_isplace ? er_ux2_trip_url( [ 'destination' => $er_id, 'len' => '', 'private' => false, 'pickup' => false ] ) : (string) get_post_type_archive_link( 'er_experience' ) ); ?>"><?php echo esc_html( $er_isplace ? er_t( 'All {place} trips', [ 'place' => $er_pname ] ) : er_t( 'See all trips' ) ); ?> →</a>
+						<a class="btn btn--gold" href="<?php echo esc_url( $er_isplace ? er_ux2_trip_url( [ 'destination' => $er_id, 'len' => '', 'private' => false, 'pickup' => false ] ) : (string) get_post_type_archive_link( 'er_experience' ) ); ?>"><?php echo esc_html( $er_isplace ? er_t( 'All {place} trips', [ 'place' => $er_pname ] ) : er_t( 'See all trips' ) ); ?> <?php echo er_arrow(); // phpcs:ignore WordPress.Security.EscapeOutput -- a fixed arrow character ?></a>
 						<?php $er_ph = $er_isplace && function_exists( 'er_hotel_offers_for_post' ) ? er_hotel_offers_for_post( $er_id, 6 ) : []; ?>
 						<?php if ( $er_ph ) : ?>
 							<p class="bk__h"><?php echo esc_html( er_t( 'Staying in {name}?', [ 'name' => $er_pname ] ) ); ?></p>
@@ -235,7 +235,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 				<p class="bk__disc"><?php echo esc_html( $er_disc ); ?></p>
 			<?php else : ?>
 				<div class="bk">
-					<div class="bk__b"><small><?php er_e( 'Plan with us' ); ?></small><h3><?php er_e( 'Find the trips for this plan' ); ?></h3><p class="bk__intro"><?php er_e( 'Tours and day trips across Egypt, each with its options side by side.' ); ?></p><a class="btn btn--gold" href="<?php echo esc_url( (string) get_post_type_archive_link( 'er_experience' ) ); ?>"><?php er_e( 'Choose a trip' ); ?> →</a></div>
+					<div class="bk__b"><small><?php er_e( 'Plan with us' ); ?></small><h3><?php er_e( 'Find the trips for this plan' ); ?></h3><p class="bk__intro"><?php er_e( 'Tours and day trips across Egypt, each with its options side by side.' ); ?></p><a class="btn btn--gold" href="<?php echo esc_url( (string) get_post_type_archive_link( 'er_experience' ) ); ?>"><?php er_e( 'Choose a trip' ); ?> <?php echo er_arrow(); // phpcs:ignore WordPress.Security.EscapeOutput -- a fixed arrow character ?></a></div>
 				</div>
 			<?php endif; ?>
 		</aside>
@@ -260,7 +260,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 					<?php echo $er_chips( $M ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 					<p><?php er_e( 'You book and pay on Viator, GetYourGuide, Klook or Trip.com. Free cancellation is shown when the partner offers it.' ); ?></p>
 					<div class="acts">
-						<a class="btn btn--gold" href="<?php echo esc_url( $M['url'] ); ?>"><?php echo esc_html( '' !== ( $M['world']['go'] ?? '' ) ? $M['world']['go'] : er_t( 'See the trip' ) ); ?> →</a>
+						<a class="btn btn--gold" href="<?php echo esc_url( $M['url'] ); ?>"><?php echo esc_html( '' !== ( $M['world']['go'] ?? '' ) ? $M['world']['go'] : er_t( 'See the trip' ) ); ?> <?php echo er_arrow(); // phpcs:ignore WordPress.Security.EscapeOutput -- a fixed arrow character ?></a>
 						<?php if ( $M['dest'] ) : ?><a class="btn btn--light" href="<?php echo esc_url( er_ux2_trip_url( [ 'destination' => $M['dest'], 'len' => '', 'private' => false, 'pickup' => false ] ) ); ?>"><?php echo esc_html( er_t( 'All {place} trips', [ 'place' => get_the_title( $M['dest'] ) ] ) ); ?></a><?php endif; ?>
 					</div>
 				</div>

@@ -755,7 +755,7 @@ function er_trip_card( int $post_id, array $offers, string $heading = 'h3' ): st
 			<?php endif; ?>
 			<div class="tcard__foot">
 				<span><?php echo str_replace( '{options}', '<b>' . esc_html( $options ) . '</b>', esc_html( er_t( '{options} to compare' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped parts ?><?php if ( $er_low ) : ?><small class="tcard__from"><?php echo esc_html( er_t( 'From {price} on {partner}', [ 'price' => er_money( $er_low[0], $er_low[1] ), 'partner' => $er_low[2] ] ) ); ?></small><?php endif; ?></span>
-				<span class="tcard__go"><?php echo esc_html( er_t( 'See options' ) ); ?> <span class="tcard__arrow" aria-hidden="true">→</span></span>
+				<span class="tcard__go"><?php echo esc_html( er_t( 'See options' ) ); ?> <span class="tcard__arrow" aria-hidden="true"><?php echo er_arrow(); // phpcs:ignore WordPress.Security.EscapeOutput -- a fixed arrow character ?></span></span>
 			</div>
 		</div>
 	</li>
