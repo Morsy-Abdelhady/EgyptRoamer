@@ -51,16 +51,6 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 
 <a class="skip-link" href="#main"><?php er_e( 'Skip to content' ); ?></a>
 
-<?php if ( is_front_page() ) : ?>
-	<div class="loader" id="loader" aria-hidden="true">
-		<div class="loader__inner">
-			<?php // Phones have no loader screen (pages.css): a 1 px placeholder there, so the logo isn't downloaded. ?>
-			<picture><source media="(max-width: 900px)" srcset="<?php echo ER_BLANK_IMG; // phpcs:ignore WordPress.Security.EscapeOutput -- constant data URI ?>" /><img class="loader__logo" src="<?php echo esc_url( er_brand_url( 'egypt-roamer-logo-dark-600.webp' ) ); ?>" srcset="<?php echo esc_attr( er_brand_url( 'egypt-roamer-logo-dark-600.webp' ) . ' 600w, ' . er_brand_url( 'egypt-roamer-logo-dark-1200.webp' ) . ' 1200w, ' . er_brand_url( 'egypt-roamer-logo-dark.webp' ) . ' 1759w' ); ?>" sizes="min(320px, 70vw)" width="1759" height="203" alt="" /></picture>
-			<span class="loader__bar"><i></i></span>
-		</div>
-	</div>
-<?php endif; ?>
-
 <div class="scroll-progress" aria-hidden="true"><i id="scroll-progress"></i></div>
 
 <header class="nav" id="nav" data-state="top">

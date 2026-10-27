@@ -6549,7 +6549,6 @@ padding-bottom: 3rem;
 hyphens: auto;
 -webkit-hyphens: auto;
 }
-@media (max-width: 900px) {
 .loader {
 display: none;
 }
@@ -6573,7 +6572,6 @@ animation-delay: 0.2s;
 }
 .hero .finder {
 animation-delay: 0.25s;
-}
 }
 @media (max-width: 900px) {
 body.home:not(.assistant-placed) .assistant-launch {
