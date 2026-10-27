@@ -27,7 +27,7 @@
     var seenTrips = JSON.parse(localStorage.getItem("er:recent") || "[]").filter(function (x) { return x && x.url && x.title; });
     if (seenTrips.length) {
       var esc = function (t) { var d = document.createElement("div"); d.textContent = t == null ? "" : String(t); return d.innerHTML; };
-      var pic = function (im) { return /^https?:/.test(im || "") ? im : im ? "https://images.unsplash.com/photo-" + im + "?auto=format&fit=crop&w=160&h=160&q=70" : ""; };
+      var pic = function (im) { im = String(im || ""); if (/^https?:/.test(im)) return im; if (im.indexOf("commons:") === 0) return "https://commons.wikimedia.org/wiki/Special:FilePath/" + encodeURIComponent(im.slice(8).replace(/ /g, "_")) + "?width=500"; return im ? "https://images.unsplash.com/photo-" + im.split(":")[0] + "?auto=format&fit=crop&w=160&h=160&q=70" : ""; };
       var box = document.createElement("section");
       box.className = "trecent";
       box.setAttribute("aria-label", bar.dataset.lRecent);
