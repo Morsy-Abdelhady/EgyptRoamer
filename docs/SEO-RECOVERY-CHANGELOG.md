@@ -211,3 +211,12 @@ was blocked (browser not connected). Both done by hand today, in the owner's bro
 |---|---|---|---|---|
 | Theme 1.3.30 / Core 1.2.84 (`32ea926`): the trip page's FAQ (proposal 4 renders `inc/world-data.php`, generated from `docs/prototypes/journey-v4/world-data.json`, not the article body) gains "How many days is a Nile cruise from Aswan to Luxor?" (about 4 days and 3 nights, from the three partner pages) and "Which temples do you see…?", 8 languages via `tools/i18n/new-strings.json`. The `exp-cruise` article also gains route links to the new place guides and a "How long it takes" section (8 languages), kept in step with the page | Theme, Core, wp-admin | Live FAQ shows both questions; sync 8 updated, then up to date (287) | Better positions for "aswan to luxor cruise" (EN 61, FR 56) | Search Console, 2–3 weeks |
 
+## 2026-10-27: pyramids guide expanded; social posts
+
+| Change | Where | Verified | Expected effect | Check on |
+|---|---|---|---|---|
+| Core 1.2.85 (`0f0a4cb`): `g-inside-pyramids` gains "Khafre's and Menkaure's pyramids" (heights, casing, Sphinx in Khafre's complex, queens' pyramids; Meresankh III and Workers' Cemetery tickets) and "How tall are the pyramids of Giza?", 8 languages, from the Ministry's pages. The Ministry's pages do not describe their interiors, so nothing is said about them | Core, wp-admin | Sync 8 updated, then up to date (287); local page shows the section | Better positions for "inside pyramid of giza" (EN 72) and near-page-1 IT/AR/DE queries | Search Console, 2–3 weeks |
+| Instagram: Hatshepsut post ("Full guide: link in bio"; the owner added https://egyptroamer.com to the bio). Facebook page: first post, Edfu, as a link post to the guide (Facebook's preview uses the page's own image), credit in the text, published as the page, no boost | Instagram, Facebook | "Post shared"; page shows the post | Referral visits | KPI week 3 |
+| Pinterest: Kom Ombo and Philae pins (board "Ancient Egypt"), each linking to its guide. On the first try the Pinterest session in Edge was the LIORIVE account: nothing was published there; one unpublished Kom Ombo draft was left in that account (expires in 30 days) | Pinterest | Profile shows 6 pins, each pin page links to its guide | Referral visits | — |
+
+| Instagram: Wadi Al-Hitan post (Fayoum fossil whales, UNESCO 2005; "Full guide: link in bio"; credit Medomadrex, CC BY-SA 4.0) | Instagram | Profile shows 3 posts | Referral visits | KPI week 3 |
