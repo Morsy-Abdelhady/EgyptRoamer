@@ -278,3 +278,9 @@ Search Console (28 days to 25 Oct) showed the top pages already match their quer
 | Change | Where | Check | Expected effect | Re-check |
 |---|---|---|---|---|
 | New hub `/guides/egypt-itinerary/` in 8 languages (only restates the 7/10/14-day plans), linked from `g-7-days`, `g-10-days`, `g-14-days` in every language | Guide translations sync (8 created, 23 updated); Editorial updates (g-7-days en) | All 8 pages 200 with hreflang; 7/10/14 link to the hub; desktop + phone, en + ar, no errors | The hub takes over the "egypt itinerary" queries from the 14-day page | Search Console 10 Nov |
+
+## 2026-10-28: Pinterest day 2
+
+| Change | Where | Check | Expected effect | Re-check |
+|---|---|---|---|---|
+| 5 pins from the queue: best time to visit ("Egypt Travel Planning"), Valley of the Kings and inside the pyramids ("Ancient Egypt"), White Desert night ("Egypt's Nature"), Grand Egyptian Museum ("Egypt Travel Planning"); each links to its guide, "Photo: Unsplash" | Pinterest (Egypt Roamer account; the browser had LIORIVE active and was switched before pinning) | Profile shows 20 pins, drafts empty | Pinterest impressions and clicks | 10 Nov |
