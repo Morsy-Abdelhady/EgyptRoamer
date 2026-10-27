@@ -262,3 +262,11 @@ Baseline, Search Console, last 28 days (data to 25 Oct): **3 clicks, 865 impress
 |---|---|---|---|---|
 | Day 1: 5 pins — Aswan–Luxor cruise, 7-day itinerary (board "Egypt Travel Planning"), Great Sand Sea ("Egypt's Nature"), Mummification Museum and Alexandria National Museum ("Ancient Egypt"), each linking to its page | Pinterest | Profile shows 15 pins | Pinterest impressions and clicks | 10 Nov |
 | Daily queue for the remaining 31 pages written to `C:\Users\morsy\.claude\scheduled-tasks\egypt-roamer-pinterest-daily\queue.json`; the scheduled task itself was refused by the automatic safety check, so the daily pins are run by hand from that queue | — | — | — | — |
+
+## 2026-10-27: homepage speed, no intro loader on desktop (Theme 1.3.34)
+
+GTmetrix (desktop, Seattle, 26 Oct): grade D, performance 44%, LCP 3.7 s, TBT 548 ms. Cause in the code: the desktop homepage held the hero behind a black logo loader for 1.3-1.6 s plus its wipe (phones had no loader since 2 Oct). Owner approved removing it. PageSpeed API quota was exhausted, so before/after were measured with Playwright + system Chrome (3 runs, median; mobile = 412 px, 4x CPU, 1.6 Mbps, 150 ms).
+
+| Change | Where | Check | Expected effect | Re-check |
+|---|---|---|---|---|
+| Loader screen removed on every width; desktop gets the phones' CSS entrance | `header.php`, `src/js/components/hero.js`, `pages.css` | Desktop LCP 2.02 s → 0.94 s; mobile LCP 2.80 s → 2.74 s, TBT 820 → 582 ms; no page errors; hero checked desktop + phone, en + ar | Better desktop Core Web Vitals; GTmetrix LCP | GTmetrix + PageSpeed 28 Oct |
