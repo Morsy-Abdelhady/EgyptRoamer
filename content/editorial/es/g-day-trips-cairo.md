@@ -2,10 +2,10 @@
 type: er_guide
 title: Las mejores excursiones de un día desde El Cairo
 excerpt: Las mejores excursiones de un día desde El Cairo: Guiza y el Gran Museo Egipcio, Saqqara y Dahshur, Alejandría en el Mediterráneo y Wadi Al-Hitan en el desierto de El Fayum, con lo que hace especial a cada una y cómo organizarla.
-source: 84d369a68b5e
+source: 4bd2d80e1812
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -21,7 +21,7 @@ Al sur de Guiza siguen los campos de pirámides. En **Saqqara** se alza la pirá
 
 ## Alejandría {#alexandria}
 
-La ciudad mediterránea de Egipto, fundada por Alejandro Magno. La excursión incluye la ciudadela de Qaitbay en el lugar del antiguo faro de Pharos, la Bibliotheca Alexandrina, las catacumbas romanas de Kom el-Shoqafa y un almuerzo de pescado en la Corniche. Es un día largo, así que ve con coche y un plan. Mira nuestra [excursión a Alejandría](/experiences/alexandria-day-trip-from-cairo/).
+La ciudad mediterránea de Egipto, fundada por Alejandro Magno. La excursión incluye la ciudadela de Qaitbay en el lugar del antiguo faro de Pharos, la Bibliotheca Alexandrina, las catacumbas romanas de Kom el-Shoqafa y un almuerzo de pescado en la Corniche. Es un día largo, así que ve con coche y un plan. Mira nuestra [excursión a Alejandría](/experiences/alexandria-day-trip-from-cairo/). Consulta [nuestra guía completa de la ciudadela de Qaitbay](/guides/qaitbay-citadel-alexandria/).
 
 ## Wadi Al-Hitan (el valle de las Ballenas) {#wadi-al-hitan}
 

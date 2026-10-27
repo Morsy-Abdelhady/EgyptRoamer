@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: Guía de Alejandría: el Egipto mediterráneo, de la ciudadela de Qaitbay y la Bibliotheca Alexandrina a las catacumbas romanas, el marisco en la Corniche y las excursiones a Rosetta y El Alamein.
-source: 9e6b07589923
+source: 0a17428df551
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -19,7 +19,7 @@ Alejandría parece otro país comparada con El Cairo. Fundada por Alejandro Magn
 ## Capas de historia: qué ver {#what-to-see}
 
 ### La ciudadela de Qaitbay
-El sultán mameluco Qaitbay levantó este fuerte marítimo en el siglo XV en el lugar del antiguo faro de Alejandría, una de las Siete Maravillas del mundo antiguo, reutilizando sus piedras. Recorre las murallas para ver el puerto Este.
+El sultán mameluco Qaitbay levantó este fuerte marítimo en el siglo XV en el lugar del antiguo faro de Alejandría, una de las Siete Maravillas del mundo antiguo, reutilizando sus piedras. Recorre las murallas para ver el puerto Este. Consulta [nuestra guía completa de la ciudadela de Qaitbay](/guides/qaitbay-citadel-alexandria/).
 
 ### La Bibliotheca Alexandrina
 La biblioteca moderna es un homenaje a la antigua Biblioteca de Alejandría. Su edificio en forma de disco inclinado mira al mar; dentro hay museos y exposiciones, además de la inmensa sala de lectura.

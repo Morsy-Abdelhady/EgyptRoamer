@@ -2,10 +2,10 @@
 type: er_guide
 title: Die besten Tagesausflüge ab Kairo
 excerpt: Die besten Tagesausflüge ab Kairo: Gizeh und das Grand Egyptian Museum, Sakkara und Dahschur, Alexandria am Mittelmeer und Wadi al-Hitan in der Wüste von Fayum, mit dem, was jeden Ausflug ausmacht, und wie Sie ihn planen.
-source: 84d369a68b5e
+source: 4bd2d80e1812
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -21,7 +21,7 @@ Südlich von Gizeh setzen sich die Pyramidenfelder fort. In **Sakkara** steht di
 
 ## Alexandria {#alexandria}
 
-Ägyptens Mittelmeerstadt, gegründet von Alexander dem Großen. Ein Tagesausflug umfasst die Zitadelle von Qaitbay an der Stelle des antiken Pharos, die Bibliotheca Alexandrina, die römischen Katakomben von Kom el-Schoqafa und ein Fischessen an der Corniche. Es ist ein langer Tag, also fahren Sie mit Wagen und Plan. Siehe unseren [Tagesausflug nach Alexandria](/experiences/alexandria-day-trip-from-cairo/).
+Ägyptens Mittelmeerstadt, gegründet von Alexander dem Großen. Ein Tagesausflug umfasst die Zitadelle von Qaitbay an der Stelle des antiken Pharos, die Bibliotheca Alexandrina, die römischen Katakomben von Kom el-Schoqafa und ein Fischessen an der Corniche. Es ist ein langer Tag, also fahren Sie mit Wagen und Plan. Siehe unseren [Tagesausflug nach Alexandria](/experiences/alexandria-day-trip-from-cairo/). Mehr dazu in [unserem Guide zur Zitadelle von Qaitbay](/guides/qaitbay-citadel-alexandria/).
 
 ## Wadi al-Hitan (Tal der Wale) {#wadi-al-hitan}
 

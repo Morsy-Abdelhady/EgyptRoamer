@@ -1,5 +1,5 @@
 {
- "_note": "Bodies that `wp egypt-roamer editorial` may replace although they are no longer seed text: the plain-text sha1 (tags stripped, entities decoded, whitespace collapsed) of earlier shipped versions, per seed id and language. A live body that matches was imported unchanged; any edit in WordPress changes the hash and keeps the editor's body. dest-siwa: every version before the 26 Oct 2026 source revision. g-best-time, g-7-days, g-cairo (en): every version before the 27 Oct 2026 visa-guide link.",
+ "_note": "Bodies that `wp egypt-roamer editorial` may replace although they are no longer seed text: the plain-text sha1 (tags stripped, entities decoded, whitespace collapsed) of earlier shipped versions, per seed id and language. A live body that matches was imported unchanged; any edit in WordPress changes the hash and keeps the editor's body. dest-siwa: every version before the 26 Oct 2026 source revision. g-best-time, g-7-days, g-cairo (en): every version before the 27 Oct 2026 visa-guide link. dest-luxor, dest-alexandria (all languages): every version before the 27 Oct 2026 links to the Medinet Habu and Qaitbay guides.",
  "dest-siwa": {
   "en": ["95b2da29210ac3a4d1f9032ed3c0a6195b071f2d"],
   "ar": ["71ebaac9c4ab40352bafb4aa1af70b03fc3a5135", "e25ceb68c13bf0f6ae7d96cbe2e04eee6187208c"],
@@ -18,5 +18,25 @@
  },
  "g-cairo": {
   "en": ["39b8a1b34347b3ebef3db1a95d881e641e4f5c2f"]
+ },
+ "dest-luxor": {
+  "en": ["95b5fed6f3d683e5fa4f4d3d086d4acfb44ffef3"],
+  "ar": ["015ba74cbd7d1133fa9c08a3abb63c1c5a0d5cd6", "33d7201295bae68d252346ca945217753ade1679", "39db8e34bed8689a7165866731ae78f6d7c1305c"],
+  "de": ["9098206edbc016f22df34b183fa6447fe32119ae"],
+  "fr": ["5631395d961d22a58657afd8d578a4e22099b40a", "25e22b8455800747acd1525f736e3b9e04c6dfc2"],
+  "it": ["460168de3a876b44f12816530040b707ba2f3f46"],
+  "es": ["8c90e6d209d047fce9c326927a46d9c4d8948ae4"],
+  "ru": ["3531bd7f9beba787bd4c42e998c0ab49fdce2a91"],
+  "zh": ["7b6cec9906364802d59ef5697671d903bd810bdd"]
+ },
+ "dest-alexandria": {
+  "en": ["11b8567ef9bb69761cd67b47b7aef2682dcec68e"],
+  "ar": ["0628120795ca0466c70f9a1ced68b10439d77ba7", "4176483e6181836fb9faeeaaef24f10ddb10eb7a"],
+  "de": ["d412379ee92e23b6dcda149c7efcf6bc25e7f30b"],
+  "fr": ["a7802ddda7befdc44b12e191f0ba8776e5781972"],
+  "it": ["eff7514a2a596301200a5fd32ddb6e374b68999e", "dd58e328d83b26aa78d3d0060a8dd510c915f29e"],
+  "es": ["ca923206d71afcb7776129dffdff1693645f4427"],
+  "ru": ["8e1046ff335ddea0c1204f40551bb313c629c9a9"],
+  "zh": ["cb7c0725bd69a3152d420eaf69f5b21cf0bc4f14", "b8d1a3b10cf266283c7158ad55cc7b00bcd797aa"]
  }
 }

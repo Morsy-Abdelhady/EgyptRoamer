@@ -2,7 +2,7 @@
 type: er_guide
 title: La Vallée des Rois : tombes, billets et conseils
 excerpt: Comment visiter la Vallée des Rois à Louxor : ce que sont les tombes royales, comment fonctionnent les billets, Toutânkhamon et Séthi Iᵉʳ, que voir d’autre sur la rive ouest, et des conseils pratiques pour une vallée chaude et fréquentée.
-source: 11ebcda4fe54
+source: 23b8c8010d3d
 review: approved
 reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
 reviewed: 2026-10-27
@@ -41,7 +41,7 @@ La vallée s’associe en général à d’autres sites de la rive ouest :
 
 - **Le temple d’Hatchepsout** à Deir el-Bahari, adossé aux falaises.
 - **La Vallée des Reines,** avec la tombe de Néfertari (billet à part).
-- **Medinet Habou,** le temple de Ramsès III, aux reliefs richement sculptés.
+- **Medinet Habou,** le temple de Ramsès III, aux reliefs richement sculptés. Voir [notre guide complet de Médinet Habou](/guides/medinet-habu-temple-of-ramesses-iii/).
 - **Deir el-Medineh,** le village des artisans qui creusèrent les tombes royales.
 - **Les colosses de Memnon** au bord de la route.
 

@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: Guida di Alessandria: l’Egitto affacciato sul Mediterraneo, dalla Cittadella di Qaitbay e dalla Bibliotheca Alexandrina alle catacombe romane, il pesce sulla Corniche e le gite a Rosetta ed El Alamein.
-source: 9e6b07589923
+source: 0a17428df551
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -19,7 +19,7 @@ Alessandria sembra un altro Paese rispetto al Cairo. Fondata da Alessandro Magno
 ## Strati di storia: cosa vedere {#what-to-see}
 
 ### La Cittadella di Qaitbay
-Il sultano mamelucco Qaitbay costruì questo forte sul mare nel XV secolo sul sito dell’antico Faro, una delle Sette Meraviglie del mondo antico, riutilizzandone le pietre. Percorri i bastioni per la vista sul Porto Orientale.
+Il sultano mamelucco Qaitbay costruì questo forte sul mare nel XV secolo sul sito dell’antico Faro, una delle Sette Meraviglie del mondo antico, riutilizzandone le pietre. Percorri i bastioni per la vista sul Porto Orientale. Leggete [la nostra guida completa alla cittadella di Qaitbay](/guides/qaitbay-citadel-alexandria/).
 
 ### La Bibliotheca Alexandrina
 La biblioteca moderna è un omaggio all’antica Biblioteca di Alessandria. Il suo edificio a disco inclinato guarda il mare; all’interno, oltre all’immensa sala di lettura, ci sono musei e mostre.

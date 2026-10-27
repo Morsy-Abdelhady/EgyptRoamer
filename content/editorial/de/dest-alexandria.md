@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: Alexandria-Reiseführer: Ägyptens Mittelmeerseite, von der Zitadelle von Qaitbay und der Bibliotheca Alexandrina bis zu römischen Katakomben, Fisch an der Corniche und Tagesausflügen nach Rosetta und El Alamein.
-source: 9e6b07589923
+source: 0a17428df551
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -19,7 +19,7 @@ Alexandria fühlt sich an wie ein anderes Land als Kairo. Gegründet von Alexand
 ## Schichten der Geschichte: was Sie sehen sollten {#what-to-see}
 
 ### Die Zitadelle von Qaitbay
-Der Mamlukensultan Qaitbay ließ diese Seefestung im 15. Jahrhundert an der Stelle des antiken Leuchtturms Pharos errichten, eines der Sieben Weltwunder der Antike, und verbaute dessen Steine. Gehen Sie auf den Wällen entlang und genießen Sie den Blick zurück über den Osthafen.
+Der Mamlukensultan Qaitbay ließ diese Seefestung im 15. Jahrhundert an der Stelle des antiken Leuchtturms Pharos errichten, eines der Sieben Weltwunder der Antike, und verbaute dessen Steine. Gehen Sie auf den Wällen entlang und genießen Sie den Blick zurück über den Osthafen. Mehr dazu in [unserem Guide zur Zitadelle von Qaitbay](/guides/qaitbay-citadel-alexandria/).
 
 ### Die Bibliotheca Alexandrina
 Die moderne Bibliothek ist eine Hommage an die antike Bibliothek von Alexandria. Ihr Gebäude, eine geneigte Scheibe, blickt aufs Meer; innen gibt es neben dem riesigen Lesesaal Museen und Ausstellungen.

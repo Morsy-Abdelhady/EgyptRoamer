@@ -2,10 +2,10 @@
 type: er_guide
 title: 从开罗出发的最佳一日游
 excerpt: 从开罗出发的最佳一日游：吉萨与大埃及博物馆、萨卡拉和代赫舒尔、地中海边的亚历山大，以及法尤姆沙漠中的鲸鱼谷，介绍每一处的特点和行程安排。
-source: 84d369a68b5e
+source: 4bd2d80e1812
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -21,7 +21,7 @@ reviewed: 2026-10-15
 
 ## 亚历山大 {#alexandria}
 
-埃及的地中海城市，由亚历山大大帝建立。一日游包括建在古代法罗斯灯塔旧址上的盖贝依城堡、亚历山大图书馆、罗马时期的孔姆·舒卡法地下墓穴，以及滨海大道上的海鲜午餐。这一天很长，请包车并安排好行程。请看我们的[亚历山大一日游](/experiences/alexandria-day-trip-from-cairo/)。
+埃及的地中海城市，由亚历山大大帝建立。一日游包括建在古代法罗斯灯塔旧址上的盖贝依城堡、亚历山大图书馆、罗马时期的孔姆·舒卡法地下墓穴，以及滨海大道上的海鲜午餐。这一天很长，请包车并安排好行程。请看我们的[亚历山大一日游](/experiences/alexandria-day-trip-from-cairo/)。详见[我们的盖贝依城堡指南](/guides/qaitbay-citadel-alexandria/)。
 
 ## 鲸鱼谷（Wadi Al-Hitan） {#wadi-al-hitan}
 

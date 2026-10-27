@@ -2,10 +2,10 @@
 type: er_guide
 title: Les meilleures excursions d’une journée depuis Le Caire
 excerpt: Les meilleures excursions d’une journée depuis Le Caire : Gizeh et le Grand Musée égyptien, Saqqarah et Dahchour, Alexandrie sur la Méditerranée et Wadi Al-Hitan dans le désert du Fayoum, avec ce qui fait l’intérêt de chacune et comment l’organiser.
-source: 84d369a68b5e
+source: 4bd2d80e1812
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -21,7 +21,7 @@ Au sud de Gizeh, les champs de pyramides se poursuivent. À **Saqqarah** se dres
 
 ## Alexandrie {#alexandria}
 
-La ville méditerranéenne de l’Égypte, fondée par Alexandre le Grand. L’excursion comprend la citadelle de Qaitbay sur le site de l’antique phare de Pharos, la Bibliotheca Alexandrina, les catacombes romaines de Kom el-Chougafa et un déjeuner de poisson sur la Corniche. C’est une longue journée : partez avec une voiture et un programme. Voyez notre [excursion à Alexandrie](/experiences/alexandria-day-trip-from-cairo/).
+La ville méditerranéenne de l’Égypte, fondée par Alexandre le Grand. L’excursion comprend la citadelle de Qaitbay sur le site de l’antique phare de Pharos, la Bibliotheca Alexandrina, les catacombes romaines de Kom el-Chougafa et un déjeuner de poisson sur la Corniche. C’est une longue journée : partez avec une voiture et un programme. Voyez notre [excursion à Alexandrie](/experiences/alexandria-day-trip-from-cairo/). Voir [notre guide complet de la citadelle de Qaitbay](/guides/qaitbay-citadel-alexandria/).
 
 ## Wadi Al-Hitan (la vallée des Baleines) {#wadi-al-hitan}
 

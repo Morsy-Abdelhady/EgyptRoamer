@@ -40,7 +40,7 @@ The terraced temple of the female pharaoh Hatshepsut, set against a sheer cliff.
 
 ### Also on the West Bank
 - **Valley of the Queens.** Includes the tomb of Nefertari, which has a separate ticket.
-- **Medinet Habu.** The mortuary temple of Ramesses III, with some of the best-preserved carved and painted reliefs in the region, and usually fewer visitors.
+- **Medinet Habu.** The mortuary temple of Ramesses III, with some of the best-preserved carved and painted reliefs in the region, and usually fewer visitors. See [our full guide to Medinet Habu](/guides/medinet-habu-temple-of-ramesses-iii/).
 - **The Ramesseum.** The temple of Ramesses II, with its fallen colossus.
 - **Deir el-Medina.** The village of the craftsmen who built the royal tombs, with their own small painted tombs.
 - **Colossi of Memnon.** Two giant seated statues by the roadside.

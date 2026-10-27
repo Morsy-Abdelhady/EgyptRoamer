@@ -2,7 +2,7 @@
 type: er_guide
 title: 帝王谷：陵墓、门票与参观建议
 excerpt: 如何参观卢克索的帝王谷：王室陵墓是什么样的，门票怎么用，图坦卡蒙和塞提一世，西岸还有什么可看，以及应对这片炎热、拥挤山谷的实用建议。
-source: 11ebcda4fe54
+source: 23b8c8010d3d
 review: approved
 reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
 reviewed: 2026-10-27
@@ -41,7 +41,7 @@ reviewed: 2026-10-27
 
 - **哈特谢普苏特神庙**，位于代尔拜赫里，背倚峭壁。
 - **王后谷**，内有奈菲尔塔利墓（需另购门票）。
-- **哈布城**，拉美西斯三世的神庙，浮雕丰富。
+- **哈布城**，拉美西斯三世的神庙，浮雕丰富。详见[我们的哈布城指南](/guides/medinet-habu-temple-of-ramesses-iii/)。
 - **德尔麦地那**，建造王室陵墓的工匠居住的村落。
 - 路边的**门农巨像**。
 

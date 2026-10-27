@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: Guía de Luxor: Karnak y el templo de Luxor en la orilla este, el Valle de los Reyes y el templo de Hatshepsut en la orilla oeste, globos al amanecer, cruceros por el Nilo, dónde alojarse y cuántos días necesitas.
-source: 48dfac96eb26
+source: 4a1294df6c8c
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -44,7 +44,7 @@ El templo en terrazas de la mujer faraón Hatshepsut, apoyado en un acantilado v
 
 ### También en la orilla oeste
 - **El Valle de las Reinas.** Con la tumba de Nefertari, que tiene entrada aparte.
-- **Medinet Habu.** El templo funerario de Ramsés III, con algunos de los relieves tallados y pintados mejor conservados de la zona y, por lo general, menos visitantes.
+- **Medinet Habu.** El templo funerario de Ramsés III, con algunos de los relieves tallados y pintados mejor conservados de la zona y, por lo general, menos visitantes. Consulta [nuestra guía completa de Medinet Habu](/guides/medinet-habu-temple-of-ramesses-iii/).
 - **El Rameseo.** El templo de Ramsés II, con su coloso caído.
 - **Deir el-Medina.** La aldea de los artesanos que construyeron las tumbas reales, con sus propias tumbas pequeñas y pintadas.
 - **Los Colosos de Memnón.** Dos gigantescas estatuas sedentes junto a la carretera.

@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: 卢克索旅行指南：东岸的卡纳克神庙与卢克索神庙，西岸的帝王谷与哈特谢普苏特神庙，黎明热气球，尼罗河游轮，住在哪里以及需要几天。
-source: 48dfac96eb26
+source: 4a1294df6c8c
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -44,7 +44,7 @@ reviewed: 2026-09-29
 
 ### 西岸其他景点
 - **王后谷。** 包括奈菲尔塔利墓，需要单独购票。
-- **哈布城神庙。** 拉美西斯三世的祭庙，保存着这一带最完好的一些浮雕和彩绘，游人通常也较少。
+- **哈布城神庙。** 拉美西斯三世的祭庙，保存着这一带最完好的一些浮雕和彩绘，游人通常也较少。详见[我们的哈布城指南](/guides/medinet-habu-temple-of-ramesses-iii/)。
 - **拉美西姆祭庙。** 拉美西斯二世的神庙，有一尊倒下的巨像。
 - **代尔麦地那。** 修建王陵的工匠们居住的村落，还有他们自己小巧的彩绘墓。
 - **门农巨像。** 路边两尊巨大的坐像。

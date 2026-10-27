@@ -2,10 +2,10 @@
 type: er_guide
 title: La rive ouest de Louxor au-delà de la Vallée des Rois
 excerpt: La rive ouest de Louxor au-delà des tombes royales : le temple en terrasses d’Hatchepsout à Deir el-Bahari, les colosses de Memnon, le Ramesseum, Médinet Habou, la Vallée des Reines et le village des bâtisseurs de tombes à Deir el-Médineh, et comment organiser la journée.
-source: 84c0a26666c1
+source: ef9ab25071c6
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -29,7 +29,7 @@ Le temple funéraire de Ramsès II, dédié au dieu Amon et au roi défunt. Il �
 
 ## Médinet Habou {#medinet-habu}
 
-Le temple funéraire de Ramsès III, dédié lui aussi à Amon, se dresse dans une enceinte fortifiée dont l’entrée est flanquée de tours inspirées des forteresses syriennes. Ses murs portent des scènes religieuses et les guerres de Ramsès III contre les Libyens, les Nubiens et les Peuples de la mer. Un palais royal jouxtait la cour d’entrée. Au Ier millénaire de notre ère, une ville copte, Djémé, s’est développée à l’intérieur des murs.
+Le temple funéraire de Ramsès III, dédié lui aussi à Amon, se dresse dans une enceinte fortifiée dont l’entrée est flanquée de tours inspirées des forteresses syriennes. Ses murs portent des scènes religieuses et les guerres de Ramsès III contre les Libyens, les Nubiens et les Peuples de la mer. Un palais royal jouxtait la cour d’entrée. Au Ier millénaire de notre ère, une ville copte, Djémé, s’est développée à l’intérieur des murs. Voir [notre guide complet de Médinet Habou](/guides/medinet-habu-temple-of-ramesses-iii/).
 
 > **À Médinet Habou**
 > Cherchez les batailles de Ramsès III parmi les scènes religieuses, et prenez le temps de voir la porte fortifiée.

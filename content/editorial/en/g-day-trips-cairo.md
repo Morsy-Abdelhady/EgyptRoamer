@@ -21,7 +21,7 @@ South of Giza, the pyramid fields continue. At **Saqqara** stands the Step Pyram
 
 ## Alexandria {#alexandria}
 
-Egypt's Mediterranean city, founded by Alexander the Great. A day trip covers the Citadel of Qaitbay on the site of the ancient Pharos, the Bibliotheca Alexandrina, the Roman catacombs of Kom el-Shoqafa and a fish lunch on the Corniche. It's a long day, so go with a car and a plan. See our [Alexandria day trip](/experiences/alexandria-day-trip-from-cairo/).
+Egypt's Mediterranean city, founded by Alexander the Great. A day trip covers the Citadel of Qaitbay on the site of the ancient Pharos, the Bibliotheca Alexandrina, the Roman catacombs of Kom el-Shoqafa and a fish lunch on the Corniche. It's a long day, so go with a car and a plan. See our [Alexandria day trip](/experiences/alexandria-day-trip-from-cairo/). See [our full guide to the Citadel of Qaitbay](/guides/qaitbay-citadel-alexandria/).
 
 ## Wadi Al-Hitan (Whale Valley) {#wadi-al-hitan}
 

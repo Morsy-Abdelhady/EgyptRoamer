@@ -2,10 +2,10 @@
 type: er_guide
 title: Das Westufer von Luxor jenseits des Tals der Könige
 excerpt: Das Westufer von Luxor jenseits der Königsgräber: Hatschepsuts Terrassentempel in Deir el-Bahari, die Memnonkolosse, das Ramesseum, Medinet Habu, das Tal der Königinnen und das Dorf der Grabbauer in Deir el-Medina, und wie Sie den Tag planen.
-source: 84c0a26666c1
+source: ef9ab25071c6
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -29,7 +29,7 @@ Der Totentempel Ramses’ II., dem Gott Amun und dem verstorbenen König geweiht
 
 ## Medinet Habu {#medinet-habu}
 
-Der Totentempel Ramses’ III., ebenfalls Amun geweiht, steht in einer befestigten Umfassung, die man durch Türme nach dem Vorbild syrischer Festungen betritt. Seine Wände zeigen religiöse Szenen und die Kriege Ramses’ III. gegen die Libyer, die Nubier und die Seevölker. Neben dem Vorhof stand ein Königspalast. Im ersten Jahrtausend n. Chr. entstand innerhalb der Mauern eine koptische Stadt namens Djeme.
+Der Totentempel Ramses’ III., ebenfalls Amun geweiht, steht in einer befestigten Umfassung, die man durch Türme nach dem Vorbild syrischer Festungen betritt. Seine Wände zeigen religiöse Szenen und die Kriege Ramses’ III. gegen die Libyer, die Nubier und die Seevölker. Neben dem Vorhof stand ein Königspalast. Im ersten Jahrtausend n. Chr. entstand innerhalb der Mauern eine koptische Stadt namens Djeme. Mehr dazu in [unserem Guide zu Medinet Habu](/guides/medinet-habu-temple-of-ramesses-iii/).
 
 > **In Medinet Habu**
 > Suchen Sie zwischen den religiösen Szenen nach den Schlachten Ramses’ III., und nehmen Sie sich Zeit für das befestigte Tor.

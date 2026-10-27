@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: Guide de Louxor : Karnak et le temple de Louxor sur la rive est, la Vallée des Rois et le temple d’Hatchepsout sur la rive ouest, les montgolfières à l’aube, les croisières sur le Nil, où loger et combien de jours prévoir.
-source: 48dfac96eb26
+source: 4a1294df6c8c
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -44,7 +44,7 @@ Le temple en terrasses de la femme pharaon Hatchepsout, adossé à une falaise �
 
 ### Également sur la rive ouest
 - **La Vallée des Reines.** Avec la tombe de Néfertari, soumise à un billet séparé.
-- **Medinet Habou.** Le temple funéraire de Ramsès III, avec certains des reliefs sculptés et peints les mieux conservés de la région, et généralement moins de visiteurs.
+- **Medinet Habou.** Le temple funéraire de Ramsès III, avec certains des reliefs sculptés et peints les mieux conservés de la région, et généralement moins de visiteurs. Voir [notre guide complet de Médinet Habou](/guides/medinet-habu-temple-of-ramesses-iii/).
 - **Le Ramesséum.** Le temple de Ramsès II et son colosse renversé.
 - **Deir el-Médineh.** Le village des artisans qui creusèrent les tombes royales, avec leurs propres petites tombes peintes.
 - **Les colosses de Memnon.** Deux statues assises géantes au bord de la route.

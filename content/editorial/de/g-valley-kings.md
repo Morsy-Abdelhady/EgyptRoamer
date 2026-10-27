@@ -2,7 +2,7 @@
 type: er_guide
 title: Das Tal der Könige: Gräber, Tickets und Tipps
 excerpt: So besuchen Sie das Tal der Könige in Luxor: was die Königsgräber sind, wie die Tickets funktionieren, Tutanchamun und Sethos I., was es am Westufer noch zu sehen gibt, und praktische Tipps für ein heißes, volles Tal.
-source: 11ebcda4fe54
+source: 23b8c8010d3d
 review: approved
 reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
 reviewed: 2026-10-27
@@ -41,7 +41,7 @@ Das Tal wird meist mit anderen Stätten am Westufer kombiniert:
 
 - **Der Hatschepsut-Tempel** in Deir el-Bahari, vor den Felswänden.
 - **Das Tal der Königinnen,** mit dem Grab der Nefertari (eigenes Ticket).
-- **Medinet Habu,** der Tempel Ramses’ III., mit reichen Reliefs.
+- **Medinet Habu,** der Tempel Ramses’ III., mit reichen Reliefs. Mehr dazu in [unserem Guide zu Medinet Habu](/guides/medinet-habu-temple-of-ramesses-iii/).
 - **Deir el-Medina,** das Dorf der Handwerker, die die Königsgräber bauten.
 - **Die Memnonkolosse** am Straßenrand.
 

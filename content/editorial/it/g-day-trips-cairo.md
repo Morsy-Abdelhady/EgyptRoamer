@@ -2,10 +2,10 @@
 type: er_guide
 title: Le migliori gite di un giorno dal Cairo
 excerpt: Le migliori gite di un giorno dal Cairo: Giza e il Grande Museo Egizio, Saqqara e Dahshur, Alessandria sul Mediterraneo e Wadi Al-Hitan nel deserto del Fayyum, con cosa rende speciale ciascuna e come organizzarla.
-source: 84d369a68b5e
+source: 4bd2d80e1812
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -21,7 +21,7 @@ A sud di Giza, i campi di piramidi continuano. A **Saqqara** sorge la Piramide a
 
 ## Alessandria {#alexandria}
 
-La città mediterranea dell’Egitto, fondata da Alessandro Magno. La gita comprende la Cittadella di Qaitbay sul sito dell’antico faro di Pharos, la Bibliotheca Alexandrina, le catacombe romane di Kom el-Shoqafa e un pranzo di pesce sulla Corniche. È una giornata lunga, quindi parti con un’auto e un programma. Vedi la nostra [gita ad Alessandria](/experiences/alexandria-day-trip-from-cairo/).
+La città mediterranea dell’Egitto, fondata da Alessandro Magno. La gita comprende la Cittadella di Qaitbay sul sito dell’antico faro di Pharos, la Bibliotheca Alexandrina, le catacombe romane di Kom el-Shoqafa e un pranzo di pesce sulla Corniche. È una giornata lunga, quindi parti con un’auto e un programma. Vedi la nostra [gita ad Alessandria](/experiences/alexandria-day-trip-from-cairo/). Leggete [la nostra guida completa alla cittadella di Qaitbay](/guides/qaitbay-citadel-alexandria/).
 
 ## Wadi Al-Hitan (la Valle delle Balene) {#wadi-al-hitan}
 

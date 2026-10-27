@@ -2,10 +2,10 @@
 type: er_guide
 title: La orilla oeste de Luxor más allá del Valle de los Reyes
 excerpt: La orilla oeste de Luxor más allá de las tumbas reales: el templo en terrazas de Hatshepsut en Deir el-Bahari, los Colosos de Memnón, el Rameseum, Medinet Habu, el Valle de las Reinas y la aldea de los constructores de tumbas en Deir el-Medina, y cómo organizar el día.
-source: 84c0a26666c1
+source: ef9ab25071c6
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -29,7 +29,7 @@ El templo funerario de Ramsés II, dedicado al dios Amón y al rey difunto. Era 
 
 ## Medinet Habu {#medinet-habu}
 
-El templo funerario de Ramsés III, dedicado también a Amón, se alza dentro de un recinto fortificado al que se entra por torres inspiradas en las fortalezas sirias. Sus muros muestran escenas religiosas y las guerras de Ramsés III contra los libios, los nubios y los Pueblos del Mar. Junto al patio de entrada había un palacio real. En el primer milenio d. C. creció dentro de las murallas una ciudad copta llamada Djeme.
+El templo funerario de Ramsés III, dedicado también a Amón, se alza dentro de un recinto fortificado al que se entra por torres inspiradas en las fortalezas sirias. Sus muros muestran escenas religiosas y las guerras de Ramsés III contra los libios, los nubios y los Pueblos del Mar. Junto al patio de entrada había un palacio real. En el primer milenio d. C. creció dentro de las murallas una ciudad copta llamada Djeme. Consulta [nuestra guía completa de Medinet Habu](/guides/medinet-habu-temple-of-ramesses-iii/).
 
 > **En Medinet Habu**
 > Busca las batallas de Ramsés III entre las escenas religiosas, y dedica tiempo a la puerta fortificada.

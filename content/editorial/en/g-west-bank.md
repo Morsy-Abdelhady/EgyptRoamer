@@ -29,7 +29,7 @@ The funerary temple of Ramesses II, dedicated to the god Amun and to the dead ki
 
 ## Medinet Habu {#medinet-habu}
 
-The funerary temple of Ramesses III, also dedicated to Amun, stands within a fortified enclosure entered through towers modelled on Syrian fortresses. Its walls show religious scenes and Ramesses III's wars against the Libyans, the Nubians and the Sea Peoples. A royal palace stood beside the forecourt. In the first millennium AD, a Coptic town called Djeme grew up inside the walls.
+The funerary temple of Ramesses III, also dedicated to Amun, stands within a fortified enclosure entered through towers modelled on Syrian fortresses. Its walls show religious scenes and Ramesses III's wars against the Libyans, the Nubians and the Sea Peoples. A royal palace stood beside the forecourt. In the first millennium AD, a Coptic town called Djeme grew up inside the walls. See [our full guide to Medinet Habu](/guides/medinet-habu-temple-of-ramesses-iii/).
 
 > **At Medinet Habu**
 > Look for Ramesses III's battles among the religious scenes, and take time at the fortified gate.

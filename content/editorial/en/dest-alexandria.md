@@ -15,7 +15,7 @@ Alexandria feels like a different country from Cairo. It was founded by Alexande
 ## Layers of history: what to see {#what-to-see}
 
 ### The Citadel of Qaitbay
-The Mamluk sultan Qaitbay built this sea fort in the 15th century on the site of the ancient Pharos lighthouse, one of the Seven Wonders of the Ancient World, and reused its stone. Walk the ramparts for the view back along the Eastern Harbour.
+The Mamluk sultan Qaitbay built this sea fort in the 15th century on the site of the ancient Pharos lighthouse, one of the Seven Wonders of the Ancient World, and reused its stone. Walk the ramparts for the view back along the Eastern Harbour. See [our full guide to the Citadel of Qaitbay](/guides/qaitbay-citadel-alexandria/).
 
 ### The Bibliotheca Alexandrina
 The modern library is a tribute to the ancient Library of Alexandria. Its tilted disc of a building faces the sea, and inside are museums and exhibitions as well as the vast reading room.

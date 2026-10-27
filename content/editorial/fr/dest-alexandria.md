@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: Guide d’Alexandrie : l’Égypte côté Méditerranée, de la citadelle de Qaitbay et de la Bibliotheca Alexandrina aux catacombes romaines, des fruits de mer sur la Corniche aux excursions à Rosette et El Alamein.
-source: 9e6b07589923
+source: 0a17428df551
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -19,7 +19,7 @@ Alexandrie semble appartenir à un autre pays que Le Caire. Fondée par Alexandr
 ## Des strates d’histoire : que voir {#what-to-see}
 
 ### La citadelle de Qaitbay
-Le sultan mamelouk Qaitbay fit bâtir ce fort maritime au XVe siècle sur l’emplacement de l’antique phare d’Alexandrie, l’une des Sept Merveilles du monde antique, en réutilisant ses pierres. Parcourez les remparts pour la vue sur le port Est.
+Le sultan mamelouk Qaitbay fit bâtir ce fort maritime au XVe siècle sur l’emplacement de l’antique phare d’Alexandrie, l’une des Sept Merveilles du monde antique, en réutilisant ses pierres. Parcourez les remparts pour la vue sur le port Est. Voir [notre guide complet de la citadelle de Qaitbay](/guides/qaitbay-citadel-alexandria/).
 
 ### La Bibliotheca Alexandrina
 La bibliothèque moderne rend hommage à l’antique bibliothèque d’Alexandrie. Son bâtiment en forme de disque incliné fait face à la mer ; à l’intérieur, des musées et des expositions complètent l’immense salle de lecture.

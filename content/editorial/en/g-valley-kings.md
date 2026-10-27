@@ -41,7 +41,7 @@ The valley is usually combined with other West Bank sites:
 
 - **Hatshepsut's temple** at Deir el-Bahari, set against the cliffs.
 - **The Valley of the Queens,** with the tomb of Nefertari (separate ticket).
-- **Medinet Habu,** the temple of Ramesses III, with richly carved reliefs.
+- **Medinet Habu,** the temple of Ramesses III, with richly carved reliefs. See [our full guide to Medinet Habu](/guides/medinet-habu-temple-of-ramesses-iii/).
 - **Deir el-Medina,** the village of the craftsmen who built the royal tombs.
 - **The Colossi of Memnon** by the roadside.
 

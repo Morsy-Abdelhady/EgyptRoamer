@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: Guida di Luxor: Karnak e il Tempio di Luxor sulla riva est, la Valle dei Re e il tempio di Hatshepsut sulla riva ovest, le mongolfiere all’alba, le crociere sul Nilo, dove dormire e quanti giorni servono.
-source: 48dfac96eb26
+source: 4a1294df6c8c
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -44,7 +44,7 @@ Il tempio a terrazze della regina faraone Hatshepsut, addossato a una parete di 
 
 ### Sempre sulla riva ovest
 - **La Valle delle Regine.** Con la tomba di Nefertari, che ha un biglietto separato.
-- **Medinet Habu.** Il tempio funerario di Ramses III, con alcuni dei rilievi scolpiti e dipinti meglio conservati della zona e, di solito, meno visitatori.
+- **Medinet Habu.** Il tempio funerario di Ramses III, con alcuni dei rilievi scolpiti e dipinti meglio conservati della zona e, di solito, meno visitatori. Leggete [la nostra guida completa a Medinet Habu](/guides/medinet-habu-temple-of-ramesses-iii/).
 - **Il Ramesseum.** Il tempio di Ramses II, con il suo colosso caduto.
 - **Deir el-Medina.** Il villaggio degli artigiani che costruirono le tombe reali, con le loro piccole tombe dipinte.
 - **I Colossi di Memnone.** Due gigantesche statue sedute lungo la strada.

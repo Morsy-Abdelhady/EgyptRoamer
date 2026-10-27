@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: Luxor-Reiseführer: Karnak und der Luxor-Tempel am Ostufer, das Tal der Könige und der Hatschepsut-Tempel am Westufer, Ballonfahrten bei Sonnenaufgang, Nilkreuzfahrten, die passende Unterkunft und wie viele Tage Sie brauchen.
-source: 48dfac96eb26
+source: 4a1294df6c8c
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -44,7 +44,7 @@ Der Terrassentempel der Pharaonin Hatschepsut vor einer senkrechten Felswand. Er
 
 ### Außerdem am Westufer
 - **Tal der Königinnen.** Mit dem Grab der Nefertari, für das ein eigenes Ticket nötig ist.
-- **Medinet Habu.** Der Totentempel Ramses’ III. mit einigen der am besten erhaltenen gemeißelten und bemalten Reliefs der Region und meist weniger Besuchern.
+- **Medinet Habu.** Der Totentempel Ramses’ III. mit einigen der am besten erhaltenen gemeißelten und bemalten Reliefs der Region und meist weniger Besuchern. Mehr dazu in [unserem Guide zu Medinet Habu](/guides/medinet-habu-temple-of-ramesses-iii/).
 - **Das Ramesseum.** Der Tempel Ramses’ II. mit seinem gestürzten Koloss.
 - **Deir el-Medina.** Das Dorf der Handwerker, die die Königsgräber bauten, mit ihren eigenen kleinen bemalten Gräbern.
 - **Memnonkolosse.** Zwei gewaltige Sitzstatuen am Straßenrand.

@@ -2,7 +2,7 @@
 type: er_guide
 title: El Valle de los Reyes: tumbas, entradas y consejos
 excerpt: Cómo visitar el Valle de los Reyes en Luxor: qué son las tumbas reales, cómo funcionan las entradas, Tutankamón y Seti I, qué más ver en la orilla oeste, y consejos prácticos para un valle caluroso y concurrido.
-source: 11ebcda4fe54
+source: 23b8c8010d3d
 review: approved
 reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
 reviewed: 2026-10-27
@@ -41,7 +41,7 @@ El valle suele combinarse con otros lugares de la orilla oeste:
 
 - **El templo de Hatshepsut** en Deir el-Bahari, al pie de los acantilados.
 - **El Valle de las Reinas,** con la tumba de Nefertari (entrada aparte).
-- **Medinet Habu,** el templo de Ramsés III, con relieves ricamente tallados.
+- **Medinet Habu,** el templo de Ramsés III, con relieves ricamente tallados. Consulta [nuestra guía completa de Medinet Habu](/guides/medinet-habu-temple-of-ramesses-iii/).
 - **Deir el-Medina,** la aldea de los artesanos que construyeron las tumbas reales.
 - **Los Colosos de Memnón** junto a la carretera.
 

@@ -2,10 +2,10 @@
 type: er_guide
 title: 帝王谷之外的卢克索西岸
 excerpt: 王陵之外的卢克索西岸：代尔巴哈里的哈特谢普苏特阶梯神庙、门农巨像、拉美西姆、哈布城神庙、王后谷和代尔麦地那的造墓工匠村，以及如何安排这一天。
-source: 84c0a26666c1
+source: ef9ab25071c6
 review: approved
-reviewer: AI review (Claude), publication approved by the owner
-reviewed: 2026-10-15
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -29,7 +29,7 @@ reviewed: 2026-10-15
 
 ## 哈布城神庙 {#medinet-habu}
 
-拉美西斯三世的祭庙，同样供奉阿蒙神，位于一道设防的围墙之内，入口塔楼仿照叙利亚要塞建造。墙上刻有宗教场景，以及拉美西斯三世与利比亚人、努比亚人和“海上民族”作战的场面。前院旁边曾有一座王宫。公元第一个千年里，围墙内发展出一座名叫杰梅的科普特城镇。
+拉美西斯三世的祭庙，同样供奉阿蒙神，位于一道设防的围墙之内，入口塔楼仿照叙利亚要塞建造。墙上刻有宗教场景，以及拉美西斯三世与利比亚人、努比亚人和“海上民族”作战的场面。前院旁边曾有一座王宫。公元第一个千年里，围墙内发展出一座名叫杰梅的科普特城镇。详见[我们的哈布城指南](/guides/medinet-habu-temple-of-ramesses-iii/)。
 
 > **在哈布城神庙**
 > 在宗教场景之间找找拉美西斯三世的战争浮雕，也别错过那座设防的大门。

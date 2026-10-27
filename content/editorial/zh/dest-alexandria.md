@@ -1,10 +1,10 @@
 ---
 type: er_destination
 excerpt: 亚历山大旅行指南：地中海边的埃及，从盖贝依城堡、亚历山大图书馆到罗马地下墓穴，滨海大道上的海鲜，以及前往罗塞塔和阿拉曼的一日游。
-source: 9e6b07589923
+source: 0a17428df551
 review: approved
-reviewer: Morsy Abdelhady
-reviewed: 2026-09-29
+reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
+reviewed: 2026-10-27
 ---
 [[toc]]
 
@@ -19,7 +19,7 @@ reviewed: 2026-09-29
 ## 层层历史：看什么 {#what-to-see}
 
 ### 盖贝依城堡
-马穆鲁克苏丹盖贝依于15世纪在古代法罗斯灯塔的旧址上建造了这座海上堡垒，并重新利用了灯塔的石料；法罗斯灯塔是古代世界七大奇迹之一。沿着城墙走一走，可以回望东港。
+马穆鲁克苏丹盖贝依于15世纪在古代法罗斯灯塔的旧址上建造了这座海上堡垒，并重新利用了灯塔的石料；法罗斯灯塔是古代世界七大奇迹之一。沿着城墙走一走，可以回望东港。详见[我们的盖贝依城堡指南](/guides/qaitbay-citadel-alexandria/)。
 
 ### 亚历山大图书馆
 这座现代图书馆是向古代亚历山大图书馆的致敬。倾斜圆盘造型的建筑面朝大海；馆内除了巨大的阅览大厅，还有博物馆和展览。

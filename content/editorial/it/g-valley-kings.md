@@ -2,7 +2,7 @@
 type: er_guide
 title: La Valle dei Re: tombe, biglietti e consigli
 excerpt: Come visitare la Valle dei Re a Luxor: cosa sono le tombe reali, come funzionano i biglietti, Tutankhamon e Seti I, cos’altro vedere sulla riva ovest, e consigli pratici per una valle calda e affollata.
-source: 11ebcda4fe54
+source: 23b8c8010d3d
 review: approved
 reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-27
 reviewed: 2026-10-27
@@ -41,7 +41,7 @@ La valle di solito si abbina ad altri siti della riva ovest:
 
 - **Il tempio di Hatshepsut** a Deir el-Bahari, addossato alle pareti rocciose.
 - **La Valle delle Regine,** con la tomba di Nefertari (biglietto a parte).
-- **Medinet Habu,** il tempio di Ramses III, con rilievi riccamente scolpiti.
+- **Medinet Habu,** il tempio di Ramses III, con rilievi riccamente scolpiti. Leggete [la nostra guida completa a Medinet Habu](/guides/medinet-habu-temple-of-ramesses-iii/).
 - **Deir el-Medina,** il villaggio degli artigiani che costruirono le tombe reali.
 - **I Colossi di Memnone** lungo la strada.
 
