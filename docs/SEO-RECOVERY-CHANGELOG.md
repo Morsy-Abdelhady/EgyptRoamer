@@ -220,3 +220,10 @@ was blocked (browser not connected). Both done by hand today, in the owner's bro
 | Pinterest: Kom Ombo and Philae pins (board "Ancient Egypt"), each linking to its guide. On the first try the Pinterest session in Edge was the LIORIVE account: nothing was published there; one unpublished Kom Ombo draft was left in that account (expires in 30 days) | Pinterest | Profile shows 6 pins, each pin page links to its guide | Referral visits | — |
 
 | Instagram: Wadi Al-Hitan post (Fayoum fossil whales, UNESCO 2005; "Full guide: link in bio"; credit Medomadrex, CC BY-SA 4.0) | Instagram | Profile shows 3 posts | Referral visits | KPI week 3 |
+| page-coverage for the snorkelling, cruise and pyramids batch (Core 1.2.83–1.2.85, Theme 1.3.30): 456 pages, all ok | — | `page-coverage: all ok` | — | — |
+
+## 2026-10-27: Egypt visa guide
+
+| Change | Where | Check | Expected effect | Re-check |
+|---|---|---|---|---|
+| Core 1.2.86 (`d6aa2c9`): new guide `g-visa`, "Egypt Visa: e-Visa, Visa on Arrival and What to Bring" (`/guides/egypt-visa-guide/`), 8 languages, only from the Ministry of Interior's e-Visa portal, the Visa on Arrival platform and the Embassy of Egypt in Washington. Official e-Visa fees (US$30/65) stated as an owner-approved exception, dated "last checked 27 October 2026". No Sinai-only stamp (no official source) | Core, wp-admin | Sync created 8 (#1190–#1197), then up to date (294); live EN/DE/AR pages 200, links localized, FAQ present; EN desktop and AR phone checked by eye. page-coverage not run yet for this release | Impressions for "egypt visa", "egypt e-visa fee", "visa on arrival egypt" queries | Search Console, 2–3 weeks; re-check the portal fees every few months |
