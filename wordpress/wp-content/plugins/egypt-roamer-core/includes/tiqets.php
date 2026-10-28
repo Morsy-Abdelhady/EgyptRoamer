@@ -89,11 +89,25 @@ function er_tiqets_fetch( string $id ): array {
 		$out['price']    = (float) $p['price'];
 		$out['currency'] = (string) ( $p['currency'] ?? 'USD' );
 	}
-	$img = (array) ( ( (array) ( $p['images'] ?? [] ) )[0] ?? [] );
-	$url = (string) ( $img['small'] ?? $img['medium'] ?? '' );
+	$img = ( (array) ( $p['images'] ?? [] ) )[0] ?? [];
+	$url = '';
+	if ( is_string( $img ) ) {
+		$url = $img;
+	} elseif ( is_array( $img ) ) {
+		foreach ( [ 'small', 'medium', 'large', 'extra_large', 'url' ] as $k ) {
+			if ( ! empty( $img[ $k ] ) && is_string( $img[ $k ] ) ) {
+				$url = $img[ $k ];
+				break;
+			}
+		}
+	}
+	$url = preg_replace( '#^(https?:)?//#i', 'https://', $url );
 	if ( 0 === strpos( $url, 'https://' ) ) {
 		$out['url']    = $url;
-		$out['credit'] = (string) ( $img['credits'] ?? '' );
+		$out['credit'] = is_array( $img ) ? (string) ( $img['credits'] ?? '' ) : '';
+	} else {
+		// Kept for the admin table, so a changed API shape is visible: the first image's type or keys.
+		$out['img_shape'] = is_array( $img ) ? implode( ',', array_keys( $img ) ) : gettype( $img ) . ' ' . count( (array) ( $p['images'] ?? [] ) );
 	}
 	return $out ?: [ 'error' => 'no data' ];
 }
@@ -237,7 +251,7 @@ function er_render_tiqets_page(): void {
 					<tr>
 						<td><?php echo esc_html( $slug ); ?></td>
 						<td><code><?php echo esc_html( $id ); ?></code></td>
-						<td><?php echo ! empty( $row['url'] ) ? '<img src="' . esc_url( $row['url'] ) . '" alt="" width="72" height="48" style="object-fit:cover" />' : esc_html( (string) ( $row['error'] ?? '—' ) ); ?></td>
+						<td><?php echo ! empty( $row['url'] ) ? '<img src="' . esc_url( $row['url'] ) . '" alt="" width="72" height="48" style="object-fit:cover" />' : esc_html( (string) ( $row['error'] ?? $row['img_shape'] ?? '—' ) ); ?></td>
 						<td><?php echo isset( $row['rating'] ) ? esc_html( $row['rating'] . ' (' . $row['reviews'] . ')' ) : '—'; ?></td>
 						<td><?php echo isset( $row['price'] ) ? esc_html( $row['price'] . ' ' . $row['currency'] ) : '—'; ?></td>
 					</tr>
