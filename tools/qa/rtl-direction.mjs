@@ -29,7 +29,7 @@ const run = async ([lang, u], o, d) => {
       const s = n.nodeValue;
       for (const ch of s.match(/[←→]/g) || []) { if (/[A-Za-z؀-ۿ]\s*[←→]\s*[A-Za-z؀-ۿ]/.test(s) && !/[←→]\s*$/.test(s.trim()) ) continue; // "A → B" routes
         let right = ch === "→"; if (flipped(el)) right = !right; if ((lang === "ar") === right) out.push("arrow " + (right ? "→" : "←") + " in: " + (el.closest("a,button")?.innerText || s).trim().replace(/\s+/g, " ").slice(0, 60)); }
-      if (lang === "ar") for (const m of s.matchAll(/\d+\s?[–-]\s?\d+/g)) { const before = s.slice(0, m.index); if (!before.endsWith("⁦") && !/^\d{4}-\d/.test(m[0]) && getComputedStyle(el).direction === "rtl") out.push("range not isolated: " + s.trim().slice(0, 60)); }
+      if (lang === "ar") for (const m of s.matchAll(/(?<![\d.])\d+(?:\.\d+)?\s?[–-]\s?\d+/g)) { const before = s.slice(0, m.index); if (!before.endsWith("⁦") && !/^\d{4}-\d/.test(m[0]) && getComputedStyle(el).direction === "rtl") out.push("range not isolated: " + s.trim().slice(0, 60)); }
     } return [...new Set(out)];
   }, lang);
   if (r.length) { bad += r.length; console.log(lang, d, decodeURIComponent(u).replace(B, "")); r.slice(0, 6).forEach((x) => console.log("   ", x)); }
