@@ -955,6 +955,10 @@ function er_offer_thumb( array $o, string $stock = '' ): string {
 	$attrs = [ 'alt' => '', 'sizes' => '80px' ];
 	// A Viator offer: its own trip photo, supplied by the Viator Partner API (Core viator.php).
 	$viator = '' === $stock && ! empty( $o['id'] ) && function_exists( 'er_viator_image_for_offer' ) ? er_viator_image_for_offer( (int) $o['id'] ) : '';
+	// A Tiqets offer: its product photo from the Tiqets API (Core tiqets.php).
+	if ( '' === $viator && '' === $stock && ! empty( $o['id'] ) && function_exists( 'er_tiqets_image_for_offer' ) ) {
+		$viator = er_tiqets_image_for_offer( (int) $o['id'] );
+	}
 	if ( '' !== $viator ) {
 		return '<span class="bp__img"><img src="' . esc_url( $viator ) . '" alt="" loading="lazy" decoding="async" /></span>';
 	}
@@ -1435,11 +1439,12 @@ add_filter( 'the_content', static function ( string $content ): string {
 
 /**
  * What the partner states live about an offer, through its API (Core includes/viator.php): rating, number of
- * reviews, the lowest price for the coming dates (read in the last 24 hours) and its currency. Only Viator offers
- * have an API today; [] for the others.
+ * reviews, the lowest price for the coming dates (read in the last 24 hours) and its currency. Viator and Tiqets
+ * (Core includes/tiqets.php) have an API; [] for the others.
  */
 function er_offer_live( int $offer_id ): array {
-	return function_exists( 'er_viator_live_for_offer' ) ? er_viator_live_for_offer( $offer_id ) : [];
+	$l = function_exists( 'er_viator_live_for_offer' ) ? er_viator_live_for_offer( $offer_id ) : [];
+	return $l ?: ( function_exists( 'er_tiqets_live_for_offer' ) ? er_tiqets_live_for_offer( $offer_id ) : [] );
 }
 
 /** "US$36", "€60", "US$28.53": a partner's price as the partner states it. */
