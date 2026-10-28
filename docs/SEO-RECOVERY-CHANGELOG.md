@@ -325,3 +325,12 @@ Owner approved journalist-request platforms as the first backlink channel (direc
 
 GoDaddy Email & Office (Microsoft 365) has two mailboxes, info@ and contact@egyptroamer.com; DNS checked (MX to Microsoft 365, SPF, DKIM selector1/2, DMARC quarantine, autodiscover). External forwarding turned on for the domain; info@ and contact@ forward to egyptroamerltd@gmail.com, keeping a copy. The contact form (Egypt Roamer → Settings) and the WordPress admin email now use egyptroamerltd@gmail.com; the owner confirmed the admin-email link and a test message arrived. Open for the owner: domain auto-renew is off (expires 27 Sep 2027), MFA on both mailboxes, PHP 8.2 update in hosting.
 Update, same day: the WordPress admin email went back to morsi.altukhy@gmail.com (owner); the contact form, info@ and contact@ stay on egyptroamerltd@gmail.com. Both mailboxes tested with a real message from another address: delivered to Gmail (12:07 and 12:12).
+
+## 2026-10-28: extra social batch (owner request) and daily schedule
+
+| Change | Where | Check | Expected | Review |
+|---|---|---|---|---|
+| Pinterest, 5 more pins from the queue (owner asked for a second batch today): 10-day and 14-day itineraries, Luxor balloon, Nile cruise or hotels ("Egypt Travel Planning"), Abu Simbel ("Ancient Egypt"); each links to its guide, "Photo: Unsplash" | Pinterest (Egypt Roamer account, checked before pinning) | Profile shows 25 pins; 21 pages left in the queue | Pinterest impressions and clicks | 10 Nov |
+| Facebook page: Abu Simbel guide link post, as the page, no boost | Facebook | Page shows the post | Referral visits | KPI week 3 |
+| Instagram: Luxor balloon over Hatshepsut's temple ("Full guide: link in bio"; credit Hongbin, Unsplash) | Instagram | "Your post has been shared" | Referral visits | KPI week 3 |
+| Scheduled tasks (owner, 28 Oct): `egypt-roamer-social-reminder-1830` (daily reminder to open Edge) and `egypt-roamer-social-daily-1900` (5 pins, one Facebook and one Instagram post, then a changelog row). The Bing check (31 Oct) and money-guide check tasks named in the handoff were not in the task list on 28 Oct | Claude scheduled tasks | Task list | — | 29 Oct run |
