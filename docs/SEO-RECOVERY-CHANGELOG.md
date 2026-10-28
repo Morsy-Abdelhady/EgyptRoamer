@@ -355,3 +355,12 @@ Update, same day: the WordPress admin email went back to morsi.altukhy@gmail.com
 | Sitemap index resubmitted. The first try (path only, `wp-sitemap.xml`) was refused as "Invalid sitemap address", because a domain property needs the full URL; resubmitted as `https://egyptroamer.com/wp-sitemap.xml` | GSC Sitemaps | "Sitemap submitted successfully" | Fresh sitemap read | 2 Nov: "Last read" after 27 Oct |
 | Not requested yet (quota): Kom Ombo and Philae guides, the new trip pages and the other 7 languages of all these pages | — | — | — | Next days |
 
+## 2026-10-29: hosting review, PHP 8.3 and llms.txt (owner request)
+
+| Change | Where | Verified | Expected effect | Recheck |
+|---|---|---|---|---|
+| GoDaddy hosting reviewed: Deluxe plan, WordPress 7.1.3, CDN on, security scan / firewall / SSL active ("Normal, no issues"), 0.08 of 20 GB used, no staging site; Website Metrics, Monitoring and APM off. Backups page did not load. WordPress SEO: search engines not discouraged, robots.txt and sitemap correct, canonical, hreflang, 14 Open Graph tags, X card and JSON-LD on every page; one SEO-related plugin set (no extra SEO plugin) | GoDaddy, wp-admin | read on screen | — | — |
+| Airo Site Optimizer: 7 homepage suggestions read, none applied (it says Open Graph is missing, which is wrong; its title has an HTML-entity error; its schema suggestion adds prices and ratings, against "don't invent") | GoDaddy Airo | — | — | — |
+| PHP 8.2 → 8.3 (8.3 is the newest GoDaddy offers). Theme and Core lint clean on 8.3; the owner pressed Save. Site Health → Info shows PHP 8.3.36; home, Arabic home, a trip page, the planner and a `/go/` redirect return without PHP errors | GoDaddy Settings | Site Health Info | Site Health's "old PHP" warning clears | page-coverage after the switch |
+| Core 1.2.98–1.2.99 (`b366787`, `0b03739`): `/llms.txt` built from the published, indexable English guides, destinations and trips (63 links), cached 12 h and cleared on save. GoDaddy's System Plugin served its own llms.txt (legal pages only) while `is_llms_enabled` was "enabled"; Core now filters that option off in code (database unchanged) | Core | Live `/llms.txt` 200, 4 sections, 63 links | AI assistants get a clean site map | — |
+
