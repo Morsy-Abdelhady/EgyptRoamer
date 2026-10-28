@@ -40,8 +40,8 @@
   /* Typography */
   /* Arabic families come second: Latin glyphs stay in Playfair/Inter, Arabic falls through.
      They are only downloaded when the page is in Arabic (see the <head> script). */
-  --font-serif: "Playfair Display", "Noto Naskh Arabic", "Noto Serif SC", "Times New Roman", Georgia, serif;
-  --font-sans: "Inter", "IBM Plex Sans Arabic", "Noto Sans SC", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Playfair Display", "Playfair Fallback", "Playfair Fallback Noto", "Noto Naskh Arabic", "Noto Serif SC", "Times New Roman", Georgia, serif;
+  --font-sans: "Inter", "Inter Fallback", "Inter Fallback Roboto", "IBM Plex Sans Arabic", "Noto Sans SC", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   --fs-display: clamp(4.5rem, 13.5vw, 13rem);
   --fs-h1: clamp(3rem, 7.2vw, 6.5rem);
