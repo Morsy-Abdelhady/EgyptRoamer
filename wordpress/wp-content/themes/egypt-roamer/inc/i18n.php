@@ -53,22 +53,28 @@ function er_arrow(): string {
  * Arabic pages: a number range such as "4–10" is laid out right to left by the browser's bidi rules and
  * reads "10–4" (owner, 28 Oct: trip chips and guide bodies). Each range in the page text is wrapped in a
  * left-to-right isolate (U+2066 … U+2069), so it keeps its order inside the Arabic sentence. Text only:
- * tags, attributes, scripts and styles are left as they are.
+ * tags, attributes, scripts and styles are left as they are. The same pass keeps " · " separators with the word before them.
  */
 function er_isolate_ranges( string $html ): string {
+	$ar    = 'ar' === er_lang();
 	$parts = preg_split( '#(<script\b.*?</script>|<style\b.*?</style>|<textarea\b.*?</textarea>|<[^>]*>)#si', $html, -1, PREG_SPLIT_DELIM_CAPTURE );
 	if ( ! is_array( $parts ) ) {
 		return $html;
 	}
 	foreach ( $parts as $i => $part ) {
 		if ( '' !== $part && '<' !== $part[0] ) {
-			$parts[ $i ] = (string) preg_replace( '/(?<![\d\x{2066}])(\d+\s?–\s?\d+)(?![\d\x{2069}])/u', "\u{2066}$1\u{2069}", $part );
+			if ( $ar ) {
+				$part = (string) preg_replace( '/(?<![\d\x{2066}])(\d+\s?–\s?\d+)(?![\d\x{2069}])/u', "\u{2066}$1\u{2069}", $part );
+			}
+			// Every language: the " · " separator in card lines keeps to the word before it, so a wrapped line never
+			// starts or ends with a lone dot (owner, 28 Oct, the Arabic trip cards).
+			$parts[ $i ] = str_replace( ' · ', "\u{00A0}· ", $part );
 		}
 	}
 	return implode( '', $parts );
 }
 add_action( 'template_redirect', static function (): void {
-	if ( ! is_admin() && ! is_feed() && 'ar' === er_lang() ) {
+	if ( ! is_admin() && ! is_feed() ) {
 		ob_start( 'er_isolate_ranges' );
 	}
 } );

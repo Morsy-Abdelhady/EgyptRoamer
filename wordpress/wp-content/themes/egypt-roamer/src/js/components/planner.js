@@ -152,9 +152,9 @@ export function initPlanner() {
         h += trips
           .map((tr) => {
             const m = match(tr);
-            const meta = [tr.places, tr.len, tr.n ? (tr.n === 1 ? T.opt1 : T.optn.replace("{n}", tr.n)) : "", tr.private ? T.privopt : ""].filter(Boolean).join(" · ").replace(RANGE, document.dir === "rtl" ? "⁦$1⁩" : "$1");
-            const live = [tr.rating, tr.price].filter(Boolean).join(" · ");
-            return `<li><a class="ux2-pb__card" href="${escapeHtml(tr.url)}"><img src="${img(tr.image, 160)}" alt="" loading="lazy" /><span><b>${escapeHtml(tr.title)}</b><small>${escapeHtml(meta)}</small>${live ? `<span class="ux2-pb__live">${escapeHtml(live)}</span>` : ""}${tr.cancel && T.cancel ? `<i class="ux2-pb__fc">✓ ${escapeHtml(T.cancel)}</i>` : ""}${m.length ? `<em>${escapeHtml(m.map(labelOf).join(" · "))}</em>` : ""}</span></a></li>`;
+            const meta = [tr.places, tr.len, tr.n ? (tr.n === 1 ? T.opt1 : T.optn.replace("{n}", tr.n)) : "", tr.private ? T.privopt : ""].filter(Boolean).join(" · ").replace(RANGE, document.dir === "rtl" ? "⁦$1⁩" : "$1");
+            const live = [tr.rating, tr.price].filter(Boolean).join(" · ");
+            return `<li><a class="ux2-pb__card" href="${escapeHtml(tr.url)}"><img src="${img(tr.image, 160)}" alt="" loading="lazy" /><span><b>${escapeHtml(tr.title)}</b><small>${escapeHtml(meta)}</small>${live ? `<span class="ux2-pb__live">${escapeHtml(live)}</span>` : ""}${tr.cancel && T.cancel ? `<i class="ux2-pb__fc">✓ ${escapeHtml(T.cancel)}</i>` : ""}${m.length ? `<em>${escapeHtml(m.map(labelOf).join(" · "))}</em>` : ""}</span></a></li>`;
           })
           .join("");
         h += "</ul>";
