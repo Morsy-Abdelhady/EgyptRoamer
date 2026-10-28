@@ -345,7 +345,9 @@ add_action( 'wp_footer', static function () {
 		return;
 	}
 	// phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript -- runs the enqueued scripts above
-	echo "<script>(function(){function run(){document.querySelectorAll('script[data-er-run]').forEach(function(p){var s=document.createElement('script');s.src=p.getAttribute('data-er-run');s.async=false;p.parentNode.replaceChild(s,p)})}if(!(window.matchMedia&&matchMedia('(max-width: 900px)').matches)){run();return}var done=false;function go(){if(done)return;done=true;if(document.hidden){run();return}requestAnimationFrame(function(){setTimeout(run,0)})}function painted(){if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go,go);else go()}try{new PerformanceObserver(function(l){if(l.getEntriesByName('first-contentful-paint').length)painted()}).observe({type:'paint',buffered:true})}catch(e){painted()}setTimeout(go,2000)})();</script>\n";
+	// The scripts measure the layout (GSAP, ScrollTrigger): with the critical CSS the bundle loads without blocking,
+	// so they also wait for it (its link switches from media="print" to "all" when loaded).
+	echo "<script>(function(){function start(){document.querySelectorAll('script[data-er-run]').forEach(function(p){var s=document.createElement('script');s.src=p.getAttribute('data-er-run');s.async=false;p.parentNode.replaceChild(s,p)})}function run(){var l=document.getElementById('er-pages-css');if(!l||l.media!=='print'){start();return}l.addEventListener('load',function(){setTimeout(start,0)});l.addEventListener('error',start)}if(!(window.matchMedia&&matchMedia('(max-width: 900px)').matches)){run();return}var done=false;function go(){if(done)return;done=true;if(document.hidden){run();return}requestAnimationFrame(function(){setTimeout(run,0)})}function painted(){if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go,go);else go()}try{new PerformanceObserver(function(l){if(l.getEntriesByName('first-contentful-paint').length)painted()}).observe({type:'paint',buffered:true})}catch(e){painted()}setTimeout(go,2000)})();</script>\n";
 }, 100 );
 
 /**

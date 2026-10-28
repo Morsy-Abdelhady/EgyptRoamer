@@ -38,27 +38,41 @@ const collect = async (lang, [w, h], js) => {
   const paths = await p.evaluate(() => {
     const sheet = [...document.styleSheets].find((s) => s.href && s.href.includes("bundle-home.css"));
     if (!sheet) return null;
+    document.getElementById("er-critical-css")?.remove(); // measure against the bundle alone, not a previous output
     const H = innerHeight, W = innerWidth;
-    const fold = new Set();
-    for (const el of document.querySelectorAll("*")) {
-      const r = el.getBoundingClientRect();
-      if (r.bottom > 0 && r.top < H && r.right > 0 && r.left < W && (r.width || r.height)) fold.add(el);
-    }
+    const inFold = () => { const f = new Set(); for (const el of document.querySelectorAll("body *")) { const r = el.getBoundingClientRect(); const cs = getComputedStyle(el);
+      if (r.bottom > 0 && r.top < H && r.right > 0 && r.left < W && (r.width || r.height) && cs.visibility !== "hidden" && cs.opacity !== "0") f.add(el); } return f; };
     const strip = (s) => s.replace(/::?(before|after|placeholder|marker|selection|backdrop|first-letter|first-line|-webkit-[a-z-]+|-moz-[a-z-]+)\b(\([^)]*\))?/g, "")
       .replace(/:(hover|focus|focus-visible|focus-within|active|visited|target|checked|disabled|placeholder-shown)\b/g, "").trim() || "*";
-    const matches = (sel) => sel.split(",").some((one) => { try { const s = strip(one); for (const el of document.querySelectorAll(s)) if (fold.has(el)) return true; } catch (e) {} return false; });
-    const out = [];
-    const walk = (rules, prefix) => {
+    const K = new Set();
+    const walk = (rules, prefix, fold) => {
       [...rules].forEach((r, i) => {
         const key = prefix + i;
-        if (r instanceof CSSStyleRule) { if (r.selectorText.startsWith(":root") || r.selectorText === "html" || r.selectorText === "body" || matches(r.selectorText)) out.push(key); }
-        else if (r instanceof CSSMediaRule) { if (matchMedia(r.conditionText).matches) walk(r.cssRules, key + "."); }
-        else if (r instanceof CSSSupportsRule) { if (CSS.supports(r.conditionText)) walk(r.cssRules, key + "."); }
-        else if (r instanceof CSSFontFaceRule) out.push(key);
+        if (K.has(key)) return;
+        if (r instanceof CSSStyleRule) {
+          const always = /^(:root|html|body)\b/.test(r.selectorText);
+          if (always || r.selectorText.split(",").some((one) => { try { for (const el of document.querySelectorAll(strip(one))) if (fold.has(el)) return true; } catch (e) {} return false; })) K.add(key);
+        } else if (r instanceof CSSMediaRule) { if (matchMedia(r.conditionText).matches) walk(r.cssRules, key + ".", fold); }
+        else if (r instanceof CSSSupportsRule) { if (CSS.supports(r.conditionText)) walk(r.cssRules, key + ".", fold); }
+        else if (r instanceof CSSFontFaceRule) K.add(key);
       });
     };
-    walk(sheet.cssRules, "");
-    return out;
+    const emit = (rules, prefix) => { let s = ""; [...rules].forEach((r, i) => { const key = prefix + i;
+      if (r instanceof CSSMediaRule || r instanceof CSSSupportsRule) { const inner = emit(r.cssRules, key + "."); if (inner) s += (r instanceof CSSMediaRule ? "@media " : "@supports ") + r.conditionText + "{" + inner + "}"; }
+      else if (K.has(key)) s += r.cssText; }); return s; };
+    // 1. what the full stylesheet shows on the first screen
+    walk(sheet.cssRules, "", inFold());
+    // 2. repeat with only the kept rules applied (the state before the bundle arrives) until nothing new shows up
+    const tmp = document.createElement("style"); sheet.ownerNode.after(tmp);
+    for (let round = 0; round < 8; round++) {
+      const before = K.size;
+      tmp.textContent = emit(sheet.cssRules, ""); sheet.disabled = true;
+      const f = inFold();
+      sheet.disabled = false; walk(sheet.cssRules, "", f);
+      if (K.size === before) break;
+    }
+    tmp.remove();
+    return [...K];
   });
   await c.close();
   if (!paths) throw new Error("bundle-home.css not found on " + lang);
