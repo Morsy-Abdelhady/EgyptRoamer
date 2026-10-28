@@ -352,6 +352,6 @@ Update, same day: the WordPress admin email went back to morsi.altukhy@gmail.com
 |---|---|---|---|---|
 | GSC Page indexing: 262 indexed, unchanged from 26 Oct; not indexed 1.24K (1,137 "noindex" trip-filter URLs, 63 discovered-not-indexed, 19 crawled-not-indexed, 11 alternate canonical, 6 redirect, 1 robots.txt `/go/`) | GSC Page indexing | read on screen | — | 2 Nov |
 | URL Inspection of 10 EN pages published 26–28 Oct: all "URL is unknown to Google" (itinerary planner, visa, Medinet Habu, Qaitbay, Mummification Museum, Alexandria National Museum, Edfu, Hatshepsut, Wadi Al-Hitan, Wadi El-Gemal guides). Live test passed and indexing requested for all 10 (GSC's daily quota). All are in `wp-sitemap.xml`; GSC last read the sitemap on 27 Oct (503 pages) and its inspection data lags | GSC URL Inspection | "Indexing requested" shown for each | Pages crawled within days | 2 Nov |
-| Sitemap index resubmitted; the report still showed "last read 27 Oct" right after | GSC Sitemaps | not confirmed | Fresh sitemap read | 2 Nov |
+| Sitemap index resubmitted. The first try (path only, `wp-sitemap.xml`) was refused as "Invalid sitemap address", because a domain property needs the full URL; resubmitted as `https://egyptroamer.com/wp-sitemap.xml` | GSC Sitemaps | "Sitemap submitted successfully" | Fresh sitemap read | 2 Nov: "Last read" after 27 Oct |
 | Not requested yet (quota): Kom Ombo and Philae guides, the new trip pages and the other 7 languages of all these pages | — | — | — | Next days |
 
