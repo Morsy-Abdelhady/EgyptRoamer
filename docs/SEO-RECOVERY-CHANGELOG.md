@@ -316,3 +316,7 @@ PageSpeed mobile, homepage: before 80 (LCP 4.0-4.1 s, CLS 0-0.111); after 85 and
 | Homepage scripts wait for the bundle before they run (GSAP measured the layout without it) | `inc/assets.php` | Scripts ran only after the stylesheet in 15 language × device runs, no errors | No wrong scene on load | — |
 
 PageSpeed mobile, homepage: render-blocking requests no longer listed; observed render delay of the LCP word 2,290 → 280 ms. Score 84 and 89 in two runs (LCP 4.0 and 3.3 s simulated, CLS 0.005 and 0.086). The simulated LCP still counts ~8 first-screen font files; fewer weights would be the next lever (a design decision).
+
+## 2026-10-28: backlinks, journalist requests (owner decision)
+
+Owner approved journalist-request platforms as the first backlink channel (directories rejected as low value; forums set aside as too hard). The owner creates the accounts himself (Claude never creates accounts or handles passwords): Qwoted (free sign-up, https://app.qwoted.com/users/sign_up), Featured / HARO (https://featured.com/signup), Source of Sources (free email digests). Claude then reads the requests, picks those about Egypt travel, and drafts replies only from facts already on the site with their sources; each reply is sent only after the owner's OK. Results tracked here (requests answered, published links).
