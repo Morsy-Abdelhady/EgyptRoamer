@@ -320,3 +320,7 @@ PageSpeed mobile, homepage: render-blocking requests no longer listed; observed 
 ## 2026-10-28: backlinks, journalist requests (owner decision)
 
 Owner approved journalist-request platforms as the first backlink channel (directories rejected as low value; forums set aside as too hard). The owner creates the accounts himself (Claude never creates accounts or handles passwords): Qwoted (free sign-up, https://app.qwoted.com/users/sign_up), Featured / HARO (https://featured.com/signup), Source of Sources (free email digests). Claude then reads the requests, picks those about Egypt travel, and drafts replies only from facts already on the site with their sources; each reply is sent only after the owner's OK. Results tracked here (requests answered, published links).
+
+## 2026-10-28: site email routing (owner request)
+
+GoDaddy Email & Office (Microsoft 365) has two mailboxes, info@ and contact@egyptroamer.com; DNS checked (MX to Microsoft 365, SPF, DKIM selector1/2, DMARC quarantine, autodiscover). External forwarding turned on for the domain; info@ and contact@ forward to egyptroamerltd@gmail.com, keeping a copy. The contact form (Egypt Roamer → Settings) and the WordPress admin email now use egyptroamerltd@gmail.com; the owner confirmed the admin-email link and a test message arrived. Open for the owner: domain auto-renew is off (expires 27 Sep 2027), MFA on both mailboxes, PHP 8.2 update in hosting.
