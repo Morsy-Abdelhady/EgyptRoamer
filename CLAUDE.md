@@ -3,7 +3,7 @@
 An affiliate-first travel publication about Egypt, built on WordPress and live at https://egyptroamer.com (GoDaddy Managed WordPress). The site takes no bookings and no payments.
 
 ## Current state: read this first
-- **Latest handoff:** `docs/HANDOFF-2026-10-25.md`. Live versions: Theme 1.3.40 / Core 1.2.92. The balloon trip is live in 8 languages with Klook offer #967; page-coverage passed on 392 pages on 25 Oct. The guide-sync title comparison was fixed in Core 1.2.81 (27 Oct). The prototype parity review (`docs/PROTOTYPE-PARITY-2026-10-18.md`) records the main screens as compared on 19 Oct; see the handoff for remaining differences and SEO follow-up dates.
+- **Latest handoff:** `docs/HANDOFF-2026-10-25.md`. Live versions: Theme 1.3.43 / Core 1.2.92. The balloon trip is live in 8 languages with Klook offer #967; page-coverage passed on 392 pages on 25 Oct. The guide-sync title comparison was fixed in Core 1.2.81 (27 Oct). The prototype parity review (`docs/PROTOTYPE-PARITY-2026-10-18.md`) records the main screens as compared on 19 Oct; see the handoff for remaining differences and SEO follow-up dates.
 - **Growth plan (owner-approved 2026-10-26):** `docs/GROWTH-PLAN-INTENSIVE-2026-10-26.md`. Goal: 1,000,000 GA4 sessions a month, stretch target December 2027 (very limited ad budget), safer target late 2028; checkpoints in its §4. Its §5 is the current week's work; its §3 lists the six owner decisions applied below.
 - **Live partners:**
   - Viator (tours, 17 offers);
@@ -66,6 +66,7 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
 - The QA scripts in `tools/qa/*.mjs` need Playwright with the system Chrome. Since 2026-10-24: Node 24 LTS and Playwright 1.64, installed with `npm i --no-save playwright axe-core` in `tools/qa` (kept out of git by `.git/info/exclude`).
 - Before reporting any UX or release as done, run `BASE=https://egyptroamer.com node tools/qa/page-coverage.mjs` after the deploy. It checks every page in every language; sample pages are not enough.
   - Also look at the changed pages in a browser, on desktop and on a phone, in English and Arabic.
+  - **After any CSS change that touches the homepage bundle**, deploy, then run `BASE=https://egyptroamer.com node tools/qa/critical-css.mjs` and deploy again: until `assets/css/critical-home.css` matches the bundle's sha1, the homepage falls back to the blocking stylesheet (safe, but slower).
   - Also run `BASE=https://egyptroamer.com node tools/qa/rtl-direction.mjs`: on every Arabic page, arrows must point left (after any CSS mirroring) and number ranges must be isolated so they don't show reversed (owner caught both on 28 Oct).
   - The QA does not cover the `?ux=2` preview or the hotel boxes.
 - **Windows quirks:**

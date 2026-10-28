@@ -307,3 +307,12 @@ Diagnosis (PageSpeed mobile + throttled-phone runs): the LCP on phones is the he
 | Metric-matched fallback faces (Arial/Liberation/Arimo and Roboto for Inter; Times/Liberation Serif/Tinos and Noto Serif for Playfair; Latin range only) | `assets/css/fonts.css`, `tokens.css` | Values measured from the woff2 files; homepage unchanged visually (en + ar, phone) | No shift when fonts swap | CrUX / Search Console Core Web Vitals |
 
 PageSpeed mobile, homepage: before 80 (LCP 4.0-4.1 s, CLS 0-0.111); after 85 and 85 (LCP 3.6-3.7 s, CLS 0.086). Still open: LCP above 2.5 s, mostly the 30 KB render-blocking theme bundle (critical CSS would be the next step).
+
+## 2026-10-28: homepage critical CSS (Theme 1.3.41-1.3.43)
+
+| Change | Where | Check | Expected effect | Re-check |
+|---|---|---|---|---|
+| First-screen rules of `bundle-home.css` (309 rules, 44 KB raw of 191 KB) printed inline; the bundle loads without blocking, at its place in the cascade; used only while the file's sha1 matches the bundle | `tools/qa/critical-css.mjs` (8 languages × 7 widths × 3 states: no JS, inline scripts only, after scripts; repeated with the critical CSS alone until stable), `assets/css/critical-home.css`, `inc/assets.php` | Bundle delayed 5 s on purpose: first screen matches the final one in en/ar/de/zh/ru on phone, tablet and desktop (the first two attempts showed missing rules and an overlapping scene; fixed before release) | Earlier first paint on phones | After every bundle change: regenerate |
+| Homepage scripts wait for the bundle before they run (GSAP measured the layout without it) | `inc/assets.php` | Scripts ran only after the stylesheet in 15 language × device runs, no errors | No wrong scene on load | — |
+
+PageSpeed mobile, homepage: render-blocking requests no longer listed; observed render delay of the LCP word 2,290 → 280 ms. Score 84 and 89 in two runs (LCP 4.0 and 3.3 s simulated, CLS 0.005 and 0.086). The simulated LCP still counts ~8 first-screen font files; fewer weights would be the next lever (a design decision).
