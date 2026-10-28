@@ -245,6 +245,31 @@ add_filter( 'style_loader_tag', static function ( string $tag, string $handle ):
 	return sprintf( "<style id=\"%s-css\">%s</style>\n", esc_attr( $handle ), $css );
 }, 10, 2 );
 
+/*
+ * Complianz's two stylesheets (the cookie blocker, 3 KB, and the banner, 17 KB) are printed inside the page too:
+ * PageSpeed (28 Oct, homepage on a phone) listed them as render-blocking next to the bundle. Read from the
+ * plugin's current files at each request, so plugin updates still apply; left as links if a file is missing,
+ * large, or has a url().
+ */
+add_filter( 'style_loader_tag', static function ( string $tag, string $handle ): string {
+	if ( 'cmplz-general' !== $handle && 0 !== strpos( $handle, 'cmplz-banner-' ) ) {
+		return $tag;
+	}
+	if ( ! preg_match( "#href=['\"]" . preg_quote( content_url(), '#' ) . "(/[^'\"?]+\.css)#", $tag, $m ) || preg_match( "#media=['\"](?!all)#", $tag ) ) {
+		return $tag;
+	}
+	$file = WP_CONTENT_DIR . $m[1];
+	if ( false !== strpos( $m[1], '..' ) || ! is_readable( $file ) || filesize( $file ) > 40000 ) {
+		return $tag;
+	}
+	$css = (string) file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+	if ( false !== stripos( $css, '</style' ) || false !== stripos( $css, 'url(' ) ) {
+		return $tag;
+	}
+	$css = trim( (string) preg_replace( [ '#/\*.*?\*/#s', '#\s+#' ], [ '', ' ' ], $css ) );
+	return sprintf( "<style id=\"%s-css\">%s</style>\n", esc_attr( $handle ), $css );
+}, 10, 2 );
+
 /**
  * Homepage scripts on phones run after the first paint (launch gate, 2026-10-02).
  * The homepage bundle and its libraries (GSAP, ScrollTrigger, Lenis, the language file) were deferred
