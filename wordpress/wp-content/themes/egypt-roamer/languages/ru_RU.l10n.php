@@ -915,7 +915,7 @@ return [
 		'You' => 'Вы',
 		'You <em>Feel</em> It' => 'Его <em>чувствуешь</em>',
 		'You are unsubscribed, and your address is deleted.' => 'Вы отписаны, ваш адрес удалён.',
-		'You book and pay on Viator, GetYourGuide, Klook or Trip.com. Free cancellation is shown when the partner offers it.' => 'Вы бронируете и оплачиваете на Viator, GetYourGuide, Klook или Trip.com. Бесплатная отмена указана, если её предлагает партнёр.',
+		'You book and pay on Viator, GetYourGuide, Klook, Tiqets or Trip.com. Free cancellation is shown when the partner offers it.' => 'Вы бронируете и оплачиваете на Viator, GetYourGuide, Klook, Tiqets или Trip.com. Бесплатная отмена указана, если её предлагает партнёр.',
 		'You book directly with our partners' => 'Вы бронируете напрямую у наших партнёров',
 		'You can do a try-dive (introductory dive) with an instructor at shallow depth after a briefing. It’s a good way to find out whether diving is for you.' => 'Можно совершить пробное погружение (ознакомительное) с инструктором на небольшой глубине после брифинга. Это хороший способ понять, ваше ли это.',
 		'You may prefer something else if' => 'Возможно, вам подойдёт другое, если',

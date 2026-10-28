@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.45 — 2026-10-28: Tiqets as a partner (with Core 1.2.93)
+- **Partner lists name Tiqets** ("You book and pay on Viator, GetYourGuide, Klook, Tiqets or Trip.com"), in 8 languages; the About page and its translations are updated by the Core migration `about-partners-tiqets`.
+- **Core:** facts and 7-language card text for 4 Tiqets offers (Giza pyramids with felucca, Nile Maxim dinner cruise, Valley of the Kings private tour, Ras Mohammed snorkelling), read on tiqets.com on 28 Oct. No prices, ratings, reviews or photos.
+
 ## 1.3.18 — 2026-10-25: a balloon trip over Luxor (with Core 1.2.69)
 - **New trip in 8 languages: "Hot-Air Balloon over Luxor at Sunrise"** (`exp-balloon`), with a world of its own.
   - Opener, three steps (before dawn, over the fields, the West Bank below), "The weather decides", who it suits, combine it with, and four questions.

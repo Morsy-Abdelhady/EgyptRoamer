@@ -839,7 +839,7 @@ function er_world_how_section(): string {
 	$steps = [
 		[ er_t( 'Choose a place or a trip' ), er_t( 'Seven places, each with the trips you can book there, and guides written from published sources.' ) ],
 		[ er_t( 'Compare the options' ), er_t( 'Every trip page puts its partners’ options side by side: length, private or group, pickup, and the partner’s rating and price.' ) ],
-		[ er_t( 'Book on the partner’s site' ), er_t( 'You book and pay on Viator, GetYourGuide, Klook or Trip.com. Free cancellation is shown when the partner offers it.' ) ],
+		[ er_t( 'Book on the partner’s site' ), er_t( 'You book and pay on Viator, GetYourGuide, Klook, Tiqets or Trip.com. Free cancellation is shown when the partner offers it.' ) ],
 		[ er_t( 'Keep your plan' ), er_t( 'Save trips and plans with the heart, and share your list with the people you travel with.' ) ],
 	];
 	$h  = '<section class="how" aria-labelledby="how-t"><div class="container"><p class="how__eyebrow">' . esc_html( er_t( 'How Egypt Roamer works' ) ) . '</p><h2 id="how-t">' . esc_html( er_t( 'From an idea to a booked day, in four steps' ) ) . '</h2><ol class="how__steps">';

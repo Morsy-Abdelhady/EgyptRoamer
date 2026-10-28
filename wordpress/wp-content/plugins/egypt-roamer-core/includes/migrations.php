@@ -120,4 +120,29 @@ add_action( 'admin_init', static function (): void {
 			update_option( 'er_migrations', $done, false );
 		}
 	}
+	if ( empty( $done['about-partners-tiqets'] ) ) {
+		$trust = (array) get_option( 'er_trust_pages', [] );
+		$about = (int) ( $trust['about'] ?? 0 );
+		if ( $about ) {
+			$swap = [
+				'Klook or Trip.com'   => 'Klook, Tiqets or Trip.com',
+				'Klook oder Trip.com' => 'Klook, Tiqets oder Trip.com',
+				'Klook ou Trip.com'   => 'Klook, Tiqets ou Trip.com',
+				'Klook o Trip.com'    => 'Klook, Tiqets o Trip.com',
+				'Klook или Trip.com'  => 'Klook, Tiqets или Trip.com',
+				'Klook 或 Trip.com'   => 'Klook、Tiqets 或 Trip.com',
+				'Klook أو Trip.com'   => 'Klook أو Tiqets أو Trip.com',
+			];
+			$ids  = function_exists( 'pll_get_post_translations' ) ? (array) pll_get_post_translations( $about ) : [ $about ];
+			foreach ( array_unique( array_map( 'intval', array_merge( [ $about ], array_values( $ids ) ) ) ) as $id ) {
+				$content = (string) get_post_field( 'post_content', $id );
+				$new     = strtr( $content, $swap );
+				if ( $new !== $content ) {
+					wp_update_post( wp_slash( [ 'ID' => $id, 'post_content' => $new ] ) );
+				}
+			}
+			$done['about-partners-tiqets'] = gmdate( 'c' );
+			update_option( 'er_migrations', $done, false );
+		}
+	}
 } );

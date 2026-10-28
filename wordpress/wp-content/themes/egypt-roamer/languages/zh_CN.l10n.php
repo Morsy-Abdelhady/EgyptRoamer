@@ -915,7 +915,7 @@ return [
 		'You' => '您',
 		'You <em>Feel</em> It' => '用心<em>感受</em>',
 		'You are unsubscribed, and your address is deleted.' => '您已退订，您的地址已删除。',
-		'You book and pay on Viator, GetYourGuide, Klook or Trip.com. Free cancellation is shown when the partner offers it.' => '您在 Viator、GetYourGuide、Klook 或 Trip.com 上预订并付款。合作伙伴提供免费取消时会注明。',
+		'You book and pay on Viator, GetYourGuide, Klook, Tiqets or Trip.com. Free cancellation is shown when the partner offers it.' => '您在 Viator、GetYourGuide、Klook、Tiqets 或 Trip.com 上预订并付款。合作伙伴提供免费取消时会注明。',
 		'You book directly with our partners' => '您直接向我们的合作伙伴预订',
 		'You can do a try-dive (introductory dive) with an instructor at shallow depth after a briefing. It’s a good way to find out whether diving is for you.' => '听完简报后，你可以在教练陪同下在浅水做一次“体验潜水”（入门潜水）。这是判断潜水是否适合你的好方法。',
 		'You may prefer something else if' => '以下情况可考虑其他选择',

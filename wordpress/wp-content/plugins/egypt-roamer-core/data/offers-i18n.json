@@ -1379,5 +1379,125 @@
    "title": "马萨阿拉姆出发：瓦迪杰迈勒四驱越野之旅",
    "location": "马萨阿拉姆"
   }
+ },
+ "tiqets-pyramids-sphinx-tour-with-felucca-ride": {
+  "de": {
+   "title": "Pyramiden von Gizeh und Sphinx mit Feluken-Fahrt auf dem Nil",
+   "location": "Gizeh"
+  },
+  "fr": {
+   "title": "Pyramides de Gizeh et Sphinx avec balade en felouque sur le Nil",
+   "location": "Gizeh"
+  },
+  "it": {
+   "title": "Piramidi di Giza e Sfinge con giro in feluca sul Nilo",
+   "location": "Giza"
+  },
+  "es": {
+   "title": "Pirámides de Guiza y Esfinge con paseo en faluca por el Nilo",
+   "location": "Guiza"
+  },
+  "ru": {
+   "title": "Пирамиды Гизы и Сфинкс с прогулкой на фелуке по Нилу",
+   "location": "Гиза"
+  },
+  "zh": {
+   "title": "吉萨金字塔与狮身人面像之旅，含尼罗河三桅帆船游",
+   "location": "吉萨"
+  },
+  "ar": {
+   "title": "أهرامات الجيزة وأبو الهول مع جولة بالفلوكة في النيل",
+   "location": "الجيزة"
+  }
+ },
+ "tiqets-nile-maxim-dinner-cruise": {
+  "de": {
+   "title": "Kairo: Dinner-Kreuzfahrt auf der Nile Maxim mit Bauchtanz und Tanoura",
+   "location": "Kairo"
+  },
+  "fr": {
+   "title": "Le Caire : dîner-croisière sur le Nile Maxim avec danse orientale et tanoura",
+   "location": "Le Caire"
+  },
+  "it": {
+   "title": "Il Cairo: crociera con cena sulla Nile Maxim con danza del ventre e tanoura",
+   "location": "Il Cairo"
+  },
+  "es": {
+   "title": "El Cairo: crucero con cena en el Nile Maxim con danza del vientre y tanura",
+   "location": "El Cairo"
+  },
+  "ru": {
+   "title": "Каир: круиз с ужином на Nile Maxim с танцем живота и танурой",
+   "location": "Каир"
+  },
+  "zh": {
+   "title": "开罗：Nile Maxim 晚餐游船，含肚皮舞与苏菲旋转舞表演",
+   "location": "开罗"
+  },
+  "ar": {
+   "title": "القاهرة: عشاء على مركب Nile Maxim في النيل مع رقص شرقي وتنورة",
+   "location": "القاهرة"
+  }
+ },
+ "tiqets-valley-of-the-kings-hatshepsut-private-tour": {
+  "de": {
+   "title": "Tal der Könige, Hatschepsut-Tempel und Memnonkolosse: Privattour mit Mittagessen",
+   "location": "Luxor"
+  },
+  "fr": {
+   "title": "Vallée des Rois, temple d’Hatchepsout et colosses de Memnon : visite privée avec déjeuner",
+   "location": "Louxor"
+  },
+  "it": {
+   "title": "Valle dei Re, tempio di Hatshepsut e Colossi di Memnone: tour privato con pranzo",
+   "location": "Luxor"
+  },
+  "es": {
+   "title": "Valle de los Reyes, templo de Hatshepsut y Colosos de Memnón: tour privado con almuerzo",
+   "location": "Luxor"
+  },
+  "ru": {
+   "title": "Долина царей, храм Хатшепсут и колоссы Мемнона: индивидуальный тур с обедом",
+   "location": "Луксор"
+  },
+  "zh": {
+   "title": "帝王谷、哈特谢普苏特神庙与门农巨像：私人游（含午餐）",
+   "location": "卢克索"
+  },
+  "ar": {
+   "title": "وادي الملوك ومعبد حتشبسوت وتمثالا ممنون: جولة خاصة مع الغداء",
+   "location": "الأقصر"
+  }
+ },
+ "tiqets-ras-mohammed-snorkelling-tour-from-sharm": {
+  "de": {
+   "title": "Ras-Mohammed-Nationalpark: geführte Tour mit Schnorcheln und Bustransfer ab Sharm El-Sheikh",
+   "location": "Sharm El-Sheikh"
+  },
+  "fr": {
+   "title": "Parc national de Ras Mohammed : visite guidée avec snorkeling et transfert en bus depuis Charm el-Cheikh",
+   "location": "Charm el-Cheikh"
+  },
+  "it": {
+   "title": "Parco nazionale di Ras Mohammed: tour guidato con snorkeling e transfer in bus da Sharm el-Sheikh",
+   "location": "Sharm el-Sheikh"
+  },
+  "es": {
+   "title": "Parque nacional de Ras Mohammed: tour guiado con esnórquel y traslado en autobús desde Sharm el-Sheij",
+   "location": "Sharm el-Sheij"
+  },
+  "ru": {
+   "title": "Национальный парк Рас-Мохаммед: экскурсия с гидом, снорклингом и трансфером на автобусе из Шарм-эш-Шейха",
+   "location": "Шарм-эш-Шейх"
+  },
+  "zh": {
+   "title": "穆罕默德角国家公园：导览游，含浮潜及沙姆沙伊赫巴士接送",
+   "location": "沙姆沙伊赫"
+  },
+  "ar": {
+   "title": "محمية رأس محمد: جولة بمرشد مع السنوركل وانتقال بالحافلة من شرم الشيخ",
+   "location": "شرم الشيخ"
+  }
  }
 }

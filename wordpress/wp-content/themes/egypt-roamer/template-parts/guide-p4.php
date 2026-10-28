@@ -245,7 +245,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 		<section class="aend aend--tomb">
 			<div class="glyphs" aria-hidden="true"><?php echo esc_html( str_repeat( '𓂀𓇳𓋹𓆣𓊹𓁹𓃭𓈗', 30 ) ); ?></div>
 			<div class="wrap rt-end">
-				<div><p class="eyebrow"><?php er_e( 'Ready to go?' ); ?></p><h2><?php echo esc_html( $er_isplace ? er_t( 'Trips in {place}', [ 'place' => $er_pname ] ) : ( $er_plan ? er_t( 'Trips on this route' ) : er_t( 'Trips in this guide' ) ) ); ?></h2><p><?php er_e( 'You book and pay on Viator, GetYourGuide, Klook or Trip.com. Free cancellation is shown when the partner offers it.' ); ?></p></div>
+				<div><p class="eyebrow"><?php er_e( 'Ready to go?' ); ?></p><h2><?php echo esc_html( $er_isplace ? er_t( 'Trips in {place}', [ 'place' => $er_pname ] ) : ( $er_plan ? er_t( 'Trips on this route' ) : er_t( 'Trips in this guide' ) ) ); ?></h2><p><?php er_e( 'You book and pay on Viator, GetYourGuide, Klook, Tiqets or Trip.com. Free cancellation is shown when the partner offers it.' ); ?></p></div>
 				<ul class="rtl rtl--dark"><?php foreach ( $er_all as $T ) { echo er_world_guide_rcard( $T ); } // phpcs:ignore WordPress.Security.EscapeOutput ?></ul>
 			</div>
 		</section>
@@ -258,7 +258,7 @@ $er_disc  = er_t( 'Egypt Roamer is independent. When you book through our partne
 					<p class="eyebrow"><?php er_e( 'Ready to go?' ); ?></p>
 					<h2><?php echo esc_html( $M['title'] ); ?></h2>
 					<?php echo $er_chips( $M ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-					<p><?php er_e( 'You book and pay on Viator, GetYourGuide, Klook or Trip.com. Free cancellation is shown when the partner offers it.' ); ?></p>
+					<p><?php er_e( 'You book and pay on Viator, GetYourGuide, Klook, Tiqets or Trip.com. Free cancellation is shown when the partner offers it.' ); ?></p>
 					<div class="acts">
 						<a class="btn btn--gold" href="<?php echo esc_url( $M['url'] ); ?>"><?php echo esc_html( '' !== ( $M['world']['go'] ?? '' ) ? $M['world']['go'] : er_t( 'See the trip' ) ); ?> <?php echo er_arrow(); // phpcs:ignore WordPress.Security.EscapeOutput -- a fixed arrow character ?></a>
 						<?php if ( $M['dest'] ) : ?><a class="btn btn--light" href="<?php echo esc_url( er_ux2_trip_url( [ 'destination' => $M['dest'], 'len' => '', 'private' => false, 'pickup' => false ] ) ); ?>"><?php echo esc_html( er_t( 'All {place} trips', [ 'place' => get_the_title( $M['dest'] ) ] ) ); ?></a><?php endif; ?>
