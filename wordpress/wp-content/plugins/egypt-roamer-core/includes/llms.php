@@ -58,6 +58,10 @@ function er_llms_txt(): string {
 	return $out;
 }
 
+// GoDaddy's System Plugin (MU) serves its own /llms.txt (legal pages and the tagline) while the option
+// is_llms_enabled is "enabled", and it answers before this file does. Turned off here, in code, not in the database.
+add_filter( 'pre_option_is_llms_enabled', static fn() => 'disabled' );
+
 add_action( 'save_post', static function () {
 	delete_transient( ER_LLMS_CACHE );
 } );
