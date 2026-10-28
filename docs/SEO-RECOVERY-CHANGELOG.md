@@ -295,3 +295,15 @@ The owner found two errors on Arabic pages that earlier checks missed (they look
 |---|---|---|---|---|
 | "Go on" arrows after labels pointed right in Arabic: `er_arrow()` gives ← on Arabic pages in 11 template spots and the assistant; 4 spans already mirrored by CSS keep → (1.3.36 fixed the double flip from 1.3.35) | `inc/i18n.php`, `template-parts/guide-p4.php`, `world-p4.php`, `inc/world.php`, `src/js/assistant.js` | New `tools/qa/rtl-direction.mjs`: 66 Arabic + 66 English pages, desktop and phone, all ok | Arabic links read naturally | Each release |
 | Number ranges ("4–10 ساعات", "4–7") showed reversed ("10–4"): wrapped in a left-to-right isolate on Arabic pages (server output) and in the homepage planner cards (JS) | `inc/i18n.php`, `src/js/components/planner.js` | Same script | Durations and ranges read correctly | Each release |
+
+## 2026-10-28: mobile speed, homepage (Theme 1.3.38-1.3.40)
+
+Diagnosis (PageSpeed mobile + throttled-phone runs): the LCP on phones is the hero word ("EGYPT"), painted at first paint; its "render delay" came from bandwidth competition, not from the word itself. CLS 0.111 (not in every run) came from the web-font swap: the cookie banner grew (0.081) and the hero moved (0.030).
+
+| Change | Where | Check | Expected effect | Re-check |
+|---|---|---|---|---|
+| Script preloads (GSAP, ScrollTrigger, Lenis, home bundle, locale, ~86 KB) on desktop only; phones fetch them after first paint | `inc/assets.php` | Throttled phone: first paint 2.35 → 1.99 s (median of 3) | Earlier hero paint on phones | — |
+| Complianz's two stylesheets printed inline (2 fewer render-blocking requests) | `inc/assets.php` | Only the theme bundle is still a linked stylesheet | Earlier first paint | — |
+| Metric-matched fallback faces (Arial/Liberation/Arimo and Roboto for Inter; Times/Liberation Serif/Tinos and Noto Serif for Playfair; Latin range only) | `assets/css/fonts.css`, `tokens.css` | Values measured from the woff2 files; homepage unchanged visually (en + ar, phone) | No shift when fonts swap | CrUX / Search Console Core Web Vitals |
+
+PageSpeed mobile, homepage: before 80 (LCP 4.0-4.1 s, CLS 0-0.111); after 85 and 85 (LCP 3.6-3.7 s, CLS 0.086). Still open: LCP above 2.5 s, mostly the 30 KB render-blocking theme bundle (critical CSS would be the next step).
