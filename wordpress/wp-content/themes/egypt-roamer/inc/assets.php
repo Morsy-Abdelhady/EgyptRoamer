@@ -246,6 +246,32 @@ add_filter( 'style_loader_tag', static function ( string $tag, string $handle ):
 }, 10, 2 );
 
 /*
+ * Homepage critical CSS (28 Oct). The bundle (191 KB, 30 KB compressed) blocked the first paint, which on phones
+ * is the LCP (the hero word): PageSpeed still counted it as the main render-blocking request after the other
+ * fixes. The rules that style the first screen (assets/css/critical-home.css, generated from the live page by
+ * tools/qa/critical-css.mjs for 8 languages and 7 widths) are printed in the page, and the bundle loads without
+ * blocking, at its usual place in the cascade. The file names the bundle's sha1: when the bundle changes and the
+ * file is not regenerated, the homepage keeps the blocking stylesheet, so a stale file cannot drop rules.
+ */
+add_filter( 'style_loader_tag', static function ( string $tag, string $handle ): string {
+	if ( 'er-pages' !== $handle || ! is_front_page() ) {
+		return $tag;
+	}
+	$crit   = ER_THEME_DIR . '/assets/css/critical-home.css';
+	$bundle = ER_THEME_DIR . '/assets/css/bundle-home.css';
+	if ( ! is_readable( $crit ) || ! is_readable( $bundle ) ) {
+		return $tag;
+	}
+	$css = (string) file_get_contents( $crit ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+	if ( ! preg_match( '#^/\* bundle-home\.css sha1 ([0-9a-f]{40}) #', $css, $m ) || sha1_file( $bundle ) !== $m[1] || false !== stripos( $css, '</style' ) ) {
+		return $tag;
+	}
+	$css   = str_replace( 'url("../fonts/', 'url("' . ER_THEME_URI . '/assets/fonts/', (string) preg_replace( '#^/\*.*?\*/\s*#s', '', $css ) );
+	$async = str_replace( " media='all'", " media='print' onload=\"this.media='all'\"", $tag );
+	return '<style id="er-critical-css">' . trim( $css ) . "</style>\n" . $async . '<noscript>' . trim( $tag ) . "</noscript>\n";
+}, 10, 2 );
+
+/*
  * Complianz's two stylesheets (the cookie blocker, 3 KB, and the banner, 17 KB) are printed inside the page too:
  * PageSpeed (28 Oct, homepage on a phone) listed them as render-blocking next to the bundle. Read from the
  * plugin's current files at each request, so plugin updates still apply; left as links if a file is missing,
