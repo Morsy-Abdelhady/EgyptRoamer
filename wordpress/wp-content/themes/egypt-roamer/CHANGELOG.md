@@ -2,6 +2,9 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.47 — 2026-10-28: Arabic decimal ranges
+- **Arabic pages keep decimal ranges in order:** the range isolate now includes decimals, so the balloon trip's "1.5–3 hours" no longer shows as "3.1–5".
+
 ## 1.3.46 — 2026-10-28: Tiqets rating, price and photo (with Core 1.2.95)
 - **Tiqets offer cards show what the Tiqets API states:** the rating and number of ratings, the "from" price in US dollars and the product photo, the same way Viator's are shown. Core reads them twice a day (`er_tiqets_data`); a price older than a day and a photo older than 14 days (Tiqets caching rules) are not shown. Review texts are never read.
 

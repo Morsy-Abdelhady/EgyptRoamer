@@ -64,7 +64,8 @@ function er_isolate_ranges( string $html ): string {
 	foreach ( $parts as $i => $part ) {
 		if ( '' !== $part && '<' !== $part[0] ) {
 			if ( $ar ) {
-				$part = (string) preg_replace( '/(?<![\d\x{2066}])(\d+\s?–\s?\d+)(?![\d\x{2069}])/u', "\u{2066}$1\u{2069}", $part );
+				// Decimals stay inside the isolate: "1.5–3" once showed as "3.1–5" (owner's balloon page, 28 Oct).
+				$part = (string) preg_replace( '/(?<![\d.\x{2066}])(\d+(?:\.\d+)?\s?–\s?\d+(?:\.\d+)?)(?![\d\x{2069}])/u', "\u{2066}$1\u{2069}", $part );
 			}
 			// Every language: the " · " separator in card lines keeps to the word before it, so a wrapped line never
 			// starts or ends with a lone dot (owner, 28 Oct, the Arabic trip cards).
