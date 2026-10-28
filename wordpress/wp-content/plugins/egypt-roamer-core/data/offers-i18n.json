@@ -1499,5 +1499,155 @@
    "title": "محمية رأس محمد: جولة بمرشد مع السنوركل وانتقال بالحافلة من شرم الشيخ",
    "location": "شرم الشيخ"
   }
+ },
+ "tiqets-luxor-morning-hot-air-balloon": {
+  "de": {
+   "title": "Luxor: Ballonfahrt am Morgen mit Transfer",
+   "location": "Luxor"
+  },
+  "fr": {
+   "title": "Louxor : vol en montgolfière le matin avec transfert",
+   "location": "Louxor"
+  },
+  "it": {
+   "title": "Luxor: volo in mongolfiera al mattino con transfer",
+   "location": "Luxor"
+  },
+  "es": {
+   "title": "Luxor: vuelo en globo por la mañana con traslado",
+   "location": "Luxor"
+  },
+  "ru": {
+   "title": "Луксор: утренний полёт на воздушном шаре с трансфером",
+   "location": "Луксор"
+  },
+  "zh": {
+   "title": "卢克索：清晨热气球飞行（含接送）",
+   "location": "卢克索"
+  },
+  "ar": {
+   "title": "الأقصر: رحلة منطاد صباحية مع الانتقال",
+   "location": "الأقصر"
+  }
+ },
+ "tiqets-wadi-el-gemal-safari-jeep-trip": {
+  "de": {
+   "title": "Nationalpark Wadi El-Gemal: Jeep-Safari",
+   "location": "Marsa Alam"
+  },
+  "fr": {
+   "title": "Parc national de Wadi El-Gemal : safari en jeep",
+   "location": "Marsa Alam"
+  },
+  "it": {
+   "title": "Parco nazionale di Wadi El-Gemal: safari in jeep",
+   "location": "Marsa Alam"
+  },
+  "es": {
+   "title": "Parque nacional de Wadi El-Gemal: safari en jeep",
+   "location": "Marsa Alam"
+  },
+  "ru": {
+   "title": "Национальный парк Вади-эль-Гемаль: сафари на джипе",
+   "location": "Марса-Алам"
+  },
+  "zh": {
+   "title": "瓦迪杰迈勒国家公园：吉普车沙漠之旅",
+   "location": "马萨阿拉姆"
+  },
+  "ar": {
+   "title": "محمية وادي الجمال: رحلة سفاري بسيارات الجيب",
+   "location": "مرسى علم"
+  }
+ },
+ "tiqets-hurghada-guided-scuba-diving": {
+  "de": {
+   "title": "Hurghada: geführter Tauchausflug mit Transfer und Mittagessen",
+   "location": "Hurghada"
+  },
+  "fr": {
+   "title": "Hurghada : plongée encadrée avec transfert et déjeuner",
+   "location": "Hurghada"
+  },
+  "it": {
+   "title": "Hurghada: immersioni guidate con transfer e pranzo",
+   "location": "Hurghada"
+  },
+  "es": {
+   "title": "Hurghada: buceo guiado con traslado y almuerzo",
+   "location": "Hurghada"
+  },
+  "ru": {
+   "title": "Хургада: дайвинг с инструктором, трансфером и обедом",
+   "location": "Хургада"
+  },
+  "zh": {
+   "title": "赫尔格达：导览潜水体验（含接送及午餐）",
+   "location": "赫尔格达"
+  },
+  "ar": {
+   "title": "الغردقة: غوص بمرافقة مرشد مع الانتقال والغداء",
+   "location": "الغردقة"
+  }
+ },
+ "tiqets-cairo-and-giza-pyramids-private-tour": {
+  "de": {
+   "title": "Kairo und Pyramiden von Gizeh: Privattour mit Mittagessen",
+   "location": "Gizeh"
+  },
+  "fr": {
+   "title": "Le Caire et pyramides de Gizeh : visite privée avec déjeuner",
+   "location": "Gizeh"
+  },
+  "it": {
+   "title": "Il Cairo e Piramidi di Giza: tour privato con pranzo",
+   "location": "Giza"
+  },
+  "es": {
+   "title": "El Cairo y pirámides de Guiza: tour privado con almuerzo",
+   "location": "Guiza"
+  },
+  "ru": {
+   "title": "Каир и пирамиды Гизы: индивидуальный тур с обедом",
+   "location": "Гиза"
+  },
+  "zh": {
+   "title": "开罗与吉萨金字塔：私人导览游（含午餐）",
+   "location": "吉萨"
+  },
+  "ar": {
+   "title": "القاهرة وأهرامات الجيزة: جولة خاصة بمرشد مع الغداء",
+   "location": "الجيزة"
+  }
+ },
+ "tiqets-memphis-nile-dinner-cruise": {
+  "de": {
+   "title": "Kairo: Dinner-Kreuzfahrt auf der Memphis mit Show und Privattransfer",
+   "location": "Kairo"
+  },
+  "fr": {
+   "title": "Le Caire : dîner-croisière sur le Memphis avec spectacle et transfert privé",
+   "location": "Le Caire"
+  },
+  "it": {
+   "title": "Il Cairo: crociera con cena sulla Memphis con spettacolo e transfer privato",
+   "location": "Il Cairo"
+  },
+  "es": {
+   "title": "El Cairo: crucero con cena en el Memphis con espectáculo y traslado privado",
+   "location": "El Cairo"
+  },
+  "ru": {
+   "title": "Каир: круиз с ужином на теплоходе Memphis с шоу и индивидуальным трансфером",
+   "location": "Каир"
+  },
+  "zh": {
+   "title": "开罗：Memphis 尼罗河晚餐游船，含表演及私人接送",
+   "location": "开罗"
+  },
+  "ar": {
+   "title": "القاهرة: عشاء على مركب Memphis في النيل مع عرض وانتقال خاص",
+   "location": "القاهرة"
+  }
  }
 }

@@ -346,7 +346,7 @@
   "pickup": true,
   "cancel": true
  },
- "_note_cancel": "cancel: free cancellation up to 24 hours before, as each partner's own product page states it (26 offers read 16 Oct, docs/prototypes/journey-v4/README.md; the 3 Nile cruise offers read 17 Oct, docs/NILE-CRUISE-OFFERS-2026-10-17.md). The 3 Klook offers read 25 Oct and the 2 Fayoum and Wadi El-Gemal Klook offers read 26 Oct on klook.com (\"Free cancellation (24 hours notice)\"). Wadi El-Gemal: no duration, because the Klook page states both 7 hours and 5 hours. The 4 Tiqets offers read 28 Oct on tiqets.com (\"Cancel for free until 24 hours before your visit date\"). Nile Maxim: no pickup fact, because transfers are an option at extra cost; Valley of the Kings: no pickup fact, because the page offers it only for centrally located hotels.",
+ "_note_cancel": "cancel: free cancellation up to 24 hours before, as each partner's own product page states it (26 offers read 16 Oct, docs/prototypes/journey-v4/README.md; the 3 Nile cruise offers read 17 Oct, docs/NILE-CRUISE-OFFERS-2026-10-17.md). The 3 Klook offers read 25 Oct and the 2 Fayoum and Wadi El-Gemal Klook offers read 26 Oct on klook.com (\"Free cancellation (24 hours notice)\"). Wadi El-Gemal: no duration, because the Klook page states both 7 hours and 5 hours. The 4 Tiqets offers read 28 Oct on tiqets.com (\"Cancel for free until 24 hours before your visit date\"). Nile Maxim: no pickup fact, because transfers are an option at extra cost; Valley of the Kings: no pickup fact, because the page offers it only for centrally located hotels. 5 more Tiqets offers read 28 Oct (balloon, Wadi El-Gemal, Hurghada diving, Cairo and Giza private tour, Memphis dinner cruise), all \"Cancel for free until 24 hours\". Cairo and Giza private tour: no pickup fact, because transfers are only from centrally located hotels.",
  "tiqets-pyramids-sphinx-tour-with-felucca-ride": {
   "duration": {
    "n": "4–5",
@@ -373,6 +373,46 @@
  "tiqets-ras-mohammed-snorkelling-tour-from-sharm": {
   "duration": {
    "n": "4",
+   "unit": "hours"
+  },
+  "pickup": true,
+  "cancel": true
+ },
+ "tiqets-luxor-morning-hot-air-balloon": {
+  "duration": {
+   "n": "1.5",
+   "unit": "hours"
+  },
+  "pickup": true,
+  "cancel": true
+ },
+ "tiqets-wadi-el-gemal-safari-jeep-trip": {
+  "duration": {
+   "n": "8",
+   "unit": "hours"
+  },
+  "pickup": true,
+  "cancel": true
+ },
+ "tiqets-hurghada-guided-scuba-diving": {
+  "duration": {
+   "n": "8",
+   "unit": "hours"
+  },
+  "pickup": true,
+  "cancel": true
+ },
+ "tiqets-cairo-and-giza-pyramids-private-tour": {
+  "group": "private",
+  "duration": {
+   "n": "8",
+   "unit": "hours"
+  },
+  "cancel": true
+ },
+ "tiqets-memphis-nile-dinner-cruise": {
+  "duration": {
+   "n": "2",
    "unit": "hours"
   },
   "pickup": true,
