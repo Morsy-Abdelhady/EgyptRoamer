@@ -3,7 +3,7 @@
 An affiliate-first travel publication about Egypt, built on WordPress and live at https://egyptroamer.com (GoDaddy Managed WordPress). The site takes no bookings and no payments.
 
 ## Current state: read this first
-- **Latest handoff:** `docs/HANDOFF-2026-10-28.md`. Live versions: Theme 1.3.47 / Core 1.2.97. page-coverage passed on 504 pages and rtl-direction on 66 Arabic pages on 28 Oct. Traffic experiment (Pinterest-led) runs to 10 Nov; journalist-request backlinks started (owner writes replies; reporters often refuse AI). The prototype parity review (`docs/PROTOTYPE-PARITY-2026-10-18.md`) records the main screens as compared on 19 Oct.
+- **Latest handoff:** `docs/HANDOFF-2026-10-28.md`. Live versions: Theme 1.3.47 / Core 1.2.98. page-coverage passed on 504 pages and rtl-direction on 66 Arabic pages on 28 Oct. Traffic experiment (Pinterest-led) runs to 10 Nov; journalist-request backlinks started (owner writes replies; reporters often refuse AI). The prototype parity review (`docs/PROTOTYPE-PARITY-2026-10-18.md`) records the main screens as compared on 19 Oct.
 - **Growth plan (owner-approved 2026-10-26):** `docs/GROWTH-PLAN-INTENSIVE-2026-10-26.md`. Goal: 1,000,000 GA4 sessions a month, stretch target December 2027 (very limited ad budget), safer target late 2028; checkpoints in its §4. Its §5 is the current week's work; its §3 lists the six owner decisions applied below.
 - **Live partners:**
   - Viator (tours, 17 offers);

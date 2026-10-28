@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Egypt Roamer Core
  * Description:       Business logic for Egypt Roamer: content models, affiliate providers & offers, secure /go/ redirects, click tracking, reporting, lead capture and SEO guards. Theme-independent.
- * Version:           1.2.97
+ * Version:           1.2.98
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Author:            Egypt Roamer
@@ -13,7 +13,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ER_CORE_VERSION', '1.2.97' );
+define( 'ER_CORE_VERSION', '1.2.98' );
 define( 'ER_CORE_DB_VERSION', '4' ); // 2: chat tables, 3: page-view totals, 4: newsletter confirmation
 define( 'ER_CORE_FILE', __FILE__ );
 define( 'ER_CORE_DIR', plugin_dir_path( __FILE__ ) );
@@ -51,6 +51,7 @@ require_once ER_CORE_DIR . 'includes/previews.php';
 require_once ER_CORE_DIR . 'includes/api.php';
 require_once ER_CORE_DIR . 'includes/viator.php';
 require_once ER_CORE_DIR . 'includes/tiqets.php';
+require_once ER_CORE_DIR . 'includes/llms.php';
 require_once ER_CORE_DIR . 'includes/migrations.php';
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
