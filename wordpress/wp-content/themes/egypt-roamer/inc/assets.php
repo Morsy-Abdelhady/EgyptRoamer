@@ -253,8 +253,8 @@ add_filter( 'style_loader_tag', static function ( string $tag, string $handle ):
  * at once on desktop (the cinematic intro is unchanged); on phones (the hero's phone layout, ≤ 900 px), where
  * the hero is content-first (pages.css), once the first view is painted in its final fonts (first contentful
  * paint and document.fonts.ready; at most 2 s), so script work never delays the hero's paint. A tab opened in
- * the background never paints: there the 2 s fallback runs them directly (no animation frame to wait for). Downloads still begin early
- * (preload in <head>), so only the moment they run moves. Without the runner (an error, or no JS) the
+ * the background never paints: there the 2 s fallback runs them directly (no animation frame to wait for). On desktop downloads
+ * begin early (preload in <head>); on phones they begin when the runner starts them. Without the runner (an error, or no JS) the
  * homepage still works as the stacked, static fallback.
  */
 function er_home_deferred_handles(): array {
@@ -283,7 +283,10 @@ add_action( 'wp_head', static function () {
 		}
 		$dep = $scripts->registered[ $handle ];
 		$url = $dep->ver ? add_query_arg( 'ver', $dep->ver, $dep->src ) : $dep->src;
-		printf( '<link rel="preload" href="%s" as="script" />' . "\n", esc_url( $url ) );
+		// Desktop only (28 Oct): on phones the early downloads (~86 KB) competed with the stylesheet and delayed the
+		// first paint, which is the LCP there (the hero word): measured on a throttled phone, 2.35 → 1.98 s
+		// without them. Phones fetch them when the runner starts them, after the first paint.
+		printf( '<link rel="preload" href="%s" as="script" media="(min-width: 901px)" />' . "\n", esc_url( $url ) );
 	}
 }, 4 );
 add_action( 'wp_footer', static function () {
