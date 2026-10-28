@@ -29,12 +29,16 @@ const live = await (await fetch(B + "/?x=" + Date.now())).text();
 const liveSha = (live.match(/bundle-home\.css\?ver=([^'"&]+)/) || [])[1];
 console.log("bundle sha1", sha, "| live bundle ver", liveSha);
 
-const collect = async (lang, [w, h], js) => {
-  const c = await br.newContext({ viewport: { width: w, height: h }, isMobile: w < 900, hasTouch: w < 900, javaScriptEnabled: js });
+// Three states of the first screen: no JavaScript; the page's inline scripts only (the "js" class set, the homepage
+// bundle not run yet: the state in which the critical CSS is on its own, since the bundle scripts wait for the
+// stylesheet); and after the homepage scripts ran.
+const collect = async (lang, [w, h], mode) => {
+  const c = await br.newContext({ viewport: { width: w, height: h }, isMobile: w < 900, hasTouch: w < 900, javaScriptEnabled: mode !== "nojs" });
   await c.addInitScript(() => { try { localStorage.setItem("er-nocount", "1"); } catch (e) {} });
   const p = await c.newPage();
+  if (mode === "inline") await p.route(/(gsap|ScrollTrigger|lenis)\.min\.js|\/js\/home\.js|\/js\/locales\//, (r) => r.abort());
   await p.goto(B + lang + "/?x=" + Date.now(), { waitUntil: "load", timeout: 120000 });
-  await p.waitForTimeout(js ? 2500 : 500);
+  await p.waitForTimeout(mode === "full" ? 2500 : 800);
   const paths = await p.evaluate(() => {
     const sheet = [...document.styleSheets].find((s) => s.href && s.href.includes("bundle-home.css"));
     if (!sheet) return null;
@@ -80,7 +84,7 @@ const collect = async (lang, [w, h], js) => {
 };
 
 const jobs = [];
-for (const lang of LANGS) for (const size of SIZES) for (const js of [false, true]) jobs.push([lang, size, js]);
+for (const lang of LANGS) for (const size of SIZES) for (const mode of ["nojs", "inline", "full"]) jobs.push([lang, size, mode]);
 for (let i = 0; i < jobs.length; i += 6) await Promise.all(jobs.slice(i, i + 6).map((j) => collect(...j)));
 
 // Serialize from the live bundle in its original order: kept rules, their wrappers, and used @keyframes.
