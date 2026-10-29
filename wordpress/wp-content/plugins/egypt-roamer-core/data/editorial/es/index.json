@@ -186,6 +186,13 @@
   "review": "approved",
   "current": true
  },
+ "g-cairo-citadel": {
+  "type": "er_guide",
+  "title": "La Ciudadela de Saladino en El Cairo: guía para el visitante",
+  "excerpt": "La Ciudadela de Salah al-Din (Saladino) en las colinas de Muqattam: iniciada en 1176, sede de los gobernantes de Egipto durante siglos, y qué ver dentro, de la Mezquita de Muhammad Ali a la mezquita de al-Nasir Muhammad y los museos de la Ciudadela.",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-museums": {
   "type": "er_guide",
   "title": "Los tres grandes museos de El Cairo: cuál visitar",
@@ -246,6 +253,13 @@
   "type": "er_guide",
   "title": "El templo de Edfu: visitar el templo de Horus",
   "excerpt": "El templo de Horus en Edfu, uno de los templos más completos del antiguo Egipto: cómo se construyó en 180 años y se conservó bajo los escombros, qué verás del pilono al santuario y cómo visitarlo entre Asuán y Lúxor.",
+  "review": "approved",
+  "current": true
+ },
+ "g-egyptian-museum": {
+  "type": "er_guide",
+  "title": "El Museo Egipcio de Tahrir: guía para el visitante",
+  "excerpt": "El Museo Egipcio de la plaza Tahrir, abierto en 1902: su historia y su arquitecto, piezas destacadas como la Paleta de Narmer, los enterramientos de Yuya y Tuya, los tesoros de Tanis y las estatuas de los constructores de las pirámides, y las normas para los visitantes.",
   "review": "approved",
   "current": true
  },
@@ -319,6 +333,13 @@
   "review": "approved",
   "current": true
  },
+ "g-luxor-temple": {
+  "type": "er_guide",
+  "title": "El templo de Luxor: el santuario del sur de Tebas",
+  "excerpt": "El templo de Luxor, Ipet-resyt o el «santuario del sur»: por qué mira hacia Karnak, la fiesta de Opet, las escenas del nacimiento divino de Amenhotep III, la gran columnata, el pilono y el obelisco de Ramsés II, las pinturas romanas y cómo visitarlo.",
+  "review": "approved",
+  "current": true
+ },
  "g-medinet-habu": {
   "type": "er_guide",
   "title": "Medinet Habu: el templo de Ramsés III en Luxor",
@@ -337,6 +358,13 @@
   "type": "er_guide",
   "title": "¿Crucero por el Nilo u hoteles? De Luxor a Asuán",
   "excerpt": "¿Luxor y Asuán en crucero por el Nilo o alojándote en hoteles? Cómo es un crucero, los templos de Edfu y Kom Ombo en el camino, el equilibrio entre tiempo y libertad, los barcos más pequeños y cómo elegir.",
+  "review": "approved",
+  "current": true
+ },
+ "g-nubia-museum": {
+  "type": "er_guide",
+  "title": "El Museo de Nubia en Asuán: guía para el visitante",
+  "excerpt": "El Museo de Nubia en Asuán, abierto en 1997 tras la campaña de la UNESCO para salvar los monumentos de Nubia: su edificio premiado, tres plantas de hallazgos, el diorama de la vida nubia, el jardín al aire libre con una casa nubia y las normas del museo.",
   "review": "approved",
   "current": true
  },

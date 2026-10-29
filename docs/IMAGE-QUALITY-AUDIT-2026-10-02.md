@@ -342,6 +342,14 @@ standard thumbnail width. Author and licence were read from each file's Commons 
 | `g-medinet-habu` | reliefs | Thebes,_Medinet_Habu,_Egypt,_Temple_of_Ramesses_III,_Reliefs.jpg | Vyacheslav Argenberg | CC BY 4.0 |
 | `g-qaitbay` (27 Oct) | hero | Citadel_of_Qaitbay,_Alexandria,_Egypt.jpg | Argenberg | CC BY 2.0 |
 | `g-qaitbay` | what-you-will-see | A_view_of_Alexandria_from_the_Citadel_of_Qaitbay.jpg | Slyronit | CC BY-SA 4.0 |
+| `g-luxor-temple` (29 Oct) | hero | Templo_de_Luxor,_Luxor,_Egipto,_2022-04-01,_DD_01.jpg | Diego Delso | CC BY-SA 4.0 |
+| `g-luxor-temple` | inside | Luxor_Temple,_The_Colonnade_of_Amenhotep_III,_Luxor,_Egypt.jpg | Vyacheslav Argenberg | CC BY 4.0 |
+| `g-egyptian-museum` (29 Oct) | hero | Facade_of_the_Egyptian_Museum,_Tahrir_Square,_Cairo,_Egypt1.jpg | Diego Delso | CC BY-SA 3.0 |
+| `g-egyptian-museum` | highlights | The_Narmer_Palette,_early_First_Dynasty,_ca._3000_BCE;_Egyptian_Museum,_Cairo_(1).jpg | Richard Mortel | CC BY 2.0 |
+| `g-cairo-citadel` (29 Oct) | hero | Cairo,_Cairo_Citadel,_Muhammad_Ali_Mosque,_Egypt.jpg | Vyacheslav Argenberg | CC BY 4.0 |
+| `g-cairo-citadel` | history | The_massive_walls_of_the_Cairo_Citadel_(14815621603).jpg | Jorge Láscar | CC BY 2.0 |
+| `g-nubia-museum` (29 Oct) | hero | Aswan_Nubian_Museum_entrance.jpg | Marc Ryckaert | CC BY 3.0 |
+| `g-nubia-museum` | inside | Nubian_Museum,_Aswan,_Egypt,_Egyptian_antiquities.jpg | Vyacheslav Argenberg | CC BY 4.0 |
 | `g-mummification-museum` (27 Oct) | hero | Musée_Momification_-_Louxor_(EG)_-_2025-12-10_-_1.jpg | Chabe01 | CC BY-SA 4.0 |
 | `g-mummification-museum` | what-you-will-see | Mummification_museum_Luxor.jpg | MoGamal11 | CC BY-SA 4.0 |
 | `g-alexandria-museum` (27 Oct) | hero | Musee_national_-_alexandrie_facade_vue_large.JPG | Papillus | CC BY-SA 3.0 |

@@ -186,6 +186,13 @@
   "review": "approved",
   "current": true
  },
+ "g-cairo-citadel": {
+  "type": "er_guide",
+  "title": "开罗萨拉丁城堡：参观指南",
+  "excerpt": "穆卡塔姆山上的萨拉丁城堡：始建于1176年，数百年间是埃及统治者的居所；城内有哪些可看，从穆罕默德·阿里清真寺到纳赛尔·穆罕默德清真寺，再到城堡里的博物馆。",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-museums": {
   "type": "er_guide",
   "title": "开罗三大博物馆：该去哪一座",
@@ -246,6 +253,13 @@
   "type": "er_guide",
   "title": "埃德富神庙：参观荷鲁斯神庙",
   "excerpt": "埃德富的荷鲁斯神庙是古埃及保存最完整的神庙之一：它如何历时180年建成、又如何被废墟掩埋而得以保存，从塔门到圣殿你将看到什么，以及如何在阿斯旺和卢克索之间参观。",
+  "review": "approved",
+  "current": true
+ },
+ "g-egyptian-museum": {
+  "type": "er_guide",
+  "title": "解放广场埃及博物馆：参观指南",
+  "excerpt": "位于解放广场、1902年开馆的埃及博物馆：它的历史与建筑师，纳尔迈调色板、尤雅与图雅的墓葬、塔尼斯宝藏、金字塔建造者雕像等重点藏品，以及参观规定。",
   "review": "approved",
   "current": true
  },
@@ -319,6 +333,13 @@
   "review": "approved",
   "current": true
  },
+ "g-luxor-temple": {
+  "type": "er_guide",
+  "title": "卢克索神庙：底比斯的南方圣所",
+  "excerpt": "卢克索神庙，古称“伊佩特-雷西特”，即“南方圣所”：它为何朝向卡纳克、奥佩特节、阿蒙霍特普三世的神圣诞生浮雕、大柱廊、拉美西斯二世的塔门与方尖碑、罗马时期的壁画，以及如何参观。",
+  "review": "approved",
+  "current": true
+ },
  "g-medinet-habu": {
   "type": "er_guide",
   "title": "哈布城：卢克索的拉美西斯三世神庙",
@@ -337,6 +358,13 @@
   "type": "er_guide",
   "title": "尼罗河游船还是酒店？从卢克索到阿斯旺",
   "excerpt": "游览卢克索和阿斯旺，是坐尼罗河游船还是住酒店？游船是什么样的，沿途的埃德富神庙和康翁波神庙，时间与自由的取舍，更小的帆船，以及如何选择。",
+  "review": "approved",
+  "current": true
+ },
+ "g-nubia-museum": {
+  "type": "er_guide",
+  "title": "阿斯旺努比亚博物馆：参观指南",
+  "excerpt": "阿斯旺的努比亚博物馆，在联合国教科文组织拯救努比亚古迹运动之后于1997年开馆：获奖的建筑、三层展品、努比亚生活的场景展示、带有努比亚民居的露天花园，以及参观规定。",
   "review": "approved",
   "current": true
  },

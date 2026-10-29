@@ -186,6 +186,13 @@
   "review": "approved",
   "current": true
  },
+ "g-cairo-citadel": {
+  "type": "er_guide",
+  "title": "Die Zitadelle Saladins in Kairo: ein Besucherleitfaden",
+  "excerpt": "Die Zitadelle des Salah ad-Din (Saladin) auf den Muqattam-Hügeln: 1176 begonnen, jahrhundertelang Sitz der Herrscher Ägyptens, und was Sie darin sehen, von der Muhammad-Ali-Moschee bis zur Moschee an-Nasir Muhammads und den Museen der Zitadelle.",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-museums": {
   "type": "er_guide",
   "title": "Die drei großen Museen Kairos: Welches sollten Sie besuchen?",
@@ -246,6 +253,13 @@
   "type": "er_guide",
   "title": "Der Tempel von Edfu: Besuch im Horustempel",
   "excerpt": "Der Horustempel von Edfu, einer der vollständigsten Tempel des alten Ägypten: wie er in 180 Jahren erbaut und vom Schutt bewahrt wurde, was Sie vom Pylon bis zum Allerheiligsten sehen und wie Sie ihn zwischen Assuan und Luxor besuchen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-egyptian-museum": {
+  "type": "er_guide",
+  "title": "Das Ägyptische Museum am Tahrir-Platz: ein Besucherleitfaden",
+  "excerpt": "Das 1902 eröffnete Ägyptische Museum am Tahrir-Platz: Geschichte und Architekt, Höhepunkte wie die Narmer-Palette, die Bestattungen von Juja und Tuja, die Schätze von Tanis und die Statuen der Pyramidenerbauer, und die Regeln für Besucher.",
   "review": "approved",
   "current": true
  },
@@ -319,6 +333,13 @@
   "review": "approved",
   "current": true
  },
+ "g-luxor-temple": {
+  "type": "er_guide",
+  "title": "Der Luxor-Tempel: das südliche Heiligtum von Theben",
+  "excerpt": "Der Luxor-Tempel, Ipet-resyt oder das „südliche Heiligtum“: warum er nach Karnak ausgerichtet ist, das Opet-Fest, die Szenen der göttlichen Geburt Amenophis’ III., die große Kolonnade, der Pylon und Obelisk Ramses’ II., die römischen Malereien und wie Sie ihn besuchen.",
+  "review": "approved",
+  "current": true
+ },
  "g-medinet-habu": {
   "type": "er_guide",
   "title": "Medinet Habu: Der Tempel Ramses’ III. in Luxor",
@@ -337,6 +358,13 @@
   "type": "er_guide",
   "title": "Nilkreuzfahrt oder Hotels? Von Luxor nach Assuan",
   "excerpt": "Luxor und Assuan per Nilkreuzfahrt oder mit Hotelaufenthalten? Wie eine Kreuzfahrt ist, die Tempel von Edfu und Kom Ombo unterwegs, das Abwägen zwischen Zeit und Freiheit, kleinere Segelschiffe und wie Sie sich entscheiden.",
+  "review": "approved",
+  "current": true
+ },
+ "g-nubia-museum": {
+  "type": "er_guide",
+  "title": "Das Nubische Museum in Assuan: ein Besucherleitfaden",
+  "excerpt": "Das Nubische Museum in Assuan, 1997 eröffnet nach der UNESCO-Kampagne zur Rettung der Denkmäler Nubiens: das preisgekrönte Gebäude, drei Etagen mit Funden, das Diorama zum nubischen Leben, der Freiluftgarten mit einem nubischen Haus und die Regeln des Museums.",
   "review": "approved",
   "current": true
  },

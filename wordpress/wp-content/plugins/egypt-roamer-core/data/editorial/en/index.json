@@ -168,6 +168,15 @@
   "destination": "cairo, luxor, aswan, hurghada, sharm, siwa, alexandria",
   "related": "exp-abu, exp-safari"
  },
+ "g-cairo-citadel": {
+  "type": "er_guide",
+  "title": "The Cairo Citadel of Saladin: A Visitor's Guide",
+  "excerpt": "The Citadel of Salah al-Din (Saladin) on the Muqattam Hills: begun in 1176, the seat of Egypt's rulers for centuries, and what to see inside, from the Mosque of Muhammad Ali to the mosque of al-Nasir Muhammad and the Citadel's museums.",
+  "slug": "cairo-citadel-of-saladin",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-food"
+ },
  "g-cairo-museums": {
   "type": "er_guide",
   "title": "Cairo's Three Great Museums: Which One to Visit",
@@ -245,6 +254,15 @@
   "topic": "Planning",
   "destination": "aswan, luxor",
   "related": "exp-cruise"
+ },
+ "g-egyptian-museum": {
+  "type": "er_guide",
+  "title": "The Egyptian Museum in Tahrir: A Visitor's Guide",
+  "excerpt": "The Egyptian Museum on Tahrir Square, opened in 1902: its history and architect, highlights such as the Narmer Palette, the burials of Yuya and Thuya, the treasures of Tanis and the statues of the pyramid builders, and the museum's rules for visitors.",
+  "slug": "egyptian-museum-tahrir-guide",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-giza"
  },
  "g-el-gouna": {
   "type": "er_guide",
@@ -333,6 +351,15 @@
   "destination": "luxor",
   "related": "exp-balloon, exp-cruise, exp-valley"
  },
+ "g-luxor-temple": {
+  "type": "er_guide",
+  "title": "Luxor Temple: The Southern Sanctuary of Thebes",
+  "excerpt": "Luxor Temple, Ipet-resyt or the \"Southern Sanctuary\": why it faces Karnak, the Opet Festival, the Divine Birth scenes of Amenhotep III, the Great Colonnade, Ramesses II's pylon and obelisk, the Roman paintings, and how to visit.",
+  "slug": "luxor-temple-guide",
+  "topic": "Planning",
+  "destination": "luxor",
+  "related": "exp-valley"
+ },
  "g-medinet-habu": {
   "type": "er_guide",
   "title": "Medinet Habu: The Temple of Ramesses III in Luxor",
@@ -359,6 +386,15 @@
   "topic": "Planning",
   "destination": "luxor, aswan",
   "related": "exp-valley, exp-abu"
+ },
+ "g-nubia-museum": {
+  "type": "er_guide",
+  "title": "The Nubia Museum in Aswan: A Visitor's Guide",
+  "excerpt": "The Nubia Museum in Aswan, opened in 1997 after the UNESCO campaign to save the monuments of Nubia: its award-winning building, three floors of finds, the diorama of Nubian life, the open-air garden with a Nubian house, and the museum's rules.",
+  "slug": "nubia-museum-aswan",
+  "topic": "Planning",
+  "destination": "aswan",
+  "related": "exp-abu"
  },
  "g-philae": {
   "type": "er_guide",

@@ -40,6 +40,18 @@ return [
 	'alexandria-national-museum' => [
 		'what-you-will-see' => [ [ 'commons:EWUG visit to Alexandria National Museum, April 2025 - 007.jpg', 'Statues and sacred birds in a display case', '' ] ],
 	],
+	'luxor-temple-guide' => [
+		'inside' => [ [ 'commons:Luxor Temple, The Colonnade of Amenhotep III, Luxor, Egypt.jpg', 'The Great Colonnade of Amenhotep III', '' ] ],
+	],
+	'egyptian-museum-tahrir-guide' => [
+		'highlights' => [ [ 'commons:The Narmer Palette, early First Dynasty, ca. 3000 BCE; Egyptian Museum, Cairo (1).jpg', 'The Narmer Palette in the Egyptian Museum', '' ] ],
+	],
+	'cairo-citadel-of-saladin' => [
+		'history' => [ [ 'commons:The massive walls of the Cairo Citadel (14815621603).jpg', 'The walls of the Cairo Citadel', '' ] ],
+	],
+	'nubia-museum-aswan' => [
+		'inside' => [ [ 'commons:Nubian Museum, Aswan, Egypt, Egyptian antiquities.jpg', 'Antiquities in the Nubia Museum', '' ] ],
+	],
 	'wadi-el-gemal-national-park' => [
 		'what-you-will-see' => [ [ 'commons:WadiElGimal3.jpg', 'An acacia tree in Wadi El-Gemal', '' ], [ 'commons:Sooty Gull in Ras Baghdadi - Wadi El-Gemal National Park, Red Sea 7.jpg', 'A sooty gull on the coast of the park', '' ] ],
 	],

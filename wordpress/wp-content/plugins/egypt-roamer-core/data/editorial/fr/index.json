@@ -186,6 +186,13 @@
   "review": "approved",
   "current": true
  },
+ "g-cairo-citadel": {
+  "type": "er_guide",
+  "title": "La Citadelle de Saladin au Caire : guide de visite",
+  "excerpt": "La Citadelle de Salah al-Din (Saladin) sur les collines du Moqattam : commencée en 1176, siège des souverains de l’Égypte pendant des siècles, et ce qu’on y voit, de la mosquée de Méhémet Ali à la mosquée d’al-Nasir Muhammad et aux musées de la Citadelle.",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-museums": {
   "type": "er_guide",
   "title": "Les trois grands musées du Caire : lequel visiter ?",
@@ -246,6 +253,13 @@
   "type": "er_guide",
   "title": "Le temple d’Edfou : visiter le temple d’Horus",
   "excerpt": "Le temple d’Horus à Edfou, l’un des temples les plus complets de l’Égypte ancienne : comment il a été bâti en 180 ans et préservé sous les décombres, ce que vous verrez du pylône au sanctuaire, et comment le visiter entre Assouan et Louxor.",
+  "review": "approved",
+  "current": true
+ },
+ "g-egyptian-museum": {
+  "type": "er_guide",
+  "title": "Le Musée égyptien de Tahrir : guide de visite",
+  "excerpt": "Le Musée égyptien de la place Tahrir, ouvert en 1902 : son histoire et son architecte, ses temps forts comme la palette de Narmer, les sépultures de Youya et Touya, les trésors de Tanis et les statues des bâtisseurs des pyramides, et le règlement de visite.",
   "review": "approved",
   "current": true
  },
@@ -319,6 +333,13 @@
   "review": "approved",
   "current": true
  },
+ "g-luxor-temple": {
+  "type": "er_guide",
+  "title": "Le temple de Louxor : le sanctuaire du sud de Thèbes",
+  "excerpt": "Le temple de Louxor, Ipet-resyt ou le « sanctuaire du sud » : pourquoi il est tourné vers Karnak, la fête d’Opet, les scènes de la naissance divine d’Amenhotep III, la grande colonnade, le pylône et l’obélisque de Ramsès II, les peintures romaines et comment le visiter.",
+  "review": "approved",
+  "current": true
+ },
  "g-medinet-habu": {
   "type": "er_guide",
   "title": "Médinet Habou : le temple de Ramsès III à Louxor",
@@ -337,6 +358,13 @@
   "type": "er_guide",
   "title": "Croisière sur le Nil ou hôtels ? De Louxor à Assouan",
   "excerpt": "Louxor et Assouan en croisière sur le Nil ou en séjournant à l’hôtel ? À quoi ressemble une croisière, les temples d’Edfou et de Kom Ombo sur le trajet, le compromis entre temps et liberté, les bateaux plus petits, et comment choisir.",
+  "review": "approved",
+  "current": true
+ },
+ "g-nubia-museum": {
+  "type": "er_guide",
+  "title": "Le musée de la Nubie à Assouan : guide de visite",
+  "excerpt": "Le musée de la Nubie à Assouan, ouvert en 1997 après la campagne de l’UNESCO pour sauver les monuments de Nubie : son bâtiment primé, ses trois niveaux de collections, le diorama de la vie nubienne, le jardin en plein air avec une maison nubienne, et le règlement du musée.",
   "review": "approved",
   "current": true
  },

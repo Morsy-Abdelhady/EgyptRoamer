@@ -1110,6 +1110,58 @@
     }
    ],
    "checked": "2026-10-28"
+  },
+  {
+   "claim": "Luxor Temple (official, 2026-10-29): Ipet-resyt \"Southern Sanctuary\"; about 3 km south of Karnak, sphinx-lined processional way; oldest evidence 18th Dynasty (c. 1550–1295 BC); oriented towards Karnak for the Opet Festival (Amun, Mut, Khonsu visit Amenemopet); shrine of Hatshepsut (c. 1473–1458 BC); core by Amenhotep III (c. 1390–1352 BC) with columned hall, peristyle court and the Great Colonnade of two rows of seven columns; Divine Birth scenes (Amun-Ra disguised as Thutmose IV, c. 1400–1390 BC); colonnade decoration finished by Tutankhamun (c. 1336–1327 BC) and Horemheb (c. 1323–1295 BC); Ramesses II (c. 1279–1213 BC) peristyle court, pylon, colossi, two 25 m obelisks, one in the Place de la Concorde since 1836; Roman fort late 3rd century AD, sanctuary paintings of Diocletian (284–305) and three co-rulers, under restoration",
+   "guides": [
+    "g-luxor-temple"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/monuments/luxor-temple"
+    }
+   ],
+   "checked": "2026-10-29"
+  },
+  {
+   "claim": "Egyptian Museum (official, 2026-10-29): oldest archaeological museum in the Middle East; Predynastic to Graeco-Roman; architect chosen by the first international competition in 1895, won by Marcel Dourgnon; opened 1902 by Khedive Abbas Helmy II; burials of Yuya and Thuya, Psusennes I and the treasures of Tanis, Narmer Palette, statues of Khufu, Khafre and Menkaure, papyri, sarcophagi, jewellery; mobile photography free, no flash, camera stand needs a ticket; bags over 40×40 cm, umbrellas, sharp items to cloakroom; no food except small water bottles; services incl. café, gift shop, elevator, library, ramp, Braille labels, parking, sign language, audio tour; ticket window closes an hour before closing; Ramadan hours",
+   "guides": [
+    "g-egyptian-museum"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/museums/egyptian-museum"
+    }
+   ],
+   "checked": "2026-10-29"
+  },
+  {
+   "claim": "Cairo Citadel (official, 2026-10-29): one of the most iconic monuments of Islamic Cairo, Muqattam Hills, panoramic view; ordered by Salah al-Din 572 AH/1176 AD, completed under al-Kamil ibn al-Adil 604 AH/1207 AD, official residence of Egypt's rulers until Khedive Ismail moved to Abdeen Palace in the mid-19th century; events to the end of the Muhammad Ali Dynasty (1952); Mosque of Muhammad Ali Pasha, mosque of al-Nasir Muhammad ibn Qalawun, Ottoman Sulayman Pasha al-Khadim Mosque, Police Museum, Al-Jawhara Palace Museum, Military Museum; one area entry ticket and separate vehicle tickets",
+   "guides": [
+    "g-cairo-citadel"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/archaeological-sites/salah-al-din-citadel"
+    }
+   ],
+   "checked": "2026-10-29"
+  },
+  {
+   "claim": "Nubia Museum (official, 2026-10-29): born of the UNESCO Nubia salvage campaign (1960, at Egypt's request); work began early 1980s with a committee of the SCA, Egyptian universities and UNESCO; building by Dr. Mahmoud Al-Hakim, interior by Pedro Ramírez Vázquez; opened 1997; local sandstone and pink granite; Aga Khan Award 2001 (the Ministry writes \"for Islamic Architecture\"; the award's name is the Aga Khan Award for Architecture); three floors, main hall and diorama, lecture hall, library, education department, theatre, open amphitheatre; garden with part of a Fatimid cemetery, a cave with prehistoric rock inscriptions, a Nile waterway and channels, a reconstructed Nubian house; private photography after ticket, no flash; bags over 40×40 cm to cloakroom; evening hours Thursday–Friday; ticket window closes an hour before closing; Ramadan hours",
+   "guides": [
+    "g-nubia-museum"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/museums/nubia-museum"
+    }
+   ],
+   "checked": "2026-10-29"
   }
  ]
 }

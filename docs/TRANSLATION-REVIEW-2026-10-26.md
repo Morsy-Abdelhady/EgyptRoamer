@@ -203,3 +203,7 @@ existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefr
 ## Addendum, 28 Oct: Egypt itinerary planner
 
 `g-itinerary` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Place and guide names follow the existing 7/10/14-day translations (e.g. Großen Sandmeer, Désert blanc, Grande mer de sable, Deserto Bianco, Desierto Blanco, templo de Filé, Великом песчаном море, 大沙海, بحر الرمال العظيم). One sentence linking to it was added to `g-7-days`, `g-10-days` and `g-14-days` in every language.
+
+## Addendum, 29 Oct: Luxor Temple, Egyptian Museum, Cairo Citadel, Nubia Museum
+
+`g-luxor-temple`, `g-egyptian-museum`, `g-cairo-citadel` and `g-nubia-museum` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Names follow the existing translations (Karnak und der Luxor-Tempel / temple de Louxor / Tempio di Luxor / templo de Luxor / Луксорский храм / 卢克索神庙 / معبد الأقصر; Cheops, Chephren, Mykerinos / Khéops, Khéphren, Mykérinos / Cheope, Chefren, Micerino / Keops, Kefrén, Micerino / Хеопс, Хафра, Менкаур / 胡夫、哈夫拉、孟卡拉; Philae kept as in the site's Italian and Spanish guides). The Aga Khan award is given its own name, the Aga Khan Award for Architecture, in every language.
