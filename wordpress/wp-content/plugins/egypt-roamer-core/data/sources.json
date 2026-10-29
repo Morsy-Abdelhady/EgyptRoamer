@@ -1266,6 +1266,58 @@
     }
    ],
    "checked": "2026-10-29"
+  },
+  {
+   "claim": "Nabq (official, 2026-10-29): declared 1992; 518 km²; sustainable-use protected area; 500 km from Cairo; South Sinai; coral reefs, marine and land creatures, very dense mangrove forests, desert and mountain systems and valleys; gazelles, ibex, hyenas, reptiles, many migratory and resident birds, invertebrates; some Bedouin tribes live there; a draw for diving, safari and birdwatching",
+   "guides": [
+    "g-nabq"
+   ],
+   "links": [
+    {
+     "name": "Egyptian Environmental Affairs Agency",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-29"
+  },
+  {
+   "claim": "Abu Galum (official, 2026-10-29): declared 1992; 425.7 km²; sustainable-use protected area; 500 km from Cairo; South Sinai; mountains close to the shore; coral reefs, marine life, seagrass, lagoons, desert and mountain systems; animals, birds, wild plants; draw for diving, safari, bird and animal watching; about 165 plant species, 44 found only there; underwater cave system deeper than 100 m, unstable and extremely dangerous, must be protected",
+   "guides": [
+    "g-abu-galum"
+   ],
+   "links": [
+    {
+     "name": "Egyptian Environmental Affairs Agency",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-29"
+  },
+  {
+   "claim": "Lake Qarun (official, 2026-10-29): declared 1989; 1,298.3 km²; sustainable-use protected area; 90 km from Cairo; Fayoum; one of the oldest natural lakes in the world; remnant of ancient Lake Moeris; marine, river and continental fossil deposits about 40 million years old; huge river mouth; rhino-like \"Fayoum animal\", ancestors of elephants and hippopotamus, dolphins, sharks, ancestors of African birds; Aegyptopithecus, oldest ape, Oligocene; petrified trees; reptiles, amphibians, mammals; Roman and Pharaonic sites north of the lake; Qaret El-Rusas to the northeast; churches area and Deir Abu Lifa",
+   "guides": [
+    "g-lake-qarun"
+   ],
+   "links": [
+    {
+     "name": "Egyptian Environmental Affairs Agency",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-29"
+  },
+  {
+   "claim": "Saint Catherine Protected Area (official, 2026-10-29): declared 1988; 4,412 km²; protected landscape; 500 km from Cairo; South Sinai; Egypt's highest peaks, from the great African rift about 24 million years ago that formed the Red Sea and Gulf of Aqaba; Catherine, Musa, Serbal, Umm Shomar, Al-Thabt; mountain views and oases around springs and wells unique in the world; Nubian ibex, Egyptian gazelle, hyrax, Sinai leopard, wolf, hyena, fox, hedgehog, spiny mouse, jerboa; 27 reptiles; 22 of the 28 plant species of Sinai described as unique in the world, medicinal and poisonous plants; churches and monasteries incl. St Catherine's, Byzantine, Pharaonic and later remains",
+   "guides": [
+    "g-saint-catherine-protectorate"
+   ],
+   "links": [
+    {
+     "name": "Egyptian Environmental Affairs Agency",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-29"
   }
  ]
 }

@@ -158,6 +158,13 @@
   "review": "approved",
   "current": true
  },
+ "g-abu-galum": {
+  "type": "er_guide",
+  "title": "Aire protégée d’Abu Galum : là où les montagnes du Sinaï rejoignent la mer",
+  "excerpt": "L’aire protégée d’Abu Galum, au Sud-Sinaï : des montagnes qui descendent jusqu’au rivage, des récifs coralliens, des herbiers et des lagunes, environ 165 espèces de plantes dont 44 ne poussent nulle part ailleurs, un réseau de grottes sous-marines profond et dangereux, et comment préparer la visite.",
+  "review": "approved",
+  "current": true
+ },
  "g-abu-simbel": {
   "type": "er_guide",
   "title": "Abou Simbel depuis Assouan : comment organiser la journée",
@@ -347,6 +354,13 @@
   "review": "approved",
   "current": true
  },
+ "g-lake-qarun": {
+  "type": "er_guide",
+  "title": "Aire protégée du lac Qarun : le lac millénaire du Fayoum",
+  "excerpt": "L’aire protégée du lac Qarun, dans le Fayoum : l’un des plus anciens lacs naturels du monde et le vestige de l’antique lac Moéris, des fossiles d’environ 40 millions d’années dont le plus ancien singe connu, les antiquités au nord du lac, et comment préparer l’excursion depuis Le Caire.",
+  "review": "approved",
+  "current": true
+ },
  "g-luxor-balloon": {
   "type": "er_guide",
   "title": "Montgolfière au-dessus de Louxor : ce qu’il faut savoir avant de réserver",
@@ -372,6 +386,13 @@
   "type": "er_guide",
   "title": "Le musée de la Momification à Louxor : comment les anciens Égyptiens conservaient les morts",
   "excerpt": "Le musée de la Momification à Louxor explique comment les anciens Égyptiens conservaient le corps : le processus de 70 jours, le natron du Ouadi Natroun, les vases canopes et les amulettes, les animaux momifiés, les pièces phares et ce qu’il faut savoir avant la visite.",
+  "review": "approved",
+  "current": true
+ },
+ "g-nabq": {
+  "type": "er_guide",
+  "title": "Aire protégée de Nabq : mangroves et récifs au nord de Charm",
+  "excerpt": "L’aire protégée de Nabq, au Sud-Sinaï : forêts de mangrove denses, récifs coralliens, montagnes et vallées désertiques, gazelles, bouquetins et oiseaux migrateurs, les Bédouins qui y vivent, et comment préparer une visite pour la plongée, le safari ou l’observation des oiseaux.",
   "review": "approved",
   "current": true
  },
@@ -428,6 +449,13 @@
   "type": "er_guide",
   "title": "Le musée des Bijoux royaux d’Alexandrie : guide de visite",
   "excerpt": "Le musée des Bijoux royaux d’Alexandrie : les trésors de la famille royale égyptienne, la dynastie de Méhémet Ali (1805–1952), exposés dans un palais de 1919 à Zizinia, du collier de diamants et d’émeraudes de Méhémet Ali à un échiquier en or, et le règlement du musée.",
+  "review": "approved",
+  "current": true
+ },
+ "g-saint-catherine-protectorate": {
+  "type": "er_guide",
+  "title": "Aire protégée de Sainte-Catherine : les plus hautes montagnes d’Égypte",
+  "excerpt": "L’aire protégée de Sainte-Catherine, au Sud-Sinaï : les plus hauts sommets d’Égypte, nés du grand rift qui a ouvert la mer Rouge, le bouquetin de Nubie, le léopard du Sinaï et des plantes rares, les monastères et églises, et comment préparer la visite.",
   "review": "approved",
   "current": true
  },

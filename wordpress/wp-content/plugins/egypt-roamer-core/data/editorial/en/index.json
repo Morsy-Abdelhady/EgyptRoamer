@@ -135,6 +135,15 @@
   "destination": "cairo, luxor, aswan",
   "related": "exp-giza, exp-valley, exp-abu"
  },
+ "g-abu-galum": {
+  "type": "er_guide",
+  "title": "Abu Galum Protected Area: Where Sinai's Mountains Meet the Sea",
+  "excerpt": "Abu Galum Protected Area in South Sinai: mountains that come down to the shore, coral reefs, seagrass and lagoons, about 165 plant species of which 44 grow nowhere else, a deep and dangerous underwater cave system, and how to plan a visit.",
+  "slug": "abu-galum-protected-area-sinai",
+  "topic": "Planning",
+  "destination": "sharm",
+  "related": "exp-dive"
+ },
  "g-abu-simbel": {
   "type": "er_guide",
   "title": "Abu Simbel from Aswan: How to Plan the Day",
@@ -369,6 +378,15 @@
   "destination": "aswan",
   "related": "exp-cruise"
  },
+ "g-lake-qarun": {
+  "type": "er_guide",
+  "title": "Lake Qarun Protected Area: The Fayoum's Ancient Lake",
+  "excerpt": "Lake Qarun Protected Area in the Fayoum: one of the oldest natural lakes in the world and what remains of ancient Lake Moeris, fossils about 40 million years old including the oldest ape known, the antiquities north of the lake, and how to plan the trip from Cairo.",
+  "slug": "lake-qarun-protected-area-fayoum",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-hitan"
+ },
  "g-luxor-balloon": {
   "type": "er_guide",
   "title": "A Hot-Air Balloon over Luxor: What to Know Before You Book",
@@ -404,6 +422,15 @@
   "topic": "Planning",
   "destination": "luxor",
   "related": "exp-valley"
+ },
+ "g-nabq": {
+  "type": "er_guide",
+  "title": "Nabq Protected Area: Mangroves and Reefs North of Sharm",
+  "excerpt": "Nabq Protected Area in South Sinai: dense mangrove forests, coral reefs, desert mountains and valleys, gazelles, ibex and migratory birds, the Bedouin who live there, and how to plan a visit for diving, safari or birdwatching.",
+  "slug": "nabq-protected-area-sinai",
+  "topic": "Planning",
+  "destination": "sharm",
+  "related": "exp-ras-mohammed, exp-dive"
  },
  "g-nile-cruise": {
   "type": "er_guide",
@@ -476,6 +503,15 @@
   "topic": "Planning",
   "destination": "alexandria",
   "related": "exp-alexandria"
+ },
+ "g-saint-catherine-protectorate": {
+  "type": "er_guide",
+  "title": "Saint Catherine Protected Area: Egypt's Highest Mountains",
+  "excerpt": "The Saint Catherine Protected Area in South Sinai: Egypt's highest peaks, born of the great rift that opened the Red Sea, the Nubian ibex, the Sinai leopard and rare plants, the monasteries and churches, and how to plan a visit.",
+  "slug": "saint-catherine-protected-area",
+  "topic": "Planning",
+  "destination": "sharm",
+  "related": "exp-ras-mohammed"
  },
  "g-saqqara-dahshur": {
   "type": "er_guide",

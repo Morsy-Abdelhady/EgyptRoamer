@@ -359,6 +359,10 @@ standard thumbnail width. Author and licence were read from each file's Commons 
 | `g-wadi-el-rayan` (29 Oct) | hero | Wadi_el-Raiyan_by_Hatem_Moushir_3.JPG | Hatem Moushir | CC BY-SA 3.0 |
 | `g-wadi-degla` (29 Oct) | hero | Wadi_Degla_7.JPG | Waelfouda | CC BY-SA 4.0 |
 | `g-petrified-forest` (29 Oct) | hero | MaadiForestWood1.jpg (800 px wide, the only free photo found of the site) | Roland Unger | CC BY-SA 3.0 |
+| `g-nabq` (29 Oct) | hero | Avicennia_marina_-_Nabq_by_Hatem_Moushir_9.JPG (mangroves at Nabq) | Hatem Moushir | CC BY-SA 3.0 |
+| `g-abu-galum` (29 Oct) | hero | Beach_Abu_Galoum_Protected.jpg | Mohamed3171979 | CC BY-SA 4.0 |
+| `g-lake-qarun` (29 Oct) | hero | A_bout_in_Qarun_Lake.jpg | Aya Gallab | CC BY-SA 4.0 |
+| `g-saint-catherine-protectorate` (29 Oct) | hero | Sant_katrin_mountain_sinai_04.jpg | OmarMoghazy99 | CC BY-SA 4.0 |
 | `g-mummification-museum` (27 Oct) | hero | Musée_Momification_-_Louxor_(EG)_-_2025-12-10_-_1.jpg | Chabe01 | CC BY-SA 4.0 |
 | `g-mummification-museum` | what-you-will-see | Mummification_museum_Luxor.jpg | MoGamal11 | CC BY-SA 4.0 |
 | `g-alexandria-museum` (27 Oct) | hero | Musee_national_-_alexandrie_facade_vue_large.JPG | Papillus | CC BY-SA 3.0 |

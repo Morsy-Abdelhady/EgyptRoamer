@@ -215,3 +215,7 @@ existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefr
 ## Addendum, 29 Oct: Ras Mohammed, Wadi El-Rayan, Wadi Degla, Petrified Forest
 
 `g-ras-mohammed`, `g-wadi-el-rayan`, `g-wadi-degla` and `g-petrified-forest` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Wadi El-Rayan and its animals follow `g-wadi-hitan` in every language (Wadi el-Rayan / Вади-эр-Райян / 瓦迪拉扬; gazelle and fox names as there); Ras Mohammed follows `exp-ras-mohammed` (Рас-Мохаммед / 穆罕默德角).
+
+## Addendum, 29 Oct: Nabq, Abu Galum, Lake Qarun, Saint Catherine Protected Area
+
+`g-nabq`, `g-abu-galum`, `g-lake-qarun` and `g-saint-catherine-protectorate` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Saint Catherine and Mount Moses follow `g-sinai` (Katharinenkloster, Sainte-Catherine, Santa Caterina, Santa Catalina, Святой Екатерины, 圣凯瑟琳; Джебель-Муса); Dahab follows `g-red-sea-dives`.

@@ -158,6 +158,13 @@
   "review": "approved",
   "current": true
  },
+ "g-abu-galum": {
+  "type": "er_guide",
+  "title": "Schutzgebiet Abu Galum: wo die Berge des Sinai ans Meer stoßen",
+  "excerpt": "Das Schutzgebiet Abu Galum im Süd-Sinai: Berge, die bis an die Küste reichen, Korallenriffe, Seegras und Lagunen, rund 165 Pflanzenarten, von denen 44 nirgends sonst wachsen, ein tiefes und gefährliches Unterwasser-Höhlensystem und wie Sie den Besuch planen.",
+  "review": "approved",
+  "current": true
+ },
  "g-abu-simbel": {
   "type": "er_guide",
   "title": "Abu Simbel ab Assuan: So planen Sie den Tag",
@@ -347,6 +354,13 @@
   "review": "approved",
   "current": true
  },
+ "g-lake-qarun": {
+  "type": "er_guide",
+  "title": "Schutzgebiet Qarun-See: der uralte See des Fayum",
+  "excerpt": "Das Schutzgebiet Qarun-See im Fayum: einer der ältesten natürlichen Seen der Welt und ein Rest des antiken Moeris-Sees, Fossilien von etwa 40 Millionen Jahren, darunter der älteste bekannte Affe, die Altertümer nördlich des Sees und wie Sie den Ausflug von Kairo planen.",
+  "review": "approved",
+  "current": true
+ },
  "g-luxor-balloon": {
   "type": "er_guide",
   "title": "Ballonfahrt über Luxor: Was Sie vor der Buchung wissen sollten",
@@ -372,6 +386,13 @@
   "type": "er_guide",
   "title": "Das Mumifizierungsmuseum in Luxor: Wie die alten Ägypter ihre Toten bewahrten",
   "excerpt": "Das Mumifizierungsmuseum in Luxor erklärt, wie die alten Ägypter den Körper bewahrten: der 70-tägige Vorgang, Natron aus dem Wadi El Natrun, Kanopenkrüge und Amulette, mumifizierte Tiere, die Höhepunkte der Ausstellung und was Sie vor dem Besuch wissen sollten.",
+  "review": "approved",
+  "current": true
+ },
+ "g-nabq": {
+  "type": "er_guide",
+  "title": "Schutzgebiet Nabq: Mangroven und Riffe nördlich von Sharm",
+  "excerpt": "Das Schutzgebiet Nabq im Süd-Sinai: dichte Mangrovenwälder, Korallenriffe, Wüstenberge und Täler, Gazellen, Steinböcke und Zugvögel, die Beduinen, die dort leben, und wie Sie einen Besuch zum Tauchen, für eine Safari oder zur Vogelbeobachtung planen.",
   "review": "approved",
   "current": true
  },
@@ -428,6 +449,13 @@
   "type": "er_guide",
   "title": "Das Königliche Schmuckmuseum in Alexandria: ein Besucherleitfaden",
   "excerpt": "Das Königliche Schmuckmuseum in Alexandria: die Schätze der ägyptischen Königsfamilie, der Muhammad-Ali-Dynastie (1805–1952), gezeigt in einem Palast von 1919 in Zizinia, vom Diamant- und Smaragdkragen Muhammad Alis bis zu einem goldenen Schachbrett, und die Regeln des Museums.",
+  "review": "approved",
+  "current": true
+ },
+ "g-saint-catherine-protectorate": {
+  "type": "er_guide",
+  "title": "Schutzgebiet Sankt Katharina: Ägyptens höchste Berge",
+  "excerpt": "Das Schutzgebiet Sankt Katharina im Süd-Sinai: Ägyptens höchste Gipfel, entstanden mit dem großen Grabenbruch, der das Rote Meer öffnete, Nubischer Steinbock, Sinai-Leopard und seltene Pflanzen, die Klöster und Kirchen und wie Sie den Besuch planen.",
   "review": "approved",
   "current": true
  },

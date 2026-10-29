@@ -158,6 +158,13 @@
   "review": "approved",
   "current": true
  },
+ "g-abu-galum": {
+  "type": "er_guide",
+  "title": "阿布加卢姆保护区：西奈山脉与大海相遇之处",
+  "excerpt": "南西奈的阿布加卢姆保护区：一直延伸到海岸的山脉、珊瑚礁、海草床和潟湖，约165种植物，其中44种别处没有，深而危险的水下洞穴系统，以及如何安排参观。",
+  "review": "approved",
+  "current": true
+ },
  "g-abu-simbel": {
   "type": "er_guide",
   "title": "从阿斯旺去阿布辛贝：如何安排这一天",
@@ -347,6 +354,13 @@
   "review": "approved",
   "current": true
  },
+ "g-lake-qarun": {
+  "type": "er_guide",
+  "title": "加龙湖保护区：法尤姆的古老湖泊",
+  "excerpt": "法尤姆的加龙湖保护区：世界上最古老的天然湖泊之一、古代莫里斯湖的遗存，约4000万年前的化石（包括已知最古老的猿类），湖北岸的古迹，以及如何从开罗安排行程。",
+  "review": "approved",
+  "current": true
+ },
  "g-luxor-balloon": {
   "type": "er_guide",
   "title": "卢克索热气球：预订前需要了解的事",
@@ -372,6 +386,13 @@
   "type": "er_guide",
   "title": "卢克索木乃伊博物馆：古埃及人如何保存逝者",
   "excerpt": "卢克索木乃伊博物馆讲解古埃及人如何保存遗体：约70天的制作过程、来自纳特伦谷的泡碱、卡诺皮克罐和护身符、动物木乃伊、主要展品，以及参观前需要了解的事项。",
+  "review": "approved",
+  "current": true
+ },
+ "g-nabq": {
+  "type": "er_guide",
+  "title": "纳布克保护区：沙姆沙伊赫以北的红树林与珊瑚礁",
+  "excerpt": "南西奈的纳布克保护区：茂密的红树林、珊瑚礁、沙漠山地与河谷，瞪羚、羱羊和候鸟，生活在这里的贝都因人，以及如何安排潜水、沙漠游或观鸟之旅。",
   "review": "approved",
   "current": true
  },
@@ -428,6 +449,13 @@
   "type": "er_guide",
   "title": "亚历山大皇家珠宝博物馆：参观指南",
   "excerpt": "亚历山大的皇家珠宝博物馆：埃及王室穆罕默德·阿里王朝（1805–1952年）的珍宝，陈列在齐齐尼亚一座1919年建成的宫殿里，从穆罕默德·阿里镶钻石和祖母绿的项圈到黄金棋盘，以及参观规定。",
+  "review": "approved",
+  "current": true
+ },
+ "g-saint-catherine-protectorate": {
+  "type": "er_guide",
+  "title": "圣凯瑟琳保护区：埃及最高的山脉",
+  "excerpt": "南西奈的圣凯瑟琳保护区：埃及最高的山峰，由打开红海的东非大裂谷形成，努比亚羱羊、西奈豹和珍稀植物，修道院和教堂，以及如何安排参观。",
   "review": "approved",
   "current": true
  },

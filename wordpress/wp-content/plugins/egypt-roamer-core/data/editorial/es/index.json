@@ -158,6 +158,13 @@
   "review": "approved",
   "current": true
  },
+ "g-abu-galum": {
+  "type": "er_guide",
+  "title": "Área protegida de Abu Galum: donde las montañas del Sinaí llegan al mar",
+  "excerpt": "El área protegida de Abu Galum, en el Sinaí del Sur: montañas que bajan hasta la costa, arrecifes de coral, praderas marinas y lagunas, unas 165 especies de plantas de las que 44 no crecen en ningún otro lugar, un sistema de cuevas submarinas profundo y peligroso, y cómo planificar la visita.",
+  "review": "approved",
+  "current": true
+ },
  "g-abu-simbel": {
   "type": "er_guide",
   "title": "Abu Simbel desde Asuán: cómo organizar el día",
@@ -347,6 +354,13 @@
   "review": "approved",
   "current": true
  },
+ "g-lake-qarun": {
+  "type": "er_guide",
+  "title": "Área protegida del lago Qarun: el lago milenario de El Fayum",
+  "excerpt": "El área protegida del lago Qarun, en El Fayum: uno de los lagos naturales más antiguos del mundo y lo que queda del antiguo lago Moeris, fósiles de unos 40 millones de años entre ellos el simio más antiguo conocido, las antigüedades al norte del lago y cómo planificar la excursión desde El Cairo.",
+  "review": "approved",
+  "current": true
+ },
  "g-luxor-balloon": {
   "type": "er_guide",
   "title": "Globo aerostático sobre Luxor: lo que debe saber antes de reservar",
@@ -372,6 +386,13 @@
   "type": "er_guide",
   "title": "El Museo de la Momificación de Luxor: cómo conservaban a sus muertos los antiguos egipcios",
   "excerpt": "El Museo de la Momificación de Luxor explica cómo los antiguos egipcios conservaban el cuerpo: el proceso de 70 días, el natrón del Wadi El Natrun, los vasos canopos y los amuletos, los animales momificados, las piezas destacadas y qué saber antes de la visita.",
+  "review": "approved",
+  "current": true
+ },
+ "g-nabq": {
+  "type": "er_guide",
+  "title": "Área protegida de Nabq: manglares y arrecifes al norte de Sharm",
+  "excerpt": "El área protegida de Nabq, en el Sinaí del Sur: densos bosques de manglares, arrecifes de coral, montañas y valles desérticos, gacelas, cabras monteses y aves migratorias, los beduinos que viven allí y cómo planificar una visita para bucear, hacer un safari u observar aves.",
   "review": "approved",
   "current": true
  },
@@ -428,6 +449,13 @@
   "type": "er_guide",
   "title": "El Museo de las Joyas Reales de Alejandría: guía para el visitante",
   "excerpt": "El Museo de las Joyas Reales de Alejandría: los tesoros de la familia real egipcia, la dinastía de Muhammad Ali (1805–1952), expuestos en un palacio de 1919 en Zizinia, del collar de diamantes y esmeraldas de Muhammad Ali a un tablero de ajedrez de oro, y las normas del museo.",
+  "review": "approved",
+  "current": true
+ },
+ "g-saint-catherine-protectorate": {
+  "type": "er_guide",
+  "title": "Área protegida de Santa Catalina: las montañas más altas de Egipto",
+  "excerpt": "El área protegida de Santa Catalina, en el Sinaí del Sur: las cumbres más altas de Egipto, nacidas del gran rift que abrió el mar Rojo, la cabra montés de Nubia, el leopardo del Sinaí y plantas raras, los monasterios e iglesias, y cómo planificar la visita.",
   "review": "approved",
   "current": true
  },
