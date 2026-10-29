@@ -371,3 +371,9 @@ Update, same day: the WordPress admin email went back to morsi.altukhy@gmail.com
 |---|---|---|---|---|
 | Core 1.2.100 / Theme 1.3.48 (`abc1b2a`): new guides `g-luxor-temple` (`/guides/luxor-temple-guide/`), `g-egyptian-museum` (`/guides/egyptian-museum-tahrir-guide/`), `g-cairo-citadel` (`/guides/cairo-citadel-of-saladin/`) and `g-nubia-museum` (`/guides/nubia-museum-aswan/`), 8 languages, only from the Ministry's pages; Commons hero and section photos with credits | Core, theme, wp-admin | Guide translations: created 32 (#1356 onwards), updated 21 (7/10/14-day translations that were behind); cache flushed; all 32 live pages 200 with two photo credits each | Queries for "luxor temple", "egyptian museum cairo", "cairo citadel", "nubian museum" in 8 languages | Search Console, 2–3 weeks; request indexing for the 4 EN pages with the next daily quota |
 
+
+## 2026-10-29: Museum of Islamic Art, Royal Jewelry Museum, Kalabsha and Hurghada Museum guides
+
+| Change | Where | Verified | Expected effect | Check |
+|---|---|---|---|---|
+| Core 1.2.101 / Theme 1.3.49 (`5b65695`): new guides `g-islamic-art-museum` (`/guides/museum-of-islamic-art-cairo/`), `g-royal-jewelry-museum` (`/guides/royal-jewelry-museum-alexandria/`), `g-kalabsha` (`/guides/kalabsha-temple-aswan/`) and `g-hurghada-museum` (`/guides/hurghada-museum/`), 8 languages, only from the Ministry's pages; Commons photos with credits | Core, theme, wp-admin | Guide translations: created 32 (#1409 onwards); cache flushed; all 32 live pages 200 with their photo credits. page-coverage and rtl-direction not run for 1.2.100–1.2.101 (stopped by the owner on 29 Oct) | Queries for "museum of islamic art cairo", "royal jewelry museum", "kalabsha temple", "hurghada museum" in 8 languages | Search Console, 2–3 weeks; request indexing for the EN pages with the next daily quotas |
