@@ -355,6 +355,10 @@ standard thumbnail width. Author and licence were read from each file's Commons 
 | `g-kalabsha` (29 Oct) | hero | Neu-Kalabscha_Tempel_04.JPG | Olaf Tausch | CC BY 3.0 |
 | `g-kalabsha` | rescue | Kalabsha_temple_on_Lake_Nasser_(2828516333).jpg | kmf164 | CC BY-SA 2.0 |
 | `g-hurghada-museum` (29 Oct) | hero | Hurghada_Museum_building_in_September_2023.jpg | Mosbatho | CC BY 4.0 |
+| `g-ras-mohammed` (29 Oct) | hero | Paisaje_marino_en_el_parque_nacional_Ras_Muhammad,_Egipto,_2022-03-29,_DD_45.jpg | Diego Delso | CC BY-SA 4.0 |
+| `g-wadi-el-rayan` (29 Oct) | hero | Wadi_el-Raiyan_by_Hatem_Moushir_3.JPG | Hatem Moushir | CC BY-SA 3.0 |
+| `g-wadi-degla` (29 Oct) | hero | Wadi_Degla_7.JPG | Waelfouda | CC BY-SA 4.0 |
+| `g-petrified-forest` (29 Oct) | hero | MaadiForestWood1.jpg (800 px wide, the only free photo found of the site) | Roland Unger | CC BY-SA 3.0 |
 | `g-mummification-museum` (27 Oct) | hero | Musée_Momification_-_Louxor_(EG)_-_2025-12-10_-_1.jpg | Chabe01 | CC BY-SA 4.0 |
 | `g-mummification-museum` | what-you-will-see | Mummification_museum_Luxor.jpg | MoGamal11 | CC BY-SA 4.0 |
 | `g-alexandria-museum` (27 Oct) | hero | Musee_national_-_alexandrie_facade_vue_large.JPG | Papillus | CC BY-SA 3.0 |

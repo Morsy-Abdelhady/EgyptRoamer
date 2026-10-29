@@ -389,6 +389,13 @@
   "review": "approved",
   "current": true
  },
+ "g-petrified-forest": {
+  "type": "er_guide",
+  "title": "El Bosque Petrificado de Maadi: los árboles de piedra de El Cairo",
+  "excerpt": "El área protegida del Bosque Petrificado en Maadi, El Cairo: troncos y tallos de árboles gigantes convertidos en piedra en la formación de Gebel el-Khashab, del Oligoceno, cómo un antiguo brazo del Nilo probablemente los llevó allí, y cómo planificar la visita.",
+  "review": "approved",
+  "current": true
+ },
  "g-philae": {
   "type": "er_guide",
   "title": "Philae: visitar el templo de Isis en Asuán",
@@ -400,6 +407,13 @@
   "type": "er_guide",
   "title": "Ciudadela de Qaitbay: el fuerte de Alejandría sobre el Faro",
   "excerpt": "La ciudadela de Qaitbay en Alejandría, construida en 1477–1479 sobre las ruinas del antiguo Faro: sus murallas, su patio y su torre principal, el centro de visitantes sobre el Faro y las defensas de la ciudad, las ruinas sumergidas frente a la costa y cómo visitarla.",
+  "review": "approved",
+  "current": true
+ },
+ "g-ras-mohammed": {
+  "type": "er_guide",
+  "title": "Parque nacional de Ras Mohammed: la reserva de arrecifes del Sinaí",
+  "excerpt": "El parque nacional de Ras Mohammed, en la punta sur del Sinaí cerca de Sharm el-Sheij: donde el golfo de Suez se une al golfo de Áqaba, sus arrecifes de coral, el canal de manglares y las tortugas marinas, la fauna en tierra y cómo planificar la visita.",
   "review": "approved",
   "current": true
  },
@@ -449,6 +463,20 @@
   "type": "er_guide",
   "title": "Visado para Egipto: e-Visa, visado a la llegada y qué llevar",
   "excerpt": "Cómo conseguir un visado de turista para Egipto según las fuentes oficiales: quién puede solicitar el e-Visa, las tasas de entrada única y múltiple, la solicitud paso a paso, el visado a la llegada con su código QR y qué llevar en la frontera.",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-degla": {
+  "type": "er_guide",
+  "title": "Área protegida de Wadi Degla: el cañón desértico de El Cairo",
+  "excerpt": "El área protegida de Wadi Degla, a las puertas de El Cairo: un valle de 30 km excavado en caliza rica en fósiles marinos de unos 60 millones de años, el «cañón de Degla», sus gacelas, zorros y reptiles, y cómo planificar la visita.",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-el-rayan": {
+  "type": "er_guide",
+  "title": "Wadi el-Rayan: lagos, cascadas y dunas de El Fayum",
+  "excerpt": "El área protegida de Wadi el-Rayan, en El Fayum: sus lagos y cascadas, los manantiales sulfurosos y las dunas móviles de Ain el-Rayan, las vistas desde el Gebel el-Rayan, las ballenas fósiles de Wadi al-Hitan, su fauna y cómo planificar la excursión desde El Cairo.",
   "review": "approved",
   "current": true
  },

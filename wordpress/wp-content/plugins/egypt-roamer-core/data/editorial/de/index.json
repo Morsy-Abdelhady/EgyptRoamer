@@ -389,6 +389,13 @@
   "review": "approved",
   "current": true
  },
+ "g-petrified-forest": {
+  "type": "er_guide",
+  "title": "Der Versteinerte Wald von Maadi: Kairos Steinbäume",
+  "excerpt": "Das Schutzgebiet Versteinerter Wald in Maadi, Kairo: Stämme und Äste riesiger Bäume, versteinert in der Gebel-el-Khashab-Formation aus dem Oligozän, wie ein alter Nilarm sie wahrscheinlich hierher trug, und wie Sie den Besuch planen.",
+  "review": "approved",
+  "current": true
+ },
  "g-philae": {
   "type": "er_guide",
   "title": "Philae: Besuch im Isis-Tempel in Assuan",
@@ -400,6 +407,13 @@
   "type": "er_guide",
   "title": "Zitadelle von Qaitbay: Alexandrias Festung an der Stelle des Leuchtturms",
   "excerpt": "Die Zitadelle von Qaitbay in Alexandria, 1477–1479 über den Ruinen des antiken Leuchtturms erbaut: Mauern, Hof und Hauptturm, das Besucherzentrum zum Leuchtturm und zu den Verteidigungsanlagen der Stadt, die versunkenen Ruinen direkt vor der Küste und wie Sie sie besuchen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-ras-mohammed": {
+  "type": "er_guide",
+  "title": "Nationalpark Ras Mohammed: das Riffschutzgebiet am Sinai",
+  "excerpt": "Der Nationalpark Ras Mohammed an der Südspitze des Sinai bei Sharm El-Sheikh: wo der Golf von Suez auf den Golf von Akaba trifft, seine Korallenriffe, der Mangrovenkanal und die Meeresschildkröten, die Tierwelt an Land und wie Sie den Besuch planen.",
   "review": "approved",
   "current": true
  },
@@ -449,6 +463,20 @@
   "type": "er_guide",
   "title": "Visum für Ägypten: e-Visum, Visum bei Ankunft und was Sie mitbringen",
   "excerpt": "So bekommen Sie ein Touristenvisum für Ägypten, nach den offiziellen Quellen: wer das e-Visum beantragen kann, die Gebühren für einfache und mehrfache Einreise, der Antrag Schritt für Schritt, das Visum bei Ankunft mit QR-Code und was Sie an der Grenze dabeihaben sollten.",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-degla": {
+  "type": "er_guide",
+  "title": "Schutzgebiet Wadi Degla: Kairos Wüstencanyon",
+  "excerpt": "Das Schutzgebiet Wadi Degla am Rand von Kairo: ein 30 km langes Tal durch Kalkstein voller Meeresfossilien, etwa 60 Millionen Jahre alt, der „Degla-Canyon“, seine Gazellen, Füchse und Reptilien und wie Sie den Besuch planen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-el-rayan": {
+  "type": "er_guide",
+  "title": "Wadi el-Rayan: Seen, Wasserfälle und Dünen im Fayum",
+  "excerpt": "Das Schutzgebiet Wadi el-Rayan im Fayum: seine Seen und Wasserfälle, die Schwefelquellen und Wanderdünen von Ain el-Rayan, die Aussicht vom Gebel el-Rayan, die Walfossilien von Wadi al-Hitan, seine Tierwelt und wie Sie den Ausflug von Kairo planen.",
   "review": "approved",
   "current": true
  },

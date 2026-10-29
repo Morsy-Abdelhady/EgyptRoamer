@@ -211,3 +211,7 @@ existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefr
 ## Addendum, 29 Oct: Museum of Islamic Art, Royal Jewelry Museum, Kalabsha, Hurghada Museum
 
 `g-islamic-art-museum`, `g-royal-jewelry-museum`, `g-kalabsha` and `g-hurghada-museum` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Kalabsha follows `g-aswan-temples` (Kalabscha / Kalabsha / Калабша / 卡拉布沙 / كلابشة); Qaitbay keeps 盖贝依城堡 and Кайт-бей; Philae stays Philae in Italian and Spanish.
+
+## Addendum, 29 Oct: Ras Mohammed, Wadi El-Rayan, Wadi Degla, Petrified Forest
+
+`g-ras-mohammed`, `g-wadi-el-rayan`, `g-wadi-degla` and `g-petrified-forest` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Wadi El-Rayan and its animals follow `g-wadi-hitan` in every language (Wadi el-Rayan / Вади-эр-Райян / 瓦迪拉扬; gazelle and fox names as there); Ras Mohammed follows `exp-ras-mohammed` (Рас-Мохаммед / 穆罕默德角).

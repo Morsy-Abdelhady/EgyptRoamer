@@ -423,6 +423,15 @@
   "destination": "aswan",
   "related": "exp-abu"
  },
+ "g-petrified-forest": {
+  "type": "er_guide",
+  "title": "The Petrified Forest of Maadi: Cairo's Stone Trees",
+  "excerpt": "The Petrified Forest Protected Area in Maadi, Cairo: trunks and stems of huge trees turned to stone in the Gebel El-Khashab formation of the Oligocene, how an ancient branch of the Nile probably carried them there, and how to plan a visit.",
+  "slug": "petrified-forest-maadi",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-giza"
+ },
  "g-philae": {
   "type": "er_guide",
   "title": "Philae: Visiting the Temple of Isis in Aswan",
@@ -440,6 +449,15 @@
   "topic": "Planning",
   "destination": "alexandria",
   "related": "exp-alexandria"
+ },
+ "g-ras-mohammed": {
+  "type": "er_guide",
+  "title": "Ras Mohammed National Park: Sinai's Reef Reserve",
+  "excerpt": "Ras Mohammed National Park at the southern tip of Sinai, near Sharm El Sheikh: where the Gulf of Suez meets the Gulf of Aqaba, its coral reefs, mangrove channel and sea turtles, the wildlife on land, and how to plan a visit.",
+  "slug": "ras-mohammed-national-park",
+  "topic": "Planning",
+  "destination": "sharm",
+  "related": "exp-ras-mohammed, exp-dive"
  },
  "g-red-sea-dives": {
   "type": "er_guide",
@@ -503,6 +521,24 @@
   "topic": "Planning",
   "destination": "cairo",
   "related": "exp-giza"
+ },
+ "g-wadi-degla": {
+  "type": "er_guide",
+  "title": "Wadi Degla Protected Area: Cairo's Desert Canyon",
+  "excerpt": "Wadi Degla Protected Area on the edge of Cairo: a 30 km valley cut through limestone rich in marine fossils about 60 million years old, the \"Degla Canyon\", its gazelles, foxes and reptiles, and how to plan a visit.",
+  "slug": "wadi-degla-protected-area-cairo",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-giza"
+ },
+ "g-wadi-el-rayan": {
+  "type": "er_guide",
+  "title": "Wadi El-Rayan: The Fayoum's Lakes, Waterfalls and Dunes",
+  "excerpt": "Wadi El-Rayan Protected Area in the Fayoum: its lakes and waterfalls, the sulphur springs and moving dunes of Ain El-Rayan, the views from Gebel El-Rayan, the whale fossils of Wadi Al-Hitan, its wildlife, and how to plan the trip from Cairo.",
+  "slug": "wadi-el-rayan-fayoum",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-hitan"
  },
  "g-wadi-gemal": {
   "type": "er_guide",

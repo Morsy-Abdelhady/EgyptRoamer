@@ -389,6 +389,13 @@
   "review": "approved",
   "current": true
  },
+ "g-petrified-forest": {
+  "type": "er_guide",
+  "title": "马阿迪石化森林：开罗的石头树",
+  "excerpt": "开罗马阿迪的石化森林保护区：渐新世哈沙卜山地层中化为石头的巨树树干和枝茎，古尼罗河支流很可能如何把它们带到这里，以及如何安排参观。",
+  "review": "approved",
+  "current": true
+ },
  "g-philae": {
   "type": "er_guide",
   "title": "菲莱：参观阿斯旺的伊西斯神庙",
@@ -400,6 +407,13 @@
   "type": "er_guide",
   "title": "盖贝依城堡：建在灯塔遗址上的亚历山大要塞",
   "excerpt": "亚历山大的盖贝依城堡建于1477—1479年，坐落在古代灯塔的废墟上：城墙、庭院和主塔，介绍灯塔和城市防御的游客中心，近岸的水下遗址，以及参观方式。",
+  "review": "approved",
+  "current": true
+ },
+ "g-ras-mohammed": {
+  "type": "er_guide",
+  "title": "穆罕默德角国家公园：西奈半岛的珊瑚礁保护区",
+  "excerpt": "西奈半岛南端、靠近沙姆沙伊赫的穆罕默德角国家公园：苏伊士湾与亚喀巴湾交汇之处，它的珊瑚礁、红树林水道和海龟，陆地上的野生动物，以及如何安排参观。",
   "review": "approved",
   "current": true
  },
@@ -449,6 +463,20 @@
   "type": "er_guide",
   "title": "埃及签证：电子签证、落地签证和需要携带的材料",
   "excerpt": "根据官方来源办理埃及旅游签证：哪些国籍可以申请电子签证、单次和多次入境的费用、分步申请流程、带二维码的落地签证，以及过境时需要携带的材料。",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-degla": {
+  "type": "er_guide",
+  "title": "瓦迪迪格拉保护区：开罗的沙漠峡谷",
+  "excerpt": "开罗郊外的瓦迪迪格拉保护区：一条长30公里的山谷，切穿富含约6000万年前海洋化石的石灰岩，“迪格拉峡谷”，这里的瞪羚、狐狸和爬行动物，以及如何安排参观。",
+  "review": "approved",
+  "current": true
+ },
+ "g-wadi-el-rayan": {
+  "type": "er_guide",
+  "title": "瓦迪拉扬：法尤姆的湖泊、瀑布与沙丘",
+  "excerpt": "法尤姆的瓦迪拉扬保护区：湖泊和瀑布、拉扬泉的硫磺泉和流动沙丘、拉扬山的全景、鲸鱼谷的鲸鱼化石、野生动物，以及如何从开罗安排行程。",
   "review": "approved",
   "current": true
  },
