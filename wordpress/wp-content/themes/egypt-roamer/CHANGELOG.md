@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.49 — 2026-10-29: four more place guides (with Core 1.2.101)
+- **Wikimedia Commons credits** for the new guides to the Museum of Islamic Art, the Royal Jewelry Museum, the Temple of Kalabsha and the Hurghada Museum (5 files, recorded in the image audit §9).
+- **Core:** the four guides in 8 languages, written only from the Ministry of Tourism and Antiquities' pages; hero photos in the seed; Sources page rows.
+
 ## 1.3.48 — 2026-10-29: four place guides (with Core 1.2.100)
 - **Wikimedia Commons credits and section photos** for the new guides to Luxor Temple, the Egyptian Museum in Tahrir, the Cairo Citadel and the Nubia Museum (8 files, recorded in the image audit §9).
 - **Core:** the four guides in 8 languages, written only from the Ministry of Tourism and Antiquities' pages; hero photos in the seed; Sources page rows.

@@ -298,10 +298,24 @@
   "review": "approved",
   "current": true
  },
+ "g-hurghada-museum": {
+  "type": "er_guide",
+  "title": "Le musée de Hurghada : guide de visite",
+  "excerpt": "Le musée de Hurghada, premier musée d’antiquités du gouvernorat de la mer Rouge : environ 2 000 objets autour de la beauté en Égypte, de l’Égypte ancienne à l’époque moderne, son ouverture en soirée et le règlement du musée.",
+  "review": "approved",
+  "current": true
+ },
  "g-inside-pyramids": {
   "type": "er_guide",
   "title": "À l’intérieur des pyramides de Gizeh : faut-il y entrer ?",
   "excerpt": "À quoi ressemble l’intérieur des pyramides de Gizeh : les couloirs de la Grande Pyramide, la Grande Galerie et la chambre du Roi, les pyramides de Khéphren et de Mykérinos, ce que vous verrez et ne verrez pas, qui ferait mieux de s’abstenir, et comment organiser la visite du plateau.",
+  "review": "approved",
+  "current": true
+ },
+ "g-islamic-art-museum": {
+  "type": "er_guide",
+  "title": "Le musée d’Art islamique du Caire : guide de visite",
+  "excerpt": "Le musée d’Art islamique du Caire, ouvert en 1903 : l’une des plus grandes collections d’art islamique au monde, son bâtiment de style mamelouk, l’attentat de 2014 et la réouverture de 2017, des pièces phares comme une clé mamelouke de la Kaaba, et le règlement du musée.",
   "review": "approved",
   "current": true
  },
@@ -316,6 +330,13 @@
   "type": "er_guide",
   "title": "Itinéraire en Égypte : comment organiser 7, 10 ou 14 jours",
   "excerpt": "Comment organiser votre itinéraire en Égypte : ce que couvre un voyage de 7, 10 ou 14 jours, le trio Le Caire, Louxor et Assouan commun à tous les programmes, croisière sur le Nil ou hôtels, quand ajouter la mer Rouge, Alexandrie ou le désert, et ce qu’il vaut mieux garder pour la prochaine fois.",
+  "review": "approved",
+  "current": true
+ },
+ "g-kalabsha": {
+  "type": "er_guide",
+  "title": "Le temple de Kalabsha : le temple romain sauvé d’Assouan",
+  "excerpt": "Le temple de Kalabsha près d’Assouan, le plus grand temple isolé de Basse-Nubie : construit sous Auguste pour le dieu nubien Mandoulis, son pylône, sa salle hypostyle et ses chapelles, ses inscriptions méroïtiques et grecques, ses croix chrétiennes et son déplacement en 1962–1963.",
   "review": "approved",
   "current": true
  },
@@ -386,6 +407,13 @@
   "type": "er_guide",
   "title": "Les sites de plongée célèbres de la mer Rouge : Thistlegorm, Ras Mohammed et le Blue Hole",
   "excerpt": "Les sites de plongée les plus connus de la mer Rouge égyptienne : l’épave du SS Thistlegorm, Shark Reef et Yolanda Reef à Ras Mohammed, le Blue Hole de Dahab et pourquoi son Arche est réservée aux plongeurs techniques, et ce qu’il faut savoir avant de réserver.",
+  "review": "approved",
+  "current": true
+ },
+ "g-royal-jewelry-museum": {
+  "type": "er_guide",
+  "title": "Le musée des Bijoux royaux d’Alexandrie : guide de visite",
+  "excerpt": "Le musée des Bijoux royaux d’Alexandrie : les trésors de la famille royale égyptienne, la dynastie de Méhémet Ali (1805–1952), exposés dans un palais de 1919 à Zizinia, du collier de diamants et d’émeraudes de Méhémet Ali à un échiquier en or, et le règlement du musée.",
   "review": "approved",
   "current": true
  },

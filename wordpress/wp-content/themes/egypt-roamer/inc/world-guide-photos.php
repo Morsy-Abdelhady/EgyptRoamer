@@ -52,6 +52,9 @@ return [
 	'nubia-museum-aswan' => [
 		'inside' => [ [ 'commons:Nubian Museum, Aswan, Egypt, Egyptian antiquities.jpg', 'Antiquities in the Nubia Museum', '' ] ],
 	],
+	'kalabsha-temple-aswan' => [
+		'rescue' => [ [ 'commons:Kalabsha temple on Lake Nasser (2828516333).jpg', 'Kalabsha on New Kalabsha Island, by Lake Nasser', '' ] ],
+	],
 	'wadi-el-gemal-national-park' => [
 		'what-you-will-see' => [ [ 'commons:WadiElGimal3.jpg', 'An acacia tree in Wadi El-Gemal', '' ], [ 'commons:Sooty Gull in Ras Baghdadi - Wadi El-Gemal National Park, Red Sea 7.jpg', 'A sooty gull on the coast of the park', '' ] ],
 	],

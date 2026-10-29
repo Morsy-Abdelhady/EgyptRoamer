@@ -1162,6 +1162,58 @@
     }
    ],
    "checked": "2026-10-29"
+  },
+  {
+   "claim": "Museum of Islamic Art (official, 2026-10-29): one of the largest and most extensive collections of Islamic artefacts; idea 1880; opened 1903 under Khedive Abbas Helmy II; Mamluk-style façade next to the National Library; 2014 explosion targeting the Cairo Security Directorate opposite damaged the façade, restored and reopened 2017; two floors; astronomy, medicine, architecture; carved woodwork, ceramics, manuscripts; Mamluk key to the Ka'ba, textile with the oldest Kufic inscription; mobile photos free, no flash, tripods only for permitted commercial use; services incl. lecture room, library, elevator, Braille, accessible toilet, parking, ramp, gift shop, sign language",
+   "guides": [
+    "g-islamic-art-museum"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/museums/museum-of-islamic-art"
+    }
+   ],
+   "checked": "2026-10-29"
+  },
+  {
+   "claim": "Royal Jewelry Museum (official, 2026-10-29): royal family founded by Muhammad Ali Pasha 1805, ruled 150 years until 1952; palace built 1919 by Zaynab Fahmi in Zizinya; residence of Fatma al-Zahra', daughter of Prince Ali Haidar; European and Islamic styles, paintings, gilded ceilings, mosaics; two wings joined by a corridor, each with a basement and two floors; Muhammad Ali's diamond and emerald collar, gold chessboard, jewelled gold binoculars, gold cups, European jewellery sets of queens and princesses; no flash, tripods only for permitted commercial use; gift shop, café, parking",
+   "guides": [
+    "g-royal-jewelry-museum"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/museums/royal-jewelry-museum"
+    }
+   ],
+   "checked": "2026-10-29"
+  },
+  {
+   "claim": "Kalabsha (official, 2026-10-29): largest free-standing temple in Lower Nubia, well preserved; built under Augustus (30 BC–14 AD); Mandulis, also Isis and Osiris; pylon, forecourt, hypostyle hall, two transverse offering chambers, sanctuary; rock-cut chapel of Dedwen (south-west), small chapel probably of Ptolemy IX, 2nd century BC (north-east); Meroitic and Greek inscriptions, Graeco-Roman columns, crosses from use as a church; moved 1962–1963 from Kalabsha Island to New Kalabsha Island after the High Dam; Nubian monuments from Abu Simbel to Philae inscribed 1979",
+   "guides": [
+    "g-kalabsha"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/monuments/kalabsha-temple"
+    }
+   ],
+   "checked": "2026-10-29"
+  },
+  {
+   "claim": "Hurghada Museum (official, 2026-10-29): first antiquities museum in the Red Sea Governorate; first of its kind, a collaboration of the Ministry, the Governorate and the private sector, which funded the building; about 2,000 artefacts, Ancient Egyptian, Graeco-Roman, Jewish, Christian, Islamic and modern; theme of beauty in Egypt; morning and evening hours, ticket window closes an hour before each; Ramadan hours; no flash, tripods only for commercial use; elevator, gift shop, audio tour",
+   "guides": [
+    "g-hurghada-museum"
+   ],
+   "links": [
+    {
+     "name": "Egypt, Ministry of Tourism and Antiquities",
+     "url": "https://egymonuments.gov.eg/en/museums/hurghada-museum"
+    }
+   ],
+   "checked": "2026-10-29"
   }
  ]
 }

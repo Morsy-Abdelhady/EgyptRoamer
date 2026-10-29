@@ -350,6 +350,11 @@ standard thumbnail width. Author and licence were read from each file's Commons 
 | `g-cairo-citadel` | history | The_massive_walls_of_the_Cairo_Citadel_(14815621603).jpg | Jorge Láscar | CC BY 2.0 |
 | `g-nubia-museum` (29 Oct) | hero | Aswan_Nubian_Museum_entrance.jpg | Marc Ryckaert | CC BY 3.0 |
 | `g-nubia-museum` | inside | Nubian_Museum,_Aswan,_Egypt,_Egyptian_antiquities.jpg | Vyacheslav Argenberg | CC BY 4.0 |
+| `g-islamic-art-museum` (29 Oct) | hero | Museum_of_Islamic_Art_Cairo_DSCF7680.jpg | R Prazeres | CC BY-SA 4.0 |
+| `g-royal-jewelry-museum` (29 Oct) | hero | Royal_Jewelry_Museum_Alexandria.jpg (a painted ceiling in the palace) | Mohamed abdelzaher | CC BY-SA 4.0 |
+| `g-kalabsha` (29 Oct) | hero | Neu-Kalabscha_Tempel_04.JPG | Olaf Tausch | CC BY 3.0 |
+| `g-kalabsha` | rescue | Kalabsha_temple_on_Lake_Nasser_(2828516333).jpg | kmf164 | CC BY-SA 2.0 |
+| `g-hurghada-museum` (29 Oct) | hero | Hurghada_Museum_building_in_September_2023.jpg | Mosbatho | CC BY 4.0 |
 | `g-mummification-museum` (27 Oct) | hero | Musée_Momification_-_Louxor_(EG)_-_2025-12-10_-_1.jpg | Chabe01 | CC BY-SA 4.0 |
 | `g-mummification-museum` | what-you-will-see | Mummification_museum_Luxor.jpg | MoGamal11 | CC BY-SA 4.0 |
 | `g-alexandria-museum` (27 Oct) | hero | Musee_national_-_alexandrie_facade_vue_large.JPG | Papillus | CC BY-SA 3.0 |

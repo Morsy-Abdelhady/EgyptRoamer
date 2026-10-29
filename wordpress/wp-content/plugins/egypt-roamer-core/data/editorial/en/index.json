@@ -306,6 +306,15 @@
   "destination": "luxor",
   "related": "exp-valley"
  },
+ "g-hurghada-museum": {
+  "type": "er_guide",
+  "title": "The Hurghada Museum: A Visitor's Guide",
+  "excerpt": "The Hurghada Museum, the first antiquities museum in the Red Sea Governorate: about 2,000 objects on the theme of beauty in Egypt, from ancient Egypt to the modern era, its evening opening, and the museum's rules.",
+  "slug": "hurghada-museum",
+  "topic": "Planning",
+  "destination": "hurghada",
+  "related": "exp-dive"
+ },
  "g-inside-pyramids": {
   "type": "er_guide",
   "title": "Inside the Pyramids of Giza: Is It Worth Going In?",
@@ -314,6 +323,15 @@
   "topic": "Planning",
   "destination": "cairo",
   "related": "exp-giza"
+ },
+ "g-islamic-art-museum": {
+  "type": "er_guide",
+  "title": "The Museum of Islamic Art in Cairo: A Visitor's Guide",
+  "excerpt": "The Museum of Islamic Art in Cairo, opened in 1903: one of the world's largest collections of Islamic art, its Mamluk-style building, the 2014 blast and the 2017 reopening, highlights such as a Mamluk key to the Ka'ba, and the museum's rules.",
+  "slug": "museum-of-islamic-art-cairo",
+  "topic": "Planning",
+  "destination": "cairo",
+  "related": "exp-food"
  },
  "g-islamic-cairo": {
   "type": "er_guide",
@@ -332,6 +350,15 @@
   "topic": "Planning",
   "destination": "cairo, luxor, aswan",
   "related": "exp-giza, exp-valley, exp-abu, exp-cruise"
+ },
+ "g-kalabsha": {
+  "type": "er_guide",
+  "title": "The Temple of Kalabsha: Aswan's Rescued Roman Temple",
+  "excerpt": "The Temple of Kalabsha near Aswan, the largest free-standing temple in Lower Nubia: built under Augustus for the Nubian god Mandulis, its pylon, hypostyle hall and chapels, its Meroitic and Greek inscriptions and Christian crosses, and its move in 1962–1963.",
+  "slug": "kalabsha-temple-aswan",
+  "topic": "Planning",
+  "destination": "aswan",
+  "related": "exp-abu"
  },
  "g-kom-ombo": {
   "type": "er_guide",
@@ -422,6 +449,15 @@
   "topic": "Planning",
   "destination": "hurghada, sharm",
   "related": "exp-dive, exp-ras-mohammed"
+ },
+ "g-royal-jewelry-museum": {
+  "type": "er_guide",
+  "title": "The Royal Jewelry Museum in Alexandria: A Visitor's Guide",
+  "excerpt": "The Royal Jewelry Museum in Alexandria: the treasures of Egypt's royal family, the Muhammad Ali dynasty (1805–1952), shown in a 1919 palace in Zizinya, from Muhammad Ali's diamond and emerald collar to a gold chessboard, and the museum's rules.",
+  "slug": "royal-jewelry-museum-alexandria",
+  "topic": "Planning",
+  "destination": "alexandria",
+  "related": "exp-alexandria"
  },
  "g-saqqara-dahshur": {
   "type": "er_guide",

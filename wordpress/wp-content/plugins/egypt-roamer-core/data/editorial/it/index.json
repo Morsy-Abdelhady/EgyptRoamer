@@ -298,10 +298,24 @@
   "review": "approved",
   "current": true
  },
+ "g-hurghada-museum": {
+  "type": "er_guide",
+  "title": "Il Museo di Hurghada: guida alla visita",
+  "excerpt": "Il Museo di Hurghada, il primo museo di antichità del governatorato del Mar Rosso: circa 2.000 oggetti sul tema della bellezza in Egitto, dall’antico Egitto all’età moderna, l’apertura serale e le regole del museo.",
+  "review": "approved",
+  "current": true
+ },
  "g-inside-pyramids": {
   "type": "er_guide",
   "title": "Dentro le piramidi di Giza: vale la pena entrare?",
   "excerpt": "Com’è l’interno delle piramidi di Giza: i corridoi della Grande Piramide, la Grande Galleria e la Camera del Re, le piramidi di Chefren e Micerino, cosa vedrai e cosa no, chi farebbe meglio a rinunciare e come organizzare la visita all’altopiano.",
+  "review": "approved",
+  "current": true
+ },
+ "g-islamic-art-museum": {
+  "type": "er_guide",
+  "title": "Il Museo d’Arte Islamica del Cairo: guida alla visita",
+  "excerpt": "Il Museo d’Arte Islamica del Cairo, aperto nel 1903: una delle più grandi collezioni d’arte islamica al mondo, l’edificio in stile mamelucco, l’attentato del 2014 e la riapertura nel 2017, pezzi forti come una chiave mamelucca della Kaaba, e le regole del museo.",
   "review": "approved",
   "current": true
  },
@@ -316,6 +330,13 @@
   "type": "er_guide",
   "title": "Itinerario in Egitto: come organizzare 7, 10 o 14 giorni",
   "excerpt": "Come organizzare il vostro itinerario in Egitto: cosa copre un viaggio di 7, 10 o 14 giorni, Il Cairo, Luxor e Assuan come base comune a tutti i programmi, crociera sul Nilo o hotel, quando aggiungere il Mar Rosso, Alessandria o il deserto, e cosa lasciare per la prossima volta.",
+  "review": "approved",
+  "current": true
+ },
+ "g-kalabsha": {
+  "type": "er_guide",
+  "title": "Il Tempio di Kalabsha: il tempio romano salvato di Assuan",
+  "excerpt": "Il Tempio di Kalabsha vicino ad Assuan, il più grande tempio isolato della Bassa Nubia: costruito sotto Augusto per il dio nubiano Mandulis, il pilone, la sala ipostila e le cappelle, le iscrizioni meroitiche e greche, le croci cristiane e lo spostamento del 1962–1963.",
   "review": "approved",
   "current": true
  },
@@ -386,6 +407,13 @@
   "type": "er_guide",
   "title": "I siti d’immersione famosi del Mar Rosso: Thistlegorm, Ras Mohammed e il Blue Hole",
   "excerpt": "I siti d’immersione più noti del Mar Rosso egiziano: il relitto della SS Thistlegorm, Shark Reef e Yolanda Reef a Ras Mohammed, il Blue Hole di Dahab e perché il suo Arco è solo per subacquei tecnici, e cosa sapere prima di prenotare.",
+  "review": "approved",
+  "current": true
+ },
+ "g-royal-jewelry-museum": {
+  "type": "er_guide",
+  "title": "Il Museo dei Gioielli Reali di Alessandria: guida alla visita",
+  "excerpt": "Il Museo dei Gioielli Reali di Alessandria: i tesori della famiglia reale egiziana, la dinastia di Muhammad Ali (1805–1952), esposti in un palazzo del 1919 a Zizinia, dal collare di diamanti e smeraldi di Muhammad Ali a una scacchiera d’oro, e le regole del museo.",
   "review": "approved",
   "current": true
  },

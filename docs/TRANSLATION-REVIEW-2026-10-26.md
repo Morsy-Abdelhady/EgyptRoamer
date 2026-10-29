@@ -207,3 +207,7 @@ existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefr
 ## Addendum, 29 Oct: Luxor Temple, Egyptian Museum, Cairo Citadel, Nubia Museum
 
 `g-luxor-temple`, `g-egyptian-museum`, `g-cairo-citadel` and `g-nubia-museum` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Names follow the existing translations (Karnak und der Luxor-Tempel / temple de Louxor / Tempio di Luxor / templo de Luxor / Луксорский храм / 卢克索神庙 / معبد الأقصر; Cheops, Chephren, Mykerinos / Khéops, Khéphren, Mykérinos / Cheope, Chefren, Micerino / Keops, Kefrén, Micerino / Хеопс, Хафра, Менкаур / 胡夫、哈夫拉、孟卡拉; Philae kept as in the site's Italian and Spanish guides). The Aga Khan award is given its own name, the Aga Khan Award for Architecture, in every language.
+
+## Addendum, 29 Oct: Museum of Islamic Art, Royal Jewelry Museum, Kalabsha, Hurghada Museum
+
+`g-islamic-art-museum`, `g-royal-jewelry-museum`, `g-kalabsha` and `g-hurghada-museum` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Kalabsha follows `g-aswan-temples` (Kalabscha / Kalabsha / Калабша / 卡拉布沙 / كلابشة); Qaitbay keeps 盖贝依城堡 and Кайт-бей; Philae stays Philae in Italian and Spanish.

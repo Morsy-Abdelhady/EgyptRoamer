@@ -298,10 +298,24 @@
   "review": "approved",
   "current": true
  },
+ "g-hurghada-museum": {
+  "type": "er_guide",
+  "title": "Das Museum von Hurghada: ein Besucherleitfaden",
+  "excerpt": "Das Museum von Hurghada, das erste Antikenmuseum im Gouvernement Rotes Meer: rund 2.000 Objekte zum Thema Schönheit in Ägypten, vom alten Ägypten bis in die Neuzeit, seine Abendöffnung und die Regeln des Museums.",
+  "review": "approved",
+  "current": true
+ },
  "g-inside-pyramids": {
   "type": "er_guide",
   "title": "Im Inneren der Pyramiden von Gizeh: Lohnt sich der Einstieg?",
   "excerpt": "Wie es im Inneren der Pyramiden von Gizeh ist: die Gänge der Cheops-Pyramide, die Große Galerie und die Königskammer, die Pyramiden von Chephren und Mykerinos, was Sie sehen und was nicht, wer besser draußen bleibt und wie Sie den Besuch des Plateaus planen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-islamic-art-museum": {
+  "type": "er_guide",
+  "title": "Das Museum für Islamische Kunst in Kairo: ein Besucherleitfaden",
+  "excerpt": "Das 1903 eröffnete Museum für Islamische Kunst in Kairo: eine der größten Sammlungen islamischer Kunst der Welt, sein Gebäude im Mamluken-Stil, der Anschlag von 2014 und die Wiedereröffnung 2017, Höhepunkte wie ein mamlukischer Schlüssel der Kaaba, und die Regeln des Museums.",
   "review": "approved",
   "current": true
  },
@@ -316,6 +330,13 @@
   "type": "er_guide",
   "title": "Ägypten-Reiseroute: So planen Sie 7, 10 oder 14 Tage",
   "excerpt": "So planen Sie Ihre Ägypten-Reiseroute: was eine Reise von 7, 10 oder 14 Tagen abdeckt, Kairo, Luxor und Assuan als gemeinsamer Kern, Nilkreuzfahrt oder Hotels, wann Sie das Rote Meer, Alexandria oder die Wüste ergänzen und was Sie für das nächste Mal aufheben.",
+  "review": "approved",
+  "current": true
+ },
+ "g-kalabsha": {
+  "type": "er_guide",
+  "title": "Der Tempel von Kalabscha: Assuans geretteter Römertempel",
+  "excerpt": "Der Tempel von Kalabscha bei Assuan, der größte freistehende Tempel Unternubiens: unter Augustus für den nubischen Gott Mandulis erbaut, Pylon, Säulenhalle und Kapellen, meroitische und griechische Inschriften, christliche Kreuze und seine Versetzung 1962–1963.",
   "review": "approved",
   "current": true
  },
@@ -386,6 +407,13 @@
   "type": "er_guide",
   "title": "Die berühmten Tauchplätze am Roten Meer: Thistlegorm, Ras Mohammed und das Blue Hole",
   "excerpt": "Ägyptens bekannteste Tauchplätze am Roten Meer: das Wrack der SS Thistlegorm, Shark und Yolanda Reef in Ras Mohammed, das Blue Hole bei Dahab und warum sein Arch nur für technische Taucher ist, dazu was Sie vor der Buchung wissen sollten.",
+  "review": "approved",
+  "current": true
+ },
+ "g-royal-jewelry-museum": {
+  "type": "er_guide",
+  "title": "Das Königliche Schmuckmuseum in Alexandria: ein Besucherleitfaden",
+  "excerpt": "Das Königliche Schmuckmuseum in Alexandria: die Schätze der ägyptischen Königsfamilie, der Muhammad-Ali-Dynastie (1805–1952), gezeigt in einem Palast von 1919 in Zizinia, vom Diamant- und Smaragdkragen Muhammad Alis bis zu einem goldenen Schachbrett, und die Regeln des Museums.",
   "review": "approved",
   "current": true
  },

@@ -298,10 +298,24 @@
   "review": "approved",
   "current": true
  },
+ "g-hurghada-museum": {
+  "type": "er_guide",
+  "title": "赫尔格达博物馆：参观指南",
+  "excerpt": "赫尔格达博物馆，红海省第一座文物博物馆：约2000件以埃及之美为主题的展品，从古埃及到近现代，晚间开放时间，以及参观规定。",
+  "review": "approved",
+  "current": true
+ },
  "g-inside-pyramids": {
   "type": "er_guide",
   "title": "走进吉萨金字塔：值得进去吗？",
   "excerpt": "吉萨金字塔内部是什么样的：大金字塔的通道、大走廊和国王墓室，哈夫拉和孟卡拉金字塔，你能看到和看不到什么，哪些人最好别进去，以及如何安排金字塔高原的参观。",
+  "review": "approved",
+  "current": true
+ },
+ "g-islamic-art-museum": {
+  "type": "er_guide",
+  "title": "开罗伊斯兰艺术博物馆：参观指南",
+  "excerpt": "1903年开馆的开罗伊斯兰艺术博物馆：世界上最大的伊斯兰艺术收藏之一，马穆鲁克风格的建筑，2014年的爆炸与2017年重新开放，马穆鲁克时期的天房钥匙等重点藏品，以及参观规定。",
   "review": "approved",
   "current": true
  },
@@ -316,6 +330,13 @@
   "type": "er_guide",
   "title": "埃及行程：如何安排7天、10天或14天",
   "excerpt": "如何安排埃及行程：7天、10天或14天的旅行能去哪些地方，所有行程共同的开罗、卢克索和阿斯旺，尼罗河游轮还是酒店，什么时候加上红海、亚历山大或沙漠，以及哪些地方留到下次。",
+  "review": "approved",
+  "current": true
+ },
+ "g-kalabsha": {
+  "type": "er_guide",
+  "title": "卡拉布沙神庙：阿斯旺附近被抢救的罗马神庙",
+  "excerpt": "阿斯旺附近的卡拉布沙神庙，下努比亚最大的独立神庙：奥古斯都时期为努比亚神曼杜利斯而建，它的塔门、多柱厅和小礼拜堂，麦罗埃文和希腊文铭文、基督教十字架，以及1962–1963年的搬迁。",
   "review": "approved",
   "current": true
  },
@@ -386,6 +407,13 @@
   "type": "er_guide",
   "title": "红海著名潜点：蓟花号沉船、穆罕默德角和蓝洞",
   "excerpt": "埃及红海最著名的潜点：蓟花号沉船，穆罕默德角的鲨鱼礁和约兰达礁，达哈布的蓝洞及其“拱门”为何只适合技术潜水员，以及预订潜水前需要知道的事。",
+  "review": "approved",
+  "current": true
+ },
+ "g-royal-jewelry-museum": {
+  "type": "er_guide",
+  "title": "亚历山大皇家珠宝博物馆：参观指南",
+  "excerpt": "亚历山大的皇家珠宝博物馆：埃及王室穆罕默德·阿里王朝（1805–1952年）的珍宝，陈列在齐齐尼亚一座1919年建成的宫殿里，从穆罕默德·阿里镶钻石和祖母绿的项圈到黄金棋盘，以及参观规定。",
   "review": "approved",
   "current": true
  },

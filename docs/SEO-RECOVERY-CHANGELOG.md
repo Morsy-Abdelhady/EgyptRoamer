@@ -365,3 +365,9 @@ Update, same day: the WordPress admin email went back to morsi.altukhy@gmail.com
 | Core 1.2.98–1.2.99 (`b366787`, `0b03739`): `/llms.txt` built from the published, indexable English guides, destinations and trips (63 links), cached 12 h and cleared on save. GoDaddy's System Plugin served its own llms.txt (legal pages only) while `is_llms_enabled` was "enabled"; Core now filters that option off in code (database unchanged) | Core | Live `/llms.txt` 200, 4 sections, 63 links | AI assistants get a clean site map | — |
 | MFA on the Microsoft 365 mailboxes: the owner added Microsoft Authenticator (push) at mysignins.microsoft.com. Seen on screen for info@ (Security info lists Microsoft Authenticator, iPhone); contact@ done by the owner, not seen by Claude. GoDaddy Email & Office only offers "Reset MFA", which was not used | Microsoft 365 | info@ seen; contact@ owner's word | Mailboxes need a second factor | — |
 
+## 2026-10-29: Luxor Temple, Egyptian Museum, Cairo Citadel and Nubia Museum guides
+
+| Change | Where | Verified | Expected effect | Check |
+|---|---|---|---|---|
+| Core 1.2.100 / Theme 1.3.48 (`abc1b2a`): new guides `g-luxor-temple` (`/guides/luxor-temple-guide/`), `g-egyptian-museum` (`/guides/egyptian-museum-tahrir-guide/`), `g-cairo-citadel` (`/guides/cairo-citadel-of-saladin/`) and `g-nubia-museum` (`/guides/nubia-museum-aswan/`), 8 languages, only from the Ministry's pages; Commons hero and section photos with credits | Core, theme, wp-admin | Guide translations: created 32 (#1356 onwards), updated 21 (7/10/14-day translations that were behind); cache flushed; all 32 live pages 200 with two photo credits each | Queries for "luxor temple", "egyptian museum cairo", "cairo citadel", "nubian museum" in 8 languages | Search Console, 2–3 weeks; request indexing for the 4 EN pages with the next daily quota |
+
