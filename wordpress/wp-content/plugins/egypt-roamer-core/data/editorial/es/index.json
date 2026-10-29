@@ -193,6 +193,13 @@
   "review": "approved",
   "current": true
  },
+ "g-burullus": {
+  "type": "er_guide",
+  "title": "Área protegida del lago Burullus: el segundo lago natural de Egipto",
+  "excerpt": "El área protegida del lago Burullus, en Kafr el-Sheij: el segundo lago natural de Egipto, sus marismas saladas y carrizales, llanuras arenosas y altas dunas, unas 135 plantas silvestres y acuáticas, las aves migratorias que recibe y cómo planificar la visita.",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-citadel": {
   "type": "er_guide",
   "title": "La Ciudadela de Saladino en El Cairo: guía para el visitante",
@@ -410,6 +417,13 @@
   "review": "approved",
   "current": true
  },
+ "g-omayed": {
+  "type": "er_guide",
+  "title": "Área protegida de El Omayed: un jardín de plantas silvestres",
+  "excerpt": "El área protegida de El Omayed, en Matrouh: unas 170 especies de plantas silvestres en sus dunas y mesetas, unas 70 de ellas medicinales, sus gacelas, zorros y jerbos, 14 especies de rapaces y cómo planificar la visita.",
+  "review": "approved",
+  "current": true
+ },
  "g-petrified-forest": {
   "type": "er_guide",
   "title": "El Bosque Petrificado de Maadi: los árboles de piedra de El Cairo",
@@ -473,10 +487,24 @@
   "review": "approved",
   "current": true
  },
+ "g-siwa-protectorate": {
+  "type": "er_guide",
+  "title": "Área protegida de Siwa: el lado salvaje del oasis de Siwa",
+  "excerpt": "El área protegida de Siwa, en el Desierto Occidental: un parque nacional alrededor del oasis de Siwa con el templo de Amón y tumbas antiguas, más de 40 plantas silvestres, gacelas, fenecs y hienas rayadas, unas 164 especies de aves y cómo planificar la visita.",
+  "review": "approved",
+  "current": true
+ },
  "g-snorkelling": {
   "type": "er_guide",
   "title": "Esnórquel en Egipto: ¿Hurghada o Sharm el-Sheij?",
   "excerpt": "Esnórquel en el mar Rojo: ¿Hurghada o Sharm el-Sheij? La mejor época para hacer esnórquel, los mejores lugares desde las islas Giftun hasta Ras Mohammed, Nabq y Abu Galum, barco u orilla, excursiones para principiantes, buenas prácticas en el arrecife y cómo elegir un operador responsable.",
+  "review": "approved",
+  "current": true
+ },
+ "g-taba-protectorate": {
+  "type": "er_guide",
+  "title": "Área protegida de Taba: manantiales, valles y mesetas del Sinaí",
+  "excerpt": "El área protegida de Taba, en el Sinaí del Sur: mesetas de más de 1000 m, valles con manantiales de agua dulce como Ain Hadra y Ain Furtaga, sitios de unos 5000 años, cabras monteses, gacelas y buitres, el patrimonio beduino y cómo planificar la visita.",
   "review": "approved",
   "current": true
  },

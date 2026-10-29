@@ -1318,6 +1318,58 @@
     }
    ],
    "checked": "2026-10-29"
+  },
+  {
+   "claim": "Siwa Protected Area (official, 2026-10-29): declared 2002; 7,731 km²; national park; 800 km from Cairo; Matrouh; antiquities, health, safari and desert tourism; Temple of Amun with inscriptions of kings making offerings and the hall of Alexander's coronation; Gebel al-Mawta with mummies and Roman tombs; Dhebiya rock-cut Graeco-Roman tombs; Khamisa Greek tombs; over 40 wild plants (medicinal, grazing, sand-fixing), acacia and tamarisk; about 28 wild mammals incl. striped hyena, Egyptian (Dorcas) and white (slender-horned) gazelles, red fox, fennec; 32 reptiles; about 164 birds",
+   "guides": [
+    "g-siwa-protectorate"
+   ],
+   "links": [
+    {
+     "name": "Egyptian Environmental Affairs Agency",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-29"
+  },
+  {
+   "claim": "Taba Protected Area (official, 2026-10-29): declared 1998; 2,977.8 km²; natural monument; 550 km from Cairo; South Sinai; geology, archaeological sites up to about 5,000 years, rare wildlife, scenery, Bedouin heritage; valleys home to gazelles and large birds incl. houbara; acacia; 72 plant species in Wadi Watir, up to 480 nearby; plateaus over 1,000 m with faults and joints; hyrax, Nubian ibex, wolf, hyena, gazelle; Egyptian vulture, bearded vulture, golden eagle; springs Ain Hadra (Wadi Ghazala), Ain Umm Ahmed (Wadi al-Sawana), Ain Furtaga (Wadi Watir), easy to visit",
+   "guides": [
+    "g-taba-protectorate"
+   ],
+   "links": [
+    {
+     "name": "Egyptian Environmental Affairs Agency",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-29"
+  },
+  {
+   "claim": "Lake Burullus (official, 2026-10-29): declared 1998; 484 km²; sustainable-use protected area; 300 km from Cairo; Kafr El Sheikh; second-largest natural lake in Egypt by area; salt and reed marshes, sandy plains, high dunes on the shores, each with its own soils; about 135 wild and aquatic plant species; wetlands receive migratory birds",
+   "guides": [
+    "g-burullus"
+   ],
+   "links": [
+    {
+     "name": "Egyptian Environmental Affairs Agency",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-29"
+  },
+  {
+   "claim": "El Omayed (official, 2026-10-29): declared 1986; 87 km²; sustainable-use protected area; 300 km from Cairo; Matrouh; about 170 wild plants on dunes and inland plateaus; about 70 medicinal (e.g. squill, wormwood); 60 other uses (fuel, oils and soap, food, gardens, ropes and roofs, grazing); about 40 environmental (holding sand); gazelles, foxes, hares, jerboa, hedgehog, chameleon, scorpions; 14 birds of prey",
+   "guides": [
+    "g-omayed"
+   ],
+   "links": [
+    {
+     "name": "Egyptian Environmental Affairs Agency",
+     "url": "https://www.eeaa.gov.eg/Topics/85/36/65/Details"
+    }
+   ],
+   "checked": "2026-10-29"
   }
  ]
 }

@@ -193,6 +193,13 @@
   "review": "approved",
   "current": true
  },
+ "g-burullus": {
+  "type": "er_guide",
+  "title": "Aire protégée du lac Burullus : le deuxième lac naturel d’Égypte",
+  "excerpt": "L’aire protégée du lac Burullus, à Kafr el-Cheikh : le deuxième lac naturel d’Égypte, ses marais salés et roselières, ses plaines sableuses et hautes dunes, environ 135 plantes sauvages et aquatiques, les oiseaux migrateurs qu’il accueille, et comment préparer la visite.",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-citadel": {
   "type": "er_guide",
   "title": "La Citadelle de Saladin au Caire : guide de visite",
@@ -410,6 +417,13 @@
   "review": "approved",
   "current": true
  },
+ "g-omayed": {
+  "type": "er_guide",
+  "title": "Aire protégée d’El Omayed : un jardin de plantes sauvages",
+  "excerpt": "L’aire protégée d’El Omayed, à Matrouh : environ 170 espèces de plantes sauvages sur ses dunes et plateaux, dont environ 70 médicinales, ses gazelles, renards et gerboises, 14 espèces de rapaces, et comment préparer la visite.",
+  "review": "approved",
+  "current": true
+ },
  "g-petrified-forest": {
   "type": "er_guide",
   "title": "La Forêt pétrifiée de Maadi : les arbres de pierre du Caire",
@@ -473,10 +487,24 @@
   "review": "approved",
   "current": true
  },
+ "g-siwa-protectorate": {
+  "type": "er_guide",
+  "title": "Aire protégée de Siwa : le côté sauvage de l’oasis de Siwa",
+  "excerpt": "L’aire protégée de Siwa, dans le désert Occidental : un parc national autour de l’oasis de Siwa avec le temple d’Amon et des tombes anciennes, plus de 40 plantes sauvages, gazelles, fennecs et hyènes rayées, environ 164 espèces d’oiseaux, et comment préparer la visite.",
+  "review": "approved",
+  "current": true
+ },
  "g-snorkelling": {
   "type": "er_guide",
   "title": "Le snorkeling en Égypte : Hurghada ou Charm el-Cheikh ?",
   "excerpt": "Le snorkeling en mer Rouge : Hurghada ou Charm el-Cheikh ? La meilleure période pour faire du snorkeling, les meilleurs spots des îles Giftun à Ras Mohammed, Nabq et Abou Galoum, bateau ou rivage, sorties pour débutants, bonnes pratiques sur le récif et comment choisir un opérateur responsable.",
+  "review": "approved",
+  "current": true
+ },
+ "g-taba-protectorate": {
+  "type": "er_guide",
+  "title": "Aire protégée de Taba : sources, vallées et plateaux du Sinaï",
+  "excerpt": "L’aire protégée de Taba, au Sud-Sinaï : des plateaux de plus de 1 000 m, des vallées aux sources d’eau douce comme Aïn Hadra et Aïn Furtaga, des sites d’environ 5 000 ans, bouquetins, gazelles et vautours, le patrimoine bédouin, et comment préparer la visite.",
   "review": "approved",
   "current": true
  },

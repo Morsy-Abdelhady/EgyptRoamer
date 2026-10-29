@@ -363,6 +363,10 @@ standard thumbnail width. Author and licence were read from each file's Commons 
 | `g-abu-galum` (29 Oct) | hero | Beach_Abu_Galoum_Protected.jpg | Mohamed3171979 | CC BY-SA 4.0 |
 | `g-lake-qarun` (29 Oct) | hero | A_bout_in_Qarun_Lake.jpg | Aya Gallab | CC BY-SA 4.0 |
 | `g-saint-catherine-protectorate` (29 Oct) | hero | Sant_katrin_mountain_sinai_04.jpg | OmarMoghazy99 | CC BY-SA 4.0 |
+| `g-siwa-protectorate` (29 Oct) | hero | The_hill_of_the_dead_-_panoramio.jpg (Gebel al-Mawta, Siwa) | Vojife | CC BY 3.0 |
+| `g-taba-protectorate` (29 Oct) | hero | Wadi_Ghazala_00_(61).jpg (Wadi Ghazala, named in the EEAA text) | لا روسا | CC BY-SA 4.0 |
+| `g-burullus` (29 Oct) | hero | Burullus_Lake.jpg | Mohamed Mostafa Abdelraheem | CC BY-SA 4.0 |
+| `g-omayed` (29 Oct) | hero | Omayed_Protected_Area_in_2017_,_photo_by_Hatem_Moushir_4.jpg (a wild plant in the protected area) | Hatem Moushir | CC BY-SA 4.0 |
 | `g-mummification-museum` (27 Oct) | hero | Musée_Momification_-_Louxor_(EG)_-_2025-12-10_-_1.jpg | Chabe01 | CC BY-SA 4.0 |
 | `g-mummification-museum` | what-you-will-see | Mummification_museum_Luxor.jpg | MoGamal11 | CC BY-SA 4.0 |
 | `g-alexandria-museum` (27 Oct) | hero | Musee_national_-_alexandrie_facade_vue_large.JPG | Papillus | CC BY-SA 3.0 |

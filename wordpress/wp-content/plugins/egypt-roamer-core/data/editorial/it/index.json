@@ -193,6 +193,13 @@
   "review": "approved",
   "current": true
  },
+ "g-burullus": {
+  "type": "er_guide",
+  "title": "Area protetta del lago Burullus: il secondo lago naturale d’Egitto",
+  "excerpt": "L’area protetta del lago Burullus a Kafr el-Sheikh: il secondo lago naturale d’Egitto, le paludi salmastre e i canneti, le pianure sabbiose e le alte dune, circa 135 piante selvatiche e acquatiche, gli uccelli migratori che accoglie e come organizzare la visita.",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-citadel": {
   "type": "er_guide",
   "title": "La Cittadella di Saladino al Cairo: guida alla visita",
@@ -410,6 +417,13 @@
   "review": "approved",
   "current": true
  },
+ "g-omayed": {
+  "type": "er_guide",
+  "title": "Area protetta di El Omayed: un giardino di piante selvatiche",
+  "excerpt": "L’area protetta di El Omayed a Matrouh: circa 170 specie di piante selvatiche su dune e altopiani, circa 70 delle quali medicinali, le gazzelle, le volpi e i gerboa, 14 specie di rapaci e come organizzare la visita.",
+  "review": "approved",
+  "current": true
+ },
  "g-petrified-forest": {
   "type": "er_guide",
   "title": "La Foresta pietrificata di Maadi: gli alberi di pietra del Cairo",
@@ -473,10 +487,24 @@
   "review": "approved",
   "current": true
  },
+ "g-siwa-protectorate": {
+  "type": "er_guide",
+  "title": "Area protetta di Siwa: il lato selvaggio dell’oasi di Siwa",
+  "excerpt": "L’area protetta di Siwa nel Deserto occidentale: un parco nazionale intorno all’oasi di Siwa con il tempio di Amon e antiche tombe, più di 40 piante selvatiche, gazzelle, fennec e iene striate, circa 164 specie di uccelli e come organizzare la visita.",
+  "review": "approved",
+  "current": true
+ },
  "g-snorkelling": {
   "type": "er_guide",
   "title": "Snorkeling in Egitto: Hurghada o Sharm el-Sheikh?",
   "excerpt": "Snorkeling nel Mar Rosso: Hurghada o Sharm el-Sheikh? Il periodo migliore per fare snorkeling, i posti migliori dalle isole Giftun a Ras Mohammed, Nabq e Abu Galum, barca o riva, escursioni per principianti, regole di comportamento sulla barriera e come scegliere un operatore responsabile.",
+  "review": "approved",
+  "current": true
+ },
+ "g-taba-protectorate": {
+  "type": "er_guide",
+  "title": "Area protetta di Taba: sorgenti, valli e altopiani del Sinai",
+  "excerpt": "L’area protetta di Taba nel Sinai del Sud: altopiani oltre i 1.000 m, valli con sorgenti d’acqua dolce come Ain Hadra e Ain Furtaga, siti di circa 5.000 anni, stambecchi, gazzelle e avvoltoi, l’eredità beduina e come organizzare la visita.",
   "review": "approved",
   "current": true
  },

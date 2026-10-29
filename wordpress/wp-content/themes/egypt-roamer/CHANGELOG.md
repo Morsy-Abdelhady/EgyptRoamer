@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.52 — 2026-10-29: Siwa, Taba, Burullus and Omayed protected-area guides (with Core 1.2.104)
+- **Wikimedia Commons credits** for the new guides (4 files, recorded in the image audit §9).
+- **Core:** the four guides in 8 languages, written only from the Environmental Affairs Agency's protected-areas page; hero photos in the seed; Sources page rows.
+
 ## 1.3.51 — 2026-10-29: four more protected-area guides (with Core 1.2.103)
 - **Wikimedia Commons credits** for the new guides to Nabq, Abu Galum, Lake Qarun and the Saint Catherine Protected Area (4 files, recorded in the image audit §9).
 - **Core:** the four guides in 8 languages, written only from the Environmental Affairs Agency's protected-areas page; hero photos in the seed; Sources page rows.

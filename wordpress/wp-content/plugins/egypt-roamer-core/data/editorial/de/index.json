@@ -193,6 +193,13 @@
   "review": "approved",
   "current": true
  },
+ "g-burullus": {
+  "type": "er_guide",
+  "title": "Schutzgebiet Burullus-See: Ägyptens zweitgrößter natürlicher See",
+  "excerpt": "Das Schutzgebiet Burullus-See in Kafr el-Scheich: Ägyptens zweitgrößter natürlicher See, seine Salz- und Schilfsümpfe, Sandebenen und hohen Dünen, rund 135 Wild- und Wasserpflanzen, die Zugvögel, die er empfängt, und wie Sie den Besuch planen.",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-citadel": {
   "type": "er_guide",
   "title": "Die Zitadelle Saladins in Kairo: ein Besucherleitfaden",
@@ -410,6 +417,13 @@
   "review": "approved",
   "current": true
  },
+ "g-omayed": {
+  "type": "er_guide",
+  "title": "Schutzgebiet El Omayed: ein Garten wilder Pflanzen",
+  "excerpt": "Das Schutzgebiet El Omayed in Matruh: rund 170 Arten von Wildpflanzen auf Dünen und Hochflächen, etwa 70 davon Heilpflanzen, seine Gazellen, Füchse und Wüstenspringmäuse, 14 Greifvogelarten und wie Sie den Besuch planen.",
+  "review": "approved",
+  "current": true
+ },
  "g-petrified-forest": {
   "type": "er_guide",
   "title": "Der Versteinerte Wald von Maadi: Kairos Steinbäume",
@@ -473,10 +487,24 @@
   "review": "approved",
   "current": true
  },
+ "g-siwa-protectorate": {
+  "type": "er_guide",
+  "title": "Schutzgebiet Siwa: die wilde Seite der Oase Siwa",
+  "excerpt": "Das Schutzgebiet Siwa in Ägyptens Westlicher Wüste: ein Nationalpark rund um die Oase Siwa mit dem Amun-Tempel und alten Gräbern, mehr als 40 Wildpflanzen, Gazellen, Fenneks und Streifenhyänen, rund 164 Vogelarten und wie Sie den Besuch planen.",
+  "review": "approved",
+  "current": true
+ },
  "g-snorkelling": {
   "type": "er_guide",
   "title": "Schnorcheln in Ägypten: Hurghada oder Sharm El-Sheikh?",
   "excerpt": "Schnorcheln im Roten Meer: Hurghada oder Sharm El-Sheikh? Die beste Zeit zum Schnorcheln, die besten Schnorchelplätze von den Giftun-Inseln bis Ras Mohammed, Nabq und Abu Galum, Boot oder Ufer, Ausflüge für Anfänger, Riff-Etikette und wie Sie einen verantwortungsvollen Veranstalter wählen.",
+  "review": "approved",
+  "current": true
+ },
+ "g-taba-protectorate": {
+  "type": "er_guide",
+  "title": "Schutzgebiet Taba: Quellen, Täler und Hochebenen im Sinai",
+  "excerpt": "Das Schutzgebiet Taba im Süd-Sinai: Hochebenen über 1.000 m, Täler mit Süßwasserquellen wie Ain Hadra und Ain Furtaga, Stätten von etwa 5.000 Jahren, Steinböcke, Gazellen und Geier, Beduinenerbe und wie Sie den Besuch planen.",
   "review": "approved",
   "current": true
  },

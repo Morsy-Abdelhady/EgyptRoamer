@@ -219,3 +219,7 @@ existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefr
 ## Addendum, 29 Oct: Nabq, Abu Galum, Lake Qarun, Saint Catherine Protected Area
 
 `g-nabq`, `g-abu-galum`, `g-lake-qarun` and `g-saint-catherine-protectorate` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Saint Catherine and Mount Moses follow `g-sinai` (Katharinenkloster, Sainte-Catherine, Santa Caterina, Santa Catalina, Святой Екатерины, 圣凯瑟琳; Джебель-Муса); Dahab follows `g-red-sea-dives`.
+
+## Addendum, 29 Oct: Siwa, Taba, Lake Burullus, El Omayed
+
+`g-siwa-protectorate`, `g-taba-protectorate`, `g-burullus` and `g-omayed` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Siwa place names follow `dest-siwa` (Amun, Mountain of the Dead in each language); gazelle names follow `g-wadi-hitan`.

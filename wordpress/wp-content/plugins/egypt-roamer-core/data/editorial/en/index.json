@@ -177,6 +177,15 @@
   "destination": "cairo, luxor, aswan, hurghada, sharm, siwa, alexandria",
   "related": "exp-abu, exp-safari"
  },
+ "g-burullus": {
+  "type": "er_guide",
+  "title": "Lake Burullus Protected Area: Egypt's Second-Largest Natural Lake",
+  "excerpt": "The Lake Burullus Protected Area in Kafr El Sheikh: Egypt's second-largest natural lake, its salt and reed marshes, sandy plains and high dunes, about 135 wild and water plants, the migratory birds it receives, and how to plan a visit.",
+  "slug": "lake-burullus-protected-area",
+  "topic": "Planning",
+  "destination": "alexandria",
+  "related": "exp-alexandria"
+ },
  "g-cairo-citadel": {
   "type": "er_guide",
   "title": "The Cairo Citadel of Saladin: A Visitor's Guide",
@@ -450,6 +459,15 @@
   "destination": "aswan",
   "related": "exp-abu"
  },
+ "g-omayed": {
+  "type": "er_guide",
+  "title": "El Omayed Protected Area: A Garden of Wild Plants",
+  "excerpt": "The El Omayed Protected Area in Matrouh: about 170 kinds of wild plants on its dunes and plateaus, about 70 of them medicinal, its gazelles, foxes and jerboas, 14 kinds of birds of prey, and how to plan a visit.",
+  "slug": "el-omayed-protected-area",
+  "topic": "Planning",
+  "destination": "alexandria",
+  "related": "exp-alexandria"
+ },
  "g-petrified-forest": {
   "type": "er_guide",
   "title": "The Petrified Forest of Maadi: Cairo's Stone Trees",
@@ -531,6 +549,15 @@
   "destination": "sharm",
   "related": "exp-ras-mohammed"
  },
+ "g-siwa-protectorate": {
+  "type": "er_guide",
+  "title": "Siwa Protected Area: The Wild Side of Siwa Oasis",
+  "excerpt": "The Siwa Protected Area in Egypt's Western Desert: a national park around Siwa Oasis with the Temple of Amun and ancient tombs, more than 40 wild plants, gazelles, fennec foxes and striped hyenas, about 164 kinds of birds, and how to plan a visit.",
+  "slug": "siwa-protected-area",
+  "topic": "Planning",
+  "destination": "siwa",
+  "related": "exp-siwa, exp-safari"
+ },
  "g-snorkelling": {
   "type": "er_guide",
   "title": "Snorkelling in Egypt: Hurghada or Sharm El Sheikh?",
@@ -539,6 +566,15 @@
   "topic": "Planning",
   "destination": "hurghada, sharm",
   "related": "exp-ras-mohammed, exp-dive"
+ },
+ "g-taba-protectorate": {
+  "type": "er_guide",
+  "title": "Taba Protected Area: Sinai's Springs, Valleys and Plateaus",
+  "excerpt": "The Taba Protected Area in South Sinai: plateaus over 1,000 m, valleys with freshwater springs such as Ain Hadra and Ain Furtaga, sites about 5,000 years old, ibex, gazelles and vultures, Bedouin heritage, and how to plan a visit.",
+  "slug": "taba-protected-area-sinai",
+  "topic": "Planning",
+  "destination": "sharm",
+  "related": "exp-ras-mohammed"
  },
  "g-valley-kings": {
   "type": "er_guide",

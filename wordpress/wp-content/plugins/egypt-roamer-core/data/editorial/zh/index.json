@@ -193,6 +193,13 @@
   "review": "approved",
   "current": true
  },
+ "g-burullus": {
+  "type": "er_guide",
+  "title": "布鲁卢斯湖保护区：埃及第二大天然湖泊",
+  "excerpt": "卡夫尔谢赫的布鲁卢斯湖保护区：埃及第二大天然湖泊，它的盐沼和芦苇沼泽、沙质平原和高大沙丘，约135种野生和水生植物，它迎来的候鸟，以及如何安排参观。",
+  "review": "approved",
+  "current": true
+ },
  "g-cairo-citadel": {
   "type": "er_guide",
   "title": "开罗萨拉丁城堡：参观指南",
@@ -410,6 +417,13 @@
   "review": "approved",
   "current": true
  },
+ "g-omayed": {
+  "type": "er_guide",
+  "title": "奥迈耶德保护区：野生植物的花园",
+  "excerpt": "马特鲁省的奥迈耶德保护区：沙丘和高原上约170种野生植物，其中约70种是药用植物，这里的瞪羚、狐狸和跳鼠，14种猛禽，以及如何安排参观。",
+  "review": "approved",
+  "current": true
+ },
  "g-petrified-forest": {
   "type": "er_guide",
   "title": "马阿迪石化森林：开罗的石头树",
@@ -473,10 +487,24 @@
   "review": "approved",
   "current": true
  },
+ "g-siwa-protectorate": {
+  "type": "er_guide",
+  "title": "锡瓦保护区：锡瓦绿洲的野性一面",
+  "excerpt": "西部沙漠的锡瓦保护区：环绕锡瓦绿洲的国家公园，有阿蒙神庙和古墓，40多种野生植物，瞪羚、耳廓狐和条纹鬣狗，约164种鸟类，以及如何安排参观。",
+  "review": "approved",
+  "current": true
+ },
  "g-snorkelling": {
   "type": "er_guide",
   "title": "埃及浮潜：赫尔格达还是沙姆沙伊赫？",
   "excerpt": "红海浮潜：赫尔格达还是沙姆沙伊赫？浮潜的最佳时间，从吉夫顿岛到穆罕默德角、纳布克和阿布加卢姆的最佳浮潜地点，乘船还是从岸边下水，适合初学者的行程，珊瑚礁礼仪，以及如何选择负责任的运营商。",
+  "review": "approved",
+  "current": true
+ },
+ "g-taba-protectorate": {
+  "type": "er_guide",
+  "title": "塔巴保护区：西奈的泉水、河谷与高原",
+  "excerpt": "南西奈的塔巴保护区：海拔1000米以上的高原，有哈德拉泉和富尔塔加泉等淡水泉的河谷，约5000年历史的遗址，羱羊、瞪羚和秃鹫，贝都因文化，以及如何安排参观。",
   "review": "approved",
   "current": true
  },
