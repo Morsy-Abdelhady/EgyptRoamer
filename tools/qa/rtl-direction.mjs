@@ -21,7 +21,8 @@ const b = await chromium.launch({ channel: "chrome" });
 let bad = 0;
 const run = async ([lang, u], o, d) => {
   const c = await b.newContext(o); await c.addInitScript(() => { try { localStorage.setItem("er-nocount", "1"); } catch (e) {} });
-  const p = await c.newPage(); await p.goto(u, { waitUntil: "load", timeout: 120000 }); await p.waitForTimeout(1200);
+  await c.route(/csp\.secureserver\.net/, (r) => r.abort()); // GoDaddy's long-poll held pages past the timeout (29 Oct)
+  const p = await c.newPage(); await p.goto(u, { waitUntil: "domcontentloaded", timeout: 120000 }); await p.waitForLoadState("load", { timeout: 20000 }).catch(() => {}); // a slow hot-linked photo must not stop the run await p.waitForTimeout(1200);
   const r = await p.evaluate((lang) => {
     const out = []; const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     const flipped = el => { let f = false; for (let e = el; e && e !== document.body; e = e.parentElement) { const cs = getComputedStyle(e); const m = cs.transform; if (m && m !== "none") { const a = m.match(/matrix\(([^,]+)/); if (a && parseFloat(a[1]) < 0) f = !f; } if (cs.scale && cs.scale.startsWith("-1")) f = !f; } return f; };

@@ -20,6 +20,9 @@ const br = await chromium.launch({ channel: "chrome" });
 const mk = (mobile) =>
   br.newContext(mobile ? { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true } : { viewport: { width: 1440, height: 900 } }).then(async (c) => {
     await c.addInitScript(() => { try { localStorage.setItem("er-nocount", "1"); } catch (e) {} });
+    // GoDaddy's injected traffic script holds a long-poll open to csp.secureserver.net (seen 29 Oct), so "networkidle"
+    // never came and every page waited out its 120 s timeout (a 568-page run took hours). It is not our page; block it.
+    await c.route(/csp\.secureserver\.net/, (r) => r.abort());
     return c;
   });
 const desk = await mk(false);
