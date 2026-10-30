@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.54 — 2026-10-31: YouTube and TikTok in the footer (with Core 1.2.106)
+- **Footer "Follow us":** YouTube (`@EgyptRoamer`) and TikTok (`@egyptroamer`) next to Instagram, Pinterest and Facebook, with their labels in 8 languages (existing sprite icons).
+- **Core:** the homepage schema's `sameAs` lists the two new profiles.
+
 ## 1.3.53 — 2026-10-30: diving trip only under Hurghada; Tiqets on the Affiliate Disclosure (with Core 1.2.105)
 - **Trips & tours:** comments updated; the Red Sea diving trip is no longer listed under Sharm El Sheikh, since all four of its offers leave from Hurghada (outside review, 30 Oct).
 - **Core:** migration `dive-not-sharm` removes Sharm El Sheikh from the diving trip in every language; migration `disclosure-partners-tiqets` adds Tiqets to the partner list on the Affiliate Disclosure in 8 languages, and `data/legal/*/affiliate-disclosure.html` match.

@@ -408,7 +408,7 @@ add_action( 'wp_head', static function () {
 		'@id'    => $root . '#organization',
 		'name'   => get_bloginfo( 'name' ),
 		'url'    => $root,
-		'sameAs' => [ 'https://www.instagram.com/egyptroamer/', 'https://www.pinterest.com/egyptroamer/', 'https://www.facebook.com/profile.php?id=61595813675400' ],
+		'sameAs' => [ 'https://www.instagram.com/egyptroamer/', 'https://www.pinterest.com/egyptroamer/', 'https://www.facebook.com/profile.php?id=61595813675400', 'https://www.youtube.com/@EgyptRoamer', 'https://www.tiktok.com/@egyptroamer' ],
 	];
 	$logo = (string) apply_filters( 'er_brand_logo', '' );
 	if ( $logo ) {

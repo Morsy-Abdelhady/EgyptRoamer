@@ -273,6 +273,8 @@ return [
 		'Egypt Roamer on Facebook' => 'Egypt Roamer в Facebook',
 		'Egypt Roamer on Instagram' => 'Egypt Roamer в Instagram',
 		'Egypt Roamer on Pinterest' => 'Egypt Roamer в Pinterest',
+		'Egypt Roamer on TikTok' => 'Egypt Roamer в TikTok',
+		'Egypt Roamer on YouTube' => 'Egypt Roamer на YouTube',
 		'Egypt Roamer team' => 'Команда Egypt Roamer',
 		'Egypt Roamer — More than a destination' => 'Egypt Roamer — Больше, чем направление',
 		'Egypt Roamer — home' => 'Egypt Roamer — главная',

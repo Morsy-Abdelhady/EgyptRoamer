@@ -78,11 +78,13 @@ $er_planner_url = (bool) er_home( 'planner_enabled' ) ? ( is_front_page() ? '#pl
 			?>
 			<p class="footer__company"><?php echo $er_company; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above; two fixed <bdi> spans ?></p>
 			<?php
-			// The brand's own profiles (owner, 26–27 Oct 2026); the same addresses are the homepage schema's sameAs (Core seo.php).
+			// The brand's own profiles (owner, 26–27 Oct 2026; YouTube and TikTok 31 Oct); the same addresses are the homepage schema's sameAs (Core seo.php).
 			$er_social = [
 				'i-instagram' => [ 'https://www.instagram.com/egyptroamer/', er_t( 'Egypt Roamer on Instagram' ) ],
 				'i-pinterest' => [ 'https://www.pinterest.com/egyptroamer/', er_t( 'Egypt Roamer on Pinterest' ) ],
 				'i-facebook'  => [ 'https://www.facebook.com/profile.php?id=61595813675400', er_t( 'Egypt Roamer on Facebook' ) ],
+				'i-youtube'   => [ 'https://www.youtube.com/@EgyptRoamer', er_t( 'Egypt Roamer on YouTube' ) ],
+				'i-tiktok'    => [ 'https://www.tiktok.com/@egyptroamer', er_t( 'Egypt Roamer on TikTok' ) ],
 			];
 			echo '<p class="footer__social"><span>' . esc_html( er_t( 'Follow us' ) ) . '</span>';
 			foreach ( $er_social as $er_icon_id => [ $er_url, $er_label ] ) {

@@ -273,6 +273,8 @@ return [
 		'Egypt Roamer on Facebook' => 'Egypt Roamer على فيسبوك',
 		'Egypt Roamer on Instagram' => 'Egypt Roamer على إنستغرام',
 		'Egypt Roamer on Pinterest' => 'Egypt Roamer على بينترست',
+		'Egypt Roamer on TikTok' => 'Egypt Roamer على تيك توك',
+		'Egypt Roamer on YouTube' => 'Egypt Roamer على يوتيوب',
 		'Egypt Roamer team' => 'فريق Egypt Roamer',
 		'Egypt Roamer — More than a destination' => 'Egypt Roamer — أكثر من مجرد وجهة',
 		'Egypt Roamer — home' => 'Egypt Roamer — الرئيسية',

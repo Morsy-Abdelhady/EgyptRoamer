@@ -273,6 +273,8 @@ return [
 		'Egypt Roamer on Facebook' => 'Egypt Roamer 的 Facebook',
 		'Egypt Roamer on Instagram' => 'Egypt Roamer 的 Instagram',
 		'Egypt Roamer on Pinterest' => 'Egypt Roamer 的 Pinterest',
+		'Egypt Roamer on TikTok' => 'Egypt Roamer 的 TikTok',
+		'Egypt Roamer on YouTube' => 'Egypt Roamer 的 YouTube',
 		'Egypt Roamer team' => 'Egypt Roamer 团队',
 		'Egypt Roamer — More than a destination' => 'Egypt Roamer — 不止是一个目的地',
 		'Egypt Roamer — home' => 'Egypt Roamer — 首页',
