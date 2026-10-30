@@ -13,9 +13,12 @@ Egypt Roamer (Edge is often signed in to LIORIVE: switch first). Daily posting r
   or Travel Planning), the page's own allowed photo, and the Commons credit. Add it to
   `C:\Users\morsy\.claude\scheduled-tasks\egypt-roamer-pinterest-daily\queue.json` with `done:false, pinned:false`.
 - **Facebook and Instagram**: one post each, credit in the text, "Full guide: link in bio" on Instagram.
-- **Short video** (only when the owner will film or edit; we own no footage): 3 hooks and 3 scripts of 20–40 seconds
-  using only the page's facts, a YouTube title and description, and a caption. Save them in
-  `growth/social/video-scripts/<slug>.md`. Never use partner photos, others' footage or invented claims.
+- **Short video** (owner, 30 Oct: the owner makes it in Gemini, Claude uploads it): 3 hooks, one 30–40 s script with a
+  time/photo/voice/on-screen table using only the page's facts, a photo pack (allowed Unsplash and Commons photos
+  only, each with download link and credit), a YouTube title and description (credits plus "Made with AI editing and
+  voice"), and an Instagram/TikTok caption. Save in `growth/social/video-scripts/<slug>.md` (see `abu-simbel.md`).
+  Gemini works only from the pack: no AI-generated scenes of real places, no photos fetched elsewhere, no partner
+  photos.
 
 ## Rules
 Prepare freely; publishing happens in the scheduled run or when the owner asks. Never say a post is live without
