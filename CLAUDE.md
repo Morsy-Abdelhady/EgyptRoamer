@@ -4,7 +4,7 @@ An affiliate-first travel publication about Egypt, built on WordPress and live a
 
 ## Current state: read this first
 - **Latest handoff:** `docs/HANDOFF-2026-10-28.md`. Live versions: Theme 1.3.47 / Core 1.2.99. page-coverage passed on 504 pages and rtl-direction on 66 Arabic pages on 28 Oct. Traffic experiment (Pinterest-led) runs to 10 Nov; journalist-request backlinks started (owner writes replies; reporters often refuse AI). The prototype parity review (`docs/PROTOTYPE-PARITY-2026-10-18.md`) records the main screens as compared on 19 Oct.
-- **Plan (owner, 2026-10-30):** `docs/PLAN-2026-10-30.md`. The 1M-sessions goal is dropped. The aim is to prove Google traffic at low cost: pre-trip pages, links and day trips; no new place guides at the old pace. Decision points are in Feb and May 2027. `docs/GROWTH-PLAN-INTENSIVE-2026-10-26.md` keeps only its evidence and channel notes.
+- **Plan (owner, 2026-10-30):** `docs/PLAN-2026-10-30.md`. Goal: $1,000 a month in affiliate revenue (gross), mid-2027 if possible, end of 2027 at the latest (about 100,000 visits a month, an estimate). Priorities in order: higher-value products (cruises, multi-day tours, hotels), comparison pages that lead to bookings, weekly links, then pre-trip pages. No new place guides at the old pace. The 1M-sessions goal is dropped; `docs/GROWTH-PLAN-INTENSIVE-2026-10-26.md` keeps only its evidence and channel notes.
 - **Live partners:**
   - Viator (tours, 17 offers);
   - GetYourGuide (tours, 9 offers);
