@@ -158,7 +158,13 @@ async function check(pg) {
 }
 
 const queue = [...pages];
-await Promise.all(Array.from({ length: CONC }, async () => { while (queue.length) await check(queue.shift()); }));
+// A dropped connection or a mid-check navigation (29 Oct) used to crash the whole run: retry the page once, then list it.
+const checkSafe = async (pg) => {
+  for (let i = 0; i < 2; i++) {
+    try { return await check(pg); } catch (e) { if (i) fail(pg, `check failed: ${String(e.message || e).split("\n")[0].slice(0, 100)}`); }
+  }
+};
+await Promise.all(Array.from({ length: CONC }, async () => { while (queue.length) await checkSafe(queue.shift()); }));
 await br.close();
 
 const byKind = pages.reduce((a, p) => ((a[p.kind] = (a[p.kind] || 0) + 1), a), {});
