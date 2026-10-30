@@ -47,7 +47,16 @@ for (const a of ["/destinations/", "/experiences/", "/guides/"]) {
 const pages = [];
 const homes = new Map();
 for (const p of en) {
-  await disc.goto(B + p, { waitUntil: "domcontentloaded", timeout: 120000 });
+  // A page that hangs once (seen on 30 Oct, a different page each run) is tried up to 3 times before the run stops.
+  for (let t = 1; ; t++) {
+    try {
+      await disc.goto(B + p, { waitUntil: "domcontentloaded", timeout: 60000 });
+      break;
+    } catch (e) {
+      if (t >= 3) throw e;
+      console.log(`discover: retry ${p} (${t})`);
+    }
+  }
   const alts = await disc.$$eval("link[rel=alternate][hreflang]", (ls) => ls.filter((l) => l.hreflang !== "x-default").map((l) => [l.hreflang.slice(0, 2), l.href]));
   for (const [lang, href] of alts) {
     pages.push({ lang, url: href, kind: p.split("/")[1] });
