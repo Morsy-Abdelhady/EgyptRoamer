@@ -145,4 +145,56 @@ add_action( 'admin_init', static function (): void {
 			update_option( 'er_migrations', $done, false );
 		}
 	}
+	// 30 Oct (owner): the Affiliate Disclosure names Tiqets too, in every language (the files in data/legal match).
+	if ( empty( $done['disclosure-partners-tiqets'] ) ) {
+		$en = function_exists( 'er_legal_en_page' ) ? er_legal_en_page( 'affiliate-disclosure' ) : 0;
+		if ( $en ) {
+			$swap = [
+				' and <strong>Klook</strong>' => ', <strong>Klook</strong> and <strong>Tiqets</strong>',
+				' und <strong>Klook</strong>' => ', <strong>Klook</strong> und <strong>Tiqets</strong>',
+				' et <strong>Klook</strong>'  => ', <strong>Klook</strong> et <strong>Tiqets</strong>',
+				' e <strong>Klook</strong>'   => ', <strong>Klook</strong> e <strong>Tiqets</strong>',
+				' y <strong>Klook</strong>'   => ', <strong>Klook</strong> y <strong>Tiqets</strong>',
+				' и <strong>Klook</strong>'   => ', <strong>Klook</strong> и <strong>Tiqets</strong>',
+				' 和 <strong>Klook</strong>'  => '、<strong>Klook</strong> 和 <strong>Tiqets</strong>',
+				'و<strong>Klook</strong>'     => 'و<strong>Klook</strong> و<strong>Tiqets</strong>',
+			];
+			$ids = function_exists( 'pll_get_post_translations' ) ? (array) pll_get_post_translations( $en ) : [ $en ];
+			foreach ( array_unique( array_map( 'intval', array_merge( [ $en ], array_values( $ids ) ) ) ) as $id ) {
+				$content = (string) get_post_field( 'post_content', $id );
+				if ( false !== strpos( $content, 'Tiqets' ) ) {
+					continue;
+				}
+				$new = strtr( $content, $swap );
+				if ( $new !== $content ) {
+					wp_update_post( wp_slash( [ 'ID' => $id, 'post_content' => $new ] ) );
+				}
+			}
+			$done['disclosure-partners-tiqets'] = gmdate( 'c' );
+			update_option( 'er_migrations', $done, false );
+		}
+	}
+	// 30 Oct (owner): every diving offer leaves from Hurghada, so the diving trip no longer sits under Sharm El Sheikh.
+	if ( empty( $done['dive-not-sharm'] ) ) {
+		$sharm = get_page_by_path( 'sharm', OBJECT, 'er_destination' );
+		if ( $sharm ) {
+			$sharms = function_exists( 'pll_get_post_translations' ) ? array_map( 'intval', (array) pll_get_post_translations( $sharm->ID ) ) : [];
+			$sharms = array_unique( array_merge( [ (int) $sharm->ID ], $sharms ) );
+			$dives  = get_posts( [
+				'post_type'   => 'er_experience',
+				'post_status' => 'any',
+				'numberposts' => 20,
+				'fields'      => 'ids',
+				'lang'        => '',
+				'meta_query'  => [ [ 'key' => '_er_seed_id', 'value' => array_merge( [ 'exp-dive' ], array_map( static fn ( $l ) => 'exp-dive-' . $l, [ 'ar', 'de', 'fr', 'it', 'es', 'ru', 'zh' ] ) ), 'compare' => 'IN' ] ], // phpcs:ignore WordPress.DB.SlowDBQuery
+			] );
+			foreach ( $dives as $dive ) {
+				foreach ( $sharms as $s ) {
+					delete_post_meta( (int) $dive, '_er_destination', $s );
+				}
+			}
+			$done['dive-not-sharm'] = gmdate( 'c' );
+			update_option( 'er_migrations', $done, false );
+		}
+	}
 } );

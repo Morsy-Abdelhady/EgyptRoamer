@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.53 — 2026-10-30: diving trip only under Hurghada; Tiqets on the Affiliate Disclosure (with Core 1.2.105)
+- **Trips & tours:** comments updated; the Red Sea diving trip is no longer listed under Sharm El Sheikh, since all four of its offers leave from Hurghada (outside review, 30 Oct).
+- **Core:** migration `dive-not-sharm` removes Sharm El Sheikh from the diving trip in every language; migration `disclosure-partners-tiqets` adds Tiqets to the partner list on the Affiliate Disclosure in 8 languages, and `data/legal/*/affiliate-disclosure.html` match.
+
 ## 1.3.52 — 2026-10-29: Siwa, Taba, Burullus and Omayed protected-area guides (with Core 1.2.104)
 - **Wikimedia Commons credits** for the new guides (4 files, recorded in the image audit §9).
 - **Core:** the four guides in 8 languages, written only from the Environmental Affairs Agency's protected-areas page; hero photos in the seed; Sources page rows.

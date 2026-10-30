@@ -361,7 +361,7 @@ function er_world_chapter_place( int $n ): int {
 function er_world_trip_groups( array $ids ): void {
 	$groups = [];
 	foreach ( $ids as $id ) {
-		// A trip in two places (the Nile cruise: Aswan and Luxor; Red Sea diving: Hurghada and Sharm) is shown under
+		// A trip in two places (the Nile cruise: Aswan and Luxor) is shown under
 		// each, as in the prototype.
 		$dests = array_values( array_unique( array_filter( array_map( 'intval', (array) get_post_meta( (int) $id, '_er_destination', false ) ) ) ) );
 		// A translated trip whose own copy lost its place (Arabic Nile cruise, Alexandria and Ras Mohammed, 20 Oct)
@@ -382,8 +382,8 @@ function er_world_trip_groups( array $ids ): void {
 			$groups[ $dest ][] = (int) $id;
 		}
 	}
-	// As the prototype: in each place, a trip that spans two places comes first (the cruise in Luxor and Aswan, the
-	// diving trip in Sharm El Sheikh).
+	// As the prototype: in each place, a trip that spans two places comes first (the cruise in Luxor and Aswan; the
+	// diving trip sat in Sharm El Sheikh too until 30 Oct, when every diving offer turned out to leave from Hurghada).
 	foreach ( $groups as $er_k => $er_list ) {
 		$er_multi = array_filter( $er_list, static fn ( $x ) => count( array_unique( (array) get_post_meta( (int) $x, '_er_destination', false ) ) ) > 1 );
 		$groups[ $er_k ] = array_values( array_merge( $er_multi, array_diff( $er_list, $er_multi ) ) );
