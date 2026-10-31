@@ -228,3 +228,14 @@ Each guide is written only from the EEAA's "About Protected Areas" page (rows in
 ## Siwa, Taba, Lake Burullus and El Omayed protected areas (`g-siwa-protectorate`, `g-taba-protectorate`, `g-burullus`, `g-omayed`, 2026-10-29)
 
 Each guide is written only from the EEAA's "About Protected Areas" page (rows in the table above, checked 2026-10-29; Arabic, translated by Claude). The Oracle of Amun and Alexander's visit repeat `dest-siwa`. Left out: fees, opening hours, travel times, and locations the page does not give (no "Mediterranean coast" or "northeast"); the long Omayed plant list beyond squill and wormwood.
+
+## Trip `exp-luxor-hurghada` (31 Oct 2026)
+
+Place facts reuse the sourced rows already used by `g-east-bank`, `g-west-bank` and `g-valley-kings` (Karnak official review, Valley of the Kings official review, Deir el-Bahari, Colossi of Memnon; Core `data/sources.json` rows now list the trip). Trip facts come only from the partners' product pages, read on 31 Oct 2026:
+
+| Fact | Source |
+|---|---|
+| Small group; 14 hours – 1 day; hotel pickup in Hurghada, El Gouna, Safaga, Makadi, Soma Bay, Sahl Hasheesh; van about 4.5 hours each way; lunch in Luxor; boat across the Nile; 30-minute shopping stop; Tutankhamun's tomb optional, extra fee; free cancellation up to 24 hours | GetYourGuide, "Luxor Day Trip from Hurghada Small Group & Tutankhamun Tomb", https://www.getyourguide.com/luxor-l109/luxor-day-trip-from-hurghada-small-group-tutankhamun-tomb-t485960/ |
+| Private; 12 to 16 hours (approx.); pickup offered; free cancellation up to 24 hours | Viator, "Private Day Trip to Luxor from Hurghada and Valley of the Kings", https://www.viator.com/tours/Hurghada/Private-Full-Day-Luxor-Tour-from-Hurghada/d800-481754P5 |
+
+No prices, ratings, review counts or photos were copied.

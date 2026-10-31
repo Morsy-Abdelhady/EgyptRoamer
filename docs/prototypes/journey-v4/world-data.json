@@ -2046,6 +2046,149 @@
      "cancel": "Free cancellation (24 hours notice)"
     }
    ]
+  },
+  "luxhrg": {
+   "cls": "w-tomb",
+   "fx": "tomb",
+   "photo": "lh_open",
+   "url": "luxor-day-trip-from-hurghada",
+   "place": "Luxor",
+   "eyebrow": "Luxor · Karnak · From Hurghada",
+   "title": "Luxor Day Trip from Hurghada",
+   "lead": "A full day from your hotel on the Red Sea to Luxor, the site of ancient Thebes: Karnak on the East Bank, then the Valley of the Kings, Hatshepsut’s temple and the Colossi of Memnon on the West Bank.",
+   "quote": "All part of the UNESCO site Ancient Thebes with its Necropolis.",
+   "chips": [
+    "14 hours",
+    "2 options",
+    "Private or small group",
+    "Pickup offered"
+   ],
+   "go": "Into ancient Thebes",
+   "jEyebrow": "The day, step by step",
+   "jTitle": "From the Red Sea to Thebes",
+   "steps": [
+    {
+     "img": "lh_karnak",
+     "t": "Karnak",
+     "p": "The ancient Egyptians called it Ipet-Sut, “the Most Select of Places”. Its Great Temple of Amun has a hypostyle hall of 134 columns.",
+     "why": "The drive to Luxor takes about 4.5 hours each way, according to the GetYourGuide option’s itinerary.",
+     "tone": "warm",
+     "credit": ""
+    },
+    {
+     "img": "kv62",
+     "t": "Valley of the Kings",
+     "p": "Long corridors lead down to royal burial chambers covered in texts and images of the gods. Tutankhamun’s tomb needs a separate ticket.",
+     "tone": "dark",
+     "credit": ""
+    },
+    {
+     "img": "hat_l",
+     "t": "Hatshepsut’s temple",
+     "p": "Three great terraces built for the female pharaoh Hatshepsut beneath the cliffs of Deir el-Bahari.",
+     "tone": "warm",
+     "credit": ""
+    },
+    {
+     "img": "w_colossi",
+     "t": "Colossi of Memnon",
+     "p": "Two giant seated statues of Amenhotep III, all that stands of his vast temple.",
+     "tone": "warm",
+     "credit": "Photo: Diego Delso, Wikimedia Commons, CC BY-SA 4.0"
+    }
+   ],
+   "sec": {
+    "eyebrow": "Before you book",
+    "title": "A very long day",
+    "ps": [
+     "Check what each option includes, especially the entry tickets, on the partner’s page before you book."
+    ],
+    "tabs": [
+     [
+      "𓇳",
+      "Sun and heat",
+      "Bring water, a hat and sun protection; the Valley of the Kings is a sun trap."
+     ],
+     [
+      "𓊝",
+      "On the road",
+      "Most of the day is on the road."
+     ],
+     [
+      "𓂀",
+      "In the tombs",
+      "Photography rules inside the tombs change. Follow the guards."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "Luxor without moving hotels",
+     "Choose this day if you are staying on the Red Sea and want to see Luxor’s temples and tombs without moving hotels."
+    ],
+    [
+     "More time?",
+     "A night in Luxor",
+     "A night or two in Luxor lets you see the same sites at an easier pace."
+    ]
+   ],
+   "sum": [
+    "Luxor",
+    "14 hours",
+    "Private or small group",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "Luxor Day Trip from Hurghada Small Group & Tutankhamun Tomb",
+     "p": "GetYourGuide",
+     "f": [
+      "14 hours",
+      "Small group",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation (24 hours notice)"
+    },
+    {
+     "n": "Private Day Trip to Luxor from Hurghada and Valley of the Kings",
+     "p": "Viator",
+     "f": [
+      "12–16 hours",
+      "Private",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation (24 hours notice)"
+    }
+   ],
+   "stay": {
+    "title": "Staying in Hurghada?",
+    "rows": [
+     [
+      "Hotels in Hurghada",
+      "Hurghada"
+     ]
+    ]
+   },
+   "faq": [
+    [
+     "Can I see Luxor in a day from Hurghada?",
+     "Yes, the main sites. The options on this page take a full day, from about 12 to 16 hours, with hotel pickup."
+    ],
+    [
+     "How long is the drive from Hurghada to Luxor?",
+     "About 4.5 hours each way, according to the GetYourGuide option’s itinerary."
+    ],
+    [
+     "Is Tutankhamun’s tomb included?",
+     "Not in the standard Valley of the Kings ticket. On the small-group option it is an extra you choose when booking."
+    ],
+    [
+     "Small group or private?",
+     "A small group shares the day with other travellers and follows a fixed plan. A private trip is for your party alone, at your own pace."
+    ]
+   ]
   }
  },
  "TRIPS": [
@@ -2369,7 +2512,9 @@
   "w_gemal_land": "img/w_gemal_land.jpg",
   "w_gemal_mountains": "img/w_gemal_mountains.jpg",
   "w_gemal_acacia": "img/w_gemal_acacia.jpg",
-  "w_gemal_gull": "img/w_gemal_gull.jpg"
+  "w_gemal_gull": "img/w_gemal_gull.jpg",
+  "lh_open": "img/1623417765161-c71d6c83cfee.jpg",
+  "lh_karnak": "img/1761056981183-3faf66a62d6e.jpg"
  },
  "GUIDES": [
   {
@@ -6133,7 +6278,10 @@
   "hitan": [
    "cairo"
   ],
-  "gemal": []
+  "gemal": [],
+  "luxhrg": [
+   "hurghada"
+  ]
  },
  "CHAPTERS": [
   {

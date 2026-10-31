@@ -5,7 +5,7 @@ slug: valley-of-the-kings-tombs-and-tickets
 topic: Planning
 excerpt: How to visit the Valley of the Kings in Luxor: what the royal tombs are, how tickets work, Tutankhamun and Seti I, what else to see on the West Bank, and practical tips for a hot, busy valley.
 destination: luxor
-related: exp-valley
+related: exp-valley, exp-luxor-hurghada
 ---
 [[toc]]
 

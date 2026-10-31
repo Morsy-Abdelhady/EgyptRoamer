@@ -5,7 +5,7 @@ slug: luxor-west-bank-temples-and-tombs
 topic: Planning
 excerpt: Luxor's West Bank beyond the royal tombs: Hatshepsut's terraced temple at Deir el-Bahari, the Colossi of Memnon, the Ramesseum, Medinet Habu, the Valley of the Queens and the tomb builders' village at Deir el-Medina, and how to plan the day.
 destination: luxor
-related: exp-valley
+related: exp-valley, exp-luxor-hurghada
 ---
 [[toc]]
 

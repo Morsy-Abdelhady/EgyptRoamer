@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.55 — 2026-10-31: Luxor day trip from Hurghada (with Core 1.2.107)
+- **New trip `exp-luxor-hurghada`** ("Luxor Day Trip from Hurghada"), 8 languages: Karnak, the Valley of the Kings, Hatshepsut's temple and the Colossi of Memnon, from the sourced rows of the Luxor guides; trip facts only from the partners' pages. Trip-page world in `inc/world-data.php` (generated from `docs/prototypes/journey-v4/world-data.json`), 30 strings in 8 languages, existing approved photos only.
+- **Core:** two offers' facts and card text (GetYourGuide small group, Viator private); card photo in the seed; the Karnak, Valley of the Kings and West Bank guides relate to the trip.
+
 ## 1.3.54 — 2026-10-31: YouTube and TikTok in the footer (with Core 1.2.106)
 - **Footer "Follow us":** YouTube (`@EgyptRoamer`) and TikTok (`@egyptroamer`) next to Instagram, Pinterest and Facebook, with their labels in 8 languages (existing sprite icons).
 - **Core:** the homepage schema's `sameAs` lists the two new profiles.

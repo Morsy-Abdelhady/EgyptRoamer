@@ -111,6 +111,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-luxor-hurghada": {
+  "type": "er_experience",
+  "title": "Escursione di un giorno a Luxor da Hurghada",
+  "excerpt": "Una giornata intera da Hurghada a Luxor, sul sito dell’antica Tebe: Karnak, la Valle dei Re, il tempio di Hatshepsut e i Colossi di Memnone, come si svolge la lunga giornata e come scegliere tra piccolo gruppo ed escursione privata.",
+  "location": "Luxor",
+  "review": "approved",
+  "current": true
+ },
  "exp-ras-mohammed": {
   "type": "er_experience",
   "title": "Snorkeling a Ras Mohammed da Sharm el-Sheikh",

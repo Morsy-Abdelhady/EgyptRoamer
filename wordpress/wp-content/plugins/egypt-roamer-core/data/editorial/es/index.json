@@ -111,6 +111,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-luxor-hurghada": {
+  "type": "er_experience",
+  "title": "Excursión de un día a Luxor desde Hurghada",
+  "excerpt": "Un día completo de Hurghada a Luxor, en el lugar de la antigua Tebas: Karnak, el Valle de los Reyes, el templo de Hatshepsut y los Colosos de Memnón, cómo es este largo día y cómo elegir entre grupo reducido y excursión privada.",
+  "location": "Luxor",
+  "review": "approved",
+  "current": true
+ },
  "exp-ras-mohammed": {
   "type": "er_experience",
   "title": "Esnórquel en Ras Mohammed desde Sharm el-Sheij",

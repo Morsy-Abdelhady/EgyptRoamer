@@ -659,6 +659,53 @@ function er_world_data( string $seed ): array {
 				'stay'     => '',
 				'pick_why' => '',
 			];
+		case 'exp-luxor-hurghada':
+			return [
+				'key'      => 'luxhrg',
+				'cls'      => 'w-tomb',
+				'fx'       => 'tomb',
+				'photo'    => [ 'u' => '1623417765161-c71d6c83cfee' ],
+				'video'    => '',
+				'eyebrow' => er_t( 'Luxor · Karnak · From Hurghada' ),
+				'lead' => er_t( 'A full day from your hotel on the Red Sea to Luxor, the site of ancient Thebes: Karnak on the East Bank, then the Valley of the Kings, Hatshepsut’s temple and the Colossi of Memnon on the West Bank.' ),
+				'quote' => er_t( 'All part of the UNESCO site Ancient Thebes with its Necropolis.' ),
+				'go' => er_t( 'Into ancient Thebes' ),
+				'j_eyebrow' => er_t( 'The day, step by step' ),
+				'j_title'   => er_t( 'From the Red Sea to Thebes' ),
+				'steps'    => [
+					[ 't' => er_t( 'Karnak' ), 'p' => er_t( 'The ancient Egyptians called it Ipet-Sut, “the Most Select of Places”. Its Great Temple of Amun has a hypostyle hall of 134 columns.' ), 'why' => er_t( 'The drive to Luxor takes about 4.5 hours each way, according to the GetYourGuide option’s itinerary.' ), 'img' => [ 'u' => '1761056981183-3faf66a62d6e' ], 'video' => '', 'credit' => '', 'wall' => false, 'tone' => 'warm' ],
+					[ 't' => er_t( 'Valley of the Kings' ), 'p' => er_t( 'Long corridors lead down to royal burial chambers covered in texts and images of the gods. Tutankhamun’s tomb needs a separate ticket.' ), 'why' => '', 'img' => [ 'u' => '1779366244195-c11f7819693c' ], 'video' => '', 'credit' => '', 'wall' => false, 'tone' => 'dark' ],
+					[ 't' => er_t( 'Hatshepsut’s temple' ), 'p' => er_t( 'Three great terraces built for the female pharaoh Hatshepsut beneath the cliffs of Deir el-Bahari.' ), 'why' => '', 'img' => [ 'u' => '1683891043389-31a5ca0692f8' ], 'video' => '', 'credit' => '', 'wall' => false, 'tone' => 'warm' ],
+					[ 't' => er_t( 'Colossi of Memnon' ), 'p' => er_t( 'Two giant seated statues of Amenhotep III, all that stands of his vast temple.' ), 'why' => '', 'img' => [ 'commons' => 'Colosos_de_Memnón,_Luxor,_Egipto,_2022-04-03,_DD_131.jpg', 'page' => 'https://commons.wikimedia.org/wiki/File:Colosos_de_Memn%C3%B3n,_Luxor,_Egipto,_2022-04-03,_DD_131.jpg' ], 'video' => '', 'credit' => 'Photo: Diego Delso, Wikimedia Commons, CC BY-SA 4.0', 'wall' => false, 'tone' => 'warm' ],
+				],
+				'sec'      => [
+					'eyebrow' => er_t( 'Before you book' ),
+					'title'   => er_t( 'A very long day' ),
+					'ps'      => [ er_t( 'Check what each option includes, especially the entry tickets, on the partner’s page before you book.' ) ],
+					'tabs'    => [
+						[ '𓇳', er_t( 'Sun and heat' ), er_t( 'Bring water, a hat and sun protection; the Valley of the Kings is a sun trap.' ) ],
+						[ '𓊝', er_t( 'On the road' ), er_t( 'Most of the day is on the road.' ) ],
+						[ '𓂀', er_t( 'In the tombs' ), er_t( 'Photography rules inside the tombs change. Follow the guards.' ) ],
+					],
+					'night'   => false,
+					'wall'    => false,
+				],
+				'papy'     => [
+					[ er_t( 'Who it suits' ), er_t( 'Luxor without moving hotels' ), er_t( 'Choose this day if you are staying on the Red Sea and want to see Luxor’s temples and tombs without moving hotels.' ), null ],
+					[ er_t( 'More time?' ), er_t( 'A night in Luxor' ), er_t( 'A night or two in Luxor lets you see the same sites at an easier pace.' ), null ],
+				],
+				'faq'      => [
+					[ er_t( 'Can I see Luxor in a day from Hurghada?' ), er_t( 'Yes, the main sites. The options on this page take a full day, from about 12 to 16 hours, with hotel pickup.' ) ],
+					[ er_t( 'How long is the drive from Hurghada to Luxor?' ), er_t( 'About 4.5 hours each way, according to the GetYourGuide option’s itinerary.' ) ],
+					[ er_t( 'Is Tutankhamun’s tomb included?' ), er_t( 'Not in the standard Valley of the Kings ticket. On the small-group option it is an extra you choose when booking.' ) ],
+					[ er_t( 'Small group or private?' ), er_t( 'A small group shares the day with other travellers and follows a fixed plan. A private trip is for your party alone, at your own pace.' ) ],
+				],
+				'chips'    => [ '{length}', '{options}', '{group}', '{pickup}' ],
+				'sum'      => [ er_t( 'Luxor' ), '{length}', '{group}', '{pickup}', '{cancel}' ],
+				'place'    => er_t( 'Luxor' ),
+				'stay'     => er_t( 'Staying in Hurghada?' ),
+				'pick_why' => '',
+			];
 	}
 	return [];
 }

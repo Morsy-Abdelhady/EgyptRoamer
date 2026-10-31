@@ -111,6 +111,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-luxor-hurghada": {
+  "type": "er_experience",
+  "title": "رحلة يوم إلى الأقصر من الغردقة",
+  "excerpt": "يوم كامل من الغردقة إلى الأقصر، موقع طيبة القديمة: الكرنك ووادي الملوك ومعبد حتشبسوت وتمثالا ممنون، وكيف يسير هذا اليوم الطويل، وكيف تختار بين المجموعة الصغيرة والرحلة الخاصة.",
+  "location": "الأقصر",
+  "review": "approved",
+  "current": true
+ },
  "exp-ras-mohammed": {
   "type": "er_experience",
   "title": "سنوركلينج في رأس محمد من شرم الشيخ",

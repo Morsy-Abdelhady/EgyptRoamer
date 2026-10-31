@@ -111,6 +111,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-luxor-hurghada": {
+  "type": "er_experience",
+  "title": "Excursion d’une journée à Louxor au départ d’Hurghada",
+  "excerpt": "Une journée entière d’Hurghada à Louxor, sur le site de l’antique Thèbes : Karnak, la Vallée des Rois, le temple d’Hatchepsout et les colosses de Memnon, le déroulement de cette longue journée et comment choisir entre petit groupe et excursion privée.",
+  "location": "Louxor",
+  "review": "approved",
+  "current": true
+ },
  "exp-ras-mohammed": {
   "type": "er_experience",
   "title": "Snorkeling à Ras Mohammed depuis Charm el-Cheikh",

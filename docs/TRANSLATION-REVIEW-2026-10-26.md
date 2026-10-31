@@ -223,3 +223,7 @@ existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefr
 ## Addendum, 29 Oct: Siwa, Taba, Lake Burullus, El Omayed
 
 `g-siwa-protectorate`, `g-taba-protectorate`, `g-burullus` and `g-omayed` (new) translated into 7 languages and reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Siwa place names follow `dest-siwa` (Amun, Mountain of the Dead in each language); gazelle names follow `g-wadi-hitan`.
+
+## Addendum, 31 Oct: Luxor day trip from Hurghada
+
+`exp-luxor-hurghada` (new trip) translated into 7 languages, its 30 trip-page strings (`tools/i18n/new-strings.json`) and the card titles of its two offers (`data/offers-i18n.json`), reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Place names follow the existing Luxor guides (Ipet-Sut, Deir el-Bahari, Memnon). The owner asked for the trip on 31 Oct.

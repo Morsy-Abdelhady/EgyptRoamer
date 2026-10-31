@@ -387,3 +387,13 @@ Trip pages `exp-hitan` and `exp-gemal` (26 Oct, theme 1.3.21): Commons photos th
 | `exp-gemal` | step 1 | WadiElGimal2.jpg | Roland Unger | CC BY-SA 4.0 |
 | `exp-gemal` | step 2, card | WadiElGimal3.jpg | Roland Unger | CC BY-SA 4.0 |
 | `exp-gemal` | step 3 | Sooty_Gull_in_Ras_Baghdadi_-_Wadi_El-Gemal_National_Park,_Red_Sea_7.jpg | Mohammad Chawki | CC BY-SA 4.0 |
+
+Trip page `exp-luxor-hurghada` (31 Oct 2026, theme 1.3.55): only photos already approved and in use, no new files.
+
+| Trip | Place | Photo | Approved as |
+|---|---|---|---|
+| `exp-luxor-hurghada` | opener, card, GetYourGuide offer | Unsplash 1623417765161-c71d6c83cfee | `exp-valley` opener (prototype photo, 18 Oct) |
+| `exp-luxor-hurghada` | step Karnak | Unsplash 1761056981183-3faf66a62d6e | Luxor temple columns (§ Luxor, KEEP) |
+| `exp-luxor-hurghada` | steps Valley of the Kings, Hatshepsut | prototype keys `kv62`, `hat_l` (as `exp-valley`) | `exp-valley` steps |
+| `exp-luxor-hurghada` | step Colossi | Colosos_de_Memnón,_Luxor,_Egipto,_2022-04-03,_DD_131.jpg, Diego Delso, CC BY-SA 4.0 | `exp-valley` step 3 |
+

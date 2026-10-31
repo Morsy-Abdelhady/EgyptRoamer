@@ -111,6 +111,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-luxor-hurghada": {
+  "type": "er_experience",
+  "title": "从赫尔格达出发的卢克索一日游",
+  "excerpt": "从赫尔格达前往古代底比斯所在地卢克索的一整天：卡纳克、帝王谷、哈特谢普苏特神庙和门农巨像，这漫长的一天如何安排，以及如何在小团和私人团之间选择。",
+  "location": "卢克索",
+  "review": "approved",
+  "current": true
+ },
  "exp-ras-mohammed": {
   "type": "er_experience",
   "title": "从沙姆沙伊赫出发的穆罕默德角浮潜",

@@ -417,5 +417,25 @@
   },
   "pickup": true,
   "cancel": true
+ },
+ "gyg-luxor-day-trip-from-hurghada-small-group": {
+  "group": "small",
+  "duration": {
+   "n": "14",
+   "unit": "hours"
+  },
+  "pickup": true,
+  "stock": "1623417765161-c71d6c83cfee",
+  "cancel": true
+ },
+ "private-luxor-day-trip-from-hurghada": {
+  "group": "private",
+  "duration": {
+   "n": "12–16",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true,
+  "cancel": true
  }
 }

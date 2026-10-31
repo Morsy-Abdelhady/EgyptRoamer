@@ -5,7 +5,7 @@ slug: karnak-and-luxor-temple
 topic: Planning
 excerpt: A guide to Luxor's East Bank temples: Karnak, the temple of Amun with its hypostyle hall of 134 columns and Hatshepsut's obelisk, Luxor Temple and its colonnade, the avenue of sphinxes between them, and how to plan the day.
 destination: luxor
-related: exp-valley
+related: exp-valley, exp-luxor-hurghada
 ---
 [[toc]]
 

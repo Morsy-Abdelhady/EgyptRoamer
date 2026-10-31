@@ -1649,5 +1649,65 @@
    "title": "القاهرة: عشاء على مركب Memphis في النيل مع عرض وانتقال خاص",
    "location": "القاهرة"
   }
+ },
+ "gyg-luxor-day-trip-from-hurghada-small-group": {
+  "ar": {
+   "title": "من الغردقة: رحلة يوم إلى الأقصر في مجموعة صغيرة مع مقبرة توت عنخ آمون",
+   "location": "الأقصر"
+  },
+  "de": {
+   "title": "Ab Hurghada: Tagesausflug nach Luxor in kleiner Gruppe mit Tutanchamun-Grab",
+   "location": "Luxor"
+  },
+  "fr": {
+   "title": "Depuis Hurghada : journée à Louxor en petit groupe avec la tombe de Toutânkhamon",
+   "location": "Louxor"
+  },
+  "it": {
+   "title": "Da Hurghada: giornata a Luxor in piccolo gruppo con la tomba di Tutankhamon",
+   "location": "Luxor"
+  },
+  "es": {
+   "title": "Desde Hurghada: excursión de un día a Luxor en grupo reducido con la tumba de Tutankamón",
+   "location": "Luxor"
+  },
+  "ru": {
+   "title": "Из Хургады: поездка в Луксор на день в небольшой группе с гробницей Тутанхамона",
+   "location": "Луксор"
+  },
+  "zh": {
+   "title": "从赫尔格达出发：卢克索小团一日游（含图坦卡蒙墓）",
+   "location": "卢克索"
+  }
+ },
+ "private-luxor-day-trip-from-hurghada": {
+  "ar": {
+   "title": "رحلة خاصة ليوم كامل إلى الأقصر ووادي الملوك من الغردقة",
+   "location": "الأقصر"
+  },
+  "de": {
+   "title": "Private Tagestour nach Luxor und ins Tal der Könige ab Hurghada",
+   "location": "Luxor"
+  },
+  "fr": {
+   "title": "Excursion privée d’une journée à Louxor et à la Vallée des Rois depuis Hurghada",
+   "location": "Louxor"
+  },
+  "it": {
+   "title": "Tour privato di un giorno a Luxor e alla Valle dei Re da Hurghada",
+   "location": "Luxor"
+  },
+  "es": {
+   "title": "Excursión privada de un día a Luxor y al Valle de los Reyes desde Hurghada",
+   "location": "Luxor"
+  },
+  "ru": {
+   "title": "Индивидуальная поездка в Луксор и Долину царей из Хургады на день",
+   "location": "Луксор"
+  },
+  "zh": {
+   "title": "从赫尔格达出发：卢克索和帝王谷私人一日游",
+   "location": "卢克索"
+  }
  }
 }

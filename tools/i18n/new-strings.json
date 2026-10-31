@@ -7390,6 +7390,276 @@
    "По пути Ком-Омбо и Эдфу, а в конце — храмы и гробницы Луксора. Некоторые варианты добавляют Абу-Симбел как раннюю поездку из Асуана.",
    "途中有康翁布和埃德富，最后是卢克索的神庙和陵墓。有些选项还会加上从阿斯旺清晨出发的阿布辛贝之行。",
    "كوم أمبو وإدفو في الطريق، ثم معابد الأقصر ومقابرها في النهاية. وتضيف بعض الخيارات أبو سمبل كرحلة مبكرة من أسوان."
+  ],
+  "Luxor · Karnak · From Hurghada": [
+   "Luxor · Karnak · Ab Hurghada",
+   "Louxor · Karnak · Au départ d’Hurghada",
+   "Luxor · Karnak · Da Hurghada",
+   "Luxor · Karnak · Desde Hurghada",
+   "Луксор · Карнак · Из Хургады",
+   "卢克索 · 卡纳克 · 从赫尔格达出发",
+   "الأقصر · الكرنك · من الغردقة"
+  ],
+  "A full day from your hotel on the Red Sea to Luxor, the site of ancient Thebes: Karnak on the East Bank, then the Valley of the Kings, Hatshepsut’s temple and the Colossi of Memnon on the West Bank.": [
+   "Ein ganzer Tag von Ihrem Hotel am Roten Meer nach Luxor, an die Stelle des antiken Theben: Karnak am Ostufer, dann das Tal der Könige, der Hatschepsut-Tempel und die Memnonkolosse am Westufer.",
+   "Une journée entière depuis votre hôtel sur la mer Rouge jusqu’à Louxor, sur le site de l’antique Thèbes : Karnak sur la rive est, puis la Vallée des Rois, le temple d’Hatchepsout et les colosses de Memnon sur la rive ouest.",
+   "Una giornata intera dal vostro hotel sul Mar Rosso fino a Luxor, sul sito dell’antica Tebe: Karnak sulla riva est, poi la Valle dei Re, il tempio di Hatshepsut e i Colossi di Memnone sulla riva ovest.",
+   "Un día completo desde tu hotel en el mar Rojo hasta Luxor, en el lugar de la antigua Tebas: Karnak en la orilla este y, después, el Valle de los Reyes, el templo de Hatshepsut y los Colosos de Memnón en la orilla oeste.",
+   "Целый день от вашего отеля на Красном море до Луксора, на месте древних Фив: Карнак на восточном берегу, затем Долина царей, храм Хатшепсут и колоссы Мемнона на западном берегу.",
+   "从您在红海边的酒店出发，前往古代底比斯所在地卢克索的一整天：先看东岸的卡纳克，再看西岸的帝王谷、哈特谢普苏特神庙和门农巨像。",
+   "يوم كامل من فندقك على البحر الأحمر إلى الأقصر، موقع طيبة القديمة: الكرنك على البر الشرقي، ثم وادي الملوك ومعبد حتشبسوت وتمثالا ممنون على البر الغربي."
+  ],
+  "All part of the UNESCO site Ancient Thebes with its Necropolis.": [
+   "Alles Teil der UNESCO-Stätte „Antikes Theben mit Nekropole“.",
+   "Tous font partie du site de l’UNESCO « Thèbes antique et sa nécropole ».",
+   "Tutti parte del sito UNESCO «Antica Tebe con la sua necropoli».",
+   "Todo forma parte del sitio de la UNESCO «Antigua Tebas y su necrópolis».",
+   "Всё это часть объекта ЮНЕСКО «Древние Фивы с некрополем».",
+   "均属联合国教科文组织世界遗产“底比斯古城及其墓地”。",
+   "وكلها جزء من موقع اليونسكو «طيبة القديمة وجبانتها»."
+  ],
+  "Into ancient Thebes": [
+   "Ins antike Theben",
+   "Vers l’antique Thèbes",
+   "Nell’antica Tebe",
+   "Hacia la antigua Tebas",
+   "В древние Фивы",
+   "走进古代底比斯",
+   "إلى طيبة القديمة"
+  ],
+  "From the Red Sea to Thebes": [
+   "Vom Roten Meer nach Theben",
+   "De la mer Rouge à Thèbes",
+   "Dal Mar Rosso a Tebe",
+   "Del mar Rojo a Tebas",
+   "От Красного моря до Фив",
+   "从红海到底比斯",
+   "من البحر الأحمر إلى طيبة"
+  ],
+  "Karnak": [
+   "Karnak",
+   "Karnak",
+   "Karnak",
+   "Karnak",
+   "Карнак",
+   "卡纳克",
+   "الكرنك"
+  ],
+  "The ancient Egyptians called it Ipet-Sut, “the Most Select of Places”. Its Great Temple of Amun has a hypostyle hall of 134 columns.": [
+   "Die alten Ägypter nannten es Ipet-Sut, „der auserlesenste der Orte“. Sein Großer Tempel des Amun hat einen Säulensaal aus 134 Säulen.",
+   "Les anciens Égyptiens l’appelaient Ipet-Sout, « le plus sélect des lieux ». Son grand temple d’Amon possède une salle hypostyle de 134 colonnes.",
+   "Gli antichi egizi lo chiamavano Ipet-Sut, «il più eletto dei luoghi». Il suo Grande Tempio di Amon ha una sala ipostila di 134 colonne.",
+   "Los antiguos egipcios lo llamaban Ipet-Sut, «el más selecto de los lugares». Su Gran Templo de Amón tiene una sala hipóstila de 134 columnas.",
+   "Древние египтяне называли его Ипет-Сут — «Избраннейшее из мест». В его Большом храме Амона есть гипостильный зал из 134 колонн.",
+   "古埃及人称它为 Ipet-Sut，意为“最精选之地”。其阿蒙大神庙有一座由 134 根石柱组成的多柱厅。",
+   "سمّاه المصريون القدماء «إيبت سوت»، أي «أكثر الأماكن اصطفاءً». ويضم معبد آمون الكبير فيه بهو أعمدة من 134 عمودًا."
+  ],
+  "The drive to Luxor takes about 4.5 hours each way, according to the GetYourGuide option’s itinerary.": [
+   "Die Fahrt nach Luxor dauert laut dem Reiseverlauf der GetYourGuide-Option etwa 4,5 Stunden pro Strecke.",
+   "Le trajet jusqu’à Louxor dure environ 4 h 30 dans chaque sens, selon l’itinéraire de l’option GetYourGuide.",
+   "Il viaggio fino a Luxor dura circa 4 ore e mezza per tratta, secondo l’itinerario dell’opzione GetYourGuide.",
+   "El trayecto hasta Luxor dura unas 4,5 horas en cada sentido, según el itinerario de la opción de GetYourGuide.",
+   "Дорога до Луксора занимает около 4,5 часа в одну сторону, согласно маршруту варианта GetYourGuide.",
+   "根据 GetYourGuide 选项的行程，前往卢克索单程约需 4.5 小时。",
+   "تستغرق الطريق إلى الأقصر نحو 4.5 ساعات في كل اتجاه، بحسب برنامج خيار GetYourGuide."
+  ],
+  "Long corridors lead down to royal burial chambers covered in texts and images of the gods. Tutankhamun’s tomb needs a separate ticket.": [
+   "Lange Gänge führen hinab zu königlichen Grabkammern voller Texte und Götterbilder. Das Grab des Tutanchamun braucht ein eigenes Ticket.",
+   "De longs couloirs descendent vers des chambres funéraires royales couvertes de textes et d’images des dieux. La tombe de Toutânkhamon nécessite un billet à part.",
+   "Lunghi corridoi scendono verso camere funerarie reali coperte di testi e immagini degli dèi. La tomba di Tutankhamon richiede un biglietto a parte.",
+   "Largos corredores descienden hasta cámaras funerarias reales cubiertas de textos e imágenes de los dioses. La tumba de Tutankamón necesita una entrada aparte.",
+   "Длинные коридоры ведут вниз к царским погребальным камерам, покрытым текстами и изображениями богов. В гробницу Тутанхамона нужен отдельный билет.",
+   "长长的走廊向下通往王室墓室，墙上满是文字和众神的图像。图坦卡蒙墓需要单独购票。",
+   "تهبط ممرات طويلة إلى غرف دفن ملكية مغطاة بالنصوص وصور الآلهة. ومقبرة توت عنخ آمون تحتاج تذكرة منفصلة."
+  ],
+  "Three great terraces built for the female pharaoh Hatshepsut beneath the cliffs of Deir el-Bahari.": [
+   "Drei große Terrassen, für die Pharaonin Hatschepsut unter den Klippen von Deir el-Bahari erbaut.",
+   "Trois grandes terrasses bâties pour la reine-pharaon Hatchepsout au pied des falaises de Deir el-Bahari.",
+   "Tre grandi terrazze costruite per la regina faraone Hatshepsut sotto le falesie di Deir el-Bahari.",
+   "Tres grandes terrazas construidas para la mujer faraón Hatshepsut bajo los acantilados de Deir el-Bahari.",
+   "Три больших террасы, построенные для женщины-фараона Хатшепсут под скалами Дейр-эль-Бахри.",
+   "为女法老哈特谢普苏特建造的三层大平台，位于代尔拜赫里的峭壁之下。",
+   "ثلاث مصاطب كبيرة شُيّدت للملكة الفرعون حتشبسوت أسفل منحدرات الدير البحري."
+  ],
+  "A very long day": [
+   "Ein sehr langer Tag",
+   "Une très longue journée",
+   "Una giornata molto lunga",
+   "Un día muy largo",
+   "Очень долгий день",
+   "非常漫长的一天",
+   "يوم طويل جدًا"
+  ],
+  "Check what each option includes, especially the entry tickets, on the partner’s page before you book.": [
+   "Prüfen Sie vor der Buchung auf der Seite des Partners, was jede Option enthält, vor allem die Eintrittskarten.",
+   "Vérifiez sur la page du partenaire ce que comprend chaque option, en particulier les billets d’entrée, avant de réserver.",
+   "Prima di prenotare, controllate sulla pagina del partner cosa include ogni opzione, soprattutto i biglietti d’ingresso.",
+   "Antes de reservar, comprueba en la página del socio qué incluye cada opción, sobre todo las entradas.",
+   "Перед бронированием проверьте на странице партнёра, что входит в каждый вариант, особенно входные билеты.",
+   "预订前，请在合作伙伴页面上查看每个选项包含的内容，尤其是门票。",
+   "تحقّق قبل الحجز من صفحة الشريك مما يشمله كل خيار، وخاصة تذاكر الدخول."
+  ],
+  "Bring water, a hat and sun protection; the Valley of the Kings is a sun trap.": [
+   "Nehmen Sie Wasser, einen Hut und Sonnenschutz mit; das Tal der Könige ist eine Sonnenfalle.",
+   "Prévoyez de l’eau, un chapeau et une protection solaire ; la Vallée des Rois est un piège à soleil.",
+   "Portate acqua, un cappello e protezione solare; la Valle dei Re è una trappola di sole.",
+   "Lleva agua, sombrero y protección solar; el Valle de los Reyes es una trampa de sol.",
+   "Возьмите воду, шляпу и защиту от солнца: Долина царей — настоящая солнечная ловушка.",
+   "请带上水、帽子和防晒用品；帝王谷是个晒得厉害的地方。",
+   "احمل الماء وقبعة وواقيًا من الشمس؛ فوادي الملوك مصيدة للشمس."
+  ],
+  "On the road": [
+   "Unterwegs",
+   "Sur la route",
+   "In viaggio",
+   "En la carretera",
+   "В дороге",
+   "在路上",
+   "على الطريق"
+  ],
+  "Most of the day is on the road.": [
+   "Den größten Teil des Tages sind Sie unterwegs.",
+   "La plus grande partie de la journée se passe sur la route.",
+   "Gran parte della giornata si passa in viaggio.",
+   "La mayor parte del día se pasa en la carretera.",
+   "Большая часть дня проходит в дороге.",
+   "一天中的大部分时间都在路上。",
+   "معظم اليوم على الطريق."
+  ],
+  "In the tombs": [
+   "In den Gräbern",
+   "Dans les tombes",
+   "Nelle tombe",
+   "En las tumbas",
+   "В гробницах",
+   "在墓中",
+   "داخل المقابر"
+  ],
+  "Luxor without moving hotels": [
+   "Luxor ohne Hotelwechsel",
+   "Louxor sans changer d’hôtel",
+   "Luxor senza cambiare hotel",
+   "Luxor sin cambiar de hotel",
+   "Луксор без смены отеля",
+   "不换酒店也能游卢克索",
+   "الأقصر دون تغيير الفندق"
+  ],
+  "Choose this day if you are staying on the Red Sea and want to see Luxor’s temples and tombs without moving hotels.": [
+   "Wählen Sie diesen Tag, wenn Sie am Roten Meer wohnen und die Tempel und Gräber von Luxor sehen möchten, ohne das Hotel zu wechseln.",
+   "Choisissez cette journée si vous séjournez sur la mer Rouge et voulez voir les temples et les tombes de Louxor sans changer d’hôtel.",
+   "Scegliete questa giornata se alloggiate sul Mar Rosso e volete vedere i templi e le tombe di Luxor senza cambiare hotel.",
+   "Elige este día si te alojas en el mar Rojo y quieres ver los templos y las tumbas de Luxor sin cambiar de hotel.",
+   "Выбирайте этот день, если вы живёте на Красном море и хотите увидеть храмы и гробницы Луксора, не меняя отель.",
+   "如果您住在红海边，又想不换酒店就看到卢克索的神庙和陵墓，就选这一天。",
+   "اختر هذا اليوم إذا كنت مقيمًا على البحر الأحمر وتريد رؤية معابد الأقصر ومقابرها دون تغيير الفندق."
+  ],
+  "More time?": [
+   "Mehr Zeit?",
+   "Plus de temps ?",
+   "Più tempo?",
+   "¿Más tiempo?",
+   "Больше времени?",
+   "时间更充裕？",
+   "لديك وقت أطول؟"
+  ],
+  "A night in Luxor": [
+   "Eine Nacht in Luxor",
+   "Une nuit à Louxor",
+   "Una notte a Luxor",
+   "Una noche en Luxor",
+   "Ночь в Луксоре",
+   "在卢克索住一晚",
+   "ليلة في الأقصر"
+  ],
+  "A night or two in Luxor lets you see the same sites at an easier pace.": [
+   "Mit ein oder zwei Nächten in Luxor sehen Sie dieselben Stätten in ruhigerem Tempo.",
+   "Une ou deux nuits à Louxor permettent de voir les mêmes sites à un rythme plus tranquille.",
+   "Una o due notti a Luxor vi permettono di vedere gli stessi siti con più calma.",
+   "Una o dos noches en Luxor te permiten ver los mismos lugares con más calma.",
+   "Одна-две ночи в Луксоре позволят увидеть те же места в более спокойном темпе.",
+   "在卢克索住一两晚，就能以更从容的节奏游览同样的景点。",
+   "ليلة أو ليلتان في الأقصر تتيحان لك رؤية المواقع نفسها بإيقاع أهدأ."
+  ],
+  "Can I see Luxor in a day from Hurghada?": [
+   "Kann ich Luxor an einem Tag ab Hurghada sehen?",
+   "Peut-on voir Louxor en une journée depuis Hurghada ?",
+   "Si può vedere Luxor in un giorno da Hurghada?",
+   "¿Se puede ver Luxor en un día desde Hurghada?",
+   "Можно ли увидеть Луксор за один день из Хургады?",
+   "从赫尔格达出发，一天能游览卢克索吗？",
+   "هل يمكنني رؤية الأقصر في يوم واحد من الغردقة؟"
+  ],
+  "Yes, the main sites. The options on this page take a full day, from about 12 to 16 hours, with hotel pickup.": [
+   "Ja, die wichtigsten Stätten. Die Optionen auf dieser Seite dauern einen ganzen Tag, etwa 12 bis 16 Stunden, mit Abholung im Hotel.",
+   "Oui, les principaux sites. Les options de cette page prennent une journée entière, environ 12 à 16 heures, avec prise en charge à l’hôtel.",
+   "Sì, i siti principali. Le opzioni di questa pagina occupano una giornata intera, da circa 12 a 16 ore, con prelievo in hotel.",
+   "Sí, los lugares principales. Las opciones de esta página ocupan un día completo, de unas 12 a 16 horas, con recogida en el hotel.",
+   "Да, главные места. Варианты на этой странице занимают целый день, примерно от 12 до 16 часов, с трансфером от отеля.",
+   "可以，看主要景点。本页的选项需要一整天，约 12 到 16 小时，含酒店接送。",
+   "نعم، المواقع الرئيسية. تستغرق الخيارات في هذه الصفحة يومًا كاملًا، من نحو 12 إلى 16 ساعة، مع الاصطحاب من الفندق."
+  ],
+  "How long is the drive from Hurghada to Luxor?": [
+   "Wie lange dauert die Fahrt von Hurghada nach Luxor?",
+   "Combien de temps dure le trajet d’Hurghada à Louxor ?",
+   "Quanto dura il viaggio da Hurghada a Luxor?",
+   "¿Cuánto dura el trayecto de Hurghada a Luxor?",
+   "Сколько ехать из Хургады в Луксор?",
+   "从赫尔格达到卢克索要开多久？",
+   "كم تستغرق الطريق من الغردقة إلى الأقصر؟"
+  ],
+  "About 4.5 hours each way, according to the GetYourGuide option’s itinerary.": [
+   "Etwa 4,5 Stunden pro Strecke, laut dem Reiseverlauf der GetYourGuide-Option.",
+   "Environ 4 h 30 dans chaque sens, selon l’itinéraire de l’option GetYourGuide.",
+   "Circa 4 ore e mezza per tratta, secondo l’itinerario dell’opzione GetYourGuide.",
+   "Unas 4,5 horas en cada sentido, según el itinerario de la opción de GetYourGuide.",
+   "Около 4,5 часа в одну сторону, согласно маршруту варианта GetYourGuide.",
+   "根据 GetYourGuide 选项的行程，单程约 4.5 小时。",
+   "نحو 4.5 ساعات في كل اتجاه، بحسب برنامج خيار GetYourGuide."
+  ],
+  "Is Tutankhamun’s tomb included?": [
+   "Ist das Grab des Tutanchamun inbegriffen?",
+   "La tombe de Toutânkhamon est-elle incluse ?",
+   "La tomba di Tutankhamon è inclusa?",
+   "¿Está incluida la tumba de Tutankamón?",
+   "Входит ли гробница Тутанхамона?",
+   "包含图坦卡蒙墓吗？",
+   "هل مقبرة توت عنخ آمون مشمولة؟"
+  ],
+  "Not in the standard Valley of the Kings ticket. On the small-group option it is an extra you choose when booking.": [
+   "Nicht im Standardticket für das Tal der Könige. Bei der Kleingruppen-Option ist es ein Extra, das Sie bei der Buchung wählen.",
+   "Pas dans le billet standard de la Vallée des Rois. Avec l’option en petit groupe, c’est un supplément que vous choisissez à la réservation.",
+   "Non nel biglietto standard della Valle dei Re. Nell’opzione per piccoli gruppi è un extra che scegliete al momento della prenotazione.",
+   "No en la entrada estándar del Valle de los Reyes. En la opción de grupo reducido es un extra que eliges al reservar.",
+   "Не в стандартном билете в Долину царей. В варианте для небольшой группы это дополнительная опция, которую выбирают при бронировании.",
+   "帝王谷的标准门票不包含。在小团选项中，这是预订时可选的附加项目。",
+   "ليست ضمن التذكرة العادية لوادي الملوك. وفي خيار المجموعة الصغيرة هي إضافة تختارها عند الحجز."
+  ],
+  "Small group or private?": [
+   "Kleingruppe oder privat?",
+   "Petit groupe ou privé ?",
+   "Piccolo gruppo o privato?",
+   "¿Grupo reducido o privado?",
+   "Небольшая группа или индивидуально?",
+   "小团还是私人团？",
+   "مجموعة صغيرة أم رحلة خاصة؟"
+  ],
+  "A small group shares the day with other travellers and follows a fixed plan. A private trip is for your party alone, at your own pace.": [
+   "Eine Kleingruppe teilt den Tag mit anderen Reisenden und folgt einem festen Plan. Eine private Tour ist nur für Ihre Gruppe, in Ihrem eigenen Tempo.",
+   "Un petit groupe partage la journée avec d’autres voyageurs et suit un programme fixe. Une excursion privée est réservée à votre groupe, à votre rythme.",
+   "Un piccolo gruppo condivide la giornata con altri viaggiatori e segue un programma fisso. Un’escursione privata è solo per il vostro gruppo, al vostro ritmo.",
+   "Un grupo reducido comparte el día con otros viajeros y sigue un plan fijo. Una excursión privada es solo para tu grupo, a tu propio ritmo.",
+   "Небольшая группа проводит день вместе с другими путешественниками по фиксированному плану. Индивидуальная поездка — только для вашей компании и в вашем темпе.",
+   "小团与其他游客一起出行，按固定行程进行。私人团只为您的同行者服务，节奏由您决定。",
+   "في المجموعة الصغيرة تقضي اليوم مع مسافرين آخرين وفق برنامج ثابت. أما الرحلة الخاصة فلمجموعتك وحدها وبإيقاعك أنت."
+  ],
+  "Staying in Hurghada?": [
+   "Übernachten in Hurghada?",
+   "Vous séjournez à Hurghada ?",
+   "Soggiornate a Hurghada?",
+   "¿Te alojas en Hurghada?",
+   "Остановитесь в Хургаде?",
+   "住在赫尔格达？",
+   "تقيم في الغردقة؟"
   ]
  }
 }

@@ -89,6 +89,14 @@
   "location": "Fayoum",
   "destination": "cairo"
  },
+ "exp-luxor-hurghada": {
+  "type": "er_experience",
+  "title": "Luxor Day Trip from Hurghada",
+  "excerpt": "A full day from Hurghada to Luxor, the site of ancient Thebes: Karnak, the Valley of the Kings, Hatshepsut's temple and the Colossi of Memnon, how the long day works, and how to choose between a small-group and a private trip.",
+  "slug": "luxor-day-trip-from-hurghada",
+  "location": "Luxor",
+  "destination": "hurghada"
+ },
  "exp-ras-mohammed": {
   "type": "er_experience",
   "title": "Ras Mohammed Snorkelling from Sharm El Sheikh",
@@ -262,7 +270,7 @@
   "slug": "karnak-and-luxor-temple",
   "topic": "Planning",
   "destination": "luxor",
-  "related": "exp-valley"
+  "related": "exp-valley, exp-luxor-hurghada"
  },
  "g-edfu": {
   "type": "er_guide",
@@ -583,7 +591,7 @@
   "slug": "valley-of-the-kings-tombs-and-tickets",
   "topic": "Planning",
   "destination": "luxor",
-  "related": "exp-valley"
+  "related": "exp-valley, exp-luxor-hurghada"
  },
  "g-visa": {
   "type": "er_guide",
@@ -636,7 +644,7 @@
   "slug": "luxor-west-bank-temples-and-tombs",
   "topic": "Planning",
   "destination": "luxor",
-  "related": "exp-valley"
+  "related": "exp-valley, exp-luxor-hurghada"
  },
  "g-white-desert": {
   "type": "er_guide",

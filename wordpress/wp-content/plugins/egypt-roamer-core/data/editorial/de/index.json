@@ -111,6 +111,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-luxor-hurghada": {
+  "type": "er_experience",
+  "title": "Tagesausflug nach Luxor ab Hurghada",
+  "excerpt": "Ein ganzer Tag von Hurghada nach Luxor, an die Stelle des antiken Theben: Karnak, das Tal der Könige, der Hatschepsut-Tempel und die Memnonkolosse, wie der lange Tag abläuft und wie Sie zwischen Kleingruppe und privater Tour wählen.",
+  "location": "Luxor",
+  "review": "approved",
+  "current": true
+ },
  "exp-ras-mohammed": {
   "type": "er_experience",
   "title": "Schnorcheln in Ras Mohammed ab Sharm El-Sheikh",

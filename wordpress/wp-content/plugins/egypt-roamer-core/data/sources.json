@@ -293,7 +293,8 @@
   {
    "claim": "Karnak: one of the largest temple complexes; great temple of Amun-Ra with the precincts of Mut and Montu; built over many centuries without a single plan; Great Hypostyle Hall between the 2nd and 3rd pylons, decorated under Seti I and Ramesses II, 12 central columns about 24 m, 134 columns in all; outer-wall reliefs of Seti I's victories and Ramesses II at Kadesh",
    "guides": [
-    "g-east-bank"
+    "g-east-bank",
+    "exp-luxor-hurghada"
    ],
    "links": [
     {
@@ -354,7 +355,8 @@
    "claim": "Deir el-Bahari: bay in the cliffs east of the Valley of the Kings; name \"northern monastery\" (7th-c. monastery); Hatshepsut's terraced temple c. 1470 BC, uncovered 1894–96, partly restored, famous use of its site; Mentuhotep II temple c. 1970 BC; Thutmose III temple found by the Polish mission that began restoring the third terrace in 1968",
    "guides": [
     "g-west-bank",
-    "g-hatshepsut"
+    "g-hatshepsut",
+    "exp-luxor-hurghada"
    ],
    "links": [
     {
@@ -367,7 +369,8 @@
   {
    "claim": "Colossi of Memnon: two quartzite statues of Amenhotep III that flanked his funerary temple's gateway, now in the fields; the name Memnon is later Greek",
    "guides": [
-    "g-west-bank"
+    "g-west-bank",
+    "exp-luxor-hurghada"
    ],
    "links": [
     {
@@ -606,7 +609,8 @@
   {
    "claim": "Karnak (official, 2026-10-27 review): *Ipet-Sut* 'The Most Select of Places'; east bank of Thebes; Great Temple of Amun, cult of Amun of Thebes, wealthy priesthood with political power; from Intef II (c. 2112–2063 BC) to the Ptolemaic period, Roman additions; nearly every New Kingdom king (c. 1550–1069 BC) left his mark; precincts of Amun (largest), Mut (south), Montu (north), Akhenaten's Aten temple (east); east–west axis and a north–south axis toward Luxor Temple, sphinx-lined processional way used in the Opet Festival; Great Hypostyle Hall 134 columns, 15 m, the central twelve 21 m; maybe begun by Amenhotep III, bulk and all decoration Sety I and Rameses II; Hatshepsut's obelisk almost 30 m, over 300 tons; Akh-menu of Thutmose III at the eastern end; temple of Khonsu and temple of Opet in the southwestern corner; sacred lake. **Replaces** Britannica's \"central columns about 24 m\" in `g-east-bank` (the Kadesh reliefs stay on the Britannica row). Hours and tickets not used",
    "guides": [
-    "g-east-bank"
+    "g-east-bank",
+    "exp-luxor-hurghada"
    ],
    "links": [
     {
@@ -619,7 +623,8 @@
   {
    "claim": "Valley of the Kings (official, 2026-10-27 review): rulers of the 18th–20th dynasties, New Kingdom c. 1550–1069 BC; some royal family members and a few high-ranking non-royals also buried; East and West Valleys, the west with only a handful of tombs; over sixty tombs plus twenty unfinished pits; west bank for the setting sun and rebirth; pyramid-shaped peak, sacred to Hathor 'Mistress of the West'; hidden tombs against robbers; first confirmed burial Thutmose I (c. 1504–1492 BC), third king of the 18th Dynasty; Ineni: \"in privacy; none seeing, none hearing\". **Replaces** Britannica's 1539–1075 BC and \"62 known tombs\" in `g-valley-kings`. Hours and tickets not used",
    "guides": [
-    "g-valley-kings"
+    "g-valley-kings",
+    "exp-luxor-hurghada"
    ],
    "links": [
     {
