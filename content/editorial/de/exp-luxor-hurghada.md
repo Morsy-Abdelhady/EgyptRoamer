@@ -3,7 +3,7 @@ type: er_experience
 title: Tagesausflug nach Luxor ab Hurghada
 location: Luxor
 excerpt: Ein ganzer Tag von Hurghada nach Luxor, an die Stelle des antiken Theben: Karnak, das Tal der Könige, der Hatschepsut-Tempel und die Memnonkolosse, wie der lange Tag abläuft und wie Sie zwischen Kleingruppe und privater Tour wählen.
-source: 454dc65ade8b
+source: d49e5e090ee9
 review: approved
 reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-31
 reviewed: 2026-10-31
@@ -25,8 +25,10 @@ Ein ganzer Tag von Ihrem Hotel am Roten Meer nach Luxor, an die Stelle des antik
 
 - **Kleingruppe (GetYourGuide).** Etwa 14 Stunden bis ein ganzer Tag, mit Abholung im Hotel in Hurghada und den Ferienorten in der Nähe. Die Seite nennt ein Mittagessen in Luxor, eine Bootsfahrt über den Nil und einen 30-minütigen Einkaufsstopp; das Grab des Tutanchamun ist eine Zusatzoption.
 - **Privat (Viator).** Etwa 12 bis 16 Stunden, mit Abholung, nur für Ihre Gruppe, sodass Sie das Tempo bestimmen.
+- **Kleingruppe (Klook).** Etwa 14 Stunden, von 4 bis 18 Uhr, in einer Gruppe von bis zu 20 Personen (bis zu 8 pro Kleinbus), mit Abholung im Hotel in Hurghada, Sahl Hasheesh, Makadi, El Gouna, Safaga und Soma Bay. Eintrittskarten können Sie bei der Buchung dazuwählen.
+- **Gruppe mit Eintrittskarten (Tiqets).** Etwa 14 Stunden, in einer Gruppe von bis zu 35 Personen, mit Abholung im Hotel. Die Seite nennt den Eintritt ins Tal der Könige, in den Tempel der Hatschepsut, zu den Memnonkolossen und nach Karnak sowie ein Mittagessen; das Grab des Tutanchamun ist nicht enthalten.
 
-Laut den Seiten der Partner bieten beide eine kostenlose Stornierung bis 24 Stunden vorher. Prüfen Sie vor der Buchung, was jede Option enthält, vor allem die Eintrittskarten.
+Laut den Seiten der Partner bieten alle vier eine kostenlose Stornierung: bis 24 Stunden vorher, bei der Tiqets-Option bis 12 Stunden vorher. Prüfen Sie vor der Buchung, was jede Option enthält, vor allem die Eintrittskarten.
 
 > **Gut zu wissen**
 > - Es ist ein sehr langer Tag: Den größten Teil verbringen Sie auf der Straße.

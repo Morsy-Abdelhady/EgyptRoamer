@@ -233,7 +233,7 @@ $er_ep     = explode( ' · ', (string) $W['eyebrow'] );
 						if ( in_array( 'fees', $er_inc, true ) ) {
 							$er_rows[] = [ er_t( 'Entrance fees' ), static fn ( array $f ): array => 'included' === ( $f['includes']['fees'] ?? '' ) ? [ er_t( 'Included' ), 'yes' ] : ( 'local' === ( $f['includes']['fees'] ?? '' ) ? [ er_t( 'Paid locally' ), '' ] : [ er_t( 'Extra' ), '' ] ) ];
 						}
-						$er_rows[] = [ er_t( 'Free cancellation' ), static fn ( array $f, string $p = '' ): array => ! empty( $f['cancel'] ) ? [ er_t( 'Yes, up to 24 h before' ), 'yes' ] : [ er_t( 'See {partner}’s page', [ 'partner' => $p ] ), 'no' ] ];
+						$er_rows[] = [ er_t( 'Free cancellation' ), static fn ( array $f, string $p = '' ): array => ! empty( $f['cancel'] ) ? [ empty( $f['cancel_h'] ) ? er_t( 'Yes, up to 24 h before' ) : er_t( 'Yes, up to {h} h before', [ 'h' => number_format_i18n( (int) $f['cancel_h'] ) ] ), 'yes' ] : [ er_t( 'See {partner}’s page', [ 'partner' => $p ] ), 'no' ] ];
 						?>
 						<button type="button" class="wcmp" id="wcmp" aria-expanded="false" aria-controls="wtbl" data-l-show="<?php echo esc_attr( er_t( 'Compare side by side' ) ); ?>" data-l-hide="<?php echo esc_attr( er_t( 'Hide comparison' ) ); ?>"><?php er_e( 'Compare side by side' ); ?></button>
 						<div class="wtbl__wrap"><table class="wtbl" id="wtbl" hidden>

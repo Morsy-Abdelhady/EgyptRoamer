@@ -965,6 +965,7 @@ return [
 		'Yes, many operators offer an overnight camp in the dunes, for a night under the stars.' => 'Sí, muchos operadores ofrecen una noche de acampada en las dunas, para dormir bajo las estrellas.',
 		'Yes, the main sites. The options on this page take a full day, from about 12 to 16 hours, with hotel pickup.' => 'Sí, los lugares principales. Las opciones de esta página ocupan un día completo, de unas 12 a 16 horas, con recogida en el hotel.',
 		'Yes, up to 24 h before' => 'Sí, hasta 24 h antes',
+		'Yes, up to {h} h before' => 'Sí, hasta {h} h antes',
 		'Yes, with an extra ticket. The ascending passages are narrow and steep, and the chamber inside is bare. Most visitors find the outside and the viewpoint more impressive.' => 'Sí, con una entrada extra. Los pasadizos ascendentes son estrechos y empinados, y la cámara interior está vacía. A la mayoría de los visitantes les impresionan más el exterior y el mirador.',
 		'Yes, you can arrange your own driver or fly independently. Most travellers still book a tour or transfer for the pre-dawn road journey.' => 'Sí, puedes contratar tu propio conductor o volar por tu cuenta. Aun así, la mayoría de los viajeros reservan una excursión o un traslado para el trayecto de madrugada.',
 		'Yes. It is a full day, and the option on this page picks you up at your hotel in Cairo or Giza.' => 'Sí. Es un día entero, y la opción de esta página te recoge en tu hotel de El Cairo o Guiza.',

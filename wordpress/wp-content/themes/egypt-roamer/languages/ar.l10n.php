@@ -965,6 +965,7 @@ return [
 		'Yes, many operators offer an overnight camp in the dunes, for a night under the stars.' => 'نعم، يقدّم كثير من المنظّمين مبيتًا في مخيّم بين الكثبان، لليلة تحت النجوم.',
 		'Yes, the main sites. The options on this page take a full day, from about 12 to 16 hours, with hotel pickup.' => 'نعم، المواقع الرئيسية. تستغرق الخيارات في هذه الصفحة يومًا كاملًا، من نحو 12 إلى 16 ساعة، مع الاصطحاب من الفندق.',
 		'Yes, up to 24 h before' => 'نعم، حتى 24 ساعة قبل الموعد',
+		'Yes, up to {h} h before' => 'نعم، حتى {h} ساعة قبل الموعد',
 		'Yes, with an extra ticket. The ascending passages are narrow and steep, and the chamber inside is bare. Most visitors find the outside and the viewpoint more impressive.' => 'نعم، بتذكرة إضافية. الممرّات الصاعدة ضيقة وشديدة الانحدار، والحجرة في الداخل خالية. ويجد معظم الزوّار الخارج ونقطة المشاهدة أكثر إبهارًا.',
 		'Yes, you can arrange your own driver or fly independently. Most travellers still book a tour or transfer for the pre-dawn road journey.' => 'نعم، يمكنك ترتيب سائقك الخاص أو السفر جوًّا باستقلالية. ومع ذلك يحجز معظم المسافرين جولة أو انتقالًا للرحلة البرية قبل الفجر.',
 		'Yes. It is a full day, and the option on this page picks you up at your hotel in Cairo or Giza.' => 'نعم. إنه يوم كامل، والخيار المعروض في هذه الصفحة يشمل الاستقبال من فندقك في القاهرة أو الجيزة.',

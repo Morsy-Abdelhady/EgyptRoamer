@@ -3,7 +3,7 @@ type: er_experience
 title: Excursión de un día a Luxor desde Hurghada
 location: Luxor
 excerpt: Un día completo de Hurghada a Luxor, en el lugar de la antigua Tebas: Karnak, el Valle de los Reyes, el templo de Hatshepsut y los Colosos de Memnón, cómo es este largo día y cómo elegir entre grupo reducido y excursión privada.
-source: 454dc65ade8b
+source: d49e5e090ee9
 review: approved
 reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-31
 reviewed: 2026-10-31
@@ -25,8 +25,10 @@ Un día completo desde tu hotel en el mar Rojo hasta Luxor, en el lugar de la an
 
 - **Grupo reducido (GetYourGuide).** De unas 14 horas a un día completo, con recogida en el hotel en Hurghada y en los complejos cercanos. Su página indica comida en Luxor, un paseo en barco por el Nilo y una parada de compras de 30 minutos; la tumba de Tutankamón es una opción extra.
 - **Privado (Viator).** De unas 12 a 16 horas, con recogida, solo para tu grupo, a tu propio ritmo.
+- **Grupo reducido (Klook).** Unas 14 horas, de 4:00 a 18:00, en un grupo de hasta 20 personas (hasta 8 por furgoneta), con recogida en el hotel en Hurghada, Sahl Hasheesh, Makadi, El Gouna, Safaga y Soma Bay. Las entradas son una opción que se añade al reservar.
+- **Grupo con entradas (Tiqets).** Unas 14 horas, en un grupo de hasta 35 personas, con recogida en el hotel. Su página indica la entrada al Valle de los Reyes, al templo de Hatshepsut, a los Colosos de Memnón y a Karnak, y la comida; la tumba de Tutankamón no está incluida.
 
-Según las páginas de los socios, ambas ofrecen cancelación gratuita hasta 24 horas antes. Antes de reservar, comprueba qué incluye cada una, sobre todo las entradas.
+Según las páginas de los socios, las cuatro ofrecen cancelación gratuita: hasta 24 horas antes, o hasta 12 horas antes en la opción de Tiqets. Antes de reservar, comprueba qué incluye cada una, sobre todo las entradas.
 
 > **Bueno saber**
 > - Es un día muy largo: la mayor parte se pasa en la carretera.

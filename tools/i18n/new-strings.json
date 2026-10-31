@@ -7939,6 +7939,15 @@
    "Гиза",
    "吉萨",
    "الجيزة"
+  ],
+  "Yes, up to {h} h before": [
+   "Ja, bis {h} Std. vorher",
+   "Oui, jusqu’à {h} h avant",
+   "Sì, fino a {h} ore prima",
+   "Sí, hasta {h} h antes",
+   "Да, за {h} ч до начала",
+   "可以，最晚提前{h}小时",
+   "نعم، حتى {h} ساعة قبل الموعد"
   ]
  }
 }

@@ -965,6 +965,7 @@ return [
 		'Yes, many operators offer an overnight camp in the dunes, for a night under the stars.' => '可以，许多经营者提供在沙丘间营地过夜的选择，让你在星空下度过一晚。',
 		'Yes, the main sites. The options on this page take a full day, from about 12 to 16 hours, with hotel pickup.' => '可以，看主要景点。本页的选项需要一整天，约 12 到 16 小时，含酒店接送。',
 		'Yes, up to 24 h before' => '可以，最晚提前24小时',
+		'Yes, up to {h} h before' => '可以，最晚提前{h}小时',
 		'Yes, with an extra ticket. The ascending passages are narrow and steep, and the chamber inside is bare. Most visitors find the outside and the viewpoint more impressive.' => '可以，需要另外购票。上行通道狭窄陡峭，里面的墓室空无一物。大多数游客觉得外观和观景点更令人震撼。',
 		'Yes, you can arrange your own driver or fly independently. Most travellers still book a tour or transfer for the pre-dawn road journey.' => '可以，你可以自己包车或自行搭乘航班。不过大多数旅客仍会为天亮前的陆路行程预订团队游或接送。',
 		'Yes. It is a full day, and the option on this page picks you up at your hotel in Cairo or Giza.' => '可以。这是一整天的行程，本页的选项包含从你在开罗或吉萨的酒店接送。',

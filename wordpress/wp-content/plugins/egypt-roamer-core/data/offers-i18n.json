@@ -1769,5 +1769,65 @@
    "title": "从赫尔格达出发：含航班和午餐的开罗私人一日游",
    "location": "吉萨"
   }
+ },
+ "klook-hurghada-luxor-ancient-sites-small-group": {
+  "ar": {
+   "title": "من الغردقة: جولة يوم كامل إلى معالم الأقصر الأثرية في مجموعة صغيرة",
+   "location": "الأقصر"
+  },
+  "de": {
+   "title": "Ab Hurghada: Ganztagestour zu den antiken Stätten von Luxor in kleiner Gruppe",
+   "location": "Luxor"
+  },
+  "fr": {
+   "title": "Depuis Hurghada : journée sur les sites antiques de Louxor en petit groupe",
+   "location": "Louxor"
+  },
+  "it": {
+   "title": "Da Hurghada: giornata ai siti antichi di Luxor in piccolo gruppo",
+   "location": "Luxor"
+  },
+  "es": {
+   "title": "Desde Hurghada: día completo por los sitios antiguos de Luxor en grupo reducido",
+   "location": "Luxor"
+  },
+  "ru": {
+   "title": "Из Хургады: древние памятники Луксора на целый день в небольшой группе",
+   "location": "Луксор"
+  },
+  "zh": {
+   "title": "从赫尔格达出发：卢克索古迹小团一日游",
+   "location": "卢克索"
+  }
+ },
+ "tiqets-luxor-guided-day-tour-from-hurghada": {
+  "ar": {
+   "title": "الأقصر: جولة يوم كامل مع مرشد من الغردقة والغداء",
+   "location": "الأقصر"
+  },
+  "de": {
+   "title": "Luxor: geführte Tagestour ab Hurghada mit Mittagessen",
+   "location": "Luxor"
+  },
+  "fr": {
+   "title": "Louxor : journée guidée depuis Hurghada avec déjeuner",
+   "location": "Louxor"
+  },
+  "it": {
+   "title": "Luxor: tour guidato di un giorno da Hurghada con pranzo",
+   "location": "Luxor"
+  },
+  "es": {
+   "title": "Luxor: excursión guiada de un día desde Hurghada con comida",
+   "location": "Luxor"
+  },
+  "ru": {
+   "title": "Луксор: экскурсия на целый день с гидом из Хургады и обедом",
+   "location": "Луксор"
+  },
+  "zh": {
+   "title": "卢克索：从赫尔格达出发的导游一日游（含午餐）",
+   "location": "卢克索"
+  }
  }
 }

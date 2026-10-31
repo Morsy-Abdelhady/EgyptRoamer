@@ -231,3 +231,5 @@ existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefr
 ## Addendum, 31 Oct: Cairo day trip from Hurghada
 
 `exp-cairo-hurghada` (new trip) translated into 7 languages, its 31 trip-page strings and the card titles of its two offers, reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Names follow the existing Giza and museum guides (Cheops/Khéops/Keops, Grand Egyptian Museum titles per language). The owner asked for the trip on 31 Oct.
+
+`exp-luxor-hurghada` update (31 Oct): two new option bullets (Klook small group, Tiqets with entry tickets), the four-option cancellation sentence, the card titles of the two new offers and the string "Yes, up to {h} h before" translated into 7 languages and reviewed by Claude against the English, sentence by sentence. The owner asked for both offers on 31 Oct.

@@ -456,5 +456,23 @@
   },
   "pickup": true,
   "cancel": true
+ },
+ "klook-hurghada-luxor-ancient-sites-small-group": {
+  "group": "small",
+  "duration": {
+   "n": "14",
+   "unit": "hours"
+  },
+  "pickup": true,
+  "cancel": true
+ },
+ "tiqets-luxor-guided-day-tour-from-hurghada": {
+  "duration": {
+   "n": "14",
+   "unit": "hours"
+  },
+  "pickup": true,
+  "cancel": true,
+  "cancel_h": 12
  }
 }

@@ -3,7 +3,7 @@ type: er_experience
 title: Excursion d’une journée à Louxor au départ d’Hurghada
 location: Louxor
 excerpt: Une journée entière d’Hurghada à Louxor, sur le site de l’antique Thèbes : Karnak, la Vallée des Rois, le temple d’Hatchepsout et les colosses de Memnon, le déroulement de cette longue journée et comment choisir entre petit groupe et excursion privée.
-source: 454dc65ade8b
+source: d49e5e090ee9
 review: approved
 reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-31
 reviewed: 2026-10-31
@@ -25,8 +25,10 @@ Une journée entière depuis votre hôtel sur la mer Rouge jusqu’à Louxor, su
 
 - **Petit groupe (GetYourGuide).** Environ 14 heures à une journée entière, avec prise en charge à l’hôtel à Hurghada et dans les stations voisines. Sa page mentionne un déjeuner à Louxor, une traversée du Nil en bateau et un arrêt shopping de 30 minutes ; la tombe de Toutânkhamon est une option en supplément.
 - **Privé (Viator).** Environ 12 à 16 heures, avec prise en charge, pour votre groupe seul, à votre rythme.
+- **Petit groupe (Klook).** Environ 14 heures, de 4 h à 18 h, en groupe de 20 personnes au plus (8 au plus par minibus), avec prise en charge à l’hôtel à Hurghada, Sahl Hasheesh, Makadi, El Gouna, Safaga et Soma Bay. Les billets d’entrée sont une option à ajouter lors de la réservation.
+- **Groupe avec billets d’entrée (Tiqets).** Environ 14 heures, en groupe de 35 personnes au plus, avec prise en charge à l’hôtel. Sa page mentionne l’entrée à la Vallée des Rois, au temple d’Hatchepsout, aux colosses de Memnon et à Karnak, ainsi que le déjeuner ; la tombe de Toutânkhamon n’est pas comprise.
 
-Selon les pages des partenaires, les deux offrent l’annulation gratuite jusqu’à 24 heures avant. Vérifiez ce que comprend chacune, en particulier les billets d’entrée, avant de réserver.
+Selon les pages des partenaires, les quatre offrent l’annulation gratuite : jusqu’à 24 heures avant, ou jusqu’à 12 heures avant pour l’option Tiqets. Vérifiez ce que comprend chacune, en particulier les billets d’entrée, avant de réserver.
 
 > **Bon à savoir**
 > - C’est une très longue journée : l’essentiel se passe sur la route.

@@ -23,8 +23,10 @@ A full day from your hotel on the Red Sea to Luxor, the site of ancient Thebes. 
 
 - **Small group (GetYourGuide).** About 14 hours to a full day, with hotel pickup in Hurghada and nearby resorts. Its page lists lunch in Luxor, a boat across the Nile and a 30-minute shopping stop; Tutankhamun's tomb is an extra option.
 - **Private (Viator).** About 12 to 16 hours, with pickup, for your party alone, so the pace is yours.
+- **Small group (Klook).** About 14 hours, from 04:00 to 18:00, in a group of up to 20 (up to 8 per van), with hotel pickup in Hurghada, Sahl Hasheesh, Makadi, El Gouna, Safaga and Soma Bay. Entry tickets are an option you add when booking.
+- **Group with entry tickets (Tiqets).** About 14 hours, in a group of up to 35, with hotel pickup. Its page lists entry to the Valley of the Kings, Hatshepsut's temple, the Colossi of Memnon and Karnak, and lunch; Tutankhamun's tomb is not included.
 
-Both offer free cancellation up to 24 hours before, according to the partners' pages. Check what each includes, especially the entry tickets, before you book.
+All four offer free cancellation, according to the partners' pages: up to 24 hours before, or up to 12 hours before on the Tiqets option. Check what each includes, especially the entry tickets, before you book.
 
 > **Good to know**
 > - It is a very long day: most of it is on the road.

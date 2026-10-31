@@ -250,3 +250,5 @@ Place facts reuse the sourced rows of `exp-giza`, `g-gem`, `g-egyptian-museum` a
 | Private; 8 to 14 hours (approx.); pickup offered; flight Hurghada–Cairo; Pyramids of Giza and the Sphinx, the Egyptian Museum (Grand Egyptian Museum as an option), Khan el-Khalili; free cancellation up to 24 hours | Viator, "Private Day Tour to Cairo with Flights and Lunch from Hurghada", https://www.viator.com/tours/Hurghada/Private-Day-Tour-to-Cairo-with-Flights-and-Lunch-From-Hurghada/d800-128688P52 |
 
 No prices, ratings, review counts or photos were copied.
+
+**Luxor day trip from Hurghada, two more offers (31 Oct 2026).** Klook activity 151126 (14 h, 04:00-18:00, small group 1-20 with up to 8 per van, hotel pickup in Hurghada, Sahl Hasheesh, Makadi, El Gouna, Safaga, Soma Bay, admissions optional, free cancellation 24 h) and Tiqets product 1136071 (14 h, max group 35, hotel pickup, entry to the Valley of the Kings, Hatshepsut, Colossi of Memnon and Karnak and lunch included, Tutankhamun not included, free cancellation 12 h), both read on the partner pages. No prices, ratings, review counts or photos were copied.

@@ -965,6 +965,7 @@ return [
 		'Yes, many operators offer an overnight camp in the dunes, for a night under the stars.' => 'Да, многие организаторы предлагают ночёвку в лагере среди дюн — ночь под звёздами.',
 		'Yes, the main sites. The options on this page take a full day, from about 12 to 16 hours, with hotel pickup.' => 'Да, главные места. Варианты на этой странице занимают целый день, примерно от 12 до 16 часов, с трансфером от отеля.',
 		'Yes, up to 24 h before' => 'Да, за 24 ч до начала',
+		'Yes, up to {h} h before' => 'Да, за {h} ч до начала',
 		'Yes, with an extra ticket. The ascending passages are narrow and steep, and the chamber inside is bare. Most visitors find the outside and the viewpoint more impressive.' => 'Да, по дополнительному билету. Восходящие ходы узкие и крутые, а внутренняя камера пуста. Большинство посетителей находят внешний вид и смотровую площадку более впечатляющими.',
 		'Yes, you can arrange your own driver or fly independently. Most travellers still book a tour or transfer for the pre-dawn road journey.' => 'Да, можно нанять своего водителя или полететь самостоятельно. Но большинство путешественников всё равно бронируют экскурсию или трансфер для поездки до рассвета.',
 		'Yes. It is a full day, and the option on this page picks you up at your hotel in Cairo or Giza.' => 'Да. Это целый день, и вариант на этой странице включает трансфер из вашего отеля в Каире или Гизе.',

@@ -3,7 +3,7 @@ type: er_experience
 title: Escursione di un giorno a Luxor da Hurghada
 location: Luxor
 excerpt: Una giornata intera da Hurghada a Luxor, sul sito dell’antica Tebe: Karnak, la Valle dei Re, il tempio di Hatshepsut e i Colossi di Memnone, come si svolge la lunga giornata e come scegliere tra piccolo gruppo ed escursione privata.
-source: 454dc65ade8b
+source: d49e5e090ee9
 review: approved
 reviewer: Claude (AI translation review, not a native speaker); approved by the owner on 2026-10-31
 reviewed: 2026-10-31
@@ -25,8 +25,10 @@ Una giornata intera dal vostro hotel sul Mar Rosso fino a Luxor, sul sito dell�
 
 - **Piccolo gruppo (GetYourGuide).** Da circa 14 ore a una giornata intera, con prelievo in hotel a Hurghada e nelle località vicine. La sua pagina indica il pranzo a Luxor, una traversata del Nilo in barca e una sosta per lo shopping di 30 minuti; la tomba di Tutankhamon è un’opzione extra.
 - **Privato (Viator).** Da circa 12 a 16 ore, con prelievo, solo per il vostro gruppo, al vostro ritmo.
+- **Piccolo gruppo (Klook).** Circa 14 ore, dalle 4 alle 18, in un gruppo di massimo 20 persone (massimo 8 per minivan), con prelievo in hotel a Hurghada, Sahl Hasheesh, Makadi, El Gouna, Safaga e Soma Bay. I biglietti d’ingresso sono un’opzione da aggiungere alla prenotazione.
+- **Gruppo con biglietti d’ingresso (Tiqets).** Circa 14 ore, in un gruppo di massimo 35 persone, con prelievo in hotel. La sua pagina indica l’ingresso alla Valle dei Re, al tempio di Hatshepsut, ai Colossi di Memnone e a Karnak, e il pranzo; la tomba di Tutankhamon non è inclusa.
 
-Secondo le pagine dei partner, entrambe offrono la cancellazione gratuita fino a 24 ore prima. Prima di prenotare, controllate cosa include ciascuna, soprattutto i biglietti d’ingresso.
+Secondo le pagine dei partner, tutte e quattro offrono la cancellazione gratuita: fino a 24 ore prima, o fino a 12 ore prima per l’opzione Tiqets. Prima di prenotare, controllate cosa include ciascuna, soprattutto i biglietti d’ingresso.
 
 > **Buono a sapersi**
 > - È una giornata molto lunga: gran parte si passa in viaggio.
