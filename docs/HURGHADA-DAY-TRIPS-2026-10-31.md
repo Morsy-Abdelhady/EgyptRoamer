@@ -23,6 +23,13 @@
 - **Live check:** all 8 language pages return 200 with the translated title and both offers; `/go/` reaches the Viator and GetYourGuide product pages with tracking; the Hurghada place page and the Valley of the Kings guide link to the trip; `rtl-direction`: 87 Arabic pages all ok. `page-coverage`: 672 pages (experiences 120), 1 problem (phone booking bar on the Arabic balloon page, not this trip); rechecked twice on a phone viewport, the bar shows, so a slow load during the run.
 - **QA note:** one test redirect per offer with placement `qa-check` on 31 Oct. Discount them in Visits.
 
+## Cairo trip live on 31 Oct (Theme 1.3.56, Core 1.2.108, commit `c684886`)
+
+- **Owner's OK:** "Yes, Cairo next" (31 Oct). By flight, since the two strongest options fly (GetYourGuide t1122404 had 4,417 reviews at the time).
+- **Trip:** `exp-cairo-hurghada`, "Cairo Day Trip from Hurghada by Flight", English #1571, translations #1572–1578.
+- **Offers:** Viator **#1579** `private-cairo-day-trip-from-hurghada-by-flight` (private, about 8–14 hours, pickup, free cancellation), priority 10; GetYourGuide **#1581** `gyg-cairo-day-trip-from-hurghada-by-flight` (16–17 hours, pickup, free cancellation; no group size stated, so no group fact), priority 3. Destination Hurghada (#21), experience #1571. The browser connection dropped once while publishing; the offers list shows no duplicate.
+- **Live check:** all 8 pages 200 with both offers; `/go/` reaches both partners with tracking; the Hurghada page and the Grand Egyptian Museum guide link to the trip; `rtl-direction` 88 Arabic pages all ok; `page-coverage` 680 pages all ok.
+- **QA note:** one test redirect per offer with placement `qa-check`.
+
 ## Next (not done)
-- Cairo from Hurghada: same build, from the Viator rows above, after the owner's OK.
 - Klook and Tiqets were not searched for these trips yet.
