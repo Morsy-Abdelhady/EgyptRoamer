@@ -5,7 +5,7 @@ slug: grand-egyptian-museum-visit
 topic: Planning
 excerpt: How to plan a visit to the Grand Egyptian Museum in Giza: what it is, the colossal Ramesses II and the grand staircase, the Tutankhamun collection, how to combine it with the pyramids, and practical tips.
 destination: cairo
-related: exp-giza
+related: exp-giza, exp-cairo-hurghada
 ---
 [[toc]]
 

@@ -47,6 +47,14 @@
   "location": "Luxor",
   "destination": "luxor"
  },
+ "exp-cairo-hurghada": {
+  "type": "er_experience",
+  "title": "Cairo Day Trip from Hurghada by Flight",
+  "excerpt": "A full day from Hurghada to Cairo by plane: the Pyramids of Giza and the Sphinx, the Grand Egyptian Museum or the Egyptian Museum in Tahrir, how the long day works, and how to choose between a group and a private trip.",
+  "slug": "cairo-day-trip-from-hurghada",
+  "location": "Giza",
+  "destination": "hurghada"
+ },
  "exp-cruise": {
   "type": "er_experience",
   "title": "Nile Cruise from Aswan to Luxor",
@@ -288,7 +296,7 @@
   "slug": "egyptian-museum-tahrir-guide",
   "topic": "Planning",
   "destination": "cairo",
-  "related": "exp-giza"
+  "related": "exp-giza, exp-cairo-hurghada"
  },
  "g-el-gouna": {
   "type": "er_guide",
@@ -306,7 +314,7 @@
   "slug": "grand-egyptian-museum-visit",
   "topic": "Planning",
   "destination": "cairo",
-  "related": "exp-giza"
+  "related": "exp-giza, exp-cairo-hurghada"
  },
  "g-gems": {
   "type": "er_guide",
@@ -348,7 +356,7 @@
   "slug": "inside-the-pyramids-of-giza",
   "topic": "Planning",
   "destination": "cairo",
-  "related": "exp-giza"
+  "related": "exp-giza, exp-cairo-hurghada"
  },
  "g-islamic-art-museum": {
   "type": "er_guide",

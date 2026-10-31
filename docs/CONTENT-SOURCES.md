@@ -239,3 +239,14 @@ Place facts reuse the sourced rows already used by `g-east-bank`, `g-west-bank` 
 | Private; 12 to 16 hours (approx.); pickup offered; free cancellation up to 24 hours | Viator, "Private Day Trip to Luxor from Hurghada and Valley of the Kings", https://www.viator.com/tours/Hurghada/Private-Full-Day-Luxor-Tour-from-Hurghada/d800-481754P5 |
 
 No prices, ratings, review counts or photos were copied.
+
+## Trip `exp-cairo-hurghada` (31 Oct 2026)
+
+Place facts reuse the sourced rows of `exp-giza`, `g-gem`, `g-egyptian-museum` and `g-inside-pyramids` (Core `data/sources.json` rows now list the trip). Trip facts come only from the partners' product pages, read on 31 Oct 2026:
+
+| Fact | Source |
+|---|---|
+| 16–17 hours; pickup included (Sahl Hasheesh, Soma Bay listed); flights Hurghada–Cairo–Hurghada, outbound about 80 minutes; Giza Plateau, Grand Egyptian Museum or the old Egyptian Museum (chosen when booking); lunch with views of the pyramids; Egyptologist guide; 30-minute shopping stop in Giza; Nile boat trip and pyramid burial chambers not included; passport or ID card; order of visits can change with flights and traffic; free cancellation up to 24 hours. No group size stated, so no group fact | GetYourGuide, "Hurghada: Cairo Day Trip by Flight, Pyramids, Sphinx & Museum", https://www.getyourguide.com/giza-l915/hurghada-cairo-day-trip-by-flight-pyramids-sphinx-museu-t1122404/ |
+| Private; 8 to 14 hours (approx.); pickup offered; flight Hurghada–Cairo; Pyramids of Giza and the Sphinx, the Egyptian Museum (Grand Egyptian Museum as an option), Khan el-Khalili; free cancellation up to 24 hours | Viator, "Private Day Tour to Cairo with Flights and Lunch from Hurghada", https://www.viator.com/tours/Hurghada/Private-Day-Tour-to-Cairo-with-Flights-and-Lunch-From-Hurghada/d800-128688P52 |
+
+No prices, ratings, review counts or photos were copied.

@@ -5,7 +5,7 @@ slug: egyptian-museum-tahrir-guide
 topic: Planning
 excerpt: The Egyptian Museum on Tahrir Square, opened in 1902: its history and architect, highlights such as the Narmer Palette, the burials of Yuya and Thuya, the treasures of Tanis and the statues of the pyramid builders, and the museum's rules for visitors.
 destination: cairo
-related: exp-giza
+related: exp-giza, exp-cairo-hurghada
 ---
 [[toc]]
 

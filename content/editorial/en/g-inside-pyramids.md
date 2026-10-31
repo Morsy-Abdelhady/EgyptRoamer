@@ -5,7 +5,7 @@ slug: inside-the-pyramids-of-giza
 topic: Planning
 excerpt: What it is like inside the Pyramids of Giza: the Great Pyramid's corridors, Grand Gallery and King's Chamber, the pyramids of Khafre and Menkaure, what you will and won't see, who should skip it, and how to plan a visit to the plateau.
 destination: cairo
-related: exp-giza
+related: exp-giza, exp-cairo-hurghada
 ---
 [[toc]]
 

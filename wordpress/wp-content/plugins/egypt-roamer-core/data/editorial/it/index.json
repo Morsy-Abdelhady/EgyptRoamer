@@ -63,6 +63,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-cairo-hurghada": {
+  "type": "er_experience",
+  "title": "Escursione di un giorno al Cairo in aereo da Hurghada",
+  "excerpt": "Una giornata intera da Hurghada al Cairo in aereo: le Piramidi di Giza e la Sfinge, il Grande Museo Egizio o il Museo Egizio di piazza Tahrir, come si svolge la lunga giornata e come scegliere tra gruppo ed escursione privata.",
+  "location": "Giza",
+  "review": "approved",
+  "current": true
+ },
  "exp-cruise": {
   "type": "er_experience",
   "title": "Crociera sul Nilo da Assuan a Luxor",

@@ -63,6 +63,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-cairo-hurghada": {
+  "type": "er_experience",
+  "title": "Excursion d’une journée au Caire en avion depuis Hurghada",
+  "excerpt": "Une journée entière d’Hurghada au Caire en avion : les pyramides de Gizeh et le Sphinx, le Grand Musée égyptien ou le Musée égyptien de Tahrir, le déroulement de cette longue journée et comment choisir entre groupe et excursion privée.",
+  "location": "Gizeh",
+  "review": "approved",
+  "current": true
+ },
  "exp-cruise": {
   "type": "er_experience",
   "title": "Croisière sur le Nil d’Assouan à Louxor",

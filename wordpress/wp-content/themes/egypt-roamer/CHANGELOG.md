@@ -2,6 +2,10 @@
 
 Versions match `Version:` in `style.css` and `ER_THEME_VERSION` in `functions.php`. CI fails if they differ.
 
+## 1.3.56 — 2026-10-31: Cairo day trip from Hurghada by flight (with Core 1.2.108)
+- **New trip `exp-cairo-hurghada`** ("Cairo Day Trip from Hurghada by Flight"), 8 languages: the pyramids, the Sphinx and the Grand Egyptian Museum or the Egyptian Museum, from the sourced rows of the Giza and museum guides; trip facts only from the partners' pages. Trip-page world (31 strings, 8 languages), existing approved photos only.
+- **Core:** two offers' facts and card text (GetYourGuide by flight, Viator private by flight); card photo in the seed; the Grand Egyptian Museum, Egyptian Museum and inside-the-pyramids guides relate to the trip.
+
 ## 1.3.55 — 2026-10-31: Luxor day trip from Hurghada (with Core 1.2.107)
 - **New trip `exp-luxor-hurghada`** ("Luxor Day Trip from Hurghada"), 8 languages: Karnak, the Valley of the Kings, Hatshepsut's temple and the Colossi of Memnon, from the sourced rows of the Luxor guides; trip facts only from the partners' pages. Trip-page world in `inc/world-data.php` (generated from `docs/prototypes/journey-v4/world-data.json`), 30 strings in 8 languages, existing approved photos only.
 - **Core:** two offers' facts and card text (GetYourGuide small group, Viator private); card photo in the seed; the Karnak, Valley of the Kings and West Bank guides relate to the trip.

@@ -227,3 +227,7 @@ existing usage (Chephren/Mykerinos, Khéphren/Mykérinos, Chefren/Micerino, Kefr
 ## Addendum, 31 Oct: Luxor day trip from Hurghada
 
 `exp-luxor-hurghada` (new trip) translated into 7 languages, its 30 trip-page strings (`tools/i18n/new-strings.json`) and the card titles of its two offers (`data/offers-i18n.json`), reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Place names follow the existing Luxor guides (Ipet-Sut, Deir el-Bahari, Memnon). The owner asked for the trip on 31 Oct.
+
+## Addendum, 31 Oct: Cairo day trip from Hurghada
+
+`exp-cairo-hurghada` (new trip) translated into 7 languages, its 31 trip-page strings and the card titles of its two offers, reviewed by Claude against the English, sentence by sentence, with the same reviewer line. Names follow the existing Giza and museum guides (Cheops/Khéops/Keops, Grand Egyptian Museum titles per language). The owner asked for the trip on 31 Oct.

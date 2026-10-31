@@ -63,6 +63,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-cairo-hurghada": {
+  "type": "er_experience",
+  "title": "Excursión de un día a El Cairo en avión desde Hurghada",
+  "excerpt": "Un día completo de Hurghada a El Cairo en avión: las pirámides de Guiza y la Esfinge, el Gran Museo Egipcio o el Museo Egipcio de Tahrir, cómo es este largo día y cómo elegir entre grupo y excursión privada.",
+  "location": "Guiza",
+  "review": "approved",
+  "current": true
+ },
  "exp-cruise": {
   "type": "er_experience",
   "title": "Crucero por el Nilo de Asuán a Luxor",

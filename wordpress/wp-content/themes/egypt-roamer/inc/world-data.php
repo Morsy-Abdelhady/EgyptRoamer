@@ -706,6 +706,52 @@ function er_world_data( string $seed ): array {
 				'stay'     => er_t( 'Staying in Hurghada?' ),
 				'pick_why' => '',
 			];
+		case 'exp-cairo-hurghada':
+			return [
+				'key'      => 'caihrg',
+				'cls'      => 'w-tomb',
+				'fx'       => 'tomb',
+				'photo'    => [ 'u' => '1704998250995-37d969c80e03' ],
+				'video'    => '',
+				'eyebrow' => er_t( 'Giza · Pyramids · From Hurghada by air' ),
+				'lead' => er_t( 'A full day from your hotel on the Red Sea to Cairo, with a flight each way: the Pyramids of Giza, the Great Sphinx and one of Cairo’s two great museums of ancient Egypt.' ),
+				'quote' => er_t( 'The Great Pyramid is the only surviving Wonder of the Ancient World.' ),
+				'go' => er_t( 'Fly to the pyramids' ),
+				'j_eyebrow' => er_t( 'The day, step by step' ),
+				'j_title'   => er_t( 'From the Red Sea to Giza' ),
+				'steps'    => [
+					[ 't' => er_t( 'The pyramids' ), 'p' => er_t( 'The Great Pyramid of Khufu is the only surviving Wonder of the Ancient World. Beside it stand the pyramids of Khafre and Menkaure.' ), 'why' => er_t( 'The outbound flight takes about 80 minutes, according to the GetYourGuide option’s itinerary.' ), 'img' => [ 'u' => '1678038592327-c5730737f867' ], 'video' => '', 'credit' => '', 'wall' => false, 'tone' => 'warm' ],
+					[ 't' => er_t( 'The Sphinx' ), 'p' => er_t( 'The Great Sphinx lies below the pyramids, by the valley temple.' ), 'why' => '', 'img' => [ 'commons' => 'Great_Sphinx_of_Giza_(أبو_الهول).jpg', 'page' => 'https://commons.wikimedia.org/wiki/File:Great_Sphinx_of_Giza_(%D8%A3%D8%A8%D9%88_%D8%A7%D9%84%D9%87%D9%88%D9%84).jpg' ], 'video' => '', 'credit' => 'Photo: Petar Milošević, Wikimedia Commons, CC BY-SA 4.0', 'wall' => false, 'tone' => 'dark' ],
+					[ 't' => er_t( 'The museum' ), 'p' => er_t( 'Britannica describes the Grand Egyptian Museum as the largest archaeological museum in the world. The Egyptian Museum on Tahrir Square opened in 1902. You choose the museum when you book.' ), 'why' => '', 'img' => [ 'u' => '1777189978576-08b21689fcc9' ], 'video' => '', 'credit' => '', 'wall' => false, 'tone' => 'warm' ],
+				],
+				'sec'      => [
+					'eyebrow' => er_t( 'Before you book' ),
+					'title'   => er_t( 'A very long day, with two flights' ),
+					'ps'      => [ er_t( 'Check what each option includes, especially the flights and the entry tickets, on the partner’s page before you book.' ) ],
+					'tabs'    => [
+						[ '𓊝', er_t( 'Two flights' ), er_t( 'Most of the travel is by air, with transfers at both ends.' ) ],
+						[ '𓂀', er_t( 'Passport' ), er_t( 'The GetYourGuide option asks you to bring your passport or ID card.' ) ],
+						[ '𓇳', er_t( 'A changing order' ), er_t( 'The order of the visits can change with the flight times and Cairo’s traffic.' ) ],
+					],
+					'night'   => false,
+					'wall'    => false,
+				],
+				'papy'     => [
+					[ er_t( 'Who it suits' ), er_t( 'The pyramids without moving hotels' ), er_t( 'Choose this day if you are staying on the Red Sea and want to see the pyramids without moving hotels.' ), null ],
+					[ er_t( 'More time?' ), er_t( 'A few nights in Cairo' ), er_t( 'With more time, a few nights in Cairo let you see Giza, the museums and Historic Cairo at an easier pace.' ), null ],
+				],
+				'faq'      => [
+					[ er_t( 'Can I see the pyramids in a day from Hurghada?' ), er_t( 'Yes. The options on this page fly you to Cairo and back in one day, with hotel pickup.' ) ],
+					[ er_t( 'How long is the flight from Hurghada to Cairo?' ), er_t( 'About 80 minutes outbound, according to the GetYourGuide option’s itinerary.' ) ],
+					[ er_t( 'Which museum will I see?' ), er_t( 'You choose when you book: the Grand Egyptian Museum in Giza or the Egyptian Museum on Tahrir Square.' ) ],
+					[ er_t( 'Do I need my passport?' ), er_t( 'The GetYourGuide option asks you to bring your passport or ID card.' ) ],
+				],
+				'chips'    => [ '{length}', '{options}', '{group}', '{pickup}' ],
+				'sum'      => [ er_t( 'Giza' ), '{length}', '{group}', '{pickup}', '{cancel}' ],
+				'place'    => er_t( 'Giza' ),
+				'stay'     => er_t( 'Staying in Hurghada?' ),
+				'pick_why' => '',
+			];
 	}
 	return [];
 }

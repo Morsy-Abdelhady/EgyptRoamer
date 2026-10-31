@@ -397,3 +397,12 @@ Trip page `exp-luxor-hurghada` (31 Oct 2026, theme 1.3.55): only photos already 
 | `exp-luxor-hurghada` | steps Valley of the Kings, Hatshepsut | prototype keys `kv62`, `hat_l` (as `exp-valley`) | `exp-valley` steps |
 | `exp-luxor-hurghada` | step Colossi | Colosos_de_Memnón,_Luxor,_Egipto,_2022-04-03,_DD_131.jpg, Diego Delso, CC BY-SA 4.0 | `exp-valley` step 3 |
 
+Trip page `exp-cairo-hurghada` (31 Oct 2026, theme 1.3.56): only photos already approved and in use, no new files.
+
+| Trip | Place | Photo | Approved as |
+|---|---|---|---|
+| `exp-cairo-hurghada` | opener, card, GetYourGuide offer | Unsplash 1704998250995-37d969c80e03 (prototype key `giza_camel`) | `exp-giza` opener and Giza GetYourGuide offer |
+| `exp-cairo-hurghada` | step pyramids | Unsplash 1678038592327-c5730737f867 (key `giza`) | Exp · Giza tour (KEEP) |
+| `exp-cairo-hurghada` | step Sphinx | Commons `w_sphinx`, Petar Milošević, CC BY-SA 4.0 | `exp-giza` step 4 |
+| `exp-cairo-hurghada` | step museum | Unsplash 1777189978576-08b21689fcc9 (key `gem`) | `exp-giza` papyrus, GEM guide |
+

@@ -437,5 +437,24 @@
   },
   "pickup": true,
   "cancel": true
+ },
+ "gyg-cairo-day-trip-from-hurghada-by-flight": {
+  "duration": {
+   "n": "16–17",
+   "unit": "hours"
+  },
+  "pickup": true,
+  "stock": "1704998250995-37d969c80e03",
+  "cancel": true
+ },
+ "private-cairo-day-trip-from-hurghada-by-flight": {
+  "group": "private",
+  "duration": {
+   "n": "8–14",
+   "unit": "hours",
+   "approx": true
+  },
+  "pickup": true,
+  "cancel": true
  }
 }

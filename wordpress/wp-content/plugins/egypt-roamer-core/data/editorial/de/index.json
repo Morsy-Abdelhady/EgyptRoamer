@@ -63,6 +63,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-cairo-hurghada": {
+  "type": "er_experience",
+  "title": "Tagesausflug nach Kairo ab Hurghada per Flug",
+  "excerpt": "Ein ganzer Tag von Hurghada nach Kairo mit dem Flugzeug: die Pyramiden von Gizeh und die Sphinx, das Grand Egyptian Museum oder das Ägyptische Museum am Tahrir-Platz, wie der lange Tag abläuft und wie Sie zwischen Gruppe und privater Tour wählen.",
+  "location": "Gizeh",
+  "review": "approved",
+  "current": true
+ },
  "exp-cruise": {
   "type": "er_experience",
   "title": "Nilkreuzfahrt von Assuan nach Luxor",

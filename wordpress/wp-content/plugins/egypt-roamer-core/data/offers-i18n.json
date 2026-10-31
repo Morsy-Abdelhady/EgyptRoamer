@@ -1709,5 +1709,65 @@
    "title": "从赫尔格达出发：卢克索和帝王谷私人一日游",
    "location": "卢克索"
   }
+ },
+ "gyg-cairo-day-trip-from-hurghada-by-flight": {
+  "ar": {
+   "title": "من الغردقة: رحلة يوم إلى القاهرة بالطائرة، الأهرامات وأبو الهول والمتحف",
+   "location": "الجيزة"
+  },
+  "de": {
+   "title": "Ab Hurghada: Tagesausflug nach Kairo per Flug, Pyramiden, Sphinx und Museum",
+   "location": "Gizeh"
+  },
+  "fr": {
+   "title": "Depuis Hurghada : journée au Caire en avion, pyramides, Sphinx et musée",
+   "location": "Gizeh"
+  },
+  "it": {
+   "title": "Da Hurghada: giornata al Cairo in aereo, piramidi, Sfinge e museo",
+   "location": "Giza"
+  },
+  "es": {
+   "title": "Desde Hurghada: excursión de un día a El Cairo en avión, pirámides, Esfinge y museo",
+   "location": "Guiza"
+  },
+  "ru": {
+   "title": "Из Хургады: поездка в Каир на день самолётом — пирамиды, Сфинкс и музей",
+   "location": "Гиза"
+  },
+  "zh": {
+   "title": "从赫尔格达出发：乘飞机开罗一日游（金字塔、狮身人面像和博物馆）",
+   "location": "吉萨"
+  }
+ },
+ "private-cairo-day-trip-from-hurghada-by-flight": {
+  "ar": {
+   "title": "رحلة خاصة ليوم كامل إلى القاهرة بالطائرة مع الغداء من الغردقة",
+   "location": "الجيزة"
+  },
+  "de": {
+   "title": "Private Tagestour nach Kairo mit Flügen und Mittagessen ab Hurghada",
+   "location": "Gizeh"
+  },
+  "fr": {
+   "title": "Excursion privée d’une journée au Caire avec vols et déjeuner depuis Hurghada",
+   "location": "Gizeh"
+  },
+  "it": {
+   "title": "Tour privato di un giorno al Cairo con voli e pranzo da Hurghada",
+   "location": "Giza"
+  },
+  "es": {
+   "title": "Excursión privada de un día a El Cairo con vuelos y comida desde Hurghada",
+   "location": "Guiza"
+  },
+  "ru": {
+   "title": "Индивидуальная поездка в Каир на день с перелётами и обедом из Хургады",
+   "location": "Гиза"
+  },
+  "zh": {
+   "title": "从赫尔格达出发：含航班和午餐的开罗私人一日游",
+   "location": "吉萨"
+  }
  }
 }

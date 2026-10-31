@@ -63,6 +63,14 @@
   "review": "approved",
   "current": true
  },
+ "exp-cairo-hurghada": {
+  "type": "er_experience",
+  "title": "从赫尔格达乘飞机出发的开罗一日游",
+  "excerpt": "从赫尔格达乘飞机前往开罗的一整天：吉萨金字塔和狮身人面像、大埃及博物馆或解放广场的埃及博物馆，这漫长的一天如何安排，以及如何在跟团和私人团之间选择。",
+  "location": "吉萨",
+  "review": "approved",
+  "current": true
+ },
  "exp-cruise": {
   "type": "er_experience",
   "title": "从阿斯旺到卢克索的尼罗河游船",

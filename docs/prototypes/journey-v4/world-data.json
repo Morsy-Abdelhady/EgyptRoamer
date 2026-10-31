@@ -2189,6 +2189,141 @@
      "A small group shares the day with other travellers and follows a fixed plan. A private trip is for your party alone, at your own pace."
     ]
    ]
+  },
+  "caihrg": {
+   "cls": "w-tomb",
+   "fx": "tomb",
+   "photo": "giza_camel",
+   "url": "cairo-day-trip-from-hurghada",
+   "place": "Giza",
+   "eyebrow": "Giza · Pyramids · From Hurghada by air",
+   "title": "Cairo Day Trip from Hurghada by Flight",
+   "lead": "A full day from your hotel on the Red Sea to Cairo, with a flight each way: the Pyramids of Giza, the Great Sphinx and one of Cairo’s two great museums of ancient Egypt.",
+   "quote": "The Great Pyramid is the only surviving Wonder of the Ancient World.",
+   "chips": [
+    "16 hours",
+    "2 options",
+    "Private or small group",
+    "Pickup offered"
+   ],
+   "go": "Fly to the pyramids",
+   "jEyebrow": "The day, step by step",
+   "jTitle": "From the Red Sea to Giza",
+   "steps": [
+    {
+     "img": "giza",
+     "t": "The pyramids",
+     "p": "The Great Pyramid of Khufu is the only surviving Wonder of the Ancient World. Beside it stand the pyramids of Khafre and Menkaure.",
+     "why": "The outbound flight takes about 80 minutes, according to the GetYourGuide option’s itinerary.",
+     "tone": "warm",
+     "credit": ""
+    },
+    {
+     "img": "w_sphinx",
+     "t": "The Sphinx",
+     "p": "The Great Sphinx lies below the pyramids, by the valley temple.",
+     "tone": "dark",
+     "credit": "Photo: Petar Milošević, Wikimedia Commons, CC BY-SA 4.0"
+    },
+    {
+     "img": "gem",
+     "t": "The museum",
+     "p": "Britannica describes the Grand Egyptian Museum as the largest archaeological museum in the world. The Egyptian Museum on Tahrir Square opened in 1902. You choose the museum when you book.",
+     "tone": "warm",
+     "credit": ""
+    }
+   ],
+   "sec": {
+    "eyebrow": "Before you book",
+    "title": "A very long day, with two flights",
+    "ps": [
+     "Check what each option includes, especially the flights and the entry tickets, on the partner’s page before you book."
+    ],
+    "tabs": [
+     [
+      "𓊝",
+      "Two flights",
+      "Most of the travel is by air, with transfers at both ends."
+     ],
+     [
+      "𓂀",
+      "Passport",
+      "The GetYourGuide option asks you to bring your passport or ID card."
+     ],
+     [
+      "𓇳",
+      "A changing order",
+      "The order of the visits can change with the flight times and Cairo’s traffic."
+     ]
+    ]
+   },
+   "papy": [
+    [
+     "Who it suits",
+     "The pyramids without moving hotels",
+     "Choose this day if you are staying on the Red Sea and want to see the pyramids without moving hotels."
+    ],
+    [
+     "More time?",
+     "A few nights in Cairo",
+     "With more time, a few nights in Cairo let you see Giza, the museums and Historic Cairo at an easier pace."
+    ]
+   ],
+   "sum": [
+    "Giza",
+    "16 hours",
+    "Private or small group",
+    "Pickup offered",
+    "Free cancellation on every option"
+   ],
+   "opts": [
+    {
+     "n": "Hurghada: Cairo Day Trip by Flight, Pyramids, Sphinx & Museum",
+     "p": "GetYourGuide",
+     "f": [
+      "16–17 hours",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation (24 hours notice)"
+    },
+    {
+     "n": "Private Day Tour to Cairo with Flights and Lunch from Hurghada",
+     "p": "Viator",
+     "f": [
+      "8–14 hours",
+      "Private",
+      "Pickup offered"
+     ],
+     "cancel": "Free cancellation (24 hours notice)"
+    }
+   ],
+   "stay": {
+    "title": "Staying in Hurghada?",
+    "rows": [
+     [
+      "Hotels in Hurghada",
+      "Hurghada"
+     ]
+    ]
+   },
+   "faq": [
+    [
+     "Can I see the pyramids in a day from Hurghada?",
+     "Yes. The options on this page fly you to Cairo and back in one day, with hotel pickup."
+    ],
+    [
+     "How long is the flight from Hurghada to Cairo?",
+     "About 80 minutes outbound, according to the GetYourGuide option’s itinerary."
+    ],
+    [
+     "Which museum will I see?",
+     "You choose when you book: the Grand Egyptian Museum in Giza or the Egyptian Museum on Tahrir Square."
+    ],
+    [
+     "Do I need my passport?",
+     "The GetYourGuide option asks you to bring your passport or ID card."
+    ]
+   ]
   }
  },
  "TRIPS": [
@@ -6280,6 +6415,9 @@
   ],
   "gemal": [],
   "luxhrg": [
+   "hurghada"
+  ],
+  "caihrg": [
    "hurghada"
   ]
  },
