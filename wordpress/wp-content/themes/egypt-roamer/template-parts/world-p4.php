@@ -256,12 +256,15 @@ $er_ep     = explode( ' · ', (string) $W['eyebrow'] );
 						$is   = $o === $er_pick;
 						$why  = $is ? ( er_pick_reason( $er_pick, $er_offers ) ?: (string) $W['pick_why'] ) : '';
 						$gold = $is || ( ! $er_pick && $o === $er_offers[0] );
+						$er_ph = er_offer_api_photo( (int) $o );
 						?>
-						<div class="wopt<?php echo $is ? ' wopt--pick' : ''; ?>">
+						<div class="wopt<?php echo $is ? ' wopt--pick' : ''; ?><?php echo $er_ph ? ' wopt--ph' : ''; ?>">
+							<?php if ( $er_ph ) : ?><img class="wopt__ph" src="<?php echo esc_url( $er_ph[0] ); ?>" alt="" width="76" height="76" loading="lazy" decoding="async" /><?php endif; ?>
 							<div>
 								<?php if ( $is ) : ?><span class="pk">✓ <?php er_e( 'Our pick' ); ?><?php if ( '' !== $why ) : ?><span class="why"><?php echo esc_html( $why ); ?></span><?php endif; ?></span><?php endif; ?>
 								<h3<?php echo $od['title_lang'] ? ' lang="' . esc_attr( $od['title_lang'] ) . '" dir="ltr"' : ''; ?>><?php echo esc_html( $od['title'] ); ?></h3>
 								<div class="facts"><?php echo er_partner_chip( $slug, (string) $od['provider'] ); // phpcs:ignore WordPress.Security.EscapeOutput ?><?php $er_lc = er_offer_live_chips( $o ); foreach ( $er_lc as $er_k => $er_v ) { echo '<span class="live live--' . esc_attr( $er_k ) . '">' . esc_html( $er_v ) . '</span>'; } ?><?php foreach ( er_offer_facts_line( $er_facts( $o ) ) as $b ) { echo '<span>' . esc_html( $b ) . '</span>'; } ?><?php if ( ! empty( $er_facts( $o )['cancel'] ) ) : ?><span class="fc">✓ <?php er_e( 'Free cancellation' ); ?></span><?php endif; ?></div>
+								<?php if ( $er_ph && '' !== $er_ph[1] ) : ?><small class="wopt__credit"><bdi><?php echo esc_html( $er_ph[1] ); ?></bdi></small><?php endif; ?>
 							</div>
 							<?php echo er_offer_cta_html( $o, [ 'placement' => 'experience-offers', 'source' => $er_source, 'class' => 'btn btn--sm ' . ( $gold ? 'btn--gold' : 'btn--line' ), 'label' => er_t( 'Book' ), 'icon' => ' ↗' ] ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 						</div>

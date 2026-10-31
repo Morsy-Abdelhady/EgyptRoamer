@@ -233,3 +233,8 @@
 .world .wrel{background:var(--ivory,#faf6ee);color:var(--charcoal);padding:24px 0 56px}
 .world .wrel h2,.world .wrel h3{color:var(--charcoal)}
 @media (max-width:900px){.world .wprose{padding:56px 18px}.world .wprose h2{font-size:28px}}
+/* Partner API photo on a trip option (owner, 31 Oct: Viator and Tiqets), Tiqets' with its credit. */
+.world .wopt--ph{grid-template-columns:76px minmax(0,1fr) auto}
+.world .wopt__ph{width:76px;height:76px;object-fit:cover;border-radius:10px;display:block;background:rgba(255,255,255,.06)}
+.world .wopt__credit{display:block;margin-top:6px;font-size:11px;line-height:1.35;color:#e5d9bf;opacity:.8;text-align:start}
+@media (max-width:600px){.world .wopt--ph{grid-template-columns:64px minmax(0,1fr)}.world .wopt--ph .wopt__ph{width:64px;height:64px;align-self:start}.world .wopt--ph .btn{grid-column:1/-1}}

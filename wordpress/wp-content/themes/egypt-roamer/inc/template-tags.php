@@ -1001,6 +1001,23 @@ function er_offer_thumb( array $o, string $stock = '' ): string {
 }
 
 /**
+ * A trip option's own photo from the partner's API (owner, 31 Oct: Viator and Tiqets cards show it):
+ * [ url, credit ]. Viator's comes from its Partner API; Tiqets' with the credit its T&Cs 9.1 require shown. [] if none.
+ */
+function er_offer_api_photo( int $offer_id ): array {
+	$url = function_exists( 'er_viator_image_for_offer' ) ? er_viator_image_for_offer( $offer_id ) : '';
+	if ( '' !== $url ) {
+		return [ $url, '' ];
+	}
+	$url = function_exists( 'er_tiqets_image_for_offer' ) ? er_tiqets_image_for_offer( $offer_id ) : '';
+	if ( '' === $url ) {
+		return [];
+	}
+	$credit = function_exists( 'er_tiqets_credit_for_offer' ) ? er_tiqets_credit_for_offer( $offer_id ) : '';
+	return [ $url, 'Photo: ' . ( '' !== $credit ? $credit . ', ' : '' ) . 'Tiqets' ];
+}
+
+/**
  * Photos in a section's cards (Core data/card-photos.json), so the reader sees each place the text describes
  * (owner, 16 Oct). Matched by the experience's seed id (any language: "exp-valley-ar" → "exp-valley"), the
  * section's anchor and the card's position. Cards without a photo stay as they are.
