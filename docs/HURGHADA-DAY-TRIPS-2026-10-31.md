@@ -33,3 +33,15 @@
 
 ## Next (not done)
 - Klook and Tiqets were not searched for these trips yet.
+
+## Klook and Tiqets options (checked 31 Oct 2026, partner pages in the owner's Edge)
+
+**Luxor from Hurghada**
+- Tiqets p1136071 "Luxor: Guided Day Tour from Hurghada + Lunch": 14 h, start 04:00, max group 35, hotel pickup, entry to the Valley of the Kings, Hatshepsut, Colossi and Karnak included, lunch, free cancellation up to 12 h. Not included: Tutankhamun and Ramses tombs, Nile boat, drinks, a per-person tax. Recommended (only option found with entrance fees included).
+- Tiqets p1101699 "Luxor Valley: Guided Tour + Roundtrip Transfer from Hurghada + Lunch": 15 h, start 03:00, max 100, meeting point Hurghada City Center (pickup outside the centre costs extra), entrance fees not included, free cancellation 24 h.
+- Tiqets p1003648 "Valley of Kings, Hatshepsut, Karnak from Hurghada + Lunch": 17 h, hotel pickup in Hurghada, free cancellation 19 h.
+- Klook 151126 "Hurghada Luxor Ancient Sites Full-Day Small-Group Tour": 14 h (04:00-18:00), small group (1-20, max 8 per van), hotel pickup in Hurghada, Sahl Hasheesh, Makadi, El Gouna, Safaga, Soma Bay, admissions optional, free cancellation 24 h. Recommended.
+
+**Cairo from Hurghada by flight**
+- Tiqets: no Cairo day trip from Hurghada found (searched "Cairo Hurghada", "Cairo by plane from Hurghada").
+- Klook: only road trips (minivan or car), e.g. 161075 "Hurghada Giza Pyramids & Grand Egyptian Museum Full-Day Tour" (car, small group 2-8). None by flight, so none fits the page as written.
