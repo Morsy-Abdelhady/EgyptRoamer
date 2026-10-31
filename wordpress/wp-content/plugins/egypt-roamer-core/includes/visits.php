@@ -366,5 +366,63 @@ function er_render_visits_page(): void {
 	er_visits_table_html( __( 'Page type', 'egypt-roamer-core' ), er_visits_by( 'ptype', $from, $to ), $views );
 	er_visits_table_html( __( 'Partner-link taps by page', 'egypt-roamer-core' ), er_visits_by( 'path', $from, $to, 'cta' ), $cta );
 	er_visits_table_html( __( 'Failed partner links', 'egypt-roamer-core' ), er_visits_by( 'path', $from, $to, 'go_error' ), $errors );
-	echo '</div></div>';
+	echo '</div>';
+	er_go_diag_html();
+	echo '</div>';
+}
+
+/* ---------- /go/ click diagnosis (31 Oct 2026, one week) ---------- */
+
+/*
+ * The week of 25-31 Oct logged 161 /go/ redirects against 90 page views and 1 tap, so some clicks are not people.
+ * Until ER_GO_DIAG_UNTIL, the last 300 logged redirects keep the request headers that tell a person from a script
+ * (browser string, fetch metadata, referrer path). No IP address. Shown under the Visits report, then dropped.
+ */
+const ER_GO_DIAG_UNTIL = '2026-11-08';
+
+add_action( 'er_affiliate_click', static function ( int $offer_id ): void {
+	if ( gmdate( 'Y-m-d' ) > ER_GO_DIAG_UNTIL ) {
+		return;
+	}
+	$h   = static fn ( string $k, int $max = 40 ): string => mb_substr( sanitize_text_field( wp_unslash( $_SERVER[ $k ] ?? '' ) ), 0, $max );
+	$ref = isset( $_SERVER['HTTP_REFERER'] ) ? (string) wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['HTTP_REFERER'] ) ), PHP_URL_PATH ) : '';
+	$log = get_option( 'er_go_diag', [] );
+	$log = is_array( $log ) ? $log : [];
+	$log[] = [
+		't'    => gmdate( 'Y-m-d H:i:s' ),
+		'go'   => get_post_field( 'post_name', $offer_id ),
+		'ua'   => $h( 'HTTP_USER_AGENT', 200 ),
+		'site' => $h( 'HTTP_SEC_FETCH_SITE' ),
+		'user' => $h( 'HTTP_SEC_FETCH_USER' ),
+		'mode' => $h( 'HTTP_SEC_FETCH_MODE' ),
+		'ref'  => mb_substr( $ref, 0, 120 ),
+		'lang' => $h( 'HTTP_ACCEPT_LANGUAGE', 30 ),
+	];
+	update_option( 'er_go_diag', array_slice( $log, -300 ), false );
+} );
+
+function er_go_diag_html(): void {
+	if ( gmdate( 'Y-m-d' ) > ER_GO_DIAG_UNTIL ) {
+		delete_option( 'er_go_diag' );
+		return;
+	}
+	$log = get_option( 'er_go_diag', [] );
+	echo '<section class="er-report er-report--wide"><h3>' . esc_html__( '/go/ redirects: request details (diagnosis until 8 Nov 2026)', 'egypt-roamer-core' ) . '</h3>';
+	if ( ! is_array( $log ) || ! $log ) {
+		echo '<p>' . esc_html__( 'None logged yet.', 'egypt-roamer-core' ) . '</p></section>';
+		return;
+	}
+	echo '<table class="widefat striped"><thead><tr><th>UTC</th><th>/go/</th><th>Referrer path</th><th>Sec-Fetch site / user / mode</th><th>Accept-Language</th><th>Browser</th></tr></thead><tbody>';
+	foreach ( array_reverse( $log ) as $r ) {
+		printf(
+			'<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td><small>%s</small></td></tr>',
+			esc_html( $r['t'] ?? '' ),
+			esc_html( $r['go'] ?? '' ),
+			esc_html( $r['ref'] ?? '' ),
+			esc_html( ( $r['site'] ?? '' ) . ' / ' . ( $r['user'] ?? '' ) . ' / ' . ( $r['mode'] ?? '' ) ),
+			esc_html( $r['lang'] ?? '' ),
+			esc_html( $r['ua'] ?? '' )
+		);
+	}
+	echo '</tbody></table></section>';
 }
