@@ -107,7 +107,7 @@ function er_tiqets_fetch( string $id ): array {
 		$out['credit'] = is_array( $img ) ? (string) ( $img['credits'] ?? '' ) : '';
 	} else {
 		// Kept for the admin table, so a changed API shape is visible: the first image's type or keys.
-		$out['img_shape'] = is_array( $img ) ? implode( ',', array_keys( $img ) ) : gettype( $img ) . ' ' . count( (array) ( $p['images'] ?? [] ) );
+		$out['img_shape'] = ! $img ? 'no images returned' : ( is_array( $img ) ? implode( ',', array_keys( $img ) ) : gettype( $img ) );
 	}
 	return $out ?: [ 'error' => 'no data' ];
 }
@@ -144,6 +144,11 @@ function er_tiqets_row( int $offer_id ): array {
 function er_tiqets_image_for_offer( int $offer_id ): string {
 	$row = er_tiqets_row( $offer_id );
 	return isset( $row['url'], $row['at'] ) && time() - (int) $row['at'] < 14 * DAY_IN_SECONDS ? (string) $row['url'] : '';
+}
+
+/** The credit Tiqets returns with the shown photo (credits must be shown with it, affiliate T&Cs 9.1), or ''. */
+function er_tiqets_credit_for_offer( int $offer_id ): string {
+	return '' === er_tiqets_image_for_offer( $offer_id ) ? '' : trim( (string) ( er_tiqets_row( $offer_id )['credit'] ?? '' ) );
 }
 
 /** What Tiqets states for an offer: [ rating, reviews, price, currency, price_at ]; a price older than a day is dropped. */

@@ -1196,6 +1196,11 @@ function er_booking_panel( array $offers, array $hotels, string $stay_name, stri
 			foreach ( $bits as $b ) {
 				echo '<span>' . esc_html( $b ) . '</span>';
 			}
+			// A Tiqets photo is shown with the credit the API returns for it (Tiqets affiliate T&Cs 9.1).
+			$credit = '' === (string) ( $facts( $id )['stock'] ?? '' ) && function_exists( 'er_tiqets_credit_for_offer' ) && ( ! function_exists( 'er_viator_image_for_offer' ) || '' === er_viator_image_for_offer( $id ) ) ? er_tiqets_credit_for_offer( $id ) : '';
+			if ( '' !== $credit ) {
+				echo '<span class="bp__credit" dir="ltr">' . esc_html( 'Photo: ' . $credit . ', Tiqets' ) . '</span>';
+			}
 			echo '</span></div>';
 			$class = $is || ! $pick || ! $tours ? 'btn btn--primary btn--sm' : 'btn btn--outline btn--sm bp__alt';
 			echo er_offer_cta_html( $id, [ 'placement' => $pl, 'source' => $source, 'class' => $class, 'label' => $label, 'icon' => ' ' . er_icon( 'i-arrow-ur', 'icon--sm' ) ] ); // phpcs:ignore WordPress.Security.EscapeOutput
